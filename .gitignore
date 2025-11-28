@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Build
+build/
+dist/
+*.spec
+*.exe
+
+# 결과/테스트 파일
+*.xlsx
+nul
+
+# 환경
+.env
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# 기타
+참조자료/
