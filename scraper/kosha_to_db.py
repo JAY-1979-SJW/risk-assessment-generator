@@ -105,70 +105,90 @@ def run_playwright():
         browser.close()
         return meta
 
-# ── 2. requests로 전체 데이터 수집 ──────────────────────────────────────────
-def fetch_all(cookies, section_meta):
-    session = requests.Session()
-    session.cookies.update(cookies)
-    session.headers.update({
-        'Content-Type': 'application/json',
-        'Referer': BASE,
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0'
-    })
+# ── 2. in-browser fetch로 전체 데이터 수집 (인증 자동 포함) ─────────────────
+def fetch_section(page, params, industry, list_type, ind, lst):
+    """브라우저 내부 fetch로 한 섹션 전체 수집"""
+    # 해당 섹션 페이지 위에서 fetch 실행 (인증 컨텍스트 유지)
+    url = (f'{BASE}/archive/cent-archive/indust-arch'
+           f'/indust-page{ind}/indust-page{ind}-list{lst}'
+           f'?page=1&rowsPerPage=12')
+    page.goto(url, timeout=60000)
+    page.wait_for_load_state('networkidle')
+    page.wait_for_timeout(500)
 
     all_items = []
+    page_num = 1
+    total_pages = 1
 
-    for (ind, lst), shp_cd in section_meta.items():
-        industry = INDUSTRIES[ind]
-        list_type = LIST_TYPES[lst]
-        menu_code = MENU_CODES[lst]
-        page_num = 1
-        total_pages = 1
+    while page_num <= total_pages:
+        payload = {
+            'shpCd':           params['shpCd'],
+            'menuMode':        params['menuMode'],
+            'menuCode':        params['menuCode'],
+            'searchCondition': 'all',
+            'searchValue':     None,
+            'page':            page_num,
+            'rowsPerPage':     100,
+            'ascDesc':         'desc',
+        }
+        result = page.evaluate(
+            """async (body) => {
+                const r = await fetch("/api/portal24/bizV/p/VCPDG01007/selectMediaList", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify(body)
+                });
+                return await r.json();
+            }""",
+            payload
+        )
+        items = result.get('payload', {}).get('list', [])
+        if page_num == 1:
+            total = items[0].get('totalCount', 0) if items else 0
+            total_pages = max(1, (total + 99) // 100)
+            print(f'  [{industry}-{list_type}] 총 {total}건 / {total_pages}페이지')
 
-        while page_num <= total_pages:
-            payload = {
-                'shpCd': shp_cd,
-                'searchCondition': 'all',
-                'searchValue': None,
-                'page': page_num,
-                'rowsPerPage': 100,
-                'ascDesc': 'desc',
-                'menuMode': str(ind),
-                'menuCode': menu_code
-            }
-            try:
-                resp = session.post(API, json=payload, timeout=30)
-                data = resp.json()
-                items = data.get('payload', {}).get('list', [])
-                if page_num == 1:
-                    total = items[0].get('totalCount', 0) if items else 0
-                    total_pages = max(1, (total + 99) // 100)
-                    print(f'  [{industry}-{list_type}] 총 {total}건 / {total_pages}페이지')
-
-                for item in items:
-                    atcfl_no = item.get('contsAtcflNo', '')
-                    all_items.append({
-                        'title': item.get('medName', '').strip(),
-                        'category': f'{industry}_{list_type}',
-                        'industry': industry,
-                        'list_type': list_type,
-                        'med_seq': item.get('medSeq'),
-                        'contsAtcflNo': atcfl_no,
-                        'download_url': f'{DL_BASE}?atcflNo={atcfl_no}&atcflSeq=1' if atcfl_no else '',
-                        'reg_date': item.get('contsRegYmd', ''),
-                        'keyword': item.get('medKeyword', ''),
-                        'note': item.get('medNote', ''),
-                        'source': 'kosha'
-                    })
-
-                print(f'    페이지 {page_num}/{total_pages}: {len(items)}개 | 누적 {len(all_items)}개')
-                page_num += 1
-                time.sleep(0.2)
-
-            except Exception as e:
-                print(f'    [error] {e}')
-                break
+        for item in items:
+            atcfl_no = item.get('contsAtcflNo', '')
+            all_items.append({
+                'title':        item.get('medName', '').strip(),
+                'category':     f'{industry}_{list_type}',
+                'industry':     industry,
+                'list_type':    list_type,
+                'med_seq':      item.get('medSeq'),
+                'contsAtcflNo': atcfl_no,
+                'download_url': f'{DL_BASE}?atcflNo={atcfl_no}&atcflSeq=1' if atcfl_no else '',
+                'reg_date':     item.get('contsRegYmd', ''),
+                'keyword':      item.get('medKeyword', ''),
+                'note':         item.get('medNote', ''),
+                'source':       'kosha',
+            })
+        print(f'    페이지 {page_num}/{total_pages}: {len(items)}개 | 누적 {len(all_items)}개')
+        page_num += 1
+        time.sleep(0.2)
 
     return all_items
+
+
+def fetch_all(meta):
+    all_items = []
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page(viewport={'width': 1280, 'height': 900})
+        if not login_page(page):
+            browser.close()
+            return []
+
+        for (ind, lst), params in sorted(meta.items()):
+            industry  = INDUSTRIES[ind]
+            list_type = LIST_TYPES[lst]
+            items = fetch_section(page, params, industry, list_type, ind, lst)
+            all_items.extend(items)
+
+        browser.close()
+    return all_items
+
+
 
 # ── 3. PostgreSQL 테이블 생성 + upsert ──────────────────────────────────────
 CREATE_SQL = """
@@ -247,14 +267,14 @@ def print_stats():
 # ── main ─────────────────────────────────────────────────────────────────────
 if __name__ == '__main__':
     print('=== STEP 1: 로그인 + shpCd 수집 ===')
-    cookies, meta = run_playwright()
-    if not cookies:
+    meta = run_playwright()
+    if not meta:
         print('로그인 실패, 종료')
         exit(1)
     print(f'  shpCd 확보: {len(meta)}/25 섹션')
 
     print('\n=== STEP 2: API 전체 수집 ===')
-    items = fetch_all(cookies, meta)
+    items = fetch_all(meta)
     print(f'  수집 완료: {len(items)}건')
 
     print('\n=== STEP 3: DB 적재 ===')
