@@ -79,13 +79,25 @@ with sync_playwright() as p:
                 print(json.dumps(items[0], ensure_ascii=False, indent=2))
             break
 
-    # 파일 다운로드 버튼
-    dl_html = page.eval_on_selector_all(
-        'a, button',
-        "els => els.filter(e => /down|file|attach/i.test(e.className+e.innerText)).map(e => e.outerHTML.substring(0,300))"
-    )
-    print('\n=== 다운로드 관련 버튼 ===')
-    for h in dl_html[:10]:
-        print(h)
+    # 다운로드 버튼 클릭 → 실제 요청 URL 캡처
+    download_reqs = []
+    page.on('request', lambda req: download_reqs.append({'url': req.url, 'body': req.post_data})
+            if req.url != 'about:blank' else None)
+
+    dl_btn = page.locator('button.download').first
+    print('\ndl_btn count:', dl_btn.count())
+    if dl_btn.count() > 0:
+        try:
+            with page.expect_download(timeout=5000) as dl_info:
+                dl_btn.click()
+            d = dl_info.value
+            print('Download URL:', d.url)
+        except Exception as e:
+            print('No file download triggered:', e)
+        page.wait_for_timeout(2000)
+
+    print('\n=== 다운로드 버튼 클릭 후 요청 ===')
+    for r in download_reqs[-10:]:
+        print(r)
 
     browser.close()
