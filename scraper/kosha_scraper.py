@@ -81,47 +81,113 @@ def collect_list_page(page, url):
     return items
 
 
-def get_total_pages(page):
-    """전체 건수에서 페이지 수 계산"""
+def get_total_count(page):
+    """페이지 텍스트에서 총 건수 추출 (예: '823건')"""
     try:
-        total_txt = page.locator(".total-count, .count, [class*=total]").first.inner_text()
-        nums = [int(s.replace(",", "")) for s in total_txt.split() if s.replace(",", "").isdigit()]
-        if nums:
-            return max(1, (nums[0] + 99) // 100)
+        txt = page.inner_text("body")
+        for line in txt.split("\n"):
+            line = line.strip()
+            if line.endswith("건") and line[:-1].replace(",", "").isdigit():
+                return int(line[:-1].replace(",", ""))
     except Exception:
         pass
-    return 1
+    return 0
+
+
+def has_next_page(page):
+    """다음 페이지 버튼이 활성화되어 있는지 확인"""
+    try:
+        nxt = page.locator(".pagination a:has-text('다음'), .pageLinks a:has-text('다음')").first
+        if nxt.count() == 0:
+            return False
+        cls = nxt.get_attribute("class") or ""
+        return "disabled" not in cls and "inactive" not in cls
+    except Exception:
+        return False
+
+
+def go_to_page(page, page_num):
+    """pageLinks의 페이지 번호 클릭 또는 URL 파라미터로 이동"""
+    try:
+        # 현재 보이는 번호 버튼 클릭
+        btn = page.locator(f".pageLinks a:has-text('{page_num}'), .pagination a:has-text('{page_num}')").first
+        if btn.count() > 0:
+            btn.click()
+            page.wait_for_load_state("networkidle")
+            page.wait_for_timeout(1000)
+            return True
+    except Exception:
+        pass
+
+    # 다음 그룹으로 이동 (다음 클릭)
+    try:
+        nxt = page.locator(".pagination a:has-text('다음'), .pageLinks a:has-text('다음')").first
+        if nxt.count() > 0:
+            nxt.click()
+            page.wait_for_load_state("networkidle")
+            page.wait_for_timeout(1000)
+            return True
+    except Exception:
+        pass
+
+    return False
 
 
 def collect_industry_list(page, industry_num, list_num):
-    """업종+자료유형 전체 수집 (페이지네이션)"""
+    """업종+자료유형 전체 수집 — JS 페이지 클릭 방식"""
     industry = INDUSTRIES[industry_num]
     list_type = LIST_TYPES[list_num]
-    base_url = f"{BASE}/archive/cent-archive/indust-arch/indust-page{industry_num}/indust-page{industry_num}-list{list_num}"
+    base_url = (
+        f"{BASE}/archive/cent-archive/indust-arch"
+        f"/indust-page{industry_num}/indust-page{industry_num}-list{list_num}"
+        f"?page=1&rowsPerPage=12"
+    )
 
     print(f"  [{industry}-{list_type}] 수집 중...")
-    all_items = []
-    page_num = 1
+    page.goto(base_url, timeout=30000)
+    page.wait_for_load_state("networkidle")
+    page.wait_for_timeout(1500)
 
-    while True:
-        url = f"{base_url}?page={page_num}&rowsPerPage=100"
-        items = collect_list_page(page, url)
+    total = get_total_count(page)
+    total_pages = max(1, (total + 11) // 12)
+    print(f"    총 {total}건 / {total_pages}페이지")
+
+    all_items = []
+
+    for page_num in range(1, total_pages + 1):
+        # 첫 페이지는 이미 로드됨
+        if page_num > 1:
+            navigated = go_to_page(page, page_num)
+            if not navigated:
+                break
+            page.wait_for_load_state("networkidle")
+            page.wait_for_timeout(800)
+
+        items = page.eval_on_selector_all(
+            "ul.thumbList > li",
+            """els => els.map(e => {
+                const titleEl = e.querySelector('p.tit, .tit, strong, p');
+                const links = [...e.querySelectorAll('a[href]')];
+                const dateEl = e.querySelector('.date, time, [class*=date]');
+                const dlEl = e.querySelector('a.download, a[class*=down]');
+                const title = titleEl ? titleEl.innerText.trim() : e.innerText.trim().replace(/\\s+/g,' ').substring(0,120);
+                return {
+                    title: title,
+                    href: links.length > 0 ? links[0].href : '',
+                    download: dlEl ? dlEl.href : '',
+                    date: dateEl ? dateEl.innerText.trim() : ''
+                };
+            }).filter(i => i.title.length > 3)"""
+        )
 
         if not items:
             break
 
         all_items.extend(items)
-        print(f"    페이지 {page_num}: {len(items)}개 | 누적 {len(all_items)}개")
+        print(f"    페이지 {page_num}/{total_pages}: {len(items)}개 | 누적 {len(all_items)}개")
+        time.sleep(0.3)
 
-        if len(items) < 100:
-            break
-
-        page_num += 1
-        if page_num > 20:
-            break
-        time.sleep(0.5)
-
-    return {"industry": industry, "type": list_type, "count": len(all_items), "items": all_items}
+    return {"industry": industry, "type": list_type, "total": total, "count": len(all_items), "items": all_items}
 
 
 def save(data, filename):
