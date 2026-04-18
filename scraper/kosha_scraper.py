@@ -24,23 +24,21 @@ def login(page):
     page.goto(PORTAL_URL, timeout=30000)
     page.wait_for_load_state("networkidle")
 
-    # 로그인 페이지 이동 (SSO 리다이렉트 대기)
-    try:
-        page.click("a:has-text('로그인')", timeout=5000)
-    except PlaywrightTimeout:
-        pass
-    page.wait_for_url("**/login**", timeout=15000)
+    # 로그인 버튼 클릭 → ssoLogin 페이지로 이동
+    page.click("a:has-text('로그인')")
+    page.wait_for_timeout(2000)
     page.wait_for_load_state("networkidle")
     print(f"[login] 로그인 URL: {page.url}")
 
-    # SSO 로그인 폼 — anyid.go.kr 또는 portal 자체 폼
-    page.wait_for_selector("input[type='text'], input[type='email']", timeout=10000)
-    id_input = page.locator("input[type='text'], input[type='email']").first
-    id_input.fill(ID)
+    # id/pw 필드가 hidden 상태이므로 JS로 직접 값 설정 후 Enter
+    page.evaluate("document.getElementById('id').value = arguments[0]", ID)
+    page.evaluate("document.getElementById('pw').value = arguments[0]", PW)
 
-    pw_input = page.locator("input[type='password']").first
-    pw_input.fill(PW)
-    pw_input.press("Enter")
+    # 로그인 버튼 클릭 또는 Enter
+    try:
+        page.click("button[type='submit'], input[type='submit'], .btn-login, button:has-text('로그인')", timeout=3000)
+    except PlaywrightTimeout:
+        page.keyboard.press("Enter")
 
     page.wait_for_load_state("networkidle")
     page.wait_for_timeout(2000)
