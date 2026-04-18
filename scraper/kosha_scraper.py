@@ -30,9 +30,9 @@ def login(page):
     page.wait_for_load_state("networkidle")
     print(f"[login] 로그인 URL: {page.url}")
 
-    # id/pw 필드가 hidden 상태이므로 JS로 직접 값 설정 후 Enter
-    page.evaluate("document.getElementById('id').value = arguments[0]", ID)
-    page.evaluate("document.getElementById('pw').value = arguments[0]", PW)
+    # id/pw 필드가 hidden 상태이므로 JS로 직접 값 설정
+    page.evaluate(f"document.getElementById('id').value = '{ID}'")
+    page.evaluate(f"document.getElementById('pw').value = '{PW}'")
 
     # 로그인 버튼 클릭 또는 Enter
     try:
