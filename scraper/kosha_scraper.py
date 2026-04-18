@@ -24,8 +24,7 @@ LIST_TYPES = {1: "OPS", 2: "동영상", 3: "외국어교재", 4: "외국어교�
 
 
 def login(page):
-    page.goto(f"{BASE}/", timeout=30000)
-    page.wait_for_load_state("networkidle")
+    safe_goto(page, f"{BASE}/")
     page.click("a:has-text('로그인')")
     page.wait_for_timeout(2000)
     # popup이 렌더링될 때까지 최대 5초 대기
@@ -56,29 +55,38 @@ def login(page):
     return ok
 
 
-def collect_list_page(page, url):
-    """목록 페이지에서 자료 아이템 수집"""
-    page.goto(url, timeout=30000)
-    page.wait_for_load_state("networkidle")
-    page.wait_for_timeout(1500)
+ITEM_JS = """els => els.map(e => {
+    const titleEl = e.querySelector('p.tit, .tit, strong, p');
+    const links = [...e.querySelectorAll('a[href]')];
+    const dateEl = e.querySelector('.date, time, [class*=date]');
+    const dlEl = e.querySelector('a.download, a[class*=down]');
+    const title = titleEl ? titleEl.innerText.trim() : e.innerText.trim().replace(/\\s+/g,' ').substring(0,120);
+    return {
+        title: title,
+        href: links.length > 0 ? links[0].href : '',
+        download: dlEl ? dlEl.href : '',
+        date: dateEl ? dateEl.innerText.trim() : ''
+    };
+}).filter(i => i.title.length > 3)"""
 
-    items = page.eval_on_selector_all(
-        "ul.thumbList > li",
-        """els => els.map(e => {
-            const titleEl = e.querySelector('p.tit, .tit, strong, p');
-            const links = [...e.querySelectorAll('a[href]')];
-            const dateEl = e.querySelector('.date, time, [class*=date]');
-            const dlEl = e.querySelector('a.download, a[class*=down]');
-            const title = titleEl ? titleEl.innerText.trim() : e.innerText.trim().replace(/\\s+/g,' ').substring(0,120);
-            return {
-                title: title,
-                href: links.length > 0 ? links[0].href : '',
-                download: dlEl ? dlEl.href : '',
-                date: dateEl ? dateEl.innerText.trim() : ''
-            };
-        }).filter(i => i.title.length > 3)"""
-    )
-    return items
+
+def safe_goto(page, url, retries=3):
+    for attempt in range(retries):
+        try:
+            page.goto(url, timeout=60000)
+            page.wait_for_load_state("networkidle")
+            return True
+        except PlaywrightTimeout:
+            if attempt < retries - 1:
+                print(f"    [retry {attempt+1}] timeout, 5초 후 재시도...")
+                time.sleep(5)
+            else:
+                raise
+    return False
+
+
+def get_items(page):
+    return page.eval_on_selector_all("ul.thumbList > li", ITEM_JS)
 
 
 def get_total_count(page):
@@ -94,41 +102,44 @@ def get_total_count(page):
     return 0
 
 
-def has_next_page(page):
-    """다음 페이지 버튼이 활성화되어 있는지 확인"""
-    try:
-        nxt = page.locator(".pagination a:has-text('다음'), .pageLinks a:has-text('다음')").first
-        if nxt.count() == 0:
-            return False
-        cls = nxt.get_attribute("class") or ""
-        return "disabled" not in cls and "inactive" not in cls
-    except Exception:
-        return False
 
-
-def go_to_page(page, page_num):
-    """pageLinks의 페이지 번호 클릭 또는 URL 파라미터로 이동"""
+def click_page_btn(page, page_num):
+    """특정 페이지 번호 버튼 클릭. 성공 시 True"""
     try:
-        # 현재 보이는 번호 버튼 클릭
-        btn = page.locator(f".pageLinks a:has-text('{page_num}'), .pagination a:has-text('{page_num}')").first
+        btn = page.locator(
+            f".pageLinks a:has-text('{page_num}'), .pagination a:has-text('{page_num}')"
+        ).first
         if btn.count() > 0:
             btn.click()
             page.wait_for_load_state("networkidle")
-            page.wait_for_timeout(1000)
+            page.wait_for_timeout(800)
             return True
     except Exception:
         pass
+    return False
 
-    # 다음 그룹으로 이동 (다음 클릭)
-    try:
-        nxt = page.locator(".pagination a:has-text('다음'), .pageLinks a:has-text('다음')").first
-        if nxt.count() > 0:
+
+def go_to_page(page, page_num):
+    """페이지 번호로 이동 — 그룹 전환 포함"""
+    # 1차: 현재 그룹에 목표 버튼이 있으면 바로 클릭
+    if click_page_btn(page, page_num):
+        return True
+
+    # 2차: 다음 그룹으로 이동 후 목표 버튼 재시도 (최대 3그룹)
+    for _ in range(3):
+        try:
+            nxt = page.locator(
+                ".pagination a:has-text('다음'), .pageLinks a:has-text('다음')"
+            ).first
+            if nxt.count() == 0:
+                break
             nxt.click()
             page.wait_for_load_state("networkidle")
-            page.wait_for_timeout(1000)
-            return True
-    except Exception:
-        pass
+            page.wait_for_timeout(800)
+            if click_page_btn(page, page_num):
+                return True
+        except Exception:
+            break
 
     return False
 
@@ -144,8 +155,7 @@ def collect_industry_list(page, industry_num, list_num):
     )
 
     print(f"  [{industry}-{list_type}] 수집 중...")
-    page.goto(base_url, timeout=30000)
-    page.wait_for_load_state("networkidle")
+    safe_goto(page, base_url)
     page.wait_for_timeout(1500)
 
     total = get_total_count(page)
@@ -153,36 +163,26 @@ def collect_industry_list(page, industry_num, list_num):
     print(f"    총 {total}건 / {total_pages}페이지")
 
     all_items = []
+    empty_streak = 0
 
     for page_num in range(1, total_pages + 1):
-        # 첫 페이지는 이미 로드됨
         if page_num > 1:
             navigated = go_to_page(page, page_num)
             if not navigated:
+                print(f"    [warn] 페이지 {page_num} 이동 실패, 종료")
                 break
-            page.wait_for_load_state("networkidle")
-            page.wait_for_timeout(800)
 
-        items = page.eval_on_selector_all(
-            "ul.thumbList > li",
-            """els => els.map(e => {
-                const titleEl = e.querySelector('p.tit, .tit, strong, p');
-                const links = [...e.querySelectorAll('a[href]')];
-                const dateEl = e.querySelector('.date, time, [class*=date]');
-                const dlEl = e.querySelector('a.download, a[class*=down]');
-                const title = titleEl ? titleEl.innerText.trim() : e.innerText.trim().replace(/\\s+/g,' ').substring(0,120);
-                return {
-                    title: title,
-                    href: links.length > 0 ? links[0].href : '',
-                    download: dlEl ? dlEl.href : '',
-                    date: dateEl ? dateEl.innerText.trim() : ''
-                };
-            }).filter(i => i.title.length > 3)"""
-        )
+        items = get_items(page)
 
         if not items:
-            break
+            empty_streak += 1
+            print(f"    [warn] 페이지 {page_num} 빈 결과 ({empty_streak}/3)")
+            if empty_streak >= 3:
+                break
+            page.wait_for_timeout(1500)
+            continue
 
+        empty_streak = 0
         all_items.extend(items)
         print(f"    페이지 {page_num}/{total_pages}: {len(items)}개 | 누적 {len(all_items)}개")
         time.sleep(0.3)
