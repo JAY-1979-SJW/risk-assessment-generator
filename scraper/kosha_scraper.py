@@ -63,19 +63,20 @@ def collect_list_page(page, url):
     page.wait_for_timeout(1500)
 
     items = page.eval_on_selector_all(
-        ".swiper-slide, .card, .list-item, article",
+        "ul.thumbList > li",
         """els => els.map(e => {
-            const title = e.querySelector('.title, h3, h4, strong, .name');
+            const titleEl = e.querySelector('p.tit, .tit, strong, p');
             const links = [...e.querySelectorAll('a[href]')];
-            const date = e.querySelector('.date, time, [class*=date]');
-            const dl = e.querySelector('a[download], [class*=down] a, a[href*=download]');
+            const dateEl = e.querySelector('.date, time, [class*=date]');
+            const dlEl = e.querySelector('a.download, a[class*=down]');
+            const title = titleEl ? titleEl.innerText.trim() : e.innerText.trim().replace(/\\s+/g,' ').substring(0,120);
             return {
-                title: title ? title.innerText.trim() : e.innerText.trim().replace(/\\s+/g,' ').substring(0,100),
+                title: title,
                 href: links.length > 0 ? links[0].href : '',
-                download: dl ? dl.href : (links.find(a=>a.href.includes('download') || a.download) ? links.find(a=>a.href.includes('download') || a.download).href : ''),
-                date: date ? date.innerText.trim() : ''
+                download: dlEl ? dlEl.href : '',
+                date: dateEl ? dateEl.innerText.trim() : ''
             };
-        }).filter(i => i.title.length > 3 && !i.title.includes('바로가기') && !i.title.includes('안내지도'))"""
+        }).filter(i => i.title.length > 3)"""
     )
     return items
 
