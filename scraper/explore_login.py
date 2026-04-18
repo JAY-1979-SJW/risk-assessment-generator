@@ -7,11 +7,10 @@ with sync_playwright() as p:
     page.goto("https://portal.kosha.or.kr/", timeout=30000)
     page.wait_for_load_state("networkidle")
 
-    # 로그인 링크 클릭 후 URL 추적
+    # 로그인 링크 클릭 — 슬라이드 패널 오픈 방식
     print("=== 로그인 링크 클릭 시도 ===")
-    with page.expect_navigation(timeout=15000):
-        page.click("a:has-text('로그인')")
-    page.wait_for_load_state("networkidle")
+    page.click("a:has-text('로그인')")
+    page.wait_for_timeout(2000)  # 패널 열림 대기
     print(f"  클릭 후 URL: {page.url}")
 
     # 현재 페이지 input 요소 재확인
