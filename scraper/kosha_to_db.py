@@ -32,70 +32,78 @@ DB_PASS = 'XenZ5xmKw5jEf1bWQuU2LxWRZMlJ'
 # ── 1. Playwright 로그인 + 쿠키 + shpCd 수집 ──────────────────────────────
 section_meta = {}   # {(ind_num, list_num): shpCd}
 
+def login_page(page):
+    page.goto(f'{BASE}/', timeout=60000)
+    page.wait_for_load_state('networkidle')
+    page.locator("a:has-text('로그인')").first.click()
+    page.wait_for_timeout(2000)
+    for _ in range(10):
+        if page.evaluate("!!document.querySelector('.popup')"):
+            break
+        page.wait_for_timeout(500)
+    page.evaluate("const p=document.querySelector('.popup'); if(p) p.style.display='block'")
+    page.eval_on_selector('.inputGroup input[type=text]',
+        f"el=>{{el.value='{ID}';el.dispatchEvent(new Event('input',{{bubbles:true}}))}}")
+    page.eval_on_selector('.password input[type=password]',
+        f"el=>{{el.value='{PW}';el.dispatchEvent(new Event('input',{{bubbles:true}}))}}")
+    page.eval_on_selector('section.login',
+        "el=>{const btn=el.querySelector('button[type=button]');if(btn)btn.click()}")
+    page.wait_for_load_state('networkidle')
+    page.wait_for_timeout(2000)
+    ok = page.locator("button:has-text('로그아웃')").count() > 0
+    print(f'[login] {"성공" if ok else "실패"}')
+    return ok
+
+
 def run_playwright():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page(viewport={'width': 1280, 'height': 900})
 
-        intercepted = {}
+        # REQUEST 인터셉트: 실제 API 파라미터(shpCd, menuMode, menuCode) 캡처
+        # {(ind, lst): {'shpCd': ..., 'menuMode': ..., 'menuCode': ...}}
+        last_req = {}
 
-        def on_response(resp):
-            if 'selectMediaList' in resp.url:
+        def on_request(req):
+            if 'selectMediaList' in req.url and req.post_data:
                 try:
-                    body = resp.json()
-                    items = body.get('payload', {}).get('list', [])
-                    if items and items[0].get('contsFbctnShpCd'):
-                        url = page.url
-                        intercepted[url] = items[0]['contsFbctnShpCd']
+                    body = json.loads(req.post_data)
+                    # page_num=1 인 첫 요청만 캡처 (목록 파라미터)
+                    if body.get('page', 0) == 1:
+                        last_req['params'] = body
                 except Exception:
                     pass
 
-        page.on('response', on_response)
+        page.on('request', on_request)
 
-        # 로그인
-        page.goto(f'{BASE}/', timeout=60000)
-        page.wait_for_load_state('networkidle')
-        page.locator("a:has-text('로그인')").first.click()
-        page.wait_for_timeout(2000)
-        for _ in range(10):
-            if page.evaluate("!!document.querySelector('.popup')"):
-                break
-            page.wait_for_timeout(500)
-        page.evaluate("const p=document.querySelector('.popup'); if(p) p.style.display='block'")
-        page.eval_on_selector('.inputGroup input[type=text]',
-            f"el=>{{el.value='{ID}';el.dispatchEvent(new Event('input',{{bubbles:true}}))}}")
-        page.eval_on_selector('.password input[type=password]',
-            f"el=>{{el.value='{PW}';el.dispatchEvent(new Event('input',{{bubbles:true}}))}}")
-        page.eval_on_selector('section.login',
-            "el=>{const btn=el.querySelector('button[type=button]');if(btn)btn.click()}")
-        page.wait_for_load_state('networkidle')
-        page.wait_for_timeout(2000)
-        ok = page.locator("button:has-text('로그아웃')").count() > 0
-        print(f'[login] {"성공" if ok else "실패"}')
-        if not ok:
+        if not login_page(page):
             browser.close()
             return None, {}
 
-        # 25개 섹션 첫 페이지 순회 → shpCd 확보
+        # 25개 섹션 순회 → 실제 API 파라미터 캡처
+        meta = {}
         for ind in range(1, 6):
             for lst in range(1, 6):
+                last_req.clear()
                 url = (f'{BASE}/archive/cent-archive/indust-arch'
                        f'/indust-page{ind}/indust-page{ind}-list{lst}'
                        f'?page=1&rowsPerPage=12')
                 page.goto(url, timeout=60000)
                 page.wait_for_load_state('networkidle')
-                page.wait_for_timeout(1000)
-                # intercepted에서 shpCd 찾기
-                for k, v in intercepted.items():
-                    if f'indust-page{ind}-list{lst}' in k:
-                        section_meta[(ind, lst)] = v
-                        break
-                print(f'  [{INDUSTRIES[ind]}-{LIST_TYPES[lst]}] shpCd={section_meta.get((ind,lst), "?")}')
+                page.wait_for_timeout(800)
+                params = last_req.get('params', {})
+                meta[(ind, lst)] = {
+                    'shpCd':    params.get('shpCd', ''),
+                    'menuMode': params.get('menuMode', '1'),
+                    'menuCode': params.get('menuCode', ''),
+                }
+                shp = meta[(ind, lst)]['shpCd']
+                mc  = meta[(ind, lst)]['menuCode']
+                print(f'  [{INDUSTRIES[ind]}-{LIST_TYPES[lst]}] menuCode={mc} shpCd={repr(shp)}')
 
-        # 쿠키 추출
-        cookies = {c['name']: c['value'] for c in page.context.cookies()}
+        print(f'  파라미터 확보: {len(meta)}/25 섹션')
         browser.close()
-        return cookies, section_meta
+        return meta
 
 # ── 2. requests로 전체 데이터 수집 ──────────────────────────────────────────
 def fetch_all(cookies, section_meta):
