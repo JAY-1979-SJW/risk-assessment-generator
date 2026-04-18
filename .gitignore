@@ -28,3 +28,9 @@ venv/
 
 # 기타
 참조자료/
+scraper/.env
+scraper/output/
+scraper/screenshots/
+tmpclaude-*
+현장데이터/
+_ul
