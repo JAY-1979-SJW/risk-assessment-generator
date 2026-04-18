@@ -35,7 +35,7 @@ with sync_playwright() as p:
     # 로그인
     page.goto(f'{BASE}/', timeout=60000)
     page.wait_for_load_state('networkidle')
-    page.locator("a:has-text('로그인')").click()
+    page.locator("a:has-text('로그인')").first.click()
     page.wait_for_timeout(2000)
     for _ in range(10):
         if page.evaluate("!!document.querySelector('.popup')"):
