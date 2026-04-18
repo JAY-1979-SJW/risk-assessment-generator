@@ -24,19 +24,27 @@ def login(page):
     page.goto(PORTAL_URL, timeout=30000)
     page.wait_for_load_state("networkidle")
 
-    # 로그인 버튼/링크 탐색
+    # 로그인 페이지 이동 (SSO 리다이렉트 대기)
     try:
-        page.click("text=로그인", timeout=5000)
-        page.wait_for_load_state("networkidle")
+        page.click("a:has-text('로그인')", timeout=5000)
     except PlaywrightTimeout:
         pass
-
-    # ID/PW 입력
-    page.fill("input[name='userId'], input[id*='id'], input[type='text']", ID)
-    page.fill("input[name='userPw'], input[id*='pw'], input[type='password']", PW)
-    page.keyboard.press("Enter")
+    page.wait_for_url("**/login**", timeout=15000)
     page.wait_for_load_state("networkidle")
-    print(f"[login] 현재 URL: {page.url}")
+    print(f"[login] 로그인 URL: {page.url}")
+
+    # SSO 로그인 폼 — anyid.go.kr 또는 portal 자체 폼
+    page.wait_for_selector("input[type='text'], input[type='email']", timeout=10000)
+    id_input = page.locator("input[type='text'], input[type='email']").first
+    id_input.fill(ID)
+
+    pw_input = page.locator("input[type='password']").first
+    pw_input.fill(PW)
+    pw_input.press("Enter")
+
+    page.wait_for_load_state("networkidle")
+    page.wait_for_timeout(2000)
+    print(f"[login] 로그인 후 URL: {page.url}")
 
 
 def explore_kras(page):
