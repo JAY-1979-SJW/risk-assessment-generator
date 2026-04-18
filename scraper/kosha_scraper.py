@@ -1,7 +1,8 @@
 """
-KOSHA 포털 업종별·분야별 안전보건 자료 수집기
-대상: https://portal.kosha.or.kr/archive/cent-archive/indust-arch
-수집: 제조업/건설업/서비스업/조선업/기타 탭별 자료 목록 + 다운로드 링크
+KOSHA 포털 업종별 안전보건 자료 전체 수집기
+URL 패턴: /archive/cent-archive/indust-arch/indust-page{N}/indust-page{N}-list{M}?page=P&rowsPerPage=100
+업종: 1=제조업 2=건설업 3=서비스업 4=조선업 5=기타산업
+자료유형: 1=OPS 2=동영상 3=외국어교재 4=외국어교안 5=기타
 """
 import os
 import json
@@ -18,19 +19,11 @@ BASE = "https://portal.kosha.or.kr"
 OUTPUT_DIR = Path(__file__).parent / "output"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
-INDUSTRY_TABS = [
-    ("제조업", f"{BASE}/archive/cent-archive/indust-arch/indust-page1"),
-    ("건설업", f"{BASE}/archive/cent-archive/indust-arch/indust-page2"),
-    ("서비스업", f"{BASE}/archive/cent-archive/indust-arch/indust-page3"),
-    ("조선업", f"{BASE}/archive/cent-archive/indust-arch/indust-page4"),
-    ("기타산업", f"{BASE}/archive/cent-archive/indust-arch/indust-page5"),
-]
-
-GUIDE_URL = f"{BASE}/archive/cent-archive/field-arch"
+INDUSTRIES = {1: "제조업", 2: "건설업", 3: "서비스업", 4: "조선업", 5: "기타산업"}
+LIST_TYPES = {1: "OPS", 2: "동영상", 3: "외국어교재", 4: "외국어교안", 5: "기타"}
 
 
 def login(page):
-    """검증된 로그인 방식 — popup 강제 표시 + eval_on_selector"""
     page.goto(f"{BASE}/", timeout=30000)
     page.wait_for_load_state("networkidle")
     page.click("a:has-text('로그인')")
@@ -53,95 +46,83 @@ def login(page):
     page.wait_for_load_state("networkidle")
     page.wait_for_timeout(2000)
     ok = page.locator("button:has-text('로그아웃')").count() > 0
-    print(f"[login] {'성공' if ok else '실패'} | URL: {page.url}")
+    print(f"[login] {'성공' if ok else '실패'}")
     return ok
 
 
-def close_popup(page):
-    try:
-        page.click("button:has-text('확인')", timeout=2000)
-    except PlaywrightTimeout:
-        pass
-    try:
-        page.click("button:has-text('닫기')", timeout=1000)
-    except PlaywrightTimeout:
-        pass
-
-
-def collect_industry_data(page, name, url):
-    """업종 탭별 자료 수집 — 페이지네이션 포함"""
-    print(f"\n[{name}] 수집 시작: {url}")
-    all_items = []
-
+def collect_list_page(page, url):
+    """목록 페이지에서 자료 아이템 수집"""
     page.goto(url, timeout=30000)
     page.wait_for_load_state("networkidle")
-    page.wait_for_timeout(2000)
-    close_popup(page)
+    page.wait_for_timeout(1500)
 
-    # 전체 건수 파악
-    total_text = ""
+    items = page.eval_on_selector_all(
+        ".swiper-slide, .card, .list-item, article",
+        """els => els.map(e => {
+            const title = e.querySelector('.title, h3, h4, strong, .name');
+            const links = [...e.querySelectorAll('a[href]')];
+            const date = e.querySelector('.date, time, [class*=date]');
+            const dl = e.querySelector('a[download], [class*=down] a, a[href*=download]');
+            return {
+                title: title ? title.innerText.trim() : e.innerText.trim().replace(/\\s+/g,' ').substring(0,100),
+                href: links.length > 0 ? links[0].href : '',
+                download: dl ? dl.href : (links.find(a=>a.href.includes('download') || a.download) ? links.find(a=>a.href.includes('download') || a.download).href : ''),
+                date: date ? date.innerText.trim() : ''
+            };
+        }).filter(i => i.title.length > 3 && !i.title.includes('바로가기') && !i.title.includes('안내지도'))"""
+    )
+    return items
+
+
+def get_total_pages(page):
+    """전체 건수에서 페이지 수 계산"""
     try:
-        total_text = page.locator(".total, .count, [class*=total]").first.inner_text()
+        total_txt = page.locator(".total-count, .count, [class*=total]").first.inner_text()
+        nums = [int(s.replace(",", "")) for s in total_txt.split() if s.replace(",", "").isdigit()]
+        if nums:
+            return max(1, (nums[0] + 99) // 100)
     except Exception:
         pass
+    return 1
 
+
+def collect_industry_list(page, industry_num, list_num):
+    """업종+자료유형 전체 수집 (페이지네이션)"""
+    industry = INDUSTRIES[industry_num]
+    list_type = LIST_TYPES[list_num]
+    base_url = f"{BASE}/archive/cent-archive/indust-arch/indust-page{industry_num}/indust-page{industry_num}-list{list_num}"
+
+    print(f"  [{industry}-{list_type}] 수집 중...")
+    all_items = []
     page_num = 1
+
     while True:
-        # 현재 페이지 자료 수집
-        items = page.eval_on_selector_all(
-            ".card, article, .list-wrap li, .item-wrap .item",
-            """els => els.map(e => {
-                const title = e.querySelector('.title, h3, h4, .name, strong');
-                const link = e.querySelector('a[href]');
-                const date = e.querySelector('.date, time, [class*=date]');
-                const dl = e.querySelector('a[download], .download, [class*=down]');
-                return {
-                    title: title ? title.innerText.trim() : e.innerText.trim().substring(0,80),
-                    href: link ? link.href : '',
-                    date: date ? date.innerText.trim() : '',
-                    download: dl ? dl.href : ''
-                };
-            }).filter(i => i.title.length > 2)"""
-        )
+        url = f"{base_url}?page={page_num}&rowsPerPage=100"
+        items = collect_list_page(page, url)
 
         if not items:
-            # 대체 선택자
-            items = page.eval_on_selector_all(
-                "li, tr",
-                """els => els.map(e => {
-                    const a = e.querySelector('a');
-                    return {title: e.innerText.trim().substring(0,100), href: a ? a.href : ''};
-                }).filter(i => i.title.length > 5 && i.href)"""
-            )
-
-        all_items.extend(items)
-        print(f"  페이지 {page_num}: {len(items)}개 | 누적 {len(all_items)}개")
-
-        # 더보기 / 다음 페이지
-        try:
-            next_btn = page.locator("button:has-text('더보기'), a:has-text('다음'), .next, [aria-label='다음']").first
-            if next_btn.is_visible():
-                next_btn.click()
-                page.wait_for_load_state("networkidle")
-                page.wait_for_timeout(1500)
-                page_num += 1
-                if page_num > 10:  # 최대 10페이지
-                    break
-            else:
-                break
-        except Exception:
             break
 
-    result = {"name": name, "url": url, "total_text": total_text, "count": len(all_items), "items": all_items}
-    print(f"  [{name}] 총 {len(all_items)}개 수집 완료")
-    return result
+        all_items.extend(items)
+        print(f"    페이지 {page_num}: {len(items)}개 | 누적 {len(all_items)}개")
+
+        if len(items) < 100:
+            break
+
+        page_num += 1
+        if page_num > 20:
+            break
+        time.sleep(0.5)
+
+    return {"industry": industry, "type": list_type, "count": len(all_items), "items": all_items}
 
 
 def save(data, filename):
     path = OUTPUT_DIR / filename
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
-    print(f"[save] {path} ({path.stat().st_size // 1024}KB)")
+    size_kb = path.stat().st_size // 1024
+    print(f"  [save] {filename} ({size_kb}KB)")
 
 
 def main():
@@ -152,21 +133,36 @@ def main():
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0"
         )
 
-        print("=== 1단계: 로그인 ===")
-        login(page)
+        print("=== 로그인 ===")
+        if not login(page):
+            print("로그인 실패")
+            return
 
-        all_results = {}
+        all_data = {}
 
-        print("\n=== 2단계: 업종별 자료 수집 ===")
-        for name, url in INDUSTRY_TABS:
-            result = collect_industry_data(page, name, url)
-            all_results[name] = result
-            save(result, f"industry_{name}.json")
-            time.sleep(1)
+        for ind_num, ind_name in INDUSTRIES.items():
+            print(f"\n=== {ind_name} 수집 ===")
+            ind_data = {}
 
-        save(all_results, "all_industry_data.json")
+            for list_num, list_name in LIST_TYPES.items():
+                result = collect_industry_list(page, ind_num, list_num)
+                ind_data[list_name] = result
+                save(result, f"{ind_name}_{list_name}.json")
+                time.sleep(0.5)
+
+            all_data[ind_name] = ind_data
+            total = sum(v["count"] for v in ind_data.values())
+            print(f"  → {ind_name} 합계: {total}개")
+
+        save(all_data, "kosha_all_data.json")
+
+        grand_total = sum(
+            v2["count"]
+            for v1 in all_data.values()
+            for v2 in v1.values()
+        )
+        print(f"\n=== 완료 | 전체 {grand_total}개 ===")
         browser.close()
-        print("\n=== 완료 ===")
 
 
 if __name__ == "__main__":
