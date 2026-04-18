@@ -28,7 +28,13 @@ def login(page):
     page.wait_for_load_state("networkidle")
     page.click("a:has-text('로그인')")
     page.wait_for_timeout(2000)
-    page.evaluate("document.querySelector('.popup').style.display='block'")
+    # popup이 렌더링될 때까지 최대 5초 대기
+    for _ in range(10):
+        exists = page.evaluate("!!document.querySelector('.popup')")
+        if exists:
+            break
+        page.wait_for_timeout(500)
+    page.evaluate("const p=document.querySelector('.popup'); if(p) p.style.display='block'")
     page.wait_for_timeout(500)
     page.eval_on_selector(
         ".inputGroup input[type=text]",
