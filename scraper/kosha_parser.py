@@ -406,15 +406,22 @@ def split_chunks(text: str, min_len: int = 30) -> list[str]:
     return chunks
 
 
+def _is_korean(c: str) -> bool:
+    return '\uAC00' <= c <= '\uD7A3' or '\u3131' <= c <= '\u314E'
+
+
 def _korean_ratio(text: str) -> float:
-    """텍스트 내 한글 비율 (0.0~1.0)"""
+    """알파벳 문자(한글+영문+CJK) 중 한글 비율. 숫자·공백·특수문자 제외."""
     if not text:
         return 0.0
-    korean = sum(1 for c in text if '\uAC00' <= c <= '\uD7A3' or '\u3131' <= c <= '\u314E')
-    return korean / len(text)
+    alpha = [c for c in text if c.isalpha()]
+    if not alpha:
+        return 0.0
+    korean = sum(1 for c in alpha if _is_korean(c))
+    return korean / len(alpha)
 
 
-# 한글 비율 기준: keep≥0.60 / mixed≥0.30 / foreign<0.30
+# 한글 비율 기준 (알파벳 대비): keep≥0.60 / mixed≥0.30 / foreign<0.30
 LANG_KEEP_THRESHOLD   = 0.60
 LANG_MIXED_THRESHOLD  = 0.30
 
