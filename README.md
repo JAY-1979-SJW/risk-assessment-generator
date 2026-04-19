@@ -9,9 +9,32 @@ KRAS 표준 양식 기반 위험성평가표 웹 자동생성 서비스
 
 | 컨테이너 | 역할 |
 |----------|------|
-| kras-api | FastAPI 백엔드 |
-| kras-web | React 프론트엔드 |
-| kras-db  | PostgreSQL |
+| risk-assessment-api | FastAPI 백엔드 |
+| risk-assessment-web | React 프론트엔드 |
+| risk-assessment-db  | PostgreSQL |
+
+## risk-assessment-app 운영 표준
+
+- 관리 루트: `/home/ubuntu/apps/risk-assessment-app`
+- git 저장소: `/home/ubuntu/apps/risk-assessment-app/app`
+- compose 경로: `/home/ubuntu/apps/risk-assessment-app/app/infra`
+- 표준 디렉토리: `app/`, `data/`, `logs/`, `backups/`
+
+### 배포 원칙
+1. 코드 수정은 로컬에서만 수행한다.
+2. 반영은 `git commit` → `git push` → 서버 `git pull --ff-only` 순서로 수행한다.
+3. 서버는 작업장이 아니라 배포 결과물로 유지한다.
+4. 필요 시 `docker compose` 재기동 후 health 를 확인한다.
+
+### 금지 사항
+- 서버에서 코드 직접 수정 금지
+- `scp` 금지
+- `docker cp` 금지
+- 컨테이너 내부 직접 수정 금지
+
+### 주의
+- `/home/ubuntu/app/` 는 다른 앱 공유 디렉토리이므로 전체 삭제/수정 금지
+- 과거 경로(`/home/ubuntu/app/risk-assessment-generator`, `/mnt/risk-assessment-data`, `/mnt/risk-assessment-logs`)는 현재 운영 표준 경로가 아니다
 
 ## 배포 절차
 
@@ -25,7 +48,7 @@ git push origin master
 ssh -i ~/.ssh/haehan-ai.pem ubuntu@1.201.176.236
 
 # 3. 서버에서 배포 실행
-cd /home/ubuntu/app/risk-assessment-generator
+cd /home/ubuntu/apps/risk-assessment-app/app
 bash infra/deploy.sh
 ```
 
@@ -66,8 +89,8 @@ bash infra/deploy.sh
 
 ```bash
 git clone https://github.com/JAY-1979-SJW/risk-assessment-generator.git \
-  /home/ubuntu/app/risk-assessment-generator
-cd /home/ubuntu/app/risk-assessment-generator/infra
+  /home/ubuntu/apps/risk-assessment-app/app
+cd /home/ubuntu/apps/risk-assessment-app/app/infra
 cp .env.example .env
 # .env 파일에서 비밀번호 변경 후 저장
 docker compose --env-file .env up -d --build
