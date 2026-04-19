@@ -91,9 +91,11 @@ MIGRATE_FILES_SQL = [
     "ALTER TABLE kosha_material_files ADD COLUMN IF NOT EXISTS source_url TEXT",
     "ALTER TABLE kosha_material_files ADD COLUMN IF NOT EXISTS downloaded_at TIMESTAMP",
     "ALTER TABLE kosha_material_files ADD COLUMN IF NOT EXISTS extracted_from_file_id INTEGER",
+    "ALTER TABLE kosha_material_files ADD COLUMN IF NOT EXISTS lang_verdict VARCHAR(20)",
     "CREATE INDEX IF NOT EXISTS idx_kmf_dl_status ON kosha_material_files(download_status)",
     "CREATE INDEX IF NOT EXISTS idx_kmf_hash ON kosha_material_files(file_hash)",
     "CREATE INDEX IF NOT EXISTS idx_kmf_extracted_from ON kosha_material_files(extracted_from_file_id)",
+    "CREATE INDEX IF NOT EXISTS idx_kmf_lang ON kosha_material_files(lang_verdict)",
 ]
 
 MIGRATE_MATERIALS_SQL = [
@@ -412,6 +414,20 @@ def _korean_ratio(text: str) -> float:
     return korean / len(text)
 
 
+# 한글 비율 기준: keep≥0.60 / mixed≥0.30 / foreign<0.30
+LANG_KEEP_THRESHOLD   = 0.60
+LANG_MIXED_THRESHOLD  = 0.30
+
+def classify_language(text: str) -> tuple[str, float]:
+    """raw_text 전체에 대한 언어 판정. ('keep'|'mixed'|'foreign', ratio) 반환"""
+    ratio = _korean_ratio(text)
+    if ratio >= LANG_KEEP_THRESHOLD:
+        return 'keep', ratio
+    if ratio >= LANG_MIXED_THRESHOLD:
+        return 'mixed', ratio
+    return 'foreign', ratio
+
+
 def build_chunks(material_id: int, file_id: int, raw_text: str,
                  min_korean_ratio: float = 0.1, min_len: int = 50) -> list[dict]:
     parts = split_chunks(raw_text)
@@ -468,14 +484,14 @@ def save_chunks(chunks: list[dict]) -> list[int]:
     return ids
 
 
-def update_file_parse(file_id: int, status: str, raw_text: str):
+def update_file_parse(file_id: int, status: str, raw_text: str, lang_verdict: str | None = None):
     conn = get_conn()
     cur = conn.cursor()
     cur.execute(
         """UPDATE kosha_material_files
-           SET parse_status=%s, parsed_at=%s, raw_text=%s
+           SET parse_status=%s, parsed_at=%s, raw_text=%s, lang_verdict=%s
            WHERE id=%s""",
-        (status, datetime.now(), raw_text[:200000], file_id)
+        (status, datetime.now(), raw_text[:200000], lang_verdict, file_id)
     )
     conn.commit()
     cur.close(); conn.close()
@@ -567,7 +583,7 @@ def run_parse_pending(batch_size: int = 50):
         JOIN kosha_materials m ON m.id = f.material_id
         WHERE f.parse_status = 'pending'
           AND f.file_path IS NOT NULL
-          AND f.file_type IN ('pdf','hwp','hwpx','zip')
+          AND f.file_type IN ('pdf','zip')
         ORDER BY f.id
     """)
     rows = [dict(r) for r in cur.fetchall()]
@@ -575,14 +591,15 @@ def run_parse_pending(batch_size: int = 50):
 
     total = len(rows)
     rlog.info('=== 기존파일 파싱 시작 === 대상:%d건', total)
-    print(f'[파싱] 대상: {total:,}건 (parse_status=pending)')
+    print(f'[파싱] 대상: {total:,}건 (parse_status=pending, pdf/zip만)')
 
     if total == 0:
         print('파싱 대상 없음')
         return
 
     stats = {'parsed': 0, 'failed': 0, 'unsupported': 0, 'chunks': 0,
-             'no_file': 0, 'encoding': 0, 'exception': 0, 'empty': 0}
+             'no_file': 0, 'encoding': 0, 'exception': 0, 'empty': 0,
+             'excluded_foreign': 0, 'excluded_mixed': 0}
 
     for i, row in enumerate(rows, 1):
         file_id   = row['file_id']
@@ -599,21 +616,35 @@ def run_parse_pending(batch_size: int = 50):
 
         try:
             raw_text, parse_status = extract_text(file_path, file_type)
-            update_file_parse(file_id, parse_status, raw_text)
 
             if parse_status == 'success' and raw_text.strip():
+                verdict, ratio = classify_language(raw_text)
+                if verdict == 'foreign':
+                    update_file_parse(file_id, 'excluded_foreign', raw_text, 'foreign')
+                    stats['excluded_foreign'] += 1
+                    log.info('외국어 제외 file_id=%s mid=%s ratio=%.2f', file_id, mid, ratio)
+                    continue
+                if verdict == 'mixed':
+                    update_file_parse(file_id, 'excluded_mixed', raw_text, 'mixed')
+                    stats['excluded_mixed'] += 1
+                    log.info('혼합언어 제외 file_id=%s mid=%s ratio=%.2f', file_id, mid, ratio)
+                    continue
+                update_file_parse(file_id, parse_status, raw_text, 'keep')
                 chunks = build_chunks(mid, file_id, raw_text)
                 save_chunks(chunks)
                 stats['parsed'] += 1
                 stats['chunks'] += len(chunks)
-                log.debug('파싱 완료 file_id=%s mid=%s chunks=%d', file_id, mid, len(chunks))
+                log.debug('파싱 완료 file_id=%s mid=%s chunks=%d ratio=%.2f', file_id, mid, len(chunks), ratio)
             elif parse_status == 'unsupported':
+                update_file_parse(file_id, parse_status, raw_text)
                 stats['unsupported'] += 1
             elif parse_status == 'success' and not raw_text.strip():
+                update_file_parse(file_id, 'failed', raw_text)
                 stats['failed'] += 1
                 stats['empty'] += 1
                 log.warning('본문비어있음 file_id=%s mid=%s', file_id, mid)
             else:
+                update_file_parse(file_id, parse_status, raw_text)
                 stats['failed'] += 1
                 if '[추출실패' in (raw_text or '') and '인코딩' in (raw_text or ''):
                     stats['encoding'] += 1
@@ -629,6 +660,7 @@ def run_parse_pending(batch_size: int = 50):
             rate = i / elapsed
             remain = int((total - i) / rate / 60) if rate > 0 else 0
             msg = (f'[{i:,}/{total:,}] 파싱:{stats["parsed"]} 실패:{stats["failed"]} '
+                   f'외국어제외:{stats["excluded_foreign"]} 혼합제외:{stats["excluded_mixed"]} '
                    f'청크:{stats["chunks"]} 속도:{rate:.1f}건/s 잔여:{remain}분')
             print(f'  {msg}', flush=True)
             log.info(msg)
@@ -637,11 +669,90 @@ def run_parse_pending(batch_size: int = 50):
     summary = (f'파싱 완료 소요:{elapsed//60}분{elapsed%60}초 '
                f'성공:{stats["parsed"]}건 실패:{stats["failed"]}건 '
                f'미지원:{stats["unsupported"]}건 청크:{stats["chunks"]}개 '
+               f'외국어제외:{stats["excluded_foreign"]} 혼합제외:{stats["excluded_mixed"]} '
                f'(파일없음:{stats["no_file"]} 빈본문:{stats["empty"]} 예외:{stats["exception"]})')
     print(f'\n=== 파싱 완료 ===', flush=True)
     print(f'  성공: {stats["parsed"]:,}건 / 실패: {stats["failed"]:,}건 / 미지원: {stats["unsupported"]:,}건', flush=True)
+    print(f'  외국어 제외: {stats["excluded_foreign"]:,}건 / 혼합 제외: {stats["excluded_mixed"]:,}건', flush=True)
     print(f'  청크: {stats["chunks"]:,}개', flush=True)
     print(f'  실패 세부: 파일없음={stats["no_file"]} 빈본문={stats["empty"]} 예외={stats["exception"]}', flush=True)
+    rlog.info('=== %s', summary)
+    return stats
+
+
+def run_reclassify_language(batch_size: int = 200):
+    """기존 success 파일의 raw_text로 언어 재판정. foreign/mixed → 청크 비활성(삭제) + 상태 업데이트."""
+    ensure_tables()
+    start = datetime.now()
+
+    conn = get_conn()
+    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    cur.execute("""
+        SELECT id AS file_id, material_id, raw_text
+        FROM kosha_material_files
+        WHERE parse_status = 'success'
+          AND raw_text IS NOT NULL
+          AND lang_verdict IS NULL
+        ORDER BY id
+    """)
+    rows = [dict(r) for r in cur.fetchall()]
+    cur.close(); conn.close()
+
+    total = len(rows)
+    rlog.info('=== 언어 재판정 시작 === 대상:%d건', total)
+    print(f'[재판정] 대상: {total:,}건')
+    if total == 0:
+        print('재판정 대상 없음')
+        return
+
+    stats = {'keep': 0, 'foreign': 0, 'mixed': 0, 'chunks_deleted': 0}
+
+    conn = get_conn()
+    cur = conn.cursor()
+    for i, row in enumerate(rows, 1):
+        file_id = row['file_id']
+        mid     = row['material_id']
+        text    = row['raw_text'] or ''
+        verdict, ratio = classify_language(text)
+
+        if verdict in ('foreign', 'mixed'):
+            new_status = 'excluded_foreign' if verdict == 'foreign' else 'excluded_mixed'
+            cur.execute(
+                "UPDATE kosha_material_files SET parse_status=%s, lang_verdict=%s WHERE id=%s",
+                (new_status, verdict, file_id)
+            )
+            # 해당 파일의 청크 삭제 (검색 대상 제외)
+            cur.execute("DELETE FROM kosha_material_chunks WHERE file_id=%s RETURNING id", (file_id,))
+            deleted = cur.rowcount
+            stats[verdict] += 1
+            stats['chunks_deleted'] += deleted
+            log.info('재판정 제외 file_id=%s mid=%s verdict=%s ratio=%.2f chunks_deleted=%d',
+                     file_id, mid, verdict, ratio, deleted)
+        else:
+            cur.execute(
+                "UPDATE kosha_material_files SET lang_verdict=%s WHERE id=%s",
+                ('keep', file_id)
+            )
+            stats['keep'] += 1
+
+        if i % batch_size == 0 or i == total:
+            conn.commit()
+            msg = (f'[{i:,}/{total:,}] keep:{stats["keep"]} '
+                   f'foreign:{stats["foreign"]} mixed:{stats["mixed"]} '
+                   f'chunks_deleted:{stats["chunks_deleted"]}')
+            print(f'  {msg}', flush=True)
+            rlog.info(msg)
+
+    conn.commit()
+    cur.close(); conn.close()
+
+    elapsed = (datetime.now() - start).seconds
+    summary = (f'재판정 완료 소요:{elapsed//60}분{elapsed%60}초 '
+               f'keep:{stats["keep"]} foreign:{stats["foreign"]} mixed:{stats["mixed"]} '
+               f'청크삭제:{stats["chunks_deleted"]}개')
+    print(f'\n=== 재판정 완료 ===', flush=True)
+    print(f'  keep: {stats["keep"]:,}건 / foreign 제외: {stats["foreign"]:,}건 / mixed 제외: {stats["mixed"]:,}건', flush=True)
+    print(f'  청크 삭제: {stats["chunks_deleted"]:,}개', flush=True)
     rlog.info('=== %s', summary)
     return stats
 
@@ -682,10 +793,13 @@ if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--pending', action='store_true', help='pending 파일 전체 파싱')
     ap.add_argument('--sample', type=int, default=0, help='샘플 N건 파싱')
+    ap.add_argument('--reclassify', action='store_true', help='기존 success 파일 언어 재판정')
     args = ap.parse_args()
     if args.pending:
         run_parse_pending()
     elif args.sample:
         run_sample(n=args.sample)
+    elif args.reclassify:
+        run_reclassify_language()
     else:
         run_parse_pending()

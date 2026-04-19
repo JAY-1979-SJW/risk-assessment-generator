@@ -231,12 +231,20 @@ def load_to_db(items):
     cur.execute(CREATE_SQL)
     conn.commit()
 
+    EXCLUDE_LIST_TYPES = {'외국어교재', '외국어교안', '동영상'}
+
     inserted = 0
+    skipped = 0
     for item in items:
         if not item['contsAtcflNo']:
             continue
+        if item.get('list_type') in EXCLUDE_LIST_TYPES:
+            skipped += 1
+            continue
         cur.execute(UPSERT_SQL, item)
         inserted += 1
+    if skipped:
+        print(f'  [수집 제외] 외국어교재/외국어교안/동영상: {skipped}건 스킵')
 
     conn.commit()
     cur.close()
