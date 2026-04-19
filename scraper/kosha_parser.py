@@ -821,6 +821,81 @@ def run_resection(batch_size: int = 500):
     return stats
 
 
+def fix_chunk_text(text: str) -> str:
+    """청크 raw_text의 3가지 파싱 오류 패턴 수정.
+    1. (cid:숫자) 폰트 인코딩 오류 제거
+    2. 음절 뒤섞임 글리치 → 원문 치환
+    3. 한글 2중 반복 문자 정리 (교교육육 → 교육)
+    """
+    if not text:
+        return text
+    # 1. cid 패턴 제거
+    text = re.sub(r'\(cid:\d+\)', ' ', text)
+    # 2. 고정 글리치 패턴 치환 (건설업 공종별 위험성평가 뒤섞임)
+    text = text.replace('건산설재업취 공약정계별층 위 사험고성예평방가', '건설업 공종별 위험성평가')
+    text = text.replace('건산설재업취 공약정계별층 위사험성평방가', '건설업 공종별 위험성평가')
+    # 3. 한글 인접 2중 반복 문자 제거 (교교육육 → 교육)
+    text = re.sub(r'([가-힣])\1', r'\1', text)
+    # 연속 공백 정리
+    text = re.sub(r'  +', ' ', text)
+    return text
+
+
+def run_fix_chunks():
+    """저장된 청크에서 파싱 오류 패턴을 수정하고 normalized_text·section_type 재생성."""
+    start = datetime.now()
+
+    conn = get_conn()
+    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    # 오류 패턴이 있는 청크만 대상
+    cur.execute("""
+        SELECT id, raw_text, normalized_text
+        FROM kosha_material_chunks
+        WHERE raw_text LIKE '%(cid:%'
+           OR raw_text LIKE '%건산설재업취%'
+           OR raw_text LIKE '%공약정계별층%'
+           OR raw_text LIKE '%교교육육%'
+           OR raw_text LIKE '%미미디디%'
+    """)
+    rows = [dict(r) for r in cur.fetchall()]
+    cur.close(); conn.close()
+
+    total = len(rows)
+    rlog.info('=== 청크 오류 수정 시작 === 대상:%d개', total)
+    print(f'[청크 오류 수정] 대상: {total:,}개')
+    if total == 0:
+        print('수정 대상 없음')
+        return
+
+    stats = {'fixed': 0, 'skipped': 0}
+    conn = get_conn()
+    cur = conn.cursor()
+    for row in rows:
+        fixed = fix_chunk_text(row['raw_text'])
+        if fixed == row['raw_text']:
+            stats['skipped'] += 1
+            continue
+        norm = normalize(fixed)
+        section = detect_section(norm)
+        cur.execute(
+            """UPDATE kosha_material_chunks
+               SET raw_text=%s, normalized_text=%s, section_type=%s
+               WHERE id=%s""",
+            (fixed, norm, section, row['id'])
+        )
+        stats['fixed'] += 1
+
+    conn.commit()
+    cur.close(); conn.close()
+
+    elapsed = (datetime.now() - start).seconds
+    print(f'\n=== 청크 오류 수정 완료 ===', flush=True)
+    print(f'  수정: {stats["fixed"]:,}개 / 변화없음: {stats["skipped"]:,}개', flush=True)
+    rlog.info('청크 오류 수정 완료 fixed:%d skipped:%d 소요:%ds',
+              stats['fixed'], stats['skipped'], elapsed)
+    return stats
+
+
 def run_sample(n: int = 5):
     ensure_tables()
     conn = get_conn()
@@ -859,6 +934,7 @@ if __name__ == '__main__':
     ap.add_argument('--sample', type=int, default=0, help='샘플 N건 파싱')
     ap.add_argument('--reclassify', action='store_true', help='기존 success 파일 언어 재판정')
     ap.add_argument('--resection', action='store_true', help='전체 청크 section_type 재분류')
+    ap.add_argument('--fixchunks', action='store_true', help='청크 파싱 오류 패턴 수정')
     args = ap.parse_args()
     if args.pending:
         run_parse_pending()
@@ -868,5 +944,7 @@ if __name__ == '__main__':
         run_reclassify_language()
     elif args.resection:
         run_resection()
+    elif args.fixchunks:
+        run_fix_chunks()
     else:
         run_parse_pending()
