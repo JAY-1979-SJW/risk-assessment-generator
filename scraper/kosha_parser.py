@@ -90,8 +90,10 @@ MIGRATE_FILES_SQL = [
     "ALTER TABLE kosha_material_files ADD COLUMN IF NOT EXISTS download_status VARCHAR(20) DEFAULT 'pending'",
     "ALTER TABLE kosha_material_files ADD COLUMN IF NOT EXISTS source_url TEXT",
     "ALTER TABLE kosha_material_files ADD COLUMN IF NOT EXISTS downloaded_at TIMESTAMP",
+    "ALTER TABLE kosha_material_files ADD COLUMN IF NOT EXISTS extracted_from_file_id INTEGER",
     "CREATE INDEX IF NOT EXISTS idx_kmf_dl_status ON kosha_material_files(download_status)",
     "CREATE INDEX IF NOT EXISTS idx_kmf_hash ON kosha_material_files(file_hash)",
+    "CREATE INDEX IF NOT EXISTS idx_kmf_extracted_from ON kosha_material_files(extracted_from_file_id)",
 ]
 
 MIGRATE_MATERIALS_SQL = [
@@ -578,13 +580,21 @@ def run_parse_pending(batch_size: int = 100):
         print('파싱 대상 없음')
         return
 
-    stats = {'parsed': 0, 'failed': 0, 'unsupported': 0, 'chunks': 0}
+    stats = {'parsed': 0, 'failed': 0, 'unsupported': 0, 'chunks': 0,
+             'no_file': 0, 'encoding': 0, 'exception': 0, 'empty': 0}
 
     for i, row in enumerate(rows, 1):
         file_id   = row['file_id']
         file_type = row['file_type']
         mid       = row['material_id']
         file_path = _resolve_path(row['file_path'])
+
+        if not os.path.exists(file_path):
+            stats['failed'] += 1
+            stats['no_file'] += 1
+            update_file_parse(file_id, 'failed', '')
+            log.warning('파일없음 file_id=%s path=%s', file_id, file_path)
+            continue
 
         try:
             raw_text, parse_status = extract_text(file_path, file_type)
@@ -598,12 +608,20 @@ def run_parse_pending(batch_size: int = 100):
                 log.debug('파싱 완료 file_id=%s mid=%s chunks=%d', file_id, mid, len(chunks))
             elif parse_status == 'unsupported':
                 stats['unsupported'] += 1
+            elif parse_status == 'success' and not raw_text.strip():
+                stats['failed'] += 1
+                stats['empty'] += 1
+                log.warning('본문비어있음 file_id=%s mid=%s', file_id, mid)
             else:
                 stats['failed'] += 1
-                log.warning('파싱 실패 file_id=%s mid=%s status=%s', file_id, mid, parse_status)
+                if '[추출실패' in (raw_text or '') and '인코딩' in (raw_text or ''):
+                    stats['encoding'] += 1
+                log.warning('파싱실패 file_id=%s mid=%s status=%s', file_id, mid, parse_status)
         except Exception as e:
             stats['failed'] += 1
-            log.error('파싱 오류 file_id=%s mid=%s err=%s', file_id, mid, e)
+            stats['exception'] += 1
+            update_file_parse(file_id, 'failed', '')
+            log.error('파싱예외 file_id=%s mid=%s err=%s', file_id, mid, e)
 
         if i % batch_size == 0 or i == total:
             elapsed = (datetime.now() - start).seconds or 1
@@ -617,10 +635,12 @@ def run_parse_pending(batch_size: int = 100):
     elapsed = (datetime.now() - start).seconds
     summary = (f'파싱 완료 소요:{elapsed//60}분{elapsed%60}초 '
                f'성공:{stats["parsed"]}건 실패:{stats["failed"]}건 '
-               f'미지원:{stats["unsupported"]}건 청크:{stats["chunks"]}개')
+               f'미지원:{stats["unsupported"]}건 청크:{stats["chunks"]}개 '
+               f'(파일없음:{stats["no_file"]} 빈본문:{stats["empty"]} 예외:{stats["exception"]})')
     print(f'\n=== 파싱 완료 ===')
     print(f'  성공: {stats["parsed"]:,}건 / 실패: {stats["failed"]:,}건 / 미지원: {stats["unsupported"]:,}건')
     print(f'  청크: {stats["chunks"]:,}개')
+    print(f'  실패 세부: 파일없음={stats["no_file"]} 빈본문={stats["empty"]} 예외={stats["exception"]}')
     rlog.info('=== %s', summary)
     return stats
 

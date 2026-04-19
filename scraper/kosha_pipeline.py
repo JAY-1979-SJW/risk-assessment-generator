@@ -1,13 +1,14 @@
 """
 KOSHA 전체 파이프라인 오케스트레이터
-순서: materials → download → parse → chunk → classify → tag
+순서: materials → download → unzip → parse → chunk → classify → tag
 """
 import time, argparse, psycopg2, psycopg2.extras
 from pathlib import Path
 from datetime import datetime
 from logger import get_pipeline_logger, get_run_logger
 from config import get_conn
-from kosha_parser import ensure_tables, process_material
+from kosha_parser import ensure_tables, process_material, run_parse_pending
+from kosha_unzip import run_unzip_all
 from kosha_classifier import run_classify_all
 
 plog = get_pipeline_logger()
@@ -131,19 +132,31 @@ def run_full(limit: int = 0):
 
     plog.info('[2단계] 파일 다운로드 + 텍스트 추출 + 청크 저장 시작')
     print('\n[2단계] 파일 다운로드 + 텍스트 추출 + 청크 저장')
-    stats = run_download_parse(limit=limit, skip_existing=True)
+    dl_stats = run_download_parse(limit=limit, skip_existing=True)
 
-    plog.info('[3단계] 공종 분류 시작')
-    print('\n[3단계] 공종 분류')
+    plog.info('[3단계] ZIP 자동 해제 + 내부 파일 등록 시작')
+    print('\n[3단계] ZIP 자동 해제 + 내부 파일 등록')
+    unzip_stats = run_unzip_all()
+
+    plog.info('[4단계] 기존 파일 파싱 (pending → parsed) 시작')
+    print('\n[4단계] 기존 파일 파싱 (pending → parsed)')
+    parse_stats = run_parse_pending() or {}
+
+    plog.info('[5단계] 공종 분류 시작')
+    print('\n[5단계] 공종 분류')
     classified = run_classify_all()
 
     elapsed = (datetime.now() - start).seconds
-    rlog.info('=== 파이프라인 완료 === 성공:%d 청크:%d 분류:%d 소요:%d초',
-              stats["success"], stats["chunks"], classified, elapsed)
+    rlog.info('=== 파이프라인 완료 === 다운로드:%d ZIP해제:%d 파싱:%d 분류:%d 소요:%d초',
+              dl_stats.get("success", 0), unzip_stats.get("extracted", 0),
+              parse_stats.get("parsed", 0), classified, elapsed)
     print('\n' + '=' * 60)
     print('파이프라인 완료')
-    print(f'  다운로드/파싱 성공: {stats["success"]}건')
-    print(f'  청크 생성: {stats["chunks"]}개')
+    print(f'  다운로드/파싱 성공: {dl_stats.get("success", 0)}건')
+    print(f'  ZIP 해제: {unzip_stats.get("extracted", 0)}건 / 실패: {unzip_stats.get("failed", 0)}건')
+    print(f'  내부 파일 등록: {unzip_stats.get("registered", 0)}건')
+    print(f'  파싱 성공: {parse_stats.get("parsed", 0)}건 / 실패: {parse_stats.get("failed", 0)}건')
+    print(f'  청크 생성: {parse_stats.get("chunks", 0) + dl_stats.get("chunks", 0)}개')
     print(f'  공종 분류: {classified}건')
     print('=' * 60)
 
@@ -153,6 +166,7 @@ if __name__ == '__main__':
     parser.add_argument('--limit', type=int, default=0, help='처리 건수 (0=전체)')
     parser.add_argument('--classify-only', action='store_true', help='분류만 실행')
     parser.add_argument('--index-only', action='store_true', help='인덱스만 생성')
+    parser.add_argument('--unzip-only', action='store_true', help='ZIP 해제만 실행')
     args = parser.parse_args()
 
     if args.index_only:
@@ -160,5 +174,7 @@ if __name__ == '__main__':
         create_indexes()
     elif args.classify_only:
         run_classify_all()
+    elif args.unzip_only:
+        run_unzip_all()
     else:
         run_full(limit=args.limit)
