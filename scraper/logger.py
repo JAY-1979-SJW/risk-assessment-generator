@@ -27,15 +27,23 @@ _FMT = '%(asctime)s [%(levelname)s] %(name)s | %(message)s'
 _DATE = '%Y-%m-%d %H:%M:%S'
 
 
+class _FlushFileHandler(RotatingFileHandler):
+    """매 레코드 즉시 flush — nohup/리다이렉트 환경에서도 실시간 기록"""
+    def emit(self, record):
+        super().emit(record)
+        self.flush()
+
+
 def _make_handler(path: Path, level: int, max_bytes=5*1024*1024, backup=5):
-    h = RotatingFileHandler(path, maxBytes=max_bytes, backupCount=backup, encoding='utf-8')
+    h = _FlushFileHandler(path, maxBytes=max_bytes, backupCount=backup, encoding='utf-8')
     h.setLevel(level)
     h.setFormatter(logging.Formatter(_FMT, _DATE))
     return h
 
 
 def _console_handler():
-    h = logging.StreamHandler()
+    import sys
+    h = logging.StreamHandler(sys.stdout)
     h.setLevel(logging.INFO)
     h.setFormatter(logging.Formatter(_FMT, _DATE))
     return h
@@ -74,6 +82,7 @@ def get_parser_logger() -> logging.Logger:
     logger.setLevel(logging.DEBUG)
     logger.addHandler(_make_handler(LOGS_DIR / 'parser.log', logging.INFO))
     logger.addHandler(_make_handler(LOGS_DIR / 'scraper.error.log', logging.ERROR, 2*1024*1024, 3))
+    logger.addHandler(_console_handler())
     logger.propagate = False
     return logger
 

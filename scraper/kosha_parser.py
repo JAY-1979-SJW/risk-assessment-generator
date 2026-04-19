@@ -553,7 +553,7 @@ def _resolve_path(db_path: str) -> str:
         return db_path
 
 
-def run_parse_pending(batch_size: int = 100):
+def run_parse_pending(batch_size: int = 50):
     """다운로드 완료(parse_status=pending)된 파일 전체 파싱"""
     ensure_tables()
     start = datetime.now()
@@ -630,7 +630,7 @@ def run_parse_pending(batch_size: int = 100):
             remain = int((total - i) / rate / 60) if rate > 0 else 0
             msg = (f'[{i:,}/{total:,}] 파싱:{stats["parsed"]} 실패:{stats["failed"]} '
                    f'청크:{stats["chunks"]} 속도:{rate:.1f}건/s 잔여:{remain}분')
-            print(f'  {msg}')
+            print(f'  {msg}', flush=True)
             log.info(msg)
 
     elapsed = (datetime.now() - start).seconds
@@ -638,10 +638,10 @@ def run_parse_pending(batch_size: int = 100):
                f'성공:{stats["parsed"]}건 실패:{stats["failed"]}건 '
                f'미지원:{stats["unsupported"]}건 청크:{stats["chunks"]}개 '
                f'(파일없음:{stats["no_file"]} 빈본문:{stats["empty"]} 예외:{stats["exception"]})')
-    print(f'\n=== 파싱 완료 ===')
-    print(f'  성공: {stats["parsed"]:,}건 / 실패: {stats["failed"]:,}건 / 미지원: {stats["unsupported"]:,}건')
-    print(f'  청크: {stats["chunks"]:,}개')
-    print(f'  실패 세부: 파일없음={stats["no_file"]} 빈본문={stats["empty"]} 예외={stats["exception"]}')
+    print(f'\n=== 파싱 완료 ===', flush=True)
+    print(f'  성공: {stats["parsed"]:,}건 / 실패: {stats["failed"]:,}건 / 미지원: {stats["unsupported"]:,}건', flush=True)
+    print(f'  청크: {stats["chunks"]:,}개', flush=True)
+    print(f'  실패 세부: 파일없음={stats["no_file"]} 빈본문={stats["empty"]} 예외={stats["exception"]}', flush=True)
     rlog.info('=== %s', summary)
     return stats
 
