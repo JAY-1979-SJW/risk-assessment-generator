@@ -320,7 +320,7 @@ def fmt_line(line: ParsedLine) -> str | None:
             f"✓{color(str(d['success']), 'green')} "
             f"✗{color(str(d['failed']), 'red' if d['failed'] else 'gray')} "
             f"chunk={d['chunks']:,}  "
-            f"{color(f'{d[\"speed\"]:.1f}/s', 'cyan')}  "
+            f"{color(str(round(d['speed'],1))+'/s', 'cyan')}  "
             f"잔여 {color(str(d['remain'])+'분', 'yellow')}"
         )
 
