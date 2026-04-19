@@ -134,7 +134,7 @@ _RE_COMPLETE = re.compile(r'(파싱 완료|inner 완료|ZIP 해제 완료|=== �
 _RE_START    = re.compile(r'(파싱 시작|해제 시작|파이프라인 시작).*대상:(\d+)건')
 
 class ParsedLine:
-    __slots__ = ('ts', 'level', 'logger', 'msg', 'kind', 'data')
+    __slots__ = ('ts', 'level', 'logger', 'msg', 'kind', 'data', 'source')
 
     def __init__(self, raw: str, source: str):
         self.data   = {}
