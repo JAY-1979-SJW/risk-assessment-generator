@@ -85,8 +85,9 @@ _check_perm "${HOME}/.config/ops/telegram.secrets"             "600" "telegram.s
 _check_perm "${APP_DIR}/infra/.env"                            "600" "app infra/.env"
 _check_perm "/home/ubuntu/app/repo.bak.20260418"               "700" "repo.bak dir"
 
-# .env 파일 권한 체크 (infra 디렉토리 내)
+# .env 파일 권한 체크 (infra 디렉토리 내, .example 제외)
 for f in "${APP_DIR}"/infra/.env "${APP_DIR}"/infra/.env.*; do
+  [[ "$f" == *.example ]] && continue
   [ -f "$f" ] && _check_perm "$f" "600" "$(basename "$f")"
 done
 
