@@ -64,6 +64,7 @@ services:
 volumes:
   risk_assessment_pgdata:
     name: risk-assessment-pgdata
+    external: true
 
 networks:
   risk-assessment-net:
