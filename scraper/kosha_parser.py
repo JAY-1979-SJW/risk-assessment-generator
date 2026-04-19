@@ -639,10 +639,10 @@ def run_parse_pending(batch_size: int = 50):
                 update_file_parse(file_id, parse_status, raw_text)
                 stats['unsupported'] += 1
             elif parse_status == 'success' and not raw_text.strip():
-                update_file_parse(file_id, 'failed', raw_text)
-                stats['failed'] += 1
-                stats['empty'] += 1
-                log.warning('본문비어있음 file_id=%s mid=%s', file_id, mid)
+                update_file_parse(file_id, 'image_pdf', raw_text)
+                stats.setdefault('image_pdf', 0)
+                stats['image_pdf'] += 1
+                log.info('이미지PDF 분류 file_id=%s mid=%s', file_id, mid)
             else:
                 update_file_parse(file_id, parse_status, raw_text)
                 stats['failed'] += 1
@@ -660,6 +660,7 @@ def run_parse_pending(batch_size: int = 50):
             rate = i / elapsed
             remain = int((total - i) / rate / 60) if rate > 0 else 0
             msg = (f'[{i:,}/{total:,}] 파싱:{stats["parsed"]} 실패:{stats["failed"]} '
+                   f'이미지PDF:{stats.get("image_pdf",0)} '
                    f'외국어제외:{stats["excluded_foreign"]} 혼합제외:{stats["excluded_mixed"]} '
                    f'청크:{stats["chunks"]} 속도:{rate:.1f}건/s 잔여:{remain}분')
             print(f'  {msg}', flush=True)
@@ -668,14 +669,15 @@ def run_parse_pending(batch_size: int = 50):
     elapsed = (datetime.now() - start).seconds
     summary = (f'파싱 완료 소요:{elapsed//60}분{elapsed%60}초 '
                f'성공:{stats["parsed"]}건 실패:{stats["failed"]}건 '
+               f'이미지PDF:{stats.get("image_pdf",0)}건 '
                f'미지원:{stats["unsupported"]}건 청크:{stats["chunks"]}개 '
                f'외국어제외:{stats["excluded_foreign"]} 혼합제외:{stats["excluded_mixed"]} '
-               f'(파일없음:{stats["no_file"]} 빈본문:{stats["empty"]} 예외:{stats["exception"]})')
+               f'(파일없음:{stats["no_file"]} 예외:{stats["exception"]})')
     print(f'\n=== 파싱 완료 ===', flush=True)
-    print(f'  성공: {stats["parsed"]:,}건 / 실패: {stats["failed"]:,}건 / 미지원: {stats["unsupported"]:,}건', flush=True)
+    print(f'  성공: {stats["parsed"]:,}건 / 이미지PDF: {stats.get("image_pdf",0):,}건 / 실패: {stats["failed"]:,}건', flush=True)
     print(f'  외국어 제외: {stats["excluded_foreign"]:,}건 / 혼합 제외: {stats["excluded_mixed"]:,}건', flush=True)
     print(f'  청크: {stats["chunks"]:,}개', flush=True)
-    print(f'  실패 세부: 파일없음={stats["no_file"]} 빈본문={stats["empty"]} 예외={stats["exception"]}', flush=True)
+    print(f'  실패 세부: 파일없음={stats["no_file"]} 예외={stats["exception"]}', flush=True)
     rlog.info('=== %s', summary)
     return stats
 
