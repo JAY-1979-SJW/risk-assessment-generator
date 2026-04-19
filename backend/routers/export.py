@@ -1,4 +1,5 @@
 import io, time, json, logging
+from urllib.parse import quote
 from pathlib import Path
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import StreamingResponse
@@ -209,5 +210,5 @@ def _build_excel(pid, Workbook, Font, Alignment, Border, Side, PatternFill, get_
     return StreamingResponse(
         buf,
         media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        headers={"Content-Disposition": f'attachment; filename="{filename}"'}
+        headers={"Content-Disposition": f"attachment; filename*=UTF-8''{quote(filename)}"}
     )
