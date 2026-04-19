@@ -20,7 +20,7 @@
 
 ## 고정값
 - 저장소: risk-assessment-generator
-- 서버경로: /home/ubuntu/app/kras-app/app
+- 서버경로: /home/ubuntu/app/kras-app
 - 데이터경로: /home/ubuntu/data/kras-app
 - 로그경로: /home/ubuntu/logs/kras-app
 - 도메인: kras.haehan-ai.kr

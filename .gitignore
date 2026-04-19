@@ -26,6 +26,10 @@ venv/
 .idea/
 *.swp
 
+# 런타임 로그
+logs/
+scraper/logs/
+
 # 기타
 참조자료/
 scraper/.env
