@@ -1,17 +1,17 @@
 services:
   db:
     image: postgres:16-alpine
-    container_name: kras-db
+    container_name: risk-assessment-db
     restart: unless-stopped
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
-      - kras_pgdata:/var/lib/postgresql/data
+      - risk_assessment_pgdata:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     networks:
-      - kras-net
+      - risk-assessment-net
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 10s
@@ -22,13 +22,13 @@ services:
     build:
       context: ../backend
       dockerfile: Dockerfile
-    container_name: kras-api
+    container_name: risk-assessment-api
     restart: unless-stopped
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@kras-db:5432/${POSTGRES_DB}
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@risk-assessment-db:5432/${POSTGRES_DB}
       COMMON_DATA_URL: ${COMMON_DATA_URL}
       OPENAI_API_KEY: ${OPENAI_API_KEY}
       OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
@@ -38,7 +38,7 @@ services:
       CORS_ORIGINS: ${CORS_ORIGINS:-https://kras.haehan-ai.kr}
     volumes:
       - ../docs:/app/docs:ro
-      - /home/ubuntu/logs/kras-app:/app/logs
+      - /home/ubuntu/logs/risk-assessment-app:/app/logs
       - ../scraper/logs:/app/scraper_logs:ro
     ports:
       - "${API_PORT}:8000"
@@ -46,25 +46,25 @@ services:
       db:
         condition: service_healthy
     networks:
-      - kras-net
+      - risk-assessment-net
 
   web:
     build:
       context: ../frontend
       dockerfile: Dockerfile
-    container_name: kras-web
+    container_name: risk-assessment-web
     restart: unless-stopped
     ports:
       - "${WEB_PORT}:80"
     depends_on:
       - api
     networks:
-      - kras-net
+      - risk-assessment-net
 
 volumes:
-  kras_pgdata:
-    name: kras_pgdata
+  risk_assessment_pgdata:
+    name: risk-assessment-pgdata
 
 networks:
-  kras-net:
-    name: kras-net
+  risk-assessment-net:
+    name: risk-assessment-net

@@ -20,12 +20,12 @@
 
 ## 고정값
 - 저장소: risk-assessment-generator
-- 서버경로: /home/ubuntu/app/kras-app
-- 데이터경로: /home/ubuntu/data/kras-app
-- 로그경로: /home/ubuntu/logs/kras-app
+- 서버경로: /home/ubuntu/app/risk-assessment-app
+- 데이터경로: /home/ubuntu/data/risk-assessment-app
+- 로그경로: /home/ubuntu/logs/risk-assessment-app
 - 도메인: kras.haehan-ai.kr
-- 컨테이너: kras-web / kras-api / kras-db
-- Volume: kras_pgdata / Network: kras-net
+- 컨테이너: risk-assessment-web / risk-assessment-api / risk-assessment-db
+- Volume: risk-assessment-pgdata / Network: risk-assessment-net
 
 ## 수집 범위 (KOSHA 지식DB)
 - 대상 list_type: OPS, 기타 (한국어 안전보건 자료만)
