@@ -85,6 +85,61 @@ bash infra/deploy.sh
 }
 ```
 
+## risk-assessment-app 백업/복구 표준
+
+### 백업 대상
+- `/home/ubuntu/apps/risk-assessment-app/data/` — DB 볼륨 및 운영 데이터
+- `/home/ubuntu/apps/risk-assessment-app/backups/` — 운영 산출물 (pg_dump 등)
+- 운영상 필요한 로그만 선별 백업 (`logs/*.log`, `logs/*.jsonl`)
+- `infra/.env` — git 미추적 민감 설정 (별도 보관 필수, 기밀 취급)
+
+### 백업 제외
+- git으로 복원 가능한 코드 전체 (`app/`)
+- 캐시·빌드 산출물·임시 파일 (`node_modules`, `.venv`, `__pycache__`, `dist/`)
+- 중복 백업 파일
+
+### 기본 원칙
+1. 코드는 git으로 복원한다.
+2. 운영 데이터는 `data/` 중심으로 백업한다.
+3. 복구는 전체 삭제가 아니라 필요한 범위만 최소 복구한다.
+4. 복구 후 반드시 health / frontend / self-check 로 검증한다.
+
+### 수동 백업 명령 예시
+
+```bash
+# DB dump (컨테이너 내부 pg_dump → backups/)
+BACKUP_DIR=/home/ubuntu/apps/risk-assessment-app/backups
+DATE=$(date +%Y%m%d_%H%M%S)
+docker exec risk-assessment-db pg_dump -U postgres kras \
+  | gzip > "${BACKUP_DIR}/kras_${DATE}.sql.gz"
+
+# data/ 전체 rsync (원격 스토리지 또는 다른 경로)
+rsync -a /home/ubuntu/apps/risk-assessment-app/data/ \
+  <BACKUP_DEST>/risk-assessment-data/
+```
+
+### 복구 전 확인사항
+- `docker compose ps` — 컨테이너 상태 확인
+- 복구 대상 파일 무결성 확인 (`md5sum`, `gzip -t`)
+- 코드 복구는 git 으로만 수행 (`git pull --ff-only`)
+- `.env` 파일 존재 여부 확인
+
+### 복구 후 검증 항목
+- `docker compose ps` — 전체 컨테이너 Running 확인
+- `curl http://127.0.0.1:8000/health` — API health 200
+- frontend HTTP 200 확인
+- `infra/ops_self_check.sh` 실행 → verdict PASS
+- `infra/ops_git_guard.sh` 실행 → verdict PASS
+- `infra/ops_backup_check.sh` 실행 → verdict PASS
+
+### 금지사항
+- 전체 루트(`/home/ubuntu/apps/risk-assessment-app/`) 삭제 후 복구 금지
+- 다른 앱 경로 복구 금지
+- git 추적 코드를 백업본으로 덮어쓰기 금지
+- 컨테이너 내부 수동 복구 금지 (`docker exec` 로 파일 직접 교체 금지)
+
+---
+
 ## 초기 서버 설정 (최초 1회)
 
 ```bash
