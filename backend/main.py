@@ -2,6 +2,7 @@ import os
 import sys
 import json
 import time
+import asyncio
 import logging
 import textwrap
 from pathlib import Path
@@ -13,7 +14,7 @@ import psycopg2
 import psycopg2.extras
 from fastapi import FastAPI, HTTPException, Query, Request, Security
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, StreamingResponse
 from fastapi.security import APIKeyHeader
 from pydantic import BaseModel
 from openai import OpenAI
@@ -25,6 +26,15 @@ INTERNAL_API_KEY = os.getenv("INTERNAL_API_KEY", "")
 
 LOG_DIR = Path(os.getenv("LOG_DIR", "/app/logs"))
 LOG_DIR.mkdir(parents=True, exist_ok=True)
+
+SCRAPER_LOGS_DIR = Path(os.getenv("SCRAPER_LOGS_DIR", "/app/scraper_logs"))
+
+# 감시 대상 로그 파일 (우선순위 순)
+_WATCH_LOGS = [
+    ("run_history", "실행이력"),
+    ("parser",      "파서"),
+    ("pipeline",    "파이프라인"),
+]
 
 # ── 로거 설정 ────────────────────────────────────────────────────────────────
 def _make_logger(name: str, filename: str) -> logging.Logger:
@@ -368,6 +378,98 @@ def kosha_stats():
         }
     finally:
         conn.close()
+
+
+@app.get("/admin/kosha/stream")
+async def stream_kosha_logs(
+    logs: str = Query("run_history,parser", description="쉼표 구분 로그명"),
+    tail: int = Query(100, ge=0, le=500, description="초기 전송 최근 N줄"),
+):
+    """SSE: KOSHA 파서 로그 실시간 스트리밍.
+    logs 파라미터: run_history, parser, pipeline (쉼표 구분).
+    브라우저 EventSource 재연결 시 자동 재시도."""
+
+    import re
+    _ansi = re.compile(r'\x1b\[[0-9;]*m')
+
+    requested = [n.strip() for n in logs.split(',')]
+    paths = []
+    for name in requested:
+        p = SCRAPER_LOGS_DIR / f'{name}.log'
+        if p.exists():
+            paths.append((name, p))
+
+    async def generate():
+        # ── 연결 확인 이벤트
+        yield 'event: connected\ndata: {"logs": %s}\n\n' % json.dumps(requested)
+
+        if not paths:
+            yield 'event: warn\ndata: {"msg": "로그 파일 없음 — 볼륨 마운트 확인 필요"}\n\n'
+            return
+
+        handles: dict[str, object] = {}
+        try:
+            # ── 초기: 각 파일 마지막 tail줄 전송
+            for name, path in paths:
+                try:
+                    with open(path, 'r', encoding='utf-8', errors='replace') as f:
+                        lines = f.readlines()
+                    recent = lines[-tail:] if tail else []
+                    for line in recent:
+                        clean = _ansi.sub('', line.rstrip())
+                        if clean:
+                            payload = json.dumps({"src": name, "line": clean}, ensure_ascii=False)
+                            yield f'data: {payload}\n\n'
+                    # 파일 핸들 열어두고 끝으로 이동
+                    fh = open(path, 'r', encoding='utf-8', errors='replace')
+                    fh.seek(0, 2)
+                    handles[name] = fh
+                except OSError:
+                    pass
+
+            # 구분선 이벤트
+            yield 'event: tail_start\ndata: {}\n\n'
+
+            # ── 실시간 tail
+            while True:
+                any_line = False
+                for name, fh in list(handles.items()):
+                    try:
+                        while True:
+                            line = fh.readline()
+                            if not line:
+                                break
+                            clean = _ansi.sub('', line.rstrip())
+                            if clean:
+                                payload = json.dumps({"src": name, "line": clean}, ensure_ascii=False)
+                                yield f'data: {payload}\n\n'
+                                any_line = True
+                    except OSError:
+                        pass
+
+                if not any_line:
+                    # keepalive — 프록시/브라우저 연결 유지
+                    yield ': keepalive\n\n'
+                    await asyncio.sleep(2)
+
+        except asyncio.CancelledError:
+            pass
+        finally:
+            for fh in handles.values():
+                try:
+                    fh.close()
+                except Exception:
+                    pass
+
+    return StreamingResponse(
+        generate(),
+        media_type='text/event-stream',
+        headers={
+            'Cache-Control': 'no-cache',
+            'X-Accel-Buffering': 'no',
+            'Connection': 'keep-alive',
+        },
+    )
 
 
 @app.get("/trades")

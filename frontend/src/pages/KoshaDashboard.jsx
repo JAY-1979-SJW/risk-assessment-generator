@@ -102,7 +102,7 @@ function parseStatusBadge(status) {
   )
 }
 
-export default function KoshaDashboard({ onBack }) {
+export default function KoshaDashboard({ onBack, onMonitor }) {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -140,7 +140,13 @@ export default function KoshaDashboard({ onBack }) {
           <h1 style={{ margin: 0, fontSize: 20, fontWeight: 700, color: '#111827' }}>KOSHA 수집 DB 모니터링</h1>
           {lastUpdated && <div style={{ fontSize: 12, color: '#9ca3af', marginTop: 2 }}>마지막 갱신: {lastUpdated} (30초 자동 갱신)</div>}
         </div>
-        <div style={{ marginLeft: 'auto' }}>
+        <div style={{ marginLeft: 'auto', display: 'flex', gap: 8 }}>
+          {onMonitor && (
+            <button onClick={onMonitor} style={{
+              background: '#0f172a', color: '#22c55e', border: '1px solid #22c55e', borderRadius: 6,
+              padding: '7px 16px', cursor: 'pointer', fontSize: 13, fontFamily: 'monospace',
+            }}>📡 실시간 모니터</button>
+          )}
           <button onClick={load} disabled={loading} style={{
             background: '#2563eb', color: '#fff', border: 'none', borderRadius: 6,
             padding: '7px 16px', cursor: loading ? 'not-allowed' : 'pointer', fontSize: 13,

@@ -38,6 +38,7 @@ services:
     volumes:
       - ../docs:/app/docs:ro
       - ../logs:/app/logs
+      - ../scraper/logs:/app/scraper_logs:ro
     ports:
       - "${API_PORT}:8000"
     depends_on:
