@@ -359,27 +359,35 @@ def normalize(text: str) -> str:
 
 
 # ── section_type 감지 ────────────────────────────────────────────────────────
+# 우선순위: hazard > control > law > ppe > general
+# - HAZARD: '위험요인','추락' 등 구체적 사고 키워드 (과거의 '위험','유해' 단독 제거 — 너무 광범위)
+# - CONTROL: '안전조치','안전대책' 등 복합어만 사용 (과거 '관리','설치','점검' 등 단독어 제거)
+# - LAW: '산업안전보건법','안전보건규칙' 등 명확한 법령명만 (과거 '조','항' 제거 — 일반 단어에 오매칭)
+# - PPE: 보호구 종류 (hazard/control 미검출 시 보조 분류)
 
-HAZARD_KW  = ['위험', '유해', '추락', '협착', '감전', '폭발', '화재', '충돌', '낙하', '절단', '질식', '중독']
-CONTROL_KW = ['안전조치', '대책', '예방', '금지', '착용', '설치', '점검', '관리', '방호', '차단']
-PPE_KW     = ['안전모', '안전대', '보호구', '장갑', '안전화', '마스크', '귀마개', '보안경', '안전벨트']
-LAW_KW     = ['조', '항', '안전보건규칙', '산업안전보건법', 'KOSHA', '고용노동부고시']
+HAZARD_KW  = ['위험요인', '유해요인', '사고원인', '재해원인', '재해사례',
+              '추락', '협착', '감전', '폭발', '화재', '충돌', '낙하', '절단', '질식', '중독',
+              '위험성평가']
+CONTROL_KW = ['안전조치', '안전대책', '예방대책', '방호조치', '재해예방',
+              '안전수칙', '대책', '방호', '안전관리']
+PPE_KW     = ['안전모', '안전대', '보호구', '안전화', '마스크', '귀마개', '보안경', '안전벨트', '장갑']
+LAW_KW     = ['산업안전보건법', '안전보건규칙', '기준에 관한 규칙', '고용노동부고시', 'KOSHA', '시행규칙']
 WORK_KW    = ['작업', '공정', '설치', '해체', '굴착', '용접', '고소', '전기', '화학', '배관', '배선']
 
 
 def detect_section(text: str) -> str:
-    for kw in PPE_KW:
-        if kw in text:
-            return 'ppe'
-    for kw in LAW_KW:
-        if kw in text:
-            return 'law'
     for kw in HAZARD_KW:
         if kw in text:
             return 'hazard'
     for kw in CONTROL_KW:
         if kw in text:
             return 'control'
+    for kw in LAW_KW:
+        if kw in text:
+            return 'law'
+    for kw in PPE_KW:
+        if kw in text:
+            return 'ppe'
     return 'general'
 
 
@@ -766,6 +774,53 @@ def run_reclassify_language(batch_size: int = 200):
     return stats
 
 
+def run_resection(batch_size: int = 500):
+    """저장된 모든 청크의 section_type을 새 detect_section으로 일괄 재분류.
+    normalized_text 기반으로 재판정 — raw_text/hazard_type 등 다른 필드는 변경하지 않음."""
+    start = datetime.now()
+    conn = get_conn()
+    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    cur.execute("SELECT id, normalized_text FROM kosha_material_chunks ORDER BY id")
+    rows = [dict(r) for r in cur.fetchall()]
+    cur.close(); conn.close()
+
+    total = len(rows)
+    rlog.info('=== section 재분류 시작 === 대상:%d개', total)
+    print(f'[section 재분류] 대상: {total:,}개 청크')
+    if total == 0:
+        print('재분류 대상 없음')
+        return
+
+    stats: dict[str, int] = {}
+    conn = get_conn()
+    cur = conn.cursor()
+    for i, row in enumerate(rows, 1):
+        new_section = detect_section(row['normalized_text'] or '')
+        cur.execute(
+            "UPDATE kosha_material_chunks SET section_type=%s WHERE id=%s",
+            (new_section, row['id'])
+        )
+        stats[new_section] = stats.get(new_section, 0) + 1
+
+        if i % batch_size == 0 or i == total:
+            conn.commit()
+            msg = (f'[{i:,}/{total:,}] ' +
+                   ' '.join(f'{k}:{v}' for k, v in sorted(stats.items())))
+            print(f'  {msg}', flush=True)
+            rlog.info(msg)
+
+    conn.commit()
+    cur.close(); conn.close()
+
+    elapsed = (datetime.now() - start).seconds
+    summary = (f'section 재분류 완료 소요:{elapsed//60}분{elapsed%60}초 결과:{stats}')
+    print(f'\n=== section 재분류 완료 ===', flush=True)
+    for k, v in sorted(stats.items(), key=lambda x: -x[1]):
+        print(f'  {k}: {v:,}개', flush=True)
+    rlog.info('=== %s', summary)
+    return stats
+
+
 def run_sample(n: int = 5):
     ensure_tables()
     conn = get_conn()
@@ -803,6 +858,7 @@ if __name__ == '__main__':
     ap.add_argument('--pending', action='store_true', help='pending 파일 전체 파싱')
     ap.add_argument('--sample', type=int, default=0, help='샘플 N건 파싱')
     ap.add_argument('--reclassify', action='store_true', help='기존 success 파일 언어 재판정')
+    ap.add_argument('--resection', action='store_true', help='전체 청크 section_type 재분류')
     args = ap.parse_args()
     if args.pending:
         run_parse_pending()
@@ -810,5 +866,7 @@ if __name__ == '__main__':
         run_sample(n=args.sample)
     elif args.reclassify:
         run_reclassify_language()
+    elif args.resection:
+        run_resection()
     else:
         run_parse_pending()
