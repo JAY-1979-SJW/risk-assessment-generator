@@ -350,6 +350,7 @@ def extract_text(file_path: str, file_type: str) -> tuple[str, str]:
 # ── 텍스트 정규화 ────────────────────────────────────────────────────────────
 
 def normalize(text: str) -> str:
+    text = re.sub(r'\(cid:\d+\)', ' ', text)
     text = re.sub(r'\s+', ' ', text)
     text = re.sub(r'[□■○●◆◇▶▷→]', '', text)
     return text.strip()
