@@ -6,30 +6,14 @@ KOSHA 공종 분류기 (규칙 기반 v2.0)
 - v2.0: equipment / location / ppe / law_ref 세부 분류 추가
 """
 import re, json, psycopg2, psycopg2.extras
-from pathlib import Path
-from dotenv import load_dotenv
 from datetime import datetime
 from logger import get_classifier_logger, get_run_logger
-
-load_dotenv(Path(__file__).parent / '.env')
+from config import get_conn
 
 log  = get_classifier_logger()
 rlog = get_run_logger('classifier')
 
-DB_HOST = '127.0.0.1'
-DB_PORT = 5435
-DB_NAME = 'common_data'
-DB_USER = 'common_admin'
-DB_PASS = 'XenZ5xmKw5jEf1bWQuU2LxWRZMlJ'
-
 RULE_VERSION = 'v2.0'
-
-
-def get_conn():
-    return psycopg2.connect(
-        host=DB_HOST, port=DB_PORT, dbname=DB_NAME,
-        user=DB_USER, password=DB_PASS
-    )
 
 
 # ── 공종 사전 ────────────────────────────────────────────────────────────────
