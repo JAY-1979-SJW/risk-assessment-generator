@@ -7,11 +7,12 @@
 - 코드에 비밀번호·키 하드코딩 금지
 
 ## 세션 시작 시 우선 확인 (매 접속 시 자동 수행)
-1. 서버 수집 프로세스 확인: `ps aux | grep kosha | grep -v grep`
-2. 최신 로그 확인: `tail -20 ~/kosha_scraper/kosha_dl*.log | tail -20`
-3. 로그 파일 정상 기록 여부: `ls -lh ~/kosha_scraper/logs/`
-4. DB 수집 현황: kosha_material_files COUNT, 잔여 건수
-5. 이상 발견 시 사용자에게 즉시 보고
+1. 작업 로그 확인: `cat /tmp/kosha_migration.log 2>/dev/null` (DB서버), 진행 중인 작업 이어받기
+2. 서버 수집 프로세스 확인: `ps aux | grep kosha | grep -v grep`
+3. 최신 로그 확인: `tail -20 ~/kosha_scraper/kosha_dl*.log | tail -20`
+4. 로그 파일 정상 기록 여부: `ls -lh ~/kosha_scraper/logs/`
+5. DB 수집 현황: kosha_material_files COUNT, 잔여 건수
+6. 이상 발견 시 사용자에게 즉시 보고
 
 ## 배포규칙
 - 서버: git pull --ff-only 방식만 사용
