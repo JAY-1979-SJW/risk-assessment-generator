@@ -537,13 +537,14 @@ def process_material(material: dict, verbose: bool = True) -> dict:
 _WIN_KOSHA_MARKER = 'kosha_files'
 
 def _resolve_path(db_path: str) -> str:
-    """DB에 저장된 경로(Windows/서버 혼재)를 현재 FILES_BASE 기준으로 변환."""
-    p = Path(db_path)
-    parts = p.parts
+    """DB에 저장된 경로(Windows 역슬래시/서버 혼재)를 현재 FILES_BASE 기준으로 변환."""
+    # Windows 역슬래시 → 슬래시 정규화
+    normalized = db_path.replace('\\', '/')
+    parts = [p for p in normalized.split('/') if p]
     try:
         idx = next(i for i, part in enumerate(parts)
                    if part.lower() == _WIN_KOSHA_MARKER)
-        rel = Path(*parts[idx + 1:])
+        rel = '/'.join(parts[idx + 1:])
         return str(FILES_BASE / rel)
     except StopIteration:
         return db_path
