@@ -69,15 +69,42 @@ if [ -n "$TEST_OVERRIDE" ]; then
   VERDICT="$TEST_OVERRIDE"
 fi
 
+# ── 권한 감시 (로그만, 자동 수정 금지) ───────────────────────────────────────
+PERM_WARNS=""
+_check_perm() {
+  local path="$1" expected="$2" label="$3"
+  [ -e "$path" ] || return 0
+  local actual
+  actual=$(stat -c "%a" "$path" 2>/dev/null || echo "")
+  if [ "$actual" != "$expected" ]; then
+    PERM_WARNS="${PERM_WARNS}perm-warn: ${label} mode=${actual} expected=${expected}; "
+  fi
+}
+
+_check_perm "${HOME}/.config/ops/telegram.secrets"             "600" "telegram.secrets"
+_check_perm "${APP_DIR}/infra/.env"                            "600" "app infra/.env"
+_check_perm "/home/ubuntu/app/repo.bak.20260418"               "700" "repo.bak dir"
+
+# .env 파일 권한 체크 (infra 디렉토리 내)
+for f in "${APP_DIR}"/infra/.env "${APP_DIR}"/infra/.env.*; do
+  [ -f "$f" ] && _check_perm "$f" "600" "$(basename "$f")"
+done
+
+# 권한 이탈 감지 시 WARN 격상
+if [ -n "$PERM_WARNS" ] && [ "$VERDICT" = "PASS" ]; then
+  VERDICT="WARN"
+fi
+
 # ── 로그 기록 ──────────────────────────────────────────────────────────────────
 mkdir -p "$(dirname "$LOG_FILE")"
-echo "[$TS] verdict=$VERDICT branch=$BRANCH head=$HEAD upstream=$UP_HEAD status_len=${#STATUS} $AHEAD_BEHIND${TEST_OVERRIDE:+ [TEST]}" >> "$LOG_FILE"
+echo "[$TS] verdict=$VERDICT branch=$BRANCH head=$HEAD upstream=$UP_HEAD status_len=${#STATUS} $AHEAD_BEHIND${TEST_OVERRIDE:+ [TEST]}${PERM_WARNS:+ | $PERM_WARNS}" >> "$LOG_FILE"
 
 # ── 콘솔 출력 ─────────────────────────────────────────────────────────────────
 echo "verdict=$VERDICT"
 echo "branch=$BRANCH"
 echo "head=$HEAD"
 echo "upstream=$UP_HEAD"
+[ -n "$PERM_WARNS" ] && echo "perm-warns: $PERM_WARNS"
 
 # ── 텔레그램 알림 (WARN/FAIL만) ───────────────────────────────────────────────
 if _should_send "$VERDICT"; then
@@ -88,7 +115,8 @@ head:   ${HEAD:0:12}
 upstream: ${UP_HEAD:0:12}
 dirty files: ${#STATUS}자
 경로: ${APP_DIR}
-${AHEAD_BEHIND}${TEST_OVERRIDE:+
+${AHEAD_BEHIND}${PERM_WARNS:+
+권한경고: ${PERM_WARNS}}${TEST_OVERRIDE:+
 ※ TEST MODE}"
   _send_telegram "$MSG"
   echo "$VERDICT $(date +%s)" > "$STATE_FILE"

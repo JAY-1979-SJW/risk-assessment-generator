@@ -16,8 +16,12 @@ dist/
 *.xlsx
 nul
 
-# 환경
+# 환경 (민감값 — git 반영 금지)
 .env
+*.env
+.env.*
+*.secrets
+*.bak.*
 venv/
 .venv/
 
