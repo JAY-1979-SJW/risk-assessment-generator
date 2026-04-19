@@ -104,6 +104,16 @@ bash infra/deploy.sh
 3. 복구는 전체 삭제가 아니라 필요한 범위만 최소 복구한다.
 4. 복구 후 반드시 health / frontend / self-check 로 검증한다.
 
+### 정기 백업 자동화
+
+| 항목 | 내용 |
+|------|------|
+| 스크립트 | `infra/ops_backup_rotate.sh` |
+| 실행 주기 | 매일 08:40 (cron) |
+| 로그 | `logs/backup_rotate.log`, `logs/backup_rotate_cron.log` |
+| 보관 정책 | data 최근 7개 / logs 최근 14개 / config 최근 7개 |
+| 복구 시 | 최신 정상 백업 우선 사용 |
+
 ### 수동 백업 명령 예시
 
 ```bash
