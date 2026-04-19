@@ -101,6 +101,7 @@ async def log_requests(request: Request, call_next):
 
 
 DATABASE_URL = os.getenv("DATABASE_URL")
+COMMON_DATA_URL = os.getenv("COMMON_DATA_URL")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 MAX_CONTEXT_CHARS = 12000
@@ -154,8 +155,15 @@ def _get_conn():
     return psycopg2.connect(DATABASE_URL)
 
 
+def _get_kosha_conn():
+    url = COMMON_DATA_URL or DATABASE_URL
+    if not url:
+        raise HTTPException(status_code=503, detail="COMMON_DATA_URL not configured")
+    return psycopg2.connect(url)
+
+
 def _db_stats():
-    conn = _get_conn()
+    conn = _get_kosha_conn()
     try:
         cur = conn.cursor()
         cur.execute("SELECT COUNT(*) FROM kosha_materials")
@@ -190,7 +198,7 @@ def _fetch_chunks(trade_type: str, work_type: str = None, limit: int = 30) -> li
         ORDER BY kct.confidence DESC NULLS LAST, kmc.id DESC
         LIMIT %s
     """
-    conn = _get_conn()
+    conn = _get_kosha_conn()
     try:
         with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
             cur.execute(sql, params)
@@ -247,23 +255,125 @@ def _normalize_items(items: list, process_name: str) -> list:
 @app.get("/health")
 def health():
     result = {"status": "ok", "api": "up"}
-    if not DATABASE_URL:
-        result["db"] = "not_configured"
-        return result
     try:
+        conn = _get_conn()
+        conn.close()
         result["db"] = "connected"
-        result["kosha"] = _db_stats()
     except Exception as e:
         result["status"] = "degraded"
         result["db"] = "error"
         result["db_error"] = str(e)
+        return result
+    try:
+        result["kosha_db"] = "connected"
+        result["kosha"] = _db_stats()
+    except Exception as e:
+        result["status"] = "degraded"
+        result["kosha_db"] = "error"
+        result["kosha_db_error"] = str(e)
     return result
+
+
+@app.get("/admin/kosha/stats")
+def kosha_stats():
+    """KOSHA 수집 DB 상세 현황."""
+    conn = _get_kosha_conn()
+    try:
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+
+        cur.execute("SELECT COUNT(*) AS cnt FROM kosha_materials")
+        total_materials = cur.fetchone()["cnt"]
+
+        cur.execute("SELECT COUNT(*) AS cnt FROM kosha_material_files")
+        total_files = cur.fetchone()["cnt"]
+
+        cur.execute("SELECT COUNT(*) AS cnt FROM kosha_material_chunks")
+        total_chunks = cur.fetchone()["cnt"]
+
+        cur.execute("SELECT COUNT(*) AS cnt FROM kosha_chunk_tags")
+        total_tags = cur.fetchone()["cnt"]
+
+        cur.execute("""
+            SELECT list_type, COUNT(*) AS cnt
+            FROM kosha_materials
+            GROUP BY list_type ORDER BY cnt DESC
+        """)
+        by_list_type = [dict(r) for r in cur.fetchall()]
+
+        cur.execute("""
+            SELECT download_status, parse_status, COUNT(*) AS cnt
+            FROM kosha_material_files
+            GROUP BY download_status, parse_status ORDER BY cnt DESC
+        """)
+        by_file_status = [dict(r) for r in cur.fetchall()]
+
+        cur.execute("""
+            SELECT file_type, COUNT(*) AS cnt
+            FROM kosha_material_files
+            GROUP BY file_type ORDER BY cnt DESC
+        """)
+        by_file_type = [dict(r) for r in cur.fetchall()]
+
+        cur.execute("""
+            SELECT trade_type, COUNT(*) AS cnt
+            FROM kosha_chunk_tags
+            WHERE trade_type IS NOT NULL
+            GROUP BY trade_type ORDER BY cnt DESC LIMIT 20
+        """)
+        top_trades = [dict(r) for r in cur.fetchall()]
+
+        cur.execute("""
+            SELECT m.id, m.title, m.list_type, m.created_at::text AS created_at
+            FROM kosha_materials m
+            ORDER BY m.created_at DESC LIMIT 10
+        """)
+        recent_materials = [dict(r) for r in cur.fetchall()]
+
+        cur.execute("""
+            SELECT column_name, data_type
+            FROM information_schema.columns
+            WHERE table_schema = 'public'
+              AND table_name IN ('kosha_materials','kosha_material_files','kosha_material_chunks','kosha_chunk_tags')
+            ORDER BY table_name, ordinal_position
+        """)
+        schema_rows = cur.fetchall()
+        schema: dict = {}
+        for row in schema_rows:
+            pass
+        cur.execute("""
+            SELECT table_name, column_name, data_type
+            FROM information_schema.columns
+            WHERE table_schema = 'public'
+              AND table_name IN ('kosha_materials','kosha_material_files','kosha_material_chunks','kosha_chunk_tags')
+            ORDER BY table_name, ordinal_position
+        """)
+        schema_full = {}
+        for row in cur.fetchall():
+            t = row["table_name"]
+            schema_full.setdefault(t, []).append({"column": row["column_name"], "type": row["data_type"]})
+
+        return {
+            "summary": {
+                "materials": total_materials,
+                "files": total_files,
+                "chunks": total_chunks,
+                "tags": total_tags,
+            },
+            "by_list_type": by_list_type,
+            "by_file_status": by_file_status,
+            "by_file_type": by_file_type,
+            "top_trades": top_trades,
+            "recent_materials": recent_materials,
+            "schema": schema_full,
+        }
+    finally:
+        conn.close()
 
 
 @app.get("/trades")
 def list_trades(q: Optional[str] = Query(None, description="검색어 (부분 일치)")):
     """공종(trade_type) 목록 반환. q로 필터링 가능."""
-    conn = _get_conn()
+    conn = _get_kosha_conn()
     try:
         with conn.cursor() as cur:
             if q:
@@ -289,7 +399,7 @@ def search_kosha(
     limit: int = Query(10, ge=1, le=50),
 ):
     """KOSHA 청크 키워드 검색 (raw_text 미리보기 포함)."""
-    conn = _get_conn()
+    conn = _get_kosha_conn()
     try:
         with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
             cur.execute(

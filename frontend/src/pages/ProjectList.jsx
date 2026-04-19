@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { api } from '../api/client'
 import Layout, { Card, Btn } from '../components/Layout'
 
-export default function ProjectList({ onSelect }) {
+export default function ProjectList({ onSelect, onMonitor }) {
   const [projects, setProjects] = useState([])
   const [loading, setLoading] = useState(true)
   const [creating, setCreating] = useState(false)
@@ -42,7 +42,10 @@ export default function ProjectList({ onSelect }) {
     <Layout title="프로젝트 목록">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
         <h2 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 700 }}>위험성평가 프로젝트</h2>
-        <Btn onClick={() => setCreating(true)} color="blue">+ 새 프로젝트</Btn>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <Btn onClick={onMonitor} color="gray">DB 모니터링</Btn>
+          <Btn onClick={() => setCreating(true)} color="blue">+ 새 프로젝트</Btn>
+        </div>
       </div>
 
       {error && <div style={{ color: '#dc2626', marginBottom: 8, fontSize: '0.85rem' }}>{error}</div>}
