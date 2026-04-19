@@ -38,7 +38,7 @@ services:
       CORS_ORIGINS: ${CORS_ORIGINS:-https://kras.haehan-ai.kr}
     volumes:
       - ../docs:/app/docs:ro
-      - ../logs:/app/logs
+      - /home/ubuntu/logs/kras-app:/app/logs
       - ../scraper/logs:/app/scraper_logs:ro
     ports:
       - "${API_PORT}:8000"
