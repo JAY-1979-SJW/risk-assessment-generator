@@ -150,6 +150,83 @@ rsync -a /home/ubuntu/apps/risk-assessment-app/data/ \
 
 ---
 
+## risk-assessment-app 장애 대응 / 복구 리허설 Runbook
+
+### 장애 분류
+
+| 분류 | 판단 기준 |
+|------|-----------|
+| A. git 이상 | working tree dirty / HEAD != upstream / deploy 경로 불일치 |
+| B. 서비스 이상 | docker compose ps 비정상 / API /health 실패 / frontend HTTP 비정상 |
+| C. 권한/경로 이상 | telegram.secrets 권한 이상 / logs·backups·data 경로 누락 / 경로 불일치 |
+| D. 데이터 이상 | 백업 파일 손상·누락 / 운영 데이터 유실 |
+
+### 1차 점검 순서
+
+```bash
+cd /home/ubuntu/apps/risk-assessment-app/app/infra
+
+1. infra/ops_git_guard.sh           # git 상태 점검
+2. infra/ops_self_check.sh          # 경로·권한·스크립트 점검
+3. infra/ops_backup_check.sh        # 백업 파일 점검
+4. docker compose ps                # 컨테이너 상태 확인
+5. curl http://127.0.0.1:8000/health  # API health 200 확인
+6. curl -o /dev/null -sw "%{http_code}" http://127.0.0.1  # frontend HTTP 200
+```
+
+### 복구 원칙
+
+- 코드는 git 기준으로 복원한다 (`git pull --ff-only`).
+- 운영 데이터는 `backups/` 기준으로 필요한 범위만 최소 복구한다.
+- 전체 루트 삭제 후 복구하지 않는다.
+- 다른 앱 경로는 절대 건드리지 않는다.
+- 컨테이너 내부에서 수동 수정/복구하지 않는다.
+
+### 데이터 복구 전 확인
+
+```bash
+# 1. 최신 정상 백업 파일 확인
+ls -lht /home/ubuntu/apps/risk-assessment-app/backups/ | head -10
+
+# 2. tar 무결성 확인 (실제 압축 해제 금지)
+tar -tzf /home/ubuntu/apps/risk-assessment-app/backups/<파일명> | head -20
+
+# 3. 복구 범위 명확화 (data / logs / config 중 어느 범위만 복구할지 결정)
+
+# 4. 현재 파일 임시 백업 후 복구
+cp -a /home/ubuntu/apps/risk-assessment-app/data/ \
+    /home/ubuntu/apps/risk-assessment-app/data_bak_$(date +%Y%m%d_%H%M%S)/
+```
+
+### 복구 후 검증
+
+```bash
+docker compose ps
+curl http://127.0.0.1:8000/health
+curl -o /dev/null -sw "%{http_code}" http://127.0.0.1
+infra/ops_git_guard.sh
+infra/ops_self_check.sh
+infra/ops_backup_check.sh
+```
+
+### 리허설 점검 (비파괴)
+
+```bash
+# 주 1회 자동 실행 (월요일 10:00) 또는 수동 실행
+cd /home/ubuntu/apps/risk-assessment-app/app/infra
+./ops_restore_rehearsal.sh
+```
+
+### 금지사항
+
+- `/home/ubuntu/apps/risk-assessment-app/` 전체 단위 삭제/복구 금지
+- git 추적 코드를 백업본으로 덮어쓰기 금지
+- tar 압축 해제 전 대상 경로 확인 없이 복구 금지
+- 운영 중 다른 앱 디렉토리 침범 금지
+- 컨테이너 내부 `docker exec` 로 파일 직접 교체 금지
+
+---
+
 ## 초기 서버 설정 (최초 1회)
 
 ```bash
