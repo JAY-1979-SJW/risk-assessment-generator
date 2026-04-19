@@ -21,8 +21,8 @@
 ## 고정값
 - 저장소: risk-assessment-generator
 - 서버경로: /home/ubuntu/app/risk-assessment-app
-- 데이터경로: /home/ubuntu/data/risk-assessment-app
-- 로그경로: /home/ubuntu/logs/risk-assessment-app
+- 데이터경로: /mnt/risk-assessment-data  (컨테이너: /app/data)
+- 로그경로: /mnt/risk-assessment-logs   (컨테이너: /app/logs)
 - 도메인: kras.haehan-ai.kr
 - 컨테이너: risk-assessment-web / risk-assessment-api / risk-assessment-db
 - Volume: risk-assessment-pgdata / Network: risk-assessment-net
