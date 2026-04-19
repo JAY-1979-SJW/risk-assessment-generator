@@ -72,11 +72,11 @@ CREATE TABLE IF NOT EXISTS project_forms (
     id          SERIAL PRIMARY KEY,
     project_id  INTEGER     NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
     form_type   VARCHAR(20) NOT NULL,  -- meeting / education / safety_meeting
-    form_date   DATE,
-    time_start  VARCHAR(5)  DEFAULT '',  -- HH:mm
-    time_end    VARCHAR(5)  DEFAULT '',
+    held_date   DATE,
     location    VARCHAR(200) DEFAULT '',
-    content     TEXT         DEFAULT '',
+    agenda      TEXT         DEFAULT '',
+    result      TEXT         DEFAULT '',
+    next_action TEXT         DEFAULT '',
     UNIQUE (project_id, form_type)
 );
 
@@ -85,8 +85,8 @@ CREATE TABLE IF NOT EXISTS project_form_attendees (
     form_id     INTEGER     NOT NULL REFERENCES project_forms(id) ON DELETE CASCADE,
     sort_order  INTEGER     NOT NULL DEFAULT 0,
     department  VARCHAR(100) DEFAULT '',
-    name        VARCHAR(100) DEFAULT '',
-    signature   VARCHAR(100) DEFAULT ''
+    position    VARCHAR(100) DEFAULT '',
+    name        VARCHAR(100) DEFAULT ''
 );
 
 -- ── 인덱스 ───────────────────────────────────────────────────────────────────

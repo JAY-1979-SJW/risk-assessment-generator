@@ -35,7 +35,22 @@ def export_excel(pid: int):
     except ImportError:
         raise HTTPException(503, "openpyxl not installed")
 
+    try:
+        return _build_excel(pid, Workbook, Font, Alignment, Border, Side, PatternFill, get_column_letter)
+    except HTTPException:
+        raise
+    except Exception as e:
+        export_log.exception("excel export error pid=%s", pid)
+        raise HTTPException(500, f"엑셀 생성 실패: {type(e).__name__}")
+
+
+def _build_excel(pid, Workbook, Font, Alignment, Border, Side, PatternFill, get_column_letter):
+
     # 데이터 조회
+    project = fetchone("SELECT id FROM projects WHERE id=%s", (pid,))
+    if not project:
+        raise HTTPException(404, "프로젝트를 찾을 수 없습니다")
+
     company = fetchone("SELECT * FROM project_company_info WHERE project_id=%s", (pid,)) or {}
     members = fetchall("SELECT * FROM project_org_members WHERE project_id=%s ORDER BY sort_order", (pid,))
     assessments = fetchall("SELECT * FROM project_assessments WHERE project_id=%s ORDER BY sort_order, id", (pid,))

@@ -73,10 +73,15 @@ app.include_router(forms.router,        prefix="/api")
 app.include_router(templates.router,    prefix="/api")
 app.include_router(export.router,       prefix="/api")
 
+_CORS_ORIGINS = [
+    o.strip() for o in
+    os.getenv("CORS_ORIGINS", "https://kras.haehan-ai.kr").split(",")
+    if o.strip()
+]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["GET", "POST"],
+    allow_origins=_CORS_ORIGINS,
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
 )
 

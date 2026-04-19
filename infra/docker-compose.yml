@@ -35,6 +35,7 @@ services:
       DEVLOG_DIR: /app/docs/devlog
       CHANGE_HISTORY_PATH: /app/logs/change_history.jsonl
       INTERNAL_API_KEY: ${INTERNAL_API_KEY}
+      CORS_ORIGINS: ${CORS_ORIGINS:-https://kras.haehan-ai.kr}
     volumes:
       - ../docs:/app/docs:ro
       - ../logs:/app/logs

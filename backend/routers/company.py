@@ -1,22 +1,41 @@
+import re
 from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 from typing import Optional
 from db import fetchone, execute
 
 router = APIRouter(prefix="/projects/{pid}/company-info", tags=["company"])
 
+_DATE_RE = re.compile(r'^\d{4}-\d{2}-\d{2}$')
+
+EVAL_TYPES = ("정기평가", "최초평가", "수시평가", "상시평가")
+
 
 class CompanyInfo(BaseModel):
-    company_name: Optional[str] = ""
-    ceo_name: Optional[str] = ""
+    company_name:  Optional[str] = ""
+    ceo_name:      Optional[str] = ""
     business_type: Optional[str] = ""
-    address: Optional[str] = ""
-    site_name: Optional[str] = ""
-    work_type: Optional[str] = ""
-    eval_date: Optional[str] = None
-    eval_type: Optional[str] = "정기평가"
+    address:       Optional[str] = ""
+    site_name:     Optional[str] = ""
+    work_type:     Optional[str] = ""
+    eval_date:     Optional[str] = None
+    eval_type:     Optional[str] = "정기평가"
     safety_policy: Optional[str] = ""
-    safety_goal: Optional[str] = ""
+    safety_goal:   Optional[str] = ""
+
+    @field_validator('eval_date', mode='before')
+    @classmethod
+    def validate_eval_date(cls, v):
+        if v and not _DATE_RE.match(str(v)):
+            raise ValueError('eval_date 형식은 YYYY-MM-DD이어야 합니다')
+        return v or None
+
+    @field_validator('eval_type', mode='before')
+    @classmethod
+    def validate_eval_type(cls, v):
+        if v and v not in EVAL_TYPES:
+            raise ValueError(f'eval_type은 {EVAL_TYPES} 중 하나이어야 합니다')
+        return v
 
 
 @router.get("")

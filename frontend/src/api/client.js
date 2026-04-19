@@ -50,6 +50,12 @@ export const api = {
   generateAI: (data)         => req('POST', '/generate', data),
 
   // Export
-  exportExcel: (pid) => fetch(`${BASE}/projects/${pid}/export/excel`)
-    .then(r => { if (!r.ok) throw new Error('내보내기 실패'); return r.blob() }),
+  exportExcel: async (pid) => {
+    const r = await fetch(`${BASE}/projects/${pid}/export/excel`)
+    if (!r.ok) {
+      const err = await r.json().catch(() => ({ detail: '엑셀 생성 실패' }))
+      throw new Error(err.detail || '엑셀 생성 실패')
+    }
+    return r.blob()
+  },
 }
