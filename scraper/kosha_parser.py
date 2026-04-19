@@ -583,7 +583,7 @@ def run_parse_pending(batch_size: int = 50):
         JOIN kosha_materials m ON m.id = f.material_id
         WHERE f.parse_status = 'pending'
           AND f.file_path IS NOT NULL
-          AND f.file_type IN ('pdf','zip')
+          AND f.file_type = 'pdf'
         ORDER BY f.id
     """)
     rows = [dict(r) for r in cur.fetchall()]
@@ -591,7 +591,7 @@ def run_parse_pending(batch_size: int = 50):
 
     total = len(rows)
     rlog.info('=== 기존파일 파싱 시작 === 대상:%d건', total)
-    print(f'[파싱] 대상: {total:,}건 (parse_status=pending, pdf/zip만)')
+    print(f'[파싱] 대상: {total:,}건 (parse_status=pending, pdf+한국어만)')
 
     if total == 0:
         print('파싱 대상 없음')
