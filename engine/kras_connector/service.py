@@ -8,6 +8,8 @@ Full flow:
 import json
 import logging
 import traceback
+from datetime import date, datetime
+from decimal import Decimal
 from typing import Any, Dict, List, Optional
 
 from engine.kras_connector.db import fetchone, fetchall, execute
@@ -18,6 +20,18 @@ from engine.rag_risk_engine.engine import run_engine
 logger = logging.getLogger(__name__)
 
 ENGINE_VERSION = 'v1.1'
+
+
+def _json_default(obj: Any) -> Any:
+    if isinstance(obj, (datetime, date)):
+        return obj.isoformat()
+    if isinstance(obj, Decimal):
+        return float(obj)
+    raise TypeError(f'Object of type {type(obj).__name__} is not JSON serializable')
+
+
+def _to_json(obj: Any) -> str:
+    return json.dumps(obj, ensure_ascii=False, default=_json_default)
 
 STATUS_SUCCESS = 'success'
 STATUS_INVALID_INPUT = 'invalid_input'
@@ -146,8 +160,8 @@ def _save_result(
         (
             assessment_id,
             ENGINE_VERSION,
-            json.dumps(input_snapshot, ensure_ascii=False),
-            json.dumps(output, ensure_ascii=False) if output else None,
+            _to_json(input_snapshot),
+            _to_json(output) if output else None,
             source_chunk_ids,
             confidence,
             warnings,
