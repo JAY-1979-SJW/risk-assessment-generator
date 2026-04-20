@@ -1,0 +1,9 @@
+{
+  "process": "건축 골조",
+  "sub_work": "시스템 비계 설치 및 해체",
+  "risk_situation": "시스템 비계 설치 중 2m 이상 고소에서 작업발판이 불안정하여 작업자가 추락할 위험",
+  "risk_category": "작업특성 요인",
+  "risk_detail": "추락",
+  "current_measures": "안전모 착용 지시",
+  "top_k": 10
+}

@@ -1,0 +1,9 @@
+{
+  "process": "토목 하수도",
+  "sub_work": "맨홀 내부 청소 및 점검",
+  "risk_situation": "맨홀 내부 밀폐공간 작업 중 황화수소 및 산소 결핍으로 인한 질식 위험",
+  "risk_category": "작업환경 요인",
+  "risk_detail": "질식",
+  "legal_basis_hint": "산업안전보건기준에 관한 규칙 밀폐공간",
+  "top_k": 10
+}

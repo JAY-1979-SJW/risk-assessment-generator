@@ -1,0 +1,6 @@
+{
+  "process": "일반",
+  "sub_work": "현장 작업",
+  "risk_situation": "현장 작업 중 안전 사고 발생 가능",
+  "top_k": 5
+}

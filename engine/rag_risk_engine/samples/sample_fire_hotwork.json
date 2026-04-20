@@ -1,0 +1,9 @@
+{
+  "process": "배관 설치",
+  "sub_work": "용접 및 절단 작업",
+  "risk_situation": "배관 용접 및 절단 작업 중 불꽃 비산으로 인근 가연성 자재에 화재 발생 위험, 폭발 가능성",
+  "risk_category": "화학(물질)적 요인",
+  "risk_detail": "화재",
+  "current_measures": "소화기 미비치",
+  "top_k": 10
+}

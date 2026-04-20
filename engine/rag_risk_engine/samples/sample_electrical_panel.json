@@ -1,0 +1,10 @@
+{
+  "process": "전기 설비",
+  "sub_work": "분전반 내부 배선 작업",
+  "risk_situation": "분전반 내부 활선 상태에서 배선 교체 작업 중 감전 위험, 절연 피복 손상 전선 접촉",
+  "risk_category": "전기적 요인",
+  "risk_detail": "감전",
+  "current_measures": "전원 차단 미실시",
+  "legal_basis_hint": "산업안전보건기준에 관한 규칙 전기 작업",
+  "top_k": 8
+}
