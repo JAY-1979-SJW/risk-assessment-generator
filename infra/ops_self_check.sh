@@ -108,6 +108,11 @@ done
 LOG_LINE="[$TS] git=${GIT_R} path=${PATH_R} perms=${PERM_R} services=${SVC_R} docs=${DOCS_R} verdict=${VERDICT}${DETAIL:+ |${DETAIL}}"
 echo "$LOG_LINE" >> "$LOG_FILE"
 
+# ── 대시보드용 .last 갱신 ─────────────────────────────────────────────────────
+STATUS_DIR="/home/ubuntu/apps/risk-assessment-app/logs/status"
+mkdir -p "$STATUS_DIR"
+echo "$LOG_LINE" > "$STATUS_DIR/self_check.last" 2>/dev/null || true
+
 # ── 콘솔 출력 ────────────────────────────────────────────────────────────────
 echo "[$TS]"
 echo "  git      : $GIT_R"

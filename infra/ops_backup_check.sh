@@ -90,6 +90,11 @@ done
 LOG_LINE="[${TS}] backup_path=${BACKUP_R} data=${DATA_R} compose=${COMPOSE_R} scripts=${SCRIPTS_R} recent=${RECENT_R} verdict=${VERDICT}${DETAIL:+ |${DETAIL}}"
 echo "${LOG_LINE}" >> "${LOG_FILE}"
 
+# ── 대시보드용 .last 갱신 ─────────────────────────────────────────────────────
+STATUS_DIR="/home/ubuntu/apps/risk-assessment-app/logs/status"
+mkdir -p "${STATUS_DIR}"
+echo "${LOG_LINE}" > "${STATUS_DIR}/backup_check.last" 2>/dev/null || true
+
 # ── 콘솔 출력 ────────────────────────────────────────────────────────────────
 echo ""
 echo "[${TS}]"

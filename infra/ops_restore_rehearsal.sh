@@ -140,6 +140,11 @@ done
 LOG_LINE="[${TS}] backups=${BACKUPS_R} compose=${COMPOSE_R} scripts=${SCRIPTS_R} paths=${PATHS_R} verdict=${VERDICT}${DETAIL:+ |${DETAIL}}"
 echo "${LOG_LINE}" >> "${LOG_FILE}"
 
+# ── 대시보드용 .last 갱신 ─────────────────────────────────────────────────────
+STATUS_DIR="/home/ubuntu/apps/risk-assessment-app/logs/status"
+mkdir -p "${STATUS_DIR}"
+echo "${LOG_LINE}" > "${STATUS_DIR}/restore_rehearsal.last" 2>/dev/null || true
+
 # ── 콘솔 최종 출력 ────────────────────────────────────────────────────────────
 echo ""
 echo "=== 최종 판정 ==="

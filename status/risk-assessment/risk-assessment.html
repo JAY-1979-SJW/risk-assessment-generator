@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>risk-assessment-app status</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Consolas', 'Monaco', monospace;
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 1.5rem;
+      min-height: 100vh;
+    }
+    h1 { font-size: 1.1rem; color: #94a3b8; margin-bottom: 0.25rem; letter-spacing: 0.05em; }
+    #updated { font-size: 0.7rem; color: #475569; margin-bottom: 1.25rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.875rem;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 0.5rem;
+      padding: 0.875rem;
+    }
+    .card.wide { grid-column: span 2; }
+    .card h2 {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #64748b;
+      margin-bottom: 0.6rem;
+      border-bottom: 1px solid #1e3a5f;
+      padding-bottom: 0.4rem;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.2rem 0;
+      font-size: 0.8rem;
+    }
+    .label { color: #94a3b8; }
+    .val { font-family: monospace; font-size: 0.75rem; color: #64748b; }
+    .PASS { color: #22c55e; font-weight: bold; }
+    .WARN { color: #f97316; font-weight: bold; }
+    .FAIL { color: #ef4444; font-weight: bold; }
+    .OK   { color: #22c55e; font-weight: bold; }
+    .loading { color: #334155; font-style: italic; }
+    .meta { font-size: 0.65rem; color: #334155; margin-top: 0.4rem; }
+    .svc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
+  </style>
+</head>
+<body>
+  <h1>risk-assessment-app status</h1>
+  <div id="updated" class="loading">loading…</div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Git 상태</h2>
+      <div id="git-content"><span class="loading">loading…</span></div>
+    </div>
+
+    <div class="card">
+      <h2>Self Check</h2>
+      <div id="self-content"><span class="loading">loading…</span></div>
+    </div>
+
+    <div class="card">
+      <h2>Backup 상태</h2>
+      <div id="backup-content"><span class="loading">loading…</span></div>
+    </div>
+
+    <div class="card">
+      <h2>Restore Rehearsal</h2>
+      <div id="restore-content"><span class="loading">loading…</span></div>
+    </div>
+
+    <div class="card wide">
+      <h2>서비스 상태 (live)</h2>
+      <div class="svc-grid" id="svc-content"><span class="loading">loading…</span></div>
+    </div>
+  </div>
+
+  <script>
+    const DATA = '/status/risk-assessment/data/';
+
+    function parseKV(line) {
+      const m = line.match(/^\[([^\]]+)\]/);
+      const kv = { _ts: m ? m[1] : '' };
+      line.replace(/^\[[^\]]+\]\s*/, '').split(/\s+/).forEach(p => {
+        const i = p.indexOf('=');
+        if (i > 0) kv[p.slice(0, i)] = p.slice(i + 1);
+      });
+      return kv;
+    }
+
+    function badge(v) {
+      if (!v) return '<span class="loading">-</span>';
+      const c = { PASS: 'PASS', WARN: 'WARN', FAIL: 'FAIL' }[v] || '';
+      return `<span class="${c}">${v}</span>`;
+    }
+
+    function row(label, v) {
+      return `<div class="row"><span class="label">${label}</span>${badge(v)}</div>`;
+    }
+
+    function valRow(label, v) {
+      return `<div class="row"><span class="label">${label}</span><span class="val">${v || '-'}</span></div>`;
+    }
+
+    async function fetchLast(name) {
+      try {
+        const r = await fetch(`${DATA}${name}.last?_=${Date.now()}`);
+        return r.ok ? (await r.text()).trim() : null;
+      } catch { return null; }
+    }
+
+    async function refreshGit() {
+      const line = await fetchLast('git_guard');
+      const el = document.getElementById('git-content');
+      if (!line) { el.innerHTML = '<span class="FAIL">데이터 없음</span>'; return; }
+      const kv = parseKV(line);
+      el.innerHTML =
+        row('verdict', kv.verdict) +
+        valRow('branch', kv.branch) +
+        valRow('head', (kv.head || '').substring(0, 12)) +
+        valRow('upstream', (kv.upstream || '').substring(0, 12)) +
+        `<div class="meta">${kv._ts}</div>`;
+    }
+
+    async function refreshSelf() {
+      const line = await fetchLast('self_check');
+      const el = document.getElementById('self-content');
+      if (!line) { el.innerHTML = '<span class="FAIL">데이터 없음</span>'; return; }
+      const kv = parseKV(line);
+      el.innerHTML =
+        row('git', kv.git) +
+        row('path', kv.path) +
+        row('perms', kv.perms) +
+        row('services', kv.services) +
+        row('docs', kv.docs) +
+        row('verdict', kv.verdict) +
+        `<div class="meta">${kv._ts}</div>`;
+    }
+
+    async function refreshBackup() {
+      const line = await fetchLast('backup_check');
+      const el = document.getElementById('backup-content');
+      if (!line) { el.innerHTML = '<span class="FAIL">데이터 없음</span>'; return; }
+      const kv = parseKV(line);
+      el.innerHTML =
+        row('backup_path', kv.backup_path) +
+        row('data', kv.data) +
+        row('compose', kv.compose) +
+        row('scripts', kv.scripts) +
+        row('recent', kv.recent) +
+        row('verdict', kv.verdict) +
+        `<div class="meta">${kv._ts}</div>`;
+    }
+
+    async function refreshRestore() {
+      const line = await fetchLast('restore_rehearsal');
+      const el = document.getElementById('restore-content');
+      if (!line) { el.innerHTML = '<span class="FAIL">데이터 없음</span>'; return; }
+      const kv = parseKV(line);
+      el.innerHTML =
+        row('backups', kv.backups) +
+        row('compose', kv.compose) +
+        row('scripts', kv.scripts) +
+        row('paths', kv.paths) +
+        row('verdict', kv.verdict) +
+        `<div class="meta">${kv._ts}</div>`;
+    }
+
+    async function refreshSvc() {
+      const el = document.getElementById('svc-content');
+      let left = '', right = '';
+      try {
+        const r = await fetch(`/health?_=${Date.now()}`);
+        if (r.ok) {
+          const j = await r.json();
+          left  += row('API', j.status === 'ok' ? 'PASS' : 'FAIL');
+          left  += row('DB', j.db === 'connected' ? 'PASS' : 'FAIL');
+          left  += row('KOSHA DB', j.kosha_db === 'connected' ? 'PASS' : 'FAIL');
+          left  += row('Frontend', 'PASS');
+          if (j.kosha) {
+            right += valRow('materials', j.kosha.materials);
+            right += valRow('chunks', j.kosha.chunks);
+            right += valRow('tags', j.kosha.tags);
+            const f = j.kosha.files || {};
+            right += valRow('success/pending', `${f.success || 0} / ${f.pending || 0}`);
+          }
+        } else {
+          left += row('API', 'FAIL') + row('DB', 'FAIL') + row('KOSHA DB', 'FAIL');
+          left += `<div class="row"><span class="label">HTTP</span><span class="FAIL">${r.status}</span></div>`;
+        }
+      } catch (e) {
+        left += `<div class="row"><span class="label">API</span><span class="FAIL">fetch 실패</span></div>`;
+        left += row('Frontend', 'PASS');
+      }
+      el.innerHTML = `<div>${left}</div><div>${right}</div>`;
+    }
+
+    async function refresh() {
+      await Promise.all([refreshGit(), refreshSelf(), refreshBackup(), refreshRestore(), refreshSvc()]);
+      document.getElementById('updated').textContent =
+        'Updated: ' + new Date().toLocaleString('ko-KR') + ' · 5초 자동갱신';
+    }
+
+    refresh();
+    setInterval(refresh, 5000);
+  </script>
+</body>
+</html>

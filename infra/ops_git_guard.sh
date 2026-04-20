@@ -98,7 +98,13 @@ fi
 
 # ── 로그 기록 ──────────────────────────────────────────────────────────────────
 mkdir -p "$(dirname "$LOG_FILE")"
-echo "[$TS] verdict=$VERDICT branch=$BRANCH head=$HEAD upstream=$UP_HEAD status_len=${#STATUS} $AHEAD_BEHIND${TEST_OVERRIDE:+ [TEST]}${PERM_WARNS:+ | $PERM_WARNS}" >> "$LOG_FILE"
+LOG_LINE="[$TS] verdict=$VERDICT branch=$BRANCH head=$HEAD upstream=$UP_HEAD status_len=${#STATUS} $AHEAD_BEHIND${TEST_OVERRIDE:+ [TEST]}${PERM_WARNS:+ | $PERM_WARNS}"
+echo "$LOG_LINE" >> "$LOG_FILE"
+
+# ── 대시보드용 .last 갱신 ─────────────────────────────────────────────────────
+STATUS_DIR="/home/ubuntu/apps/risk-assessment-app/logs/status"
+mkdir -p "$STATUS_DIR"
+echo "$LOG_LINE" > "$STATUS_DIR/git_guard.last" 2>/dev/null || true
 
 # ── 콘솔 출력 ─────────────────────────────────────────────────────────────────
 echo "verdict=$VERDICT"
