@@ -5,6 +5,37 @@
 
 ---
 
+## 노이즈(Noise) vs 실제 장애(Incident) 판정 기준
+
+### PASS / WARN / FAIL 과 Overall Status 의 차이
+
+| 개념 | 설명 |
+|------|------|
+| PASS/WARN/FAIL | 개별 스크립트 1회 실행 결과 |
+| HEALTHY | 24시간 기준 실제 FAIL 없음 (noise 포함 FAIL은 제외) |
+| DEGRADED | git_guard FAIL 이지만 서비스 정상, 또는 WARN 다수 누적 |
+| INCIDENT | self_check/backup/restore 연속 FAIL 2회, 또는 복수 source 동시 FAIL |
+
+### 운영 잡음(Noise) 분류
+
+- **git_guard mode_only**: `chmod` 등 파일 모드 변경만 있는 경우 → raw FAIL이라도 normalized WARN 으로 처리
+- **1회성 WARN**: 초기 실행·데이터 부족·예상 가능한 경고 → 즉각 장애 아님
+- **연속성 없는 FAIL**: 단발성 외부 요인(네트워크 지연 등) → DEGRADED 판정 전 재확인
+
+### 실제 장애(INCIDENT) 승격 조건
+
+1. `self_check` · `backup_check` · `restore_rehearsal` 중 하나가 연속 2회 FAIL
+2. 서로 다른 source 2개 이상이 24시간 내 각 2회 이상 FAIL
+3. API health / frontend HTTP 연속 2회 이상 비정상
+
+### 판단 원칙
+
+- **1회 FAIL ≠ 즉시 장애**: 연속성과 핵심 source 동시 실패 여부를 확인한다.
+- **git_guard FAIL 단독**: 서비스/health 정상이면 DEGRADED (복구 급하지 않음).
+- **mode_only**: `git checkout -- <file>` 로 해소 가능, 긴급 복구 불필요.
+
+---
+
 ## A. git 이상 대응 템플릿
 
 ### 증상

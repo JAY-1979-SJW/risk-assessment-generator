@@ -44,28 +44,45 @@
     .PASS { color: #22c55e; font-weight: bold; }
     .WARN { color: #f97316; font-weight: bold; }
     .FAIL { color: #ef4444; font-weight: bold; }
+    .HEALTHY  { color: #22c55e; font-weight: bold; }
+    .DEGRADED { color: #f97316; font-weight: bold; }
+    .INCIDENT { color: #ef4444; font-weight: bold; }
     .loading { color: #334155; font-style: italic; }
     .meta { font-size: 0.65rem; color: #334155; margin-top: 0.4rem; }
     .svc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
-    /* 이력 블록 */
+    /* Overall Status 카드 */
+    .overall-banner {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .overall-verdict { font-size: 1.5rem; font-weight: bold; letter-spacing: 0.05em; }
+    .overall-meta { font-size: 0.75rem; color: #64748b; }
+    .overall-reasons { font-size: 0.72rem; color: #94a3b8; margin-top: 0.4rem; }
+    .overall-counts { display: flex; gap: 1rem; font-size: 0.75rem; }
+    /* 24h 그리드 */
     .h24-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
     .h24-cell { background: #0f172a; border-radius: 0.3rem; padding: 0.5rem; }
     .h24-src { font-size: 0.65rem; color: #64748b; margin-bottom: 0.35rem; }
     .h24-counts { display: flex; gap: 0.5rem; font-size: 0.8rem; }
-    .evt-row {
-      display: grid;
-      grid-template-columns: 7rem 8rem 3.5rem 1fr;
-      gap: 0.25rem;
-      padding: 0.2rem 0;
-      font-size: 0.72rem;
-      border-bottom: 1px solid #1e293b;
-    }
-    .evt-row:last-child { border-bottom: none; }
-    .evt-summary { color: #475569; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    /* 7d 그리드 */
     .d7-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
     .d7-cell { background: #0f172a; border-radius: 0.3rem; padding: 0.5rem; }
     .d7-src { font-size: 0.65rem; color: #64748b; margin-bottom: 0.35rem; }
     .d7-line { font-size: 0.68rem; padding: 0.1rem 0; }
+    /* 이벤트 테이블 */
+    .evt-row {
+      display: grid;
+      grid-template-columns: 7rem 8rem 3.5rem 3.5rem 1fr;
+      gap: 0.25rem;
+      padding: 0.2rem 0;
+      font-size: 0.7rem;
+      border-bottom: 1px solid #162032;
+    }
+    .evt-row:last-child { border-bottom: none; }
+    .evt-summary { color: #475569; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .noise-badge { font-size: 0.6rem; color: #475569; background: #1e293b; border-radius: 0.2rem; padding: 0 0.2rem; }
   </style>
 </head>
 <body>
@@ -73,6 +90,13 @@
   <div id="updated" class="loading">loading…</div>
 
   <div class="grid">
+
+    <!-- ── Overall Status (최상단) ─────────────────────────────────────────── -->
+    <div class="card wide" id="card-overall">
+      <h2>Overall Status</h2>
+      <div id="overall-content"><span class="loading">loading…</span></div>
+    </div>
+
     <!-- ── 현재 상태 5개 블록 ───────────────────────────────────────────────── -->
     <div class="card">
       <h2>Git 상태</h2>
@@ -115,11 +139,12 @@
       </div>
     </div>
 
-    <!-- ── 이력 블록 C: 최근 이벤트 10개 ──────────────────────────────────── -->
+    <!-- ── 이력 블록 C: 최근 이벤트 10개 (normalized) ─────────────────────── -->
     <div class="card wide">
-      <h2>최근 이벤트 10개</h2>
+      <h2>최근 이벤트 10개 (normalized)</h2>
       <div id="events-content"><span class="loading">loading…</span></div>
     </div>
+
   </div>
 
   <script>
@@ -148,19 +173,98 @@
     function valRow(label, v) {
       return `<div class="row"><span class="label">${label}</span><span class="val">${v || '-'}</span></div>`;
     }
-
     function fmtTs(ts) {
       try {
-        const d = new Date(ts);
-        return d.toLocaleString('ko-KR', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+        return new Date(ts).toLocaleString('ko-KR',
+          { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
       } catch { return ts || '-'; }
     }
 
-    function vClass(v) {
-      return v === 'PASS' ? 'PASS' : v === 'WARN' ? 'WARN' : v === 'FAIL' ? 'FAIL' : '';
+    // ── 노이즈 정규화 ─────────────────────────────────────────────────────────
+    function normalizeEvent(e) {
+      // git_guard: mode_only dirty → raw FAIL/WARN을 normalized WARN으로
+      if (e.source === 'git_guard' && e.verdict === 'FAIL' &&
+          e.summary && e.summary.includes('dirty_type=mode_only')) {
+        return { ...e, normalized: 'WARN', noiseType: 'mode_only' };
+      }
+      return { ...e, normalized: e.verdict, noiseType: null };
     }
 
-    // ── 데이터 fetch ──────────────────────────────────────────────────────────
+    // ── Overall Status 계산 ───────────────────────────────────────────────────
+    function calcOverall(allData) {
+      const now = Date.now();
+      const h24 = now - 24 * 60 * 60 * 1000;
+      const reasons = [];
+
+      // 24h 데이터 (normalized 적용)
+      const recent24 = {};
+      for (const src of SOURCES) {
+        recent24[src] = (allData[src] || [])
+          .filter(e => new Date(e.ts).getTime() >= h24)
+          .map(normalizeEvent);
+      }
+
+      // source별 normalized 카운트
+      const nFails = {}, nWarns = {};
+      for (const src of SOURCES) {
+        nFails[src] = recent24[src].filter(e => e.normalized === 'FAIL').length;
+        nWarns[src] = recent24[src].filter(e => e.normalized === 'WARN').length;
+      }
+      const totalFails = Object.values(nFails).reduce((a, b) => a + b, 0);
+      const totalWarns = Object.values(nWarns).reduce((a, b) => a + b, 0);
+
+      // 연속 FAIL 판정 (전체 이력 기준, normalized)
+      function lastNFail(src, n) {
+        const items = (allData[src] || []).slice(-n).map(normalizeEvent);
+        return items.length >= n && items.every(e => e.normalized === 'FAIL');
+      }
+
+      // INCIDENT 판정
+      if (lastNFail('self_check', 2)) reasons.push('self_check 연속 FAIL 2회');
+      if (lastNFail('backup_check', 2)) reasons.push('backup_check 연속 FAIL 2회');
+      if (lastNFail('restore_rehearsal', 2)) reasons.push('restore_rehearsal 연속 FAIL 2회');
+
+      const failingSrcs = SOURCES.filter(s => nFails[s] >= 2);
+      if (failingSrcs.length >= 2) {
+        reasons.push(`복수 source 동시 FAIL: ${failingSrcs.join(', ')}`);
+      }
+      if (reasons.length > 0) {
+        const lastAt = findLastIncident(allData);
+        return { overall: 'INCIDENT', reasons, totalFails, totalWarns, lastIncidentAt: lastAt };
+      }
+
+      // DEGRADED 판정
+      const degReasons = [];
+      for (const src of ['self_check', 'backup_check', 'restore_rehearsal']) {
+        if (lastNFail(src, 2)) degReasons.push(`${src} 연속 FAIL`);
+      }
+      if (nFails['git_guard'] > 0) degReasons.push('git_guard FAIL (서비스 정상 — DEGRADED)');
+      if (totalWarns >= 5) degReasons.push(`24시간 WARN ${totalWarns}회 누적`);
+      if (totalFails > 0 && degReasons.length === 0) {
+        degReasons.push(`24시간 실제 FAIL ${totalFails}회`);
+      }
+      if (degReasons.length > 0) {
+        const lastAt = findLastIncident(allData);
+        return { overall: 'DEGRADED', reasons: degReasons, totalFails, totalWarns, lastIncidentAt: lastAt };
+      }
+
+      // HEALTHY (noise 여부 포함)
+      const hasNoise = SOURCES.some(src =>
+        (allData[src] || []).slice(-3).some(e => normalizeEvent(e).noiseType !== null)
+      );
+      const noiseNote = hasNoise ? ['git_guard mode_only 변경 감지 (운영 잡음 — HEALTHY 유지)'] : [];
+      return { overall: 'HEALTHY', reasons: noiseNote, totalFails: 0, totalWarns, lastIncidentAt: null };
+    }
+
+    function findLastIncident(allData) {
+      const allFails = Object.values(allData).flat()
+        .map(normalizeEvent)
+        .filter(e => e.normalized === 'FAIL')
+        .sort((a, b) => new Date(b.ts) - new Date(a.ts));
+      return allFails.length ? allFails[0].ts : null;
+    }
+
+    // ── fetch helpers ─────────────────────────────────────────────────────────
     async function fetchLast(name) {
       try {
         const r = await fetch(`${DATA}${name}.last?_=${Date.now()}`);
@@ -172,10 +276,10 @@
       try {
         const r = await fetch(`${DATA}${src}.history.jsonl?_=${Date.now()}`);
         if (!r.ok) return [];
-        const txt = await r.text();
-        return txt.trim().split('\n').filter(l => l.trim()).map(l => {
-          try { return JSON.parse(l); } catch { return null; }
-        }).filter(Boolean);
+        return (await r.text()).trim().split('\n')
+          .filter(l => l.trim())
+          .map(l => { try { return JSON.parse(l); } catch { return null; } })
+          .filter(Boolean);
       } catch { return []; }
     }
 
@@ -261,41 +365,71 @@
     async function refreshHistory() {
       const now = Date.now();
       const h24 = now - 24 * 60 * 60 * 1000;
-      const d7  = now - 7  * 24 * 60 * 60 * 1000;
+      const d7  = now - 7 * 24 * 60 * 60 * 1000;
 
-      // 4개 source 병렬 fetch
       const allData = {};
       await Promise.all(SOURCES.map(async src => {
         allData[src] = await fetchHistory(src);
       }));
 
-      // ── A. 24시간 요약 ──────────────────────────────────────────────────────
+      // ── Overall Status ────────────────────────────────────────────────────
+      try {
+        const { overall, reasons, totalFails, totalWarns, lastIncidentAt } = calcOverall(allData);
+        const cls = overall;
+        const reasonHtml = reasons.length
+          ? `<div class="overall-reasons">사유: ${reasons.slice(0, 3).join(' · ')}</div>` : '';
+        document.getElementById('overall-content').innerHTML =
+          `<div class="overall-banner">
+            <div>
+              <div class="overall-verdict ${cls}">${overall}</div>
+              <div class="overall-meta">Updated: ${new Date().toLocaleString('ko-KR')}</div>
+            </div>
+            <div>
+              <div class="overall-counts">
+                <span><span class="FAIL">FAIL</span> <span class="val">${totalFails}건</span></span>
+                <span><span class="WARN">WARN</span> <span class="val">${totalWarns}건</span></span>
+                <span class="val">24h 기준</span>
+              </div>
+              <div class="overall-meta">마지막 FAIL: ${lastIncidentAt ? fmtTs(lastIncidentAt) : '없음'}</div>
+            </div>
+          </div>
+          ${reasonHtml}`;
+      } catch (e) {
+        document.getElementById('overall-content').innerHTML =
+          '<span class="loading">계산 중 오류</span>';
+      }
+
+      // ── A. 24시간 요약 ────────────────────────────────────────────────────
       let h24html = '';
       for (const src of SOURCES) {
-        const items = allData[src].filter(e => new Date(e.ts).getTime() >= h24);
-        const p = items.filter(e => e.verdict === 'PASS').length;
-        const w = items.filter(e => e.verdict === 'WARN').length;
-        const f = items.filter(e => e.verdict === 'FAIL').length;
-        const total = items.length;
+        const items = (allData[src] || [])
+          .filter(e => new Date(e.ts).getTime() >= h24)
+          .map(normalizeEvent);
+        const p = items.filter(e => e.normalized === 'PASS').length;
+        const w = items.filter(e => e.normalized === 'WARN').length;
+        const f = items.filter(e => e.normalized === 'FAIL').length;
+        const noise = items.filter(e => e.noiseType).length;
         h24html += `<div class="h24-cell">
           <div class="h24-src">${src}</div>
           <div class="h24-counts">
             <span class="PASS">${p}P</span>
             <span class="WARN">${w}W</span>
             <span class="FAIL">${f}F</span>
-            <span class="val">(${total})</span>
+            ${noise ? `<span class="val">~${noise}noise</span>` : ''}
           </div>
         </div>`;
       }
       document.getElementById('h24-content').innerHTML =
         h24html || '<span class="loading">데이터 없음</span>';
 
-      // ── B. 7일 마지막 실행 시각 ────────────────────────────────────────────
+      // ── B. 7일 마지막 실행 시각 ───────────────────────────────────────────
       let d7html = '';
       for (const src of SOURCES) {
-        const items = allData[src].filter(e => new Date(e.ts).getTime() >= d7);
+        const items = (allData[src] || [])
+          .filter(e => new Date(e.ts).getTime() >= d7)
+          .map(normalizeEvent);
         const last = v => {
-          const found = [...items].reverse().find(e => e.verdict === v);
+          const found = [...items].reverse().find(e => e.normalized === v);
           return found ? fmtTs(found.ts) : '-';
         };
         d7html += `<div class="d7-cell">
@@ -308,10 +442,11 @@
       document.getElementById('d7-content').innerHTML =
         d7html || '<span class="loading">데이터 없음</span>';
 
-      // ── C. 최근 이벤트 10개 ────────────────────────────────────────────────
+      // ── C. 최근 이벤트 10개 (normalized) ─────────────────────────────────
       const all = Object.values(allData).flat()
         .sort((a, b) => new Date(b.ts) - new Date(a.ts))
-        .slice(0, 10);
+        .slice(0, 10)
+        .map(normalizeEvent);
 
       if (!all.length) {
         document.getElementById('events-content').innerHTML =
@@ -319,18 +454,23 @@
         return;
       }
 
-      const header = `<div class="evt-row" style="color:#475569;font-size:0.65rem;border-bottom:1px solid #334155">
-        <span>시각</span><span>source</span><span>verdict</span><span>summary</span>
+      const header = `<div class="evt-row" style="color:#334155;font-size:0.62rem;border-bottom:1px solid #334155">
+        <span>시각</span><span>source</span><span>raw</span><span>normalized</span><span>summary</span>
       </div>`;
-      const rows = all.map(e =>
-        `<div class="evt-row">
+      const evtRows = all.map(e => {
+        const noiseBadge = e.noiseType
+          ? `<span class="noise-badge">${e.noiseType}</span>` : '';
+        const rawCls   = { PASS: 'PASS', WARN: 'WARN', FAIL: 'FAIL' }[e.verdict] || '';
+        const normCls  = { PASS: 'PASS', WARN: 'WARN', FAIL: 'FAIL' }[e.normalized] || '';
+        return `<div class="evt-row">
           <span class="val">${fmtTs(e.ts)}</span>
           <span class="label">${e.source || ''}</span>
-          <span class="${vClass(e.verdict)}">${e.verdict || ''}</span>
+          <span class="${rawCls}">${e.verdict || ''}</span>
+          <span class="${normCls}">${e.normalized || ''}${noiseBadge}</span>
           <span class="evt-summary">${e.summary || ''}</span>
-        </div>`
-      ).join('');
-      document.getElementById('events-content').innerHTML = header + rows;
+        </div>`;
+      }).join('');
+      document.getElementById('events-content').innerHTML = header + evtRows;
     }
 
     // ── 주기적 갱신 ──────────────────────────────────────────────────────────
@@ -342,11 +482,8 @@
         'Updated: ' + new Date().toLocaleString('ko-KR') + ' · 5초 자동갱신';
     }
 
-    // 초기 로드
     refreshCurrent();
     refreshHistory();
-
-    // 현재 상태: 5초, 이력: 60초
     setInterval(refreshCurrent, 5000);
     setInterval(refreshHistory, 60000);
   </script>

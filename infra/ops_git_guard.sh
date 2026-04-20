@@ -55,12 +55,30 @@ UP_HEAD=$(git rev-parse @{u} 2>/dev/null || echo "NONE")
 STATUS=$(git status --porcelain)
 AHEAD_BEHIND=$(git status -sb | grep -Eo "\[.*\]" || echo "")
 
+# ── dirty_type 탐지 (content / mode_only / none) ─────────────────────────────
+if [ -z "$STATUS" ]; then
+  DIRTY_TYPE="none"
+else
+  # content 변경(줄 추가/삭제)이 있으면 content, 없으면 mode_only
+  CONTENT_LINES=$(git diff 2>/dev/null | grep -cE '^[+\-][^+\-]' 2>/dev/null || echo 0)
+  if [ "${CONTENT_LINES:-0}" -gt 0 ]; then
+    DIRTY_TYPE="content"
+  else
+    DIRTY_TYPE="mode_only"
+  fi
+fi
+
 # ── 판정 ───────────────────────────────────────────────────────────────────────
 VERDICT="PASS"
 if [ -n "$STATUS" ]; then
-  VERDICT="FAIL"
+  # mode-only 변경(chmod 등)은 WARN, content 변경은 FAIL
+  if [ "$DIRTY_TYPE" = "mode_only" ]; then
+    VERDICT="WARN"
+  else
+    VERDICT="FAIL"
+  fi
 fi
-if [ "$HEAD" != "$UP_HEAD" ]; then
+if [ "$HEAD" != "$UP_HEAD" ] && [ "$VERDICT" != "FAIL" ]; then
   VERDICT="WARN"
 fi
 
@@ -107,7 +125,7 @@ mkdir -p "$STATUS_DIR"
 echo "$LOG_LINE" > "$STATUS_DIR/git_guard.last" 2>/dev/null || true
 
 TS_ISO=$(date +%Y-%m-%dT%H:%M:%S+09:00)
-HIST_SUMMARY="branch=${BRANCH} head=${HEAD:0:8} upstream=${UP_HEAD:0:8}"
+HIST_SUMMARY="branch=${BRANCH} head=${HEAD:0:8} upstream=${UP_HEAD:0:8} dirty_type=${DIRTY_TYPE}"
 HIST_FILE="$STATUS_DIR/git_guard.history.jsonl"
 printf '{"ts":"%s","source":"git_guard","verdict":"%s","summary":"%s"}\n' \
     "$TS_ISO" "$VERDICT" "$HIST_SUMMARY" >> "$HIST_FILE" 2>/dev/null || true
