@@ -152,6 +152,8 @@ rsync -a /home/ubuntu/apps/risk-assessment-app/data/ \
 
 ## risk-assessment-app 장애 대응 / 복구 리허설 Runbook
 
+> 장애 유형별 실행 템플릿은 [RUNBOOK-TEMPLATES.md](RUNBOOK-TEMPLATES.md) 참조
+
 ### 장애 분류
 
 | 분류 | 판단 기준 |
