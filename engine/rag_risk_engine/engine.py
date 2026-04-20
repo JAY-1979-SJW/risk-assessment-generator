@@ -116,7 +116,7 @@ def run_engine(
 
     # Assemble result fields
     hazards = assemble_hazards(result_chunks)
-    actions = assemble_actions(result_chunks)
+    actions = assemble_actions(result_chunks, hazards=hazards)  # v1.2: pass hazards
     ppe = assemble_ppe(result_chunks)
     legal = assemble_legal(result_chunks)
     confidence = calculate_confidence(result_chunks, result_scores)

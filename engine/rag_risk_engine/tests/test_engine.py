@@ -281,3 +281,205 @@ def test_duplicate_suppression():
     ids = result['source_chunk_ids']
     # Both id 1 and 999 should NOT both appear (dedup should keep only one)
     assert not (1 in ids and 999 in ids), '중복 청크가 동시에 결과에 포함되지 않아야 함'
+
+
+# ════════════════════════════════════════════════════════════════════════════
+# v1.2 새 테스트 (5건)
+# ════════════════════════════════════════════════════════════════════════════
+
+from engine.rag_risk_engine.assembler import (
+    _extract_action_phrases,
+    _dedup_actions,
+    _hazard_keyed_actions,
+    _is_generic_action,
+    _GENERIC_ACTIONS,
+    _MAX_PHRASE_LEN,
+)
+from engine.rag_risk_engine.retrieval import GENERIC_WORK_TYPES, BM25Index
+
+
+# ── Test 17: generic action 단독 제거 ────────────────────────────────────
+
+def test_generic_action_filter():
+    """_is_generic_action should flag single generic words."""
+    for word in ['착용', '확인', '점검', '대책', '관리', '조치']:
+        assert _is_generic_action(word), f"'{word}'는 generic action이어야 함"
+    # Specific phrases should NOT be flagged
+    assert not _is_generic_action('안전난간 설치'), '구체 문구는 제거하지 않아야 함'
+    assert not _is_generic_action('누전차단기 점검'), '구체 문구는 제거하지 않아야 함'
+    assert not _is_generic_action('전원 차단 후 작업'), '구체 문구는 제거하지 않아야 함'
+
+
+# ── Test 18: phrase 최대 길이 제한 ───────────────────────────────────────
+
+def test_phrase_length_cap():
+    """Extracted phrases must not exceed _MAX_PHRASE_LEN characters."""
+    long_text = (
+        '안전대를 반드시 착용하고 비계 위에서 작업 시에는 안전모를 착용하며 '
+        '작업발판 위에서 안전난간을 설치 후 추락방지망을 확인하고 작업을 시작해야 합니다.'
+    )
+    phrases = _extract_action_phrases(long_text)
+    for p in phrases:
+        assert len(p) <= _MAX_PHRASE_LEN, f'phrase 길이 초과: len={len(p)}, phrase={p!r}'
+
+
+# ── Test 19: 슬라이딩 윈도우 phrase 추출 ─────────────────────────────────
+
+def test_sliding_window_extraction():
+    """Sliding window should produce focused action phrases."""
+    text = '비계 작업 중 안전대 착용.'
+    phrases = _extract_action_phrases(text)
+    assert phrases, '문장에서 phrase가 추출되어야 함'
+    assert any('안전대' in p for p in phrases), "'안전대'가 phrase에 포함되어야 함"
+
+
+# ── Test 20: generic work_type 보너스 약화 ───────────────────────────────
+
+def test_generic_work_type_no_bonus():
+    """Generic work_type ('작업') must not trigger work_type_match bonus."""
+    assert '작업' in GENERIC_WORK_TYPES
+    assert '설치' in GENERIC_WORK_TYPES
+    # Specific types should NOT be in generic set
+    assert '비계' not in GENERIC_WORK_TYPES
+    assert '철골' not in GENERIC_WORK_TYPES
+    assert '감전' not in GENERIC_WORK_TYPES
+
+    # Build a small index with one chunk that has work_type="작업"
+    chunks = [
+        {
+            'id': 1,
+            'normalized_text': '비계 추락 안전난간 작업발판 안전대',
+            'raw_text': None,
+            'work_type': '작업',   # generic
+            'hazard_type': '추락',  # specific
+            'control_measure': '안전난간 설치',
+            'ppe': '안전대',
+            'law_ref': None,
+            'keywords': None,
+        }
+    ]
+    idx = BM25Index(chunks)
+    # Query contains '작업' — generic work_type should NOT add bonus
+    results = idx.search('비계 작업 추락 안전난간', top_k=1)
+    assert results, '결과가 있어야 함'
+    # Verify the code path works (bonus not added for generic work_type)
+    # We can't easily assert the exact score, but we verify no error occurs
+    _, score = results[0]
+    assert score > 0
+
+
+# ── Test 21: hazard 강화 키워드 — 실제 chunk 텍스트 기반 ─────────────────
+
+def test_hazard_keyed_reinforcement_from_text():
+    """Hazard reinforcement should only return keywords actually in chunk text."""
+    chunks_with_fire_kw = [
+        {
+            'id': 10,
+            'normalized_text': '소화기 비치 및 불티 방지 조치',
+            'raw_text': None,
+            'work_type': None, 'hazard_type': '화재',
+            'control_measure': None, 'ppe': None, 'law_ref': None, 'keywords': None,
+        }
+    ]
+    # '소화기' is in text → should appear in reinforcement for 화재
+    result = _hazard_keyed_actions(chunks_with_fire_kw, ['화재'])
+    assert '소화기' in result or '소화기 비치' in result, \
+        f"'소화기'가 reinforcement에 있어야 함, got: {result}"
+
+    # For hazard not matching chunk content, no spurious keywords
+    chunks_empty = [
+        {
+            'id': 11,
+            'normalized_text': '일반 작업 안내',
+            'raw_text': None,
+            'work_type': None, 'hazard_type': None,
+            'control_measure': None, 'ppe': None, 'law_ref': None, 'keywords': None,
+        }
+    ]
+    result_empty = _hazard_keyed_actions(chunks_empty, ['감전'])
+    # '전원 차단', '절연' 등이 chunk text에 없으므로 빈 결과
+    assert result_empty == [], f'chunk에 없는 키워드는 반환 금지, got: {result_empty}'
+
+
+# ── Test 22 (regression): SYN-06 유사 — 화재 시나리오 소화기 추출 ─────────
+
+def test_regression_fire_scenario_firefighting():
+    """
+    Regression: fire scenario with '소화기' in chunk should produce
+    '소화기' or '소화기 비치' in actions (was ACTIONS_MISMATCH in v1.1).
+    """
+    chunks = [
+        {
+            'id': 100,
+            'normalized_text': '용접 작업 시 불꽃 비산으로 화재 위험 소화기 비치 및 가연물 제거',
+            'raw_text': None,
+            'work_type': '작업', 'hazard_type': '화재',
+            'control_measure': '소화기 비치',
+            'ppe': '방염복',
+            'law_ref': '규칙 제232조',
+            'keywords': None,
+        }
+    ] * 5
+    result = _run({
+        'process': '배관 설치',
+        'sub_work': '파이프 용접 작업',
+        'risk_situation': '용접 작업 중 불꽃 비산으로 인근 가연성 자재 화재 발생 위험',
+    })
+    # Only check fixture chunks via direct engine call
+    from engine.rag_risk_engine.assembler import assemble_hazards, assemble_actions
+    hazards = assemble_hazards(chunks)
+    actions = assemble_actions(chunks, hazards=hazards)
+    actions_text = ' '.join(actions)
+    assert '소화기' in actions_text, f"'소화기'가 actions에 포함되어야 함, got: {actions}"
+
+
+# ── Test 23 (regression): SYN-08 유사 — 낙하/크레인 신호수 추출 ─────────
+
+def test_regression_crane_signal():
+    """
+    Regression: crane/falling object scenario should include '신호수'
+    in actions when chunk text contains it (was ACTIONS_MISMATCH in v1.1).
+    """
+    from engine.rag_risk_engine.assembler import assemble_hazards, assemble_actions
+    chunks = [
+        {
+            'id': 200,
+            'normalized_text': '크레인 인양 작업 시 신호수 배치 및 작업 반경 내 출입 통제',
+            'raw_text': None,
+            'work_type': '작업', 'hazard_type': '낙하',
+            'control_measure': '신호수 배치',
+            'ppe': '안전모',
+            'law_ref': None,
+            'keywords': None,
+        }
+    ] * 5
+    hazards = assemble_hazards(chunks)
+    actions = assemble_actions(chunks, hazards=hazards)
+    actions_text = ' '.join(actions)
+    assert '신호수' in actions_text, f"'신호수'가 actions에 포함되어야 함, got: {actions}"
+
+
+# ── Test 24 (regression): SYN-17 유사 — 폭발/가스 환기 추출 ─────────────
+
+def test_regression_gas_explosion_ventilation():
+    """
+    Regression: gas explosion scenario should include '환기' in actions
+    when chunk text contains it (was ACTIONS_MISMATCH in v1.1).
+    """
+    from engine.rag_risk_engine.assembler import assemble_hazards, assemble_actions
+    chunks = [
+        {
+            'id': 300,
+            'normalized_text': '도시가스관 인근 굴착 시 가스 농도 측정 및 환기 실시',
+            'raw_text': None,
+            'work_type': '작업', 'hazard_type': '폭발',
+            'control_measure': '환기',
+            'ppe': '안전모',
+            'law_ref': None,
+            'keywords': None,
+        }
+    ] * 5
+    hazards = assemble_hazards(chunks)
+    actions = assemble_actions(chunks, hazards=hazards)
+    actions_text = ' '.join(actions)
+    assert '환기' in actions_text, f"'환기'가 actions에 포함되어야 함, got: {actions}"

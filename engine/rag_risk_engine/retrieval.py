@@ -26,6 +26,12 @@ NOISE_THRESHOLD = 50
 BM25_K1 = 1.5
 BM25_B = 0.75
 
+# work_type values that are too generic to justify a retrieval bonus
+# v1.2: these tags carry no domain-specific information
+GENERIC_WORK_TYPES = frozenset([
+    '작업', '설치', '기타', '일반', '공사', '건설', '검사', '점검', '현장',
+])
+
 # Field bonus weights added on top of BM25 score
 FIELD_BONUS = {
     'work_type_match': 2.0,
@@ -130,7 +136,7 @@ class BM25Index:
         wt = normalize_text(chunk.get('work_type') or '').lower()
         ht = normalize_text(chunk.get('hazard_type') or '').lower()
 
-        if wt and wt in query_lower:
+        if wt and wt in query_lower and wt not in GENERIC_WORK_TYPES:
             bonus += FIELD_BONUS['work_type_match']
         if ht and ht in query_lower:
             bonus += FIELD_BONUS['hazard_type_match']
