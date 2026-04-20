@@ -95,6 +95,15 @@ STATUS_DIR="/home/ubuntu/app/nginx/webroot/status/risk-assessment/data"
 mkdir -p "${STATUS_DIR}"
 echo "${LOG_LINE}" > "${STATUS_DIR}/backup_check.last" 2>/dev/null || true
 
+TS_ISO=$(date +%Y-%m-%dT%H:%M:%S+09:00)
+HIST_SUMMARY="backup_path=${BACKUP_R} data=${DATA_R} compose=${COMPOSE_R} scripts=${SCRIPTS_R} recent=${RECENT_R}"
+HIST_FILE="${STATUS_DIR}/backup_check.history.jsonl"
+printf '{"ts":"%s","source":"backup_check","verdict":"%s","summary":"%s"}\n' \
+    "$TS_ISO" "$VERDICT" "$HIST_SUMMARY" >> "$HIST_FILE" 2>/dev/null || true
+if [ "$(wc -l < "$HIST_FILE" 2>/dev/null || echo 0)" -gt 1000 ]; then
+    tail -n 1000 "$HIST_FILE" > "${HIST_FILE}.tmp" && mv "${HIST_FILE}.tmp" "$HIST_FILE" || true
+fi
+
 # ── 콘솔 출력 ────────────────────────────────────────────────────────────────
 echo ""
 echo "[${TS}]"

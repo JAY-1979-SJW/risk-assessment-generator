@@ -113,6 +113,15 @@ STATUS_DIR="/home/ubuntu/app/nginx/webroot/status/risk-assessment/data"
 mkdir -p "$STATUS_DIR"
 echo "$LOG_LINE" > "$STATUS_DIR/self_check.last" 2>/dev/null || true
 
+TS_ISO=$(date +%Y-%m-%dT%H:%M:%S+09:00)
+HIST_SUMMARY="git=${GIT_R} path=${PATH_R} perms=${PERM_R} services=${SVC_R} docs=${DOCS_R}"
+HIST_FILE="$STATUS_DIR/self_check.history.jsonl"
+printf '{"ts":"%s","source":"self_check","verdict":"%s","summary":"%s"}\n' \
+    "$TS_ISO" "$VERDICT" "$HIST_SUMMARY" >> "$HIST_FILE" 2>/dev/null || true
+if [ "$(wc -l < "$HIST_FILE" 2>/dev/null || echo 0)" -gt 1000 ]; then
+    tail -n 1000 "$HIST_FILE" > "${HIST_FILE}.tmp" && mv "${HIST_FILE}.tmp" "$HIST_FILE" || true
+fi
+
 # ── 콘솔 출력 ────────────────────────────────────────────────────────────────
 echo "[$TS]"
 echo "  git      : $GIT_R"

@@ -145,6 +145,15 @@ STATUS_DIR="/home/ubuntu/app/nginx/webroot/status/risk-assessment/data"
 mkdir -p "${STATUS_DIR}"
 echo "${LOG_LINE}" > "${STATUS_DIR}/restore_rehearsal.last" 2>/dev/null || true
 
+TS_ISO=$(date +%Y-%m-%dT%H:%M:%S+09:00)
+HIST_SUMMARY="backups=${BACKUPS_R} compose=${COMPOSE_R} scripts=${SCRIPTS_R} paths=${PATHS_R}"
+HIST_FILE="${STATUS_DIR}/restore_rehearsal.history.jsonl"
+printf '{"ts":"%s","source":"restore_rehearsal","verdict":"%s","summary":"%s"}\n' \
+    "$TS_ISO" "$VERDICT" "$HIST_SUMMARY" >> "$HIST_FILE" 2>/dev/null || true
+if [ "$(wc -l < "$HIST_FILE" 2>/dev/null || echo 0)" -gt 1000 ]; then
+    tail -n 1000 "$HIST_FILE" > "${HIST_FILE}.tmp" && mv "${HIST_FILE}.tmp" "$HIST_FILE" || true
+fi
+
 # ── 콘솔 최종 출력 ────────────────────────────────────────────────────────────
 echo ""
 echo "=== 최종 판정 ==="

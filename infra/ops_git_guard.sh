@@ -101,10 +101,19 @@ mkdir -p "$(dirname "$LOG_FILE")"
 LOG_LINE="[$TS] verdict=$VERDICT branch=$BRANCH head=$HEAD upstream=$UP_HEAD status_len=${#STATUS} $AHEAD_BEHIND${TEST_OVERRIDE:+ [TEST]}${PERM_WARNS:+ | $PERM_WARNS}"
 echo "$LOG_LINE" >> "$LOG_FILE"
 
-# ── 대시보드용 .last 갱신 ─────────────────────────────────────────────────────
+# ── 대시보드용 .last + history 갱신 ──────────────────────────────────────────
 STATUS_DIR="/home/ubuntu/app/nginx/webroot/status/risk-assessment/data"
 mkdir -p "$STATUS_DIR"
 echo "$LOG_LINE" > "$STATUS_DIR/git_guard.last" 2>/dev/null || true
+
+TS_ISO=$(date +%Y-%m-%dT%H:%M:%S+09:00)
+HIST_SUMMARY="branch=${BRANCH} head=${HEAD:0:8} upstream=${UP_HEAD:0:8}"
+HIST_FILE="$STATUS_DIR/git_guard.history.jsonl"
+printf '{"ts":"%s","source":"git_guard","verdict":"%s","summary":"%s"}\n' \
+    "$TS_ISO" "$VERDICT" "$HIST_SUMMARY" >> "$HIST_FILE" 2>/dev/null || true
+if [ "$(wc -l < "$HIST_FILE" 2>/dev/null || echo 0)" -gt 1000 ]; then
+    tail -n 1000 "$HIST_FILE" > "${HIST_FILE}.tmp" && mv "${HIST_FILE}.tmp" "$HIST_FILE" || true
+fi
 
 # ── 콘솔 출력 ─────────────────────────────────────────────────────────────────
 echo "verdict=$VERDICT"

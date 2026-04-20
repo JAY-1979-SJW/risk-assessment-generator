@@ -15,11 +15,7 @@
     }
     h1 { font-size: 1.1rem; color: #94a3b8; margin-bottom: 0.25rem; letter-spacing: 0.05em; }
     #updated { font-size: 0.7rem; color: #475569; margin-bottom: 1.25rem; }
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.875rem;
-    }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.875rem; }
     .card {
       background: #1e293b;
       border: 1px solid #334155;
@@ -48,10 +44,28 @@
     .PASS { color: #22c55e; font-weight: bold; }
     .WARN { color: #f97316; font-weight: bold; }
     .FAIL { color: #ef4444; font-weight: bold; }
-    .OK   { color: #22c55e; font-weight: bold; }
     .loading { color: #334155; font-style: italic; }
     .meta { font-size: 0.65rem; color: #334155; margin-top: 0.4rem; }
     .svc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
+    /* 이력 블록 */
+    .h24-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+    .h24-cell { background: #0f172a; border-radius: 0.3rem; padding: 0.5rem; }
+    .h24-src { font-size: 0.65rem; color: #64748b; margin-bottom: 0.35rem; }
+    .h24-counts { display: flex; gap: 0.5rem; font-size: 0.8rem; }
+    .evt-row {
+      display: grid;
+      grid-template-columns: 7rem 8rem 3.5rem 1fr;
+      gap: 0.25rem;
+      padding: 0.2rem 0;
+      font-size: 0.72rem;
+      border-bottom: 1px solid #1e293b;
+    }
+    .evt-row:last-child { border-bottom: none; }
+    .evt-summary { color: #475569; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .d7-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+    .d7-cell { background: #0f172a; border-radius: 0.3rem; padding: 0.5rem; }
+    .d7-src { font-size: 0.65rem; color: #64748b; margin-bottom: 0.35rem; }
+    .d7-line { font-size: 0.68rem; padding: 0.1rem 0; }
   </style>
 </head>
 <body>
@@ -59,6 +73,7 @@
   <div id="updated" class="loading">loading…</div>
 
   <div class="grid">
+    <!-- ── 현재 상태 5개 블록 ───────────────────────────────────────────────── -->
     <div class="card">
       <h2>Git 상태</h2>
       <div id="git-content"><span class="loading">loading…</span></div>
@@ -83,11 +98,35 @@
       <h2>서비스 상태 (live)</h2>
       <div class="svc-grid" id="svc-content"><span class="loading">loading…</span></div>
     </div>
+
+    <!-- ── 이력 블록 A: 최근 24시간 요약 ──────────────────────────────────── -->
+    <div class="card wide">
+      <h2>최근 24시간 요약</h2>
+      <div class="h24-grid" id="h24-content">
+        <span class="loading">loading…</span>
+      </div>
+    </div>
+
+    <!-- ── 이력 블록 B: 최근 7일 마지막 실행 ──────────────────────────────── -->
+    <div class="card wide">
+      <h2>최근 7일 마지막 실행 (source별 P/W/F 최종 시각)</h2>
+      <div class="d7-grid" id="d7-content">
+        <span class="loading">loading…</span>
+      </div>
+    </div>
+
+    <!-- ── 이력 블록 C: 최근 이벤트 10개 ──────────────────────────────────── -->
+    <div class="card wide">
+      <h2>최근 이벤트 10개</h2>
+      <div id="events-content"><span class="loading">loading…</span></div>
+    </div>
   </div>
 
   <script>
     const DATA = '/status/risk-assessment/data/';
+    const SOURCES = ['git_guard', 'self_check', 'backup_check', 'restore_rehearsal'];
 
+    // ── 유틸 ─────────────────────────────────────────────────────────────────
     function parseKV(line) {
       const m = line.match(/^\[([^\]]+)\]/);
       const kv = { _ts: m ? m[1] : '' };
@@ -103,15 +142,25 @@
       const c = { PASS: 'PASS', WARN: 'WARN', FAIL: 'FAIL' }[v] || '';
       return `<span class="${c}">${v}</span>`;
     }
-
     function row(label, v) {
       return `<div class="row"><span class="label">${label}</span>${badge(v)}</div>`;
     }
-
     function valRow(label, v) {
       return `<div class="row"><span class="label">${label}</span><span class="val">${v || '-'}</span></div>`;
     }
 
+    function fmtTs(ts) {
+      try {
+        const d = new Date(ts);
+        return d.toLocaleString('ko-KR', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+      } catch { return ts || '-'; }
+    }
+
+    function vClass(v) {
+      return v === 'PASS' ? 'PASS' : v === 'WARN' ? 'WARN' : v === 'FAIL' ? 'FAIL' : '';
+    }
+
+    // ── 데이터 fetch ──────────────────────────────────────────────────────────
     async function fetchLast(name) {
       try {
         const r = await fetch(`${DATA}${name}.last?_=${Date.now()}`);
@@ -119,6 +168,18 @@
       } catch { return null; }
     }
 
+    async function fetchHistory(src) {
+      try {
+        const r = await fetch(`${DATA}${src}.history.jsonl?_=${Date.now()}`);
+        if (!r.ok) return [];
+        const txt = await r.text();
+        return txt.trim().split('\n').filter(l => l.trim()).map(l => {
+          try { return JSON.parse(l); } catch { return null; }
+        }).filter(Boolean);
+      } catch { return []; }
+    }
+
+    // ── 현재 상태 갱신 (5s) ───────────────────────────────────────────────────
     async function refreshGit() {
       const line = await fetchLast('git_guard');
       const el = document.getElementById('git-content');
@@ -138,12 +199,8 @@
       if (!line) { el.innerHTML = '<span class="FAIL">데이터 없음</span>'; return; }
       const kv = parseKV(line);
       el.innerHTML =
-        row('git', kv.git) +
-        row('path', kv.path) +
-        row('perms', kv.perms) +
-        row('services', kv.services) +
-        row('docs', kv.docs) +
-        row('verdict', kv.verdict) +
+        row('git', kv.git) + row('path', kv.path) + row('perms', kv.perms) +
+        row('services', kv.services) + row('docs', kv.docs) + row('verdict', kv.verdict) +
         `<div class="meta">${kv._ts}</div>`;
     }
 
@@ -153,12 +210,9 @@
       if (!line) { el.innerHTML = '<span class="FAIL">데이터 없음</span>'; return; }
       const kv = parseKV(line);
       el.innerHTML =
-        row('backup_path', kv.backup_path) +
-        row('data', kv.data) +
-        row('compose', kv.compose) +
-        row('scripts', kv.scripts) +
-        row('recent', kv.recent) +
-        row('verdict', kv.verdict) +
+        row('backup_path', kv.backup_path) + row('data', kv.data) +
+        row('compose', kv.compose) + row('scripts', kv.scripts) +
+        row('recent', kv.recent) + row('verdict', kv.verdict) +
         `<div class="meta">${kv._ts}</div>`;
     }
 
@@ -168,10 +222,8 @@
       if (!line) { el.innerHTML = '<span class="FAIL">데이터 없음</span>'; return; }
       const kv = parseKV(line);
       el.innerHTML =
-        row('backups', kv.backups) +
-        row('compose', kv.compose) +
-        row('scripts', kv.scripts) +
-        row('paths', kv.paths) +
+        row('backups', kv.backups) + row('compose', kv.compose) +
+        row('scripts', kv.scripts) + row('paths', kv.paths) +
         row('verdict', kv.verdict) +
         `<div class="meta">${kv._ts}</div>`;
     }
@@ -198,21 +250,105 @@
           left += row('API', 'FAIL') + row('DB', 'FAIL') + row('KOSHA DB', 'FAIL');
           left += `<div class="row"><span class="label">HTTP</span><span class="FAIL">${r.status}</span></div>`;
         }
-      } catch (e) {
+      } catch {
         left += `<div class="row"><span class="label">API</span><span class="FAIL">fetch 실패</span></div>`;
         left += row('Frontend', 'PASS');
       }
       el.innerHTML = `<div>${left}</div><div>${right}</div>`;
     }
 
-    async function refresh() {
-      await Promise.all([refreshGit(), refreshSelf(), refreshBackup(), refreshRestore(), refreshSvc()]);
+    // ── 이력 갱신 (60s) ───────────────────────────────────────────────────────
+    async function refreshHistory() {
+      const now = Date.now();
+      const h24 = now - 24 * 60 * 60 * 1000;
+      const d7  = now - 7  * 24 * 60 * 60 * 1000;
+
+      // 4개 source 병렬 fetch
+      const allData = {};
+      await Promise.all(SOURCES.map(async src => {
+        allData[src] = await fetchHistory(src);
+      }));
+
+      // ── A. 24시간 요약 ──────────────────────────────────────────────────────
+      let h24html = '';
+      for (const src of SOURCES) {
+        const items = allData[src].filter(e => new Date(e.ts).getTime() >= h24);
+        const p = items.filter(e => e.verdict === 'PASS').length;
+        const w = items.filter(e => e.verdict === 'WARN').length;
+        const f = items.filter(e => e.verdict === 'FAIL').length;
+        const total = items.length;
+        h24html += `<div class="h24-cell">
+          <div class="h24-src">${src}</div>
+          <div class="h24-counts">
+            <span class="PASS">${p}P</span>
+            <span class="WARN">${w}W</span>
+            <span class="FAIL">${f}F</span>
+            <span class="val">(${total})</span>
+          </div>
+        </div>`;
+      }
+      document.getElementById('h24-content').innerHTML =
+        h24html || '<span class="loading">데이터 없음</span>';
+
+      // ── B. 7일 마지막 실행 시각 ────────────────────────────────────────────
+      let d7html = '';
+      for (const src of SOURCES) {
+        const items = allData[src].filter(e => new Date(e.ts).getTime() >= d7);
+        const last = v => {
+          const found = [...items].reverse().find(e => e.verdict === v);
+          return found ? fmtTs(found.ts) : '-';
+        };
+        d7html += `<div class="d7-cell">
+          <div class="d7-src">${src}</div>
+          <div class="d7-line"><span class="PASS">P</span> <span class="val">${last('PASS')}</span></div>
+          <div class="d7-line"><span class="WARN">W</span> <span class="val">${last('WARN')}</span></div>
+          <div class="d7-line"><span class="FAIL">F</span> <span class="val">${last('FAIL')}</span></div>
+        </div>`;
+      }
+      document.getElementById('d7-content').innerHTML =
+        d7html || '<span class="loading">데이터 없음</span>';
+
+      // ── C. 최근 이벤트 10개 ────────────────────────────────────────────────
+      const all = Object.values(allData).flat()
+        .sort((a, b) => new Date(b.ts) - new Date(a.ts))
+        .slice(0, 10);
+
+      if (!all.length) {
+        document.getElementById('events-content').innerHTML =
+          '<span class="loading">이벤트 없음 (스크립트 실행 후 생성됩니다)</span>';
+        return;
+      }
+
+      const header = `<div class="evt-row" style="color:#475569;font-size:0.65rem;border-bottom:1px solid #334155">
+        <span>시각</span><span>source</span><span>verdict</span><span>summary</span>
+      </div>`;
+      const rows = all.map(e =>
+        `<div class="evt-row">
+          <span class="val">${fmtTs(e.ts)}</span>
+          <span class="label">${e.source || ''}</span>
+          <span class="${vClass(e.verdict)}">${e.verdict || ''}</span>
+          <span class="evt-summary">${e.summary || ''}</span>
+        </div>`
+      ).join('');
+      document.getElementById('events-content').innerHTML = header + rows;
+    }
+
+    // ── 주기적 갱신 ──────────────────────────────────────────────────────────
+    async function refreshCurrent() {
+      await Promise.all([
+        refreshGit(), refreshSelf(), refreshBackup(), refreshRestore(), refreshSvc()
+      ]);
       document.getElementById('updated').textContent =
         'Updated: ' + new Date().toLocaleString('ko-KR') + ' · 5초 자동갱신';
     }
 
-    refresh();
-    setInterval(refresh, 5000);
+    // 초기 로드
+    refreshCurrent();
+    refreshHistory();
+
+    // 현재 상태: 5초, 이력: 60초
+    setInterval(refreshCurrent, 5000);
+    setInterval(refreshHistory, 60000);
   </script>
 </body>
 </html>
