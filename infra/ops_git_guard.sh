@@ -102,7 +102,7 @@ LOG_LINE="[$TS] verdict=$VERDICT branch=$BRANCH head=$HEAD upstream=$UP_HEAD sta
 echo "$LOG_LINE" >> "$LOG_FILE"
 
 # ── 대시보드용 .last 갱신 ─────────────────────────────────────────────────────
-STATUS_DIR="/home/ubuntu/apps/risk-assessment-app/logs/status"
+STATUS_DIR="/home/ubuntu/app/nginx/webroot/status/risk-assessment/data"
 mkdir -p "$STATUS_DIR"
 echo "$LOG_LINE" > "$STATUS_DIR/git_guard.last" 2>/dev/null || true
 
