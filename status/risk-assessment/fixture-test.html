@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fixture-test — Action Recommendation (3-case)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Consolas','Monaco',monospace; background: #0f172a; color: #e2e8f0; padding: 1.5rem; }
+    h1 { font-size: 0.9rem; color: #94a3b8; margin-bottom: 1rem; }
+    .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.875rem; margin-bottom: 1rem; }
+    .case-card { background: #1e293b; border: 1px solid #334155; border-radius: 0.5rem; padding: 0.875rem; }
+    .case-card h2 { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: #64748b; margin-bottom: 0.6rem; border-bottom: 1px solid #1e3a5f; padding-bottom: 0.4rem; }
+    .assertions { background: #1e293b; border: 1px solid #334155; border-radius: 0.5rem; padding: 0.875rem; }
+    .assertions h2 { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: #64748b; margin-bottom: 0.6rem; border-bottom: 1px solid #1e3a5f; padding-bottom: 0.4rem; }
+    .assert-row { font-size: 0.72rem; padding: 0.15rem 0; display: flex; gap: 0.75rem; }
+    .assert-summary { font-size: 0.78rem; padding: 0.3rem 0 0.5rem; font-weight: bold; }
+    .APASS { color: #22c55e; font-weight: bold; min-width: 2.8rem; }
+    .AFAIL { color: #ef4444; font-weight: bold; min-width: 2.8rem; }
+    /* ── action card styles (main HTML과 동일) ── */
+    .action-banner { display: flex; align-items: flex-start; gap: 1rem; flex-wrap: wrap; }
+    .action-class { font-size: 1.05rem; font-weight: bold; letter-spacing: 0.04em; }
+    .action-meta  { font-size: 0.72rem; color: #64748b; margin-top: 0.25rem; }
+    .action-step  { font-size: 0.78rem; margin-top: 0.35rem; }
+    .action-reasons { font-size: 0.68rem; color: #94a3b8; margin-top: 0.4rem; }
+    .OBSERVE                 { color: #22c55e; font-weight: bold; }
+    .AUTO-RECOVERY-CANDIDATE { color: #f97316; font-weight: bold; }
+    .APPROVAL-REQUIRED       { color: #ef4444; font-weight: bold; }
+    .approval-yes { color: #ef4444; font-size: 0.72rem; font-weight: bold; }
+    .approval-no  { color: #64748b; font-size: 0.72rem; }
+    .act-ids { margin-top: 0.65rem; display: flex; flex-direction: column; gap: 0.22rem; }
+    .act-id-row { font-size: 0.72rem; display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+    .act-id { font-family: monospace; color: #f8fafc; background: #1e3a5f; border-radius: 0.2rem; padding: 0.05rem 0.3rem; font-size: 0.67rem; min-width: 4.5rem; display: inline-block; white-space: nowrap; }
+    .act-label { color: #94a3b8; }
+    .act-template { font-size: 0.68rem; color: #475569; margin-top: 0.5rem; border-top: 1px solid #1e3a5f; padding-top: 0.35rem; }
+    .priority-low  { color: #22c55e; font-size: 0.7rem; }
+    .priority-med  { color: #f97316; font-size: 0.7rem; }
+    .priority-high { color: #ef4444; font-size: 0.7rem; font-weight: bold; }
+    .val { font-family: monospace; font-size: 0.75rem; color: #64748b; }
+  </style>
+</head>
+<body>
+  <h1>fixture-test — Action Recommendation 3-case render verification</h1>
+  <div class="cases">
+    <div class="case-card">
+      <h2>Case 1 · OBSERVE</h2>
+      <div id="case-observe"></div>
+    </div>
+    <div class="case-card">
+      <h2>Case 2 · AUTO-RECOVERY</h2>
+      <div id="case-arc"></div>
+    </div>
+    <div class="case-card">
+      <h2>Case 3 · APPROVAL-REQUIRED</h2>
+      <div id="case-apr"></div>
+    </div>
+  </div>
+  <div class="assertions">
+    <h2>Assertion Results</h2>
+    <div id="assertions"></div>
+  </div>
+
+<script>
+// ── 비즈니스 로직 (main HTML calcAction/calcOverall과 동일) ───────────────────
+const SOURCES = ['git_guard', 'self_check', 'backup_check', 'restore_rehearsal'];
+
+const ACTION_CATALOG = {
+  'OBS-001': '상태 추적 유지',
+  'OBS-002': '다음 scheduled check 결과 대기',
+  'OBS-003': 'recent events 24h 추세 확인',
+  'ARC-001': '최소 범위 재기동 후보 검토',
+  'ARC-002': 'docker compose ps / health 재확인',
+  'ARC-003': '최근 로그 비교 후 단일 서비스 문제 여부 판단',
+  'APR-001': 'git 정렬 복구 계획 작성',
+  'APR-002': '데이터 복구 범위 확정',
+  'APR-003': 'backup/restore 무결성 재확인',
+  'APR-004': '대표님 승인 후 실행 단계로 전환',
+};
+
+function normalizeEvent(e) {
+  if (e.source === 'git_guard' && e.verdict === 'FAIL' &&
+      e.summary && e.summary.includes('dirty_type=mode_only')) {
+    return { ...e, normalized: 'WARN', noiseType: 'mode_only' };
+  }
+  return { ...e, normalized: e.verdict, noiseType: null };
+}
+
+function calcOverall(allData) {
+  const now = Date.now();
+  const h24 = now - 24 * 60 * 60 * 1000;
+  const reasons = [];
+  const recent24 = {};
+  for (const src of SOURCES) {
+    recent24[src] = (allData[src] || [])
+      .filter(e => new Date(e.ts).getTime() >= h24)
+      .map(normalizeEvent);
+  }
+  const nFails = {}, nWarns = {};
+  for (const src of SOURCES) {
+    nFails[src] = recent24[src].filter(e => e.normalized === 'FAIL').length;
+    nWarns[src] = recent24[src].filter(e => e.normalized === 'WARN').length;
+  }
+  const totalFails = Object.values(nFails).reduce((a, b) => a + b, 0);
+  const totalWarns = Object.values(nWarns).reduce((a, b) => a + b, 0);
+
+  function lastNFail(src, n) {
+    const items = (allData[src] || []).slice(-n).map(normalizeEvent);
+    return items.length >= n && items.every(e => e.normalized === 'FAIL');
+  }
+
+  if (lastNFail('self_check', 2)) reasons.push('self_check 연속 FAIL 2회');
+  if (lastNFail('backup_check', 2)) reasons.push('backup_check 연속 FAIL 2회');
+  if (lastNFail('restore_rehearsal', 2)) reasons.push('restore_rehearsal 연속 FAIL 2회');
+
+  const failingSrcs = SOURCES.filter(s => nFails[s] >= 2);
+  if (failingSrcs.length >= 2) reasons.push(`복수 source 동시 FAIL: ${failingSrcs.join(', ')}`);
+  if (reasons.length > 0) return { overall: 'INCIDENT', reasons, totalFails, totalWarns };
+
+  const degReasons = [];
+  for (const src of ['self_check', 'backup_check', 'restore_rehearsal']) {
+    if (lastNFail(src, 2)) degReasons.push(`${src} 연속 FAIL`);
+  }
+  if (nFails['git_guard'] > 0) degReasons.push('git_guard FAIL (서비스 정상 — DEGRADED)');
+  if (totalWarns >= 5) degReasons.push(`24시간 WARN ${totalWarns}회 누적`);
+  if (totalFails > 0 && degReasons.length === 0) degReasons.push(`24시간 실제 FAIL ${totalFails}회`);
+  if (degReasons.length > 0) return { overall: 'DEGRADED', reasons: degReasons, totalFails, totalWarns };
+
+  return { overall: 'HEALTHY', reasons: [], totalFails: 0, totalWarns };
+}
+
+function calcAction(allData, overallResult) {
+  const { overall } = overallResult;
+  const allNorm = {};
+  for (const src of SOURCES) allNorm[src] = (allData[src] || []).map(normalizeEvent);
+
+  const restoreFail = allNorm['restore_rehearsal'].slice(-2)
+    .some(e => e.normalized === 'FAIL');
+  const gitContentDirty = allNorm['git_guard'].slice(-3)
+    .some(e => e.normalized === 'FAIL' && e.noiseType !== 'mode_only');
+  const backupFail = allNorm['backup_check'].slice(-2)
+    .every(e => e.normalized === 'FAIL') && allNorm['backup_check'].length >= 2;
+
+  const now = Date.now();
+  const h24 = now - 24 * 60 * 60 * 1000;
+  const failSrcs = SOURCES.filter(src =>
+    allNorm[src].filter(e => new Date(e.ts).getTime() >= h24 && e.normalized === 'FAIL').length >= 2
+  );
+
+  const aprReasons = [];
+  const aprIdSet = new Set();
+  if (restoreFail)          { aprReasons.push('restore_rehearsal FAIL'); aprIdSet.add('APR-003'); aprIdSet.add('APR-004'); }
+  if (gitContentDirty)      { aprReasons.push('git content dirty'); aprIdSet.add('APR-001'); aprIdSet.add('APR-004'); }
+  if (backupFail)           { aprReasons.push('backup_check 연속 FAIL'); aprIdSet.add('APR-003'); aprIdSet.add('APR-004'); }
+  if (failSrcs.length >= 2) { aprReasons.push(`복수 source 동시 FAIL: ${failSrcs.join(', ')}`); aprIdSet.add('APR-002'); aprIdSet.add('APR-003'); aprIdSet.add('APR-004'); }
+
+  if (aprReasons.length > 0) {
+    const templates = [];
+    if (gitContentDirty)           templates.push('git 이상 대응 템플릿 (§ A)');
+    if (restoreFail || backupFail) templates.push('데이터 복구 대응 템플릿 (§ C)');
+    if (!templates.length)         templates.push('git 이상 대응 템플릿 (§ A) / 데이터 복구 대응 템플릿 (§ C)');
+    return {
+      action: 'APPROVAL-REQUIRED', approval: true,
+      step: '대표님 승인 후 복구/정렬 절차 진행',
+      reasons: aprReasons, actionIds: [...aprIdSet].slice(0, 4),
+      priority: 'high', nextTemplate: templates.join(' / ')
+    };
+  }
+
+  const svcRepeatFail = allNorm['self_check'].slice(-2)
+    .every(e => e.normalized === 'FAIL') && allNorm['self_check'].length >= 2;
+  if (svcRepeatFail) {
+    return {
+      action: 'AUTO-RECOVERY-CANDIDATE', approval: false,
+      step: '원인 확인 후 최소 범위 재기동 후보',
+      reasons: ['self_check 2회 연속 FAIL'],
+      actionIds: ['ARC-001', 'ARC-002', 'ARC-003'],
+      priority: 'medium', nextTemplate: '서비스 이상 대응 템플릿 (§ B)'
+    };
+  }
+
+  return {
+    action: 'OBSERVE', approval: false,
+    step: '상태 추적 유지, 즉시 조치 없음',
+    reasons: overall === 'HEALTHY' ? ['서비스 정상'] : overallResult.reasons.slice(0, 2),
+    actionIds: ['OBS-001', 'OBS-002', 'OBS-003'],
+    priority: 'low', nextTemplate: null
+  };
+}
+
+// ── fixture 이벤트 생성 헬퍼 ──────────────────────────────────────────────────
+function ev(source, verdict, minsAgo, summary) {
+  return { source, verdict, summary: summary || '', ts: new Date(Date.now() - minsAgo * 60000).toISOString() };
+}
+
+// ── 3개 fixture 데이터 ────────────────────────────────────────────────────────
+const fixtures = {
+  observe: {
+    git_guard:         [ ev('git_guard','PASS',120), ev('git_guard','PASS',60), ev('git_guard','PASS',5) ],
+    self_check:        [ ev('self_check','PASS',120), ev('self_check','PASS',60), ev('self_check','PASS',5) ],
+    backup_check:      [ ev('backup_check','PASS',120), ev('backup_check','PASS',60) ],
+    restore_rehearsal: [ ev('restore_rehearsal','PASS',240), ev('restore_rehearsal','PASS',120) ],
+  },
+  arc: {
+    git_guard:         [ ev('git_guard','PASS',120), ev('git_guard','PASS',5) ],
+    self_check:        [ ev('self_check','PASS',240), ev('self_check','FAIL',120), ev('self_check','FAIL',60) ],
+    backup_check:      [ ev('backup_check','PASS',120), ev('backup_check','PASS',60) ],
+    restore_rehearsal: [ ev('restore_rehearsal','PASS',240), ev('restore_rehearsal','PASS',120) ],
+  },
+  apr: {
+    git_guard:         [ ev('git_guard','PASS',120), ev('git_guard','PASS',5) ],
+    self_check:        [ ev('self_check','PASS',120), ev('self_check','PASS',60) ],
+    backup_check:      [ ev('backup_check','PASS',120), ev('backup_check','PASS',60) ],
+    restore_rehearsal: [ ev('restore_rehearsal','FAIL',120), ev('restore_rehearsal','FAIL',60) ],
+  },
+};
+
+// ── 렌더 함수 (main HTML 렌더 로직과 동일) ────────────────────────────────────
+function renderActionCard(ar) {
+  const approvalHtml = ar.approval
+    ? '<span class="approval-yes">approval needed: YES</span>'
+    : '<span class="approval-no">approval needed: no</span>';
+  const priorityCls = { low: 'priority-low', medium: 'priority-med', high: 'priority-high' }[ar.priority] || '';
+  const reasonsHtml = ar.reasons.length
+    ? `<div class="action-reasons">근거: ${ar.reasons.slice(0, 3).join(' · ')}</div>` : '';
+  const idsHtml = (ar.actionIds || []).map(id =>
+    `<div class="act-id-row"><span class="act-id">${id}</span><span class="act-label">${ACTION_CATALOG[id] || ''}</span></div>`
+  ).join('');
+  const templateHtml = ar.nextTemplate
+    ? `<div class="act-template">참조: ${ar.nextTemplate}</div>` : '';
+  return `<div class="action-banner">
+    <div>
+      <div class="action-class ${ar.action}">${ar.action}</div>
+      <div class="action-meta">${approvalHtml} &nbsp; <span class="${priorityCls}">priority: ${ar.priority}</span></div>
+    </div>
+    <div style="flex:1;min-width:0">
+      <div class="action-step">→ ${ar.step}</div>
+      ${reasonsHtml}
+    </div>
+  </div>
+  <div class="act-ids">${idsHtml}</div>
+  ${templateHtml}`;
+}
+
+// ── 렌더 실행 & 결과 수집 ─────────────────────────────────────────────────────
+const results = {};
+const elMap = { observe: 'case-observe', arc: 'case-arc', apr: 'case-apr' };
+for (const [key, data] of Object.entries(fixtures)) {
+  const overall = calcOverall(data);
+  const action  = calcAction(data, overall);
+  results[key]  = { overall, action };
+  document.getElementById(elMap[key]).innerHTML = renderActionCard(action);
+}
+
+// ── Assertions ────────────────────────────────────────────────────────────────
+const checks = [];
+function check(label, condition) { checks.push({ label, pass: !!condition }); }
+
+const obs = results.observe.action;
+const arc = results.arc.action;
+const apr = results.apr.action;
+
+// 1. action class
+check('OBSERVE: action=OBSERVE',       obs.action === 'OBSERVE');
+check('AUTO-RECOVERY: action correct', arc.action === 'AUTO-RECOVERY-CANDIDATE');
+check('APPROVAL-REQUIRED: action correct', apr.action === 'APPROVAL-REQUIRED');
+
+// 2. action ids 조건별
+check('OBSERVE: ids=[OBS-001,002,003]', JSON.stringify(obs.actionIds) === JSON.stringify(['OBS-001','OBS-002','OBS-003']));
+check('AUTO-RECOVERY: ids=[ARC-001,002,003]', JSON.stringify(arc.actionIds) === JSON.stringify(['ARC-001','ARC-002','ARC-003']));
+check('APPROVAL-REQUIRED: ids include APR-003', apr.actionIds.includes('APR-003'));
+check('APPROVAL-REQUIRED: ids include APR-004', apr.actionIds.includes('APR-004'));
+
+// 3. priority
+check('OBSERVE: priority=low',    obs.priority === 'low');
+check('AUTO-RECOVERY: priority=medium', arc.priority === 'medium');
+check('APPROVAL-REQUIRED: priority=high', apr.priority === 'high');
+
+// 4. § A / § C 참조 APPROVAL-REQUIRED에서만
+check('APPROVAL-REQUIRED: nextTemplate has § C', apr.nextTemplate && apr.nextTemplate.includes('§ C'));
+check('OBSERVE: nextTemplate=null (§ A/C 없음)', obs.nextTemplate === null);
+check('AUTO-RECOVERY: no § A', arc.nextTemplate && !arc.nextTemplate.includes('§ A'));
+check('AUTO-RECOVERY: no § C', arc.nextTemplate && !arc.nextTemplate.includes('§ C'));
+
+// 5. § B AUTO-RECOVERY에서만
+check('AUTO-RECOVERY: nextTemplate has § B', arc.nextTemplate && arc.nextTemplate.includes('§ B'));
+check('APPROVAL-REQUIRED: no § B', apr.nextTemplate && !apr.nextTemplate.includes('§ B'));
+check('OBSERVE: nextTemplate null (§ B 없음)', obs.nextTemplate === null);
+
+// 6. OBSERVE: nextTemplate null → DOM에 .act-template 없음
+check('OBSERVE rendered: no .act-template in DOM', !document.getElementById('case-observe').querySelector('.act-template'));
+check('AUTO-RECOVERY rendered: .act-template exists', !!document.getElementById('case-arc').querySelector('.act-template'));
+check('APPROVAL-REQUIRED rendered: .act-template exists', !!document.getElementById('case-apr').querySelector('.act-template'));
+
+// 7. approval badge
+check('APPROVAL-REQUIRED rendered: .approval-yes', !!document.getElementById('case-apr').querySelector('.approval-yes'));
+check('OBSERVE rendered: no .approval-yes', !document.getElementById('case-observe').querySelector('.approval-yes'));
+check('AUTO-RECOVERY rendered: no .approval-yes', !document.getElementById('case-arc').querySelector('.approval-yes'));
+
+// 8. act-id badges rendered
+check('OBSERVE rendered: 3 act-id badges', document.getElementById('case-observe').querySelectorAll('.act-id').length === 3);
+check('AUTO-RECOVERY rendered: 3 act-id badges', document.getElementById('case-arc').querySelectorAll('.act-id').length === 3);
+check('APPROVAL-REQUIRED rendered: act-id badges ≥ 2', document.getElementById('case-apr').querySelectorAll('.act-id').length >= 2);
+
+// ── 결과 렌더 ─────────────────────────────────────────────────────────────────
+const passed = checks.filter(c => c.pass).length;
+const failed = checks.filter(c => !c.pass).length;
+const verdict = failed === 0 ? 'PASS' : 'FAIL';
+
+document.getElementById('assertions').innerHTML =
+  `<div class="assert-summary" style="color:${failed ? '#ef4444' : '#22c55e'}">
+    ${verdict} — ${passed}/${checks.length} checks passed
+  </div>` +
+  checks.map(c =>
+    `<div class="assert-row">
+      <span class="${c.pass ? 'APASS' : 'AFAIL'}">${c.pass ? 'PASS' : 'FAIL'}</span>
+      <span style="color:${c.pass ? '#64748b' : '#ef4444'}">${c.label}</span>
+    </div>`
+  ).join('');
+</script>
+</body>
+</html>

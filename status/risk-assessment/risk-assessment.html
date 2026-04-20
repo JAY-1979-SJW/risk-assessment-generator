@@ -1,3 +1,4 @@
+<!-- 표준 기준선: docs/standards/risk-assessment-web-baseline-v1.md -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -83,6 +84,26 @@
     .evt-row:last-child { border-bottom: none; }
     .evt-summary { color: #475569; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .noise-badge { font-size: 0.6rem; color: #475569; background: #1e293b; border-radius: 0.2rem; padding: 0 0.2rem; }
+    /* Action Recommendation 카드 */
+    .action-banner { display: flex; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap; }
+    .action-class { font-size: 1.1rem; font-weight: bold; letter-spacing: 0.04em; }
+    .action-meta  { font-size: 0.72rem; color: #64748b; margin-top: 0.25rem; }
+    .action-step  { font-size: 0.78rem; margin-top: 0.35rem; }
+    .action-reasons { font-size: 0.68rem; color: #94a3b8; margin-top: 0.4rem; }
+    .OBSERVE               { color: #22c55e; font-weight: bold; }
+    .AUTO-RECOVERY-CANDIDATE { color: #f97316; font-weight: bold; }
+    .APPROVAL-REQUIRED     { color: #ef4444; font-weight: bold; }
+    .approval-yes { color: #ef4444; font-size: 0.72rem; font-weight: bold; }
+    .approval-no  { color: #64748b; font-size: 0.72rem; }
+    /* Action catalog list */
+    .act-ids { margin-top: 0.65rem; display: flex; flex-direction: column; gap: 0.22rem; }
+    .act-id-row { font-size: 0.72rem; display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+    .act-id { font-family: monospace; color: #f8fafc; background: #1e3a5f; border-radius: 0.2rem; padding: 0.05rem 0.3rem; font-size: 0.67rem; min-width: 4.5rem; display: inline-block; }
+    .act-label { color: #94a3b8; }
+    .act-template { font-size: 0.68rem; color: #475569; margin-top: 0.5rem; border-top: 1px solid #1e3a5f; padding-top: 0.35rem; }
+    .priority-low  { color: #22c55e; font-size: 0.7rem; }
+    .priority-med  { color: #f97316; font-size: 0.7rem; }
+    .priority-high { color: #ef4444; font-size: 0.7rem; font-weight: bold; }
   </style>
 </head>
 <body>
@@ -95,6 +116,12 @@
     <div class="card wide" id="card-overall">
       <h2>Overall Status</h2>
       <div id="overall-content"><span class="loading">loading…</span></div>
+    </div>
+
+    <!-- ── Action Recommendation ──────────────────────────────────────────── -->
+    <div class="card wide" id="card-action">
+      <h2>Action Recommendation</h2>
+      <div id="action-content"><span class="loading">loading…</span></div>
     </div>
 
     <!-- ── 현재 상태 5개 블록 ───────────────────────────────────────────────── -->
@@ -150,6 +177,19 @@
   <script>
     const DATA = '/status/risk-assessment/data/';
     const SOURCES = ['git_guard', 'self_check', 'backup_check', 'restore_rehearsal'];
+
+    const ACTION_CATALOG = {
+      'OBS-001': '상태 추적 유지',
+      'OBS-002': '다음 scheduled check 결과 대기',
+      'OBS-003': 'recent events 24h 추세 확인',
+      'ARC-001': '최소 범위 재기동 후보 검토',
+      'ARC-002': 'docker compose ps / health 재확인',
+      'ARC-003': '최근 로그 비교 후 단일 서비스 문제 여부 판단',
+      'APR-001': 'git 정렬 복구 계획 작성',
+      'APR-002': '데이터 복구 범위 확정',
+      'APR-003': 'backup/restore 무결성 재확인',
+      'APR-004': '대표님 승인 후 실행 단계로 전환',
+    };
 
     // ── 유틸 ─────────────────────────────────────────────────────────────────
     function parseKV(line) {
@@ -254,6 +294,79 @@
       );
       const noiseNote = hasNoise ? ['git_guard mode_only 변경 감지 (운영 잡음 — HEALTHY 유지)'] : [];
       return { overall: 'HEALTHY', reasons: noiseNote, totalFails: 0, totalWarns, lastIncidentAt: null };
+    }
+
+    // ── Action Recommendation 계산 ────────────────────────────────────────────
+    function calcAction(allData, overallResult) {
+      const { overall } = overallResult;
+
+      const allNorm = {};
+      for (const src of SOURCES) {
+        allNorm[src] = (allData[src] || []).map(normalizeEvent);
+      }
+
+      const restoreFail = allNorm['restore_rehearsal'].slice(-2)
+        .some(e => e.normalized === 'FAIL');
+      const gitContentDirty = allNorm['git_guard'].slice(-3)
+        .some(e => e.normalized === 'FAIL' && e.noiseType !== 'mode_only');
+      const backupFail = allNorm['backup_check'].slice(-2)
+        .every(e => e.normalized === 'FAIL') && allNorm['backup_check'].length >= 2;
+
+      const now = Date.now();
+      const h24 = now - 24 * 60 * 60 * 1000;
+      const failSrcs = SOURCES.filter(src =>
+        allNorm[src].filter(e => new Date(e.ts).getTime() >= h24 && e.normalized === 'FAIL').length >= 2
+      );
+
+      // APPROVAL-REQUIRED 조건별 IDs 수집
+      const aprReasons = [];
+      const aprIdSet = new Set();
+      if (restoreFail)         { aprReasons.push('restore_rehearsal FAIL');                    aprIdSet.add('APR-003'); aprIdSet.add('APR-004'); }
+      if (gitContentDirty)     { aprReasons.push('git content dirty');                         aprIdSet.add('APR-001'); aprIdSet.add('APR-004'); }
+      if (backupFail)          { aprReasons.push('backup_check 연속 FAIL');                    aprIdSet.add('APR-003'); aprIdSet.add('APR-004'); }
+      if (failSrcs.length >= 2){ aprReasons.push(`복수 source 동시 FAIL: ${failSrcs.join(', ')}`); aprIdSet.add('APR-002'); aprIdSet.add('APR-003'); aprIdSet.add('APR-004'); }
+
+      if (aprReasons.length > 0) {
+        const templates = [];
+        if (gitContentDirty)            templates.push('git 이상 대응 템플릿 (§ A)');
+        if (restoreFail || backupFail)  templates.push('데이터 복구 대응 템플릿 (§ C)');
+        if (!templates.length)          templates.push('git 이상 대응 템플릿 (§ A) / 데이터 복구 대응 템플릿 (§ C)');
+        return {
+          action: 'APPROVAL-REQUIRED',
+          approval: true,
+          step: '대표님 승인 후 복구/정렬 절차 진행',
+          reasons: aprReasons,
+          actionIds: [...aprIdSet].slice(0, 4),
+          priority: 'high',
+          nextTemplate: templates.join(' / ')
+        };
+      }
+
+      // AUTO-RECOVERY-CANDIDATE: self_check 2회 연속 FAIL
+      const svcRepeatFail = allNorm['self_check'].slice(-2)
+        .every(e => e.normalized === 'FAIL') && allNorm['self_check'].length >= 2;
+      if (svcRepeatFail) {
+        return {
+          action: 'AUTO-RECOVERY-CANDIDATE',
+          approval: false,
+          step: '원인 확인 후 최소 범위 재기동 후보',
+          reasons: ['self_check 2회 연속 FAIL'],
+          actionIds: ['ARC-001', 'ARC-002', 'ARC-003'],
+          priority: 'medium',
+          nextTemplate: '서비스 이상 대응 템플릿 (§ B)'
+        };
+      }
+
+      // OBSERVE
+      return {
+        action: 'OBSERVE',
+        approval: false,
+        step: '상태 추적 유지, 즉시 조치 없음',
+        reasons: overall === 'HEALTHY' ? ['서비스 정상'] : overallResult.reasons.slice(0, 2),
+        actionIds: ['OBS-001', 'OBS-002', 'OBS-003'],
+        priority: 'low',
+        nextTemplate: null
+      };
     }
 
     function findLastIncident(allData) {
@@ -373,8 +486,10 @@
       }));
 
       // ── Overall Status ────────────────────────────────────────────────────
+      let overallResult = null;
       try {
-        const { overall, reasons, totalFails, totalWarns, lastIncidentAt } = calcOverall(allData);
+        overallResult = calcOverall(allData);
+        const { overall, reasons, totalFails, totalWarns, lastIncidentAt } = overallResult;
         const cls = overall;
         const reasonHtml = reasons.length
           ? `<div class="overall-reasons">사유: ${reasons.slice(0, 3).join(' · ')}</div>` : '';
@@ -396,6 +511,38 @@
           ${reasonHtml}`;
       } catch (e) {
         document.getElementById('overall-content').innerHTML =
+          '<span class="loading">계산 중 오류</span>';
+      }
+
+      // ── Action Recommendation ─────────────────────────────────────────────
+      try {
+        const ar = calcAction(allData, overallResult || { overall: 'HEALTHY', reasons: [] });
+        const approvalHtml = ar.approval
+          ? '<span class="approval-yes">approval needed: YES</span>'
+          : '<span class="approval-no">approval needed: no</span>';
+        const priorityCls = { low: 'priority-low', medium: 'priority-med', high: 'priority-high' }[ar.priority] || '';
+        const reasonsHtml = ar.reasons.length
+          ? `<div class="action-reasons">근거: ${ar.reasons.slice(0, 3).join(' · ')}</div>` : '';
+        const idsHtml = (ar.actionIds || []).map(id =>
+          `<div class="act-id-row"><span class="act-id">${id}</span><span class="act-label">${ACTION_CATALOG[id] || ''}</span></div>`
+        ).join('');
+        const templateHtml = ar.nextTemplate
+          ? `<div class="act-template">참조: ${ar.nextTemplate}</div>` : '';
+        document.getElementById('action-content').innerHTML =
+          `<div class="action-banner">
+            <div>
+              <div class="action-class ${ar.action}">${ar.action}</div>
+              <div class="action-meta">${approvalHtml} &nbsp; <span class="${priorityCls}">priority: ${ar.priority}</span></div>
+            </div>
+            <div style="flex:1;min-width:0">
+              <div class="action-step">→ ${ar.step}</div>
+              ${reasonsHtml}
+            </div>
+          </div>
+          <div class="act-ids">${idsHtml}</div>
+          ${templateHtml}`;
+      } catch (e) {
+        document.getElementById('action-content').innerHTML =
           '<span class="loading">계산 중 오류</span>';
       }
 
