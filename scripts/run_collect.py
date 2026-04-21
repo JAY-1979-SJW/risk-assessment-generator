@@ -51,6 +51,7 @@ from scripts.collect import (
     law_expc,
     law_content,
     admrul_content,
+    expc_content,
     kosha_guides,
 )
 from scripts.collect._base import get_logger
@@ -64,13 +65,14 @@ COLLECTORS: dict[str, tuple[str, callable]] = {
     "licbyl":         ("별표서식 목록 (target=licbyl)",     law_licbyl.run),
     "expc":           ("법령해석례 목록 (target=expc)",     law_expc.run),
     "law_content":    ("법령 본문 (XML → 조문 분해)",       law_content.run),
-    "admrul_content": ("행정규칙 본문 (HTML → 텍스트)",     admrul_content.run),
+    "admrul_content": ("행정규칙 본문 (XML → 텍스트)",     admrul_content.run),
+    "expc_content":   ("법령해석례 본문 (XML → 질의·회답·이유)", expc_content.run),
     "kosha":          ("KOSHA 가이드",                     kosha_guides.run),
 }
 
 # 그룹 정의
 LAW_ALL     = ["statutes", "admin_rules", "licbyl", "expc"]
-CONTENT_ALL = ["law_content", "admrul_content"]
+CONTENT_ALL = ["law_content", "admrul_content", "expc_content"]
 
 
 def main(targets: list[str]) -> int:
