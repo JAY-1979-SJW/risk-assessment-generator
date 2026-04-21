@@ -1,0 +1,227 @@
+{
+  "generated_at": "2026-04-20T23:52:36.530864+00:00",
+  "note": "설계 초안 샘플. 운영 투입 전 검토 필요.",
+  "samples": {
+    "worktype_hazard": [
+      {
+        "work_type_code": "TEMP_SCAFF",
+        "hazard_code": "FALL",
+        "link_score": 120,
+        "frequency": 3,
+        "severity": 3,
+        "reason": "work_hazards_map.json 기존 매핑 — 출처: sample_chunks id=1"
+      },
+      {
+        "work_type_code": "TEMP_SCAFF",
+        "hazard_code": "DROP",
+        "link_score": 90,
+        "frequency": 2,
+        "severity": 3,
+        "reason": "work_hazards_map.json 기존 매핑 — 출처: 규칙 제43조"
+      },
+      {
+        "work_type_code": "TEMP_SCAFF",
+        "hazard_code": "COLLAPSE",
+        "link_score": 90,
+        "frequency": 2,
+        "severity": 3,
+        "reason": "work_hazards_map.json 기존 매핑 — 출처: 규칙 제59조"
+      },
+      {
+        "work_type_code": "TEMP_AWP",
+        "hazard_code": "FALL",
+        "link_score": 120,
+        "frequency": 3,
+        "severity": 3,
+        "reason": "work_hazards_map.json 기존 매핑 — 출처: sample_chunks id=2"
+      },
+      {
+        "work_type_code": "TEMP_AWP",
+        "hazard_code": "COLLIDE",
+        "link_score": 80,
+        "frequency": 2,
+        "severity": 2,
+        "reason": "work_hazards_map.json 기존 매핑 — 출처: 규칙 제186조"
+      },
+      {
+        "work_type_code": "TEMP_LADDER",
+        "hazard_code": "FALL",
+        "link_score": 120,
+        "frequency": 3,
+        "severity": 3,
+        "reason": "work_hazards_map.json 기존 매핑 — 출처: sample_chunks id=5"
+      },
+      {
+        "work_type_code": "TEMP_OPEN",
+        "hazard_code": "FALL",
+        "link_score": 120,
+        "frequency": 3,
+        "severity": 3,
+        "reason": "work_hazards_map.json 기존 매핑 — 출처: sample_chunks id=30"
+      },
+      {
+        "work_type_code": "STEEL_ASSEM",
+        "hazard_code": "FALL",
+        "link_score": 120,
+        "frequency": 3,
+        "severity": 3,
+        "reason": "work_hazards_map.json 기존 매핑 — 출처: sample_chunks id=3"
+      },
+      {
+        "work_type_code": "STEEL_ASSEM",
+        "hazard_code": "DROP",
+        "link_score": 90,
+        "frequency": 2,
+        "severity": 3,
+        "reason": "work_hazards_map.json 기존 매핑 — 출처: 규칙 제48조"
+      },
+      {
+        "work_type_code": "STEEL_BOLT",
+        "hazard_code": "FALL",
+        "link_score": 120,
+        "frequency": 3,
+        "severity": 3,
+        "reason": "work_hazards_map.json 기존 매핑 — 출처: sample_chunks id=3"
+      }
+    ],
+    "hazard_control": [
+      {
+        "hazard_code": "FALL",
+        "control_code": "FALL_C01",
+        "control_text": "안전난간 설치 (상부난간대·중간난간대·발끝막이판)",
+        "control_type": "engineering",
+        "priority": 1,
+        "link_score": 90,
+        "reason": "hazard_controls.json 직접 추출 — 출처: sample_chunks id=1"
+      },
+      {
+        "hazard_code": "FALL",
+        "control_code": "FALL_C02",
+        "control_text": "추락방지망 설치",
+        "control_type": "engineering",
+        "priority": 1,
+        "link_score": 90,
+        "reason": "hazard_controls.json 직접 추출 — 출처: sample_chunks id=1"
+      },
+      {
+        "hazard_code": "FALL",
+        "control_code": "FALL_C03",
+        "control_text": "작업발판 고정 (폭 40cm 이상)",
+        "control_type": "engineering",
+        "priority": 1,
+        "link_score": 90,
+        "reason": "hazard_controls.json 직접 추출 — 출처: sample_chunks id=1"
+      },
+      {
+        "hazard_code": "FALL",
+        "control_code": "FALL_C04",
+        "control_text": "안전대 부착설비 설치 후 안전대 착용",
+        "control_type": "ppe",
+        "priority": 1,
+        "link_score": 90,
+        "reason": "hazard_controls.json 직접 추출 — 출처: sample_chunks id=2"
+      },
+      {
+        "hazard_code": "FALL",
+        "control_code": "FALL_C05",
+        "control_text": "고소작업대 과부하 방지 장치 점검",
+        "control_type": "admin",
+        "priority": 2,
+        "link_score": 70,
+        "reason": "hazard_controls.json 직접 추출 — 출처: sample_chunks id=2"
+      },
+      {
+        "hazard_code": "FALL",
+        "control_code": "FALL_C06",
+        "control_text": "안전망 설치",
+        "control_type": "engineering",
+        "priority": 1,
+        "link_score": 90,
+        "reason": "hazard_controls.json 직접 추출 — 출처: sample_chunks id=3"
+      },
+      {
+        "hazard_code": "FALL",
+        "control_code": "FALL_C07",
+        "control_text": "풍속 10m/s 이상 시 작업 중지",
+        "control_type": "admin",
+        "priority": 2,
+        "link_score": 70,
+        "reason": "hazard_controls.json 직접 추출 — 출처: sample_chunks id=3"
+      },
+      {
+        "hazard_code": "FALL",
+        "control_code": "FALL_C08",
+        "control_text": "경사각 30도 이상 지붕 추락방지망 설치 또는 안전대 착용",
+        "control_type": "engineering",
+        "priority": 1,
+        "link_score": 90,
+        "reason": "hazard_controls.json 직접 추출 — 출처: sample_chunks id=4"
+      },
+      {
+        "hazard_code": "FALL",
+        "control_code": "FALL_C09",
+        "control_text": "사다리 상단 걸침 구조물보다 60cm 이상 돌출",
+        "control_type": "engineering",
+        "priority": 1,
+        "link_score": 90,
+        "reason": "hazard_controls.json 직접 추출 — 출처: sample_chunks id=5"
+      },
+      {
+        "hazard_code": "FALL",
+        "control_code": "FALL_C10",
+        "control_text": "이동식 사다리 기울기 75도 이하 유지",
+        "control_type": "engineering",
+        "priority": 1,
+        "link_score": 90,
+        "reason": "hazard_controls.json 직접 추출 — 출처: sample_chunks id=5"
+      }
+    ],
+    "control_law": [
+      {
+        "control_code": "FALL_C01",
+        "control_text": "안전난간 설치 (상부난간대·중간난간대·발끝막이판)",
+        "law_id": "statute:273603",
+        "law_title": "산업안전보건기준에 관한 규칙",
+        "law_ref_text": "산업안전보건기준에 관한 규칙 제43조",
+        "link_score": 88,
+        "reason": "hazard_controls.law_ref 텍스트 → law_id 파싱 (resolve_law_ref 규칙)"
+      },
+      {
+        "control_code": "FALL_C02",
+        "control_text": "추락방지망 설치",
+        "law_id": "statute:273603",
+        "law_title": "산업안전보건기준에 관한 규칙",
+        "law_ref_text": "산업안전보건기준에 관한 규칙 제42조",
+        "link_score": 88,
+        "reason": "hazard_controls.law_ref 텍스트 → law_id 파싱 (resolve_law_ref 규칙)"
+      },
+      {
+        "control_code": "FALL_C03",
+        "control_text": "작업발판 고정 (폭 40cm 이상)",
+        "law_id": "statute:273603",
+        "law_title": "산업안전보건기준에 관한 규칙",
+        "law_ref_text": "산업안전보건기준에 관한 규칙 제43조",
+        "link_score": 88,
+        "reason": "hazard_controls.law_ref 텍스트 → law_id 파싱 (resolve_law_ref 규칙)"
+      },
+      {
+        "control_code": "FALL_C04",
+        "control_text": "안전대 부착설비 설치 후 안전대 착용",
+        "law_id": "statute:273603",
+        "law_title": "산업안전보건기준에 관한 규칙",
+        "law_ref_text": "산업안전보건기준에 관한 규칙 제44조",
+        "link_score": 88,
+        "reason": "hazard_controls.law_ref 텍스트 → law_id 파싱 (resolve_law_ref 규칙)"
+      },
+      {
+        "control_code": "FALL_C05",
+        "control_text": "고소작업대 과부하 방지 장치 점검",
+        "law_id": "statute:273603",
+        "law_title": "산업안전보건기준에 관한 규칙",
+        "law_ref_text": "산업안전보건기준에 관한 규칙 제44조",
+        "link_score": 88,
+        "reason": "hazard_controls.law_ref 텍스트 → law_id 파싱 (resolve_law_ref 규칙)"
+      }
+    ]
+  }
+}

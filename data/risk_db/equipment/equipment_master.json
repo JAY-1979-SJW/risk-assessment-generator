@@ -1,0 +1,227 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "source": "산업안전보건기준에 관한 규칙 (크레인·비계·리프트 관련 조항) + sample_chunks.json 장비 키워드",
+    "created": "2026-04-20",
+    "count": 31
+  },
+  "equipment": [
+    {
+      "code": "EQ_SCAFF",      "name_ko": "강관 비계",          "equipment_type": "access",
+      "description": "강관을 조립하여 설치하는 가설 구조물. 추락 위험 최고 등급.",
+      "inspection_cycle": "작업 시작 전 매일",
+      "law_ref": "산업안전보건기준에 관한 규칙 제59~76조",
+      "source": "규칙 제59조 + sample_chunks id=1"
+    },
+    {
+      "code": "EQ_MOVSCAFF",   "name_ko": "이동식 비계",        "equipment_type": "access",
+      "description": "바퀴가 달려 이동 가능한 비계. 이동 전 고정 확인 필수.",
+      "inspection_cycle": "작업 시작 전 매일",
+      "law_ref": "산업안전보건기준에 관한 규칙 제68조",
+      "source": "규칙 제68조"
+    },
+    {
+      "code": "EQ_AWP",        "name_ko": "고소작업대(차량형)",  "equipment_type": "access",
+      "description": "차량에 탑재된 붐형 또는 시저형 고소작업대.",
+      "inspection_cycle": "작업 시작 전, 월 1회 이상",
+      "law_ref": "산업안전보건기준에 관한 규칙 제186조",
+      "source": "규칙 제186조 + sample_chunks id=2"
+    },
+    {
+      "code": "EQ_LADDER_MOV", "name_ko": "이동식 사다리",      "equipment_type": "access",
+      "description": "현장에서 임시로 사용하는 이동식 사다리.",
+      "inspection_cycle": "사용 전 점검",
+      "law_ref": "산업안전보건기준에 관한 규칙 제24조",
+      "source": "규칙 제24조 + sample_chunks id=5"
+    },
+    {
+      "code": "EQ_CRANE_TOWER","name_ko": "타워크레인",          "equipment_type": "lifting",
+      "description": "고층 건설 현장 주요 양중 장비. 낙하·충돌 위험.",
+      "inspection_cycle": "월 1회 정기점검 + 작업 전 일상점검",
+      "law_ref": "산업안전보건기준에 관한 규칙 제139~147조",
+      "source": "규칙 제139조 + sample_chunks id=21"
+    },
+    {
+      "code": "EQ_CRANE_MOB",  "name_ko": "이동식 크레인",      "equipment_type": "lifting",
+      "description": "트럭·크롤러형 이동식 크레인. 전도·낙하 위험.",
+      "inspection_cycle": "작업 시작 전 매일",
+      "law_ref": "산업안전보건기준에 관한 규칙 제146조",
+      "source": "규칙 제146조 + sample_chunks id=21"
+    },
+    {
+      "code": "EQ_FORKLIFT",   "name_ko": "지게차",              "equipment_type": "transport",
+      "description": "자재 운반용 동력 장비. 충돌·전도 위험.",
+      "inspection_cycle": "작업 시작 전 매일",
+      "law_ref": "산업안전보건기준에 관한 규칙 제179조",
+      "source": "규칙 제179조"
+    },
+    {
+      "code": "EQ_EXCAV",      "name_ko": "굴착기(포클레인)",   "equipment_type": "earthwork",
+      "description": "굴착 및 토공 작업용 건설기계. 충돌·협착·붕괴 위험.",
+      "inspection_cycle": "작업 시작 전 매일",
+      "law_ref": "산업안전보건기준에 관한 규칙 제196조",
+      "source": "규칙 제196조"
+    },
+    {
+      "code": "EQ_BULLDOZER",  "name_ko": "불도저",              "equipment_type": "earthwork",
+      "description": "성토·절토 작업용 건설기계.",
+      "inspection_cycle": "작업 시작 전 매일",
+      "law_ref": "산업안전보건기준에 관한 규칙 제196조",
+      "source": "규칙 제196조"
+    },
+    {
+      "code": "EQ_CONC_PUMP",  "name_ko": "콘크리트 펌프카",    "equipment_type": "concrete",
+      "description": "붐을 이용한 콘크리트 압송 장비. 붐 전도·콘크리트 비산 위험.",
+      "inspection_cycle": "작업 시작 전 매일",
+      "law_ref": "산업안전보건기준에 관한 규칙 제335조",
+      "source": "규칙 제335조"
+    },
+    {
+      "code": "EQ_WELDER_ARC", "name_ko": "아크 용접기",         "equipment_type": "welding",
+      "description": "전기 아크 용접기. 감전·화재·용접흄 위험.",
+      "inspection_cycle": "사용 전 절연 상태 점검",
+      "law_ref": "산업안전보건기준에 관한 규칙 제241조, 제304조",
+      "source": "규칙 제241조 + sample_chunks id=13"
+    },
+    {
+      "code": "EQ_WELDER_GAS", "name_ko": "가스 용접기(LPG/산소)","equipment_type": "welding",
+      "description": "산소-LPG 가스 용접·절단기. 폭발·화재 위험.",
+      "inspection_cycle": "사용 전 호스·밸브 누출 점검",
+      "law_ref": "산업안전보건기준에 관한 규칙 제232조",
+      "source": "규칙 제232조 + sample_chunks id=15"
+    },
+    {
+      "code": "EQ_GRINDER",    "name_ko": "그라인더",            "equipment_type": "cutting",
+      "description": "연삭·절단 공구. 절단·분진·눈 부상 위험.",
+      "inspection_cycle": "사용 전 덮개·날 상태 점검",
+      "law_ref": "산업안전보건기준에 관한 규칙 제108조",
+      "source": "규칙 제108조"
+    },
+    {
+      "code": "EQ_CIRCULAR_SAW","name_ko": "원형 톱",            "equipment_type": "cutting",
+      "description": "목재·경량철골 절단용 전동 공구. 절단·협착 위험.",
+      "inspection_cycle": "사용 전 날 상태·덮개 점검",
+      "law_ref": "산업안전보건기준에 관한 규칙 제108조",
+      "source": "규칙 제108조"
+    },
+    {
+      "code": "EQ_DRILL",      "name_ko": "전동 드릴",           "equipment_type": "power_tool",
+      "description": "천공·체결 작업용 전동 공구. 감전·협착 위험.",
+      "inspection_cycle": "사용 전 절연 상태 점검",
+      "law_ref": "산업안전보건기준에 관한 규칙 제305조",
+      "source": "규칙 제305조 + sample_chunks id=12"
+    },
+    {
+      "code": "EQ_DIST_PANEL", "name_ko": "분전반",              "equipment_type": "electrical",
+      "description": "현장 배전 분전반. 감전·아크 위험.",
+      "inspection_cycle": "작업 시작 전 매일 + 월 1회 절연저항 측정",
+      "law_ref": "산업안전보건기준에 관한 규칙 제301조",
+      "source": "규칙 제301조 + sample_chunks id=10"
+    },
+    {
+      "code": "EQ_AIRCOMP",    "name_ko": "공기 압축기",         "equipment_type": "air",
+      "description": "압축 공기 공급 장비. 압력 용기 폭발·소음 위험.",
+      "inspection_cycle": "작업 전 압력 게이지·안전밸브 점검",
+      "law_ref": "산업안전보건기준에 관한 규칙 제116조",
+      "source": "규칙 제116조"
+    },
+    {
+      "code": "EQ_PILEDRIVER", "name_ko": "항타기",              "equipment_type": "foundation",
+      "description": "말뚝 항타 장비. 낙하·충돌·소음 위험.",
+      "inspection_cycle": "작업 시작 전 + 주 1회",
+      "law_ref": "산업안전보건기준에 관한 규칙 제207조",
+      "source": "규칙 제207조"
+    },
+    {
+      "code": "EQ_VIBRATOR",   "name_ko": "콘크리트 바이브레이터", "equipment_type": "concrete",
+      "description": "콘크리트 다짐용 진동 장비. 감전·진동 노출 위험.",
+      "inspection_cycle": "사용 전 절연 상태 점검",
+      "law_ref": "산업안전보건기준에 관한 규칙 제305조",
+      "source": "규칙 제305조"
+    },
+    {
+      "code": "EQ_SPRAY_GUN",  "name_ko": "에어리스 스프레이",   "equipment_type": "painting",
+      "description": "도장 작업용 무공기 분무기. 화재·중독·분진 위험.",
+      "inspection_cycle": "사용 전 호스·노즐 점검",
+      "law_ref": "산업안전보건기준에 관한 규칙 제236조",
+      "source": "규칙 제236조 + sample_chunks id=16"
+    },
+    {
+      "code": "EQ_HOIST",      "name_ko": "호이스트",            "equipment_type": "lifting",
+      "description": "소형 자재 인양용 체인·전동 호이스트. 낙하·협착 위험.",
+      "inspection_cycle": "사용 전 체인·훅 상태 점검",
+      "law_ref": "산업안전보건기준에 관한 규칙 제132조",
+      "source": "규칙 제132조"
+    },
+    {
+      "code": "EQ_ROLLER",     "name_ko": "도로 롤러",           "equipment_type": "road",
+      "description": "아스팔트·노반 다짐용 건설기계. 충돌·협착 위험.",
+      "inspection_cycle": "작업 시작 전 매일",
+      "law_ref": "산업안전보건기준에 관한 규칙 제196조",
+      "source": "규칙 제196조"
+    },
+    {
+      "code": "EQ_SCISSORLIFT",  "name_ko": "시저형 고소작업대",  "equipment_type": "access",
+      "description": "수직 방향으로 플랫폼을 올리는 전기·유압 구동 고소작업대.",
+      "inspection_cycle": "작업 시작 전, 월 1회 이상",
+      "law_ref": "산업안전보건기준에 관한 규칙 제186조",
+      "source": "산안규칙 제186조 + KOSHA GUIDE C-05-2022"
+    },
+    {
+      "code": "EQ_SYST_SCAFF",   "name_ko": "시스템 비계",         "equipment_type": "access",
+      "description": "규격화된 연결재를 사용하는 비계. 수직재·수평재·가새 조합.",
+      "inspection_cycle": "작업 시작 전 매일",
+      "law_ref": "산업안전보건기준에 관한 규칙 제59조",
+      "source": "산안규칙 제59조 + KOSHA GUIDE C-04-2023"
+    },
+    {
+      "code": "EQ_GAS_CYLINDER", "name_ko": "가스통(압력용기)",    "equipment_type": "gas",
+      "description": "LPG·산소·아세틸렌 등 압력 가스 실린더. 폭발·누출 위험.",
+      "inspection_cycle": "사용 전 밸브·압력 게이지·호스 누출 점검",
+      "law_ref": "산업안전보건기준에 관한 규칙 제232조",
+      "source": "산안규칙 제232조 + 고압가스 안전관리법"
+    },
+    {
+      "code": "EQ_GENERATOR",    "name_ko": "발전기",              "equipment_type": "electrical",
+      "description": "현장 전력 공급용 디젤 발전기. 감전·일산화탄소 중독·화재 위험.",
+      "inspection_cycle": "작업 시작 전 연료·오일·절연 점검",
+      "law_ref": "산업안전보건기준에 관한 규칙 제304조",
+      "source": "산안규칙 제304조 + KOSHA GUIDE E-12-2021"
+    },
+    {
+      "code": "EQ_MANHOLE_BLOWER","name_ko": "맨홀 강제 환기 장비","equipment_type": "ventilation",
+      "description": "밀폐공간 강제 환기용 송풍기·흡출기. 산소결핍 방지 필수 장비.",
+      "inspection_cycle": "작업 전 가동 상태 점검",
+      "law_ref": "산업안전보건기준에 관한 규칙 제619조",
+      "source": "산안규칙 제619조(밀폐공간 작업 프로그램)"
+    },
+    {
+      "code": "EQ_REBAR_CUTTER",  "name_ko": "철근 절단기",         "equipment_type": "cutting",
+      "description": "전동식 철근 절단기. 손가락 절단·협착 위험.",
+      "inspection_cycle": "사용 전 날 상태·페달 잠금 점검",
+      "law_ref": "산업안전보건기준에 관한 규칙 제87조",
+      "source": "산안규칙 제87조 + KOSHA GUIDE C-11-2021"
+    },
+    {
+      "code": "EQ_JACKHAMMER",    "name_ko": "착암기(해머드릴)",   "equipment_type": "demolition",
+      "description": "콘크리트 파쇄·암반 천공용 공압 장비. 진동·소음·분진 위험.",
+      "inspection_cycle": "사용 전 호스·타격부 점검",
+      "law_ref": "산업안전보건기준에 관한 규칙 제513조, 제605조",
+      "source": "산안규칙 제513조(소음) + 제605조(분진)"
+    },
+    {
+      "code": "EQ_CONCRETE_MIXER","name_ko": "콘크리트 믹서",      "equipment_type": "concrete",
+      "description": "콘크리트 배합용 회전 드럼. 협착·감전 위험.",
+      "inspection_cycle": "사용 전 드럼·모터·절연 점검",
+      "law_ref": "산업안전보건기준에 관한 규칙 제87조",
+      "source": "산안규칙 제87조(방호장치)"
+    },
+    {
+      "code": "EQ_ASPHALT_PAVER", "name_ko": "아스팔트 피니셔",    "equipment_type": "road",
+      "description": "아스팔트 포장 포설 장비. 고온 화상·매몰·충돌 위험.",
+      "inspection_cycle": "작업 시작 전 매일",
+      "law_ref": "산업안전보건기준에 관한 규칙 제196조",
+      "source": "산안규칙 제196조 + KOSHA GUIDE C-26-2020"
+    }
+  ]
+}

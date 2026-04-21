@@ -483,3 +483,141 @@ def test_regression_gas_explosion_ventilation():
     actions = assemble_actions(chunks, hazards=hazards)
     actions_text = ' '.join(actions)
     assert '환기' in actions_text, f"'환기'가 actions에 포함되어야 함, got: {actions}"
+
+
+# ════════════════════════════════════════════════════════════════════════════
+# v2 입력 테스트 (8건)
+# ════════════════════════════════════════════════════════════════════════════
+
+from engine.rag_risk_engine.schema import validate_input
+
+
+# ── Test 25: confined_space=True → 질식 포함 ─────────────────────────────
+
+def test_v2_confined_space_asphyxiation():
+    """confined_space=True 입력 시 질식 hazard 및 관련 action 포함 기대."""
+    result = _run({
+        'process': '토목',
+        'sub_work': '맨홀 점검',
+        'risk_situation': '맨홀 내부 가스 위험',
+        'confined_space': True,
+    })
+    hazards_text = ' '.join(result['primary_hazards'])
+    assert '질식' in hazards_text, f'질식 미검출 — hazards: {result["primary_hazards"]}'
+    assert result['source_chunk_ids'], '청크 결과 있어야 함'
+
+
+# ── Test 26: hot_work=True → 화재/폭발 포함 ─────────────────────────────
+
+def test_v2_hot_work_fire():
+    """hot_work=True 입력 시 화재/폭발 관련 hazard 포함 기대."""
+    result = _run({
+        'process': '배관',
+        'sub_work': '파이프 용접',
+        'risk_situation': '용접 작업 불꽃 비산',
+        'hot_work': True,
+    })
+    hazards_text = ' '.join(result['primary_hazards'])
+    assert '화재' in hazards_text or '폭발' in hazards_text, (
+        f'화재/폭발 미검출 — hazards: {result["primary_hazards"]}'
+    )
+
+
+# ── Test 27: electrical_work=True → 감전 포함 ───────────────────────────
+
+def test_v2_electrical_work_shock():
+    """electrical_work=True 입력 시 감전 hazard 포함 기대."""
+    result = _run({
+        'process': '전기',
+        'sub_work': '분전반 작업',
+        'risk_situation': '전기 작업 활선 위험',
+        'electrical_work': True,
+    })
+    hazards_text = ' '.join(result['primary_hazards'])
+    assert '감전' in hazards_text, f'감전 미검출 — hazards: {result["primary_hazards"]}'
+
+
+# ── Test 28: height_m=5 → 추락 포함 ─────────────────────────────────────
+
+def test_v2_height_fall():
+    """height_m=5.0 입력 시 추락 hazard 포함 기대 (2m 초과 boost 활성)."""
+    result = _run({
+        'process': '건축',
+        'sub_work': '외벽 도장',
+        'risk_situation': '외벽 작업 추락 위험',
+        'height_m': 5.0,
+    })
+    hazards_text = ' '.join(result['primary_hazards'])
+    assert '추락' in hazards_text, f'추락 미검출 — hazards: {result["primary_hazards"]}'
+
+
+# ── Test 29: multiple flags → 복합 hazard ───────────────────────────────
+
+def test_v2_multiple_flags_composite():
+    """복합 v2 플래그: confined_space+electrical_work → 복수 hazard."""
+    result = _run({
+        'process': '설비',
+        'sub_work': '밀폐 전기실 점검',
+        'risk_situation': '밀폐된 전기 설비 점검',
+        'confined_space': True,
+        'electrical_work': True,
+    })
+    hazards = result['primary_hazards']
+    hazards_text = ' '.join(hazards)
+    assert len(hazards) >= 1, '복합 조건 hazard가 1개 이상이어야 함'
+    assert '감전' in hazards_text or '질식' in hazards_text, (
+        f'복합 hazard 미검출 — hazards: {hazards}'
+    )
+
+
+# ── Test 30: invalid enum → warning 처리, 오류 없음 ─────────────────────
+
+def test_v2_invalid_enum_warning():
+    """잘못된 enum 값은 None으로 처리되고 ValueError를 발생시키지 않아야 함."""
+    # Should not raise
+    validated = validate_input({
+        'process': '건축',
+        'sub_work': '외벽 작업',
+        'risk_situation': '추락 위험',
+        'work_environment': 'underground',   # 허용값 아님
+        'surface_condition': 'muddy',        # 허용값 아님
+        'weather': 'typhoon',                # 허용값 아님
+    })
+    assert validated.get('work_environment') is None, 'invalid enum은 None이어야 함'
+    assert validated.get('surface_condition') is None
+    assert validated.get('weather') is None
+    # Required fields still intact
+    assert validated['process'] == '건축'
+
+
+# ── Test 31: partial v2 입력 → 정상 동작 ────────────────────────────────
+
+def test_v2_partial_input_ok():
+    """v2 필드 일부만 있어도 엔진이 정상 동작해야 함."""
+    result = _run({
+        'process': '건축',
+        'sub_work': '거푸집 작업',
+        'risk_situation': '거푸집 해체 중 붕괴 위험',
+        'worker_count': 3,          # v2 optional
+        'work_environment': 'outdoor',  # v2 optional
+        # 나머지 v2 필드 없음
+    })
+    assert result['source_chunk_ids'] is not None
+    assert result['confidence'] in ('low', 'medium', 'high')
+    assert isinstance(result['primary_hazards'], list)
+
+
+# ── Test 32: v1-only 입력 → 동일 결과 유지 ──────────────────────────────
+
+def test_v2_v1_only_backward_compat():
+    """v2 필드가 전혀 없는 v1 입력도 동일하게 동작해야 함 (하위 호환)."""
+    v1_input = {
+        'process': '건축',
+        'sub_work': '비계 작업',
+        'risk_situation': '비계 작업 중 추락 위험',
+        'risk_category': '추락',
+    }
+    result = _run(v1_input)
+    assert result['source_chunk_ids'], 'v1 입력도 결과 있어야 함'
+    assert '추락' in result['primary_hazards'], 'v1 입력 추락 hazard 유지'
+    assert result['confidence'] in ('medium', 'high'), 'v1 입력 confidence 유지'

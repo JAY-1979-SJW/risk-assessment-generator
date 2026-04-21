@@ -215,3 +215,203 @@ docker compose ps
 - tar 압축 해제 전 대상 경로 확인 없이 실행 금지
 - 다른 앱 디렉토리 침범 금지
 - 컨테이너 내부 `docker exec` 로 파일 직접 교체 금지
+
+---
+
+## Action Matrix
+
+> 이 매트릭스는 overall status · normalized verdict · 이벤트 이력을 종합해 **대응 등급**을 결정한다.
+> 실제 자동 복구는 수행하지 않으며 대시보드 표시 및 운영자 판단 보조용으로만 사용한다.
+
+### OBSERVE
+
+**해당 조건**
+- overall = HEALTHY
+- overall = DEGRADED 이지만 noise 중심 (git_guard mode_only, 1회성 WARN)
+- dirty_type=mode_only 만 존재
+- 초기 백업/리허설 WARN (데이터 부족)
+- 서비스 정상 + 반복성 없는 단발 WARN
+
+**기본 대응**
+- 상태 추적 유지
+- 즉시 조치 없음
+
+| 항목 | 값 |
+|------|-----|
+| approval needed | no |
+| recommended next step | 상태 추적 유지, 즉시 조치 없음 |
+
+---
+
+### AUTO-RECOVERY-CANDIDATE
+
+**해당 조건**
+- API health 2회 연속 실패
+- frontend HTTP 2회 연속 실패
+- 특정 서비스(self_check)만 반복 FAIL (2회 이상)
+- 서비스성 문제 반복 — git content 이상·data 손상·restore FAIL 없음
+
+**기본 대응**
+- 원인 로그 확인 후 최소 범위 재기동 후보
+- 아직 자동 실행 금지 (사람이 판단)
+
+| 항목 | 값 |
+|------|-----|
+| approval needed | no |
+| recommended next step | 원인 확인 후 최소 범위 재기동 후보 |
+
+---
+
+### APPROVAL-REQUIRED
+
+**해당 조건**
+- git content dirty (mode_only 제외 실제 파일 변경)
+- HEAD != upstream + 배포 불일치 의심
+- data 복구 필요 (data 경로 손상·누락)
+- backup_check 연속 FAIL 또는 restore_rehearsal FAIL
+- 시크릿/권한 이상
+- 복수 source(2개 이상) 동시 FAIL
+
+**기본 대응**
+- 대표님 승인 후 정렬/복구 절차 진행
+- 단독 판단 조치 금지
+
+| 항목 | 값 |
+|------|-----|
+| approval needed | yes |
+| recommended next step | 대표님 승인 후 복구/정렬 절차 진행 |
+
+---
+
+### 우선순위 규칙 (충돌 시)
+
+1. restore FAIL → APPROVAL-REQUIRED 우선
+2. git content dirty → APPROVAL-REQUIRED 우선
+3. 복수 source 동시 FAIL → APPROVAL-REQUIRED 우선
+4. 서비스성 반복 FAIL (git/data 이상 없음) → AUTO-RECOVERY-CANDIDATE
+5. mode_only WARN 만 존재 → OBSERVE (APPROVAL-REQUIRED 금지)
+6. overall HEALTHY + noise 없음 → OBSERVE
+
+---
+
+## Action Catalog
+
+> 각 Action class에서 다음에 실행할 구체적인 작업 후보 목록.
+> 실제 자동 실행 금지 — 운영자 판단 후 수동 실행.
+
+### OBS-001 상태 추적 유지
+
+- **목적**: 현재 운영 상태가 정상 범위임을 기록하고 추이 모니터링 유지
+- **사용 조건**: overall HEALTHY, 단발 WARN, mode_only noise
+- **1차 확인**: 대시보드 Action Recommendation 카드 → OBSERVE 확인
+- **금지사항**: 즉각 조치 시도 금지, 필요 없는 서비스 재기동 금지
+- **후속 연결**: (조치 불필요 — 다음 scheduled check 대기)
+
+### OBS-002 다음 scheduled check 결과 대기
+
+- **목적**: 단발 WARN/FAIL 이 반복성 있는 문제인지 추가 데이터로 확인
+- **사용 조건**: 1회성 WARN 또는 noise 성 이벤트 직후
+- **1차 확인**: 이력 블록 — 24시간 요약 P/W/F 카운트 추세 확인
+- **금지사항**: 결과 미확인 상태에서 선제적 재기동 금지
+- **후속 연결**: FAIL 반복 확인 시 → ARC-001 또는 APR 계열로 전환
+
+### OBS-003 recent events 24h 추세 확인
+
+- **목적**: 최근 이벤트 10개를 보고 source별 패턴 유무 판단
+- **사용 조건**: OBSERVE 중 주기적 리뷰
+- **1차 확인**: 대시보드 "최근 이벤트 10개 (normalized)" 블록
+- **금지사항**: 패턴 없는 이벤트를 근거로 복구 절차 진입 금지
+- **후속 연결**: 반복 패턴 발견 시 → ARC 또는 APR 계열 재평가
+
+---
+
+### ARC-001 최소 범위 재기동 후보 검토
+
+- **목적**: 서비스성 반복 FAIL 원인을 파악하고 최소 범위 재기동 여부 결정
+- **사용 조건**: self_check 2회 연속 FAIL, git/data 이상 없음
+- **1차 확인**:
+  ```bash
+  docker compose ps
+  docker compose logs --tail=50 risk-assessment-api
+  docker compose logs --tail=50 risk-assessment-web
+  curl http://127.0.0.1:8000/health
+  ```
+- **금지사항**: 원인 미확인 상태에서 전체 재배포(`--build`) 금지, 다른 앱 컨테이너 금지
+- **후속 연결**: 서비스 이상 대응 템플릿 (§ B)
+
+### ARC-002 docker compose ps / health 재확인
+
+- **목적**: 현재 컨테이너 상태와 API health 를 다시 확인해 FAIL 지속 여부 판단
+- **사용 조건**: ARC-001 진행 중 또는 직후
+- **1차 확인**:
+  ```bash
+  docker compose ps
+  curl http://127.0.0.1:8000/health
+  curl -o /dev/null -sw "%{http_code}\n" http://127.0.0.1
+  ```
+- **금지사항**: health 재확인 없이 재기동 실행 금지
+- **후속 연결**: FAIL 지속 시 → ARC-003 → 단일 서비스 재기동 후보 결정
+
+### ARC-003 최근 로그 비교 후 단일 서비스 문제 여부 판단
+
+- **목적**: 로그에서 반복 오류 패턴 확인 → 재기동 대상 서비스를 최소화
+- **사용 조건**: ARC-002 이후 FAIL 지속 확인된 경우
+- **1차 확인**:
+  ```bash
+  docker compose logs --tail=100 risk-assessment-api | grep -i error
+  docker compose logs --tail=100 risk-assessment-web | grep -i error
+  ```
+- **금지사항**: 전체 컨테이너 동시 재기동 금지, 원인 불명 상태에서 `--build` 금지
+- **후속 연결**: 단일 서비스 재기동 결정 시 → 서비스 이상 대응 템플릿 (§ B)
+
+---
+
+### APR-001 git 정렬 복구 계획 작성
+
+- **목적**: git content dirty / HEAD 불일치 원인 파악 및 복구 계획 문서화
+- **사용 조건**: git content dirty (mode_only 제외), HEAD != upstream 의심
+- **1차 확인**:
+  ```bash
+  git status -sb
+  git diff
+  git rev-parse HEAD
+  git rev-parse @{u}
+  git log --oneline -5
+  ```
+- **금지사항**: 원인 확인 전 `git reset --hard` 금지, 백업 없는 `git clean -f` 금지
+- **후속 연결**: git 이상 대응 템플릿 (§ A)
+
+### APR-002 데이터 복구 범위 확정
+
+- **목적**: data 손상·누락 범위를 특정하고 최소 복구 범위를 결정
+- **사용 조건**: data 경로 손상 의심, API 오류가 DB/파일 접근 실패에서 기인
+- **1차 확인**:
+  ```bash
+  ls -lh /home/ubuntu/apps/risk-assessment-app/data/
+  infra/ops_backup_check.sh
+  infra/ops_restore_rehearsal.sh
+  ```
+- **금지사항**: 전체 루트 삭제 후 복구 금지, git 추적 코드를 백업으로 덮어쓰기 금지
+- **후속 연결**: 데이터 복구 대응 템플릿 (§ C)
+
+### APR-003 backup/restore 무결성 재확인
+
+- **목적**: 백업 파일 존재·압축 무결성을 검증해 복구 가능 상태 확인
+- **사용 조건**: backup_check FAIL, restore_rehearsal FAIL, 또는 복구 전 사전 검증
+- **1차 확인**:
+  ```bash
+  infra/ops_backup_check.sh
+  infra/ops_restore_rehearsal.sh
+  ls -lht /home/ubuntu/apps/risk-assessment-app/backups/data/ | head -5
+  tar -tzf <최신 백업 파일> | head -20
+  ```
+- **금지사항**: 무결성 확인 전 실제 tar 압축 해제 금지
+- **후속 연결**: 데이터 복구 대응 템플릿 (§ C)
+
+### APR-004 대표님 승인 후 실행 단계로 전환
+
+- **목적**: APPROVAL-REQUIRED 조건에서 복구/정렬 실행 전 승인 획득
+- **사용 조건**: APR-001 / APR-002 / APR-003 완료 후 실행 전
+- **1차 확인**: 복구 계획 · 범위 · 영향도 정리 → 대표님께 보고
+- **금지사항**: 승인 없이 복구·정렬 실행 금지, 다른 앱 범위 포함 금지
+- **후속 연결**: 승인 완료 시 → 해당 복구 템플릿 (§ A / § B / § C) 실행

@@ -1,0 +1,85 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "source": "safety_laws.json + hazard_controls.json 교차 매핑",
+    "created": "2026-04-20",
+    "note": "조치(control) 코드와 법령(law_code)의 관계. 각 조치가 어느 법령을 근거로 하는지 연결.",
+    "fields": {
+      "control_code": "hazard_controls의 조치 식별자 (CTL-HAZARD-SEQ 형식)",
+      "law_code": "safety_laws.json law_code",
+      "relation_type": "required: 법령 의무, recommended: 법령 권장, reference: 법령 참고"
+    }
+  },
+  "mappings": [
+    {
+      "control_code": "CTL-FALL-001",
+      "law_code": "OSHA-R-42",
+      "relation_type": "required",
+      "control_text": "안전난간 설치 (상부난간대·중간난간대·발끝막이판)",
+      "note": "추락위험 장소 안전난간 의무 설치"
+    },
+    {
+      "control_code": "CTL-FALL-002",
+      "law_code": "OSHA-R-43",
+      "relation_type": "required",
+      "control_text": "추락방지망 설치",
+      "note": "비계 작업발판 하부 추락방지망"
+    },
+    {
+      "control_code": "CTL-FALL-003",
+      "law_code": "OSHA-R-44",
+      "relation_type": "required",
+      "control_text": "안전대 부착설비 설치 후 안전대 착용",
+      "note": "2m 이상 고소작업 안전대 착용 의무"
+    },
+    {
+      "control_code": "CTL-ELEC-001",
+      "law_code": "OSHA-R-301",
+      "relation_type": "required",
+      "control_text": "전원 차단 후 작업 (LOTO 적용)",
+      "note": "충전부 방호 — 전원 차단 및 잠금장치"
+    },
+    {
+      "control_code": "CTL-ELEC-002",
+      "law_code": "OSHA-R-301",
+      "relation_type": "required",
+      "control_text": "절연 장갑 및 절연 공구 사용",
+      "note": "전기작업 개인보호구 의무"
+    },
+    {
+      "control_code": "CTL-FIRE-001",
+      "law_code": "OSHA-R-241",
+      "relation_type": "required",
+      "control_text": "소화기 비치 및 화재 감시자 배치",
+      "note": "화재위험작업 소화기·감시자 의무"
+    },
+    {
+      "control_code": "CTL-COLLAPSE-001",
+      "law_code": "OSHA-R-338",
+      "relation_type": "required",
+      "control_text": "흙막이 구조물 설치 및 안전 확인",
+      "note": "굴착작업 흙막이 설치 의무"
+    },
+    {
+      "control_code": "CTL-ASPHYX-001",
+      "law_code": "OSHA-R-619",
+      "relation_type": "required",
+      "control_text": "작업 전 산소 및 유해가스 농도 측정",
+      "note": "밀폐공간 작업 전 가스 농도 측정 의무"
+    },
+    {
+      "control_code": "CTL-ASPHYX-002",
+      "law_code": "OSHA-R-619",
+      "relation_type": "required",
+      "control_text": "감시인 배치 (맨홀 외부)",
+      "note": "밀폐공간 외부 감시인 배치 의무"
+    },
+    {
+      "control_code": "CTL-ENTRAP-001",
+      "law_code": "OSHA-R-92",
+      "relation_type": "required",
+      "control_text": "전원 차단 후 LOTO 적용, 운전 중 수리 금지",
+      "note": "기계 수리·청소 시 운전 정지 의무"
+    }
+  ]
+}

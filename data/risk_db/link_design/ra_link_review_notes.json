@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-04-20T23:52:36.530864+00:00",
+  "notes": [
+    {
+      "category": "missing_control_code",
+      "severity": "high",
+      "message": "hazard_controls.json에 control_code 필드 없음. 파생 규칙({hazard_code}_C{nn:02d}) 확정 후 파일에 반영 필요.",
+      "action": "hazard_controls.json 컬럼 추가 또는 control_master.json 신규 생성"
+    },
+    {
+      "category": "worktype_hazard_partial",
+      "severity": "medium",
+      "message": "work_hazards_map.json이 30/132 work_types만 커버 (102개 미연결).",
+      "missing_sample": [
+        "BRDG_ABUT",
+        "BRDG_BEARING",
+        "BRDG_DECK",
+        "BRDG_GIRDER",
+        "BRDG_PIER",
+        "CARP_DECKING",
+        "CARP_DOOR",
+        "CARP_FORM",
+        "CARP_PANEL",
+        "CARP_ROOF"
+      ],
+      "action": "5단계 후속: 미커버 work_types에 대해 trade_code 기반 hazard 추론 적용"
+    },
+    {
+      "category": "hazard_control_partial",
+      "severity": "medium",
+      "message": "hazard_controls.json이 17/17 hazard만 커버. 미포함 hazard: []",
+      "action": "POISON, CHEM 등 미완성 hazard control 보강 필요"
+    },
+    {
+      "category": "law_ref_text_not_id",
+      "severity": "high",
+      "message": "hazard_controls.json의 law_ref 필드가 자유 텍스트(제43조 등)이며 법령 ID(law_id)와 직접 연결 불가. 현재 resolve_law_ref() 규칙으로 statute:273603 또는 statute:276853만 구분.",
+      "action": "6단계 law_control_map 생성 시 law_ref 조문→article_id 매핑 테이블 필요"
+    },
+    {
+      "category": "control_law_concentration",
+      "severity": "low",
+      "message": "모든 control의 law 근거가 사실상 산업안전보건기준에 관한 규칙(statute:273603) 1개 법령에 집중됨. control_law 관계의 다양성이 낮을 것으로 예상.",
+      "action": "조문 레벨 article_id 도입으로 세분화 가능 — 중장기 과제"
+    },
+    {
+      "category": "multi_hazard_control",
+      "severity": "low",
+      "message": "일부 control 대책이 여러 hazard에 동시 적용됨. 예: LOTO(감전·협착), 안전대 착용(추락·화상). hazard_control 1:다 설계는 허용하나 중복 제거 기준 필요.",
+      "action": "control_master.json 생성 시 대표 hazard 지정 필드 추가 검토"
+    },
+    {
+      "category": "next_step_requirement",
+      "severity": "info",
+      "message": "6단계(law_control_map) 진입 전 필요 사항: (1) control_code 확정, (2) hazard_controls.json control_code 컬럼 추가, (3) law_ref 텍스트 → law_id 파싱 규칙 확장"
+    }
+  ]
+}

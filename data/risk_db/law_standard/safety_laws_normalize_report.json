@@ -1,0 +1,43 @@
+{
+  "run_at": "2026-04-21T07:00:35.844566",
+  "total_candidates": 11,
+  "code_conflict_with_existing": [],
+  "duplicate_code_within_candidates": [],
+  "duplicate_name_with_existing": [
+    {
+      "law_code": "RAW-LAW-001",
+      "law_name": "산업안전보건법"
+    },
+    {
+      "law_code": "RAW-RULE-004",
+      "law_name": "산업안전보건기준에 관한 규칙"
+    }
+  ],
+  "missing_law_name": [],
+  "missing_source": [],
+  "missing_law_type": [],
+  "missing_raw_url": [
+    "RAW-LAW-001",
+    "RAW-DEC-002",
+    "RAW-RULE-003",
+    "RAW-RULE-004",
+    "RAW-NOTICE-005",
+    "RAW-NOTICE-006"
+  ],
+  "is_active_not_bool": [],
+  "article_no_inconsistent": [],
+  "source_distribution": {
+    "law.go.kr": 6,
+    "kosha.or.kr": 5
+  },
+  "type_distribution": {
+    "law": 1,
+    "enforcement_decree": 1,
+    "enforcement_rule": 2,
+    "notice": 2,
+    "guide": 5
+  },
+  "verdict": "WARN",
+  "error_count": 0,
+  "warn_count": 8
+}

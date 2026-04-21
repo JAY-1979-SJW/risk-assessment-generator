@@ -39,6 +39,22 @@ scraper/logs/
 scraper/.env
 scraper/output/
 scraper/screenshots/
+scraper/kosha_files/
+scraper/*.log
 tmpclaude-*
 현장데이터/
 _ul
+
+# 프론트엔드 패키지
+frontend/node_modules/
+frontend/package-lock.json
+
+# 대용량/임시
+*.docx
+test_playwright.py
+test_socket.py
+.mcp.json
+mcp_server.py
+
+# Claude Code
+.claude/settings.local.json

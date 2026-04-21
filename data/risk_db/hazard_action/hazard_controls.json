@@ -1,0 +1,118 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "source": "sample_chunks.json control_measure 필드 직접 추출 + 산업안전보건기준에 관한 규칙",
+    "created": "2026-04-20",
+    "extraction_basis": "sample_chunks ids 1-33 의 control_measure 항목을 hazard별로 구조화"
+  },
+  "hazard_controls": [
+    {"hazard_code": "FALL",    "control_text": "안전난간 설치 (상부난간대·중간난간대·발끝막이판)",        "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제43조",  "source": "sample_chunks id=1"},
+    {"hazard_code": "FALL",    "control_text": "추락방지망 설치",                                         "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제42조",  "source": "sample_chunks id=1"},
+    {"hazard_code": "FALL",    "control_text": "작업발판 고정 (폭 40cm 이상)",                           "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제43조",  "source": "sample_chunks id=1"},
+    {"hazard_code": "FALL",    "control_text": "안전대 부착설비 설치 후 안전대 착용",                    "control_type": "ppe",         "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제44조",  "source": "sample_chunks id=2"},
+    {"hazard_code": "FALL",    "control_text": "고소작업대 과부하 방지 장치 점검",                       "control_type": "admin",       "priority": 2, "law_ref": "산업안전보건기준에 관한 규칙 제44조",  "source": "sample_chunks id=2"},
+    {"hazard_code": "FALL",    "control_text": "안전망 설치",                                             "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제48조",  "source": "sample_chunks id=3"},
+    {"hazard_code": "FALL",    "control_text": "풍속 10m/s 이상 시 작업 중지",                           "control_type": "admin",       "priority": 2, "law_ref": "산업안전보건기준에 관한 규칙 제48조",  "source": "sample_chunks id=3"},
+    {"hazard_code": "FALL",    "control_text": "경사각 30도 이상 지붕 추락방지망 설치 또는 안전대 착용", "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제45조",  "source": "sample_chunks id=4"},
+    {"hazard_code": "FALL",    "control_text": "사다리 상단 걸침 구조물보다 60cm 이상 돌출",             "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제24조",  "source": "sample_chunks id=5"},
+    {"hazard_code": "FALL",    "control_text": "이동식 사다리 기울기 75도 이하 유지",                    "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제24조",  "source": "sample_chunks id=5"},
+    {"hazard_code": "FALL",    "control_text": "개구부 덮개 설치 또는 안전난간 설치",                    "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제42조",  "source": "sample_chunks id=30"},
+
+    {"hazard_code": "ASPHYX",  "control_text": "작업 전 산소 및 유해가스 농도 측정",                    "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제619조", "source": "sample_chunks id=6"},
+    {"hazard_code": "ASPHYX",  "control_text": "환기 실시 (충분한 신선 공기 공급)",                     "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제619조", "source": "sample_chunks id=6"},
+    {"hazard_code": "ASPHYX",  "control_text": "감시인 배치 (맨홀 외부)",                               "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제619조", "source": "sample_chunks id=6,7"},
+    {"hazard_code": "ASPHYX",  "control_text": "공기호흡기 또는 송기마스크 착용",                       "control_type": "ppe",         "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제619조", "source": "sample_chunks id=6,7,8"},
+    {"hazard_code": "ASPHYX",  "control_text": "산소농도 18% 미만 시 작업 금지",                        "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제619조", "source": "sample_chunks id=6"},
+    {"hazard_code": "ASPHYX",  "control_text": "긴급 구조 전 구조자 공기호흡기 착용 의무화",            "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제623조", "source": "sample_chunks id=9"},
+    {"hazard_code": "ASPHYX",  "control_text": "구명밧줄 착용",                                          "control_type": "ppe",         "priority": 2, "law_ref": "산업안전보건기준에 관한 규칙 제619조", "source": "sample_chunks id=31"},
+
+    {"hazard_code": "ELEC",    "control_text": "전원 차단 후 작업 (LOTO 적용)",                         "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제301조", "source": "sample_chunks id=10"},
+    {"hazard_code": "ELEC",    "control_text": "잠금장치(LOTO) 설치",                                   "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제301조", "source": "sample_chunks id=10"},
+    {"hazard_code": "ELEC",    "control_text": "절연 장갑 및 절연 공구 사용",                           "control_type": "ppe",         "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제301조", "source": "sample_chunks id=10"},
+    {"hazard_code": "ELEC",    "control_text": "손상된 절연 피복 전선 즉시 교체",                       "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제304조", "source": "sample_chunks id=11"},
+    {"hazard_code": "ELEC",    "control_text": "누전 차단기 설치",                                       "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제304조", "source": "sample_chunks id=11"},
+    {"hazard_code": "ELEC",    "control_text": "이중 절연 공구 사용",                                   "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제305조", "source": "sample_chunks id=12"},
+    {"hazard_code": "ELEC",    "control_text": "절연 보호구 착용 및 활선 작업 금지 구역 설정",          "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제302조", "source": "sample_chunks id=29"},
+
+    {"hazard_code": "FIRE",    "control_text": "작업 반경 11m 이내 가연성 물질 제거",                   "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제241조", "source": "sample_chunks id=13"},
+    {"hazard_code": "FIRE",    "control_text": "방화포 사용",                                             "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제241조", "source": "sample_chunks id=13"},
+    {"hazard_code": "FIRE",    "control_text": "소화기 비치 및 화재 감시자 배치",                       "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제241조", "source": "sample_chunks id=13"},
+    {"hazard_code": "FIRE",    "control_text": "작업 종료 후 30분 이상 화기 감시",                      "control_type": "admin",       "priority": 2, "law_ref": "산업안전보건기준에 관한 규칙 제241조", "source": "sample_chunks id=13"},
+    {"hazard_code": "FIRE",    "control_text": "인근 가연물 격리 및 방화 커튼 설치",                    "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제242조", "source": "sample_chunks id=14"},
+    {"hazard_code": "FIRE",    "control_text": "환기 충분 실시 및 점화원 제거",                         "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제236조", "source": "sample_chunks id=16"},
+    {"hazard_code": "FIRE",    "control_text": "방폭형 전기 기구 사용",                                  "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제236조", "source": "sample_chunks id=16"},
+
+    {"hazard_code": "EXPLO",   "control_text": "가스 누출 점검 (작업 전)",                              "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제232조", "source": "sample_chunks id=15"},
+    {"hazard_code": "EXPLO",   "control_text": "환기 실시 후 작업",                                      "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제232조", "source": "sample_chunks id=15"},
+    {"hazard_code": "EXPLO",   "control_text": "화기 금지 구역 설정",                                    "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제232조", "source": "sample_chunks id=15"},
+
+    {"hazard_code": "COLLIDE", "control_text": "작업 반경 내 작업자 출입 통제",                         "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제146조", "source": "sample_chunks id=21"},
+    {"hazard_code": "COLLIDE", "control_text": "신호수 배치",                                             "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제146조", "source": "sample_chunks id=21"},
+    {"hazard_code": "COLLIDE", "control_text": "인양 물체 하부 작업자 대피 후 작업",                    "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제146조", "source": "sample_chunks id=21"},
+
+    {"hazard_code": "COLLAPSE","control_text": "흙막이 구조물 설치 및 안전 확인",                       "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제338조", "source": "sample_chunks id=20"},
+    {"hazard_code": "COLLAPSE","control_text": "굴착면 기울기 기준 준수",                               "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제338조", "source": "sample_chunks id=20"},
+    {"hazard_code": "COLLAPSE","control_text": "거푸집 동바리 철저 점검 및 타설 속도 준수",            "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제339조", "source": "sample_chunks id=22"},
+    {"hazard_code": "COLLAPSE","control_text": "철거 순서 계획 수립 및 지지 구조물 확인",              "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제505조", "source": "sample_chunks id=32"},
+
+    {"hazard_code": "POISON",  "control_text": "MSDS 숙지 및 작업 환경에 맞는 보호구 착용",            "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건법 제114조",               "source": "sample_chunks id=33"},
+    {"hazard_code": "POISON",  "control_text": "화학물질 보관 장소 환기 설비 설치",                    "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건법 제114조",               "source": "sample_chunks id=33"},
+
+    {"hazard_code": "CHEM",    "control_text": "MSDS 숙지 및 적절한 보호구 착용",                       "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건법 제114조",               "source": "sample_chunks id=33"},
+    {"hazard_code": "CHEM",    "control_text": "환기 설비 설치",                                         "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건법 제114조",               "source": "sample_chunks id=33"},
+
+    {"hazard_code": "DROP",    "control_text": "낙하물 방지망 설치 (높이 10m 이내 마다)",                "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제14절",  "source": "산안규칙 제14절(낙하물 방지)"},
+    {"hazard_code": "DROP",    "control_text": "출입 금지 구역 설정 및 로프 차단",                       "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제14절",  "source": "산안규칙 제14절"},
+    {"hazard_code": "DROP",    "control_text": "안전모 착용 의무화",                                      "control_type": "ppe",         "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제32조",  "source": "산안규칙 제32조(보호구)"},
+    {"hazard_code": "DROP",    "control_text": "자재 적치 시 2단 이하 유지 및 고임목 설치",              "control_type": "engineering", "priority": 2, "law_ref": "산업안전보건기준에 관한 규칙 제14절",  "source": "산안규칙 제14절"},
+    {"hazard_code": "DROP",    "control_text": "공구·자재 줄걸이 연결 상태 작업 전 점검",               "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제153조", "source": "KOSHA GUIDE C-14-2021"},
+
+    {"hazard_code": "ENTRAP",  "control_text": "기계 방호덮개 설치 (회전체·가동부)",                    "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제87조",  "source": "산안규칙 제87조(방호장치)"},
+    {"hazard_code": "ENTRAP",  "control_text": "정비·청소 작업 전 반드시 전원 차단 및 잠금(LOTO)",     "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제92조",  "source": "산안규칙 제92조(수리 등의 금지)"},
+    {"hazard_code": "ENTRAP",  "control_text": "회전체 작업 시 헐거운 옷·장갑 착용 금지",               "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제87조",  "source": "산안규칙 제87조"},
+    {"hazard_code": "ENTRAP",  "control_text": "끼임 위험 부위 비상 정지 스위치 설치",                  "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제89조",  "source": "산안규칙 제89조(급정지 장치)"},
+    {"hazard_code": "ENTRAP",  "control_text": "작업 반경 내 작업자 위치 신호 체계 구축",               "control_type": "admin",       "priority": 2, "law_ref": "산업안전보건기준에 관한 규칙 제146조", "source": "산안규칙 제146조"},
+
+    {"hazard_code": "CUT",     "control_text": "절삭·절단 공구 방호장치 부착 확인 후 사용",             "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제87조",  "source": "산안규칙 제87조"},
+    {"hazard_code": "CUT",     "control_text": "안전화 및 방호장갑 착용",                                "control_type": "ppe",         "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제32조",  "source": "산안규칙 제32조"},
+    {"hazard_code": "CUT",     "control_text": "그라인더 날 교체 후 공회전 점검(1분 이상)",             "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제100조", "source": "산안규칙 제100조(연삭기 방호장치)"},
+    {"hazard_code": "CUT",     "control_text": "철근 절단기 발판 페달 잠금 장치 확인",                  "control_type": "engineering", "priority": 2, "law_ref": "산업안전보건기준에 관한 규칙 제87조",  "source": "KOSHA GUIDE C-11-2021"},
+    {"hazard_code": "CUT",     "control_text": "절단 작업 시 안면보호대 착용",                           "control_type": "ppe",         "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제32조",  "source": "산안규칙 제32조"},
+
+    {"hazard_code": "DUST",    "control_text": "방진마스크 착용 (석면·실리카 작업: 특급)",              "control_type": "ppe",         "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제605조", "source": "산안규칙 제605조(분진 작업)"},
+    {"hazard_code": "DUST",    "control_text": "작업 전·후 습식 청소 실시",                             "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제605조", "source": "산안규칙 제605조"},
+    {"hazard_code": "DUST",    "control_text": "국소배기장치 설치 및 가동 확인",                        "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제609조", "source": "산안규칙 제609조(분진 배기)"},
+    {"hazard_code": "DUST",    "control_text": "밀폐공간 분진 작업 시 산소농도 동시 측정",              "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제619조", "source": "산안규칙 제619조"},
+    {"hazard_code": "DUST",    "control_text": "석면 해체 시 작업 구역 비닐 포장 밀폐",                 "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제492조", "source": "산안규칙 제488~496조(석면)"},
+
+    {"hazard_code": "NOISE",   "control_text": "귀덮개 또는 귀마개 착용 (85dB 이상)",                  "control_type": "ppe",         "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제513조", "source": "산안규칙 제513조(소음)"},
+    {"hazard_code": "NOISE",   "control_text": "저소음 공법 우선 적용",                                 "control_type": "engineering", "priority": 2, "law_ref": "산업안전보건기준에 관한 규칙 제514조", "source": "산안규칙 제514조"},
+    {"hazard_code": "NOISE",   "control_text": "소음 발생 장비 방음 커버 설치",                         "control_type": "engineering", "priority": 2, "law_ref": "산업안전보건기준에 관한 규칙 제514조", "source": "산안규칙 제514조"},
+    {"hazard_code": "NOISE",   "control_text": "소음 작업 교대 근무 편성 (노출 시간 관리)",             "control_type": "admin",       "priority": 2, "law_ref": "산업안전보건기준에 관한 규칙 제513조", "source": "산안규칙 제513조"},
+
+    {"hazard_code": "COLLAPSE","control_text": "동바리 수직 하중 설계 확인 후 설치",                    "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제331조", "source": "산안규칙 제331조(거푸집 동바리)"},
+    {"hazard_code": "COLLAPSE","control_text": "굴착면 사면 기울기 1:0.3~1:1.5 기준 준수",             "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제338조", "source": "산안규칙 제338조"},
+    {"hazard_code": "COLLAPSE","control_text": "강우·지진 후 사면 안정성 재점검",                      "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제338조", "source": "산안규칙 제338조"},
+
+    {"hazard_code": "COLLIDE", "control_text": "차량 출입 구역 안전 펜스 설치",                         "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제176조", "source": "산안규칙 제176조(차량계 건설기계)"},
+    {"hazard_code": "COLLIDE", "control_text": "건설기계 작업 반경 내 접근 금지 테이프 설치",           "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제176조", "source": "산안규칙 제176조"},
+    {"hazard_code": "COLLIDE", "control_text": "후진 경보 장치 작동 상태 확인",                         "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제180조", "source": "산안규칙 제180조"},
+
+    {"hazard_code": "TRIP",    "control_text": "작업통로 바닥 정리정돈 및 장애물 제거",                 "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제3조",   "source": "산안규칙 제3조(작업장 바닥)"},
+    {"hazard_code": "TRIP",    "control_text": "젖은 바닥 미끄럼 방지 매트 설치",                       "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제3조",   "source": "산안규칙 제3조"},
+    {"hazard_code": "TRIP",    "control_text": "안전화 착용 (미끄럼 방지 밑창)",                        "control_type": "ppe",         "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제32조",  "source": "산안규칙 제32조"},
+    {"hazard_code": "TRIP",    "control_text": "전선·호스 통로 횡단 시 보호 커버 설치",                "control_type": "engineering", "priority": 2, "law_ref": "산업안전보건기준에 관한 규칙 제3조",   "source": "산안규칙 제3조"},
+    {"hazard_code": "TRIP",    "control_text": "계단·경사로 미끄럼 방지 테이프 부착",                  "control_type": "engineering", "priority": 2, "law_ref": "산업안전보건기준에 관한 규칙 제26조",  "source": "산안규칙 제26조(계단)"},
+
+    {"hazard_code": "BURN",    "control_text": "용접 불꽃 차단 방화포 및 스파크 방어막 설치",           "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제241조", "source": "산안규칙 제241조"},
+    {"hazard_code": "BURN",    "control_text": "용접용 가죽 장갑·앞치마·보안경 착용",                  "control_type": "ppe",         "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제32조",  "source": "KOSHA GUIDE D-15-2021"},
+    {"hazard_code": "BURN",    "control_text": "고온 배관·표면 보온재 손상 여부 점검 후 접근",          "control_type": "admin",       "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제232조", "source": "KOSHA GUIDE D-12-2021"},
+    {"hazard_code": "BURN",    "control_text": "뜨거운 물질 취급 시 내열 보호장갑 착용",               "control_type": "ppe",         "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제32조",  "source": "산안규칙 제32조"},
+    {"hazard_code": "BURN",    "control_text": "화학물질 누출 화상 대비 세안장치·비상샤워 설치",        "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제560조", "source": "산안규칙 제560조(긴급 세척시설)"},
+
+    {"hazard_code": "FLYBY",   "control_text": "연삭기 사용 시 보안경·안면보호대 착용",                "control_type": "ppe",         "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제32조",  "source": "산안규칙 제32조 + 산안규칙 제100조"},
+    {"hazard_code": "FLYBY",   "control_text": "연삭기 방호덮개 설치 확인 후 작업",                    "control_type": "engineering", "priority": 1, "law_ref": "산업안전보건기준에 관한 규칙 제100조", "source": "산안규칙 제100조(연삭기 방호)"},
+    {"hazard_code": "FLYBY",   "control_text": "작업 주변 비산 방지 방호벽 설치",                      "control_type": "engineering", "priority": 2, "law_ref": "산업안전보건기준에 관한 규칙 제14절",  "source": "산안규칙 제14절"},
+    {"hazard_code": "FLYBY",   "control_text": "에어 사용 청소 작업 시 주변 작업자 대피 후 실시",      "control_type": "admin",       "priority": 2, "law_ref": "산업안전보건기준에 관한 규칙 제87조",  "source": "KOSHA GUIDE G-60-2020"}
+  ]
+}

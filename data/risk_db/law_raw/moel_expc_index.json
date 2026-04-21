@@ -1,0 +1,73 @@
+{
+  "version": "1.0",
+  "fetched_at": "2026-04-20T22:33:48.417819+00:00",
+  "source": "law.go.kr",
+  "api_target": "moelCgmExpc",
+  "keywords": [
+    "위험성평가",
+    "안전보건관리책임자",
+    "추락재해",
+    "감전재해",
+    "밀폐공간",
+    "안전관리계획"
+  ],
+  "total": 6,
+  "success": 6,
+  "fail": 0,
+  "laws": [
+    {
+      "law_code": null,
+      "law_name": null,
+      "law_type": "interpretation",
+      "source": "law.go.kr",
+      "source_org": "고용노동부",
+      "keyword": "위험성평가",
+      "status": "dry_run"
+    },
+    {
+      "law_code": null,
+      "law_name": null,
+      "law_type": "interpretation",
+      "source": "law.go.kr",
+      "source_org": "고용노동부",
+      "keyword": "안전보건관리책임자",
+      "status": "dry_run"
+    },
+    {
+      "law_code": null,
+      "law_name": null,
+      "law_type": "interpretation",
+      "source": "law.go.kr",
+      "source_org": "고용노동부",
+      "keyword": "추락재해",
+      "status": "dry_run"
+    },
+    {
+      "law_code": null,
+      "law_name": null,
+      "law_type": "interpretation",
+      "source": "law.go.kr",
+      "source_org": "고용노동부",
+      "keyword": "감전재해",
+      "status": "dry_run"
+    },
+    {
+      "law_code": null,
+      "law_name": null,
+      "law_type": "interpretation",
+      "source": "law.go.kr",
+      "source_org": "고용노동부",
+      "keyword": "밀폐공간",
+      "status": "dry_run"
+    },
+    {
+      "law_code": null,
+      "law_name": null,
+      "law_type": "interpretation",
+      "source": "law.go.kr",
+      "source_org": "고용노동부",
+      "keyword": "안전관리계획",
+      "status": "dry_run"
+    }
+  ]
+}

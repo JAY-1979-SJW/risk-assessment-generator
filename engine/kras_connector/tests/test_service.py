@@ -179,5 +179,66 @@ class TestQueryFunctions(unittest.TestCase):
         self.assertEqual(rows[0]['status'], 'success')
 
 
+# ════════════════════════════════════════════════════════════════════════════
+# v2 mapper 테스트
+# ════════════════════════════════════════════════════════════════════════════
+
+class TestMapperV2(unittest.TestCase):
+
+    def _base_row(self):
+        return {
+            'id': 1, 'project_id': 1,
+            'process': '건축', 'sub_work': '외벽 작업',
+            'risk_situation': '고소 외벽 작업 중 추락 위험',
+            'legal_basis': None, 'current_measures': None,
+            'risk_category': None, 'risk_detail': None,
+        }
+
+    def test_v2_bool_fields_true(self):
+        row = {**self._base_row(), 'confined_space': True, 'hot_work': True}
+        inp = map_row_to_input(row)
+        self.assertTrue(inp['confined_space'])
+        self.assertTrue(inp['hot_work'])
+
+    def test_v2_bool_fields_false(self):
+        row = {**self._base_row(), 'electrical_work': False}
+        inp = map_row_to_input(row)
+        self.assertFalse(inp['electrical_work'])
+
+    def test_v2_height_m_valid(self):
+        row = {**self._base_row(), 'height_m': 3.5}
+        inp = map_row_to_input(row)
+        self.assertAlmostEqual(inp['height_m'], 3.5)
+
+    def test_v2_height_m_negative_dropped(self):
+        row = {**self._base_row(), 'height_m': -1.0}
+        inp = map_row_to_input(row)
+        self.assertIsNone(inp.get('height_m'))
+
+    def test_v2_worker_count_valid(self):
+        row = {**self._base_row(), 'worker_count': 5}
+        inp = map_row_to_input(row)
+        self.assertEqual(inp['worker_count'], 5)
+
+    def test_v2_work_environment_valid(self):
+        row = {**self._base_row(), 'work_environment': 'outdoor'}
+        inp = map_row_to_input(row)
+        self.assertEqual(inp['work_environment'], 'outdoor')
+
+    def test_v2_invalid_enum_becomes_none(self):
+        row = {**self._base_row(), 'work_environment': 'underground'}
+        inp = map_row_to_input(row)
+        self.assertIsNone(inp.get('work_environment'))
+
+    def test_v2_no_v2_fields_backward_compat(self):
+        """v2 컬럼 없는 row는 v1 결과와 동일해야 함."""
+        row = self._base_row()
+        inp = map_row_to_input(row)
+        self.assertIn('process', inp)
+        self.assertIn('risk_situation', inp)
+        self.assertNotIn('confined_space', inp)
+        self.assertNotIn('height_m', inp)
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)

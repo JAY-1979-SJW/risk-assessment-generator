@@ -1,0 +1,114 @@
+{
+  "generated_at": "2026-04-20T23:52:36.530864+00:00",
+  "version": "1.0",
+  "description": "worktype / hazard / control / law 4축 통합 연결 구조 설계 초안",
+  "engine_flow": [
+    "1. 사용자 작업유형(worktype) 선택",
+    "2. worktype_hazard 관계 → hazard 후보 조회",
+    "3. hazard_control 관계 → control 후보 조회",
+    "4. worktype_law + hazard_law 병합 → law 근거 조회",
+    "5. (선택) control_law 관계 → 개별 control의 법령 근거 보강",
+    "6. 평가표 조립 및 생성"
+  ],
+  "entities": {
+    "worktype": {
+      "primary_key": "work_type_code",
+      "sub_key": "work_sub_type_code",
+      "source_file": "data/risk_db/work_taxonomy/work_types.json",
+      "sub_file": "data/risk_db/work_taxonomy/work_sub_types.json",
+      "total_count": 132,
+      "sub_count": 72,
+      "example": "TEMP_SCAFF"
+    },
+    "hazard": {
+      "primary_key": "hazard_code",
+      "source_file": "data/risk_db/hazard_action/hazards.json",
+      "total_count": 17,
+      "example": "FALL"
+    },
+    "control": {
+      "primary_key": "control_code",
+      "derivation": "{hazard_code}_C{nn:02d}  (hazard_controls.json 순번 기반)",
+      "source_file": "data/risk_db/hazard_action/hazard_controls.json",
+      "total_count": 90,
+      "gap_note": "현재 파일에 control_code 필드 없음 — 파생 코드 적용 필요",
+      "example": "FALL_C01"
+    },
+    "law": {
+      "primary_key": "law_id",
+      "format": "{category}:{raw_id}",
+      "categories": [
+        "statute",
+        "admin_rule",
+        "licbyl",
+        "interpretation"
+      ],
+      "source_file": "data/risk_db/law_normalized/safety_laws_normalized.json",
+      "total_count": 52,
+      "example": "statute:273603"
+    }
+  },
+  "relations": {
+    "worktype_hazard": {
+      "keys": [
+        "work_type_code",
+        "hazard_code"
+      ],
+      "source_file": "data/risk_db/work_taxonomy/work_hazards_map.json",
+      "status": "exists_partial",
+      "coverage": "30/132 work_types",
+      "item_count": 48,
+      "note": "나머지 work_types는 trade_code 기반 hazard 추론 필요"
+    },
+    "hazard_control": {
+      "keys": [
+        "hazard_code",
+        "control_code"
+      ],
+      "source_file": "data/risk_db/hazard_action/hazard_controls.json",
+      "status": "exists_no_code",
+      "coverage": "17/17 hazards",
+      "item_count": 90,
+      "note": "control_code 파생 후 사용 가능. 4개 hazard(CUT, FLYBY, NOISE, TRIP 포함) 미완성"
+    },
+    "worktype_law": {
+      "keys": [
+        "work_type_code",
+        "law_id"
+      ],
+      "source_file": "data/risk_db/law_mapping/law_worktype_map.json",
+      "status": "draft",
+      "coverage": "132/132 work_types",
+      "item_count": 268
+    },
+    "hazard_law": {
+      "keys": [
+        "hazard_code",
+        "law_id"
+      ],
+      "source_file": "data/risk_db/law_mapping/law_hazard_map.json",
+      "status": "draft",
+      "coverage": "17/17 hazards",
+      "item_count": 42
+    },
+    "control_law": {
+      "keys": [
+        "control_code",
+        "law_id"
+      ],
+      "source_file": "TBD: data/risk_db/law_mapping/law_control_map.json",
+      "status": "design_only",
+      "derivation": "hazard_controls.law_ref 텍스트 → law_id 파싱으로 초안 생성 가능",
+      "note": "6단계에서 law_control_map.json 본 생성 예정"
+    }
+  },
+  "query_patterns": {
+    "worktype→hazards": "worktype_hazard[work_type_code=X] → hazard_code 목록",
+    "hazard→controls": "hazard_control[hazard_code=X] → control_code 목록",
+    "hazard→laws": "hazard_law[hazard_code=X] → law_id 목록",
+    "worktype→laws": "worktype_law[work_type_code=X] → law_id 목록",
+    "control→laws": "control_law[control_code=X] → law_id 목록",
+    "hazard→worktypes": "worktype_hazard[hazard_code=X] → work_type_code 목록",
+    "control→hazards": "hazard_control[control_code=X] → hazard_code (역방향)"
+  }
+}

@@ -1,0 +1,491 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "source": "산업안전보건기준에 관한 규칙 조건별 기준 + KOSHA GUIDE 현장조건별 안전지침 + 입력구조 v2 structured_flags 기반",
+    "created": "2026-04-20",
+    "note": "v2 입력 필드의 현장 조건 플래그(structured_flags)가 활성화됐을 때 추가로 부각되는 위험 조합 시나리오. 엔진 위험 가중치 보강에 사용.",
+    "count": 30
+  },
+  "scenarios": [
+    {
+      "id": "SC-001",
+      "label": "고소 + 악천후(강풍)",
+      "trigger_conditions": {"work_at_height": true, "weather_condition": "wind_strong"},
+      "description": "2m 이상 고소작업 중 풍속 10m/s 이상 강풍 발생 시",
+      "boosted_hazards": ["FALL", "DROP", "COLLIDE"],
+      "priority": "critical",
+      "recommended_controls": [
+        "풍속 10m/s 이상 시 고소작업 즉시 중지",
+        "안전대 이중 연결 의무화",
+        "비계 최상부 자재 결속 확인",
+        "작업 재개 전 구조물 이상 여부 재점검"
+      ],
+      "law_refs": ["OSHA-R-48"],
+      "source": "산안규칙 제48조(악천후 시 작업 중지) + KOSHA GUIDE C-04-2023"
+    },
+    {
+      "id": "SC-002",
+      "label": "고소 + 우천",
+      "trigger_conditions": {"work_at_height": true, "weather_condition": "rain"},
+      "description": "고소작업 중 우천으로 발판·비계가 젖은 상태",
+      "boosted_hazards": ["FALL", "SLIP", "TRIP"],
+      "priority": "high",
+      "recommended_controls": [
+        "우천 시 슬레이트·금속 지붕 작업 금지",
+        "젖은 발판 미끄럼 방지 조치",
+        "안전화 미끄럼 방지 밑창 확인",
+        "작업 중지 여부 관리감독자 판단"
+      ],
+      "law_refs": ["OSHA-R-45", "OSHA-R-48"],
+      "source": "산안규칙 제45조(지붕 추락방지) + 제48조(악천후)"
+    },
+    {
+      "id": "SC-003",
+      "label": "밀폐공간 + 야간",
+      "trigger_conditions": {"confined_space": true, "night_work": true},
+      "description": "밀폐공간 내 야간 작업으로 가시성 저하 + 구조 접근성 저하",
+      "boosted_hazards": ["ASPHYX", "ELEC", "FALL"],
+      "priority": "critical",
+      "recommended_controls": [
+        "산소·유해가스 농도 연속 모니터링",
+        "충분한 조명 설치(75럭스 이상)",
+        "외부 감시인 야간 근무 유지",
+        "비상 연락 체계 야간 대기 유지"
+      ],
+      "law_refs": ["OSHA-R-619", "OSHA-R-621"],
+      "source": "산안규칙 제619조(밀폐공간) + 야간작업 안전 기준"
+    },
+    {
+      "id": "SC-004",
+      "label": "화기작업 + 인화물질 근접",
+      "trigger_conditions": {"hot_work": true, "flammable_nearby": true},
+      "description": "용접·절단 화기작업 반경 내 인화성 물질 존재",
+      "boosted_hazards": ["FIRE", "EXPLO"],
+      "priority": "critical",
+      "recommended_controls": [
+        "반경 11m 내 가연물 완전 제거 또는 방화포 차단",
+        "소화기 2개 이상 즉시 사용 위치 배치",
+        "화재 감시자 전담 배치",
+        "작업 종료 후 30분 이상 화기 감시"
+      ],
+      "law_refs": ["OSHA-R-241", "OSHA-R-242"],
+      "source": "산안규칙 제241조(화재 위험 작업 조치)"
+    },
+    {
+      "id": "SC-005",
+      "label": "중장비 + 동시작업",
+      "trigger_conditions": {"heavy_equipment": true, "simultaneous_work": true},
+      "description": "굴착기·크레인 등 중장비 운행 구역에서 동시에 수작업 진행",
+      "boosted_hazards": ["COLLIDE", "DROP", "ENTRAP"],
+      "priority": "critical",
+      "recommended_controls": [
+        "중장비 작업 반경 내 수작업 동시 진행 금지",
+        "신호수 배치(중장비 운전자와 직접 소통)",
+        "작업 시간대 분리(교대 작업)",
+        "안전 펜스·경광등 설치"
+      ],
+      "law_refs": ["OSHA-R-146", "OSHA-R-196"],
+      "source": "산안규칙 제146조(크레인 작업 조치) + 제196조(차량계 건설기계)"
+    },
+    {
+      "id": "SC-006",
+      "label": "전기작업 + 습윤표면",
+      "trigger_conditions": {"electrical_work": true, "wet_surface": true},
+      "description": "전기작업 현장 바닥 또는 작업 대상물이 물에 젖은 상태",
+      "boosted_hazards": ["ELEC", "TRIP"],
+      "priority": "critical",
+      "recommended_controls": [
+        "습윤 환경 전기작업 원칙적 금지",
+        "불가피 시 절연화·절연장갑·절연 발판 사용",
+        "누전차단기 작동 상태 사전 확인",
+        "전원 차단 후 건조 확인 후 재작업"
+      ],
+      "law_refs": ["OSHA-R-301", "OSHA-R-305"],
+      "source": "산안규칙 제301조(충전부 방호) + 제305조(전동공구)"
+    },
+    {
+      "id": "SC-007",
+      "label": "고소작업 + 야간",
+      "trigger_conditions": {"work_at_height": true, "night_work": true},
+      "description": "2m 이상 고소작업을 야간에 진행하여 가시성 저하",
+      "boosted_hazards": ["FALL", "DROP"],
+      "priority": "high",
+      "recommended_controls": [
+        "작업면 조도 75럭스 이상 확보",
+        "비계·발판 야간 점검 강화",
+        "안전대 부착 상태 조명 아래 확인",
+        "야간 작업 최소화 원칙 적용"
+      ],
+      "law_refs": ["OSHA-R-44", "OSHA-R-42"],
+      "source": "산안규칙 + 건설업 야간작업 안전관리 기준"
+    },
+    {
+      "id": "SC-008",
+      "label": "밀폐공간 + 화기작업",
+      "trigger_conditions": {"confined_space": true, "hot_work": true},
+      "description": "탱크·갱·맨홀 등 밀폐공간 내 용접·절단 화기작업",
+      "boosted_hazards": ["ASPHYX", "FIRE", "EXPLO", "DUST"],
+      "priority": "critical",
+      "recommended_controls": [
+        "작업 전 산소농도 및 가연성가스 농도 측정",
+        "강제 환기 지속 유지",
+        "화기작업 허가서(Permit) 발행",
+        "소화기 내부 배치 및 외부 화재 감시자 배치"
+      ],
+      "law_refs": ["OSHA-R-619", "OSHA-R-241", "OSHA-R-620"],
+      "source": "산안규칙 제619조 + 제241조 복합 적용"
+    },
+    {
+      "id": "SC-009",
+      "label": "강풍 + 타워크레인 인양",
+      "trigger_conditions": {"heavy_equipment": true, "weather_condition": "wind_strong", "lifting_operation": true},
+      "description": "풍속 10m/s 이상에서 타워크레인·이동식 크레인 인양 작업",
+      "boosted_hazards": ["DROP", "COLLIDE", "FALL"],
+      "priority": "critical",
+      "recommended_controls": [
+        "풍속 10m/s 이상 시 크레인 인양 작업 중지",
+        "인양 중 화물 흔들림 방지 유도줄 사용",
+        "풍속 측정기 설치 및 실시간 모니터링",
+        "작업 중지 기준 사전 명시(작업 계획서)"
+      ],
+      "law_refs": ["OSHA-R-48", "OSHA-R-146"],
+      "source": "산안규칙 제48조 + 제146조(크레인 악천후)"
+    },
+    {
+      "id": "SC-010",
+      "label": "야간 + 동시작업",
+      "trigger_conditions": {"night_work": true, "simultaneous_work": true},
+      "description": "야간에 복수 작업팀이 같은 구역에서 동시 작업",
+      "boosted_hazards": ["COLLIDE", "DROP", "FALL"],
+      "priority": "high",
+      "recommended_controls": [
+        "야간 동시작업 구역 분리(수직·수평)",
+        "작업 구역별 책임자 지정 및 연락 체계 구축",
+        "충분한 조명 및 야광 안전조끼 착용",
+        "야간 TBM(작업 전 안전교육) 실시"
+      ],
+      "law_refs": ["OSHA-R-42", "OSHA-R-146"],
+      "source": "건설업 동시작업 안전관리 기준"
+    },
+    {
+      "id": "SC-011",
+      "label": "고소 + 동시작업(수직)",
+      "trigger_conditions": {"work_at_height": true, "simultaneous_work": true},
+      "description": "상부·하부 구간에서 동시에 작업 진행(낙하물 위험 극대화)",
+      "boosted_hazards": ["DROP", "FALL", "FLYBY"],
+      "priority": "critical",
+      "recommended_controls": [
+        "수직 작업 구역 시간대 분리 원칙 적용",
+        "불가피 시 중간 낙하물 방지망 설치",
+        "하부 작업자 안전모 착용 철저",
+        "상부 자재 결속 확인"
+      ],
+      "law_refs": ["OSHA-R-42", "OSHA-R-44"],
+      "source": "산안규칙 제42조(추락방지망) + 낙하물 방지 기준"
+    },
+    {
+      "id": "SC-012",
+      "label": "밀폐공간 + 전기작업",
+      "trigger_conditions": {"confined_space": true, "electrical_work": true},
+      "description": "맨홀·탱크 등 밀폐공간 내 전기 설비 점검·수리",
+      "boosted_hazards": ["ASPHYX", "ELEC"],
+      "priority": "critical",
+      "recommended_controls": [
+        "산소농도 18% 이상 확인 후 진입",
+        "LOTO 적용 전원 완전 차단",
+        "외부 감시인 배치",
+        "절연보호구 착용 및 아크 위험 대비"
+      ],
+      "law_refs": ["OSHA-R-619", "OSHA-R-301"],
+      "source": "산안규칙 제619조 + 제301조 복합"
+    },
+    {
+      "id": "SC-013",
+      "label": "굴착 + 지하수 유입",
+      "trigger_conditions": {"excavation": true, "wet_surface": true},
+      "description": "굴착면에 지하수 또는 강우 유입으로 사면·흙막이 불안정",
+      "boosted_hazards": ["COLLAPSE", "ASPHYX"],
+      "priority": "critical",
+      "recommended_controls": [
+        "사면 기울기 기준 재확인(젖은 토질 고려)",
+        "배수 펌프 즉시 가동",
+        "굴착면 사면 상태 수시 점검",
+        "지하수 유입 과다 시 작업 중지"
+      ],
+      "law_refs": ["OSHA-R-338"],
+      "source": "산안규칙 제338조(굴착 위험 방지)"
+    },
+    {
+      "id": "SC-014",
+      "label": "화기작업 + 밀폐공간 + 가연성 물질",
+      "trigger_conditions": {"hot_work": true, "confined_space": true, "flammable_nearby": true},
+      "description": "밀폐된 탱크·배관 내부에서 가연성 잔류물 상태로 용접",
+      "boosted_hazards": ["EXPLO", "FIRE", "ASPHYX"],
+      "priority": "critical",
+      "recommended_controls": [
+        "작업 전 탱크 내부 잔류 가스·액체 완전 제거",
+        "가연성 가스 농도 0%(LEL 0%) 확인 후 작업",
+        "화기작업 허가서 필수",
+        "공기호흡기 착용 및 외부 감시인 배치"
+      ],
+      "law_refs": ["OSHA-R-619", "OSHA-R-241", "OSHA-R-232"],
+      "source": "산안규칙 복합 적용 - 밀폐공간+화기+가연물"
+    },
+    {
+      "id": "SC-015",
+      "label": "석면 해체 + 밀폐공간",
+      "trigger_conditions": {"asbestos_work": true, "confined_space": true},
+      "description": "밀폐된 공간(기계실·지하 등)에서 석면 해체 작업",
+      "boosted_hazards": ["DUST", "ASPHYX", "POISON"],
+      "priority": "critical",
+      "recommended_controls": [
+        "음압 밀폐 구역 설정 (내부 음압 유지)",
+        "전동식 호흡보호구 착용",
+        "산소농도 동시 모니터링",
+        "작업자 출입 기록 관리"
+      ],
+      "law_refs": ["OSHA-R-488", "OSHA-R-619", "OSHA-L-122"],
+      "source": "산안규칙 제488조 + 제619조 복합"
+    },
+    {
+      "id": "SC-016",
+      "label": "철골 조립 + 강풍 + 고소",
+      "trigger_conditions": {"work_at_height": true, "heavy_equipment": true, "weather_condition": "wind_strong"},
+      "description": "고층 철골 인양·조립 중 강풍으로 철골 흔들림 및 작업자 추락 위험",
+      "boosted_hazards": ["FALL", "DROP", "COLLIDE"],
+      "priority": "critical",
+      "recommended_controls": [
+        "풍속 10m/s 초과 시 철골 인양·조립 중지",
+        "인양 중 유도줄 사용 의무화",
+        "안전대 이중 연결",
+        "작업 전 풍속 예보 확인"
+      ],
+      "law_refs": ["OSHA-R-48", "OSHA-R-44", "OSHA-R-146"],
+      "source": "KOSHA GUIDE C-14-2021(철골공사 안전)"
+    },
+    {
+      "id": "SC-017",
+      "label": "야간 + 전기작업",
+      "trigger_conditions": {"night_work": true, "electrical_work": true},
+      "description": "야간 조명 불충분 상태에서 전기 설비 점검·배선 작업",
+      "boosted_hazards": ["ELEC", "FALL", "TRIP"],
+      "priority": "high",
+      "recommended_controls": [
+        "작업면 조도 75럭스 이상 확보",
+        "휴대용 조명 추가 사용",
+        "LOTO 잠금 상태 조명 아래 재확인",
+        "야간 전기작업 최소화"
+      ],
+      "law_refs": ["OSHA-R-301", "OSHA-R-302"],
+      "source": "산안규칙 제301조 + 야간작업 안전 기준"
+    },
+    {
+      "id": "SC-018",
+      "label": "중장비 + 야간 + 협소 공간",
+      "trigger_conditions": {"heavy_equipment": true, "night_work": true, "narrow_space": true},
+      "description": "야간 협소 현장에서 굴착기·지게차 등 중장비 운행",
+      "boosted_hazards": ["COLLIDE", "ENTRAP", "FALL"],
+      "priority": "critical",
+      "recommended_controls": [
+        "중장비 야간 후진 경보 장치 작동 확인",
+        "협소 구간 유도원 배치 필수",
+        "작업 조명 충분 확보(야간 작업 조명 기준)",
+        "중장비 운행 속도 제한(5km/h 이하)"
+      ],
+      "law_refs": ["OSHA-R-196", "OSHA-R-179"],
+      "source": "산안규칙 제196조 + 야간·협소공간 안전 기준"
+    },
+    {
+      "id": "SC-019",
+      "label": "해체 + 분진 + 야간",
+      "trigger_conditions": {"demolition": true, "night_work": true, "dust_exposure": true},
+      "description": "야간 건물 해체·파쇄 작업으로 분진 비산 및 가시성 저하",
+      "boosted_hazards": ["DUST", "COLLAPSE", "FALL"],
+      "priority": "high",
+      "recommended_controls": [
+        "야간 해체 작업 시 살수 비산먼지 억제",
+        "충분한 조명 설치 후 작업",
+        "방진마스크 착용 의무화",
+        "인근 주민 피해 최소화 대책 수립"
+      ],
+      "law_refs": ["OSHA-R-505", "OSHA-R-605"],
+      "source": "산안규칙 제505조(해체) + 제605조(분진)"
+    },
+    {
+      "id": "SC-020",
+      "label": "지붕 작업 + 강풍 + 우천",
+      "trigger_conditions": {"work_at_height": true, "weather_condition": "wind_rain", "roof_work": true},
+      "description": "지붕 위 판금·방수 작업 중 강풍과 우천 동시 발생",
+      "boosted_hazards": ["FALL", "SLIP", "DROP"],
+      "priority": "critical",
+      "recommended_controls": [
+        "기상 악화 시 즉시 작업 중지",
+        "안전대 부착설비 사전 설치",
+        "미끄럼 방지 신발 착용",
+        "자재 결속 확인"
+      ],
+      "law_refs": ["OSHA-R-45", "OSHA-R-48"],
+      "source": "산안규칙 제45조 + 제48조"
+    },
+    {
+      "id": "SC-021",
+      "label": "밀폐공간 + 화학물질",
+      "trigger_conditions": {"confined_space": true, "chemical_exposure": true},
+      "description": "맨홀·탱크 내부에서 세정제·코팅제 등 화학물질 사용",
+      "boosted_hazards": ["ASPHYX", "POISON", "FIRE"],
+      "priority": "critical",
+      "recommended_controls": [
+        "화학물질 MSDS 사전 확인",
+        "산소농도 및 유해가스 농도 측정",
+        "공기호흡기 착용",
+        "가연성 화학물질 밀폐공간 사용 금지"
+      ],
+      "law_refs": ["OSHA-R-619", "OSHA-L-114"],
+      "source": "산안규칙 제619조 + 산안법 제114조"
+    },
+    {
+      "id": "SC-022",
+      "label": "터널 + 발파 + 밀폐",
+      "trigger_conditions": {"confined_space": true, "blasting": true, "tunnel_work": true},
+      "description": "터널 발파 굴착 후 잔류 유해가스 및 분진이 밀폐된 갱내 충전",
+      "boosted_hazards": ["ASPHYX", "EXPLO", "DUST"],
+      "priority": "critical",
+      "recommended_controls": [
+        "발파 후 갱내 재진입 전 강제 환기 30분 이상",
+        "가스 농도 측정 후 진입",
+        "방진마스크 착용",
+        "잔폭 확인 후 진입"
+      ],
+      "law_refs": ["OSHA-R-619", "OSHA-R-605"],
+      "source": "KOSHA GUIDE C-17-2019(터널 발파 안전)"
+    },
+    {
+      "id": "SC-023",
+      "label": "전기작업 + 동시작업",
+      "trigger_conditions": {"electrical_work": true, "simultaneous_work": true},
+      "description": "전기 설비 인근에서 다른 공종 작업자가 동시에 작업",
+      "boosted_hazards": ["ELEC", "COLLIDE"],
+      "priority": "high",
+      "recommended_controls": [
+        "전기 작업 구역 접근 금지 표시",
+        "타 공종 작업자에게 전기 위험 주지",
+        "LOTO 잠금 해제 권한 전기 담당자만 부여",
+        "작업 구역 분리 또는 시간대 분리"
+      ],
+      "law_refs": ["OSHA-R-301", "OSHA-R-302"],
+      "source": "산안규칙 제301조(충전부 방호)"
+    },
+    {
+      "id": "SC-024",
+      "label": "중량물 인양 + 협소공간 + 동시작업",
+      "trigger_conditions": {"heavy_equipment": true, "narrow_space": true, "simultaneous_work": true},
+      "description": "협소한 작업 구역에서 중량물 인양 중 타 작업자 동시 작업",
+      "boosted_hazards": ["DROP", "COLLIDE", "ENTRAP"],
+      "priority": "critical",
+      "recommended_controls": [
+        "인양 작업 반경 내 타 작업 전면 금지",
+        "신호수 1명 전담 배치",
+        "인양 경로 사전 확인 및 작업자 대피 후 인양",
+        "협소 공간 인양 계획서 수립"
+      ],
+      "law_refs": ["OSHA-R-146", "OSHA-R-163"],
+      "source": "산안규칙 제146조 + KOSHA GUIDE C-25-2022"
+    },
+    {
+      "id": "SC-025",
+      "label": "도장작업 + 밀폐공간 + 화기",
+      "trigger_conditions": {"painting": true, "confined_space": true, "hot_work": true},
+      "description": "밀폐된 탱크·실내에서 도장 작업 후 미건조 상태에서 화기작업 시도",
+      "boosted_hazards": ["FIRE", "EXPLO", "POISON"],
+      "priority": "critical",
+      "recommended_controls": [
+        "도장 후 환기 완료 및 용제 증기 0% 확인 전 화기 금지",
+        "도장 구역과 화기 구역 시간적·공간적 분리",
+        "방폭형 조명·장비 사용",
+        "화기작업 허가서 발행"
+      ],
+      "law_refs": ["OSHA-R-236", "OSHA-R-241", "OSHA-R-619"],
+      "source": "산안규칙 제236조(도장) + 제241조(화재) 복합"
+    },
+    {
+      "id": "SC-026",
+      "label": "발파작업 + 인근 구조물",
+      "trigger_conditions": {"blasting": true, "adjacent_structure": true},
+      "description": "인근 구조물·지하 매설물 근접 발파 작업",
+      "boosted_hazards": ["COLLAPSE", "FLYBY", "DROP"],
+      "priority": "critical",
+      "recommended_controls": [
+        "발파 영향 범위 사전 계산",
+        "인근 구조물 진동 계측기 설치",
+        "방호 덮개(방폭 매트) 설치",
+        "발파 전 인원 대피 완료 확인"
+      ],
+      "law_refs": ["OSHA-R-505"],
+      "source": "화약류관리법 + 건설공사 발파 안전 기준"
+    },
+    {
+      "id": "SC-027",
+      "label": "동절기 + 고소작업",
+      "trigger_conditions": {"work_at_height": true, "weather_condition": "cold_icy"},
+      "description": "동절기 결빙·적설로 비계·발판이 미끄러운 상태에서 고소작업",
+      "boosted_hazards": ["FALL", "SLIP", "DROP"],
+      "priority": "critical",
+      "recommended_controls": [
+        "작업 전 비계·발판 결빙 여부 확인 및 제빙",
+        "미끄럼 방지 처리 후 작업",
+        "안전대 이중 연결",
+        "동절기 작업 시간 조정(기온 상승 후 작업)"
+      ],
+      "law_refs": ["OSHA-R-43", "OSHA-R-44", "OSHA-R-48"],
+      "source": "건설업 동절기 안전관리 기준"
+    },
+    {
+      "id": "SC-028",
+      "label": "고소 + 전기작업 + 동시작업",
+      "trigger_conditions": {"work_at_height": true, "electrical_work": true, "simultaneous_work": true},
+      "description": "비계 위 고소에서 전기 배선 작업 중 하부에서 타 공종 동시 작업",
+      "boosted_hazards": ["FALL", "ELEC", "DROP"],
+      "priority": "critical",
+      "recommended_controls": [
+        "상하부 작업 시간대 분리",
+        "전기 작업 시 LOTO 적용",
+        "하부 출입 통제 및 낙하물 방지망 설치",
+        "안전대 착용 및 공구 줄 연결"
+      ],
+      "law_refs": ["OSHA-R-42", "OSHA-R-44", "OSHA-R-301"],
+      "source": "산안규칙 복합(고소+전기+동시작업)"
+    },
+    {
+      "id": "SC-029",
+      "label": "우기 + 굴착 + 야간",
+      "trigger_conditions": {"excavation": true, "weather_condition": "rain", "night_work": true},
+      "description": "우기 야간에 굴착 작업 진행 중 강우로 사면 불안정",
+      "boosted_hazards": ["COLLAPSE", "FALL", "COLLIDE"],
+      "priority": "critical",
+      "recommended_controls": [
+        "야간 강우 시 굴착 작업 원칙적 중지",
+        "배수 시설 상태 실시간 점검",
+        "야간 조명 충분 확보",
+        "강우 후 사면 안정성 점검 후 재개"
+      ],
+      "law_refs": ["OSHA-R-338", "OSHA-R-48"],
+      "source": "산안규칙 제338조 + 제48조(악천후)"
+    },
+    {
+      "id": "SC-030",
+      "label": "화학물질 + 고온 작업환경",
+      "trigger_conditions": {"chemical_exposure": true, "high_temperature": true},
+      "description": "여름철 고온 환경에서 유기용제·도료 취급 작업",
+      "boosted_hazards": ["FIRE", "POISON", "EXPLO"],
+      "priority": "high",
+      "recommended_controls": [
+        "화학물질 저장 온도 기준 확인 및 차광 보관",
+        "작업 전 증기 농도 측정",
+        "환기 강화",
+        "폭염 시 작업 시간 조정(폭염특보 시 오후 2~5시 작업 제한)"
+      ],
+      "law_refs": ["OSHA-R-236", "OSHA-L-114"],
+      "source": "산안규칙 제236조 + 폭염 작업 안전 기준(고용노동부)"
+    }
+  ]
+}

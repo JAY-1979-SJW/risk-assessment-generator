@@ -1,0 +1,1626 @@
+{
+  "generated_at": "2026-04-21T00:52:08.207718+00:00",
+  "item_count": 90,
+  "items": [
+    {
+      "control_code": "FALL_C01",
+      "control_name": "안전난간 설치 (상부난간대·중간난간대·발끝막이판)",
+      "hazard_code": "FALL",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제43조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FALL_C02",
+      "control_name": "추락방지망 설치",
+      "hazard_code": "FALL",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제42조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FALL_C03",
+      "control_name": "작업발판 고정 (폭 40cm 이상)",
+      "hazard_code": "FALL",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제43조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FALL_C04",
+      "control_name": "안전대 부착설비 설치 후 안전대 착용",
+      "hazard_code": "FALL",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제44조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FALL_C05",
+      "control_name": "고소작업대 과부하 방지 장치 점검",
+      "hazard_code": "FALL",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제44조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FALL_C06",
+      "control_name": "안전망 설치",
+      "hazard_code": "FALL",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제48조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FALL_C07",
+      "control_name": "풍속 10m/s 이상 시 작업 중지",
+      "hazard_code": "FALL",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제48조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FALL_C08",
+      "control_name": "경사각 30도 이상 지붕 추락방지망 설치 또는 안전대 착용",
+      "hazard_code": "FALL",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제45조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FALL_C09",
+      "control_name": "사다리 상단 걸침 구조물보다 60cm 이상 돌출",
+      "hazard_code": "FALL",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제24조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FALL_C10",
+      "control_name": "이동식 사다리 기울기 75도 이하 유지",
+      "hazard_code": "FALL",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제24조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FALL_C11",
+      "control_name": "개구부 덮개 설치 또는 안전난간 설치",
+      "hazard_code": "FALL",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제42조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "ASPHYX_C01",
+      "control_name": "작업 전 산소 및 유해가스 농도 측정",
+      "hazard_code": "ASPHYX",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제619조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "ASPHYX_C02",
+      "control_name": "환기 실시 (충분한 신선 공기 공급)",
+      "hazard_code": "ASPHYX",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제619조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "ASPHYX_C03",
+      "control_name": "감시인 배치 (맨홀 외부)",
+      "hazard_code": "ASPHYX",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제619조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "ASPHYX_C04",
+      "control_name": "공기호흡기 또는 송기마스크 착용",
+      "hazard_code": "ASPHYX",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제619조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "ASPHYX_C05",
+      "control_name": "산소농도 18% 미만 시 작업 금지",
+      "hazard_code": "ASPHYX",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제619조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "ASPHYX_C06",
+      "control_name": "긴급 구조 전 구조자 공기호흡기 착용 의무화",
+      "hazard_code": "ASPHYX",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제623조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "ASPHYX_C07",
+      "control_name": "구명밧줄 착용",
+      "hazard_code": "ASPHYX",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제619조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "ELEC_C01",
+      "control_name": "전원 차단 후 작업 (LOTO 적용)",
+      "hazard_code": "ELEC",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제301조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "ELEC_C02",
+      "control_name": "잠금장치(LOTO) 설치",
+      "hazard_code": "ELEC",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제301조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "ELEC_C03",
+      "control_name": "절연 장갑 및 절연 공구 사용",
+      "hazard_code": "ELEC",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제301조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "ELEC_C04",
+      "control_name": "손상된 절연 피복 전선 즉시 교체",
+      "hazard_code": "ELEC",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제304조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "ELEC_C05",
+      "control_name": "누전 차단기 설치",
+      "hazard_code": "ELEC",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제304조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "ELEC_C06",
+      "control_name": "이중 절연 공구 사용",
+      "hazard_code": "ELEC",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제305조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "ELEC_C07",
+      "control_name": "절연 보호구 착용 및 활선 작업 금지 구역 설정",
+      "hazard_code": "ELEC",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제302조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FIRE_C01",
+      "control_name": "작업 반경 11m 이내 가연성 물질 제거",
+      "hazard_code": "FIRE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제241조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FIRE_C02",
+      "control_name": "방화포 사용",
+      "hazard_code": "FIRE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제241조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FIRE_C03",
+      "control_name": "소화기 비치 및 화재 감시자 배치",
+      "hazard_code": "FIRE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제241조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FIRE_C04",
+      "control_name": "작업 종료 후 30분 이상 화기 감시",
+      "hazard_code": "FIRE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제241조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FIRE_C05",
+      "control_name": "인근 가연물 격리 및 방화 커튼 설치",
+      "hazard_code": "FIRE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제242조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FIRE_C06",
+      "control_name": "환기 충분 실시 및 점화원 제거",
+      "hazard_code": "FIRE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제236조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FIRE_C07",
+      "control_name": "방폭형 전기 기구 사용",
+      "hazard_code": "FIRE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제236조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "EXPLO_C01",
+      "control_name": "가스 누출 점검 (작업 전)",
+      "hazard_code": "EXPLO",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제232조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "EXPLO_C02",
+      "control_name": "환기 실시 후 작업",
+      "hazard_code": "EXPLO",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제232조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "EXPLO_C03",
+      "control_name": "화기 금지 구역 설정",
+      "hazard_code": "EXPLO",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제232조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "COLLIDE_C01",
+      "control_name": "작업 반경 내 작업자 출입 통제",
+      "hazard_code": "COLLIDE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제146조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "COLLIDE_C02",
+      "control_name": "신호수 배치",
+      "hazard_code": "COLLIDE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제146조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "COLLIDE_C03",
+      "control_name": "인양 물체 하부 작업자 대피 후 작업",
+      "hazard_code": "COLLIDE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제146조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "COLLAPSE_C01",
+      "control_name": "흙막이 구조물 설치 및 안전 확인",
+      "hazard_code": "COLLAPSE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제338조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "COLLAPSE_C02",
+      "control_name": "굴착면 기울기 기준 준수",
+      "hazard_code": "COLLAPSE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제338조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "COLLAPSE_C03",
+      "control_name": "거푸집 동바리 철저 점검 및 타설 속도 준수",
+      "hazard_code": "COLLAPSE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제339조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "COLLAPSE_C04",
+      "control_name": "철거 순서 계획 수립 및 지지 구조물 확인",
+      "hazard_code": "COLLAPSE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제505조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "POISON_C01",
+      "control_name": "MSDS 숙지 및 작업 환경에 맞는 보호구 착용",
+      "hazard_code": "POISON",
+      "law_ref_raw": "산업안전보건법 제114조",
+      "candidate_law_ids": [
+        "statute:276853"
+      ],
+      "candidate_titles": [
+        "산업안전보건법"
+      ],
+      "selected_law_ids": [
+        "statute:276853"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "POISON_C02",
+      "control_name": "화학물질 보관 장소 환기 설비 설치",
+      "hazard_code": "POISON",
+      "law_ref_raw": "산업안전보건법 제114조",
+      "candidate_law_ids": [
+        "statute:276853"
+      ],
+      "candidate_titles": [
+        "산업안전보건법"
+      ],
+      "selected_law_ids": [
+        "statute:276853"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "CHEM_C01",
+      "control_name": "MSDS 숙지 및 적절한 보호구 착용",
+      "hazard_code": "CHEM",
+      "law_ref_raw": "산업안전보건법 제114조",
+      "candidate_law_ids": [
+        "statute:276853"
+      ],
+      "candidate_titles": [
+        "산업안전보건법"
+      ],
+      "selected_law_ids": [
+        "statute:276853"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "CHEM_C02",
+      "control_name": "환기 설비 설치",
+      "hazard_code": "CHEM",
+      "law_ref_raw": "산업안전보건법 제114조",
+      "candidate_law_ids": [
+        "statute:276853"
+      ],
+      "candidate_titles": [
+        "산업안전보건법"
+      ],
+      "selected_law_ids": [
+        "statute:276853"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "DROP_C01",
+      "control_name": "낙하물 방지망 설치 (높이 10m 이내 마다)",
+      "hazard_code": "DROP",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제14절",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "DROP_C02",
+      "control_name": "출입 금지 구역 설정 및 로프 차단",
+      "hazard_code": "DROP",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제14절",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "DROP_C03",
+      "control_name": "안전모 착용 의무화",
+      "hazard_code": "DROP",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제32조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "DROP_C04",
+      "control_name": "자재 적치 시 2단 이하 유지 및 고임목 설치",
+      "hazard_code": "DROP",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제14절",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "DROP_C05",
+      "control_name": "공구·자재 줄걸이 연결 상태 작업 전 점검",
+      "hazard_code": "DROP",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제153조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "ENTRAP_C01",
+      "control_name": "기계 방호덮개 설치 (회전체·가동부)",
+      "hazard_code": "ENTRAP",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제87조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "ENTRAP_C02",
+      "control_name": "정비·청소 작업 전 반드시 전원 차단 및 잠금(LOTO)",
+      "hazard_code": "ENTRAP",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제92조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "ENTRAP_C03",
+      "control_name": "회전체 작업 시 헐거운 옷·장갑 착용 금지",
+      "hazard_code": "ENTRAP",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제87조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "ENTRAP_C04",
+      "control_name": "끼임 위험 부위 비상 정지 스위치 설치",
+      "hazard_code": "ENTRAP",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제89조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "ENTRAP_C05",
+      "control_name": "작업 반경 내 작업자 위치 신호 체계 구축",
+      "hazard_code": "ENTRAP",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제146조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "CUT_C01",
+      "control_name": "절삭·절단 공구 방호장치 부착 확인 후 사용",
+      "hazard_code": "CUT",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제87조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "CUT_C02",
+      "control_name": "안전화 및 방호장갑 착용",
+      "hazard_code": "CUT",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제32조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "CUT_C03",
+      "control_name": "그라인더 날 교체 후 공회전 점검(1분 이상)",
+      "hazard_code": "CUT",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제100조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "CUT_C04",
+      "control_name": "철근 절단기 발판 페달 잠금 장치 확인",
+      "hazard_code": "CUT",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제87조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "CUT_C05",
+      "control_name": "절단 작업 시 안면보호대 착용",
+      "hazard_code": "CUT",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제32조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "DUST_C01",
+      "control_name": "방진마스크 착용 (석면·실리카 작업: 특급)",
+      "hazard_code": "DUST",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제605조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "DUST_C02",
+      "control_name": "작업 전·후 습식 청소 실시",
+      "hazard_code": "DUST",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제605조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "DUST_C03",
+      "control_name": "국소배기장치 설치 및 가동 확인",
+      "hazard_code": "DUST",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제609조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "DUST_C04",
+      "control_name": "밀폐공간 분진 작업 시 산소농도 동시 측정",
+      "hazard_code": "DUST",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제619조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "DUST_C05",
+      "control_name": "석면 해체 시 작업 구역 비닐 포장 밀폐",
+      "hazard_code": "DUST",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제492조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "NOISE_C01",
+      "control_name": "귀덮개 또는 귀마개 착용 (85dB 이상)",
+      "hazard_code": "NOISE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제513조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "NOISE_C02",
+      "control_name": "저소음 공법 우선 적용",
+      "hazard_code": "NOISE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제514조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "NOISE_C03",
+      "control_name": "소음 발생 장비 방음 커버 설치",
+      "hazard_code": "NOISE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제514조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "NOISE_C04",
+      "control_name": "소음 작업 교대 근무 편성 (노출 시간 관리)",
+      "hazard_code": "NOISE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제513조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "COLLAPSE_C05",
+      "control_name": "동바리 수직 하중 설계 확인 후 설치",
+      "hazard_code": "COLLAPSE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제331조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "COLLAPSE_C06",
+      "control_name": "굴착면 사면 기울기 1:0.3~1:1.5 기준 준수",
+      "hazard_code": "COLLAPSE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제338조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "COLLAPSE_C07",
+      "control_name": "강우·지진 후 사면 안정성 재점검",
+      "hazard_code": "COLLAPSE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제338조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "COLLIDE_C04",
+      "control_name": "차량 출입 구역 안전 펜스 설치",
+      "hazard_code": "COLLIDE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제176조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "COLLIDE_C05",
+      "control_name": "건설기계 작업 반경 내 접근 금지 테이프 설치",
+      "hazard_code": "COLLIDE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제176조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "COLLIDE_C06",
+      "control_name": "후진 경보 장치 작동 상태 확인",
+      "hazard_code": "COLLIDE",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제180조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "TRIP_C01",
+      "control_name": "작업통로 바닥 정리정돈 및 장애물 제거",
+      "hazard_code": "TRIP",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제3조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "TRIP_C02",
+      "control_name": "젖은 바닥 미끄럼 방지 매트 설치",
+      "hazard_code": "TRIP",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제3조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "TRIP_C03",
+      "control_name": "안전화 착용 (미끄럼 방지 밑창)",
+      "hazard_code": "TRIP",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제32조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "TRIP_C04",
+      "control_name": "전선·호스 통로 횡단 시 보호 커버 설치",
+      "hazard_code": "TRIP",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제3조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "TRIP_C05",
+      "control_name": "계단·경사로 미끄럼 방지 테이프 부착",
+      "hazard_code": "TRIP",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제26조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "BURN_C01",
+      "control_name": "용접 불꽃 차단 방화포 및 스파크 방어막 설치",
+      "hazard_code": "BURN",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제241조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "BURN_C02",
+      "control_name": "용접용 가죽 장갑·앞치마·보안경 착용",
+      "hazard_code": "BURN",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제32조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "BURN_C03",
+      "control_name": "고온 배관·표면 보온재 손상 여부 점검 후 접근",
+      "hazard_code": "BURN",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제232조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "BURN_C04",
+      "control_name": "뜨거운 물질 취급 시 내열 보호장갑 착용",
+      "hazard_code": "BURN",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제32조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "BURN_C05",
+      "control_name": "화학물질 누출 화상 대비 세안장치·비상샤워 설치",
+      "hazard_code": "BURN",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제560조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FLYBY_C01",
+      "control_name": "연삭기 사용 시 보안경·안면보호대 착용",
+      "hazard_code": "FLYBY",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제32조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FLYBY_C02",
+      "control_name": "연삭기 방호덮개 설치 확인 후 작업",
+      "hazard_code": "FLYBY",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제100조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FLYBY_C03",
+      "control_name": "작업 주변 비산 방지 방호벽 설치",
+      "hazard_code": "FLYBY",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제14절",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    },
+    {
+      "control_code": "FLYBY_C04",
+      "control_name": "에어 사용 청소 작업 시 주변 작업자 대피 후 실시",
+      "hazard_code": "FLYBY",
+      "law_ref_raw": "산업안전보건기준에 관한 규칙 제87조",
+      "candidate_law_ids": [
+        "statute:273603"
+      ],
+      "candidate_titles": [
+        "산업안전보건기준에 관한 규칙"
+      ],
+      "selected_law_ids": [
+        "statute:273603"
+      ],
+      "match_type": "text_pattern",
+      "confidence": 95,
+      "status": "matched"
+    }
+  ]
+}

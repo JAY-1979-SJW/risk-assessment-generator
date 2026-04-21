@@ -1,0 +1,79 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "source": "sample_chunks.json ppe 필드 직접 추출 + 산업안전보건기준에 관한 규칙 제32조(보호구)",
+    "created": "2026-04-20"
+  },
+  "hazard_ppe": [
+    {"hazard_code": "FALL",    "ppe_name": "안전모",                  "mandatory": true,  "source": "sample_chunks id=1,2,3,4,5 + 규칙 제32조"},
+    {"hazard_code": "FALL",    "ppe_name": "안전대",                  "mandatory": true,  "source": "sample_chunks id=1,2,3,4 + 규칙 제32조"},
+    {"hazard_code": "FALL",    "ppe_name": "안전화",                  "mandatory": true,  "source": "sample_chunks id=2,3,5 + 규칙 제32조"},
+    {"hazard_code": "FALL",    "ppe_name": "안전화(미끄럼방지)",      "mandatory": false, "source": "sample_chunks id=4 (지붕 경사면)"},
+
+    {"hazard_code": "ASPHYX",  "ppe_name": "공기호흡기",              "mandatory": true,  "source": "sample_chunks id=6,7,8,9 + 규칙 제619조"},
+    {"hazard_code": "ASPHYX",  "ppe_name": "송기마스크",              "mandatory": false, "source": "sample_chunks id=6,8 (공기호흡기 대안)"},
+    {"hazard_code": "ASPHYX",  "ppe_name": "안전모",                  "mandatory": true,  "source": "sample_chunks id=6"},
+    {"hazard_code": "ASPHYX",  "ppe_name": "방독마스크",              "mandatory": false, "source": "sample_chunks id=7,19 (유해가스 환경)"},
+
+    {"hazard_code": "ELEC",    "ppe_name": "절연장갑",                "mandatory": true,  "source": "sample_chunks id=10,11,12,29 + 규칙 제301조"},
+    {"hazard_code": "ELEC",    "ppe_name": "절연화",                  "mandatory": true,  "source": "sample_chunks id=10,11 + 규칙 제301조"},
+    {"hazard_code": "ELEC",    "ppe_name": "절연방호구",              "mandatory": true,  "source": "sample_chunks id=10,29 (활선 작업)"},
+    {"hazard_code": "ELEC",    "ppe_name": "안면보호구",              "mandatory": false, "source": "sample_chunks id=29 (아크 위험)"},
+
+    {"hazard_code": "FIRE",    "ppe_name": "방염복",                  "mandatory": true,  "source": "sample_chunks id=13,14,16 + 규칙 제241조"},
+    {"hazard_code": "FIRE",    "ppe_name": "용접면",                  "mandatory": true,  "source": "sample_chunks id=13,14 (용접·절단)"},
+    {"hazard_code": "FIRE",    "ppe_name": "안전화",                  "mandatory": true,  "source": "sample_chunks id=13,14"},
+    {"hazard_code": "FIRE",    "ppe_name": "방독마스크",              "mandatory": true,  "source": "sample_chunks id=16 (도장 작업)"},
+
+    {"hazard_code": "EXPLO",   "ppe_name": "방염복",                  "mandatory": true,  "source": "sample_chunks id=15"},
+    {"hazard_code": "EXPLO",   "ppe_name": "안전화",                  "mandatory": true,  "source": "sample_chunks id=15"},
+    {"hazard_code": "EXPLO",   "ppe_name": "안전모",                  "mandatory": true,  "source": "sample_chunks id=15"},
+
+    {"hazard_code": "COLLIDE", "ppe_name": "안전모",                  "mandatory": true,  "source": "sample_chunks id=21"},
+    {"hazard_code": "COLLIDE", "ppe_name": "안전화",                  "mandatory": true,  "source": "sample_chunks id=21"},
+
+    {"hazard_code": "COLLAPSE","ppe_name": "안전모",                  "mandatory": true,  "source": "sample_chunks id=20,22"},
+    {"hazard_code": "COLLAPSE","ppe_name": "안전화",                  "mandatory": true,  "source": "sample_chunks id=20,22"},
+    {"hazard_code": "COLLAPSE","ppe_name": "방진마스크",              "mandatory": false, "source": "sample_chunks id=32 (철거·파쇄)"},
+    {"hazard_code": "COLLAPSE","ppe_name": "보안경",                  "mandatory": false, "source": "sample_chunks id=22 (콘크리트)"},
+
+    {"hazard_code": "POISON",  "ppe_name": "내화학성 장갑",           "mandatory": true,  "source": "sample_chunks id=33"},
+    {"hazard_code": "POISON",  "ppe_name": "방독마스크",              "mandatory": true,  "source": "sample_chunks id=33"},
+    {"hazard_code": "POISON",  "ppe_name": "보안경",                  "mandatory": true,  "source": "sample_chunks id=33"},
+
+    {"hazard_code": "DUST",    "ppe_name": "방진마스크",              "mandatory": true,  "source": "규칙 제32조 + sample_chunks id=32"},
+    {"hazard_code": "DUST",    "ppe_name": "보안경",                  "mandatory": false, "source": "규칙 제32조"},
+
+    {"hazard_code": "NOISE",   "ppe_name": "귀마개 또는 귀덮개",      "mandatory": true,  "source": "규칙 제32조 + 규칙 제513조"},
+
+    {"hazard_code": "CHEM",    "ppe_name": "내화학성 장갑",           "mandatory": true,  "source": "sample_chunks id=33 + 규칙 제32조"},
+    {"hazard_code": "CHEM",    "ppe_name": "방독마스크",              "mandatory": true,  "source": "sample_chunks id=33 + 규칙 제32조"},
+    {"hazard_code": "CHEM",    "ppe_name": "보안경",                  "mandatory": true,  "source": "sample_chunks id=33 + 규칙 제32조"},
+    {"hazard_code": "CHEM",    "ppe_name": "방호복",                  "mandatory": false, "source": "규칙 제32조 (피부 전신 노출 위험 시)"},
+
+    {"hazard_code": "ENTRAP",  "ppe_name": "안전장갑",                "mandatory": true,  "source": "산안규칙 제32조 + 기계류 안전 기준"},
+    {"hazard_code": "ENTRAP",  "ppe_name": "안전화",                  "mandatory": true,  "source": "산안규칙 제32조"},
+    {"hazard_code": "ENTRAP",  "ppe_name": "안전모",                  "mandatory": true,  "source": "산안규칙 제32조"},
+
+    {"hazard_code": "CUT",     "ppe_name": "방호장갑(절단방지)",      "mandatory": true,  "source": "산안규칙 제32조 + KOSHA GUIDE G-90-2020"},
+    {"hazard_code": "CUT",     "ppe_name": "보안경",                  "mandatory": true,  "source": "산안규칙 제32조"},
+    {"hazard_code": "CUT",     "ppe_name": "안면보호대",              "mandatory": false, "source": "산안규칙 제32조 (연삭·절단 시)"},
+    {"hazard_code": "CUT",     "ppe_name": "안전화",                  "mandatory": true,  "source": "산안규칙 제32조"},
+
+    {"hazard_code": "DROP",    "ppe_name": "안전모",                  "mandatory": true,  "source": "산안규칙 제32조 + 제14절"},
+    {"hazard_code": "DROP",    "ppe_name": "안전화",                  "mandatory": true,  "source": "산안규칙 제32조"},
+    {"hazard_code": "DROP",    "ppe_name": "안전조끼(야광)",          "mandatory": false, "source": "현장 안전 관리 실무"},
+
+    {"hazard_code": "TRIP",    "ppe_name": "안전화(미끄럼방지)",      "mandatory": true,  "source": "산안규칙 제32조"},
+    {"hazard_code": "TRIP",    "ppe_name": "안전모",                  "mandatory": true,  "source": "산안규칙 제32조"},
+
+    {"hazard_code": "BURN",    "ppe_name": "용접용 가죽장갑",         "mandatory": true,  "source": "산안규칙 제32조 + KOSHA GUIDE D-15-2021"},
+    {"hazard_code": "BURN",    "ppe_name": "용접면(자동차광)",        "mandatory": true,  "source": "산안규칙 제32조"},
+    {"hazard_code": "BURN",    "ppe_name": "방염 앞치마",             "mandatory": true,  "source": "산안규칙 제32조"},
+    {"hazard_code": "BURN",    "ppe_name": "내열 안전화",             "mandatory": false, "source": "산안규칙 제32조 (고온 작업)"},
+
+    {"hazard_code": "FLYBY",   "ppe_name": "보안경",                  "mandatory": true,  "source": "산안규칙 제32조 + 제100조(연삭기)"},
+    {"hazard_code": "FLYBY",   "ppe_name": "안면보호대",              "mandatory": false, "source": "산안규칙 제32조"},
+    {"hazard_code": "FLYBY",   "ppe_name": "안전모",                  "mandatory": true,  "source": "산안규칙 제32조"}
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "source": "산업안전보건기준에 관한 규칙 + sample_chunks.json 장비-위험 연계 확인",
+    "created": "2026-04-20"
+  },
+  "equipment_hazards": [
+    {"equipment_code": "EQ_SCAFF",       "hazard_code": "FALL",    "condition_desc": "비계 위 작업 중 발판 이탈 또는 안전난간 미설치 시",          "source": "sample_chunks id=1 + 규칙 제59조"},
+    {"equipment_code": "EQ_SCAFF",       "hazard_code": "DROP",    "condition_desc": "비계 위 자재 낙하 위험",                                      "source": "규칙 제14절"},
+    {"equipment_code": "EQ_SCAFF",       "hazard_code": "COLLAPSE","condition_desc": "연결 부재 불량 또는 과부하 시 비계 붕괴",                    "source": "규칙 제59조"},
+
+    {"equipment_code": "EQ_MOVSCAFF",    "hazard_code": "FALL",    "condition_desc": "이동 중 고정 미확인 시 전도 및 추락",                        "source": "규칙 제68조"},
+    {"equipment_code": "EQ_MOVSCAFF",    "hazard_code": "COLLAPSE","condition_desc": "이동식 비계 바퀴 잠금 미확인 시 전도",                       "source": "규칙 제68조"},
+
+    {"equipment_code": "EQ_AWP",         "hazard_code": "FALL",    "condition_desc": "과부하 또는 급조작 시 추락",                                  "source": "sample_chunks id=2 + 규칙 제186조"},
+    {"equipment_code": "EQ_AWP",         "hazard_code": "COLLIDE", "condition_desc": "붐 이동 중 주변 구조물 또는 작업자와 충돌",                  "source": "규칙 제186조"},
+
+    {"equipment_code": "EQ_LADDER_MOV",  "hazard_code": "FALL",    "condition_desc": "기울기 초과 또는 상단 미고정 시 전도·추락",                  "source": "sample_chunks id=5 + 규칙 제24조"},
+
+    {"equipment_code": "EQ_CRANE_TOWER", "hazard_code": "DROP",    "condition_desc": "인양물 낙하 또는 와이어 파단 시",                            "source": "규칙 제139조 + sample_chunks id=21"},
+    {"equipment_code": "EQ_CRANE_TOWER", "hazard_code": "COLLIDE", "condition_desc": "선회 시 주변 구조물·작업자 충돌",                            "source": "규칙 제139조"},
+    {"equipment_code": "EQ_CRANE_TOWER", "hazard_code": "COLLAPSE","condition_desc": "기초 불량 또는 과부하 시 타워크레인 전도",                   "source": "규칙 제142조"},
+
+    {"equipment_code": "EQ_CRANE_MOB",   "hazard_code": "DROP",    "condition_desc": "인양물 낙하",                                                 "source": "규칙 제146조 + sample_chunks id=21"},
+    {"equipment_code": "EQ_CRANE_MOB",   "hazard_code": "COLLIDE", "condition_desc": "이동 중 작업자 충돌",                                         "source": "규칙 제146조"},
+    {"equipment_code": "EQ_CRANE_MOB",   "hazard_code": "COLLAPSE","condition_desc": "연약 지반에서 전도",                                          "source": "규칙 제146조"},
+
+    {"equipment_code": "EQ_FORKLIFT",    "hazard_code": "COLLIDE", "condition_desc": "후진 또는 선회 중 작업자 충돌",                              "source": "규칙 제179조"},
+    {"equipment_code": "EQ_FORKLIFT",    "hazard_code": "DROP",    "condition_desc": "포크 상승 중 자재 낙하",                                      "source": "규칙 제179조"},
+    {"equipment_code": "EQ_FORKLIFT",    "hazard_code": "COLLAPSE","condition_desc": "경사지 이동 시 전도",                                         "source": "규칙 제179조"},
+
+    {"equipment_code": "EQ_EXCAV",       "hazard_code": "COLLIDE", "condition_desc": "선회 반경 내 작업자 충돌",                                    "source": "규칙 제196조"},
+    {"equipment_code": "EQ_EXCAV",       "hazard_code": "COLLAPSE","condition_desc": "굴착 사면 과굴착 시 붕괴",                                    "source": "규칙 제196조"},
+    {"equipment_code": "EQ_EXCAV",       "hazard_code": "ENTRAP",  "condition_desc": "버킷 회전 반경 내 작업자 협착",                              "source": "규칙 제196조"},
+
+    {"equipment_code": "EQ_CONC_PUMP",   "hazard_code": "COLLAPSE","condition_desc": "붐 지지 불량 시 전도·붕괴",                                  "source": "규칙 제335조"},
+    {"equipment_code": "EQ_CONC_PUMP",   "hazard_code": "DROP",    "condition_desc": "호스 탈락 시 콘크리트 비산 및 피격",                         "source": "규칙 제335조"},
+
+    {"equipment_code": "EQ_WELDER_ARC",  "hazard_code": "ELEC",   "condition_desc": "절연 불량 전극 접촉 시 감전",                                "source": "규칙 제241조 + sample_chunks id=13"},
+    {"equipment_code": "EQ_WELDER_ARC",  "hazard_code": "FIRE",   "condition_desc": "불꽃 비산으로 가연물 착화",                                   "source": "sample_chunks id=13"},
+    {"equipment_code": "EQ_WELDER_ARC",  "hazard_code": "DUST",   "condition_desc": "용접흄 발생 및 흡입",                                         "source": "규칙 제9장"},
+
+    {"equipment_code": "EQ_WELDER_GAS",  "hazard_code": "EXPLO",  "condition_desc": "가스 누출 시 폭발·화재",                                      "source": "규칙 제232조 + sample_chunks id=15"},
+    {"equipment_code": "EQ_WELDER_GAS",  "hazard_code": "FIRE",   "condition_desc": "불꽃 비산으로 가연물 착화",                                   "source": "sample_chunks id=15"},
+
+    {"equipment_code": "EQ_GRINDER",     "hazard_code": "CUT",    "condition_desc": "날 파손 시 비산 및 절단",                                     "source": "규칙 제108조"},
+    {"equipment_code": "EQ_GRINDER",     "hazard_code": "DUST",   "condition_desc": "연삭 분진 발생 및 흡입",                                      "source": "규칙 제9장"},
+
+    {"equipment_code": "EQ_DIST_PANEL",  "hazard_code": "ELEC",   "condition_desc": "충전부 직접 접촉 또는 누전 시 감전",                         "source": "규칙 제301조 + sample_chunks id=10"},
+
+    {"equipment_code": "EQ_DRILL",       "hazard_code": "ELEC",   "condition_desc": "절연 불량 또는 젖은 환경 사용 시 감전",                      "source": "규칙 제305조 + sample_chunks id=12"},
+    {"equipment_code": "EQ_DRILL",       "hazard_code": "ENTRAP",  "condition_desc": "드릴 날에 옷·머리카락 말림",                                 "source": "규칙 제108조"},
+
+    {"equipment_code": "EQ_AIRCOMP",     "hazard_code": "EXPLO",  "condition_desc": "압력 용기 파열 또는 과압 시 폭발",                            "source": "규칙 제116조"},
+    {"equipment_code": "EQ_AIRCOMP",     "hazard_code": "NOISE",  "condition_desc": "압축기 작동 소음 (85dB 이상)",                               "source": "규칙 제513조"},
+
+    {"equipment_code": "EQ_PILEDRIVER",  "hazard_code": "DROP",   "condition_desc": "해머 낙하 또는 말뚝 탈락 시",                                 "source": "규칙 제207조"},
+    {"equipment_code": "EQ_PILEDRIVER",  "hazard_code": "COLLIDE","condition_desc": "장비 이동 시 작업자 충돌",                                    "source": "규칙 제207조"},
+    {"equipment_code": "EQ_PILEDRIVER",  "hazard_code": "NOISE",  "condition_desc": "항타 소음 (100dB 이상)",                                      "source": "규칙 제513조"},
+
+    {"equipment_code": "EQ_SPRAY_GUN",   "hazard_code": "FIRE",   "condition_desc": "인화성 도료 사용 시 화재·폭발",                              "source": "규칙 제236조 + sample_chunks id=16"},
+    {"equipment_code": "EQ_SPRAY_GUN",   "hazard_code": "CHEM",   "condition_desc": "유기용제 흡입 및 피부 노출",                                  "source": "규칙 제236조 + sample_chunks id=16"},
+
+    {"equipment_code": "EQ_HOIST",       "hazard_code": "DROP",   "condition_desc": "훅 해제 또는 체인 파단 시 인양물 낙하",                      "source": "규칙 제132조"},
+    {"equipment_code": "EQ_HOIST",       "hazard_code": "ENTRAP",  "condition_desc": "체인 조작 중 손·손가락 협착",                               "source": "규칙 제132조"},
+
+    {"equipment_code": "EQ_ROLLER",      "hazard_code": "COLLIDE","condition_desc": "후진 시 작업자 충돌",                                         "source": "규칙 제196조"},
+    {"equipment_code": "EQ_ROLLER",      "hazard_code": "ENTRAP",  "condition_desc": "드럼 회전부 작업자 협착",                                    "source": "규칙 제196조"}
+  ]
+}

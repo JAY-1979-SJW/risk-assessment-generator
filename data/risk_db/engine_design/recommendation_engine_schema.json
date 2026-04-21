@@ -1,0 +1,130 @@
+{
+  "generated_at": "2026-04-21T01:14:23.117473+00:00",
+  "version": "1.0",
+  "description": "위험성평가표 초안 조립 추천 엔진 — 4축 링크 기반",
+  "inputs": {
+    "required": [
+      "work_type_code"
+    ],
+    "optional": [
+      "work_sub_type_code",
+      "condition_flags"
+    ],
+    "condition_flags_enum": [
+      "high_place",
+      "confined_space",
+      "live_electric",
+      "night_work",
+      "chemical_use"
+    ]
+  },
+  "pipeline": [
+    "step1_resolve_worktype",
+    "step2_collect_hazard_candidates",
+    "step3_score_hazards",
+    "step4_collect_control_candidates",
+    "step5_score_controls",
+    "step6_merge_law_evidence",
+    "step7_assemble_rows"
+  ],
+  "pipeline_detail": {
+    "step1_resolve_worktype": "work_types.json에서 work_type_code 메타 조회",
+    "step2_collect_hazard_candidates": "work_hazards_map 조회 → 없으면 trade 기반 rule_based_inference",
+    "step3_score_hazards": "base(freq×20+sev×10) + condition_flag 가점 → 상위 5건",
+    "step4_collect_control_candidates": "controls_normalized.json에서 hazard_code 기준 조회",
+    "step5_score_controls": "control_type × priority 점수표 → 상위 3건",
+    "step6_merge_law_evidence": "worktype_law + hazard_law + control_law 병합, dedupe, score 가중",
+    "step7_assemble_rows": "hazard 기준 row 조립 (한 행 = hazard + controls + laws)"
+  },
+  "score_constants": {
+    "hazard": {
+      "freq_coef": 20,
+      "sev_coef": 10,
+      "rule_base": 65,
+      "max": 98,
+      "condition_bonus": {
+        "high_place": {
+          "FALL": 15,
+          "DROP": 10
+        },
+        "confined_space": {
+          "ASPHYX": 15,
+          "EXPLO": 10,
+          "POISON": 8
+        },
+        "live_electric": {
+          "ELEC": 15
+        },
+        "night_work": {
+          "COLLIDE": 8,
+          "TRIP": 8,
+          "FALL": 5
+        },
+        "chemical_use": {
+          "CHEM": 12,
+          "POISON": 12,
+          "DUST": 6
+        }
+      }
+    },
+    "control": {
+      "engineering__p1": 90,
+      "admin__p1": 85,
+      "ppe__p1": 80,
+      "engineering__p2": 80,
+      "admin__p2": 75,
+      "ppe__p2": 72
+    },
+    "law_path_weight": {
+      "control_law": 1.0,
+      "hazard_law": 0.9,
+      "worktype_law": 0.8
+    }
+  },
+  "output_limits": {
+    "max_hazard_per_wt": 5,
+    "max_control_per_hz": 3,
+    "max_law_per_row": 3
+  },
+  "entities": {
+    "worktype": {
+      "pk": "work_type_code",
+      "source": "work_types.json"
+    },
+    "hazard": {
+      "pk": "hazard_code",
+      "source": "hazards.json"
+    },
+    "control": {
+      "pk": "control_code",
+      "source": "controls_normalized.json"
+    },
+    "law": {
+      "pk": "law_id ({category}:{raw_id})",
+      "source": "safety_laws_normalized.json"
+    }
+  },
+  "relations_used": [
+    "worktype_hazard (work_hazards_map.json + trade inference)",
+    "hazard_control  (controls_normalized.json)",
+    "worktype_law    (law_worktype_map.json)",
+    "hazard_law      (law_hazard_map.json)",
+    "control_law     (law_control_map.json)"
+  ],
+  "output_shape": {
+    "row_structure": {
+      "work_type_code": "str",
+      "hazard_code": "str",
+      "hazard_name": "str",
+      "hazard_score": "int(0-100)",
+      "hazard_reason": "str",
+      "controls": "[{control_code, control_name, control_score, reason}]",
+      "laws": "[{law_id, law_title, law_score, evidence_paths}]"
+    }
+  },
+  "dedup_rules": {
+    "hazard": "hazard_code 기준 — 동일 코드 점수 병합",
+    "control": "control_code 기준 — 동일 코드 상위 점수 유지",
+    "law": "law_id 기준 — evidence_paths 합집합, best_score = max(path_weighted)"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "version": "1.1",
+  "fetched_at": "2026-04-20T22:57:19.176173+00:00",
+  "source": "kosha.or.kr",
+  "total": 5,
+  "success": 5,
+  "fail": 0,
+  "guides": [
+    {
+      "guide_code": "KOSHA-G-CONST-001",
+      "title": "건설공사 위험성평가 지침",
+      "category": "건설안전",
+      "source": "kosha.or.kr",
+      "source_org": "한국산업안전보건공단",
+      "raw_url": "https://portal.kosha.or.kr/kosha/data/publicDataList.do",
+      "fetched_at": "2026-04-20T22:57:19.175619+00:00",
+      "status": "dry_run",
+      "error": null
+    },
+    {
+      "guide_code": "KOSHA-G-CONST-002",
+      "title": "건설현장 추락재해 예방 가이드",
+      "category": "건설안전",
+      "source": "kosha.or.kr",
+      "source_org": "한국산업안전보건공단",
+      "raw_url": "https://portal.kosha.or.kr/kosha/data/publicDataList.do",
+      "fetched_at": "2026-04-20T22:57:19.175719+00:00",
+      "status": "dry_run",
+      "error": null
+    },
+    {
+      "guide_code": "KOSHA-G-CONST-003",
+      "title": "거푸집 및 동바리 붕괴 예방",
+      "category": "건설안전",
+      "source": "kosha.or.kr",
+      "source_org": "한국산업안전보건공단",
+      "raw_url": "https://portal.kosha.or.kr/kosha/data/publicDataList.do",
+      "fetched_at": "2026-04-20T22:57:19.175803+00:00",
+      "status": "dry_run",
+      "error": null
+    },
+    {
+      "guide_code": "KOSHA-G-CONST-004",
+      "title": "건설현장 감전재해 예방 가이드",
+      "category": "건설안전",
+      "source": "kosha.or.kr",
+      "source_org": "한국산업안전보건공단",
+      "raw_url": "https://portal.kosha.or.kr/kosha/data/publicDataList.do",
+      "fetched_at": "2026-04-20T22:57:19.175878+00:00",
+      "status": "dry_run",
+      "error": null
+    },
+    {
+      "guide_code": "KOSHA-G-CONST-005",
+      "title": "크레인 및 양중기 안전작업 가이드",
+      "category": "건설안전",
+      "source": "kosha.or.kr",
+      "source_org": "한국산업안전보건공단",
+      "raw_url": "https://portal.kosha.or.kr/kosha/data/publicDataList.do",
+      "fetched_at": "2026-04-20T22:57:19.176130+00:00",
+      "status": "dry_run",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,1050 @@
+{
+  "generated_at": "2026-04-21T00:00:00+00:00",
+  "description": "위험성평가표 초안 생성 API 샘플 request/response — 5개 worktype",
+  "sample_count": 5,
+  "samples": [
+    {
+      "work_type_code": "ELEC_LIVE",
+      "work_type_name": "활선 작업",
+      "request": {
+        "site_context": {
+          "project_type": "전기설비",
+          "trade_type": "전기",
+          "location_type": "실내",
+          "condition_flags": ["live_electric", "high_place"]
+        },
+        "work": {
+          "work_type_code": "ELEC_LIVE",
+          "work_name": "배전반 활선 점검"
+        },
+        "options": {
+          "max_hazards": 5,
+          "max_controls_per_hazard": 3,
+          "max_laws_per_row": 3,
+          "include_law_evidence": true,
+          "include_scores": true
+        },
+        "user_inputs": {
+          "preferred_hazard_codes": [],
+          "excluded_hazard_codes": [],
+          "preferred_control_codes": [],
+          "notes": ""
+        }
+      },
+      "response": {
+        "request_id": "req_elec_live_001",
+        "generated_at": "2026-04-21T00:00:00+00:00",
+        "work": {
+          "work_type_code": "ELEC_LIVE",
+          "work_sub_type_code": null,
+          "work_name": "배전반 활선 점검"
+        },
+        "summary": {
+          "hazard_count": 1,
+          "control_count": 3,
+          "law_count": 2
+        },
+        "rows": [
+          {
+            "row_id": "ELEC_LIVE_ELEC_001",
+            "hazard": {
+              "hazard_code": "ELEC",
+              "hazard_name": "감전",
+              "hazard_score": 98,
+              "hazard_reason": "work_hazards_map + live_electric 가점"
+            },
+            "controls": [
+              {
+                "control_code": "ELEC_C02",
+                "control_name": "잠금장치(LOTO) 설치",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "ELEC_C04",
+                "control_name": "손상된 절연 피복 전선 즉시 교체",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "ELEC_C05",
+                "control_name": "누전 차단기 설치",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              }
+            ],
+            "laws": [
+              {
+                "law_id": "statute:273603",
+                "law_title": "산업안전보건기준에 관한 규칙",
+                "law_score": 92.0,
+                "evidence_paths": ["worktype_law", "hazard_law", "control_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "statute:276853",
+                "law_title": "산업안전보건법",
+                "law_score": 72.0,
+                "evidence_paths": ["worktype_law", "hazard_law"],
+                "detail_link": null
+              }
+            ],
+            "editable": {
+              "hazard_text": "감전",
+              "control_texts": ["잠금장치(LOTO) 설치", "손상된 절연 피복 전선 즉시 교체", "누전 차단기 설치"],
+              "memo": ""
+            },
+            "row_flags": []
+          }
+        ],
+        "review_flags": ["CONDITION_FLAG_MISSING"],
+        "engine_meta": {
+          "pipeline_version": "1.0",
+          "sources_used": ["work_hazards_map", "controls_normalized", "law_hazard_map", "law_worktype_map", "law_control_map"]
+        }
+      }
+    },
+    {
+      "work_type_code": "TEMP_SCAFF",
+      "work_type_name": "비계 설치",
+      "request": {
+        "site_context": {
+          "project_type": "건축",
+          "trade_type": "가설",
+          "location_type": "고층",
+          "condition_flags": ["high_place"]
+        },
+        "work": {
+          "work_type_code": "TEMP_SCAFF",
+          "work_name": "외벽 비계 설치 작업"
+        },
+        "options": {
+          "max_hazards": 5,
+          "max_controls_per_hazard": 3,
+          "max_laws_per_row": 3,
+          "include_law_evidence": true,
+          "include_scores": true
+        },
+        "user_inputs": {
+          "preferred_hazard_codes": [],
+          "excluded_hazard_codes": [],
+          "preferred_control_codes": [],
+          "notes": ""
+        }
+      },
+      "response": {
+        "request_id": "req_temp_scaff_001",
+        "generated_at": "2026-04-21T00:00:00+00:00",
+        "work": {
+          "work_type_code": "TEMP_SCAFF",
+          "work_sub_type_code": null,
+          "work_name": "외벽 비계 설치 작업"
+        },
+        "summary": {
+          "hazard_count": 3,
+          "control_count": 9,
+          "law_count": 3
+        },
+        "rows": [
+          {
+            "row_id": "TEMP_SCAFF_FALL_001",
+            "hazard": {
+              "hazard_code": "FALL",
+              "hazard_name": "추락",
+              "hazard_score": 98,
+              "hazard_reason": "work_hazards_map + high_place 가점"
+            },
+            "controls": [
+              {
+                "control_code": "FALL_C01",
+                "control_name": "안전난간 설치 (상부난간대·중간난간대·발끝막이판)",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "FALL_C02",
+                "control_name": "추락방지망 설치",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "FALL_C03",
+                "control_name": "작업발판 고정 (폭 40cm 이상)",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              }
+            ],
+            "laws": [
+              {
+                "law_id": "statute:273603",
+                "law_title": "산업안전보건기준에 관한 규칙",
+                "law_score": 92.0,
+                "evidence_paths": ["worktype_law", "hazard_law", "control_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "interpretation:313846",
+                "law_title": "민원인 - 「산업안전보건법」 제23조제3항에 따른 추락 위험을 방지하기 위한 안전난간 설치작업 지휘 업무 관련",
+                "law_score": 73.8,
+                "evidence_paths": ["worktype_law", "hazard_law", "control_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "statute:276853",
+                "law_title": "산업안전보건법",
+                "law_score": 72.0,
+                "evidence_paths": ["worktype_law", "hazard_law"],
+                "detail_link": null
+              }
+            ],
+            "editable": {
+              "hazard_text": "추락",
+              "control_texts": ["안전난간 설치 (상부난간대·중간난간대·발끝막이판)", "추락방지망 설치", "작업발판 고정 (폭 40cm 이상)"],
+              "memo": ""
+            },
+            "row_flags": []
+          },
+          {
+            "row_id": "TEMP_SCAFF_DROP_002",
+            "hazard": {
+              "hazard_code": "DROP",
+              "hazard_name": "낙하",
+              "hazard_score": 80,
+              "hazard_reason": "work_hazards_map"
+            },
+            "controls": [
+              {
+                "control_code": "DROP_C01",
+                "control_name": "낙하물 방지망 설치 (높이 10m 이내 마다)",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "DROP_C02",
+                "control_name": "출입 금지 구역 설정 및 로프 차단",
+                "control_score": 85,
+                "reason": "admin priority=1"
+              },
+              {
+                "control_code": "DROP_C05",
+                "control_name": "공구·자재 줄걸이 연결 상태 작업 전 점검",
+                "control_score": 85,
+                "reason": "admin priority=1"
+              }
+            ],
+            "laws": [
+              {
+                "law_id": "statute:273603",
+                "law_title": "산업안전보건기준에 관한 규칙",
+                "law_score": 88.0,
+                "evidence_paths": ["worktype_law", "hazard_law", "control_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "statute:276853",
+                "law_title": "산업안전보건법",
+                "law_score": 72.0,
+                "evidence_paths": ["worktype_law", "hazard_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "interpretation:313846",
+                "law_title": "민원인 - 「산업안전보건법」 제23조제3항에 따른 추락 위험을 방지하기 위한 안전난간 설치작업 지휘 업무 관련",
+                "law_score": 64.0,
+                "evidence_paths": ["worktype_law"],
+                "detail_link": null
+              }
+            ],
+            "editable": {
+              "hazard_text": "낙하",
+              "control_texts": ["낙하물 방지망 설치 (높이 10m 이내 마다)", "출입 금지 구역 설정 및 로프 차단", "공구·자재 줄걸이 연결 상태 작업 전 점검"],
+              "memo": ""
+            },
+            "row_flags": []
+          },
+          {
+            "row_id": "TEMP_SCAFF_COLLAPSE_003",
+            "hazard": {
+              "hazard_code": "COLLAPSE",
+              "hazard_name": "붕괴",
+              "hazard_score": 75,
+              "hazard_reason": "work_hazards_map"
+            },
+            "controls": [
+              {
+                "control_code": "COLLAPSE_C01",
+                "control_name": "흙막이 구조물 설치 및 안전 확인",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "COLLAPSE_C02",
+                "control_name": "굴착면 기울기 기준 준수",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "COLLAPSE_C05",
+                "control_name": "동바리 수직 하중 설계 확인 후 설치",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              }
+            ],
+            "laws": [
+              {
+                "law_id": "statute:273603",
+                "law_title": "산업안전보건기준에 관한 규칙",
+                "law_score": 92.0,
+                "evidence_paths": ["worktype_law", "hazard_law", "control_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "statute:276853",
+                "law_title": "산업안전보건법",
+                "law_score": 72.0,
+                "evidence_paths": ["worktype_law", "hazard_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "interpretation:313846",
+                "law_title": "민원인 - 「산업안전보건법」 제23조제3항에 따른 추락 위험을 방지하기 위한 안전난간 설치작업 지휘 업무 관련",
+                "law_score": 64.0,
+                "evidence_paths": ["worktype_law"],
+                "detail_link": null
+              }
+            ],
+            "editable": {
+              "hazard_text": "붕괴",
+              "control_texts": ["흙막이 구조물 설치 및 안전 확인", "굴착면 기울기 기준 준수", "동바리 수직 하중 설계 확인 후 설치"],
+              "memo": ""
+            },
+            "row_flags": []
+          }
+        ],
+        "review_flags": [],
+        "engine_meta": {
+          "pipeline_version": "1.0",
+          "sources_used": ["work_hazards_map", "controls_normalized", "law_hazard_map", "law_worktype_map", "law_control_map"]
+        }
+      }
+    },
+    {
+      "work_type_code": "WATER_MANHOLE",
+      "work_type_name": "맨홀 내부 작업",
+      "request": {
+        "site_context": {
+          "project_type": "토목",
+          "trade_type": "배관",
+          "location_type": "지하",
+          "condition_flags": ["confined_space"]
+        },
+        "work": {
+          "work_type_code": "WATER_MANHOLE",
+          "work_name": "하수관 맨홀 청소 작업"
+        },
+        "options": {
+          "max_hazards": 5,
+          "max_controls_per_hazard": 3,
+          "max_laws_per_row": 3,
+          "include_law_evidence": true,
+          "include_scores": true
+        },
+        "user_inputs": {
+          "preferred_hazard_codes": [],
+          "excluded_hazard_codes": [],
+          "preferred_control_codes": [],
+          "notes": ""
+        }
+      },
+      "response": {
+        "request_id": "req_water_manhole_001",
+        "generated_at": "2026-04-21T00:00:00+00:00",
+        "work": {
+          "work_type_code": "WATER_MANHOLE",
+          "work_sub_type_code": null,
+          "work_name": "하수관 맨홀 청소 작업"
+        },
+        "summary": {
+          "hazard_count": 2,
+          "control_count": 6,
+          "law_count": 3
+        },
+        "rows": [
+          {
+            "row_id": "WATER_MANHOLE_ASPHYX_001",
+            "hazard": {
+              "hazard_code": "ASPHYX",
+              "hazard_name": "질식",
+              "hazard_score": 98,
+              "hazard_reason": "work_hazards_map + confined_space 가점"
+            },
+            "controls": [
+              {
+                "control_code": "ASPHYX_C02",
+                "control_name": "환기 실시 (충분한 신선 공기 공급)",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "ASPHYX_C01",
+                "control_name": "작업 전 산소 및 유해가스 농도 측정",
+                "control_score": 85,
+                "reason": "admin priority=1"
+              },
+              {
+                "control_code": "ASPHYX_C03",
+                "control_name": "감시인 배치 (맨홀 외부)",
+                "control_score": 85,
+                "reason": "admin priority=1"
+              }
+            ],
+            "laws": [
+              {
+                "law_id": "statute:273603",
+                "law_title": "산업안전보건기준에 관한 규칙",
+                "law_score": 92.0,
+                "evidence_paths": ["worktype_law", "hazard_law", "control_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "statute:276853",
+                "law_title": "산업안전보건법",
+                "law_score": 72.0,
+                "evidence_paths": ["worktype_law", "hazard_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "admin_rule:2100000254546",
+                "law_title": "건설업 산업안전보건관리비 계상 및 사용기준",
+                "law_score": 50.4,
+                "evidence_paths": ["worktype_law"],
+                "detail_link": null
+              }
+            ],
+            "editable": {
+              "hazard_text": "질식",
+              "control_texts": ["환기 실시 (충분한 신선 공기 공급)", "작업 전 산소 및 유해가스 농도 측정", "감시인 배치 (맨홀 외부)"],
+              "memo": ""
+            },
+            "row_flags": []
+          },
+          {
+            "row_id": "WATER_MANHOLE_EXPLO_002",
+            "hazard": {
+              "hazard_code": "EXPLO",
+              "hazard_name": "폭발",
+              "hazard_score": 80,
+              "hazard_reason": "work_hazards_map + confined_space 가점"
+            },
+            "controls": [
+              {
+                "control_code": "EXPLO_C02",
+                "control_name": "환기 실시 후 작업",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "EXPLO_C01",
+                "control_name": "가스 누출 점검 (작업 전)",
+                "control_score": 85,
+                "reason": "admin priority=1"
+              },
+              {
+                "control_code": "EXPLO_C03",
+                "control_name": "화기 금지 구역 설정",
+                "control_score": 85,
+                "reason": "admin priority=1"
+              }
+            ],
+            "laws": [
+              {
+                "law_id": "statute:273603",
+                "law_title": "산업안전보건기준에 관한 규칙",
+                "law_score": 92.0,
+                "evidence_paths": ["worktype_law", "hazard_law", "control_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "statute:276853",
+                "law_title": "산업안전보건법",
+                "law_score": 72.0,
+                "evidence_paths": ["worktype_law", "hazard_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "admin_rule:2100000254546",
+                "law_title": "건설업 산업안전보건관리비 계상 및 사용기준",
+                "law_score": 50.4,
+                "evidence_paths": ["worktype_law"],
+                "detail_link": null
+              }
+            ],
+            "editable": {
+              "hazard_text": "폭발",
+              "control_texts": ["환기 실시 후 작업", "가스 누출 점검 (작업 전)", "화기 금지 구역 설정"],
+              "memo": ""
+            },
+            "row_flags": []
+          }
+        ],
+        "review_flags": [],
+        "engine_meta": {
+          "pipeline_version": "1.0",
+          "sources_used": ["work_hazards_map", "controls_normalized", "law_hazard_map", "law_worktype_map", "law_control_map"]
+        }
+      }
+    },
+    {
+      "work_type_code": "LIFT_RIGGING",
+      "work_type_name": "리깅·줄걸이",
+      "request": {
+        "site_context": {
+          "project_type": "플랜트",
+          "trade_type": "기계",
+          "location_type": "고층",
+          "condition_flags": ["high_place"]
+        },
+        "work": {
+          "work_type_code": "LIFT_RIGGING",
+          "work_name": "크레인 줄걸이 인양 작업"
+        },
+        "options": {
+          "max_hazards": 5,
+          "max_controls_per_hazard": 3,
+          "max_laws_per_row": 3,
+          "include_law_evidence": true,
+          "include_scores": true
+        },
+        "user_inputs": {
+          "preferred_hazard_codes": [],
+          "excluded_hazard_codes": [],
+          "preferred_control_codes": [],
+          "notes": ""
+        }
+      },
+      "response": {
+        "request_id": "req_lift_rigging_001",
+        "generated_at": "2026-04-21T00:00:00+00:00",
+        "work": {
+          "work_type_code": "LIFT_RIGGING",
+          "work_sub_type_code": null,
+          "work_name": "크레인 줄걸이 인양 작업"
+        },
+        "summary": {
+          "hazard_count": 3,
+          "control_count": 9,
+          "law_count": 3
+        },
+        "rows": [
+          {
+            "row_id": "LIFT_RIGGING_DROP_001",
+            "hazard": {
+              "hazard_code": "DROP",
+              "hazard_name": "낙하",
+              "hazard_score": 80,
+              "hazard_reason": "줄걸이·인양 작업 낙하위험"
+            },
+            "controls": [
+              {
+                "control_code": "DROP_C01",
+                "control_name": "낙하물 방지망 설치 (높이 10m 이내 마다)",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "DROP_C02",
+                "control_name": "출입 금지 구역 설정 및 로프 차단",
+                "control_score": 85,
+                "reason": "admin priority=1"
+              },
+              {
+                "control_code": "DROP_C05",
+                "control_name": "공구·자재 줄걸이 연결 상태 작업 전 점검",
+                "control_score": 85,
+                "reason": "admin priority=1"
+              }
+            ],
+            "laws": [
+              {
+                "law_id": "statute:273603",
+                "law_title": "산업안전보건기준에 관한 규칙",
+                "law_score": 88.0,
+                "evidence_paths": ["worktype_law", "hazard_law", "control_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "statute:276853",
+                "law_title": "산업안전보건법",
+                "law_score": 72.0,
+                "evidence_paths": ["worktype_law", "hazard_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "admin_rule:2100000254546",
+                "law_title": "건설업 산업안전보건관리비 계상 및 사용기준",
+                "law_score": 58.5,
+                "evidence_paths": ["worktype_law", "hazard_law"],
+                "detail_link": null
+              }
+            ],
+            "editable": {
+              "hazard_text": "낙하",
+              "control_texts": ["낙하물 방지망 설치 (높이 10m 이내 마다)", "출입 금지 구역 설정 및 로프 차단", "공구·자재 줄걸이 연결 상태 작업 전 점검"],
+              "memo": ""
+            },
+            "row_flags": []
+          },
+          {
+            "row_id": "LIFT_RIGGING_FALL_002",
+            "hazard": {
+              "hazard_code": "FALL",
+              "hazard_name": "추락",
+              "hazard_score": 80,
+              "hazard_reason": "고소 인양 작업 추락위험 + high_place 가점"
+            },
+            "controls": [
+              {
+                "control_code": "FALL_C01",
+                "control_name": "안전난간 설치 (상부난간대·중간난간대·발끝막이판)",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "FALL_C02",
+                "control_name": "추락방지망 설치",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "FALL_C03",
+                "control_name": "작업발판 고정 (폭 40cm 이상)",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              }
+            ],
+            "laws": [
+              {
+                "law_id": "statute:273603",
+                "law_title": "산업안전보건기준에 관한 규칙",
+                "law_score": 92.0,
+                "evidence_paths": ["worktype_law", "hazard_law", "control_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "interpretation:313846",
+                "law_title": "민원인 - 「산업안전보건법」 제23조제3항에 따른 추락 위험을 방지하기 위한 안전난간 설치작업 지휘 업무 관련",
+                "law_score": 73.8,
+                "evidence_paths": ["hazard_law", "control_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "statute:276853",
+                "law_title": "산업안전보건법",
+                "law_score": 72.0,
+                "evidence_paths": ["worktype_law", "hazard_law"],
+                "detail_link": null
+              }
+            ],
+            "editable": {
+              "hazard_text": "추락",
+              "control_texts": ["안전난간 설치 (상부난간대·중간난간대·발끝막이판)", "추락방지망 설치", "작업발판 고정 (폭 40cm 이상)"],
+              "memo": ""
+            },
+            "row_flags": []
+          },
+          {
+            "row_id": "LIFT_RIGGING_COLLIDE_003",
+            "hazard": {
+              "hazard_code": "COLLIDE",
+              "hazard_name": "충돌",
+              "hazard_score": 70,
+              "hazard_reason": "중장비·인양물 충돌위험"
+            },
+            "controls": [
+              {
+                "control_code": "COLLIDE_C04",
+                "control_name": "차량 출입 구역 안전 펜스 설치",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "COLLIDE_C05",
+                "control_name": "건설기계 작업 반경 내 접근 금지 테이프 설치",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "COLLIDE_C06",
+                "control_name": "후진 경보 장치 작동 상태 확인",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              }
+            ],
+            "laws": [
+              {
+                "law_id": "statute:273603",
+                "law_title": "산업안전보건기준에 관한 규칙",
+                "law_score": 92.0,
+                "evidence_paths": ["worktype_law", "hazard_law", "control_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "statute:276853",
+                "law_title": "산업안전보건법",
+                "law_score": 72.0,
+                "evidence_paths": ["worktype_law", "hazard_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "admin_rule:2100000254546",
+                "law_title": "건설업 산업안전보건관리비 계상 및 사용기준",
+                "law_score": 58.5,
+                "evidence_paths": ["worktype_law", "hazard_law"],
+                "detail_link": null
+              }
+            ],
+            "editable": {
+              "hazard_text": "충돌",
+              "control_texts": ["차량 출입 구역 안전 펜스 설치", "건설기계 작업 반경 내 접근 금지 테이프 설치", "후진 경보 장치 작동 상태 확인"],
+              "memo": ""
+            },
+            "row_flags": ["HAZARD_SCORE_LOW"]
+          }
+        ],
+        "review_flags": [],
+        "engine_meta": {
+          "pipeline_version": "1.0",
+          "sources_used": ["work_hazards_map", "controls_normalized", "law_hazard_map", "law_worktype_map", "law_control_map"]
+        }
+      }
+    },
+    {
+      "work_type_code": "DEMO_ASBESTOS",
+      "work_type_name": "석면 해체",
+      "request": {
+        "site_context": {
+          "project_type": "건축",
+          "trade_type": "해체",
+          "location_type": "실내",
+          "condition_flags": ["chemical_use"]
+        },
+        "work": {
+          "work_type_code": "DEMO_ASBESTOS",
+          "work_name": "천장 텍스 석면 해체 작업"
+        },
+        "options": {
+          "max_hazards": 5,
+          "max_controls_per_hazard": 3,
+          "max_laws_per_row": 3,
+          "include_law_evidence": true,
+          "include_scores": true
+        },
+        "user_inputs": {
+          "preferred_hazard_codes": [],
+          "excluded_hazard_codes": [],
+          "preferred_control_codes": [],
+          "notes": ""
+        }
+      },
+      "response": {
+        "request_id": "req_demo_asbestos_001",
+        "generated_at": "2026-04-21T00:00:00+00:00",
+        "work": {
+          "work_type_code": "DEMO_ASBESTOS",
+          "work_sub_type_code": null,
+          "work_name": "천장 텍스 석면 해체 작업"
+        },
+        "summary": {
+          "hazard_count": 5,
+          "control_count": 13,
+          "law_count": 3
+        },
+        "rows": [
+          {
+            "row_id": "DEMO_ASBESTOS_POISON_001",
+            "hazard": {
+              "hazard_code": "POISON",
+              "hazard_name": "중독",
+              "hazard_score": 82,
+              "hazard_reason": "석면·유해물질 중독 + chemical_use 가점"
+            },
+            "controls": [
+              {
+                "control_code": "POISON_C02",
+                "control_name": "화학물질 보관 장소 환기 설비 설치",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "POISON_C01",
+                "control_name": "MSDS 숙지 및 작업 환경에 맞는 보호구 착용",
+                "control_score": 85,
+                "reason": "admin priority=1"
+              }
+            ],
+            "laws": [
+              {
+                "law_id": "statute:276853",
+                "law_title": "산업안전보건법",
+                "law_score": 80.0,
+                "evidence_paths": ["worktype_law", "hazard_law", "control_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "statute:273603",
+                "law_title": "산업안전보건기준에 관한 규칙",
+                "law_score": 76.5,
+                "evidence_paths": ["worktype_law", "hazard_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "interpretation:329913",
+                "law_title": "민원인 - 대학에서 물리학 관련 학위를 취득한 사람이 석면조사기관의 인력기준에 해당하는지 여부 관련",
+                "law_score": 52.0,
+                "evidence_paths": ["worktype_law"],
+                "detail_link": null
+              }
+            ],
+            "editable": {
+              "hazard_text": "중독",
+              "control_texts": ["화학물질 보관 장소 환기 설비 설치", "MSDS 숙지 및 작업 환경에 맞는 보호구 착용"],
+              "memo": ""
+            },
+            "row_flags": ["CONTROL_ONLY_GENERAL_PPE"]
+          },
+          {
+            "row_id": "DEMO_ASBESTOS_CHEM_002",
+            "hazard": {
+              "hazard_code": "CHEM",
+              "hazard_name": "화학물질",
+              "hazard_score": 82,
+              "hazard_reason": "화학물질 노출 + chemical_use 가점"
+            },
+            "controls": [
+              {
+                "control_code": "CHEM_C02",
+                "control_name": "환기 설비 설치",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "CHEM_C01",
+                "control_name": "MSDS 숙지 및 적절한 보호구 착용",
+                "control_score": 85,
+                "reason": "admin priority=1"
+              }
+            ],
+            "laws": [
+              {
+                "law_id": "statute:276853",
+                "law_title": "산업안전보건법",
+                "law_score": 80.0,
+                "evidence_paths": ["worktype_law", "hazard_law", "control_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "statute:273603",
+                "law_title": "산업안전보건기준에 관한 규칙",
+                "law_score": 79.2,
+                "evidence_paths": ["worktype_law", "hazard_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "interpretation:329913",
+                "law_title": "민원인 - 대학에서 물리학 관련 학위를 취득한 사람이 석면조사기관의 인력기준에 해당하는지 여부 관련",
+                "law_score": 52.0,
+                "evidence_paths": ["worktype_law"],
+                "detail_link": null
+              }
+            ],
+            "editable": {
+              "hazard_text": "화학물질",
+              "control_texts": ["환기 설비 설치", "MSDS 숙지 및 적절한 보호구 착용"],
+              "memo": ""
+            },
+            "row_flags": ["CONTROL_ONLY_GENERAL_PPE"]
+          },
+          {
+            "row_id": "DEMO_ASBESTOS_DUST_003",
+            "hazard": {
+              "hazard_code": "DUST",
+              "hazard_name": "분진",
+              "hazard_score": 71,
+              "hazard_reason": "해체 작업 분진·석면 + chemical_use 가점"
+            },
+            "controls": [
+              {
+                "control_code": "DUST_C03",
+                "control_name": "국소배기장치 설치 및 가동 확인",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "DUST_C05",
+                "control_name": "석면 해체 시 작업 구역 비닐 포장 밀폐",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "DUST_C02",
+                "control_name": "작업 전·후 습식 청소 실시",
+                "control_score": 85,
+                "reason": "admin priority=1"
+              }
+            ],
+            "laws": [
+              {
+                "law_id": "statute:273603",
+                "law_title": "산업안전보건기준에 관한 규칙",
+                "law_score": 92.0,
+                "evidence_paths": ["worktype_law", "hazard_law", "control_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "statute:276853",
+                "law_title": "산업안전보건법",
+                "law_score": 73.6,
+                "evidence_paths": ["worktype_law", "hazard_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "interpretation:329913",
+                "law_title": "민원인 - 대학에서 물리학 관련 학위를 취득한 사람이 석면조사기관의 인력기준에 해당하는지 여부 관련",
+                "law_score": 61.2,
+                "evidence_paths": ["worktype_law", "hazard_law"],
+                "detail_link": null
+              }
+            ],
+            "editable": {
+              "hazard_text": "분진",
+              "control_texts": ["국소배기장치 설치 및 가동 확인", "석면 해체 시 작업 구역 비닐 포장 밀폐", "작업 전·후 습식 청소 실시"],
+              "memo": ""
+            },
+            "row_flags": []
+          },
+          {
+            "row_id": "DEMO_ASBESTOS_COLLAPSE_004",
+            "hazard": {
+              "hazard_code": "COLLAPSE",
+              "hazard_name": "붕괴",
+              "hazard_score": 70,
+              "hazard_reason": "구조물 해체 붕괴위험"
+            },
+            "controls": [
+              {
+                "control_code": "COLLAPSE_C01",
+                "control_name": "흙막이 구조물 설치 및 안전 확인",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "COLLAPSE_C02",
+                "control_name": "굴착면 기울기 기준 준수",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "COLLAPSE_C05",
+                "control_name": "동바리 수직 하중 설계 확인 후 설치",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              }
+            ],
+            "laws": [
+              {
+                "law_id": "statute:273603",
+                "law_title": "산업안전보건기준에 관한 규칙",
+                "law_score": 92.0,
+                "evidence_paths": ["worktype_law", "hazard_law", "control_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "statute:276853",
+                "law_title": "산업안전보건법",
+                "law_score": 73.6,
+                "evidence_paths": ["worktype_law", "hazard_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "admin_rule:2100000254546",
+                "law_title": "건설업 산업안전보건관리비 계상 및 사용기준",
+                "law_score": 58.5,
+                "evidence_paths": ["hazard_law"],
+                "detail_link": null
+              }
+            ],
+            "editable": {
+              "hazard_text": "붕괴",
+              "control_texts": ["흙막이 구조물 설치 및 안전 확인", "굴착면 기울기 기준 준수", "동바리 수직 하중 설계 확인 후 설치"],
+              "memo": ""
+            },
+            "row_flags": ["HAZARD_SCORE_LOW"]
+          },
+          {
+            "row_id": "DEMO_ASBESTOS_ASPHYX_005",
+            "hazard": {
+              "hazard_code": "ASPHYX",
+              "hazard_name": "질식",
+              "hazard_score": 70,
+              "hazard_reason": "밀폐 구역 질식위험"
+            },
+            "controls": [
+              {
+                "control_code": "ASPHYX_C02",
+                "control_name": "환기 실시 (충분한 신선 공기 공급)",
+                "control_score": 90,
+                "reason": "engineering priority=1"
+              },
+              {
+                "control_code": "ASPHYX_C01",
+                "control_name": "작업 전 산소 및 유해가스 농도 측정",
+                "control_score": 85,
+                "reason": "admin priority=1"
+              },
+              {
+                "control_code": "ASPHYX_C03",
+                "control_name": "감시인 배치 (맨홀 외부)",
+                "control_score": 85,
+                "reason": "admin priority=1"
+              }
+            ],
+            "laws": [
+              {
+                "law_id": "statute:273603",
+                "law_title": "산업안전보건기준에 관한 규칙",
+                "law_score": 92.0,
+                "evidence_paths": ["worktype_law", "hazard_law", "control_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "statute:276853",
+                "law_title": "산업안전보건법",
+                "law_score": 73.6,
+                "evidence_paths": ["worktype_law", "hazard_law"],
+                "detail_link": null
+              },
+              {
+                "law_id": "interpretation:329913",
+                "law_title": "민원인 - 대학에서 물리학 관련 학위를 취득한 사람이 석면조사기관의 인력기준에 해당하는지 여부 관련",
+                "law_score": 52.0,
+                "evidence_paths": ["worktype_law"],
+                "detail_link": null
+              }
+            ],
+            "editable": {
+              "hazard_text": "질식",
+              "control_texts": ["환기 실시 (충분한 신선 공기 공급)", "작업 전 산소 및 유해가스 농도 측정", "감시인 배치 (맨홀 외부)"],
+              "memo": ""
+            },
+            "row_flags": ["HAZARD_SCORE_LOW", "MAX_ROWS_REACHED"]
+          }
+        ],
+        "review_flags": ["DUPLICATE_CONTROL_ACROSS_ROWS"],
+        "engine_meta": {
+          "pipeline_version": "1.0",
+          "sources_used": ["work_hazards_map", "controls_normalized", "law_hazard_map", "law_worktype_map", "law_control_map"]
+        }
+      }
+    }
+  ]
+}

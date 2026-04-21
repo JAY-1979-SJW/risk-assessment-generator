@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-04-21T01:14:23.117473+00:00",
+  "note_count": 5,
+  "notes": [
+    {
+      "category": "worktype_hazard_coverage",
+      "severity": "medium",
+      "message": "work_hazards_map.json이 30/132 work_type만 커버. LIFT_RIGGING, DEMO_ASBESTOS 등 미등록 worktype은 trade 기반 rule_based_inference로 대체됨. 인퍼런스 정확도 검증 필요."
+    },
+    {
+      "category": "law_concentration",
+      "severity": "low",
+      "message": "'statute:273603'이 전체 샘플 14개 row에서 반복 등장. 법령 체계가 법률 전체 단위이므로 조문 수준 세분화 없이는 불가피. 향후 조문별 sub-law 체계 도입 시 개선 가능."
+    },
+    {
+      "category": "control_shortage",
+      "severity": "low",
+      "message": "CHEM(2건), POISON(2건)은 hazard별 control이 2건뿐. MAX_CONTROL=3 기준 미달. controls_normalized 보강 필요."
+    },
+    {
+      "category": "score_tuning",
+      "severity": "info",
+      "message": "condition_flags 가점이 없는 작업에서 rule_base(65)가 work_hazards_map 항목(70~90)보다 낮아 실제 위험 과소평가 가능. LIFT_RIGGING(DROP=65)의 경우 현장 실무 기준으로 재검토 권장."
+    },
+    {
+      "category": "pre_api_requirements",
+      "severity": "info",
+      "message": "API 반영 전 필요 작업: (1) worktype_hazard 커버리지 102개 보강, (2) condition_flags 자동 감지 로직 설계, (3) work_sub_type_code 연계 점수 가산 로직 추가, (4) 실시간 law 참조 링크 검증."
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "source": "KOSHA 안전보건교육 자료 + sample_chunks.json work_type 기반 확장",
+    "created": "2026-04-20",
+    "count": 132
+  },
+  "work_types": [
+    {"code": "CIVIL_EXCAV",   "trade_code": "CIVIL",    "name_ko": "터파기",           "risk_level": 3},
+    {"code": "CIVIL_FILL",    "trade_code": "CIVIL",    "name_ko": "성토",             "risk_level": 2},
+    {"code": "CIVIL_CUT",     "trade_code": "CIVIL",    "name_ko": "절토",             "risk_level": 3},
+    {"code": "CIVIL_BACKFILL","trade_code": "CIVIL",    "name_ko": "되메우기",         "risk_level": 2},
+    {"code": "CIVIL_RETWALL", "trade_code": "CIVIL",    "name_ko": "흙막이 설치",      "risk_level": 3},
+    {"code": "CIVIL_DEWATER", "trade_code": "CIVIL",    "name_ko": "배수 작업",        "risk_level": 2},
+
+    {"code": "FOUND_PILE",    "trade_code": "FOUND",    "name_ko": "말뚝 항타",        "risk_level": 3},
+    {"code": "FOUND_DRILL",   "trade_code": "FOUND",    "name_ko": "현장 천공",        "risk_level": 3},
+    {"code": "FOUND_CONC",    "trade_code": "FOUND",    "name_ko": "기초 콘크리트",    "risk_level": 2},
+    {"code": "FOUND_PIER",    "trade_code": "FOUND",    "name_ko": "피어 설치",        "risk_level": 3},
+
+    {"code": "RC_REBAR_CUT",  "trade_code": "RC",       "name_ko": "철근 절단",        "risk_level": 2},
+    {"code": "RC_REBAR_BEND", "trade_code": "RC",       "name_ko": "철근 가공(굽힘)",  "risk_level": 2},
+    {"code": "RC_REBAR_ASSEM","trade_code": "RC",       "name_ko": "철근 조립",        "risk_level": 3},
+    {"code": "RC_FORM_INST",  "trade_code": "RC",       "name_ko": "거푸집 설치",      "risk_level": 3},
+    {"code": "RC_FORM_DEMO",  "trade_code": "RC",       "name_ko": "거푸집 해체",      "risk_level": 3},
+    {"code": "RC_POUR",       "trade_code": "RC",       "name_ko": "콘크리트 타설",    "risk_level": 3},
+    {"code": "RC_VIBRATE",    "trade_code": "RC",       "name_ko": "콘크리트 다짐",    "risk_level": 2},
+
+    {"code": "STEEL_FABR",    "trade_code": "STEEL",    "name_ko": "철골 제작",        "risk_level": 2},
+    {"code": "STEEL_LIFT",    "trade_code": "STEEL",    "name_ko": "철골 인양",        "risk_level": 3},
+    {"code": "STEEL_ASSEM",   "trade_code": "STEEL",    "name_ko": "철골 조립",        "risk_level": 3},
+    {"code": "STEEL_BOLT",    "trade_code": "STEEL",    "name_ko": "볼트 체결",        "risk_level": 3},
+    {"code": "STEEL_WELD",    "trade_code": "STEEL",    "name_ko": "철골 용접",        "risk_level": 3},
+
+    {"code": "TEMP_SCAFF",    "trade_code": "TEMP",     "name_ko": "비계 설치",        "risk_level": 3},
+    {"code": "TEMP_SCAFF_DM", "trade_code": "TEMP",     "name_ko": "비계 해체",        "risk_level": 3},
+    {"code": "TEMP_PLAT",     "trade_code": "TEMP",     "name_ko": "작업발판 설치",    "risk_level": 2},
+    {"code": "TEMP_LADDER",   "trade_code": "TEMP",     "name_ko": "사다리 작업",      "risk_level": 3},
+    {"code": "TEMP_AWP",      "trade_code": "TEMP",     "name_ko": "고소작업대 사용",  "risk_level": 3},
+    {"code": "TEMP_OPEN",     "trade_code": "TEMP",     "name_ko": "개구부 작업",      "risk_level": 3},
+
+    {"code": "ELEC_WIRING",   "trade_code": "ELEC",     "name_ko": "배선 작업",        "risk_level": 3},
+    {"code": "ELEC_PANEL",    "trade_code": "ELEC",     "name_ko": "분전반 작업",      "risk_level": 3},
+    {"code": "ELEC_OUTDOOR",  "trade_code": "ELEC",     "name_ko": "옥외 전기 작업",   "risk_level": 3},
+    {"code": "ELEC_LIVE",     "trade_code": "ELEC",     "name_ko": "활선 작업",        "risk_level": 3},
+    {"code": "ELEC_CABLE",    "trade_code": "ELEC",     "name_ko": "케이블 포설",      "risk_level": 2},
+    {"code": "ELEC_GROUNDING","trade_code": "ELEC",     "name_ko": "접지 작업",        "risk_level": 2},
+
+    {"code": "WELD_ARC",      "trade_code": "WELD",     "name_ko": "아크 용접",        "risk_level": 3},
+    {"code": "WELD_GAS",      "trade_code": "WELD",     "name_ko": "가스 용접",        "risk_level": 3},
+    {"code": "WELD_PLASMA",   "trade_code": "WELD",     "name_ko": "플라즈마 절단",    "risk_level": 3},
+    {"code": "WELD_GRIND",    "trade_code": "WELD",     "name_ko": "그라인더 작업",    "risk_level": 2},
+    {"code": "WELD_GAS_CUT",  "trade_code": "WELD",     "name_ko": "가스 절단",        "risk_level": 3},
+
+    {"code": "PIPE_CUT",      "trade_code": "PIPE",     "name_ko": "배관 절단",        "risk_level": 2},
+    {"code": "PIPE_WELD",     "trade_code": "PIPE",     "name_ko": "배관 용접",        "risk_level": 3},
+    {"code": "PIPE_INST",     "trade_code": "PIPE",     "name_ko": "배관 설치",        "risk_level": 2},
+    {"code": "PIPE_TEST",     "trade_code": "PIPE",     "name_ko": "수압 시험",        "risk_level": 2},
+    {"code": "PIPE_INSUL",    "trade_code": "PIPE",     "name_ko": "보온 단열",        "risk_level": 2},
+
+    {"code": "PAINT_SPRAY",   "trade_code": "PAINT",    "name_ko": "뿜칠 도장",        "risk_level": 3},
+    {"code": "PAINT_BRUSH",   "trade_code": "PAINT",    "name_ko": "붓 도장",          "risk_level": 2},
+    {"code": "PAINT_ANTICORR","trade_code": "PAINT",    "name_ko": "방청·방식도장",    "risk_level": 3},
+    {"code": "PAINT_SURFACE", "trade_code": "PAINT",    "name_ko": "표면 처리",        "risk_level": 2},
+
+    {"code": "DEMO_STRUCT",   "trade_code": "DEMO",     "name_ko": "구조물 철거",      "risk_level": 3},
+    {"code": "DEMO_CONCRETE", "trade_code": "DEMO",     "name_ko": "콘크리트 파쇄",    "risk_level": 3},
+    {"code": "DEMO_ASBESTOS", "trade_code": "DEMO",     "name_ko": "석면 해체",        "risk_level": 3},
+    {"code": "DEMO_METAL",    "trade_code": "DEMO",     "name_ko": "금속 철거",        "risk_level": 3},
+
+    {"code": "WATER_MANHOLE", "trade_code": "WATER",    "name_ko": "맨홀 내부 작업",   "risk_level": 3},
+    {"code": "WATER_PIPEINST","trade_code": "WATER",    "name_ko": "관 매설",          "risk_level": 2},
+    {"code": "WATER_PUMPING", "trade_code": "WATER",    "name_ko": "펌프장 작업",      "risk_level": 2},
+
+    {"code": "MECH_CRANE",    "trade_code": "MECH",     "name_ko": "크레인 인양",      "risk_level": 3},
+    {"code": "MECH_FORKLIFT", "trade_code": "MECH",     "name_ko": "지게차 작업",      "risk_level": 3},
+    {"code": "MECH_INSTALL",  "trade_code": "MECH",     "name_ko": "기계 설치",        "risk_level": 2},
+    {"code": "MECH_MAINTAIN", "trade_code": "MECH",     "name_ko": "기계 정비",        "risk_level": 2},
+
+    {"code": "WATERP_ROOF",   "trade_code": "WATERP",   "name_ko": "옥상 방수",        "risk_level": 3},
+    {"code": "WATERP_BASEMNT","trade_code": "WATERP",   "name_ko": "지하 방수",        "risk_level": 2},
+
+    {"code": "ROOFING_TILE",  "trade_code": "ROOFING",  "name_ko": "지붕 잇기",        "risk_level": 3},
+    {"code": "ROOFING_METAL", "trade_code": "ROOFING",  "name_ko": "금속 지붕",        "risk_level": 3},
+
+    {"code": "HVAC_DUCT",     "trade_code": "HVAC",     "name_ko": "덕트 설치",        "risk_level": 2},
+    {"code": "HVAC_BOILER",   "trade_code": "HVAC",     "name_ko": "보일러 설치",      "risk_level": 3},
+    {"code": "HVAC_REFRIGER", "trade_code": "HVAC",     "name_ko": "냉동기 설치",      "risk_level": 2},
+
+    {"code": "TUNNEL_DRILL",  "trade_code": "TUNNEL",   "name_ko": "터널 굴착",        "risk_level": 3},
+    {"code": "TUNNEL_SHOT",   "trade_code": "TUNNEL",   "name_ko": "숏크리트",         "risk_level": 3},
+    {"code": "TUNNEL_BOLT",   "trade_code": "TUNNEL",   "name_ko": "록볼트 설치",      "risk_level": 3},
+
+    {"code": "ROAD_ASPHALT",  "trade_code": "ROAD",     "name_ko": "아스팔트 포장",    "risk_level": 2},
+    {"code": "ROAD_CONCRETE", "trade_code": "ROAD",     "name_ko": "콘크리트 포장",    "risk_level": 2},
+    {"code": "ROAD_MARKING",  "trade_code": "ROAD",     "name_ko": "노면 표시",        "risk_level": 2},
+
+    {"code": "MASON_BRICK",   "trade_code": "MASON",    "name_ko": "벽돌 쌓기",        "risk_level": 2},
+    {"code": "MASON_BLOCK",   "trade_code": "MASON",    "name_ko": "블록 조적",         "risk_level": 2},
+    {"code": "MASON_PLASTER", "trade_code": "MASON",    "name_ko": "미장 작업",         "risk_level": 2},
+    {"code": "MASON_GROUT",   "trade_code": "MASON",    "name_ko": "줄눈·그라우팅",    "risk_level": 1},
+    {"code": "MASON_EXT",     "trade_code": "MASON",    "name_ko": "외벽 조적",         "risk_level": 3},
+
+    {"code": "CARP_FORM",     "trade_code": "CARPENTRY","name_ko": "거푸집 목공",       "risk_level": 3},
+    {"code": "CARP_PANEL",    "trade_code": "CARPENTRY","name_ko": "패널 설치",         "risk_level": 2},
+    {"code": "CARP_DOOR",     "trade_code": "CARPENTRY","name_ko": "문틀·도어 설치",   "risk_level": 2},
+    {"code": "CARP_DECKING",  "trade_code": "CARPENTRY","name_ko": "데크 설치",         "risk_level": 2},
+    {"code": "CARP_ROOF",     "trade_code": "CARPENTRY","name_ko": "지붕틀 조립",       "risk_level": 3},
+
+    {"code": "WIN_ALUM",      "trade_code": "WINDOW",   "name_ko": "알루미늄 창호",    "risk_level": 2},
+    {"code": "WIN_STEEL",     "trade_code": "WINDOW",   "name_ko": "강재 창호",         "risk_level": 2},
+    {"code": "WIN_GLASS",     "trade_code": "WINDOW",   "name_ko": "유리 시공",         "risk_level": 3},
+    {"code": "WIN_CURTWALL",  "trade_code": "WINDOW",   "name_ko": "커튼월 설치",       "risk_level": 3},
+    {"code": "WIN_SEAL",      "trade_code": "WINDOW",   "name_ko": "실링·코킹",        "risk_level": 2},
+
+    {"code": "BRDG_PIER",     "trade_code": "BRIDGE",   "name_ko": "교각 시공",         "risk_level": 3},
+    {"code": "BRDG_ABUT",     "trade_code": "BRIDGE",   "name_ko": "교대 시공",         "risk_level": 3},
+    {"code": "BRDG_GIRDER",   "trade_code": "BRIDGE",   "name_ko": "거더 인양·거치",   "risk_level": 3},
+    {"code": "BRDG_DECK",     "trade_code": "BRIDGE",   "name_ko": "교량 상판 작업",    "risk_level": 3},
+    {"code": "BRDG_BEARING",  "trade_code": "BRIDGE",   "name_ko": "교량 받침 설치",    "risk_level": 2},
+
+    {"code": "SFRE_PIPE",     "trade_code": "FIRE",     "name_ko": "소방 배관 설치",    "risk_level": 2},
+    {"code": "SFRE_SPRINK",   "trade_code": "FIRE",     "name_ko": "스프링클러 설치",   "risk_level": 2},
+    {"code": "SFRE_DETECT",   "trade_code": "FIRE",     "name_ko": "감지기 설치",       "risk_level": 1},
+    {"code": "SFRE_ALARM",    "trade_code": "FIRE",     "name_ko": "경보 시스템 설치",  "risk_level": 1},
+    {"code": "SFRE_EXTG",     "trade_code": "FIRE",     "name_ko": "소화기·소화전 설치","risk_level": 1},
+
+    {"code": "COMM_CABLE",    "trade_code": "COMM",     "name_ko": "통신 케이블 포설",  "risk_level": 2},
+    {"code": "COMM_FIBER",    "trade_code": "COMM",     "name_ko": "광케이블 작업",     "risk_level": 2},
+    {"code": "COMM_EQUIP",    "trade_code": "COMM",     "name_ko": "통신장비 설치",     "risk_level": 2},
+    {"code": "COMM_DUCT",     "trade_code": "COMM",     "name_ko": "통신 덕트 배관",    "risk_level": 2},
+    {"code": "COMM_ANTENNA",  "trade_code": "COMM",     "name_ko": "안테나 설치",       "risk_level": 3},
+
+    {"code": "LAND_TREE",     "trade_code": "LANDSCAPE","name_ko": "수목 식재",         "risk_level": 2},
+    {"code": "LAND_SOD",      "trade_code": "LANDSCAPE","name_ko": "잔디 식재",         "risk_level": 1},
+    {"code": "LAND_PAVE",     "trade_code": "LANDSCAPE","name_ko": "조경 포장",         "risk_level": 2},
+    {"code": "LAND_STRUCT",   "trade_code": "LANDSCAPE","name_ko": "조경 시설물 설치",  "risk_level": 2},
+    {"code": "LAND_IRRIG",    "trade_code": "LANDSCAPE","name_ko": "관수·배수 시설",   "risk_level": 2},
+
+    {"code": "INSUL_PIPE",    "trade_code": "INSUL",    "name_ko": "배관 보온",         "risk_level": 2},
+    {"code": "INSUL_WALL",    "trade_code": "INSUL",    "name_ko": "벽체 단열",         "risk_level": 2},
+    {"code": "INSUL_ROOF",    "trade_code": "INSUL",    "name_ko": "지붕 단열",         "risk_level": 3},
+    {"code": "INSUL_EQUIP",   "trade_code": "INSUL",    "name_ko": "기기 보온",         "risk_level": 2},
+    {"code": "INSUL_DUCT",    "trade_code": "INSUL",    "name_ko": "덕트 단열",         "risk_level": 2},
+
+    {"code": "FLOOR_TILE",    "trade_code": "FLOOR",    "name_ko": "타일 시공",         "risk_level": 2},
+    {"code": "FLOOR_STONE",   "trade_code": "FLOOR",    "name_ko": "석재 바닥",         "risk_level": 2},
+    {"code": "FLOOR_PVC",     "trade_code": "FLOOR",    "name_ko": "PVC 바닥재",        "risk_level": 1},
+    {"code": "FLOOR_EPOXY",   "trade_code": "FLOOR",    "name_ko": "에폭시 도장 바닥",  "risk_level": 2},
+    {"code": "FLOOR_FINISH",  "trade_code": "FLOOR",    "name_ko": "바닥 마감재 설치",  "risk_level": 2},
+
+    {"code": "LIFT_CRANE_OP", "trade_code": "LIFT",     "name_ko": "크레인 인양 작업",  "risk_level": 3},
+    {"code": "LIFT_RIGGING",  "trade_code": "LIFT",     "name_ko": "리깅·줄걸이",      "risk_level": 3},
+    {"code": "LIFT_TRANSPORT","trade_code": "LIFT",     "name_ko": "중량물 운반",        "risk_level": 3},
+    {"code": "LIFT_LANDING",  "trade_code": "LIFT",     "name_ko": "자재 양중·하역",   "risk_level": 3},
+    {"code": "LIFT_LOAD",     "trade_code": "LIFT",     "name_ko": "화물 적재",         "risk_level": 2},
+
+    {"code": "PSTRS_ERECT",   "trade_code": "PRESTRESS","name_ko": "PC부재 건립",       "risk_level": 3},
+    {"code": "PSTRS_TENSION", "trade_code": "PRESTRESS","name_ko": "PS 긴장",           "risk_level": 3},
+    {"code": "PSTRS_GROUT",   "trade_code": "PRESTRESS","name_ko": "그라우팅",          "risk_level": 2},
+    {"code": "PSTRS_DECK",    "trade_code": "PRESTRESS","name_ko": "PC 상판 거치",      "risk_level": 3},
+    {"code": "PSTRS_FORM",    "trade_code": "PRESTRESS","name_ko": "PC 거푸집 작업",    "risk_level": 2},
+
+    {"code": "ENV_ASBESTOS",  "trade_code": "ENVIRON",  "name_ko": "석면 해체·제거",   "risk_level": 3},
+    {"code": "ENV_WASTE",     "trade_code": "ENVIRON",  "name_ko": "건설폐기물 처리",   "risk_level": 2},
+    {"code": "ENV_DUST",      "trade_code": "ENVIRON",  "name_ko": "비산먼지 억제",     "risk_level": 2},
+    {"code": "ENV_NOISE",     "trade_code": "ENVIRON",  "name_ko": "소음·방음 시설",   "risk_level": 2},
+    {"code": "ENV_SOIL",      "trade_code": "ENVIRON",  "name_ko": "오염토 처리",       "risk_level": 3}
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "generated_at": "2026-04-21T00:00:00+00:00",
+  "version": "1.0",
+  "description": "위험성평가표 초안 생성 API 계약 스키마 — 추천 엔진 연결 설계 초안",
+  "responsibility_boundary": {
+    "engine": "후보 hazard/control/law 계산 및 점수 산출 (HTTP 구조 미인식)",
+    "api": "입력 검증 + 엔진 호출 + 응답 조립 (법령 매핑 로직 직접 구현 금지)"
+  },
+  "endpoints": [
+    {
+      "id": "recommend_draft",
+      "method": "POST",
+      "path": "/api/risk-assessment/recommend-draft",
+      "description": "worktype 기준 추천 hazard/control/law row 생성 — 평가표 초안 반환",
+      "auth": "required",
+      "idempotent": false
+    },
+    {
+      "id": "recalculate_draft",
+      "method": "POST",
+      "path": "/api/risk-assessment/recalculate-draft",
+      "description": "사용자 수정 row 기반 control/law evidence 재조립 — hazard row 유지",
+      "auth": "required",
+      "idempotent": false
+    }
+  ],
+  "request_schema": {
+    "recommend_draft": {
+      "site_context": {
+        "_required": false,
+        "project_type": "str — 프로젝트 유형 (건축/토목/플랜트 등)",
+        "trade_type": "str — 공종 (전기/기계/배관 등)",
+        "location_type": "str — 장소 유형 (고층/지하/실내 등)",
+        "condition_flags": "array[str] — enum: [high_place, confined_space, live_electric, night_work, chemical_use]"
+      },
+      "work": {
+        "_required": ["work_type_code"],
+        "work_type_code": "str(required) — work_types.json PK",
+        "work_sub_type_code": "str(optional) — work_sub_types.json PK",
+        "work_name": "str(optional) — 사용자 정의 작업명"
+      },
+      "options": {
+        "_required": false,
+        "max_hazards": "int — default 5",
+        "max_controls_per_hazard": "int — default 3",
+        "max_laws_per_row": "int — default 3",
+        "include_law_evidence": "bool — default true",
+        "include_scores": "bool — default true"
+      },
+      "user_inputs": {
+        "_required": false,
+        "preferred_hazard_codes": "array[str] — 우선 포함 요청 hazard_code",
+        "excluded_hazard_codes": "array[str] — 제외 요청 hazard_code",
+        "preferred_control_codes": "array[str] — 우선 포함 요청 control_code",
+        "notes": "str — 기타 참고사항"
+      }
+    },
+    "recalculate_draft": {
+      "draft_context": {
+        "_required": ["work_type_code"],
+        "work_type_code": "str(required)",
+        "work_sub_type_code": "str(optional)",
+        "condition_flags": "array[str](optional)"
+      },
+      "rows": {
+        "_required": true,
+        "_type": "array",
+        "_item": {
+          "row_id": "str(required) — 원본 응답의 row_id",
+          "hazard_code": "str(required)",
+          "selected_control_codes": "array[str] — 사용자 선택 control_code",
+          "custom_control_texts": "array[str] — 사용자 직접 입력 대책",
+          "excluded_law_ids": "array[str] — 제외 요청 law_id",
+          "memo": "str — 행 메모"
+        }
+      },
+      "options": {
+        "_required": false,
+        "rebuild_law_evidence": "bool — default true",
+        "rescore_controls": "bool — default true"
+      }
+    }
+  },
+  "response_schema": {
+    "recommend_draft": {
+      "request_id": "str — UUID",
+      "generated_at": "str — ISO8601",
+      "work": {
+        "work_type_code": "str",
+        "work_sub_type_code": "str|null",
+        "work_name": "str"
+      },
+      "summary": {
+        "hazard_count": "int",
+        "control_count": "int",
+        "law_count": "int"
+      },
+      "rows": {
+        "_type": "array",
+        "_item": {
+          "row_id": "str — 형식: {work_type_code}_{hazard_code}_{seq:03d}",
+          "hazard": {
+            "hazard_code": "str",
+            "hazard_name": "str",
+            "hazard_score": "int(0-100)",
+            "hazard_reason": "str"
+          },
+          "controls": {
+            "_type": "array",
+            "_item": {
+              "control_code": "str",
+              "control_name": "str",
+              "control_score": "int(0-100)",
+              "reason": "str"
+            }
+          },
+          "laws": {
+            "_type": "array",
+            "_item": {
+              "law_id": "str",
+              "law_title": "str",
+              "law_score": "float",
+              "evidence_paths": "array[str]",
+              "detail_link": "str|null"
+            }
+          },
+          "editable": {
+            "hazard_text": "str — 사용자 수정 가능 위험요인 텍스트",
+            "control_texts": "array[str] — 사용자 수정 가능 대책 텍스트",
+            "memo": "str — 행 메모"
+          },
+          "row_flags": "array[str] — 해당 row의 review flag"
+        }
+      },
+      "review_flags": "array[str] — 전체 응답 수준 flag",
+      "engine_meta": {
+        "pipeline_version": "str",
+        "sources_used": "array[str]"
+      }
+    }
+  },
+  "row_id_rules": {
+    "format": "{work_type_code}_{hazard_code}_{seq:03d}",
+    "example": "ELEC_LIVE_ELEC_001",
+    "rules": [
+      "seq는 hazard_score 내림차순 정렬 기준 1-based",
+      "recalculate_draft에서 동일 row_id로 재식별 가능해야 함",
+      "단순 배열 index 사용 금지"
+    ]
+  },
+  "review_flags_enum": {
+    "LOW_LAW_EVIDENCE": "법령 근거 1건 미만인 row 존재",
+    "CONTROL_ONLY_GENERAL_PPE": "대책이 일반 PPE만 포함된 row 존재",
+    "HAZARD_SCORE_LOW": "hazard_score 60 미만 row 존재",
+    "MANUAL_REVIEW_RECOMMENDED": "엔진 추론 기반(rule_based_inference) hazard 포함",
+    "CONDITION_FLAG_MISSING": "condition_flags 없이 생성된 경우 (현장 조건 미입력)",
+    "MAX_ROWS_REACHED": "max_hazards 상한 도달 — 일부 hazard 미포함 가능",
+    "DUPLICATE_CONTROL_ACROSS_ROWS": "동일 control_code가 2개 이상 row에 중복 포함"
+  },
+  "pipeline": {
+    "recommend_draft": [
+      "1. 요청 검증 (work_type_code 필수 확인)",
+      "2. worktype 메타 조회 (work_types.json)",
+      "3. recommendation engine 호출",
+      "4. hazard 후보 생성 (상위 max_hazards건)",
+      "5. control 후보 생성 (hazard별 max_controls_per_hazard건)",
+      "6. law evidence 병합 (max_laws_per_row건)",
+      "7. row 조립 (row_id 부여, editable 필드 초기화)",
+      "8. review_flags 산출",
+      "9. 응답 스키마 변환"
+    ],
+    "recalculate_draft": [
+      "1. 요청 검증 (row_id, hazard_code 확인)",
+      "2. 사용자 수정 row 파싱",
+      "3. selected_control_codes 기준 control 재매핑",
+      "4. law evidence 재병합 (excluded_law_ids 반영)",
+      "5. rescore_controls=true이면 점수 보정",
+      "6. editable 필드 custom_control_texts 반영",
+      "7. review_flags 재산출",
+      "8. 응답 재조립"
+    ]
+  }
+}

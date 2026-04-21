@@ -1,0 +1,82 @@
+{
+  "_meta": {
+    "version": "1.1",
+    "source": "safety_laws.json 법령 + work_types.json 작업유형 교차 매핑. 산업안전보건기준에 관한 규칙 작업별 안전 기준 적용.",
+    "created": "2026-04-20",
+    "updated": "2026-04-20",
+    "note": "법령 코드와 work_type 코드의 관계. law_hazard_map과 함께 사용하여 작업유형별 적용 법령 검색. relation_type 필드 추가.",
+    "fields": {
+      "law_code": "safety_laws.json law_code",
+      "work_type_codes": "work_types.json work_type_code 배열",
+      "relation_type": "required: 의무, recommended: 권장, reference: 참고",
+      "relevance": "기존 호환 필드 (mandatory=required)",
+      "note": "적용 내용 요약"
+    },
+    "count": 55
+  },
+  "mappings": [
+    {"law_code": "OSHA-R-42",  "work_type_codes": ["TEMP_SCAFF", "TEMP_SCAFF_DM", "TEMP_OPEN", "RC_FORM_INST"],            "relation_type": "required", "relevance": "mandatory", "note": "추락방지망 설치 의무"},
+    {"law_code": "OSHA-R-43",  "work_type_codes": ["TEMP_SCAFF", "TEMP_PLAT", "RC_FORM_INST", "ROOFING_TILE"],             "relation_type": "required", "relevance": "mandatory", "note": "작업발판 폭 40cm 이상 의무"},
+    {"law_code": "OSHA-R-44",  "work_type_codes": ["TEMP_AWP", "TEMP_SCAFF", "LIFT_CRANE_OP"],                              "relation_type": "required", "relevance": "mandatory", "note": "고소작업 안전대 착용 의무"},
+    {"law_code": "OSHA-R-45",  "work_type_codes": ["ROOFING_TILE", "ROOFING_METAL", "WATERP_ROOF"],                         "relation_type": "required", "relevance": "mandatory", "note": "지붕 작업 추락방지"},
+    {"law_code": "OSHA-R-48",  "work_type_codes": ["TEMP_SCAFF", "RC_FORM_INST", "STEEL_ASSEM"],                            "relation_type": "required", "relevance": "mandatory", "note": "악천후(풍속 10m/s 이상) 작업 중지"},
+    {"law_code": "OSHA-R-24",  "work_type_codes": ["TEMP_LADDER", "TEMP_LADDER_FIXED", "TEMP_LADDER_MOVE"],                 "relation_type": "required", "relevance": "mandatory", "note": "사다리 기울기·길이 기준"},
+    {"law_code": "OSHA-R-26",  "work_type_codes": ["TEMP_PLAT", "CIVIL_EXCAV", "FOUND_PILE"],                               "relation_type": "required", "relevance": "mandatory", "note": "계단 설치 기준"},
+    {"law_code": "OSHA-R-3",   "work_type_codes": ["FLOOR_TILE", "FLOOR_EPOXY", "ROAD_CONCRETE", "ROAD_ASPHALT"],           "relation_type": "required", "relevance": "mandatory", "note": "작업장 바닥 미끄럼 방지"},
+
+    {"law_code": "OSHA-R-56",  "work_type_codes": ["TEMP_SCAFF", "TEMP_PLAT", "TEMP_SCAFF_DM"],                             "relation_type": "required", "relevance": "mandatory", "note": "비계 발판 설치 기준"},
+    {"law_code": "OSHA-R-59",  "work_type_codes": ["TEMP_SCAFF", "TEMP_SCAFF_TUBE", "TEMP_SCAFF_SYSTEM", "TEMP_SCAFF_MOVE"],"relation_type": "required", "relevance": "mandatory", "note": "강관 비계 설치 기준"},
+    {"law_code": "OSHA-R-68",  "work_type_codes": ["TEMP_SCAFF_MOVE"],                                                       "relation_type": "required", "relevance": "mandatory", "note": "이동식 비계 설치 기준"},
+
+    {"law_code": "OSHA-R-87",  "work_type_codes": ["WELD_GRIND", "RC_REBAR_CUT", "CARP_ROOF", "FLOOR_TILE"],                "relation_type": "required", "relevance": "mandatory", "note": "기계·공구 방호장치 설치"},
+    {"law_code": "OSHA-R-92",  "work_type_codes": ["MECH_MAINTAIN", "ELEC_PANEL", "HVAC_BOILER"],                           "relation_type": "required", "relevance": "mandatory", "note": "수리 시 운전 금지·LOTO"},
+    {"law_code": "OSHA-R-100", "work_type_codes": ["WELD_GRIND", "STEEL_FABR", "DEMO_METAL"],                               "relation_type": "required", "relevance": "mandatory", "note": "연삭기 방호·공회전 시험"},
+
+    {"law_code": "OSHA-R-116", "work_type_codes": ["PIPE_TEST_PNEUM", "HVAC_BOILER", "HVAC_REFRIGER"],                      "relation_type": "required", "relevance": "mandatory", "note": "압력 용기 안전밸브 설치"},
+
+    {"law_code": "OSHA-R-131", "work_type_codes": ["MECH_CRANE", "LIFT_CRANE_OP"],                                          "relation_type": "required", "relevance": "mandatory", "note": "크레인 과부하 방지"},
+    {"law_code": "OSHA-R-132", "work_type_codes": ["MECH_CRANE", "LIFT_CRANE_OP", "BRDG_GIRDER"],                           "relation_type": "required", "relevance": "mandatory", "note": "양중기 안전조치"},
+    {"law_code": "OSHA-R-139", "work_type_codes": ["MECH_CRANE", "LIFT_CRANE_TOWER"],                                       "relation_type": "required", "relevance": "mandatory", "note": "타워크레인 설치 기준"},
+    {"law_code": "OSHA-R-146", "work_type_codes": ["MECH_CRANE", "LIFT_CRANE_OP", "LIFT_RIGGING", "LIFT_RIGGING_MULTI"],    "relation_type": "required", "relevance": "mandatory", "note": "크레인 작업 시 출입 통제"},
+    {"law_code": "OSHA-R-163", "work_type_codes": ["LIFT_RIGGING", "LIFT_RIGGING_MULTI", "LIFT_CRANE_OP", "BRDG_GIRDER"],   "relation_type": "required", "relevance": "mandatory", "note": "달기기구 안전계수"},
+
+    {"law_code": "OSHA-R-179", "work_type_codes": ["MECH_FORKLIFT", "MECH_FORKLIFT_MOVE", "MECH_FORKLIFT_LOAD"],            "relation_type": "required", "relevance": "mandatory", "note": "지게차 안전"},
+    {"law_code": "OSHA-R-186", "work_type_codes": ["TEMP_AWP"],                                                              "relation_type": "required", "relevance": "mandatory", "note": "고소작업대 안전"},
+    {"law_code": "OSHA-R-196", "work_type_codes": ["CIVIL_EXCAV", "CIVIL_CUT", "ROAD_ASPHALT", "ROAD_CONCRETE"],             "relation_type": "required", "relevance": "mandatory", "note": "차량계 건설기계 안전"},
+    {"law_code": "OSHA-R-207", "work_type_codes": ["FOUND_PILE", "FOUND_PILE_DRIVEN", "FOUND_PILE_BORED"],                   "relation_type": "required", "relevance": "mandatory", "note": "항타기 안전"},
+
+    {"law_code": "OSHA-R-232", "work_type_codes": ["WELD_GAS", "WELD_GAS_LPG", "WELD_GAS_CUT", "PIPE_WELD"],                "relation_type": "required", "relevance": "mandatory", "note": "가스 용접 안전"},
+    {"law_code": "OSHA-R-236", "work_type_codes": ["PAINT_SPRAY", "PAINT_ANTICORR", "PAINT_SPRAY_ORGAN", "FLOOR_EPOXY"],     "relation_type": "required", "relevance": "mandatory", "note": "인화성 도료 도장 안전"},
+    {"law_code": "OSHA-R-241", "work_type_codes": ["WELD_ARC", "WELD_GAS", "WELD_PLASMA", "STEEL_WELD", "PIPE_WELD"],       "relation_type": "required", "relevance": "mandatory", "note": "화재 위험 용접 작업"},
+    {"law_code": "OSHA-R-242", "work_type_codes": ["WELD_GAS_CUT", "WELD_PLASMA"],                                           "relation_type": "required", "relevance": "mandatory", "note": "절단 불꽃 방지"},
+
+    {"law_code": "OSHA-R-301", "work_type_codes": ["ELEC_LIVE", "ELEC_PANEL", "ELEC_LIVE_MV", "ELEC_LIVE_LV"],              "relation_type": "required", "relevance": "mandatory", "note": "전기 충전부 방호"},
+    {"law_code": "OSHA-R-302", "work_type_codes": ["ELEC_LIVE", "ELEC_LIVE_MV", "ELEC_OUTDOOR"],                             "relation_type": "required", "relevance": "mandatory", "note": "고압 전로 작업"},
+    {"law_code": "OSHA-R-304", "work_type_codes": ["ELEC_WIRING", "ELEC_CABLE", "COMM_CABLE", "COMM_FIBER"],                 "relation_type": "required", "relevance": "mandatory", "note": "임시 배선 안전"},
+    {"law_code": "OSHA-R-305", "work_type_codes": ["ELEC_WIRING", "MECH_INSTALL", "HVAC_DUCT"],                              "relation_type": "required", "relevance": "mandatory", "note": "전동 공구 안전"},
+
+    {"law_code": "OSHA-R-331", "work_type_codes": ["RC_FORM_INST", "RC_SUPPORT_INST"],                                       "relation_type": "required", "relevance": "mandatory", "note": "거푸집 동바리 기준"},
+    {"law_code": "OSHA-R-335", "work_type_codes": ["RC_POUR", "RC_POUR_PUMP", "RC_POUR_BUCKET"],                             "relation_type": "required", "relevance": "mandatory", "note": "콘크리트 펌프카 안전"},
+    {"law_code": "OSHA-R-338", "work_type_codes": ["CIVIL_EXCAV", "CIVIL_RETWALL", "EXCAV_OPEN", "CIVIL_EXCAV_SLOPE"],       "relation_type": "required", "relevance": "mandatory", "note": "굴착 사면·흙막이 기준"},
+    {"law_code": "OSHA-R-339", "work_type_codes": ["RC_FORM_INST", "RC_POUR", "RC_VIBRATE"],                                 "relation_type": "required", "relevance": "mandatory", "note": "동바리 점검·타설 속도"},
+
+    {"law_code": "OSHA-R-488", "work_type_codes": ["DEMO_ASBESTOS", "DEMO_ASBE_CEIL", "DEMO_ASBE_PIPE", "ENV_ASBESTOS"],     "relation_type": "required", "relevance": "mandatory", "note": "석면 해체 작업 기준"},
+    {"law_code": "OSHA-R-505", "work_type_codes": ["DEMO_STRUCT", "DEMO_CONCRETE", "DEMO_STRUCT_CRUSH", "DEMO_STRUCT_BLAST"],"relation_type": "required", "relevance": "mandatory", "note": "해체 작업 계획 수립"},
+
+    {"law_code": "OSHA-R-513", "work_type_codes": ["WELD_ARC", "DEMO_CONCRETE", "FOUND_PILE_DRIVEN", "TUNNEL_DRILL"],        "relation_type": "required", "relevance": "mandatory", "note": "소음 85dB 이상 작업 관리"},
+    {"law_code": "OSHA-R-560", "work_type_codes": ["PAINT_SPRAY_ORGAN", "ENV_ASBESTOS", "DEMO_ASBESTOS"],                    "relation_type": "required", "relevance": "mandatory", "note": "세안장치·비상샤워 설치"},
+    {"law_code": "OSHA-R-605", "work_type_codes": ["DEMO_ASBESTOS", "DEMO_CONCRETE", "WELD_ARC", "TUNNEL_SHOT"],             "relation_type": "required", "relevance": "mandatory", "note": "분진 작업 관리"},
+
+    {"law_code": "OSHA-R-619", "work_type_codes": ["WATER_MANHOLE", "WATER_MANHOLE_SEWER", "WATER_MANHOLE_STORM", "TUNNEL_DRILL"], "relation_type": "required", "relevance": "mandatory", "note": "밀폐공간 작업 프로그램"},
+    {"law_code": "OSHA-R-620", "work_type_codes": ["HVAC_BOILER", "WATER_MANHOLE", "WELD_ARC_ENCLOSED"],                    "relation_type": "required", "relevance": "mandatory", "note": "탱크·밀폐공간 작업"},
+    {"law_code": "OSHA-R-621", "work_type_codes": ["WATER_MANHOLE", "WATER_MANHOLE_SEWER", "WATER_MANHOLE_STORM"],           "relation_type": "required", "relevance": "mandatory", "note": "맨홀 출입 금지 표지"},
+    {"law_code": "OSHA-R-623", "work_type_codes": ["WATER_MANHOLE", "WATER_MANHOLE_SEWER"],                                  "relation_type": "required", "relevance": "mandatory", "note": "밀폐공간 구조 훈련"},
+
+    {"law_code": "OSHA-L-38",  "work_type_codes": ["TEMP_SCAFF", "CIVIL_EXCAV", "STEEL_ASSEM", "LIFT_CRANE_OP"],             "relation_type": "required", "relevance": "mandatory", "note": "사업주 안전조치 의무 (총칙)"},
+    {"law_code": "OSHA-L-114", "work_type_codes": ["PAINT_SPRAY", "ENV_ASBESTOS", "DEMO_ASBESTOS", "FLOOR_EPOXY"],           "relation_type": "required", "relevance": "mandatory", "note": "화학물질 MSDS 교육"},
+    {"law_code": "OSHA-L-122", "work_type_codes": ["DEMO_ASBESTOS", "DEMO_ASBE_CEIL", "DEMO_ASBE_PIPE", "ENV_ASBESTOS"],     "relation_type": "required", "relevance": "mandatory", "note": "석면 해체 전문업체 시행"},
+
+    {"law_code": "OSHA-R-616", "work_type_codes": ["PAINT_SPRAY_ORGAN", "PAINT_ANTICORR_EPXY", "FLOOR_EPOXY"],               "relation_type": "required", "relevance": "mandatory", "note": "유기화합물 취급 업무 특별 안전"},
+    {"law_code": "OSHA-R-186", "work_type_codes": ["TEMP_AWP", "WIN_CURTWALL", "WIN_GLASS_CURTWALL"],                         "relation_type": "required", "relevance": "mandatory", "note": "고소작업대 안전 기준"}
+  ]
+}

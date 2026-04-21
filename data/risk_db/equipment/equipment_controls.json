@@ -1,0 +1,449 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "source": "산업안전보건기준에 관한 규칙 장비별 안전기준 조항 + sample_chunks.json 장비 관련 통제수단 직접 추출",
+    "created": "2026-04-20"
+  },
+  "equipment_controls": [
+    {
+      "equipment_code": "EQ_SCAFF",
+      "hazard_code": "FALL",
+      "control_type": "engineering",
+      "control_desc": "작업발판 폭 40cm 이상 확보, 상부 및 중간 안전난간(높이 90~120cm) 설치, 발끝막이판(10cm 이상) 설치",
+      "law_ref": "규칙 제59조, 제63조",
+      "source": "sample_chunks id=1"
+    },
+    {
+      "equipment_code": "EQ_SCAFF",
+      "hazard_code": "FALL",
+      "control_type": "ppe",
+      "control_desc": "안전대 착용 및 안전대 부착설비 설치",
+      "law_ref": "규칙 제42조",
+      "source": "sample_chunks id=1"
+    },
+    {
+      "equipment_code": "EQ_SCAFF",
+      "hazard_code": "DROP",
+      "control_type": "engineering",
+      "control_desc": "발끝막이판(toe board) 10cm 이상 설치, 낙하물 방지망 설치",
+      "law_ref": "규칙 제14절",
+      "source": "규칙 제14절"
+    },
+    {
+      "equipment_code": "EQ_SCAFF",
+      "hazard_code": "COLLAPSE",
+      "control_type": "engineering",
+      "control_desc": "비계 기둥 간격 1.8m 이하, 벽 연결재 설치(수직 5m·수평 5.5m 이하), 과부하 금지",
+      "law_ref": "규칙 제59조",
+      "source": "규칙 제59조"
+    },
+    {
+      "equipment_code": "EQ_SCAFF",
+      "hazard_code": "COLLAPSE",
+      "control_type": "administrative",
+      "control_desc": "작업 시작 전 매일 비계 상태 점검 (연결 상태, 손상 여부, 과부하 여부)",
+      "law_ref": "규칙 제59조",
+      "source": "규칙 제59조"
+    },
+    {
+      "equipment_code": "EQ_MOVSCAFF",
+      "hazard_code": "FALL",
+      "control_type": "engineering",
+      "control_desc": "이동 전 작업자 하차 확인, 작업 시 바퀴 브레이크 잠금 확인",
+      "law_ref": "규칙 제68조",
+      "source": "규칙 제68조"
+    },
+    {
+      "equipment_code": "EQ_MOVSCAFF",
+      "hazard_code": "COLLAPSE",
+      "control_type": "engineering",
+      "control_desc": "이동식 비계 최대 탑승 인원 준수, 바퀴 잠금장치 작동 상태 확인",
+      "law_ref": "규칙 제68조",
+      "source": "규칙 제68조"
+    },
+    {
+      "equipment_code": "EQ_AWP",
+      "hazard_code": "FALL",
+      "control_type": "engineering",
+      "control_desc": "안전대 부착설비 설치, 탑승함 안전난간 정상 작동 확인, 과부하 방지 장치 점검",
+      "law_ref": "규칙 제186조",
+      "source": "sample_chunks id=2"
+    },
+    {
+      "equipment_code": "EQ_AWP",
+      "hazard_code": "FALL",
+      "control_type": "ppe",
+      "control_desc": "안전대 착용 및 탑승함 내 안전고리 체결",
+      "law_ref": "규칙 제42조",
+      "source": "sample_chunks id=2"
+    },
+    {
+      "equipment_code": "EQ_AWP",
+      "hazard_code": "COLLIDE",
+      "control_type": "administrative",
+      "control_desc": "붐 이동 반경 내 작업자 출입 통제, 경보 장치 작동 확인",
+      "law_ref": "규칙 제186조",
+      "source": "규칙 제186조"
+    },
+    {
+      "equipment_code": "EQ_LADDER_MOV",
+      "hazard_code": "FALL",
+      "control_type": "engineering",
+      "control_desc": "사다리 기울기 75도 이하 유지, 상단 60cm 이상 돌출 고정, 미끄럼 방지 발판 부착",
+      "law_ref": "규칙 제24조",
+      "source": "sample_chunks id=5"
+    },
+    {
+      "equipment_code": "EQ_LADDER_MOV",
+      "hazard_code": "FALL",
+      "control_type": "administrative",
+      "control_desc": "사다리 작업 시 3점 지지 유지, 물건을 들고 오르내리는 행위 금지",
+      "law_ref": "규칙 제24조",
+      "source": "규칙 제24조"
+    },
+    {
+      "equipment_code": "EQ_CRANE_TOWER",
+      "hazard_code": "DROP",
+      "control_type": "engineering",
+      "control_desc": "과부하 방지 장치, 권과 방지 장치, 비상 정지 장치 정상 작동 확인",
+      "law_ref": "규칙 제139조",
+      "source": "규칙 제139조"
+    },
+    {
+      "equipment_code": "EQ_CRANE_TOWER",
+      "hazard_code": "DROP",
+      "control_type": "administrative",
+      "control_desc": "신호수 배치, 인양 반경 내 작업자 대피, 달기구 중량 표시 확인",
+      "law_ref": "규칙 제146조",
+      "source": "sample_chunks id=21"
+    },
+    {
+      "equipment_code": "EQ_CRANE_TOWER",
+      "hazard_code": "COLLIDE",
+      "control_type": "administrative",
+      "control_desc": "선회 반경 내 출입 통제, 신호수 배치, 인접 타워크레인 충돌 방지 계획 수립",
+      "law_ref": "규칙 제139조",
+      "source": "규칙 제139조"
+    },
+    {
+      "equipment_code": "EQ_CRANE_TOWER",
+      "hazard_code": "COLLAPSE",
+      "control_type": "engineering",
+      "control_desc": "기초 앵커 볼트 체결 상태 확인, 마스트 클라이밍 절차 준수, 풍속 15m/s 이상 작업 중지",
+      "law_ref": "규칙 제142조",
+      "source": "규칙 제142조"
+    },
+    {
+      "equipment_code": "EQ_CRANE_MOB",
+      "hazard_code": "DROP",
+      "control_type": "engineering",
+      "control_desc": "아웃트리거 완전 전개 확인, 정격 하중 초과 금지, 와이어로프 상태 점검",
+      "law_ref": "규칙 제146조",
+      "source": "규칙 제146조"
+    },
+    {
+      "equipment_code": "EQ_CRANE_MOB",
+      "hazard_code": "DROP",
+      "control_type": "administrative",
+      "control_desc": "신호수 배치, 인양물 하부 작업자 대피 후 작업 실시",
+      "law_ref": "규칙 제146조",
+      "source": "sample_chunks id=21"
+    },
+    {
+      "equipment_code": "EQ_CRANE_MOB",
+      "hazard_code": "COLLAPSE",
+      "control_type": "engineering",
+      "control_desc": "지반 지지력 확인, 아웃트리거 받침목 사용, 경사지 설치 금지",
+      "law_ref": "규칙 제146조",
+      "source": "규칙 제146조"
+    },
+    {
+      "equipment_code": "EQ_FORKLIFT",
+      "hazard_code": "COLLIDE",
+      "control_type": "administrative",
+      "control_desc": "작업구역·통행구역 분리, 후진 경보기 작동 확인, 유도자 배치",
+      "law_ref": "규칙 제179조",
+      "source": "규칙 제179조"
+    },
+    {
+      "equipment_code": "EQ_FORKLIFT",
+      "hazard_code": "COLLIDE",
+      "control_type": "engineering",
+      "control_desc": "후진 경보 장치, 헤드가드 설치, 백레스트 설치",
+      "law_ref": "규칙 제179조",
+      "source": "규칙 제179조"
+    },
+    {
+      "equipment_code": "EQ_FORKLIFT",
+      "hazard_code": "DROP",
+      "control_type": "administrative",
+      "control_desc": "마스트 기울기 최소화 이동, 포크 상승 상태 이동 금지, 하중 분산 확인",
+      "law_ref": "규칙 제179조",
+      "source": "규칙 제179조"
+    },
+    {
+      "equipment_code": "EQ_EXCAV",
+      "hazard_code": "COLLIDE",
+      "control_type": "administrative",
+      "control_desc": "선회 반경 내 작업자 출입 금지, 유도자 배치, 작업 구역 바리케이드 설치",
+      "law_ref": "규칙 제196조",
+      "source": "규칙 제196조"
+    },
+    {
+      "equipment_code": "EQ_EXCAV",
+      "hazard_code": "COLLAPSE",
+      "control_type": "engineering",
+      "control_desc": "굴착면 기울기 기준(토질별 35°~90°) 준수, 흙막이 구조물 설치",
+      "law_ref": "규칙 제196조, 제338조",
+      "source": "규칙 제338조"
+    },
+    {
+      "equipment_code": "EQ_EXCAV",
+      "hazard_code": "ENTRAP",
+      "control_type": "engineering",
+      "control_desc": "버킷 작동 반경 내 출입 금지 표지 설치, 협착 방지 안전장치 확인",
+      "law_ref": "규칙 제196조",
+      "source": "규칙 제196조"
+    },
+    {
+      "equipment_code": "EQ_CONC_PUMP",
+      "hazard_code": "COLLAPSE",
+      "control_type": "engineering",
+      "control_desc": "아웃트리거 완전 전개 및 지반 지지력 확인, 붐 최대 각도 준수",
+      "law_ref": "규칙 제335조",
+      "source": "규칙 제335조"
+    },
+    {
+      "equipment_code": "EQ_CONC_PUMP",
+      "hazard_code": "DROP",
+      "control_type": "engineering",
+      "control_desc": "배관 호스 연결부 체결 상태 확인, 호스 끝단 고정 장치 설치",
+      "law_ref": "규칙 제335조",
+      "source": "규칙 제335조"
+    },
+    {
+      "equipment_code": "EQ_WELDER_ARC",
+      "hazard_code": "ELEC",
+      "control_type": "engineering",
+      "control_desc": "용접기 자동 전격 방지기 설치, 접지 확인, 절연 홀더 사용",
+      "law_ref": "규칙 제241조",
+      "source": "규칙 제241조"
+    },
+    {
+      "equipment_code": "EQ_WELDER_ARC",
+      "hazard_code": "ELEC",
+      "control_type": "ppe",
+      "control_desc": "용접용 절연장갑 착용, 절연화 착용",
+      "law_ref": "규칙 제32조",
+      "source": "sample_chunks id=13"
+    },
+    {
+      "equipment_code": "EQ_WELDER_ARC",
+      "hazard_code": "FIRE",
+      "control_type": "engineering",
+      "control_desc": "작업 반경 11m 이내 가연물 제거, 방화포 설치, 소화기 비치",
+      "law_ref": "규칙 제241조",
+      "source": "sample_chunks id=13"
+    },
+    {
+      "equipment_code": "EQ_WELDER_ARC",
+      "hazard_code": "FIRE",
+      "control_type": "administrative",
+      "control_desc": "화재 감시자 배치, 작업 종료 후 30분 이상 화기 감시",
+      "law_ref": "규칙 제241조",
+      "source": "sample_chunks id=13"
+    },
+    {
+      "equipment_code": "EQ_WELDER_ARC",
+      "hazard_code": "DUST",
+      "control_type": "engineering",
+      "control_desc": "국소 배기장치 설치 또는 전체 환기 실시",
+      "law_ref": "규칙 제9장",
+      "source": "규칙 제9장"
+    },
+    {
+      "equipment_code": "EQ_WELDER_ARC",
+      "hazard_code": "DUST",
+      "control_type": "ppe",
+      "control_desc": "용접흄 방진마스크(1급 이상) 착용, 용접면 착용",
+      "law_ref": "규칙 제32조",
+      "source": "규칙 제9장"
+    },
+    {
+      "equipment_code": "EQ_WELDER_GAS",
+      "hazard_code": "EXPLO",
+      "control_type": "engineering",
+      "control_desc": "작업 전 호스·밸브 누출 점검(비눗물 사용), 역화 방지기 설치, 가스 용기 전도 방지",
+      "law_ref": "규칙 제232조",
+      "source": "sample_chunks id=15"
+    },
+    {
+      "equipment_code": "EQ_WELDER_GAS",
+      "hazard_code": "EXPLO",
+      "control_type": "administrative",
+      "control_desc": "화기 금지 구역 설정, 환기 실시, 가스 용기 직사광선 회피 보관",
+      "law_ref": "규칙 제232조",
+      "source": "sample_chunks id=15"
+    },
+    {
+      "equipment_code": "EQ_WELDER_GAS",
+      "hazard_code": "FIRE",
+      "control_type": "engineering",
+      "control_desc": "가연물 제거, 방화포 설치, 소화기 비치, 화재 감시자 배치",
+      "law_ref": "규칙 제241조",
+      "source": "sample_chunks id=15"
+    },
+    {
+      "equipment_code": "EQ_GRINDER",
+      "hazard_code": "CUT",
+      "control_type": "engineering",
+      "control_desc": "덮개(guard) 정상 설치 확인, 날 파손 여부 점검, 규정 rpm 이하 사용",
+      "law_ref": "규칙 제108조",
+      "source": "규칙 제108조"
+    },
+    {
+      "equipment_code": "EQ_GRINDER",
+      "hazard_code": "CUT",
+      "control_type": "ppe",
+      "control_desc": "보안경(비산 방지용) 착용, 가죽장갑 착용",
+      "law_ref": "규칙 제32조",
+      "source": "규칙 제108조"
+    },
+    {
+      "equipment_code": "EQ_GRINDER",
+      "hazard_code": "DUST",
+      "control_type": "ppe",
+      "control_desc": "방진마스크 착용, 국소 배기 또는 환기 실시",
+      "law_ref": "규칙 제9장",
+      "source": "규칙 제9장"
+    },
+    {
+      "equipment_code": "EQ_DIST_PANEL",
+      "hazard_code": "ELEC",
+      "control_type": "engineering",
+      "control_desc": "전원 차단 후 LOTO 설치, 누전차단기 설치, 충전부 절연 방호구 설치",
+      "law_ref": "규칙 제301조",
+      "source": "sample_chunks id=10"
+    },
+    {
+      "equipment_code": "EQ_DIST_PANEL",
+      "hazard_code": "ELEC",
+      "control_type": "ppe",
+      "control_desc": "절연장갑, 절연화, 절연방호구 착용",
+      "law_ref": "규칙 제32조",
+      "source": "sample_chunks id=10"
+    },
+    {
+      "equipment_code": "EQ_DRILL",
+      "hazard_code": "ELEC",
+      "control_type": "engineering",
+      "control_desc": "이중 절연 구조 전동 공구 사용, 접지 확인, 누전차단기 연결 사용",
+      "law_ref": "규칙 제305조",
+      "source": "sample_chunks id=12"
+    },
+    {
+      "equipment_code": "EQ_DRILL",
+      "hazard_code": "ENTRAP",
+      "control_type": "administrative",
+      "control_desc": "작업 시 헐렁한 옷·장갑 착용 금지, 긴 머리카락 묶기",
+      "law_ref": "규칙 제108조",
+      "source": "규칙 제108조"
+    },
+    {
+      "equipment_code": "EQ_AIRCOMP",
+      "hazard_code": "EXPLO",
+      "control_type": "engineering",
+      "control_desc": "압력 게이지·안전밸브 정상 작동 확인, 최대 사용 압력 준수, 압력 용기 정기 검사",
+      "law_ref": "규칙 제116조",
+      "source": "규칙 제116조"
+    },
+    {
+      "equipment_code": "EQ_AIRCOMP",
+      "hazard_code": "NOISE",
+      "control_type": "ppe",
+      "control_desc": "귀마개(NRR 25dB 이상) 착용",
+      "law_ref": "규칙 제513조",
+      "source": "규칙 제513조"
+    },
+    {
+      "equipment_code": "EQ_PILEDRIVER",
+      "hazard_code": "DROP",
+      "control_type": "engineering",
+      "control_desc": "해머 낙하 방지 장치 확인, 와이어로프 상태 점검, 말뚝 고정 상태 확인",
+      "law_ref": "규칙 제207조",
+      "source": "규칙 제207조"
+    },
+    {
+      "equipment_code": "EQ_PILEDRIVER",
+      "hazard_code": "COLLIDE",
+      "control_type": "administrative",
+      "control_desc": "항타 작업 반경 내 작업자 출입 금지, 유도자 배치",
+      "law_ref": "규칙 제207조",
+      "source": "규칙 제207조"
+    },
+    {
+      "equipment_code": "EQ_PILEDRIVER",
+      "hazard_code": "NOISE",
+      "control_type": "ppe",
+      "control_desc": "귀마개(NRR 30dB 이상) 착용, 소음 측정 및 작업 시간 제한",
+      "law_ref": "규칙 제513조",
+      "source": "규칙 제513조"
+    },
+    {
+      "equipment_code": "EQ_SPRAY_GUN",
+      "hazard_code": "FIRE",
+      "control_type": "engineering",
+      "control_desc": "충분한 환기 실시, 점화원 제거, 방폭형 전기 기구 사용, 소화기 비치",
+      "law_ref": "규칙 제236조",
+      "source": "sample_chunks id=16"
+    },
+    {
+      "equipment_code": "EQ_SPRAY_GUN",
+      "hazard_code": "CHEM",
+      "control_type": "ppe",
+      "control_desc": "방독마스크(유기 증기 정화통) 착용, 내화학성 장갑·보안경 착용",
+      "law_ref": "규칙 제32조",
+      "source": "sample_chunks id=16"
+    },
+    {
+      "equipment_code": "EQ_SPRAY_GUN",
+      "hazard_code": "CHEM",
+      "control_type": "engineering",
+      "control_desc": "국소 배기장치 설치, 방폭 조명 사용, MSDS 비치",
+      "law_ref": "규칙 제236조",
+      "source": "규칙 제236조"
+    },
+    {
+      "equipment_code": "EQ_HOIST",
+      "hazard_code": "DROP",
+      "control_type": "engineering",
+      "control_desc": "훅 해제 방지 장치(래치) 정상 작동 확인, 체인 파단 강도 확인, 정격 하중 준수",
+      "law_ref": "규칙 제132조",
+      "source": "규칙 제132조"
+    },
+    {
+      "equipment_code": "EQ_HOIST",
+      "hazard_code": "ENTRAP",
+      "control_type": "administrative",
+      "control_desc": "체인 조작 시 손 끼임 주의, 느슨한 체인 조작 금지",
+      "law_ref": "규칙 제132조",
+      "source": "규칙 제132조"
+    },
+    {
+      "equipment_code": "EQ_ROLLER",
+      "hazard_code": "COLLIDE",
+      "control_type": "administrative",
+      "control_desc": "후진 시 경보 장치 작동 확인, 유도자 배치, 작업 구역 분리",
+      "law_ref": "규칙 제196조",
+      "source": "규칙 제196조"
+    },
+    {
+      "equipment_code": "EQ_ROLLER",
+      "hazard_code": "ENTRAP",
+      "control_type": "engineering",
+      "control_desc": "드럼 회전부 접근 방지 안전망 설치, 정비 시 전원 차단 후 LOTO 적용",
+      "law_ref": "규칙 제196조",
+      "source": "규칙 제196조"
+    }
+  ]
+}

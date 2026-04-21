@@ -1,0 +1,409 @@
+{
+  "generated_at": "2026-04-21T03:01:04.892064+00:00",
+  "item_count": 31,
+  "items": [
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:314127",
+      "candidate_law_title": "민원인 - 20킬로와트 이상의 전기설비를 가진 보건소 및 보건지소도 「전기사업법」에 따라 전기안전관리자를 선임해야 하는 「의료법」상 의료기관에 해당하는지?(「전기사업법」 제73조 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=314127&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:335577",
+      "candidate_law_title": "민원인 - 거짓이나 그 밖의 부정한 방법으로 공급자적합성확인을 하거나 공급자적합성확인신고를 한 경우 사용금지명령의 범위(「전기용품 및 생활용품 안전관리법」 제27조제1항제1호 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=335577&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:314370",
+      "candidate_law_title": "민원인 - 관리사무소장을 해당 공동주택관리기구의 전기안전관리자로 중복하여 배치할 수 있는지(「주택법」 제43조제4항 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=314370&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:328629",
+      "candidate_law_title": "민원인 - 구 「전기용품안전 관리법」에 따른 수거등명령의 대상 여부(구 「전기용품안전 관리법」 제8조 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=328629&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:327931",
+      "candidate_law_title": "민원인 - 구 「전기용품안전 관리법」에 따른 수거등명령의 대상 여부(구 「전기용품안전 관리법」 제8조 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=327931&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:327111",
+      "candidate_law_title": "민원인 - 구 「품질경영 및 공산품안전관리법」 제19조에 따라 자율안전확인신고를 한 경우, 2015년 9월 30일까지는 품목별 안전기준에 적합하지 않은 위해우려제품의 판매가 허용되는지 여부(2015년 4월 1일 환경부 고시 제2015-41호로 제정되어 같은 날 시행된 「위해우려제품 지정 및 안전ㆍ표시기준」 부칙 제4조 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=327111&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:334695",
+      "candidate_law_title": "민원인 - 자동차에 연결장치를 부착하는 튜닝 시 적용되어야 하는 안전기준(구 「자동차안전기준에 관한 규칙」 부칙 제2조 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=334695&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:334697",
+      "candidate_law_title": "민원인 - 자동차에 연결장치를 부착하는 튜닝 시 적용되어야 하는 안전기준(구 「자동차안전기준에 관한 규칙」 부칙 제2조 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=334697&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:331065",
+      "candidate_law_title": "민원인 - 「전기사업법 시행규칙」 제40조에 따른 전기안전관리자 선임 기준 (「전기사업법 시행규칙」 제40조 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=331065&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:330299",
+      "candidate_law_title": "민원인 - 「전기사업법 시행규칙」 제40조에 따른 전기안전관리자 선임 기준 (「전기사업법 시행규칙」 제40조 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=330299&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:331813",
+      "candidate_law_title": "민원인 - 「전기안전관리법 시행규칙」 제28조제1호에 따라 “전기 분야” 전기안전관리자로 선임될 수 있는 사람의 자격기준(「전기안전관리법」 제22조 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=331813&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:335085",
+      "candidate_law_title": "민원인 - 「전기안전관리법」 제22조제1항에 따른 자가용전기설비의 점유자에 「공동주택관리법」에 따른 주택관리업자가 포함되는지 여부(「전기안전관리법」 제22조제1항 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=335085&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:335073",
+      "candidate_law_title": "민원인 - 「전기안전관리법」 제22조제1항에 따른 자가용전기설비의 점유자에 「공동주택관리법」에 따른 주택관리업자가 포함되는지 여부(「전기안전관리법」 제22조제1항 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=335073&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:341449",
+      "candidate_law_title": "민원인 - 전기안전관리업무를 대행하게 할 수 있는 전기설비의 규모(「전기안전관리법 시행규칙」 제26조제1호 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=341449&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:338109",
+      "candidate_law_title": "민원인 - 전기안전관리자의 직무대행자 지정 기준을 내부 규정으로 정한 사업장 등에서 전기안전관리자의 부재로 직무대행자를 지정한 경우 반드시 직무대행자 지정서를 작성하여 갖춰두어야 하는지 여부(「전기안전관리법 시행규칙」 제29조제3항 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=338109&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:324019",
+      "candidate_law_title": "민원인 - 전기용품 안전인증 면제의 의미(「전기용품안전 관리법」 제3조 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=324019&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:338305",
+      "candidate_law_title": "민원인 - 「초고층 및 지하연계 복합건축물 재난관리에 관한 특별법 시행규칙」 제2조제2항제3호의 “건축ㆍ기계ㆍ전기ㆍ토목 또는 안전관리 분야 기사로서 재난 및 안전관리에 관한 실무경력이 5년 이상인 사람”의 의미(「초고층 및 지하연계 복합건축물 재난관리에 관한 특별법 시행규칙」 제2조제2항제3호 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=338305&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:314918",
+      "candidate_law_title": "민원인 - 충전기 일부를 철거하면서 변경신고를 하지 않은 경우, 허가받은 충전기 수량이 설치·운영 중인 충전기 수량으로 줄어드는지(「액화석유가스의 안전관리 및 사업법」 제3조제3항 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=314918&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:313950",
+      "candidate_law_title": "산업통상자원부- 전기용품 안전인증 등의 의무가 있는 제조업자의 범위(「전기용품안전 관리법」 제3조 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=313950&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:329065",
+      "candidate_law_title": "산업통상자원부 - 한국제품안전협회가 불법ㆍ불량제품을 조사하고 그 결과를 관련 행정기관에 통보할 수 있는지 여부(「제품안전기본법」 제21조제3항제3호 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=329065&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:331079",
+      "candidate_law_title": "서울특별시 - 한국제품안전협회의 불법ㆍ불량 어린이제품 조사 및 그 결과통보 가부 등(「제품안전기본법」 제21조제3항제3호 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=331079&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:328603",
+      "candidate_law_title": "서울특별시 - 한국제품안전협회의 불법ㆍ불량 어린이제품 조사 및 그 결과통보 가부 등(「제품안전기본법」 제21조제3항제3호 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=328603&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:313191",
+      "candidate_law_title": "식품의약품안전청-「식품위생법」 제7조(전기분해 알칼리수의 식품의 제조용수 가능 여부)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=313191&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:329895",
+      "candidate_law_title": "제주특별자치도 - 사용 신고의 예외 대상 이륜자동차에도 주요 구조 및 장치의 안전기준에 관한 규정이 적용되는지 여부(「자동차관리법」 제48조 및 제50조 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=329895&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:324749",
+      "candidate_law_title": "지식경제부 - 안전성조사 실시 결과 위해성이 확인된 제품에 대한 수거등 권고 가부(「제품안전기본법」 제10조 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=324749&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "ELEC",
+      "hazard_name": "감전",
+      "candidate_law_id": "interpretation:324359",
+      "candidate_law_title": "지식경제부 - 「전기용품안전 관리법 시행규칙」 제2조제2호에 따른 기본모델에 다른 기본모델을 결합시킨 복합기능의 제품을 동법 제2조제2호에 따른 기본모델로 볼 수 있는지(「전기용품안전 관리법 시행규칙」 제2조 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "전기"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=324359&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "DUST",
+      "hazard_name": "분진",
+      "candidate_law_id": "interpretation:328037",
+      "candidate_law_title": "민원인 - 석면해체ㆍ제거업자의 등록 요건에 해당하는 인력으로 등록된 사람이 다른 영업의 인력으로 중복하여 등록할 수 있는지 여부(「산업안전보건법 시행령」 별표 28 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "석면"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=328037&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "DUST",
+      "hazard_name": "분진",
+      "candidate_law_id": "interpretation:329341",
+      "candidate_law_title": "민원인 - 석면해체·제거업자에 소속되어 석면해체ㆍ제거현장을 관리하는 사람이 다른 영업의 인력으로 중복 등록할 수 있는지 여부(「산업안전보건법 시행규칙」 제80조의6 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "석면"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=329341&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "DUST",
+      "hazard_name": "분진",
+      "candidate_law_id": "interpretation:329735",
+      "candidate_law_title": "환경부 - 구 「석면안전관리법」 제21조제1항에 따라 건축물석면조사를 수행한 석면조사기관에 대하여 구 「산업안전보건법」 에 따른 제재처분을 할 수 있는지 여부 (구 「산업안전보건법」 제38조의2 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "석면"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=329735&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "CHEM",
+      "hazard_name": "화학물질",
+      "candidate_law_id": "interpretation:330297",
+      "candidate_law_title": "민원인 - 환경기술인이 유해화학물질관리자를 겸임할 수 있는지 여부(「대기환경보전법 시행령」 제39조제2항 등 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "화학물질"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=330297&type=HTML&mobileYn="
+    },
+    {
+      "hazard_code": "CHEM",
+      "hazard_name": "화학물질",
+      "candidate_law_id": "interpretation:327033",
+      "candidate_law_title": "환경부 - 유해화학물질 판매업 허가의 단위(「화학물질관리법」 제28조 관련)",
+      "candidate_category": "interpretation",
+      "candidate_score": 68,
+      "reason": "draft 초과(5건 제한) → review_needed",
+      "match_keywords": [
+        "화학물질"
+      ],
+      "detail_link": "https://www.law.go.kr/DRF/lawService.do?OC=sapphire_5&target=expc&ID=327033&type=HTML&mobileYn="
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-04-21T00:00:00+00:00",
+  "description": "위험성평가표 초안 생성 API 반영 전 보완점",
+  "notes": [
+    {
+      "id": "NOTE_001",
+      "category": "응답 크기",
+      "severity": "WARN",
+      "message": "hazard 5건 × control 3건 × law 3건 기준 단일 응답 약 15~20KB 예상. DEMO_ASBESTOS처럼 hazard 5건 모두 saturate되면 law_title 길이로 인해 30KB 초과 가능. 초기 배포 시 max_hazards=3으로 제한 권장."
+    },
+    {
+      "id": "NOTE_002",
+      "category": "row 수 과다",
+      "severity": "WARN",
+      "message": "DEMO_ASBESTOS, 복합공종(LIFT_RIGGING 등)에서 hazard가 5건 모두 채워질 수 있음. max_hazards 옵션을 관리자 튜닝 대상으로 운영하고, 프론트엔드에서 페이징 또는 접기/펼치기 처리 필요."
+    },
+    {
+      "id": "NOTE_003",
+      "category": "control 중복",
+      "severity": "WARN",
+      "message": "ASPHYX_C02(환기 실시)가 WATER_MANHOLE, DEMO_ASBESTOS 양 worktype에서 ASPHYX/EXPLO row 모두에 등장. DUPLICATE_CONTROL_ACROSS_ROWS flag로 탐지 가능하나, 프론트 표시 또는 엑셀 출력 시 중복 행 정리 로직 필요."
+    },
+    {
+      "id": "NOTE_004",
+      "category": "사용자 수정값 분리",
+      "severity": "CRITICAL",
+      "message": "editable.control_texts는 사용자가 직접 입력한 텍스트이며 controls[].control_name과 별개. 저장 API 구현 시 두 필드를 혼합 저장하면 원본 점수 및 법령 근거 역추적이 불가능해짐. 반드시 엔진 원본(controls[])과 사용자 수정(editable)을 별도 컬럼으로 저장해야 함."
+    },
+    {
+      "id": "NOTE_005",
+      "category": "저장 API 연결 전 추가 필드",
+      "severity": "INFO",
+      "message": "평가표 저장 API 연결 시 아래 필드 추가 필요: (1) assessor_id — 작성자 식별, (2) project_id — 프로젝트 귀속, (3) status — draft/confirmed/archived, (4) version — 재계산 이력 관리. 현재 API 응답에는 미포함."
+    },
+    {
+      "id": "NOTE_006",
+      "category": "law_title 길이",
+      "severity": "WARN",
+      "message": "법령 해석례 law_title이 80자 이상인 케이스 다수(interpretation:313846 등). 응답 직렬화 및 프론트 표시 시 truncation 처리 필요. law_title_short 필드를 응답에 추가하거나 프론트에서 처리 결정 필요."
+    },
+    {
+      "id": "NOTE_007",
+      "category": "detail_link 미구현",
+      "severity": "INFO",
+      "message": "현재 law detail_link는 모두 null. 9단계 라우터 구현 시 법령 ID를 국가법령정보센터 URL로 변환하는 매핑 또는 내부 법령 상세 라우터 연결 필요."
+    },
+    {
+      "id": "NOTE_008",
+      "category": "recalculate_draft row_id 검증",
+      "severity": "WARN",
+      "message": "recalculate_draft 요청에서 전달된 row_id가 원본 recommend_draft 결과와 불일치할 경우 처리 규칙 미정. 9단계 구현 시 row_id 불일치 시 400 에러 반환 또는 신규 row 생성 여부를 결정해야 함."
+    },
+    {
+      "id": "NOTE_009",
+      "category": "CONDITION_FLAG_MISSING 처리",
+      "severity": "INFO",
+      "message": "ELEC_LIVE 샘플에서 condition_flags=[live_electric, high_place]가 포함되었음에도 CONDITION_FLAG_MISSING flag가 발생. flag 산출 로직에서 condition_flags가 입력된 경우 해당 flag를 제거하는 조건 추가 필요."
+    },
+    {
+      "id": "NOTE_010",
+      "category": "9단계 라우터 구현 주의점",
+      "severity": "INFO",
+      "message": "실제 라우터 구현 시 주의 사항: (1) 엔진 호출은 동기 함수로 시작, 응답 지연 시 async 전환, (2) user_inputs.preferred_hazard_codes는 엔진 점수 조정이 아닌 필터 우선순위 처리, (3) options는 request 수준에서 override 가능하되 서버 하드 상한(max_hazards≤10) 적용, (4) request_id는 UUID4로 생성하고 로그에 기록."
+    }
+  ]
+}

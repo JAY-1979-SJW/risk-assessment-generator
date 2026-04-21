@@ -1,0 +1,101 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "source": "KOSHA 안전보건교육 자료 + 산업안전보건기준에 관한 규칙 작업별 기준 + 건설현장 안전관리 실무",
+    "created": "2026-04-20",
+    "note": "주요 고위험 work_type의 세부 단위작업 분류. risk_level 3 위주로 구성.",
+    "count": 85
+  },
+  "work_sub_types": [
+    {"code": "CIVIL_EXCAV_OPEN",    "work_type_code": "CIVIL_EXCAV",   "name_ko": "개착 굴착",         "risk_level": 3, "source": "KOSHA GUIDE C-10-2019"},
+    {"code": "CIVIL_EXCAV_COFDAM",  "work_type_code": "CIVIL_EXCAV",   "name_ko": "가물막이 굴착",     "risk_level": 3, "source": "KOSHA GUIDE C-10-2019"},
+    {"code": "CIVIL_EXCAV_SLOPE",   "work_type_code": "CIVIL_EXCAV",   "name_ko": "사면 굴착",         "risk_level": 3, "source": "KOSHA GUIDE C-10-2019"},
+    {"code": "CIVIL_RETWALL_SHEET", "work_type_code": "CIVIL_RETWALL", "name_ko": "강재 흙막이",       "risk_level": 3, "source": "산안규칙 제338조"},
+    {"code": "CIVIL_RETWALL_CIP",   "work_type_code": "CIVIL_RETWALL", "name_ko": "CIP 흙막이",        "risk_level": 3, "source": "산안규칙 제338조"},
+    {"code": "CIVIL_RETWALL_EARTH", "work_type_code": "CIVIL_RETWALL", "name_ko": "어스앵커 흙막이",   "risk_level": 3, "source": "산안규칙 제338조"},
+
+    {"code": "FOUND_PILE_DRIVEN",   "work_type_code": "FOUND_PILE",    "name_ko": "타입 말뚝",         "risk_level": 3, "source": "KOSHA GUIDE C-09-2021"},
+    {"code": "FOUND_PILE_BORED",    "work_type_code": "FOUND_PILE",    "name_ko": "현장 타설 말뚝",    "risk_level": 3, "source": "KOSHA GUIDE C-09-2021"},
+    {"code": "FOUND_PILE_MICRO",    "work_type_code": "FOUND_PILE",    "name_ko": "마이크로 파일",     "risk_level": 2, "source": "KOSHA GUIDE C-09-2021"},
+
+    {"code": "RC_REBAR_HAND",       "work_type_code": "RC_REBAR_ASSEM","name_ko": "수작업 철근 조립",  "risk_level": 3, "source": "KOSHA GUIDE C-11-2021"},
+    {"code": "RC_REBAR_CRANE",      "work_type_code": "RC_REBAR_ASSEM","name_ko": "크레인 인양 철근",  "risk_level": 3, "source": "KOSHA GUIDE C-11-2021"},
+    {"code": "RC_FORM_SLAB",        "work_type_code": "RC_FORM_INST",  "name_ko": "슬래브 거푸집",     "risk_level": 3, "source": "KOSHA GUIDE C-12-2022"},
+    {"code": "RC_FORM_WALL",        "work_type_code": "RC_FORM_INST",  "name_ko": "벽체 거푸집",       "risk_level": 3, "source": "KOSHA GUIDE C-12-2022"},
+    {"code": "RC_FORM_COL",         "work_type_code": "RC_FORM_INST",  "name_ko": "기둥 거푸집",       "risk_level": 3, "source": "KOSHA GUIDE C-12-2022"},
+    {"code": "RC_SUPPORT_INST",     "work_type_code": "RC_FORM_INST",  "name_ko": "동바리 설치",       "risk_level": 3, "source": "산안규칙 제331조"},
+    {"code": "RC_POUR_PUMP",        "work_type_code": "RC_POUR",       "name_ko": "펌프카 타설",       "risk_level": 3, "source": "KOSHA GUIDE C-13-2022"},
+    {"code": "RC_POUR_BUCKET",      "work_type_code": "RC_POUR",       "name_ko": "버킷 타설",         "risk_level": 3, "source": "KOSHA GUIDE C-13-2022"},
+
+    {"code": "STEEL_LIFT_CRANE",    "work_type_code": "STEEL_LIFT",    "name_ko": "이동식 크레인 인양", "risk_level": 3, "source": "산안규칙 제153조"},
+    {"code": "STEEL_LIFT_TOWER",    "work_type_code": "STEEL_LIFT",    "name_ko": "타워크레인 인양",   "risk_level": 3, "source": "산안규칙 제153조"},
+    {"code": "STEEL_ASSEM_HIGH",    "work_type_code": "STEEL_ASSEM",   "name_ko": "고층 철골 조립",    "risk_level": 3, "source": "KOSHA GUIDE C-14-2021"},
+    {"code": "STEEL_ASSEM_CONN",    "work_type_code": "STEEL_ASSEM",   "name_ko": "접합부 조립",       "risk_level": 3, "source": "KOSHA GUIDE C-14-2021"},
+
+    {"code": "TEMP_SCAFF_TUBE",     "work_type_code": "TEMP_SCAFF",    "name_ko": "강관 비계",         "risk_level": 3, "source": "산안규칙 제59조"},
+    {"code": "TEMP_SCAFF_SYSTEM",   "work_type_code": "TEMP_SCAFF",    "name_ko": "시스템 비계",       "risk_level": 3, "source": "산안규칙 제59조"},
+    {"code": "TEMP_SCAFF_MOVE",     "work_type_code": "TEMP_SCAFF",    "name_ko": "이동식 비계",       "risk_level": 3, "source": "산안규칙 제68조"},
+    {"code": "TEMP_LADDER_FIXED",   "work_type_code": "TEMP_LADDER",   "name_ko": "고정식 사다리",     "risk_level": 3, "source": "산안규칙 제24조"},
+    {"code": "TEMP_LADDER_MOVE",    "work_type_code": "TEMP_LADDER",   "name_ko": "이동식 사다리",     "risk_level": 3, "source": "산안규칙 제24조"},
+    {"code": "TEMP_OPEN_FLOOR",     "work_type_code": "TEMP_OPEN",     "name_ko": "바닥 개구부",       "risk_level": 3, "source": "산안규칙 제42조"},
+    {"code": "TEMP_OPEN_WALL",      "work_type_code": "TEMP_OPEN",     "name_ko": "벽체 개구부",       "risk_level": 3, "source": "산안규칙 제42조"},
+
+    {"code": "ELEC_LIVE_MV",        "work_type_code": "ELEC_LIVE",     "name_ko": "중압 활선",         "risk_level": 3, "source": "산안규칙 제301조"},
+    {"code": "ELEC_LIVE_LV",        "work_type_code": "ELEC_LIVE",     "name_ko": "저압 활선",         "risk_level": 3, "source": "산안규칙 제301조"},
+    {"code": "ELEC_PANEL_MAIN",     "work_type_code": "ELEC_PANEL",    "name_ko": "주분전반 작업",     "risk_level": 3, "source": "산안규칙 제303조"},
+    {"code": "ELEC_PANEL_SUB",      "work_type_code": "ELEC_PANEL",    "name_ko": "보조 분전반 작업",  "risk_level": 3, "source": "산안규칙 제303조"},
+
+    {"code": "WELD_ARC_ENCLOSED",   "work_type_code": "WELD_ARC",      "name_ko": "밀폐공간 아크 용접","risk_level": 3, "source": "산안규칙 제619조+제241조"},
+    {"code": "WELD_ARC_ELEVATED",   "work_type_code": "WELD_ARC",      "name_ko": "고소 아크 용접",    "risk_level": 3, "source": "산안규칙 제241조"},
+    {"code": "WELD_GAS_LPG",        "work_type_code": "WELD_GAS",      "name_ko": "LPG 가스 용접",     "risk_level": 3, "source": "산안규칙 제232조"},
+    {"code": "WELD_GAS_ACT",        "work_type_code": "WELD_GAS",      "name_ko": "아세틸렌 가스 용접","risk_level": 3, "source": "산안규칙 제232조"},
+
+    {"code": "PIPE_WELD_CARBON",    "work_type_code": "PIPE_WELD",     "name_ko": "탄소강 배관 용접",  "risk_level": 3, "source": "KOSHA GUIDE D-15-2021"},
+    {"code": "PIPE_WELD_STAINLESS", "work_type_code": "PIPE_WELD",     "name_ko": "스테인리스 용접",   "risk_level": 3, "source": "KOSHA GUIDE D-15-2021"},
+    {"code": "PIPE_TEST_HYDRO",     "work_type_code": "PIPE_TEST",     "name_ko": "수압 시험",         "risk_level": 2, "source": "KOSHA GUIDE D-16-2021"},
+    {"code": "PIPE_TEST_PNEUM",     "work_type_code": "PIPE_TEST",     "name_ko": "기압 시험",         "risk_level": 3, "source": "KOSHA GUIDE D-16-2021"},
+
+    {"code": "DEMO_ASBE_CEIL",      "work_type_code": "DEMO_ASBESTOS", "name_ko": "천장재 석면 제거",  "risk_level": 3, "source": "산안법 제122조, 석면조사·제거 기준"},
+    {"code": "DEMO_ASBE_PIPE",      "work_type_code": "DEMO_ASBESTOS", "name_ko": "배관 보온 석면 제거","risk_level": 3, "source": "산안법 제122조"},
+    {"code": "DEMO_STRUCT_CRUSH",   "work_type_code": "DEMO_STRUCT",   "name_ko": "압쇄 철거",         "risk_level": 3, "source": "건축물 해체계획서 작성 기준"},
+    {"code": "DEMO_STRUCT_BLAST",   "work_type_code": "DEMO_STRUCT",   "name_ko": "발파 철거",         "risk_level": 3, "source": "화약류관리법 + 건축물 해체 기준"},
+
+    {"code": "TUNNEL_DRILL_JUMBO",  "work_type_code": "TUNNEL_DRILL",  "name_ko": "점보드릴 천공",     "risk_level": 3, "source": "KOSHA GUIDE C-17-2019"},
+    {"code": "TUNNEL_DRILL_BLAST",  "work_type_code": "TUNNEL_DRILL",  "name_ko": "발파 굴착",         "risk_level": 3, "source": "화약류관리법 + KOSHA GUIDE C-17"},
+    {"code": "TUNNEL_SHOT_WET",     "work_type_code": "TUNNEL_SHOT",   "name_ko": "습식 숏크리트",     "risk_level": 3, "source": "KOSHA GUIDE C-18-2021"},
+    {"code": "TUNNEL_SHOT_DRY",     "work_type_code": "TUNNEL_SHOT",   "name_ko": "건식 숏크리트",     "risk_level": 3, "source": "KOSHA GUIDE C-18-2021"},
+
+    {"code": "WATER_MANHOLE_SEWER", "work_type_code": "WATER_MANHOLE", "name_ko": "하수 맨홀 작업",    "risk_level": 3, "source": "산안규칙 제619조(밀폐공간)"},
+    {"code": "WATER_MANHOLE_STORM", "work_type_code": "WATER_MANHOLE", "name_ko": "우수 맨홀 작업",    "risk_level": 3, "source": "산안규칙 제619조"},
+
+    {"code": "MECH_CRANE_TOWER",    "work_type_code": "MECH_CRANE",    "name_ko": "타워크레인 설치",   "risk_level": 3, "source": "산안규칙 제140~149조"},
+    {"code": "MECH_CRANE_MOBILE",   "work_type_code": "MECH_CRANE",    "name_ko": "이동식 크레인",     "risk_level": 3, "source": "산안규칙 제140~149조"},
+    {"code": "MECH_FORKLIFT_MOVE",  "work_type_code": "MECH_FORKLIFT", "name_ko": "지게차 화물 이동",  "risk_level": 3, "source": "산안규칙 제177조"},
+    {"code": "MECH_FORKLIFT_LOAD",  "work_type_code": "MECH_FORKLIFT", "name_ko": "지게차 적재 작업",  "risk_level": 3, "source": "산안규칙 제177조"},
+
+    {"code": "PAINT_SPRAY_ORGAN",   "work_type_code": "PAINT_SPRAY",   "name_ko": "유기용제 뿜칠",     "risk_level": 3, "source": "산안규칙 제616조(유기화합물)"},
+    {"code": "PAINT_SPRAY_INORG",   "work_type_code": "PAINT_SPRAY",   "name_ko": "무기도료 뿜칠",     "risk_level": 2, "source": "산안규칙 제616조"},
+    {"code": "PAINT_ANTICORR_EPXY", "work_type_code": "PAINT_ANTICORR","name_ko": "에폭시 방식도장",   "risk_level": 3, "source": "산안규칙 제616조"},
+
+    {"code": "WIN_GLASS_CURTWALL",  "work_type_code": "WIN_CURTWALL",  "name_ko": "고층 커튼월 유리",  "risk_level": 3, "source": "KOSHA GUIDE C-08-2022"},
+    {"code": "WIN_GLASS_LARGE",     "work_type_code": "WIN_GLASS",     "name_ko": "대형 유리 시공",    "risk_level": 3, "source": "KOSHA GUIDE C-08-2022"},
+
+    {"code": "BRDG_GIRDER_CRANE",   "work_type_code": "BRDG_GIRDER",   "name_ko": "거더 크레인 인양",  "risk_level": 3, "source": "KOSHA GUIDE C-19-2022"},
+    {"code": "BRDG_GIRDER_LAUNCH",  "work_type_code": "BRDG_GIRDER",   "name_ko": "압출 공법 거더",    "risk_level": 3, "source": "KOSHA GUIDE C-19-2022"},
+    {"code": "BRDG_DECK_CAST",      "work_type_code": "BRDG_DECK",     "name_ko": "상판 현장 타설",    "risk_level": 3, "source": "KOSHA GUIDE C-19-2022"},
+
+    {"code": "LIFT_RIGGING_MULTI",  "work_type_code": "LIFT_RIGGING",  "name_ko": "다중 훅 리깅",      "risk_level": 3, "source": "산안규칙 제153조"},
+    {"code": "LIFT_RIGGING_SPECIAL","work_type_code": "LIFT_RIGGING",  "name_ko": "이형 중량물 리깅",  "risk_level": 3, "source": "산안규칙 제153조"},
+    {"code": "LIFT_TRANSPORT_ROAD", "work_type_code": "LIFT_TRANSPORT","name_ko": "차도 중량물 이동",  "risk_level": 3, "source": "도로교통법 + 산안규칙"},
+
+    {"code": "PSTRS_TENSION_MONO",  "work_type_code": "PSTRS_TENSION", "name_ko": "모노스트랜드 긴장", "risk_level": 3, "source": "KOSHA GUIDE C-20-2021"},
+    {"code": "PSTRS_TENSION_MULTI", "work_type_code": "PSTRS_TENSION", "name_ko": "멀티스트랜드 긴장","risk_level": 3, "source": "KOSHA GUIDE C-20-2021"},
+    {"code": "PSTRS_ERECT_GIRDER",  "work_type_code": "PSTRS_ERECT",   "name_ko": "PC 거더 건립",      "risk_level": 3, "source": "KOSHA GUIDE C-19-2022"},
+
+    {"code": "ENV_ASBESTOS_BAG",    "work_type_code": "ENV_ASBESTOS",  "name_ko": "석면 포대 폐기물 처리","risk_level": 3, "source": "산안법 제122조 + 폐기물관리법"},
+    {"code": "ENV_ASBESTOS_CONT",   "work_type_code": "ENV_ASBESTOS",  "name_ko": "석면 밀폐 구역 작업","risk_level": 3, "source": "산안규칙 제488~496조"},
+
+    {"code": "DEMO_CONCRETE_HYDRO", "work_type_code": "DEMO_CONCRETE", "name_ko": "워터젯 파쇄",       "risk_level": 3, "source": "건축물 해체 기준"},
+    {"code": "DEMO_CONCRETE_DRILL", "work_type_code": "DEMO_CONCRETE", "name_ko": "다이아몬드 코어 천공","risk_level": 2, "source": "건축물 해체 기준"}
+  ]
+}

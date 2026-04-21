@@ -1,0 +1,163 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "source": "engine/rag_risk_engine/hazard_classifier.py 분류체계 + sample_chunks.json 확인",
+    "created": "2026-04-20",
+    "note": "hazard_classifier.py의 13개 규칙과 sample_chunks의 화학 유형을 기반으로 구성"
+  },
+  "hazards": [
+    {
+      "code": "FALL",
+      "name_ko": "추락",
+      "name_en": "Fall from height",
+      "severity_class": "high",
+      "description": "높은 곳에서 사람이 떨어지는 위험. 2m 이상 고소작업 시 주요 위험요인.",
+      "classifier_keywords": ["추락", "떨어짐", "떨어지", "고소 추락", "비계 추락", "개구부 추락"],
+      "source": "hazard_classifier.py FALL 규칙 + 산업안전보건기준에 관한 규칙 제4절(추락 방지)"
+    },
+    {
+      "code": "DROP",
+      "name_ko": "낙하",
+      "name_en": "Falling objects",
+      "severity_class": "high",
+      "description": "상부 작업 중 물체가 하부 작업자에게 떨어지는 위험.",
+      "classifier_keywords": ["낙하물", "물체 낙하", "낙하 위험", "중량물 낙하", "자재 낙하"],
+      "source": "hazard_classifier.py DROP 규칙 + 산업안전보건기준에 관한 규칙 제14절(낙하물)"
+    },
+    {
+      "code": "ELEC",
+      "name_ko": "감전",
+      "name_en": "Electrocution",
+      "severity_class": "high",
+      "description": "전기 설비 또는 배선 접촉으로 인한 전기 충격 위험.",
+      "classifier_keywords": ["감전", "활선", "활선작업", "LOTO", "누전", "아크", "절연 파괴"],
+      "source": "hazard_classifier.py ELEC 규칙 + 산업안전보건기준에 관한 규칙 제3장 제4절(전기)"
+    },
+    {
+      "code": "ASPHYX",
+      "name_ko": "질식",
+      "name_en": "Asphyxiation",
+      "severity_class": "high",
+      "description": "밀폐공간 내 산소 결핍 또는 유해가스 흡입으로 인한 질식 위험.",
+      "classifier_keywords": ["질식", "산소결핍", "산소 결핍", "산소농도", "황화수소", "H2S", "밀폐공간 작업", "유해가스 농도"],
+      "source": "hazard_classifier.py ASPHYX 규칙 + 산업안전보건기준에 관한 규칙 제619~623조"
+    },
+    {
+      "code": "FIRE",
+      "name_ko": "화재",
+      "name_en": "Fire",
+      "severity_class": "high",
+      "description": "가연성 물질 또는 화기 작업 중 화재 발생 위험.",
+      "classifier_keywords": ["화재", "화재 발생", "인화성", "불꽃 비산", "불티", "점화원", "가연물", "화기 사용"],
+      "source": "hazard_classifier.py FIRE 규칙 + 산업안전보건기준에 관한 규칙 제241~243조"
+    },
+    {
+      "code": "EXPLO",
+      "name_ko": "폭발",
+      "name_en": "Explosion",
+      "severity_class": "high",
+      "description": "가연성 가스 누출 또는 압력 용기 파열로 인한 폭발 위험.",
+      "classifier_keywords": ["폭발", "가스 누출", "가스누출", "LPG 누출", "가연성 가스", "압력 파열", "화약"],
+      "source": "hazard_classifier.py EXPLO 규칙 + 산업안전보건기준에 관한 규칙 제232~235조"
+    },
+    {
+      "code": "COLLIDE",
+      "name_ko": "충돌",
+      "name_en": "Collision",
+      "severity_class": "high",
+      "description": "차량·장비와 사람 또는 물체 간 충돌 위험.",
+      "classifier_keywords": ["충돌", "부딪힘", "충격", "충돌 위험"],
+      "source": "hazard_classifier.py COLLIDE 규칙 + 산업안전보건기준에 관한 규칙 제13절(차량계 건설기계)"
+    },
+    {
+      "code": "COLLAPSE",
+      "name_ko": "붕괴",
+      "name_en": "Collapse",
+      "severity_class": "high",
+      "description": "굴착 사면, 거푸집, 흙막이, 구조물 등의 붕괴 위험.",
+      "classifier_keywords": ["붕괴", "전도", "도괴", "지반 붕괴", "흙막이 붕괴", "동바리 붕괴", "구조물 붕괴"],
+      "source": "hazard_classifier.py COLLAPSE 규칙 + 산업안전보건기준에 관한 규칙 제338~342조"
+    },
+    {
+      "code": "ENTRAP",
+      "name_ko": "협착",
+      "name_en": "Entrapment",
+      "severity_class": "high",
+      "description": "기계 회전체나 가동부에 신체가 끼이거나 압착되는 위험.",
+      "classifier_keywords": ["협착", "끼임", "압착", "말림", "회전체 협착"],
+      "source": "hazard_classifier.py ENTRAP 규칙 + 산업안전보건기준에 관한 규칙 제2절(기계·기구)"
+    },
+    {
+      "code": "CUT",
+      "name_ko": "절단",
+      "name_en": "Laceration/Cut",
+      "severity_class": "medium",
+      "description": "날카로운 날이나 회전 절삭 공구에 의한 절단·베임 위험.",
+      "classifier_keywords": ["절단 위험", "베임", "회전날", "절삭 위험", "날에 접촉"],
+      "source": "hazard_classifier.py CUT 규칙"
+    },
+    {
+      "code": "POISON",
+      "name_ko": "중독",
+      "name_en": "Poisoning",
+      "severity_class": "high",
+      "description": "화학물질 흡입·피부 접촉 등에 의한 중독 위험.",
+      "classifier_keywords": ["중독", "화학물질 중독", "가스 중독", "흡입 중독", "피부 노출", "MSDS"],
+      "source": "hazard_classifier.py POISON 규칙 + 산업안전보건법 제114조(MSDS)"
+    },
+    {
+      "code": "DUST",
+      "name_ko": "분진",
+      "name_en": "Dust exposure",
+      "severity_class": "medium",
+      "description": "용접흄, 석면, 실리카 등 유해 분진 흡입 위험.",
+      "classifier_keywords": ["분진", "용접흄", "용접 흄", "석면", "실리카", "미세먼지"],
+      "source": "hazard_classifier.py DUST 규칙 + 산업안전보건기준에 관한 규칙 제9장(분진)"
+    },
+    {
+      "code": "NOISE",
+      "name_ko": "소음",
+      "name_en": "Noise",
+      "severity_class": "medium",
+      "description": "85dB 이상 소음 작업 환경에서 청력 손실 위험.",
+      "classifier_keywords": ["소음 노출", "청력 손실", "소음성 난청"],
+      "source": "hazard_classifier.py NOISE 규칙 + 산업안전보건기준에 관한 규칙 제513조(소음)"
+    },
+    {
+      "code": "CHEM",
+      "name_ko": "화학물질",
+      "name_en": "Chemical exposure",
+      "severity_class": "high",
+      "description": "화학물질 누출·취급 중 피부·호흡기 노출 위험. (sample_chunks.json id=33 확인)",
+      "classifier_keywords": ["화학물질", "MSDS", "누출", "호흡기 노출", "내화학성"],
+      "source": "sample_chunks.json id=33 (화학물질 취급) + 산업안전보건법 제114조"
+    },
+    {
+      "code": "TRIP",
+      "name_ko": "전도",
+      "name_en": "Slip/Trip/Fall (same level)",
+      "severity_class": "medium",
+      "description": "바닥 결함, 젖은 표면, 장애물 등으로 인해 같은 높이에서 넘어지는 위험.",
+      "classifier_keywords": ["전도", "넘어짐", "미끄러짐", "걸림", "바닥 결함", "젖은 바닥"],
+      "source": "산업안전보건기준에 관한 규칙 제3조(작업장 바닥) + 산업재해분류 코드 031(전도)"
+    },
+    {
+      "code": "BURN",
+      "name_ko": "화상",
+      "name_en": "Burns",
+      "severity_class": "high",
+      "description": "고온 표면, 용접 불꽃, 뜨거운 증기·액체, 화학물질 접촉으로 인한 화상.",
+      "classifier_keywords": ["화상", "열상", "뜨거운", "고온 접촉", "증기 화상", "화학 화상"],
+      "source": "산업안전보건기준에 관한 규칙 제232조(화기취급) + 산업재해분류 코드 042(화상)"
+    },
+    {
+      "code": "FLYBY",
+      "name_ko": "비래",
+      "name_en": "Flying objects",
+      "severity_class": "medium",
+      "description": "연삭·절단·분쇄 작업 중 파편, 칩 등이 비산하여 신체에 충돌하는 위험.",
+      "classifier_keywords": ["비래", "파편 비산", "칩 비산", "연삭 파편", "분쇄 비산", "비산 파편"],
+      "source": "산업재해분류 코드 022(비래) + 산업안전보건기준에 관한 규칙 제2절(기계류)"
+    }
+  ]
+}
