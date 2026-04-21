@@ -6,10 +6,13 @@
   data/raw/law_content/admrul/YYYY-MM-DD/admrul_content.jsonl   (unified schema)
   data/raw/law_content/admrul/YYYY-MM-DD/admrul_content_meta.json
 
-HTML 파싱: BeautifulSoup (html.parser). 없으면 raw HTML 저장 + has_text=False.
+XML 파싱: DRF type=XML → <AdmRulService><조문내용> CDATA 합산.
+HTML 응답은 JS/iframe 기반으로 텍스트 추출 불가 — XML 전용 사용.
 """
 import json
+import re
 import time
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from ._base import (
@@ -24,27 +27,40 @@ INDEX_PATH    = ROOT / "data/risk_db/law_raw/admin_rules_index.json"
 OUT_DIR       = ROOT / "data/raw/law_content/admrul"
 REQUEST_DELAY = 1.5
 
-try:
-    from bs4 import BeautifulSoup
-    _BS4_OK = True
-except ImportError:
-    _BS4_OK = False
-    log.warning("beautifulsoup4 미설치 — HTML 텍스트 추출 불가. has_text=False 저장.")
 
+def _parse_admrul_xml(xml_text: str) -> tuple[dict, str]:
+    """
+    행정규칙 XML → (기본정보 dict, 조문 전문 텍스트).
+    <AdmRulService> → <행정규칙기본정보> + <조문내용> CDATA 목록.
+    """
+    root = ET.fromstring(xml_text)
+    info_el = root.find("행정규칙기본정보")
 
-def _html_to_text(html: str) -> str:
-    """HTML → 텍스트. bs4 없으면 빈 문자열."""
-    if not _BS4_OK:
-        return ""
-    soup = BeautifulSoup(html, "html.parser")
-    # 불필요 태그 제거
-    for tag in soup(["script", "style", "nav", "header", "footer"]):
-        tag.decompose()
-    text = soup.get_text(separator=" ", strip=True)
-    # 연속 공백 정리
-    import re
-    text = re.sub(r"\s{2,}", " ", text)
-    return text.strip()
+    def _t(tag: str) -> str:
+        el = info_el.find(tag) if info_el is not None else None
+        return (el.text or "").strip() if el is not None else ""
+
+    meta = {
+        "rule_id":          _t("행정규칙일련번호"),
+        "law_id":           _t("행정규칙ID"),
+        "title":            _t("행정규칙명"),
+        "law_type":         _t("행정규칙종류"),
+        "ministry":         _t("소관부처명"),
+        "enforcement_date": _t("시행일자"),
+        "promulgation_date": _t("발령일자"),
+        "revision_type":    _t("제개정구분명"),
+    }
+
+    # 조문내용 CDATA 전체 합산
+    parts = []
+    for el in root.findall("조문내용"):
+        text = (el.text or "").strip()
+        if text:
+            parts.append(text)
+
+    full_text = "\n".join(parts)
+    full_text = re.sub(r"\n{3,}", "\n\n", full_text).strip()
+    return meta, full_text
 
 
 def _fmt_date(raw: str) -> str | None:
@@ -54,15 +70,21 @@ def _fmt_date(raw: str) -> str | None:
     return raw or None
 
 
-def _make_record(item: dict, content_text: str, source_url: str) -> dict:
-    rule_id   = item.get("행정규칙일련번호", "")
-    title     = item.get("행정규칙명", "")
-    pub_date  = item.get("발령일자", "")
-    enf_date  = item.get("시행일자", "")
-    ministry  = item.get("소관부처명", "")
+def _make_record(item: dict, xml_meta: dict, content_text: str, source_url: str) -> dict:
+    rule_id  = item.get("행정규칙일련번호", "")
+    title    = item.get("행정규칙명", "")
+    pub_date = item.get("발령일자", "")
+    enf_date = item.get("시행일자", "")
+    ministry = item.get("소관부처명", "")
     rule_type = item.get("행정규칙종류", "")
     rev_type  = item.get("제개정구분명", "")
     admrul_id = item.get("행정규칙ID", "")
+
+    # XML에서 얻은 값이 있으면 우선 사용
+    if xml_meta.get("title"):
+        title = xml_meta["title"]
+    if xml_meta.get("ministry"):
+        ministry = xml_meta["ministry"]
 
     return {
         "doc_id":           f"admrul_{rule_id}",
@@ -89,7 +111,7 @@ def _make_record(item: dict, content_text: str, source_url: str) -> dict:
 
 def run() -> bool:
     oc_key = get_oc_key()
-    log.info("=== 행정규칙 본문 수집 시작 (target=admrul) ===")
+    log.info("=== 행정규칙 본문 수집 시작 (target=admrul, type=XML) ===")
 
     if not INDEX_PATH.exists():
         log.error(f"인덱스 파일 없음: {INDEX_PATH}")
@@ -135,7 +157,7 @@ def run() -> bool:
                 continue
 
             log.info(f"  [{name[:45]}] ID={rule_id}")
-            result = drf_service_get("admrul", rule_id, oc_key, "HTML")
+            result = drf_service_get("admrul", rule_id, oc_key, "XML")
 
             if not result["ok"]:
                 log.warning(f"  FAIL {name[:40]}: {result['error']}")
@@ -143,17 +165,24 @@ def run() -> bool:
                 fail_list.append({"id": rule_id, "name": name, "error": result["error"]})
                 continue
 
-            content_text = _html_to_text(result["text"])
-            rec = _make_record(item, content_text, result["url"])
+            try:
+                xml_meta, content_text = _parse_admrul_xml(result["text"])
+            except ET.ParseError as e:
+                log.warning(f"  XML 파싱 오류 {name[:40]}: {e}")
+                stats["fail"] += 1
+                fail_list.append({"id": rule_id, "name": name, "error": f"xml_parse: {e}"})
+                continue
+
+            rec = _make_record(item, xml_meta, content_text, result["url"])
             out_f.write(json.dumps(rec, ensure_ascii=False) + "\n")
 
             if rec["has_text"]:
                 stats["has_text"] += 1
+                log.info(f"  OK {name[:40]}: {len(content_text)}자")
             else:
                 stats["no_text"] += 1
-                log.warning(f"  has_text=False (bs4 미설치 또는 빈 응답): {name[:40]}")
+                log.warning(f"  has_text=False (조문내용 없음): {name[:40]}")
 
-            log.info(f"  OK {name[:40]}: {len(content_text)}자")
             stats["success"] += 1
             time.sleep(REQUEST_DELAY)
 

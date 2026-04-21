@@ -101,8 +101,8 @@ def _parse_law_xml(xml_text: str, mst: str) -> tuple[dict, list[dict]]:
     return meta, articles
 
 
-def _make_record(meta: dict, article: dict, mst: str, source_url: str) -> dict:
-    """통합 스키마 기준 단일 조문 레코드 생성."""
+def _make_record(meta: dict, article: dict, mst: str, source_url: str, seq: int) -> dict:
+    """통합 스키마 기준 단일 조문 레코드 생성. seq: 법령 내 0-based 순번."""
     art_no  = article["article_no"]
     art_title = article["article_title"]
     content = article["content_raw"]
@@ -114,7 +114,7 @@ def _make_record(meta: dict, article: dict, mst: str, source_url: str) -> dict:
         title_parts.append(f"({art_title})")
 
     return {
-        "doc_id":           f"law_{mst}_art{art_no}",
+        "doc_id":           f"law_{mst}_{seq:04d}",
         "source_type":      "law",
         "source_org":       "moleg",
         "title":            " ".join(title_parts),
@@ -186,7 +186,7 @@ def run() -> bool:
             name = item.get("법령명한글", item.get("법령명_한글", "?"))
 
             # 이미 수집된 법령이면 건너뜀 (첫 조문 doc_id 기준)
-            if f"law_{mst}_art1" in done_ids:
+            if f"law_{mst}_0000" in done_ids:
                 log.info(f"  [SKIP] {name} (MST={mst})")
                 stats["success"] += 1
                 continue
@@ -208,8 +208,8 @@ def run() -> bool:
                 fail_list.append({"mst": mst, "name": name, "error": f"xml_parse: {e}"})
                 continue
 
-            for article in articles:
-                rec = _make_record(meta, article, mst, result["url"])
+            for seq, article in enumerate(articles):
+                rec = _make_record(meta, article, mst, result["url"], seq)
                 out_f.write(json.dumps(rec, ensure_ascii=False) + "\n")
                 stats["articles_total"] += 1
                 if rec["has_text"]:
