@@ -105,24 +105,22 @@ def gw_request(
     page_no: int = 1,
     service_key: str = "",
 ) -> dict:
-    """공공데이터포털 GW API 호출 → XML 파싱 결과 반환."""
+    """공공데이터포털 GW API 호출 → XML 파싱 결과 반환.
+
+    serviceKey는 data.go.kr 정책상 URL에 직접 삽입해야 함 (params= 방식은 재인코딩으로 502 발생).
+    """
+    from urllib.parse import quote
     retry_count = int(get_env("LAW_API_RETRY_COUNT") or 3)
     timeout     = int(get_env("LAW_API_TIMEOUT")     or 20)
+
+    # serviceKey를 URL에 직접 삽입, 나머지 파라미터는 requests params=
+    query_enc = quote(query, safe="")
+    url = f"{endpoint}?serviceKey={service_key}&target={target}&query={query_enc}&numOfRows={num_of_rows}&pageNo={page_no}"
 
     last_err = ""
     for attempt in range(1, retry_count + 1):
         try:
-            r = _requests.get(
-                endpoint,
-                params={
-                    "serviceKey": service_key,
-                    "target":     target,
-                    "query":      query,
-                    "numOfRows":  num_of_rows,
-                    "pageNo":     page_no,
-                },
-                timeout=timeout,
-            )
+            r = _requests.get(url, timeout=timeout)
             r.raise_for_status()
             return _parse_gw_xml(r.text, target)
         except Exception as e:

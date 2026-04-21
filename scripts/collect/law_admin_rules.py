@@ -17,32 +17,44 @@ from ._base import (
 
 log = get_logger("law_admin_rules")
 
-ENDPOINT = "http://apis.data.go.kr/1170000/law/admrulSearchList.do"
+ENDPOINT = "https://apis.data.go.kr/1170000/law/admrulSearchList.do"
 TARGET   = "admrul"
 OUT_PATH = ROOT / "data/risk_db/law_raw/admin_rules_index.json"
 
 # ── 수집 쿼리 ─────────────────────────────────────────────────────────────────
-# 기본 고시 + 4대 worktype(ELEC_LIVE/WATER_MANHOLE/TEMP_SCAFF/LIFT_RIGGING) 보강
 QUERIES = [
-    # 기본 위험성평가 고시
+    # 위험성평가 기본
     "건설업 산업안전보건관리비 계상 및 사용기준",
     "사업장 위험성평가에 관한 지침",
-    # WATER_MANHOLE / ASPHYX 보강
+    # 밀폐공간 / 산소결핍
     "밀폐공간 작업",
     "산소결핍",
-    # ELEC_LIVE 보강
+    # 전기
     "전기설비기술기준",
     "활선작업",
-    # TEMP_SCAFF / FALL 보강
+    # 가설·추락
     "비계 안전",
     "추락재해 예방",
-    # LIFT_RIGGING / DROP 보강
+    # 양중·리깅
     "크레인 안전",
     "달기기구",
-    # 개인보호구 (PPE 공통)
+    # 개인보호구
     "개인보호구",
-    # 화학물질 (CHEM/POISON)
+    # 화학물질 (P3: 화학물질 허용기준 고시)
     "물질안전보건자료",
+    "화학물질의 허용기준",
+    "작업환경측정",
+    "특수건강진단",
+    # 기계기구 안전인증 (P3: 크레인·리프트·방호장치)
+    "안전인증",
+    "위험기계기구",
+    "방호장치",
+    # 소방 관련 고시 (화재안전 축)
+    "소방시설",
+    "위험물 저장",
+    # 건설·중대재해
+    "중대재해",
+    "건설현장 안전",
 ]
 
 
