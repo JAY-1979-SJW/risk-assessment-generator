@@ -3,12 +3,17 @@ import json
 import logging
 import os
 import time as _time
+import warnings
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
 
 import requests as _requests
+import urllib3
 from dotenv import load_dotenv
+
+# law.go.kr SSL 인증서 검증 우회 — 정부 사이트 읽기 전용 수집용
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 ROOT = Path(__file__).parent.parent.parent
 _SCRIPTS_DIR = Path(__file__).parent.parent
@@ -215,9 +220,10 @@ _DRF_ERROR_MAP = {
 
 # DRF target → 검색 엔드포인트, JSON 응답 루트 키, 항목 키
 _DRF_TARGET_META: dict[str, tuple[str, str, str]] = {
-    "law":    ("lawSearch.do",    "LawSearch",    "law"),
-    "admrul": ("admrulSearch.do", "LawSearch",    "admrul"),
-    "expc":   ("expcSearch.do",   "LawSearch",    "expc"),
+    "law":         ("lawSearch.do",    "LawSearch", "law"),
+    "admrul":      ("admrulSearch.do", "LawSearch", "admrul"),
+    "expc":        ("expcSearch.do",   "LawSearch", "expc"),
+    "moelCgmExpc": ("lawSearch.do",   "CgmExpc",   "cgmExpc"),
 }
 
 
@@ -340,3 +346,53 @@ def drf_collect_all(
         "total_count": last.get("total_count", len(all_items)),
         "items":       all_items,
     }
+
+
+# ─── law.go.kr DRF 본문 수집 ──────────────────────────────────────────────────
+
+def drf_service_get(
+    target: str,
+    doc_id: str,
+    oc_key: str,
+    content_type: str = "XML",
+) -> dict:
+    """
+    law.go.kr/DRF/lawService.do 호출 → 본문 raw text 반환.
+
+    target      : "law" | "admrul" | "expc"
+    doc_id      : 법령일련번호(MST) 또는 행정규칙/해석례 일련번호
+    oc_key      : LAW_GO_KR_OC 키
+    content_type: "XML" (법령) | "HTML" (행정규칙·해석례)
+
+    반환:
+      {"ok": True,  "text": "...", "url": "..."}
+      {"ok": False, "error": "...", "url": "..."}
+    dry-run (oc_key 없음):
+      {"ok": False, "error": "dry_run", "url": ""}
+    """
+    if not oc_key:
+        return {"ok": False, "error": "dry_run", "url": ""}
+
+    param_key = "MST" if target == "law" else "ID"
+    url = f"{DRF_BASE_URL}/lawService.do"
+    params = {"OC": oc_key, "target": target, param_key: doc_id,
+              "type": content_type, "mobileYn": ""}
+
+    retry_count = int(get_env("LAW_API_RETRY_COUNT") or 3)
+    timeout     = int(get_env("LAW_API_TIMEOUT")     or 30)
+    full_url    = f"{url}?OC={oc_key}&target={target}&{param_key}={doc_id}&type={content_type}"
+
+    last_err = ""
+    for attempt in range(1, retry_count + 1):
+        try:
+            r = _requests.get(url, params=params, timeout=timeout, verify=False)
+            r.raise_for_status()
+            if not r.text or len(r.text) < 50:
+                return {"ok": False, "error": "empty_response", "url": full_url}
+            return {"ok": True, "text": r.text, "url": full_url}
+        except Exception as e:
+            last_err = str(e)
+            if attempt < retry_count:
+                _time.sleep(2.0 * attempt)
+
+    return {"ok": False, "error": last_err, "url": full_url}
