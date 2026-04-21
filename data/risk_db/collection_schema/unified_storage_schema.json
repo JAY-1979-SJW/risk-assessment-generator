@@ -1,0 +1,189 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "created": "2026-04-22",
+    "description": "KOSHA + 법제처 OpenAPI + 보강소스를 동일 구조로 저장하는 통합 스키마. source_type 기준으로 분기.",
+    "step": 21
+  },
+
+  "common_fields": {
+    "doc_id": {
+      "type": "string",
+      "desc": "고유 식별자 (source_type + '_' + raw_id, e.g. law_276853_art1)",
+      "required": true
+    },
+    "source_type": {
+      "type": "enum",
+      "values": ["law", "admrul", "expc", "licbyl", "kosha", "moel_expc", "guideline", "incident"],
+      "desc": "데이터 출처 유형",
+      "required": true
+    },
+    "source_org": {
+      "type": "enum",
+      "values": ["moleg", "moel", "molit", "kosha", "nsi", "other"],
+      "desc": "발행 기관 코드 (moleg=법제처, moel=고용노동부, molit=국토교통부, kosha=안전보건공단)",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "desc": "제목 (법령명, 안건명, 자료명 등)",
+      "required": true
+    },
+    "content_raw": {
+      "type": "string | null",
+      "desc": "원문 텍스트 (HTML 파싱 결과 또는 PDF 추출 결과). 없으면 null.",
+      "required": false
+    },
+    "has_text": {
+      "type": "boolean",
+      "desc": "content_raw 유무. false = analysis 제외 대상 또는 needs_review 큐",
+      "required": true
+    },
+    "attachment_url": {
+      "type": "string | null",
+      "desc": "첨부파일 다운로드 URL (PDF/HWP/ZIP). 없으면 null.",
+      "required": false
+    },
+    "source_url": {
+      "type": "string",
+      "desc": "원본 페이지 또는 API 상세링크",
+      "required": true
+    },
+    "published_at": {
+      "type": "string | null",
+      "format": "YYYY-MM-DD",
+      "desc": "공포일자 또는 게시일",
+      "required": false
+    },
+    "collected_at": {
+      "type": "string",
+      "format": "ISO8601",
+      "desc": "수집 시각",
+      "required": true
+    }
+  },
+
+  "extended_fields": {
+    "law_admrul_expc": {
+      "desc": "법령·행정규칙·해석례 전용 추가 필드",
+      "fields": {
+        "law_id": "법령ID (법제처 내부 ID, e.g. 001766)",
+        "raw_id": "일련번호 (법령일련번호 / 행정규칙일련번호 / 해석례일련번호)",
+        "article_no": "조문번호 (e.g. 제38조)",
+        "paragraph_no": "항번호 (e.g. 제1항, null 가능)",
+        "law_type": "법률 / 시행령 / 시행규칙 / 고시 / 공고 / 예규",
+        "ministry": "소관부처명",
+        "enforcement_date": "시행일자 (YYYY-MM-DD)",
+        "revision_type": "제개정구분명 (일부개정 / 전부개정 / 제정 등)"
+      }
+    },
+    "kosha_guideline": {
+      "desc": "KOSHA 자료 전용 추가 필드",
+      "fields": {
+        "guide_code": "KOSHA 내부 자료코드 (e.g. KOSHA-G-CONST-001)",
+        "category": "분야 (건설안전 / 기계안전 / 화학안전 등)",
+        "document_type": "자료유형 (text_pdf / hwp / zip / image_pdf)",
+        "list_type": "목록유형 (OPS / 기타)",
+        "industry": "업종 (건설업 / 제조업 / 조선업 등)",
+        "doc_no": "관리번호 (있는 경우)"
+      }
+    },
+    "incident": {
+      "desc": "중대재해·사고사례 전용 추가 필드",
+      "fields": {
+        "incident_type": "재해유형 (추락 / 협착 / 감전 / 질식 등)",
+        "work_type": "작업유형",
+        "casualties": "인명피해 (사망/부상 등)",
+        "cause_summary": "원인 요약"
+      }
+    }
+  },
+
+  "source_type_collection_map": {
+    "law": {
+      "source": "law.go.kr DRF API (lawService.do?target=law)",
+      "index_status": "완료 (32건 목록)",
+      "content_status": "미수집 — DRF XML 수집 가능 (verify=False 필요)",
+      "content_format": "XML → 조문단위 분해 가능 (산안법 208개 조문단위)",
+      "access": "API (OC 키 필요, 로컬 SSL 우회 필요)"
+    },
+    "admrul": {
+      "source": "law.go.kr DRF API (lawService.do?target=admrul)",
+      "index_status": "완료 (34건 목록, 고시/공고)",
+      "content_status": "미수집 — DRF HTML 수집 가능",
+      "content_format": "HTML 파싱",
+      "access": "API (OC 키 필요)"
+    },
+    "expc": {
+      "source": "law.go.kr DRF API (lawService.do?target=expc)",
+      "index_status": "완료 (129건 목록)",
+      "content_status": "미수집 — DRF HTML 수집 가능",
+      "content_format": "HTML 파싱",
+      "access": "API (OC 키 필요)"
+    },
+    "licbyl": {
+      "source": "law.go.kr LSW (별표/서식 파일 다운로드)",
+      "index_status": "완료 (17건 목록)",
+      "content_status": "미수집 — HWP/PDF 파싱 필요",
+      "content_format": "HWP / PDF",
+      "access": "파일 다운로드 (별도 파서 필요)"
+    },
+    "kosha": {
+      "source": "portal.kosha.or.kr (Playwright 브라우저 자동화)",
+      "index_status": "dry_run (5건 샘플만)",
+      "content_status": "미수집 — 서버 파이프라인 존재 (kosha_pipeline.py, PostgreSQL)",
+      "content_format": "PDF / HWP / ZIP",
+      "access": "로그인 필요 (KOSHA_ID/KOSHA_PW 환경변수)"
+    },
+    "moel_expc": {
+      "source": "law.go.kr DRF API (target=moelCgmExpc)",
+      "index_status": "완료 (9,573건 SQLite DB)",
+      "content_status": "미수집 — detail_url 기반 본문 수집 가능",
+      "content_format": "HTML",
+      "access": "API (OC 키 필요)"
+    }
+  },
+
+  "has_text_branching": {
+    "true": {
+      "action": "analysis 대상 — RAG 엔진 chunk 생성 → 임베딩 → 검색",
+      "next_step": "normalize → chunk → embed → index"
+    },
+    "false": {
+      "action": "needs_review 큐 또는 제외",
+      "sub_cases": {
+        "attachment_url_exists": "첨부파일 다운로드 → 텍스트 추출 재시도",
+        "image_pdf": "제외 (텍스트 없음 — 포스터류)",
+        "no_attachment": "제외 또는 수동 입력 대기"
+      }
+    }
+  },
+
+  "collection_priority": {
+    "1_urgent": {
+      "target": "law (본문)",
+      "reason": "핵심 법령 32건 — 조문 분해 가능, RAG 품질 직결",
+      "method": "DRF lawService.do XML (verify=False)"
+    },
+    "2_high": {
+      "target": "admrul (본문)",
+      "reason": "고시/행정규칙 34건 — 위험성평가 지침, 안전기준 포함",
+      "method": "DRF lawService.do HTML"
+    },
+    "3_medium": {
+      "target": "moel_expc (본문)",
+      "reason": "9,573건 — 실무 해석례, 현장 적용 사례 풍부",
+      "method": "DRF lawService.do HTML (배치 처리 필요, 속도 제한 고려)"
+    },
+    "4_medium": {
+      "target": "expc (본문)",
+      "reason": "법제처 해석례 129건 — 법령 해석 근거",
+      "method": "DRF lawService.do HTML"
+    },
+    "5_low": {
+      "target": "kosha (본문)",
+      "reason": "서버 파이프라인 필요 — 로컬 수집 불가, 별도 계획 필요",
+      "method": "kosha_pipeline.py (서버 PostgreSQL)"
+    }
+  }
+}
