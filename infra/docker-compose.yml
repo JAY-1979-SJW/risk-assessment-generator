@@ -68,6 +68,42 @@ services:
     networks:
       - risk-assessment-net
 
+  collector:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    image: infra-api
+    container_name: risk-assessment-collector
+    restart: unless-stopped
+    command:
+      - python3
+      - /app/scripts/ops/run_background_collection.py
+      - --loop
+      - --limit
+      - "30"
+      - --sleep-seconds
+      - "20"
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@risk-assessment-db:5432/${POSTGRES_DB}
+      COMMON_DATA_URL: ${COMMON_DATA_URL}
+      KOSHA_ID: ${KOSHA_ID:-}
+      KOSHA_PW: ${KOSHA_PW:-}
+      OPS_LOG_PATH: /app/logs/background_collection.log
+      OPS_PID_PATH: /app/logs/background_collection.pid
+      OPS_QUEUE_DIR: /app/data/ops
+      DATA_DIR: /app/data
+    volumes:
+      - ../app:/app/app:ro
+      - ../scripts:/app/scripts:ro
+      - /home/ubuntu/apps/risk-assessment-app/logs:/app/logs
+      - /home/ubuntu/apps/risk-assessment-app/data:/app/data
+      - ../data/risk_db/mapping:/app/data/risk_db/mapping:ro
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - risk-assessment-net
+
 volumes:
   risk_assessment_pgdata:
     name: risk-assessment-pgdata
