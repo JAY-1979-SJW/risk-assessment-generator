@@ -58,3 +58,14 @@ mcp_server.py
 
 # Claude Code
 .claude/settings.local.json
+.claude/scheduled_tasks.lock
+
+# 대용량 수집 원본 (git 반영 금지 — 서버/NAS가 SSOT)
+data/raw/moel_forms/
+data/law_db/
+data/raw/law_api/licbyl/files/
+data/risk_db/laws/
+
+# 임시 변환 로그
+convert_*.err
+convert_*.json
