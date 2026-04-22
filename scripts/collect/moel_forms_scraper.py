@@ -52,39 +52,45 @@ BASE = "https://www.moel.go.kr"
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "Chrome/120.0.0.0 Safari/537.36")
 
-DEFAULT_SAFETY_KEYWORDS = [
-    # 핵심 — 위험성평가
+# 직접 통과 — 안전·보건 도메인이 확실한 핵심 키워드
+STRONG_KEYWORDS = [
     "위험성평가", "위험성 평가",
-    # 서식·양식·제출서류
-    "서식", "양식", "점검표", "체크리스트", "교육일지",
-    # TBM·작업 전 점검
-    "TBM", "작업전 안전점검", "작업 전 안전점검",
-    # 지침·매뉴얼·가이드·길잡이 (서식성 문서)
+    "산업안전보건", "산업안전", "산업보건", "안전보건",
+    "산업재해", "중대재해", "재해예방",
+    "유해위험", "유해·위험", "유해위험방지", "밀폐공간",
+    "작업환경개선", "인간공학",
     "안전보건길잡이", "안전보건 길잡이",
     "안전보건지침", "안전보건 지침",
-    "안전가이드", "안전 가이드",
-    "산업안전보건 매뉴얼", "안전보건매뉴얼",
-    "중대재해 가이드", "중대재해 예방",
-    # 표준작업절차
-    "표준작업절차", "표준 작업 절차", "SWP",
-    # 법정 제출
-    "제출서", "보고서식", "신청서식", "등록서식",
-    # 대상별 안내서
-    "안전보건 안내서", "안전보건안내서", "유해·위험방지",
-    "유해위험방지", "밀폐공간 작업",
+    "TBM", "작업전 안전점검", "작업 전 안전점검",
+    "표준작업절차",
+    "위험성평가표",
 ]
 
-# 비안전 제외 키워드 (포함되면 제외) — 재해사례·통계·보도자료 등
+# 서식·지침·체크리스트 — 단독으로는 부족, 안전도메인 컨텍스트와 함께 있을 때만 통과
+FORM_KEYWORDS = [
+    "서식", "양식", "점검표", "체크리스트", "교육일지",
+    "지침", "매뉴얼", "가이드", "길잡이", "안내서",
+    "제출서", "신청서", "보고서식",
+]
+
+# 서식/지침 키워드 옆에 붙었을 때 안전 컨텍스트 인정
+DOMAIN_TAG_RE = r"(안전|보건|위험|재해|유해|밀폐|석면|소음|진동|산재|밀폐공간|추락 방지|추락방지|근골격|유해화학)"
+
+# 비안전 제외 키워드 — 서식이더라도 이 키워드 포함시 스킵
 EXCLUDE_PATTERNS = [
-    # 사고·사례·통계 (form 이 아님)
-    "추락사고", "사망사고 발생", "추락으로 1명", "재해현황",
-    "산업재해 현황", "현황\\(재해조사", "부가통계",
-    "사이렌", "재해조사",
-    # 비안전 주제
+    # 사고·통계·사례 (form 아님)
+    "추락사고", "사망사고 발생", "사망사고 현황", "추락으로 1명",
+    "재해현황", "산업재해 현황", "부가통계", "사이렌", "재해조사",
+    "사망재해", "재해발생",
+    # 비안전 노무·복지·인사
     "인센티브", "일손부족", "채용", "일자리",
-    "최저임금", "여성", "청년", "고령", "직장내성희롱",
+    "최저임금", "근로시간단축", "근로시간 단축",
+    "여성", "청년", "고령", "직장내성희롱",
     "직업훈련", "고용장려금", "고용보험", "경력지원",
-    "중장년", "동행",
+    "중장년", "동행", "임금채권", "근로복지", "공무원",
+    "장애인공무원", "우선고용", "사내근로복지기금",
+    "근로기준법", "시행규칙서식",
+    "취직인허증",
 ]
 
 # ---------------------------------------------------------------------------
@@ -383,11 +389,24 @@ def build_row(item_list: dict, detail: dict, *, file_url: str | None,
 def run(args) -> int:
     client = MoelClient(rate=args.rate)
 
-    # 1) 전체 목록 수집
-    keywords = list(DEFAULT_SAFETY_KEYWORDS)
+    # 1) 키워드 컴파일
+    strong = list(STRONG_KEYWORDS)
+    form_kw = list(FORM_KEYWORDS)
     if args.keywords:
-        keywords += [k.strip() for k in args.keywords.split(",") if k.strip()]
-    kw_re = re.compile("|".join(re.escape(k) for k in set(keywords)))
+        strong += [k.strip() for k in args.keywords.split(",") if k.strip()]
+    strong_re = re.compile("|".join(re.escape(k) for k in set(strong)))
+    form_re = re.compile("|".join(re.escape(k) for k in set(form_kw)))
+    domain_re = re.compile(DOMAIN_TAG_RE)
+
+    def title_match(title: str) -> bool:
+        if not title:
+            return False
+        if strong_re.search(title):
+            return True
+        # 서식/지침 키워드는 안전 컨텍스트가 있을 때만 통과
+        if form_re.search(title) and domain_re.search(title):
+            return True
+        return False
 
     out_cat = RAW_ROOT / "policy_data"
     out_cat.mkdir(parents=True, exist_ok=True)
@@ -412,14 +431,14 @@ def run(args) -> int:
             break
     print(f"[LIST] 전체 {len(all_items)}건 수집")
 
-    # 2) 키워드 필터 (포함 키워드 매칭 + 제외 키워드 차단)
+    # 2) 키워드 필터 (STRONG 단독 / FORM+도메인 컨텍스트 / 제외 키워드 차단)
     excl_re = re.compile("|".join(re.escape(e) for e in EXCLUDE_PATTERNS))
     if args.collect_all:
         filtered = all_items
     else:
         filtered = [
             it for it in all_items
-            if kw_re.search(it.get("title") or "")
+            if title_match(it.get("title") or "")
             and not excl_re.search(it.get("title") or "")
         ]
     print(f"[FILTER] 안전/보건 키워드 매칭: {len(filtered)}건 (전체 {len(all_items)})")
