@@ -14,8 +14,8 @@
     1) law_meta 에서 (law_name, article_no, document_id) 인덱스 구축
        — document 는 source_type='law' AND doc_category='law_article'
     2) 서식 본문에서 pattern:
-        <law_name>\s*(?:\(|,|·|및|또는|\s)*제\s*(\d+)\s*조
-       법령명과 가까운 거리(40자 이내)에 있는 "제N조" 를 매칭
+        [law_name] ... 제 N 조
+       (법령명과 "제N조" 사이 40자 이내 구두점/조사 허용)
     3) article_no="제{N}조" 로 정규화 후 lookup 해 article_document_id 획득
     4) INSERT INTO document_law_map (...) match_type='article' ON CONFLICT DO NOTHING
 
