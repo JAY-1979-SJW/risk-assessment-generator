@@ -1,0 +1,96 @@
+{
+  "version": "1.0.0",
+  "description": "장비·기기 표준 분류 및 매핑 키워드",
+  "equipment": [
+    {
+      "equipment_code": "고소작업대",
+      "equipment_name": "고소작업대",
+      "keywords": ["고소작업대", "에어리프트", "시저리프트", "붐리프트", "스카이리프트", "작업대차"]
+    },
+    {
+      "equipment_code": "이동식비계",
+      "equipment_name": "이동식비계",
+      "keywords": ["이동식비계", "이동식 비계", "롤링비계", "틀비계"]
+    },
+    {
+      "equipment_code": "달비계",
+      "equipment_name": "달비계",
+      "keywords": ["달비계", "달 비계", "곤돌라", "달대비계", "매달리는 비계"]
+    },
+    {
+      "equipment_code": "시스템비계",
+      "equipment_name": "시스템비계",
+      "keywords": ["시스템비계", "시스템 비계", "수직재", "수평재", "가새"]
+    },
+    {
+      "equipment_code": "사다리",
+      "equipment_name": "사다리",
+      "keywords": ["사다리", "이동식사다리", "고정사다리", "A형사다리", "작업사다리"]
+    },
+    {
+      "equipment_code": "크레인",
+      "equipment_name": "크레인",
+      "keywords": ["크레인", "타워크레인", "이동식크레인", "트럭크레인", "호이스트", "천장크레인"]
+    },
+    {
+      "equipment_code": "굴착기",
+      "equipment_name": "굴착기·굴삭기",
+      "keywords": ["굴착기", "굴삭기", "백호", "포크레인", "포크레인", "굴착장비"]
+    },
+    {
+      "equipment_code": "지게차",
+      "equipment_name": "지게차",
+      "keywords": ["지게차", "포크리프트", "전동지게차", "내연지게차", "리치스태커"]
+    },
+    {
+      "equipment_code": "용접기",
+      "equipment_name": "용접기",
+      "keywords": ["용접기", "아크용접기", "가스용접기", "MIG", "TIG", "CO2용접기"]
+    },
+    {
+      "equipment_code": "절단기",
+      "equipment_name": "절단기·그라인더",
+      "keywords": ["절단기", "그라인더", "디스크그라인더", "앵글그라인더", "원형톱", "전기톱"]
+    },
+    {
+      "equipment_code": "전동공구",
+      "equipment_name": "전동공구",
+      "keywords": ["전동공구", "전동드릴", "전동톱", "전동렌치", "드릴", "해머드릴"]
+    },
+    {
+      "equipment_code": "압축공기",
+      "equipment_name": "압축공기기구",
+      "keywords": ["에어공구", "에어건", "에어드릴", "공기압축기", "에어컴프레서", "압축공기"]
+    },
+    {
+      "equipment_code": "동바리",
+      "equipment_name": "동바리·서포트",
+      "keywords": ["동바리", "서포트", "파이프서포트", "시스템동바리", "동바리 설치"]
+    },
+    {
+      "equipment_code": "이동식크레인",
+      "equipment_name": "이동식크레인",
+      "keywords": ["이동식크레인", "카고크레인", "트럭크레인", "카고", "차량탑재크레인"]
+    },
+    {
+      "equipment_code": "컨베이어",
+      "equipment_name": "컨베이어",
+      "keywords": ["컨베이어", "벨트컨베이어", "롤러컨베이어", "이송설비", "이송장치"]
+    },
+    {
+      "equipment_code": "프레스",
+      "equipment_name": "프레스",
+      "keywords": ["프레스", "유압프레스", "기계프레스", "절곡기", "성형기", "금형"]
+    },
+    {
+      "equipment_code": "안전대",
+      "equipment_name": "안전대·하네스",
+      "keywords": ["안전대", "하네스", "벨트", "죔줄", "추락방지대", "자동잠금줄", "랜야드"]
+    },
+    {
+      "equipment_code": "덤프트럭",
+      "equipment_name": "덤프트럭",
+      "keywords": ["덤프트럭", "덤프", "토사운반차", "운반트럭"]
+    }
+  ]
+}

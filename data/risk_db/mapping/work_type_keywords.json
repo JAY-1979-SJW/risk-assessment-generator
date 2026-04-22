@@ -1,0 +1,116 @@
+{
+  "version": "1.0.0",
+  "description": "작업유형 표준 분류 및 매핑 키워드",
+  "work_types": [
+    {
+      "work_type_code": "비계_조립",
+      "work_type_name": "비계 조립",
+      "keywords": ["비계 조립", "비계조립", "비계 설치", "비계설치", "시스템비계 조립"]
+    },
+    {
+      "work_type_code": "비계_해체",
+      "work_type_name": "비계 해체",
+      "keywords": ["비계 해체", "비계해체", "비계 철거", "비계 분해"]
+    },
+    {
+      "work_type_code": "고소작업",
+      "work_type_name": "고소작업대 작업",
+      "keywords": ["고소작업대", "고소 작업", "고소작업", "에어리프트", "시저리프트", "붐리프트"]
+    },
+    {
+      "work_type_code": "굴착",
+      "work_type_name": "굴착 작업",
+      "keywords": ["굴착", "굴착 작업", "터파기", "흙파기", "토공", "절토", "성토"]
+    },
+    {
+      "work_type_code": "철골",
+      "work_type_name": "철골 작업",
+      "keywords": ["철골", "철골 작업", "철골 설치", "철골 조립", "구조물 철골", "철골공"]
+    },
+    {
+      "work_type_code": "용접",
+      "work_type_name": "용접 작업",
+      "keywords": ["용접", "용접 작업", "아크용접", "가스용접", "산소용접", "절단", "용단"]
+    },
+    {
+      "work_type_code": "전기",
+      "work_type_name": "전기 작업",
+      "keywords": ["전기 작업", "배선", "배전", "전기공사", "전선", "전기설비", "활선작업", "케이블"]
+    },
+    {
+      "work_type_code": "도장",
+      "work_type_name": "도장 작업",
+      "keywords": ["도장", "도장 작업", "페인트", "도료", "스프레이", "코팅", "방청"]
+    },
+    {
+      "work_type_code": "배관",
+      "work_type_name": "배관 작업",
+      "keywords": ["배관", "배관 작업", "파이프", "관 연결", "밸브", "플랜지", "배관 설치"]
+    },
+    {
+      "work_type_code": "양중",
+      "work_type_name": "양중 작업",
+      "keywords": ["양중", "인양", "크레인 작업", "리프팅", "줄걸이", "슬링", "훅"]
+    },
+    {
+      "work_type_code": "밀폐공간",
+      "work_type_name": "밀폐공간 작업",
+      "keywords": ["밀폐공간", "밀폐 공간", "맨홀", "탱크 내부", "피트", "지하실", "갱도"]
+    },
+    {
+      "work_type_code": "콘크리트",
+      "work_type_name": "콘크리트 타설",
+      "keywords": ["콘크리트", "콘크리트 타설", "타설", "레미콘", "거푸집", "동바리", "양생"]
+    },
+    {
+      "work_type_code": "지붕",
+      "work_type_name": "지붕 작업",
+      "keywords": ["지붕", "지붕 작업", "슬레이트", "판넬", "방수", "옥상", "지붕판"]
+    },
+    {
+      "work_type_code": "해체",
+      "work_type_name": "해체·철거",
+      "keywords": ["해체", "철거", "해체 작업", "건물 철거", "구조물 해체", "리모델링"]
+    },
+    {
+      "work_type_code": "운반",
+      "work_type_name": "운반·하역",
+      "keywords": ["운반", "하역", "적재", "하차", "이동", "지게차 작업", "운반차"]
+    },
+    {
+      "work_type_code": "기계정비",
+      "work_type_name": "기계 정비·수리",
+      "keywords": ["정비", "수리", "점검", "기계 정비", "설비 정비", "보수", "오버홀"]
+    },
+    {
+      "work_type_code": "방수",
+      "work_type_name": "방수 작업",
+      "keywords": ["방수", "방수 작업", "방수공", "방수재", "실링", "코킹"]
+    },
+    {
+      "work_type_code": "절단",
+      "work_type_name": "절단 작업",
+      "keywords": ["절단", "절삭", "그라인더", "톱", "컷팅", "절단 작업", "커팅"]
+    },
+    {
+      "work_type_code": "발파",
+      "work_type_name": "발파 작업",
+      "keywords": ["발파", "폭파", "다이너마이트", "화약", "뇌관", "발파공"]
+    },
+    {
+      "work_type_code": "조적",
+      "work_type_name": "조적·미장",
+      "keywords": ["조적", "미장", "벽돌", "블록", "타일", "미장 작업", "조적공"]
+    },
+    {
+      "work_type_code": "화학취급",
+      "work_type_name": "화학물질 취급",
+      "keywords": ["화학물질 취급", "유해물질 취급", "화학약품", "위험물 취급", "MSDS"]
+    },
+    {
+      "work_type_code": "청소",
+      "work_type_name": "청소·세척",
+      "keywords": ["청소", "세척", "청결", "세정", "진공청소", "고압세척"]
+    }
+  ]
+}
