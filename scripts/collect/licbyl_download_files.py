@@ -41,9 +41,20 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-LICBYL_BASE = PROJECT_ROOT / "data" / "raw" / "law_api" / "licbyl"
-FILES_ROOT = LICBYL_BASE / "files"
-MANIFEST_PATH = LICBYL_BASE / "files_manifest.json"
+
+# 실제 index 파일 위치는 환경에 따라 다름.
+#   1) data/raw/law_api/licbyl/YYYY-MM-DD/licbyl_index.json  (dated archive)
+#   2) data/raw/law_api/licbyl/licbyl_index.json             (flat)
+#   3) data/risk_db/law_raw/licbyl_index.json                (법령 수집기 기본 저장 경로)
+INDEX_CANDIDATES_FLAT = [
+    PROJECT_ROOT / "data" / "raw" / "law_api" / "licbyl" / "licbyl_index.json",
+    PROJECT_ROOT / "data" / "risk_db" / "law_raw" / "licbyl_index.json",
+]
+INDEX_DATED_BASE = PROJECT_ROOT / "data" / "raw" / "law_api" / "licbyl"
+
+# 다운로드 저장 루트: dated-raw 트리 밖 files/ 서브디렉토리
+FILES_ROOT = PROJECT_ROOT / "data" / "raw" / "law_api" / "licbyl" / "files"
+MANIFEST_PATH = PROJECT_ROOT / "data" / "raw" / "law_api" / "licbyl" / "files_manifest.json"
 LAWGO_BASE = "https://www.law.go.kr"
 
 DL_TIMEOUT = 30
@@ -56,18 +67,22 @@ SLEEP_BETWEEN = 0.8
 # ---------------------------------------------------------------------------
 
 def find_latest_index() -> Path | None:
-    if not LICBYL_BASE.exists():
-        return None
-    dated = sorted(
-        [d for d in LICBYL_BASE.iterdir() if d.is_dir() and re.match(r"\d{4}-\d{2}-\d{2}", d.name)],
-        reverse=True,
-    )
-    for d in dated:
-        idx = d / "licbyl_index.json"
-        if idx.exists():
-            return idx
-    alt = LICBYL_BASE / "licbyl_index.json"
-    return alt if alt.exists() else None
+    # 1) 날짜 디렉토리 (최신순)
+    if INDEX_DATED_BASE.exists():
+        dated = sorted(
+            [d for d in INDEX_DATED_BASE.iterdir()
+             if d.is_dir() and re.match(r"\d{4}-\d{2}-\d{2}", d.name)],
+            reverse=True,
+        )
+        for d in dated:
+            idx = d / "licbyl_index.json"
+            if idx.exists():
+                return idx
+    # 2) flat / 기본 수집기 저장 경로
+    for p in INDEX_CANDIDATES_FLAT:
+        if p.exists():
+            return p
+    return None
 
 
 def load_items(path: Path) -> list[dict]:
