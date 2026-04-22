@@ -236,10 +236,10 @@ class KoshaCollector:
         if not dl_url:
             return "", False
         try:
-            r = session.get(dl_url, timeout=30, stream=True)
+            r = session.get(dl_url, timeout=(10, 60), stream=False)
             r.raise_for_status()
-            content = b"".join(r.iter_content(65536))
-            if not content.startswith(b"%PDF"):
+            content = r.content
+            if not content or not content.startswith(b"%PDF"):
                 return "", False
             return self._extract_text(content)
         except Exception as e:
