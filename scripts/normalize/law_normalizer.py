@@ -217,6 +217,7 @@ class LawNormalizer:
     def _report(self, total: int, h: int, wt: int, eq: int, fail: int) -> None:
         h_r  = h  / total * 100 if total else 0
         wt_r = wt / total * 100 if total else 0
+        eq_r = eq / total * 100 if total else 0
         h_v  = "PASS" if h_r  >= 60 else "WARN"
         wt_v = "PASS" if wt_r >= 50 else "WARN"
         overall = "PASS" if h_v == "PASS" and wt_v == "PASS" else "WARN"
@@ -226,7 +227,7 @@ class LawNormalizer:
             f"총 처리 건수    : {total} (실패 파일: {fail})",
             f"hazard 매핑     : {h}/{total} ({h_r:.1f}%) [{h_v}]",
             f"work_type 매핑  : {wt}/{total} ({wt_r:.1f}%) [{wt_v}]",
-            f"equipment 매핑  : {eq}/{total} ({eq_r:.1f}%)" if total else "equipment 매핑  : 0/0",
+            f"equipment 매핑  : {eq}/{total} ({eq_r:.1f}%)",
             f"검증 결과       : {overall}",
             f"저장 경로       : {OUT_DIR}",
             "=" * 52,
