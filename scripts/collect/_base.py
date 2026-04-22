@@ -19,6 +19,7 @@ ROOT = Path(__file__).parent.parent.parent
 _SCRIPTS_DIR = Path(__file__).parent.parent
 load_dotenv(_SCRIPTS_DIR / ".env")
 load_dotenv(ROOT / ".env", override=False)
+load_dotenv(ROOT / "scraper" / ".env", override=False)  # KOSHA_ID/KOSHA_PW
 
 LOG_BASE = ROOT / "logs" / "law_collect"
 RAW_DATED_BASE = ROOT / "data" / "raw" / "law_api"
