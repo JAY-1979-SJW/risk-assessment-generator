@@ -67,6 +67,7 @@ app = FastAPI(title="KRAS API", version="2.0.0")
 from routers import projects, company, organization, assessments, forms, templates, export, engine_results
 from routers import risk_assessment_draft
 from routers import risk_assessment
+from routers import recommend
 app.include_router(projects.router,              prefix="/api")
 app.include_router(company.router,               prefix="/api")
 app.include_router(organization.router,          prefix="/api")
@@ -77,6 +78,7 @@ app.include_router(export.router,                prefix="/api")
 app.include_router(engine_results.router,        prefix="/api")
 app.include_router(risk_assessment_draft.router, prefix="/api")
 app.include_router(risk_assessment.router,       prefix="/api")
+app.include_router(recommend.router,             prefix="/api")
 
 _CORS_ORIGINS = [
     o.strip() for o in
