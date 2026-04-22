@@ -125,6 +125,10 @@ class ActionContext:
         self._art_idx: dict | None = None
         self._law_names_sorted: list[str] | None = None
         self._raw_index: dict[tuple[str, str], Path] | None = None
+        # keyword 매핑 — remap_kosha_tags 에서 lazy 로드
+        self._kw_hazard: list[tuple[str, list[str]]] | None = None
+        self._kw_work: list[tuple[str, list[str]]] | None = None
+        self._kw_equipment: list[tuple[str, list[str]]] | None = None
 
     def article_index(self) -> dict:
         if self._art_idx is None:
@@ -421,10 +425,111 @@ def action_kosha_redownload(ctx: ActionContext, job: dict, dry_run: bool) -> tup
     return ("done", note)
 
 
+def _load_keyword_dict(root: Path, name: str, top_key: str) -> list[tuple[str, list[str]]]:
+    """
+    data/risk_db/mapping/{name}.json 로드.
+    반환: [(code, [keyword, ...]), ...] — 케이스 정규화 안 함 (한국어).
+    """
+    import json as _json
+    p = root / "risk_db" / "mapping" / f"{name}.json"
+    if not p.exists():
+        return []
+    try:
+        d = _json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+    items = d.get(top_key) or []
+    out: list[tuple[str, list[str]]] = []
+    code_key = f"{top_key[:-1]}_code" if top_key.endswith("s") else f"{top_key}_code"
+    for it in items:
+        if not isinstance(it, dict):
+            continue
+        code = it.get(code_key) or it.get("code")
+        kws = it.get("keywords") or []
+        if code and isinstance(kws, list) and kws:
+            out.append((code, [k for k in kws if isinstance(k, str) and k.strip()]))
+    return out
+
+
+def _ensure_keyword_indexes(ctx: "ActionContext") -> None:
+    if getattr(ctx, "_kw_hazard", None) is not None:
+        return
+    data_root = Path(os.getenv("DATA_DIR", "/app/data"))
+    ctx._kw_hazard    = _load_keyword_dict(data_root, "hazard_keywords",    "hazards")
+    ctx._kw_work      = _load_keyword_dict(data_root, "work_type_keywords", "work_types")
+    ctx._kw_equipment = _load_keyword_dict(data_root, "equipment_keywords", "equipment")
+
+
+def action_remap_kosha_tags(ctx: ActionContext, job: dict, dry_run: bool) -> tuple[str, str | None]:
+    """
+    status='active' kosha 문서의 body_text 를 hazard/work_type/equipment 키워드 사전으로
+    스캔해 document_{hazard|work_type|equipment}_map 에 ON CONFLICT DO NOTHING 로 적재.
+    """
+    _ensure_keyword_indexes(ctx)
+    if not (ctx._kw_hazard or ctx._kw_work):
+        return ("skipped", "keyword dicts missing")
+
+    src_type = job["source_type"]
+    src_id = job["source_id"]
+    if src_type != "kosha":
+        return ("skipped", f"unsupported source_type={src_type}")
+
+    doc = _resolve_document(ctx.conn, src_type, src_id)
+    if not doc:
+        return ("skipped", "document not found")
+    doc_id, title, body = doc
+    text = (title or "") + "\n" + (body or "")
+    if len(text) < 20:
+        return ("skipped", "body too short")
+
+    def _match(kw_table: list[tuple[str, list[str]]]) -> set[str]:
+        hits: set[str] = set()
+        for code, kws in kw_table:
+            for kw in kws:
+                if kw and kw in text:
+                    hits.add(code)
+                    break
+        return hits
+
+    hz = _match(ctx._kw_hazard)
+    wt = _match(ctx._kw_work)
+    eq = _match(ctx._kw_equipment)
+
+    if dry_run:
+        return ("done", f"would map hz={len(hz)} wt={len(wt)} eq={len(eq)}")
+
+    inserted = 0
+    with ctx.conn.cursor() as cur:
+        for code in hz:
+            cur.execute(
+                "INSERT INTO document_hazard_map (document_id, hazard_code) "
+                "VALUES (%s, %s) ON CONFLICT DO NOTHING",
+                (doc_id, code),
+            )
+            inserted += cur.rowcount
+        for code in wt:
+            cur.execute(
+                "INSERT INTO document_work_type_map (document_id, work_type_code) "
+                "VALUES (%s, %s) ON CONFLICT DO NOTHING",
+                (doc_id, code),
+            )
+            inserted += cur.rowcount
+        for code in eq:
+            cur.execute(
+                "INSERT INTO document_equipment_map (document_id, equipment_code) "
+                "VALUES (%s, %s) ON CONFLICT DO NOTHING",
+                (doc_id, code),
+            )
+            inserted += cur.rowcount
+    ctx.conn.commit()
+    return ("done", f"hz={len(hz)} wt={len(wt)} eq={len(eq)} inserted={inserted}")
+
+
 ACTIONS = {
-    "relink_articles":   action_relink_articles,
-    "refresh_hwpx_path": action_refresh_hwpx_path,
-    "kosha_redownload":  action_kosha_redownload,
+    "relink_articles":    action_relink_articles,
+    "refresh_hwpx_path":  action_refresh_hwpx_path,
+    "kosha_redownload":   action_kosha_redownload,
+    "remap_kosha_tags":   action_remap_kosha_tags,
 }
 
 

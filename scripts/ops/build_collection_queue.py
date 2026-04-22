@@ -109,6 +109,21 @@ SQL_KOSHA_REDOWNLOAD = """
 """
 
 
+SQL_REMAP_KOSHA = """
+    -- status='active' 인 kosha 문서 중 hazard OR work_type 매핑이 아직 없는 대상
+    SELECT d.source_type, d.source_id
+      FROM documents d
+     WHERE d.source_type = 'kosha'
+       AND d.status = 'active'
+       AND COALESCE(d.body_text,'') <> ''
+       AND (
+           NOT EXISTS (SELECT 1 FROM document_hazard_map WHERE document_id = d.id)
+        OR NOT EXISTS (SELECT 1 FROM document_work_type_map WHERE document_id = d.id)
+       )
+     ORDER BY d.id
+"""
+
+
 SQL_EXCLUDED_KOSHA_DRAFT = """
     SELECT COUNT(*) FROM documents
      WHERE source_type='kosha' AND status='draft'
@@ -135,12 +150,27 @@ def _fetch_targets(conn, sql: str, params: dict) -> list[tuple[str, str]]:
         return [(r[0], r[1]) for r in cur.fetchall()]
 
 
-def build(reset: bool, dry_run: bool) -> dict:
+ONLY_CHOICES = ("all", "incremental", "kosha_redownload", "remap")
+
+
+def build(reset: bool, dry_run: bool, only: str = "all") -> dict:
+    if only not in ONLY_CHOICES:
+        raise ValueError(f"--only must be one of {ONLY_CHOICES}")
+
+    want_incremental  = only in ("all", "incremental")
+    want_kosha_dl     = only in ("all", "kosha_redownload")
+    want_remap        = only in ("all", "remap")
+
     conn = get_db_connection()
     try:
-        relink = _fetch_targets(conn, SQL_RELINK_ARTICLES, {"sources": list(FORM_SOURCES)})
-        hwpx   = _fetch_targets(conn, SQL_REFRESH_HWPX,    {"sources": list(FORM_SOURCES)})
-        kosha_dl = _fetch_targets(conn, SQL_KOSHA_REDOWNLOAD, {})
+        relink = hwpx = kosha_dl = remap = []
+        if want_incremental:
+            relink = _fetch_targets(conn, SQL_RELINK_ARTICLES, {"sources": list(FORM_SOURCES)})
+            hwpx   = _fetch_targets(conn, SQL_REFRESH_HWPX,    {"sources": list(FORM_SOURCES)})
+        if want_kosha_dl:
+            kosha_dl = _fetch_targets(conn, SQL_KOSHA_REDOWNLOAD, {})
+        if want_remap:
+            remap = _fetch_targets(conn, SQL_REMAP_KOSHA, {})
         with conn.cursor() as cur:
             cur.execute(SQL_EXCLUDED_IMAGE_ONLY);  excl_image = cur.fetchone()[0]
             cur.execute(SQL_EXCLUDED_MOEL_HWP);    excl_moelhwp = cur.fetchone()[0]
@@ -159,9 +189,10 @@ def build(reset: bool, dry_run: bool) -> dict:
                 added += 1
         return added
 
-    added_relink = _enqueue(relink, "relink_articles",   priority=3, note="법령 article 재매칭")
-    added_hwpx   = _enqueue(hwpx,   "refresh_hwpx_path", priority=5, note="hwpx_path NULL 재스캔")
-    added_kosha  = _enqueue(kosha_dl, "kosha_redownload", priority=2, note="kosha draft 재다운로드")
+    added_relink = _enqueue(relink, "relink_articles",   priority=3, note="법령 article 재매칭") if want_incremental else 0
+    added_hwpx   = _enqueue(hwpx,   "refresh_hwpx_path", priority=5, note="hwpx_path NULL 재스캔") if want_incremental else 0
+    added_kosha  = _enqueue(kosha_dl, "kosha_redownload", priority=2, note="kosha draft 재다운로드") if want_kosha_dl else 0
+    added_remap  = _enqueue(remap,  "remap_kosha_tags",  priority=4, note="hazard/work_type 재매핑") if want_remap else 0
 
     jobs = list(by_id.values())
 
@@ -177,10 +208,12 @@ def build(reset: bool, dry_run: bool) -> dict:
 
     return {
         "queue_path": str(master_path()),
+        "only": only,
         "added": {
             "relink_articles":   added_relink,
             "refresh_hwpx_path": added_hwpx,
             "kosha_redownload":  added_kosha,
+            "remap_kosha_tags":  added_remap,
         },
         "queue_counts": counts(jobs),
         "excluded_summary": excluded,
@@ -191,15 +224,17 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--reset", action="store_true", help="기존 큐 무시하고 새로 빌드")
     ap.add_argument("--dry-run", action="store_true", help="큐 파일을 쓰지 않음")
+    ap.add_argument("--only", choices=ONLY_CHOICES, default="all",
+                    help="일부 작업만 enqueue (systemd timer 용)")
     args = ap.parse_args()
 
     try:
-        r = build(reset=args.reset, dry_run=args.dry_run)
+        r = build(reset=args.reset, dry_run=args.dry_run, only=args.only)
     except Exception as exc:
         print(f"[FAIL] {exc!r}", file=sys.stderr)
         return 3
 
-    print(f"[QUEUE] {r['queue_path']}")
+    print(f"[QUEUE] {r['queue_path']}  only={r['only']}")
     print(f"[ADDED] {r['added']}")
     print(f"[COUNTS] {r['queue_counts']}")
     print("[EXCLUDED]")
