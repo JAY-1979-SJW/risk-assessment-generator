@@ -18,6 +18,7 @@ CLAUDE.md 수집 범위:
 import hashlib
 import io
 import json
+import signal
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -237,6 +238,29 @@ class KoshaCollector:
         p.parent.mkdir(parents=True, exist_ok=True)
         return p
 
+    def _download_bytes(self, session: requests.Session, url: str, hard_timeout: int = 45) -> bytes:
+        """SIGALRM으로 전체 다운로드 시간을 강제 제한 (Linux only)."""
+        class _DlTimeout(Exception):
+            pass
+
+        def _handler(s, f):
+            raise _DlTimeout()
+
+        if hasattr(signal, "SIGALRM"):
+            old = signal.signal(signal.SIGALRM, _handler)
+            signal.alarm(hard_timeout)
+        try:
+            r = session.get(url, timeout=(8, 30), stream=False)
+            r.raise_for_status()
+            return r.content
+        except _DlTimeout:
+            log.debug(f"PDF hard timeout ({hard_timeout}s): {url}")
+            return b""
+        finally:
+            if hasattr(signal, "SIGALRM"):
+                signal.alarm(0)
+                signal.signal(signal.SIGALRM, old)
+
     def _parse_pdf(
         self, session: requests.Session, dl_url: str, category: str, item_id: str
     ) -> tuple[str, bool, str, str]:
@@ -244,9 +268,7 @@ class KoshaCollector:
         if not dl_url:
             return "", False, "", ""
         try:
-            r = session.get(dl_url, timeout=(10, 60), stream=False)
-            r.raise_for_status()
-            raw = r.content
+            raw = self._download_bytes(session, dl_url)
             if not raw or not raw.startswith(b"%PDF"):
                 return "", False, "", ""
 
