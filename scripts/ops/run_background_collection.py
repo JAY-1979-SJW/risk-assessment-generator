@@ -390,8 +390,11 @@ def action_kosha_redownload(ctx: ActionContext, job: dict, dry_run: bool) -> tup
     pdf_path.write_bytes(data)
 
     text = _extract_pdf_text(data)
+    # PostgreSQL text 는 NUL 바이트 불허 + 과도한 공백 정리
+    if text:
+        text = text.replace("\x00", "").strip()
     has_text = bool(text) and len(text) >= 500
-    content_length = len(text)
+    content_length = len(text) if text else 0
 
     # status 를 active 로 승격하되, 텍스트가 사실상 없으면 draft 유지
     new_status = "active" if has_text else "draft"
