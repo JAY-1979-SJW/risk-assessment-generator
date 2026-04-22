@@ -38,6 +38,8 @@ services:
       CORS_ORIGINS: ${CORS_ORIGINS:-https://kras.haehan-ai.kr}
     volumes:
       - ../docs:/app/docs:ro
+      - ../app:/app/app:ro
+      - ../scripts:/app/scripts:ro
       - /home/ubuntu/apps/risk-assessment-app/logs:/app/logs
       - /home/ubuntu/apps/risk-assessment-app/data:/app/data
       - /home/ubuntu/apps/risk-assessment-app/backups:/app/backups
