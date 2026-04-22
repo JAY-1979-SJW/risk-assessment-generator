@@ -364,8 +364,9 @@ def process_batch(limit: int, sources: set[str] | None, actions: set[str] | None
     except Exception:
         pass
 
-    # 큐 저장
-    write_all(list(by_id.values()))
+    # 큐 저장 — dry-run 에서는 건드리지 않음
+    if not dry_run:
+        write_all(list(by_id.values()))
 
     finished_at = datetime.now(timezone.utc).replace(tzinfo=None)
     summary = {
@@ -379,13 +380,14 @@ def process_batch(limit: int, sources: set[str] | None, actions: set[str] | None
         "status": "ok" if failed == 0 else "partial",
         "note": ("; ".join(notes_failed))[:480] or None,
     }
-    # collection_runs 기록
-    try:
-        c2 = get_db_connection()
-        _insert_collection_run(c2, summary, source_type="ops_mixed")
-        c2.close()
-    except Exception as exc:
-        log.warning("collection_runs log failed: %r", exc)
+    # collection_runs 기록 — dry-run 에서는 생략
+    if not dry_run:
+        try:
+            c2 = get_db_connection()
+            _insert_collection_run(c2, summary, source_type="ops_mixed")
+            c2.close()
+        except Exception as exc:
+            log.warning("collection_runs log failed: %r", exc)
 
     return summary
 
