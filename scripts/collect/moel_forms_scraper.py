@@ -53,11 +53,28 @@ UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "Chrome/120.0.0.0 Safari/537.36")
 
 DEFAULT_SAFETY_KEYWORDS = [
-    "위험성평가", "위험성 평가", "TBM", "작업전",
-    "안전", "보건", "재해", "유해", "중대재해",
-    "산업안전보건", "밀폐공간", "점검표", "점검",
-    "교육일지", "교육", "서식", "양식", "매뉴얼",
-    "가이드", "체크리스트",
+    # 핵심 안전보건
+    "위험성평가", "위험성 평가", "산업안전보건", "산업안전",
+    "산업보건", "안전보건", "중대재해", "산업재해", "재해예방",
+    "재해조사",
+    # 서식·체크리스트
+    "서식", "양식", "점검표", "체크리스트", "교육일지",
+    # 작업 전 안전점검 / TBM
+    "TBM", "작업전", "작업 전",
+    # 유해·위험
+    "유해위험", "유해물질", "위험물", "밀폐공간",
+    "석면", "소음", "진동",
+    # 업종별 안전
+    "건설안전", "화학안전", "추락",
+    # 길잡이·지침
+    "안전보건길잡이", "안전보건지침",
+]
+
+# 비안전 제외 키워드 (포함되면 제외)
+EXCLUDE_PATTERNS = [
+    "인센티브", "일손부족", "채용", "일자리",
+    "최저임금", "여성", "청년", "고령", "직장내성희롱",
+    "직업훈련", "중소기업지원",
 ]
 
 # ---------------------------------------------------------------------------
@@ -385,12 +402,17 @@ def run(args) -> int:
             break
     print(f"[LIST] 전체 {len(all_items)}건 수집")
 
-    # 2) 키워드 필터
+    # 2) 키워드 필터 (포함 키워드 매칭 + 제외 키워드 차단)
+    excl_re = re.compile("|".join(re.escape(e) for e in EXCLUDE_PATTERNS))
     if args.collect_all:
         filtered = all_items
     else:
-        filtered = [it for it in all_items if kw_re.search(it.get("title") or "")]
-    print(f"[FILTER] 안전/보건 키워드 매칭: {len(filtered)}건")
+        filtered = [
+            it for it in all_items
+            if kw_re.search(it.get("title") or "")
+            and not excl_re.search(it.get("title") or "")
+        ]
+    print(f"[FILTER] 안전/보건 키워드 매칭: {len(filtered)}건 (전체 {len(all_items)})")
     if args.limit > 0:
         filtered = filtered[: args.limit]
 
