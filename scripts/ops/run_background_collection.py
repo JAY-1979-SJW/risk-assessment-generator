@@ -327,9 +327,53 @@ def action_kosha_redownload(ctx: ActionContext, job: dict, dry_run: bool) -> tup
         timeout=(10, 45), allow_redirects=True,
     )
     resp.raise_for_status()
-    data = resp.content
-    if not data or not data.startswith(b"%PDF"):
-        return ("skipped", "response is not PDF")
+    raw = resp.content
+    content_type = (resp.headers.get("Content-Type") or "").lower()
+    if not raw:
+        return ("skipped", "empty response")
+
+    # 응답 유형 분기
+    #  1) 직접 PDF
+    #  2) ZIP (내부 첫 PDF 추출)
+    #  3) 이미지(픽토그램·포스터) → excluded 로 마킹 후 종료
+    if raw.startswith(b"%PDF"):
+        data = raw
+        source_kind = "pdf"
+    elif raw.startswith(b"PK\x03\x04"):
+        import io as _io
+        import zipfile as _zip
+        try:
+            zf = _zip.ZipFile(_io.BytesIO(raw))
+            names = [n for n in zf.namelist() if n.lower().endswith(".pdf")]
+        except Exception as exc:
+            return ("skipped", f"zip parse failed: {exc}")
+        if not names:
+            return ("skipped", "zip without PDF member")
+        try:
+            data = zf.read(names[0])
+        except Exception as exc:
+            return ("skipped", f"zip extract failed: {exc}")
+        if not data.startswith(b"%PDF"):
+            return ("skipped", "zip member not PDF")
+        source_kind = f"zip:{names[0]}"
+    elif content_type.startswith("image/") or raw[:3] in (b"\xff\xd8\xff", b"\x89PN"):
+        # 이미지 단독 — 재수집 대상이 아님. excluded 로 마킹하여 큐 재편입 방지.
+        with ctx.conn.cursor() as cur:
+            cur.execute(
+                """
+                UPDATE documents
+                   SET status     = 'excluded',
+                       metadata   = COALESCE(metadata,'{}'::jsonb)
+                                    || jsonb_build_object('exclude_reason','image_only'),
+                       updated_at = now()
+                 WHERE id = %s
+                """,
+                (doc_id,),
+            )
+        ctx.conn.commit()
+        return ("skipped", f"image_only ct={content_type or 'n/a'} — marked excluded")
+    else:
+        return ("skipped", f"unsupported ct={content_type or 'n/a'}")
 
     sha256 = _hashlib.sha256(data).hexdigest()
 
@@ -370,7 +414,7 @@ def action_kosha_redownload(ctx: ActionContext, job: dict, dry_run: bool) -> tup
         )
     ctx.conn.commit()
 
-    note = f"size={len(data)} sha={sha256[:10]} text={content_length} status={new_status}"
+    note = f"kind={source_kind} size={len(data)} sha={sha256[:10]} text={content_length} status={new_status}"
     return ("done", note)
 
 
