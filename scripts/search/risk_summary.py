@@ -12,6 +12,16 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent.parent.parent
 
+# ── 작업유형별 위험 우선순위 사전 로딩 ────────────────────────────────────
+_PRIORITY_PATH = ROOT / "data" / "risk_db" / "mapping" / "work_type_hazard_priority.json"
+
+def _load_priority() -> dict[str, list[str]]:
+    if _PRIORITY_PATH.exists():
+        return json.loads(_PRIORITY_PATH.read_text(encoding="utf-8")).get("priority", {})
+    return {}
+
+_HAZARD_PRIORITY: dict[str, list[str]] = _load_priority()
+
 # ── 위험요인별 조치사항 규칙 사전 ──────────────────────────────────────────
 _CONTROLS: dict[str, list[str]] = {
     "추락":     ["안전난간 설치", "안전대(하네스) 착용", "작업발판 고정", "개구부 덮개 설치"],
@@ -60,8 +70,7 @@ def generate_summary(query: str, top: int = 5) -> dict:
         for haz in h.get("hazards", []):
             hazard_counter[haz] += 1
 
-    top_hazards = [haz for haz, _ in hazard_counter.most_common(3)]
-    main_hazard = top_hazards[0] if top_hazards else ""
+    top_hazards_by_freq = [haz for haz, _ in hazard_counter.most_common(5)]
 
     # ── 2. work_type 빈도 집계 ──────────────────────────────────────────────
     wt_counter: Counter = Counter()
@@ -70,10 +79,26 @@ def generate_summary(query: str, top: int = 5) -> dict:
             wt_counter[wt] += 1
     main_work_type = wt_counter.most_common(1)[0][0] if wt_counter else ""
 
-    # ── 3. 조치사항 (top 3 hazard 기준 합산, 중복 제거) ─────────────────────
+    # ── 2b. 우선순위 규칙 적용 → main_hazard 결정 ───────────────────────────
+    hazard_selection_mode = "frequency"
+    main_hazard = top_hazards_by_freq[0] if top_hazards_by_freq else ""
+
+    priority_list = _HAZARD_PRIORITY.get(main_work_type, [])
+    if priority_list:
+        freq_set = set(top_hazards_by_freq)
+        for ph in priority_list:
+            if ph in freq_set:
+                main_hazard = ph
+                hazard_selection_mode = "priority_rule"
+                break
+
+    # sub_hazards: main_hazard 제외 상위 3개
+    top_hazards = [h for h in top_hazards_by_freq if h != main_hazard][:3]
+
+    # ── 3. 조치사항 (main_hazard + sub 기준 합산, 중복 제거) ─────────────────
     controls: list[str] = []
     seen: set[str] = set()
-    for haz in top_hazards:
+    for haz in [main_hazard] + top_hazards:
         for ctrl in _CONTROLS.get(haz, []):
             if ctrl not in seen:
                 controls.append(ctrl)
@@ -118,13 +143,16 @@ def generate_summary(query: str, top: int = 5) -> dict:
             break
 
     return {
-        "query":      query,
-        "main_hazard": main_hazard,
-        "sub_hazards": top_hazards[1:],
-        "work_type":  main_work_type,
-        "controls":   controls,
-        "laws":       laws,
-        "cases":      cases,
+        "query":                    query,
+        "main_hazard":              main_hazard,
+        "sub_hazards":              top_hazards,
+        "work_type":                main_work_type,
+        "representative_work_type": main_work_type,
+        "hazard_selection_mode":    hazard_selection_mode,
+        "controls":                 controls,
+        "laws":                     laws,
+        "cases":                    cases,
+        "hits":                     hits,
     }
 
 
