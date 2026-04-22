@@ -44,6 +44,7 @@ services:
       - ../scripts:/app/scripts:ro
       - /home/ubuntu/apps/risk-assessment-app/logs:/app/logs
       - /home/ubuntu/apps/risk-assessment-app/data:/app/data
+      - ../data/risk_db/mapping:/app/data/risk_db/mapping:ro
       - /home/ubuntu/apps/risk-assessment-app/backups:/app/backups
       - ../scraper/logs:/app/scraper_logs:ro
     ports:
