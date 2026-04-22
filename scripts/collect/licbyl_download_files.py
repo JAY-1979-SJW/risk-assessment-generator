@@ -124,8 +124,25 @@ def filename_from_headers(headers: dict, fallback: str) -> str:
     return fallback
 
 
-def sanitize(name: str) -> str:
-    return re.sub(r"[\\/:*?\"<>|]", "_", name).strip() or "file"
+def sanitize(name: str, *, max_bytes: int = 200) -> str:
+    """파일시스템 호환 이름으로 정규화 + 바이트 길이 상한 적용(ext 보존)."""
+    name = re.sub(r"[\\/:*?\"<>|\n\r\t]", "_", name).strip() or "file"
+    encoded = name.encode("utf-8", errors="ignore")
+    if len(encoded) <= max_bytes:
+        return name
+    # 확장자 분리
+    if "." in name:
+        base, ext = name.rsplit(".", 1)
+        ext = "." + ext
+    else:
+        base, ext = name, ""
+    ext_bytes = ext.encode("utf-8", errors="ignore")
+    budget = max(1, max_bytes - len(ext_bytes))
+    # 바이트 경계에서 안전하게 자르기
+    base_bytes = base.encode("utf-8", errors="ignore")[:budget]
+    # UTF-8 중간 바이트에서 잘리면 decode 실패 → errors='ignore' 로 안전 복구
+    base = base_bytes.decode("utf-8", errors="ignore").rstrip()
+    return (base + ext) or "file"
 
 
 # ---------------------------------------------------------------------------
