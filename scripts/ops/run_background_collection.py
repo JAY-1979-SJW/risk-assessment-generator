@@ -253,9 +253,131 @@ def action_refresh_hwpx_path(ctx: ActionContext, job: dict, dry_run: bool) -> tu
     return ("done", f"hwpx_path={hit}")
 
 
+def _extract_pdf_text(data: bytes, max_chars: int = 20000) -> str:
+    """pypdf 로 텍스트 추출. 실패 시 빈 문자열."""
+    try:
+        import io as _io
+        from pypdf import PdfReader  # type: ignore
+        reader = PdfReader(_io.BytesIO(data))
+        parts: list[str] = []
+        total = 0
+        for page in reader.pages:
+            try:
+                t = page.extract_text() or ""
+            except Exception:
+                t = ""
+            if t:
+                parts.append(t)
+                total += len(t)
+                if total >= max_chars:
+                    break
+        return ("\n".join(parts))[:max_chars]
+    except Exception:
+        return ""
+
+
+def action_kosha_redownload(ctx: ActionContext, job: dict, dry_run: bool) -> tuple[str, str | None]:
+    """
+    kosha status='draft' 문서를 file_url 로 재다운로드 → PDF 저장 → 텍스트 추출 →
+    body_text/pdf_path/file_sha256/content_length/has_text/status='active' 업데이트.
+
+    실패/재시도 정책
+      - file_url 없음 → skipped (재시도 대상 아님)
+      - HTTP 오류/타임아웃 → 예외 raise → 상위 retry_count 증가
+      - PDF 가 아닌 응답 → skipped
+      - 텍스트 추출 500자 미만 → 저장은 하되 has_text=False
+    """
+    import hashlib as _hashlib
+    import os as _os
+    import requests as _requests  # type: ignore
+
+    src_type = job["source_type"]
+    src_id = job["source_id"]
+    if src_type != "kosha":
+        return ("skipped", f"unsupported source_type={src_type}")
+
+    with ctx.conn.cursor() as cur:
+        cur.execute(
+            "SELECT id, COALESCE(file_url,''), COALESCE(status,''), "
+            "       COALESCE(pdf_path,''), COALESCE(file_sha256,''), "
+            "       doc_category "
+            "FROM documents WHERE source_type=%s AND source_id=%s",
+            (src_type, src_id),
+        )
+        row = cur.fetchone()
+    if not row:
+        return ("skipped", "document not found")
+    doc_id, file_url, status, existing_pdf_path, existing_sha, doc_category = row
+
+    if status not in ("draft", "pending"):
+        # 이미 active/excluded 이면 큐 노이즈 — 재처리 금지
+        return ("skipped", f"status={status} (already processed)")
+    if not file_url:
+        return ("skipped", "file_url missing")
+
+    if dry_run:
+        return ("done", f"would GET {file_url[:60]}...")
+
+    ua = _os.getenv("KOSHA_USER_AGENT") or (
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+    )
+    resp = _requests.get(
+        file_url, headers={"User-Agent": ua, "Accept-Language": "ko-KR,ko;q=0.9"},
+        timeout=(10, 45), allow_redirects=True,
+    )
+    resp.raise_for_status()
+    data = resp.content
+    if not data or not data.startswith(b"%PDF"):
+        return ("skipped", "response is not PDF")
+
+    sha256 = _hashlib.sha256(data).hexdigest()
+
+    # 이미 동일 SHA 가 반영되어 있으면 no-op
+    if existing_sha and existing_sha == sha256 and status == "active":
+        return ("done", "identical sha — no update")
+
+    # 저장 경로: /app/data/raw/kosha/pdf/{category or 'misc'}/{source_id}.pdf
+    data_dir = Path(_os.getenv("DATA_DIR", "/app/data"))
+    category_dir = (doc_category or "misc").replace("/", "_")
+    pdf_dir = data_dir / "raw" / "kosha" / "pdf" / category_dir
+    pdf_dir.mkdir(parents=True, exist_ok=True)
+    pdf_path = pdf_dir / f"{src_id}.pdf"
+    pdf_path.write_bytes(data)
+
+    text = _extract_pdf_text(data)
+    has_text = bool(text) and len(text) >= 500
+    content_length = len(text)
+
+    # status 를 active 로 승격하되, 텍스트가 사실상 없으면 draft 유지
+    new_status = "active" if has_text else "draft"
+
+    with ctx.conn.cursor() as cur:
+        cur.execute(
+            """
+            UPDATE documents
+               SET body_text      = %s,
+                   pdf_path       = %s,
+                   file_sha256    = %s,
+                   content_length = %s,
+                   has_text       = %s,
+                   status         = %s,
+                   collected_at   = COALESCE(collected_at, now()),
+                   updated_at     = now()
+             WHERE id = %s
+            """,
+            (text or None, str(pdf_path), sha256, content_length, has_text, new_status, doc_id),
+        )
+    ctx.conn.commit()
+
+    note = f"size={len(data)} sha={sha256[:10]} text={content_length} status={new_status}"
+    return ("done", note)
+
+
 ACTIONS = {
     "relink_articles":   action_relink_articles,
     "refresh_hwpx_path": action_refresh_hwpx_path,
+    "kosha_redownload":  action_kosha_redownload,
 }
 
 

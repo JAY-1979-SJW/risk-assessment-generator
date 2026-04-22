@@ -98,6 +98,17 @@ SQL_REFRESH_HWPX = """
 """
 
 
+SQL_KOSHA_REDOWNLOAD = """
+    -- kosha status='draft' 중 file_url 보유 대상
+    SELECT d.source_type, d.source_id
+      FROM documents d
+     WHERE d.source_type = 'kosha'
+       AND d.status = 'draft'
+       AND d.file_url IS NOT NULL AND d.file_url <> ''
+     ORDER BY d.id
+"""
+
+
 SQL_EXCLUDED_KOSHA_DRAFT = """
     SELECT COUNT(*) FROM documents
      WHERE source_type='kosha' AND status='draft'
@@ -129,8 +140,8 @@ def build(reset: bool, dry_run: bool) -> dict:
     try:
         relink = _fetch_targets(conn, SQL_RELINK_ARTICLES, {"sources": list(FORM_SOURCES)})
         hwpx   = _fetch_targets(conn, SQL_REFRESH_HWPX,    {"sources": list(FORM_SOURCES)})
+        kosha_dl = _fetch_targets(conn, SQL_KOSHA_REDOWNLOAD, {})
         with conn.cursor() as cur:
-            cur.execute(SQL_EXCLUDED_KOSHA_DRAFT); excl_draft = cur.fetchone()[0]
             cur.execute(SQL_EXCLUDED_IMAGE_ONLY);  excl_image = cur.fetchone()[0]
             cur.execute(SQL_EXCLUDED_MOEL_HWP);    excl_moelhwp = cur.fetchone()[0]
     finally:
@@ -150,6 +161,7 @@ def build(reset: bool, dry_run: bool) -> dict:
 
     added_relink = _enqueue(relink, "relink_articles",   priority=3, note="법령 article 재매칭")
     added_hwpx   = _enqueue(hwpx,   "refresh_hwpx_path", priority=5, note="hwpx_path NULL 재스캔")
+    added_kosha  = _enqueue(kosha_dl, "kosha_redownload", priority=2, note="kosha draft 재다운로드")
 
     jobs = list(by_id.values())
 
@@ -157,8 +169,6 @@ def build(reset: bool, dry_run: bool) -> dict:
         write_all(jobs)
 
     excluded = {
-        "kosha_redownload": {"count": int(excl_draft),
-                             "reason": "KOSHA_ID/KOSHA_PW 크레덴셜 미탑재"},
         "hwp_to_hwpx":      {"count": int(excl_moelhwp),
                              "reason": "로컬 한컴(Windows) 필요 — MCP convert_moel 참고"},
         "image_only":       {"count": int(excl_image),
@@ -167,7 +177,11 @@ def build(reset: bool, dry_run: bool) -> dict:
 
     return {
         "queue_path": str(master_path()),
-        "added": {"relink_articles": added_relink, "refresh_hwpx_path": added_hwpx},
+        "added": {
+            "relink_articles":   added_relink,
+            "refresh_hwpx_path": added_hwpx,
+            "kosha_redownload":  added_kosha,
+        },
         "queue_counts": counts(jobs),
         "excluded_summary": excluded,
     }

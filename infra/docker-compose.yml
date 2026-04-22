@@ -36,6 +36,8 @@ services:
       CHANGE_HISTORY_PATH: /app/logs/change_history.jsonl
       INTERNAL_API_KEY: ${INTERNAL_API_KEY}
       CORS_ORIGINS: ${CORS_ORIGINS:-https://kras.haehan-ai.kr}
+      KOSHA_ID: ${KOSHA_ID:-}
+      KOSHA_PW: ${KOSHA_PW:-}
     volumes:
       - ../docs:/app/docs:ro
       - ../app:/app/app:ro
