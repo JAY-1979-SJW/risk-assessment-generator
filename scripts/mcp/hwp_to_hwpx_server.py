@@ -421,22 +421,35 @@ def _cli(argv: list[str]) -> int:
     ap.add_argument("--recursive", action="store_true")
     ap.add_argument("--overwrite", action="store_true")
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--output", default=None,
+                    help="결과 JSON 출력 파일 (지정 시 stdout 인코딩 문제 회피)")
     args = ap.parse_args(argv)
 
     import json as _json
 
+    def _emit(result: dict) -> None:
+        text = _json.dumps(result, ensure_ascii=False, indent=2)
+        if args.output:
+            Path(args.output).write_text(text, encoding="utf-8")
+        else:
+            try:
+                print(text)
+            except UnicodeEncodeError:
+                enc = sys.stdout.encoding or "utf-8"
+                sys.stdout.buffer.write(text.encode("utf-8"))
+
     if args.status:
-        print(_json.dumps(get_hancom_status_impl(), ensure_ascii=False, indent=2))
+        _emit(get_hancom_status_impl())
         return 0
     if args.convert:
         result = convert_hwp_to_hwpx_impl(args.convert, args.dst, args.overwrite)
-        print(_json.dumps(result, ensure_ascii=False, indent=2))
+        _emit(result)
         return 0 if result.get("ok") else 1
     if args.batch:
         result = batch_convert_directory_impl(
             args.batch, args.dst, args.recursive, args.overwrite, args.limit
         )
-        print(_json.dumps(result, ensure_ascii=False, indent=2))
+        _emit(result)
         return 0 if result.get("fail", 0) == 0 else 1
     return 2
 
