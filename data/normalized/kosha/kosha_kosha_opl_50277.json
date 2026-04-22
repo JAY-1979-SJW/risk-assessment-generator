@@ -1,0 +1,28 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "50277",
+  "title": "화재위험작업(용접용단) 시 화재폭발 예방 OPS",
+  "title_normalized": "화재위험작업(용접용단) 시 화재폭발 예방 OPS",
+  "body_text": "",
+  "has_text": false,
+  "content_length": 0,
+  "hazards": [
+    "화재폭발"
+  ],
+  "work_types": [
+    "용접"
+  ],
+  "equipment": [],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2025081911245799414363&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2025081911245799414363&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20250819",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

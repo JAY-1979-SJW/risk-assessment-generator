@@ -1,0 +1,38 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "52114",
+  "title": "키메시지(1호_컨베이어)",
+  "title_normalized": "키메시지(1호_컨베이어)",
+  "body_text": "스티커\nOPS\n동영상\n[픽토그램] 통행금지(컨베이어)\n[안전기준] 컨베이어\n컨베이어벨트끼임재해예방\n2026-교육총괄실-15\n정비·청소등의작업시기계의운전정지\n기계·설비의불시가동방지를위해\n조작부에는잠금장치및표지판설치\n기계의회전축·벨트등의부위에신체가\n접촉되지않도록덮개·울·슬리브및\n건널다리등을설치\n컨베이어\n(‘25.12.31.) 경기양평군소재건설폐기물처리사업장에서이동설비부품교체작업중가동된컨베이어에끼임<사망1명>\n(’26.1.5.) 경기광명소재레미콘제조사업장에서기계설비정비작업후이동중컨베이어에끼임<사망1명>\n주요사고사례\n안전작업방법\n콘텐츠링크\n스마트폰APP\n산업안전포털설치\n안전보건공단\n산업안전포털\n산업안전포털\n중대재해사이렌\n안전보건자료실\n검색\n1호\nVR\n컨베이어벨트\n끼임사고중심위험찾기",
+  "has_text": false,
+  "content_length": 383,
+  "hazards": [
+    "끼임",
+    "충돌",
+    "감전",
+    "화학물질",
+    "협착"
+  ],
+  "work_types": [
+    "콘크리트",
+    "운반",
+    "기계정비",
+    "청소"
+  ],
+  "equipment": [
+    "컨베이어",
+    "안전대"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2026012911172352115422&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2026012911172352115422&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20260209",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

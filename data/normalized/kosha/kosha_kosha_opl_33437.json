@@ -1,0 +1,29 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "33437",
+  "title": "[중대재해_식료품]조리솥 내부 기름기 제거 중 빠져 화상",
+  "title_normalized": "조리솥 내부 기름기 제거 중 빠져 화상",
+  "body_text": "탕류 생산공장 내 조리(스팀)솥에서 갈비탕을 삶아낸 후 기름기를 제거하기 위하여 상체를 숙여 몸에서 \n멀리 떨어진 솥 내부의 기름기를 걷어내는 도중, 몸의 무게중심이 앞으로 쏠려 상반신이 조리솥(지름 : \n1.2m, 깊이 : 1m) 내부로 빠지면서 화상을 당함\n재해발생 원인\n!\n안전작업 방법\n안전난간 설치 및 미끄러짐 예방 조치 강화\n- 작업발판 주위에 작업자의 부주의로 인하여 솥 내부로 빠지는 것을\n   예방할 수 있도록 안전난간(90Cm 이상)을 설치\n- 발판의 상부 재질은 마찰력을 높여 작업자의 미끄러짐을 최대한 \n   예방할 수 있도록 익스펜디드 메탈(Expanded metal)이나 타공판으로 설치\n미끄럼 방지 장화 등의 보호구 지급·착용 철저\n- 미끄럼 방지용 장화를 지급하고, 작업시 반드시 착용토록 조치\n안전난간 등 안전조치 미흡\n - 작업발판에 미끄러짐 등 솥 내부로 빠짐을 예방할 수 있는 \n    안전난간이 미설치된 상태에서 불안전하게 작업을 수행\n※ 신장에 비해 솥의 상단까지의 높이가 상대적으로 낮음\n    (신장 약172cm, 작업발판에서 솥의 상단까지의 높이 약 78cm) \n조리솥 내부 기름기 제거 중 빠져 화상\nTIP\n1\n1\n2\n2\n2013-교육미디어-1340\n제조업\n재해사례\n(조리솥)\n\n●  산업안전보건기준에 관한 규칙\n    제3조(전도의 방지 등), 제13조(안전난간의 구조 및 설치요건), 제32조(보호구의 지급 등), 제43조(개구부 등의 방호 조치)\n만화로 보는 재해사례\n떨어질 위험이 있는 작업발판에 안전난간을 설치하세요 !\n조리솥 내부 기름기 제거 중 빠져 화상\n참고법령 및 기준\n法",
+  "has_text": true,
+  "content_length": 803,
+  "hazards": [
+    "추락",
+    "화학물질",
+    "전도",
+    "온도"
+  ],
+  "work_types": [],
+  "equipment": [],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169216&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169216&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20131216",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

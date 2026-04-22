@@ -1,0 +1,35 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "33448",
+  "title": "[중대재해_화학제품]아크릴수지 침전 및 저장 지하피트 내에서 유독가스 중독",
+  "title_normalized": "아크릴수지 침전 및 저장 지하피트 내에서 유독가스 중독",
+  "body_text": "아크릴수지 재생공정 시험가동 중 아크릴수지 누출 여부를 확인하기 위해 지하피트에 들어갔던 작업자 2명이 \n일산화탄소 등 유해가스에 중독\n재해발생 원인\n!\n안전작업 방법\n침전조 및 저장조의 아크릴수지 원액 누출방지조치 철저\n- 지하피트 바닥과 침전조 배관 연결부위, 저장조 덮개 등에서 아크릴수지 \n   원액이 누출되지 않도록 접착면을 밀착시키는 등 누출방지조치 철저\n침전조 및 저장조에서 발생하는 CO 제거용 국소배기장치 설치\n- 지하피트에 설치된 침전조 및 저장조에서 발생하는 CO를 포집·제거하기 위한\n   국소배기장치를 설치\n관리대상물질 취급 안전수칙 제정 및 호흡용보호구 착용 철저\n침전조 및 저장조의 아크릴수지 누출방지조치 및 환기 미흡\n유해가스 중독 위험이 있는 장소에서 호흡용보호구 미착용\n※ 아크릴수지 : PMMA(Poly Methyl Methacrylate)\n- 아크릴수지를 고온에서 열분해하면 가스, 액체로 변환하는 과정에서 \n   CO와 CO2를 발생시킴\n아크릴수지 침전·저장 피트 내 \n유해가스 중독\nTIP\n1\n1\n2\n2\n2013-교육미디어-1329\n제조업\n재해사례\n(유해가스)\n\n●  산업안전보건기준에 관한 규칙\n    제257조(덮개 등의 접합부), 제422조(관리대상유해물질과 관계되는 설비), 제450조(호흡용보호구의 지급 등)\n만화로 보는 재해사례\n저장 및 취급, 위험물이 누출되지 않도록 관리합니다 !\n아크릴수지 침전·저장 피트 내 유해가스 중독\n참고법령 및 기준\n法",
+  "has_text": true,
+  "content_length": 727,
+  "hazards": [
+    "감전",
+    "화재폭발",
+    "질식",
+    "화학물질",
+    "협착",
+    "전도",
+    "온도"
+  ],
+  "work_types": [
+    "배관",
+    "밀폐공간"
+  ],
+  "equipment": [],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169227&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169227&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20131216",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

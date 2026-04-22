@@ -1,0 +1,31 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "43186",
+  "title": "사고다발 위험 설비 Key message(사출성형기)",
+  "title_normalized": "사고다발 위험 설비 Key message(사출성형기)",
+  "body_text": "사출성형기\n안전문 열린\n상태로 정비·\n수리 시\n䥅䤯차단\n2021-산업안전보건인증원-263",
+  "has_text": false,
+  "content_length": 49,
+  "hazards": [
+    "화학물질",
+    "협착"
+  ],
+  "work_types": [
+    "기계정비"
+  ],
+  "equipment": [
+    "프레스"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00016180811&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00016180811&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20210617",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

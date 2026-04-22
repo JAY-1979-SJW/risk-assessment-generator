@@ -1,0 +1,26 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "30214",
+  "title": "(일상생활용 전기기계기구제조업)전조기 안전작업",
+  "title_normalized": "(일상생활용 전기기계기구제조업)전조기 안전작업",
+  "body_text": "",
+  "has_text": false,
+  "content_length": 0,
+  "hazards": [
+    "감전"
+  ],
+  "work_types": [],
+  "equipment": [],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014166163&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014166163&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20120316",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

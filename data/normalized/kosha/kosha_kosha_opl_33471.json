@@ -1,0 +1,35 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "33471",
+  "title": "[중대재해_기계기구]기계설비 제작을 위해 작업발판 이동 중 떨어짐",
+  "title_normalized": "기계설비 제작을 위해 작업발판 이동 중 떨어짐",
+  "body_text": "작업장 내에서 제작 중이던 보일러 파이프 핀을 부착하기 위해 작업발판 위로 이동하던 중 작업발판을 지지하던 \n앵글의 용접부위가 파괴되어 약 4.8m 아래 바닥으로 떨어짐\n재해발생 원인\n!\n안전작업 방법\n떨어짐 방지 안전조치 철저\n- 비계를 조립하는 등의 방법으로 작업발판을 설치하되, 설치가 곤란한\n   경우 안전방망 또는 안전대 부착설비 등 작업조건에 맞게 설치\n- 작업발판 재료는 뒤집히거나 떨어지지 않도록 둘 이상의 지지물에 \n   연결하거나 고정 철저\n물체가 떨어지거나 또는 떨어질 위험이 있는 작업을 \n하는 때에는 안전모, 안전대 등 개인보호구 착용 철저\n떨어짐 방지 작업발판 고정 미흡\n- 작업발판 지지용으로 사용된 앵글(L-형강)의 충분한 용접 미실시로\n   용접부위 파단  \n안전모 등 개인보호구 미착용\n기계설비 제작을 위해 작업발판 \n이동 중 떨어짐\nTIP\n1\n1\n2\n2\n2013-교육미디어-1306\n제조업\n재해사례\n(작업발판)\n\n●  산업안전보건기준에 관한 규칙    제42조(추락의 방지), 제56조(작업발판의 구조)\n●  KOSHA Guide C-8-2011(작업발판 설치 및 사용안전지침)\n만화로 보는 재해사례\n작업발판, 뒤집히거나 떨어지지 않도록 고정하세요 !\n기계설비 제작을 위해 작업발판 이동 중 떨어짐\n참고법령 및 기준\n法",
+  "has_text": true,
+  "content_length": 645,
+  "hazards": [
+    "추락",
+    "화학물질",
+    "전도",
+    "비래낙하"
+  ],
+  "work_types": [
+    "용접",
+    "배관",
+    "운반"
+  ],
+  "equipment": [
+    "안전대"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169250&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169250&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20131216",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

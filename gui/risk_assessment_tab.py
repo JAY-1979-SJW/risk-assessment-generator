@@ -12,7 +12,7 @@ from PyQt6.QtWidgets import (
     QScrollArea, QListWidget, QListWidgetItem, QCheckBox,
     QAbstractItemView, QFrame
 )
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, QThread, pyqtSignal
 from PyQt6.QtGui import QFont, QColor
 
 from core.risk_data import (
@@ -20,6 +20,35 @@ from core.risk_data import (
     get_categories, get_work_types_by_category, get_risks_by_work_type,
     WORK_CATEGORIES
 )
+
+
+class AIGenerateWorker(QThread):
+    """OpenAI + KOSHA DB 위험성평가 생성 백그라운드 워커"""
+    finished = pyqtSignal(list)   # 성공: 항목 리스트
+    error = pyqtSignal(str)       # 실패: 에러 메시지
+
+    def __init__(self, process_name: str, trade_type: str, work_type: str = ""):
+        super().__init__()
+        self.process_name = process_name
+        self.trade_type = trade_type
+        self.work_type = work_type
+
+    def run(self):
+        try:
+            from core.db_connector import fetch_chunks_for_work
+            from core.openai_engine import generate_risk_items
+            chunks = fetch_chunks_for_work(self.trade_type, self.work_type or None)
+            if not chunks:
+                self.error.emit(
+                    f"KOSHA DB에서 '{self.trade_type}' 관련 자료를 찾지 못했습니다.\n"
+                    "SSH 터널(5435) 연결 여부와 검색어를 확인하세요."
+                )
+                return
+            raw_texts = [c["raw_text"] for c in chunks if c.get("raw_text")]
+            items = generate_risk_items(self.process_name, self.trade_type, raw_texts, self.work_type)
+            self.finished.emit(items)
+        except Exception as exc:
+            self.error.emit(str(exc))
 
 
 class RiskDialog(QDialog):
@@ -468,6 +497,58 @@ class RiskAssessmentTab(QWidget):
 
         # 초기 공종 로드
         self.on_category_changed(self.cmb_category.currentText())
+
+        # ===== AI 자동생성 섹션 =====
+        ai_group = QGroupBox("③ AI 자동생성 (KOSHA DB + OpenAI)")
+        ai_group.setFont(QFont("맑은 고딕", 10, QFont.Weight.Bold))
+        ai_group.setStyleSheet(
+            "QGroupBox { border: 2px solid #9C27B0; border-radius: 5px; "
+            "margin-top: 10px; padding-top: 10px; } "
+            "QGroupBox::title { color: #9C27B0; }"
+        )
+        ai_layout = QVBoxLayout(ai_group)
+
+        ai_input_layout = QHBoxLayout()
+
+        ai_input_layout.addWidget(QLabel("공정명:"))
+        self.txt_ai_process = QLineEdit()
+        self.txt_ai_process.setPlaceholderText("예: 소방시설공사")
+        self.txt_ai_process.setMinimumHeight(28)
+        self.txt_ai_process.setMinimumWidth(140)
+        ai_input_layout.addWidget(self.txt_ai_process)
+
+        ai_input_layout.addWidget(QLabel("공종/업종:"))
+        self.txt_ai_trade = QLineEdit()
+        self.txt_ai_trade.setPlaceholderText("예: 소방, 배관, 전기")
+        self.txt_ai_trade.setMinimumHeight(28)
+        self.txt_ai_trade.setMinimumWidth(140)
+        ai_input_layout.addWidget(self.txt_ai_trade)
+
+        ai_input_layout.addWidget(QLabel("세부작업(선택):"))
+        self.txt_ai_work = QLineEdit()
+        self.txt_ai_work.setPlaceholderText("예: 배관, 감지기")
+        self.txt_ai_work.setMinimumHeight(28)
+        self.txt_ai_work.setMinimumWidth(120)
+        ai_input_layout.addWidget(self.txt_ai_work)
+
+        self.btn_ai_generate = QPushButton("AI 자동생성")
+        self.btn_ai_generate.setMinimumHeight(28)
+        self.btn_ai_generate.setMinimumWidth(110)
+        self.btn_ai_generate.setStyleSheet(
+            "background-color: #9C27B0; color: white; font-weight: bold;"
+        )
+        self.btn_ai_generate.clicked.connect(self._on_ai_generate_clicked)
+        ai_input_layout.addWidget(self.btn_ai_generate)
+
+        ai_input_layout.addStretch()
+        ai_layout.addLayout(ai_input_layout)
+
+        self.lbl_ai_status = QLabel("KOSHA DB에서 관련 자료를 검색하고 OpenAI로 위험성평가 항목을 자동 생성합니다.")
+        self.lbl_ai_status.setStyleSheet("color: #666; font-size: 9pt;")
+        ai_layout.addWidget(self.lbl_ai_status)
+
+        layout.addWidget(ai_group)
+        self._ai_worker = None
 
         # 테이블
         table_group = QGroupBox("위험성평가 실시표 (KRAS 표준 양식)")
@@ -955,3 +1036,98 @@ class RiskAssessmentTab(QWidget):
         self.lbl_company.setText(f"회사명: {info.get('company_name', '-')}")
         self.lbl_site.setText(f"현장명: {info.get('site_name', '-')}")
         self.lbl_date.setText(f"평가일자: {info.get('eval_date', '-')}")
+
+        # AI 입력 필드에 공정명 자동 채우기 (비어 있을 때만)
+        if not self.txt_ai_process.text():
+            work_type = info.get("work_type", "")
+            if work_type:
+                process = work_type[:-1] if work_type.endswith("업") else work_type
+                self.txt_ai_process.setText(process)
+
+    # ── AI 자동생성 ─────────────────────────────────────────────────────────
+
+    def _on_ai_generate_clicked(self):
+        """AI 자동생성 버튼 클릭"""
+        trade_type = self.txt_ai_trade.text().strip()
+        if not trade_type:
+            QMessageBox.warning(self, "입력 오류", "공종/업종을 입력하세요.")
+            return
+
+        if self._ai_worker and self._ai_worker.isRunning():
+            return
+
+        process_name = self.txt_ai_process.text().strip() or trade_type
+        work_type = self.txt_ai_work.text().strip()
+
+        self.btn_ai_generate.setEnabled(False)
+        self.lbl_ai_status.setText("KOSHA DB 검색 중...")
+        self.lbl_ai_status.setStyleSheet("color: #FF6600; font-weight: bold;")
+
+        self._ai_worker = AIGenerateWorker(process_name, trade_type, work_type)
+        self._ai_worker.finished.connect(self._on_ai_finished)
+        self._ai_worker.error.connect(self._on_ai_error)
+        self._ai_worker.start()
+
+    def _on_ai_finished(self, items: list):
+        """AI 생성 완료"""
+        self.btn_ai_generate.setEnabled(True)
+        if not items:
+            self.lbl_ai_status.setText("생성된 항목이 없습니다. 검색어를 바꿔보세요.")
+            self.lbl_ai_status.setStyleSheet("color: #FF5722;")
+            return
+
+        for item in items:
+            assessment = self._create_assessment_from_ai_item(item)
+            self.data_manager.add_assessment(assessment)
+            self._add_row_to_table(assessment)
+
+        self.lbl_ai_status.setText(f"완료: {len(items)}개 항목이 추가되었습니다.")
+        self.lbl_ai_status.setStyleSheet("color: #4CAF50; font-weight: bold;")
+
+    def _on_ai_error(self, msg: str):
+        """AI 생성 오류"""
+        self.btn_ai_generate.setEnabled(True)
+        self.lbl_ai_status.setText(f"오류: {msg[:80]}")
+        self.lbl_ai_status.setStyleSheet("color: #F44336; font-weight: bold;")
+        QMessageBox.critical(self, "AI 자동생성 오류", msg)
+
+    def _create_assessment_from_ai_item(self, item: dict) -> dict:
+        """OpenAI 엔진 결과를 assessment dict로 변환"""
+        prob = item.get("가능성", 2)
+        sev = item.get("중대성", 2)
+        score = prob * sev
+        level = item.get("위험등급", "보통")
+
+        after_prob = max(1, prob - 1)
+        after_sev = sev
+        after_score = after_prob * after_sev
+        if after_score <= 2:
+            after_level = "낮음"
+        elif after_score <= 4:
+            after_level = "보통"
+        else:
+            after_level = "높음"
+
+        return {
+            "process": item.get("공정명", ""),
+            "sub_work": item.get("세부작업명", ""),
+            "risk_category": item.get("위험분류", "기타"),
+            "risk_detail": item.get("위험세부분류", ""),
+            "risk_situation": item.get("위험상황", ""),
+            "legal_basis": item.get("관련근거", ""),
+            "current_measures": item.get("현재조치", ""),
+            "eval_scale": "3x3",
+            "possibility": prob,
+            "severity": sev,
+            "current_risk": score,
+            "current_risk_level": level,
+            "reduction_measures": item.get("감소대책", ""),
+            "after_possibility": after_prob,
+            "after_severity": after_sev,
+            "after_risk": after_score,
+            "after_risk_level": after_level,
+            "due_date": "",
+            "complete_date": "",
+            "manager": "",
+            "note": "",
+        }

@@ -1,0 +1,37 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "52318",
+  "title": "건설업 사망사고 유발 SIF(맨홀 및 관부설작업)",
+  "title_normalized": "건설업 사망사고 유발 SIF(맨홀 및 관부설작업)",
+  "body_text": "7.8%\n2026-건설안전실-247\n맨홀 및 관부설 작업\n본 자료에 명시된 통계수치는 건설업  SIF 자료를 기반으로 산정됨\n7\n관 부설 등 작업\n간이 흙막이 미설치 및\n굴착 기울기 미준수\n43.1%\n매몰\n장비사용 작업\n신호수 미배치 및 주변통제 미실시\n부딪힘䞺깔림\n맨홀, 관 내부 등 밀폐공간 작업\n질식䞺중독 예방조치 미실시\n7.8%\n30.7%\n깔림\n건설업 사망사고 유발\n배관 적재 및 적재구간 주변 작업\n안전조치 미실시\n질식䞺중독\n사망사고를 초래할 수 있는\n고위험작업䞺상황 및 재해유발요인을 말함\n\n건설업 사망사고 유발\n맨홀 및 관부설 작업\n매몰\n부딪힘䞺깔림\n고위험요인별  안전대책\n깔림\n관 부설 등 작업\n간이 흙막이 미설치 및 굴착 기울기 미준수\n장비사용 작업\n신호수 미배치 및 주변통제 미실시\n건설장비 작업계획서 준수\n작업반경 내 출입금지 및 유도자, 신호수 배치\n굴착면 기울기 준수 또는 흙막이 지보공 설치\n구조물 인근 굴착 시 지반보강 또는 이설\n맨홀, 관 내부 등 밀폐공간 작업\n질식䞺중독 예방조치 미실시\n환기설비 설치 및 작업 전 산소,\n유해가스 농도 측정\n송기마스크 등 적정보호구 착용 및\n비상 시 대응절차 준수\n평탄한 곳 적재 및 구름방지조치 철저\n적재 허용높이 및 적정 단수 초과금지\n배관 적재 및 적재구간 주변 작업\n안전조치 미실시\n7\n질식䞺중독",
+  "has_text": true,
+  "content_length": 653,
+  "hazards": [
+    "충돌",
+    "붕괴",
+    "질식",
+    "화학물질",
+    "소음진동"
+  ],
+  "work_types": [
+    "굴착",
+    "배관",
+    "밀폐공간",
+    "운반"
+  ],
+  "equipment": [
+    "안전대"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2026040211051492127962&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2026040211051492127962&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "건설업",
+  "published_at": "20260402",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

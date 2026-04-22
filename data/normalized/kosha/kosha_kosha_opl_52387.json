@@ -1,0 +1,34 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "52387",
+  "title": "키메시지(6호_화재·폭발)",
+  "title_normalized": "키메시지(6호_화재·폭발)",
+  "body_text": "OPS\n책자\n동영상\n[안전기준] 제2절화기등의관리\n중소규모사업장\n화재폭발사고예방핸드북\n용접용단가연성물질미제거편\n2026-교육총괄실-276\n인화성·가연성물질이존재하여화재또는\n폭발위험이있는장소에서화기사용금지\n용접·용단등화기작업시불티비산방지조치\n및주변가연물제거\n화재·폭발\n(’26.3.20.) 대전대덕구, 금속가공관련공장에서대형화재발생<사망14명, 다수인명피해발생>\n(’26.4.2.) 충북청주시, 기계제조공장에서폐드럼통뚜껑을용접기로절단중폭발하여뚜껑에맞음<사망1명>\n주요사고사례\n안전작업방법\n콘텐츠링크\n스마트폰APP\n산업안전포털설치\n안전보건공단\n산업안전포털\n산업안전포털\n중대재해사이렌\n안전보건자료실\n검색\n6호\n동영상\n[안전보건특별교육3]\n인화성액체가담긴용기에용접·용단등\n화기작업시내부인화성액체제거및세척\n인화성증기가체류할수있는공간에는\n충분한환기실시및가스감지기설치",
+  "has_text": false,
+  "content_length": 424,
+  "hazards": [
+    "감전",
+    "화재폭발",
+    "화학물질"
+  ],
+  "work_types": [
+    "용접",
+    "절단",
+    "청소"
+  ],
+  "equipment": [
+    "용접기"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2026041317510675631772&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2026041317510675631772&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20260413",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

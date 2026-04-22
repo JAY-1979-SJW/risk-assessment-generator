@@ -1,0 +1,17 @@
+{
+  "item_id": "33476",
+  "title": "[중대재해_기계기구]조형기 작동 위험구역에 접근하여 청소 중 끼임",
+  "category": "kosha_opl",
+  "industry": "제조업",
+  "list_type": "OPS",
+  "atcfl_no": "FL00014169255",
+  "download_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169255&atcflSeq=1",
+  "reg_date": "20131216",
+  "keyword": "조형기, 재해, 청소, 끼임, 미차단, 위험구역, 가동, 재해사례,청소작업",
+  "source": "kosha",
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169255&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169255&atcflSeq=1",
+  "content": "몰드 생산설비인 조형기 작동 중에 조형기 하부에 떨어져 있던 주형사를 청소하는 도중 개방하는 조형기 금형 \n블록과 조형기 측판 사이에 머리와 어깨부위가 끼임\n재해발생 원인\n!\n안전작업 방법\n조형기 하부 작업자 출입금지 방책 설치\n- 조형기 하부 출입금지 방책 설치 후 시건장치로 관리\n- 방책 출입문에 연동장치를 설치하여 방책을 개방할 경우, 조형기가\n   자동적으로 운전이 정지되는 구조로 설치\n청소작업 중 해당 기계의 운전을 반드시 정지\n- 조작설비에 대한 작업방법 및 작동원리, 위험요인 등에 대한 \n   안전작업절차, 안전수칙, 경고표지 등을 작성하여 게시 \n조형기 작동 중 위험구역에 접근하여 청소 실시\n※ 조형기 금형이 닫혀 있는 상태에서 개방되기까지 약 52초 정도 \n    타이머 설정 대기시간이 있음\n조형기 작동 위험구역 접근 청소 중 \n끼임\nTIP\n1\n1\n2\n2\n2013-교육미디어-1301\n제조업\n재해사례\n(조형기)\n\n●  산업안전보건기준에 관한 규칙    제20조(출입의 금지 등), 제92조(정비 등의 작업시의 운전정지 등)\n만화로 보는 재해사례\n기계 청소, 보수 작업, 반드시 운전을 정지하세요 !\n조형기 작동 위험구역 접근 청소 중 끼임\n참고법령 및 기준\n法",
+  "has_text": true,
+  "collected_at": "2026-04-22"
+}

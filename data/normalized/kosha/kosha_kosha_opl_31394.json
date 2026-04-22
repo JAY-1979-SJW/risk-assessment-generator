@@ -1,0 +1,36 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "31394",
+  "title": "섬유가공기계 조작 종사자 - 원사, 원단 가공작업",
+  "title_normalized": "섬유가공기계 조작 종사자 - 원사, 원단 가공작업",
+  "body_text": "감김∙끼임\n감김∙끼임\n절단∙베임∙찔림\n이상온도접촉\n주요위험요인\n작업안전대책\nwww.kosha.or.krⅠ032-5100-500\n●기계가가동중인상태에서이물질\n제거작업중감김, 끼임\n●와인다기계로실감는작업을\n하다가손가락이감겨서절단\n●섬유가열용고온의스팀에접촉\n●점검, 보수작업시기계가동정지\n●가동상태(자동/수동, 운전/정지등)를표시하는표시등\n설치\n●동력전달체인, 기어, 벨트에방호덮개설치\n●원단재단기에광전자식안전장치설치\n스팀온도, 압력확인\n갈고리등보조기구사용\n●가동중인기계에접근하여점검등의작업시는보조\n기구를사용\n절단∙베임∙찔림\n●기계및배관내의스팀온도, 압력을확인한후작업\n이상온도접촉\n\nwww.kosha.or.krⅠ032-5100-500\n섬유가공기계조작종사자-원사, 원단가공작업\n2012-교육미디어-872\n재해사례개요\n가동중인섬유기계의ROLL에묻은이물질을제거하기위해테이프를이용하여\n제거하던중ROLL에말림\n가동중인기계에접근하여점검, 보수작업을하지마세요!\n가동중인\n기계에접근하여\n점검, 보수작업을\n하지마세요!",
+  "has_text": true,
+  "content_length": 501,
+  "hazards": [
+    "끼임",
+    "충돌",
+    "협착",
+    "온도"
+  ],
+  "work_types": [
+    "용접",
+    "배관",
+    "기계정비",
+    "절단"
+  ],
+  "equipment": [
+    "안전대"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014167257&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014167257&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20121204",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

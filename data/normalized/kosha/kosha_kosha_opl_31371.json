@@ -1,0 +1,38 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "31371",
+  "title": "금속용해 및 압연기 조작 종사자 - 금속압연작업",
+  "title_normalized": "금속용해 및 압연기 조작 종사자 - 금속압연작업",
+  "body_text": "협착\n협착(끼임)\n중량물낙하\n전도(넘어짐)\n주요위험요인\n작업안전대책\nwww.kosha.or.krⅠ032-5100-500\n●압연기작동중점검∙정비작업시\n압연롤에협착\n●압연롤교체작업시압연롤낙하에\n의한재해\n●압연유등의작업장비산에따른\n작업자의전도\n●정비,청소,점검작업시압연롤가동정지\n●압연롤구동부측면에방호울설치\n●가동스위치에는잠금조치하고점검중표지판설치\n운반시압연롤전용치구사용\n가동스위치에점검중표지판설치\n●운반시에는압연롤전용치구를사용\n●압연롤운반시는작업안전수칙준수\n●압연롤작업자에게정기안전교육실시\n중량물낙하\n●작업장의비산된기름은수시로제거\n●작업장은정리정돈을실시하고안전통로를확보\n●압연유비산을방지하기위한조치실시\n전도(넘어짐)\n\nwww.kosha.or.krⅠ032-5100-500\n금속용해및압연기조작종사자-금속압연작업\n2012-교육미디어-895\n재해사례개요\n냉간압연기에이상이발생하자정지시킨후정비하던중타작업자가압연기를\n가동시켜작업자의손이말려들어감\n정비작업시전원을차단한후스위치에잠금조치를하세요!\n응? 왜,\n라인을정지\n시킨거야?\n압연롤에뭔가\n이상이있는\n모양이네?\n다시\n켜야지!\n정비작업시\n전원을차단한후\n스위치에\n잠금조치를\n하세요!",
+  "has_text": true,
+  "content_length": 565,
+  "hazards": [
+    "추락",
+    "끼임",
+    "중량물",
+    "화학물질",
+    "협착",
+    "전도",
+    "비래낙하"
+  ],
+  "work_types": [
+    "운반",
+    "기계정비",
+    "청소"
+  ],
+  "equipment": [
+    "안전대"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014167234&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014167234&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20121204",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

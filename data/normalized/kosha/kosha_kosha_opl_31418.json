@@ -1,0 +1,35 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "31418",
+  "title": "정밀기구 제조 및 수리 종사자 - 치과기공작업",
+  "title_normalized": "정밀기구 제조 및 수리 종사자 - 치과기공작업",
+  "body_text": "화상\n화상\n베임\n넘어짐(전도)\n주요위험요인\n작업안전대책\nwww.kosha.or.krⅠ032-5100-500\n●알콜램프사용중고온접촉에의\n한화상\n●연마작업중회전하는숫돌\n(rubber wheel)에닿아베임\n●물건등을들고계단등으로이동\n중전도\n●알콜램프에알콜보충시반드시불을끄고보충\n●알콜램프에알콜보충시보조기구를사용\n●작업장주변을수시로청소및정리정돈\n연삭작업시숫돌에천천히, \n필요한힘만가하여연삭\n알콜보충시보조기구사용\n●작업장주변을수시로청소및정리정돈\n●연삭작업시숫돌에천천히, 필요한힘만가하여연삭\n●해당작업에충분한조도의조명기구를설치하여사용\n베임\n●계단등에미끄럼방지조치\n●미끄럼방지용신발을착용\n●작업장주변을수시로청소및정리정돈\n●물건을들고운반시시야를충분히확보\n넘어짐(전도)\n\nwww.kosha.or.krⅠ032-5100-500\n정밀기구제조및수리종사자-치과기공작업\n2012-교육미디어-848\n재해사례개요\n알콜램프에알콜을보충하기위하여램프의불을끄지않은채알콜을넣던중\n알콜이흘러넘치면서손에불이옮겨붙어화상을입게된재해.\n연료보충작업시반드시불을끄고보조기구를이용하여작업하세요!\n연료보충\n작업시불을끄고\n보조기구를이용하여\n작업하세요!",
+  "has_text": true,
+  "content_length": 556,
+  "hazards": [
+    "충돌",
+    "중량물",
+    "전도",
+    "온도"
+  ],
+  "work_types": [
+    "운반",
+    "기계정비",
+    "청소"
+  ],
+  "equipment": [
+    "안전대"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014167281&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014167281&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20121204",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

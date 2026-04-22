@@ -1,0 +1,38 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "31111",
+  "title": "[중대재해사례]벨트슬링 파단으로 인한 추락",
+  "title_normalized": "벨트슬링 파단으로 인한 추락",
+  "body_text": "2011-교육미디어-1234\n제조업\n2012-교육미디어-595\n근로자 탑승 금지\n벨트슬링 파단으로 인한 추락\n발생 원인\n● 이동식 크레인 인양 운반물 상부에 근로자 탑승\n● 줄걸이 방법 불량(벨트슬링)\n- \u0007벨트슬링을 날카로운 모서리에 걸면서 사용된 보호대 불량\nShot Blast Room 설치 현장에서 피재자가 백필터식 집진설비 본체 상부에 올라가 벨트슬링을 체결한 후 내려\n오지 않은 상태에서 이동식 크레인으로 집진설비 본체를 들어 올려 운반하던 중 벨트슬링이 절단되면서 집진\n설비와 함께 8m 아래로 추락하여 사망\n● 산업안전보건기준에 관한 규칙 제38조 (사전조사 및 작업계획서의 작성 등)\n● 산업안전보건기준에 관한 규칙 제86조 (탑승의 제한)\n근로자 탑승 금지\n- \u0007이동식 크레인을 사용하여 중량물을 인양하거나 운반할 때에는 운반\n물에 근로자 탑승 금지\n운반전용러그를 제작 사용하여 운반\n- \u0007섬유재질의 줄걸이 용구를 사용하여 중량물 운반 시에는 무게중심 \n위치에 운반전용러그를 설치한 후 중량물을 운반하여야 함\n1\n2\n준수해야 할 관련 법령\n안전작업\nTIP\n\n만화로 보는 중대재해사례_\n벨트슬링 파단으로 인한 추락\n크레인에 의한 중량물 인양 시에는 중량물에 탑승하지 마세요!",
+  "has_text": true,
+  "content_length": 610,
+  "hazards": [
+    "추락",
+    "끼임",
+    "충돌",
+    "중량물",
+    "화학물질"
+  ],
+  "work_types": [
+    "용접",
+    "양중",
+    "운반",
+    "절단"
+  ],
+  "equipment": [
+    "크레인",
+    "안전대"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014166980&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014166980&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20121010",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

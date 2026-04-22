@@ -1,0 +1,37 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "52340",
+  "title": "건설업 사망사고 유발 SIF(비계작업)",
+  "title_normalized": "건설업 사망사고 유발 SIF(비계작업)",
+  "body_text": "사망사고를 초래할 수 있는\n고위험작업䞺상황 및 재해유발요인을 말함\n2026-건설안전실-241\n건설업 사망사고 유발\n비계작업\n본 자료에 명시된 통계수치는 건설업  SIF 자료를 기반으로 산정됨\n9\n비계 설치·해체 등 작업\n추락방지조치 미실시\n58.7%\n추락\n자재 운반 등 작업\n낙하물방지조치 미실시\n4.3%\n낙하\n비계 위 이동\n통로 확보 및 작업발판 고정 미실시\n10.9%\n추락\n\n고위험요인별  안전대책\n9\n건설업 사망사고 유발\n비계작업\n추락\n비계 설치·해체 등 작업\n추락방지조치 미실시\n작업발판 및 안전난간 설치\n안전대 부착설비 설치 및 안전대 체결\n추락\n비계 위 이동\n통로 확보 및 작업발판 고정 미실시\n승䞺하강용 가설통로 설치\n작업발판 2개소 이상 고정\n낙하\n자재 운반 등 작업\n낙하물방지조치 미실시\n낙하물방지망 설치\n적정 줄걸이 확보 및 주변 통제",
+  "has_text": false,
+  "content_length": 421,
+  "hazards": [
+    "추락",
+    "중량물",
+    "화학물질",
+    "전도",
+    "비래낙하"
+  ],
+  "work_types": [
+    "비계_조립",
+    "양중",
+    "해체",
+    "운반"
+  ],
+  "equipment": [
+    "안전대"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2026040210523053666787&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2026040210523053666787&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "건설업",
+  "published_at": "20260402",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

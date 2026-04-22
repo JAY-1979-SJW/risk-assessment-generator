@@ -1,0 +1,26 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "43561",
+  "title": "[Quick Message] 공작기계 작업/점검 중 사망사고 연속 발생",
+  "title_normalized": "공작기계 작업/점검 중 사망사고 연속 발생",
+  "body_text": "",
+  "has_text": false,
+  "content_length": 0,
+  "hazards": [],
+  "work_types": [
+    "기계정비"
+  ],
+  "equipment": [],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00016335827&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00016335827&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20211027",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

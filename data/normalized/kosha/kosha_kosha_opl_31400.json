@@ -1,0 +1,33 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "31400",
+  "title": "신발제조 및 관련기계 조작 종사자 - 배합공정",
+  "title_normalized": "신발제조 및 관련기계 조작 종사자 - 배합공정",
+  "body_text": "원재료투입중협착\n원료투입중롤에협착\n정비작업중롤에협착\n근골격계질환\n주요위험요인\n작업안전대책\nwww.kosha.or.krⅠ032-5100-500\n●롤을감고돌아나오는재료를롤사이\n에재투입하는과정에서롤에협착\n●정비완료후시운전을하는동안롤주변\n에서점검이나조정작업중롤에협착\n●원재료인고무를투입하는반복\n작업에따른근골격계질환발생\n●롤러기급정지장치설치\n- 손, 무릎, 복부등으로급정지기구조작부를동작시켜\n롤러기를급정지시키는장치\n고무투입용컨베이어설치\n롤러기급정지장치설치\n●키부착형스위치설치\n- 제3자가스위치를임의조작하지못하도록키부착형\n스위치설치\n정비작업중협착\n●작업전∙후주기적인스트레칭실시\n●고무투입용컨베이어설치\n근골격계질환\n\nwww.kosha.or.krⅠ032-5100-500\n신발제조및관련기계조작종사자-배합공정\n2012-교육미디어-866\n재해사례개요\n롤러기정비후시운전을위해롤에근접하여갭(gap)상태를확인하던중동료\n작업자가롤러기의기동스위치를조작하여롤사이에작업자협착\n키부착형기동스위치설치및키관리를철저히확인하세요!\n이런?\n뭐가걸린것\n같은데\n조심해!\n키부착형\n기동스위치와\n급정지장치를설치하여\n안전을확보하세요!",
+  "has_text": true,
+  "content_length": 549,
+  "hazards": [
+    "끼임",
+    "중량물",
+    "협착"
+  ],
+  "work_types": [
+    "기계정비"
+  ],
+  "equipment": [
+    "컨베이어",
+    "안전대"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014167263&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014167263&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20121204",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

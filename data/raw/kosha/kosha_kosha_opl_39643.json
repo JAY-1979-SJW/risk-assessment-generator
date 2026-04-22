@@ -1,0 +1,17 @@
+{
+  "item_id": "39643",
+  "title": "보일러 사고 OPL",
+  "category": "kosha_opl",
+  "industry": "제조업",
+  "list_type": "OPS",
+  "atcfl_no": "FL00014175076",
+  "download_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014175076&atcflSeq=1",
+  "reg_date": "20190716",
+  "keyword": "보일러,화재,폭발,사고,OPL,",
+  "source": "kosha",
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014175076&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014175076&atcflSeq=1",
+  "content": "",
+  "has_text": false,
+  "collected_at": "2026-04-22"
+}

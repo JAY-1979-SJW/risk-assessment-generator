@@ -1,0 +1,32 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "31118",
+  "title": "[중대재해사례]공기탱크 드레인작업 중 누전에 의한 감전",
+  "title_normalized": "공기탱크 드레인작업 중 누전에 의한 감전",
+  "body_text": "2011-교육미디어-1234\n제조업\n2012-교육미디어-602\n외함 접지\n절연저항 측정\n공기탱크 드레인 작업 중 \n누전에 의한 감전 \n발생 원인\n● 공기압축기 등의 외함 접지 미실시\n공기압축기가 누전되어 공기압축기에 연결된 공기탱크 드레인 밸브에 전기가 흐르는 상태에서 응축수의 \n배수를 위해 드레인 밸브를 맨손으로 조작하던 중 감전, 사망\n● 산업안전보건기준에 관한 규칙 제302조 (전기 기계·기구의 접지) 등\n공기압축기 등의 외함 접지\n- \u0007전기기계·기구의 금속제 외함·금속제 \n외피 등에는 누전에 의한 감전의 위험을 \n방지하기 위하여 접지 실시\n주기적인 전기기계·기구의 절연상태 점검\n- \u0007전기기계·기구를 사용함에 있어 주기적\n으로 절연상태를 점검\n1\n2\n준수해야 할 관련 법령\n안전작업\nTIP\n\n만화로 보는 중대재해사례_\n공기탱크 드레인 작업 중 누전에 의한 감전 \n전기기계 기구 외함에는 접지를 실시하세요!",
+  "has_text": false,
+  "content_length": 457,
+  "hazards": [
+    "감전",
+    "화학물질"
+  ],
+  "work_types": [
+    "배관",
+    "기계정비"
+  ],
+  "equipment": [
+    "압축공기"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014166987&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014166987&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20121010",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

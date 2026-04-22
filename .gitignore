@@ -69,3 +69,10 @@ data/risk_db/laws/
 # 임시 변환 로그
 convert_*.err
 convert_*.json
+
+# 권한/인코딩 문제 파일
+export/위험성평가표_표준양식_테스트_structure.json
+
+# 접속정보/민감 문서
+서버_접속정보.md
+*_접속정보.md

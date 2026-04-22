@@ -1,0 +1,17 @@
+{
+  "item_id": "37477",
+  "title": "화학공정 설비 조작 위험과 예방_활성탄 설비",
+  "category": "kosha_opl",
+  "industry": "제조업",
+  "list_type": "OPS",
+  "atcfl_no": "FL00014172987",
+  "download_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014172987&atcflSeq=1",
+  "reg_date": "20161220",
+  "keyword": "활성탄,화학공정, 화학설비,발화,조작위험, 위험, 반응, 흡착열,안전대책",
+  "source": "kosha",
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014172987&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014172987&atcflSeq=1",
+  "content": "건설업 공정별 위험성평가\n화재폭발 사고예방\n62\n화학공정 설비\n조작 위험과 예방_활성탄 설비\n  재해사례\n안전대책 및 수칙\n-  KOSHA GUIDE P-69-2012「화학공정 설비의 운전 및 작업에 관한 안전관리 기술지침」\n참고 법령 및\n작성 기준\n    활성탄 설비 선정시 각 장치에서 배출되는 가스의 물성 및 상태에 대한 사전 조사 실시\n    활성탄 설비는 자동, 수동에 관계없이 흡착·재생이 가능한 것을 우선적으로 고려\n    각 장치에서 나오는 배출 가스의 농도를 정기적으로 측정\n    필터실의 차압(△P)을 정기적으로 점검하고 차압이 허용치에 이르면 필터 교환\n    흡착탑 내에 온도 감시장치와 경보장치 설치\n    화재 발생 가능성을 고려하여 소화용 배관 설치\n배출가스의 흡착열과 활성탄의 반응으로 인한 \n발화 위험\n2016-교육미디어-929\n※ 해당 자료의 자세한 내용은 안전보건기술지침(KOSHA GUIDE)을 참고하시기 바랍니다.",
+  "has_text": false,
+  "collected_at": "2026-04-22"
+}

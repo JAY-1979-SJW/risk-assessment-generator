@@ -1,0 +1,5117 @@
+{
+  "generated_at": "2026-04-21T08:56:49.252248+00:00",
+  "ai_model": "gpt-4o-mini",
+  "version": "v2",
+  "sample_limit": 374,
+  "offset": 0,
+  "total": 374,
+  "note": "AI 분류 보조. 법적 의무 확정은 rule_db 담당.",
+  "mappings": [
+    {
+      "law_id": "moel_expc:24428",
+      "title": "유해성·위험성이 “해당없음”인 경우 MSDS 교육 실시 여부",
+      "issued_at": "2022-03-11",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:39:58.367420+00:00"
+    },
+    {
+      "law_id": "moel_expc:16454",
+      "title": "문화재 안전 경비원의 근로계약종료 사유의 정당성 유무",
+      "issued_at": "2022-03-11",
+      "relevance": "uncertain",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:00.621107+00:00"
+    },
+    {
+      "law_id": "moel_expc:23254",
+      "title": "이동식 크레인으로 양중 시 안전대 고리 사용 가능 여부",
+      "issued_at": "2021-12-10",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "이동식 크레인으로 양중 시 안전대 고리 사용 가능 여부",
+        "이동식 크레인"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:03.294046+00:00"
+    },
+    {
+      "law_id": "moel_expc:30692",
+      "title": "특별교육, 안전보건 정기교육, MSDS 교육 관련 기준",
+      "issued_at": "2021-11-22",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:05.408800+00:00"
+    },
+    {
+      "law_id": "moel_expc:30670",
+      "title": "특별교육 대상 작업 中 ‘허가 및 관리대상 유해물질 취급 작업’ 관련 기준",
+      "issued_at": "2021-10-26",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "CHEM"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "허가 및 관리대상 유해물질 취급 작업",
+        "유해물질 취급 작업"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:08.686589+00:00"
+    },
+    {
+      "law_id": "moel_expc:30970",
+      "title": "헤드가드 운전원 안전모 착용 여부",
+      "issued_at": "2021-10-22",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:10.914514+00:00"
+    },
+    {
+      "law_id": "moel_expc:30604",
+      "title": "매장문화재 발굴 및 조사사업",
+      "issued_at": "2021-10-22",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:13.016408+00:00"
+    },
+    {
+      "law_id": "moel_expc:30972",
+      "title": "건설기계장비 운전자 안전모 착용 기준",
+      "issued_at": "2021-10-22",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:15.009060+00:00"
+    },
+    {
+      "law_id": "moel_expc:30652",
+      "title": "용접작업, 매뉴얼밸브 조절 작업, 화학설비 사용 작업 관련 기준",
+      "issued_at": "2021-09-08",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "용접작업",
+        "화학설비 사용 작업 관련 기준"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:17.864879+00:00"
+    },
+    {
+      "law_id": "moel_expc:30214",
+      "title": "산업재해 통계산출 기준",
+      "issued_at": "2021-08-31",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:19.906682+00:00"
+    },
+    {
+      "law_id": "moel_expc:24372",
+      "title": "컨베이어 안전검사기준 개정 요청",
+      "issued_at": "2021-08-30",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:21.952646+00:00"
+    },
+    {
+      "law_id": "moel_expc:30958",
+      "title": "지중관로굴착 등 보호구 착용여부",
+      "issued_at": "2021-08-30",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL",
+        "DUST"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "지중관로굴착 등 보호구 착용여부",
+        "굴착 작업 시 발생할 수 있는 위험요인"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:24.538921+00:00"
+    },
+    {
+      "law_id": "moel_expc:30956",
+      "title": "전기작업 외 보호구 착용여부",
+      "issued_at": "2021-08-30",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "ELEC"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "전기작업 외 보호구 착용여부",
+        "전기작업"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:26.964373+00:00"
+    },
+    {
+      "law_id": "moel_expc:24374",
+      "title": "자율안전확인신고 대상 산업용 로봇 적용범위",
+      "issued_at": "2021-08-30",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:29.070406+00:00"
+    },
+    {
+      "law_id": "moel_expc:30924",
+      "title": "안전화 착용 예외 여부",
+      "issued_at": "2021-08-30",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:31.040297+00:00"
+    },
+    {
+      "law_id": "moel_expc:30926",
+      "title": "안전화 지급 위반 여부",
+      "issued_at": "2021-08-30",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:33.176293+00:00"
+    },
+    {
+      "law_id": "moel_expc:30954",
+      "title": "안전모 착용 필수 여부",
+      "issued_at": "2021-08-24",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:36.667343+00:00"
+    },
+    {
+      "law_id": "moel_expc:30588",
+      "title": "화학물질 수입업체의 저장창고 도급인 안전보건조치",
+      "issued_at": "2021-08-23",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "CHEM"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "화학물질 수입업체의 저장창고",
+        "안전보건조치"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:39.334103+00:00"
+    },
+    {
+      "law_id": "moel_expc:30946",
+      "title": "「안전보건규칙」 제16조에서 규정하는 ‘위험물질’의 범위에 대한 질의",
+      "issued_at": "2021-08-18",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:41.667252+00:00"
+    },
+    {
+      "law_id": "moel_expc:30944",
+      "title": "추락 위험 작업",
+      "issued_at": "2021-07-29",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "추락 위험 작업",
+        "비계 설치 및 고소작업대 사용"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:44.952367+00:00"
+    },
+    {
+      "law_id": "moel_expc:23316",
+      "title": "석탄화력발전소 유해물질 취급작업 도급승인 질의",
+      "issued_at": "2021-07-23",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "CHEM"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "유해물질 취급작업",
+        "석탄화력발전소"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:47.802859+00:00"
+    },
+    {
+      "law_id": "moel_expc:30940",
+      "title": "안전난간 적정설치 여부",
+      "issued_at": "2021-06-22",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "안전난간 적정설치 여부",
+        "안전난간은 추락 방지를 위한 장치입니다."
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:50.504247+00:00"
+    },
+    {
+      "law_id": "moel_expc:24368",
+      "title": "군 운용 이동식 크레인 안전검사",
+      "issued_at": "2021-06-22",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL",
+        "ELEC"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "군 운용 이동식 크레인 안전검사",
+        "이동식 크레인"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:53.394607+00:00"
+    },
+    {
+      "law_id": "moel_expc:30936",
+      "title": "안전난간대 설치 높이",
+      "issued_at": "2021-06-17",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "안전난간대 설치 높이",
+        "높이가 1m 이상인 경우 안전난간대를 설치해야 한다."
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:56.257468+00:00"
+    },
+    {
+      "law_id": "moel_expc:23508",
+      "title": "문화재 발굴공사 안전관리",
+      "issued_at": "2021-06-08",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:40:58.505764+00:00"
+    },
+    {
+      "law_id": "moel_expc:24364",
+      "title": "타발기(톰슨프레스 및 센서커팅기(실링기)의 안전인증 및 검사 적용 여부",
+      "issued_at": "2021-06-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:00.632097+00:00"
+    },
+    {
+      "law_id": "moel_expc:24366",
+      "title": "맨리프트 안전인증 대상",
+      "issued_at": "2021-06-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:04.890773+00:00"
+    },
+    {
+      "law_id": "moel_expc:24356",
+      "title": "자율안전확인신고 절차",
+      "issued_at": "2021-06-01",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:07.019804+00:00"
+    },
+    {
+      "law_id": "moel_expc:24354",
+      "title": "자율안전확인신고 위반 시 처벌주체",
+      "issued_at": "2021-06-01",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:09.097828+00:00"
+    },
+    {
+      "law_id": "moel_expc:24352",
+      "title": "자율안전확인신고 대상 혼합기인지 여부",
+      "issued_at": "2021-06-01",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:11.252561+00:00"
+    },
+    {
+      "law_id": "moel_expc:24358",
+      "title": "서스펜션 크레인의 달기구 안전인증 적용 여부",
+      "issued_at": "2021-06-01",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "서스펜션 크레인의 달기구 안전인증 적용 여부",
+        "크레인"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:13.475413+00:00"
+    },
+    {
+      "law_id": "moel_expc:24530",
+      "title": "고소작업대 방호장치 설치와 관련된 비용지원절차",
+      "issued_at": "2021-06-01",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL",
+        "ELEC"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "고소작업대 방호장치 설치",
+        "고소작업대 사용"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:15.870024+00:00"
+    },
+    {
+      "law_id": "moel_expc:23288",
+      "title": "터널공사 유해위험방지계획서 작성 시 밀폐공간 프로그램 이행 작성 제도 신설",
+      "issued_at": "2021-05-04",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:18.129628+00:00"
+    },
+    {
+      "law_id": "moel_expc:30928",
+      "title": "동력으로 작동되는 문 및 안전난간 설치 조건",
+      "issued_at": "2021-05-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:20.136195+00:00"
+    },
+    {
+      "law_id": "moel_expc:23484",
+      "title": "화학물질 msds 작성 및 도급인 책임 관련",
+      "issued_at": "2021-04-27",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "CHEM"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "화학물질 msds 작성",
+        "도급인 책임 관련"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:22.552898+00:00"
+    },
+    {
+      "law_id": "moel_expc:24346",
+      "title": "안전인증 대상 가설기자재 사용여부",
+      "issued_at": "2021-04-27",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:24.975539+00:00"
+    },
+    {
+      "law_id": "moel_expc:24344",
+      "title": "안전대 안전인증기준",
+      "issued_at": "2021-04-27",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:27.254379+00:00"
+    },
+    {
+      "law_id": "moel_expc:24348",
+      "title": "안전검사 대상 기중기 제외 관련",
+      "issued_at": "2021-04-27",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:29.747829+00:00"
+    },
+    {
+      "law_id": "moel_expc:24426",
+      "title": "완제품 필름의 MSDS 작성 대상 여부",
+      "issued_at": "2021-04-13",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:31.936772+00:00"
+    },
+    {
+      "law_id": "moel_expc:30912",
+      "title": "천장주행크레인 통행로 안전난간 설치여부",
+      "issued_at": "2021-03-25",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "천장주행크레인 통행로 안전난간 설치여부",
+        "안전난간 설치여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:34.493402+00:00"
+    },
+    {
+      "law_id": "moel_expc:24342",
+      "title": "안전인증 정보가 없는 압력용기 안전검사 적용 여부",
+      "issued_at": "2021-03-25",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:37.069530+00:00"
+    },
+    {
+      "law_id": "moel_expc:30914",
+      "title": "경량 안전모 사용 여부",
+      "issued_at": "2021-03-25",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:39.275595+00:00"
+    },
+    {
+      "law_id": "moel_expc:30910",
+      "title": "추락 예방 조치 여부",
+      "issued_at": "2021-03-15",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "추락 예방 조치 여부",
+        "안건명: 추락 예방 조치 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:42.298337+00:00"
+    },
+    {
+      "law_id": "moel_expc:23480",
+      "title": "사무업무에 대한 도급 시 산업재해 예방조치 의무 해당 여부",
+      "issued_at": "2021-03-15",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:44.857300+00:00"
+    },
+    {
+      "law_id": "moel_expc:24336",
+      "title": "수상안전모 안전인증 여부",
+      "issued_at": "2021-01-25",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:47.352074+00:00"
+    },
+    {
+      "law_id": "moel_expc:24334",
+      "title": "수격방지기가 안전인증 대상 압력용기인지",
+      "issued_at": "2021-01-25",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:49.888769+00:00"
+    },
+    {
+      "law_id": "moel_expc:24390",
+      "title": "한계농도 미만으로 함유된 구성성분의 MSDS 기재 및 제출 여부",
+      "issued_at": "2020-12-21",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:52.512495+00:00"
+    },
+    {
+      "law_id": "moel_expc:24392",
+      "title": "MSDS 15번 기재항목(법적 규제현황)에 PSM대상물질 해당 여부 표시",
+      "issued_at": "2020-12-21",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "CHEM"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "PSM대상물질 해당 여부 표시",
+        "법적 규제현황에 PSM대상물질"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:55.052811+00:00"
+    },
+    {
+      "law_id": "moel_expc:30882",
+      "title": "원청의 타워크레인 위험작업 강요",
+      "issued_at": "2020-12-15",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL",
+        "ELEC"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "타워크레인 위험작업",
+        "원청의 타워크레인 위험작업 강요"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:57.656789+00:00"
+    },
+    {
+      "law_id": "moel_expc:23772",
+      "title": "산업용 로봇 자율안전확인신고 대상 제외 여부",
+      "issued_at": "2020-11-20",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:41:59.885831+00:00"
+    },
+    {
+      "law_id": "moel_expc:30810",
+      "title": "제1종, 제2종 안전난간 관련 질의",
+      "issued_at": "2020-10-23",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "제1종, 제2종 안전난간 관련 질의",
+        "안전난간은 추락 방지를 위한 장치입니다."
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:02.743152+00:00"
+    },
+    {
+      "law_id": "moel_expc:30766",
+      "title": "지게차 안전모 착용",
+      "issued_at": "2020-10-06",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "지게차 안전모 착용",
+        "지게차 작업"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:05.226891+00:00"
+    },
+    {
+      "law_id": "moel_expc:24388",
+      "title": "신규화학물질에 대한 정보 보호기간 연장신청에 관한 질의",
+      "issued_at": "2020-09-17",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:07.449031+00:00"
+    },
+    {
+      "law_id": "moel_expc:24464",
+      "title": "변기시트 크리너(이소프로필알콜 1%이상 함유)가 작업환경측정 대상인지 여부",
+      "issued_at": "2020-09-02",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "CHEM"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "이소프로필알콜 1%이상 함유가 작업환경측정 대상인지 여부",
+        "작업환경측정 대상에 대한 논의"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:10.405237+00:00"
+    },
+    {
+      "law_id": "moel_expc:30872",
+      "title": "굴착공사 표준안전작업지침 법적 구속력 여부",
+      "issued_at": "2020-08-28",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "굴착공사 표준안전작업지침",
+        "법적 구속력 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:12.990429+00:00"
+    },
+    {
+      "law_id": "moel_expc:23454",
+      "title": "보호구 미착용 시 도급인 책임 여부",
+      "issued_at": "2020-08-21",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:15.193446+00:00"
+    },
+    {
+      "law_id": "moel_expc:30870",
+      "title": "안전난간 설치 여부",
+      "issued_at": "2020-08-13",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "안전난간 설치 여부",
+        "안전난간은 추락 방지를 위한 장치입니다."
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:19.125005+00:00"
+    },
+    {
+      "law_id": "moel_expc:23452",
+      "title": "보호구 미착용 시 도급인 책임 여부",
+      "issued_at": "2020-08-12",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:21.662152+00:00"
+    },
+    {
+      "law_id": "moel_expc:24386",
+      "title": "작업공정별 관리요령 내 예방조치 문구와 MSDS상 문구가 상이한 경우",
+      "issued_at": "2020-08-06",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:24.032949+00:00"
+    },
+    {
+      "law_id": "moel_expc:24462",
+      "title": "레일과 차륜에서 발생하는 금속분진의 작업환경측정 대상여부",
+      "issued_at": "2020-08-05",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "DUST"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "금속분진의 작업환경측정",
+        "레일과 차륜에서 발생하는"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:26.794290+00:00"
+    },
+    {
+      "law_id": "moel_expc:30864",
+      "title": "가설기자재 안전인증 표기",
+      "issued_at": "2020-07-21",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:29.205299+00:00"
+    },
+    {
+      "law_id": "moel_expc:30858",
+      "title": "말비계 추락방지 조치",
+      "issued_at": "2020-07-10",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "말비계 추락방지 조치",
+        "추락방지 조치"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:32.041929+00:00"
+    },
+    {
+      "law_id": "moel_expc:30852",
+      "title": "굴착작업 시 추락방호망 설치",
+      "issued_at": "2020-06-30",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "굴착작업 시 추락방호망 설치",
+        "추락방호망"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:35.380139+00:00"
+    },
+    {
+      "law_id": "moel_expc:30850",
+      "title": "고소작업대 안전발판",
+      "issued_at": "2020-06-26",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL",
+        "TRIP"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "고소작업대 안전발판",
+        "고소작업대 사용 시 추락 위험이 존재합니다."
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:38.834854+00:00"
+    },
+    {
+      "law_id": "moel_expc:23354",
+      "title": "공무원도 산업재해조사표를 제출해야 하는 대상인지",
+      "issued_at": "2020-06-09",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:41.092553+00:00"
+    },
+    {
+      "law_id": "moel_expc:23450",
+      "title": "강박스의 밀폐공간 해당여부",
+      "issued_at": "2020-06-08",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:43.548216+00:00"
+    },
+    {
+      "law_id": "moel_expc:24460",
+      "title": "간접노출자의 작업환경측정 실시 여부",
+      "issued_at": "2020-06-08",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:46.218599+00:00"
+    },
+    {
+      "law_id": "moel_expc:24458",
+      "title": "스토다드솔벤트의 작업환경측정 대상 여부",
+      "issued_at": "2020-06-01",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "CHEM"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "스토다드솔벤트의 작업환경측정",
+        "작업환경측정 대상 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:49.042628+00:00"
+    },
+    {
+      "law_id": "moel_expc:23620",
+      "title": "이천물류창고 화재 관련 건설제도 문제점 개선",
+      "issued_at": "2020-05-28",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FIRE"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "이천물류창고 화재 관련",
+        "화재 관련 건설제도 문제점 개선"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:52.241736+00:00"
+    },
+    {
+      "law_id": "moel_expc:30842",
+      "title": "보행식 지게차 후방 안전장치 설치 여부 질의",
+      "issued_at": "2020-05-15",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "보행식 지게차 후방 안전장치 설치 여부 질의",
+        "지게차 후방 안전장치"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:55.637765+00:00"
+    },
+    {
+      "law_id": "moel_expc:23448",
+      "title": "OO물류창고 화재 관련 수급인 「산업안전보건법」 적용 질의 여부",
+      "issued_at": "2020-05-15",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FIRE"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "OO물류창고 화재 관련 수급인",
+        "산업안전보건법 적용 질의 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:42:58.879057+00:00"
+    },
+    {
+      "law_id": "moel_expc:30840",
+      "title": "시스템비계의 선행안전난간대 안전 기준",
+      "issued_at": "2020-05-13",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "시스템비계의 선행안전난간대 안전 기준",
+        "안전 기준"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:01.932019+00:00"
+    },
+    {
+      "law_id": "moel_expc:30212",
+      "title": "원하청 산업재해 통합관리제도",
+      "issued_at": "2020-04-29",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:04.329985+00:00"
+    },
+    {
+      "law_id": "moel_expc:24456",
+      "title": "단시간의 용접작업을 할 경우 작업환경측정 항목 선정 질의",
+      "issued_at": "2020-04-29",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "단시간의 용접작업을 할 경우",
+        "작업환경측정 항목 선정"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:07.307258+00:00"
+    },
+    {
+      "law_id": "moel_expc:24454",
+      "title": "야자보행매트 생산과정에서 발생하는 분진의 작업환경측정 대상 유해인지 여부",
+      "issued_at": "2020-04-23",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "DUST"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "야자보행매트 생산과정에서 발생하는 분진",
+        "작업환경측정 대상 유해인지 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:09.928064+00:00"
+    },
+    {
+      "law_id": "moel_expc:24452",
+      "title": "고열에 대한 작업환경측정시료수 산정",
+      "issued_at": "2020-04-21",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:12.391086+00:00"
+    },
+    {
+      "law_id": "moel_expc:24450",
+      "title": "작업환경측정 결과 해당 유해인자가 허용기준을 초과하는 경우 과태료의 부과기준",
+      "issued_at": "2020-04-07",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:14.791988+00:00"
+    },
+    {
+      "law_id": "moel_expc:23768",
+      "title": "안전검사 주기",
+      "issued_at": "2020-03-17",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:16.920360+00:00"
+    },
+    {
+      "law_id": "moel_expc:30030",
+      "title": "산업재해율과 산업재해건수 산정방식",
+      "issued_at": "2020-03-05",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:19.071192+00:00"
+    },
+    {
+      "law_id": "moel_expc:23352",
+      "title": "산업재해조사표 제출과 재해율 반영",
+      "issued_at": "2020-02-25",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:21.219028+00:00"
+    },
+    {
+      "law_id": "moel_expc:23762",
+      "title": "크레인 안전인증·검사 기준",
+      "issued_at": "2019-12-30",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "크레인 안전인증·검사 기준",
+        "크레인 관련 안전 규정"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:23.738396+00:00"
+    },
+    {
+      "law_id": "moel_expc:23764",
+      "title": "강관 비계 안전인증 기준 강화 건의",
+      "issued_at": "2019-12-30",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "강관 비계 안전인증 기준 강화",
+        "비계 설치 및 해체 작업 시 안전 관리"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:26.471299+00:00"
+    },
+    {
+      "law_id": "moel_expc:30834",
+      "title": "말비계 사용 작업 시 안전조치",
+      "issued_at": "2019-11-26",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "말비계 사용 작업 시 안전조치",
+        "비계 사용 작업 시 안전조치"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:29.054271+00:00"
+    },
+    {
+      "law_id": "moel_expc:23760",
+      "title": "팽창탱크의 안전검사 합격 가능여부",
+      "issued_at": "2019-11-11",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:31.121619+00:00"
+    },
+    {
+      "law_id": "moel_expc:28594",
+      "title": "원자력발전소의 방사선 방호, 방사성폐기물 분야, 보건물리 분야 업무가 필수유지업무 협정대상 업무에 해당하는지",
+      "issued_at": "2019-10-30",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:33.476426+00:00"
+    },
+    {
+      "law_id": "moel_expc:23310",
+      "title": "요양 중 사망의 경우 중대재해 발생보고 시점",
+      "issued_at": "2019-10-25",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:35.821365+00:00"
+    },
+    {
+      "law_id": "moel_expc:23350",
+      "title": "산업재해조사표 제출대상인 ‘3일 이상 휴업’의 기준",
+      "issued_at": "2019-10-25",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:37.870212+00:00"
+    },
+    {
+      "law_id": "moel_expc:23756",
+      "title": "건설용 리프트의 안전검사 주기",
+      "issued_at": "2019-10-08",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "건설용 리프트의 안전검사 주기",
+        "리프트의 안전검사"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:40.542537+00:00"
+    },
+    {
+      "law_id": "moel_expc:24384",
+      "title": "특정 작업이 허가대상유해물질의 제조, 사용에 해당하는지 여부",
+      "issued_at": "2019-09-30",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:42.941033+00:00"
+    },
+    {
+      "law_id": "moel_expc:23752",
+      "title": "안전검사 제외 대상 운반용 용기 해당 여부",
+      "issued_at": "2019-07-18",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:45.473082+00:00"
+    },
+    {
+      "law_id": "moel_expc:23748",
+      "title": "이동식크레인 안전인증 심사범위",
+      "issued_at": "2019-07-15",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "이동식크레인 안전인증 심사범위",
+        "이동식 크레인"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:48.095464+00:00"
+    },
+    {
+      "law_id": "moel_expc:23746",
+      "title": "산업용로봇 안전검사 기준",
+      "issued_at": "2019-07-09",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:51.011894+00:00"
+    },
+    {
+      "law_id": "moel_expc:23344",
+      "title": "도급에 따른 산업재해 예방조치",
+      "issued_at": "2019-06-24",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:53.480325+00:00"
+    },
+    {
+      "law_id": "moel_expc:23744",
+      "title": "노말헥산 사용 화학설비의 안전검사 대상 여부",
+      "issued_at": "2019-06-21",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "CHEM"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "노말헥산 사용 화학설비의 안전검사",
+        "화학설비의 안전검사 대상 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:56.656705+00:00"
+    },
+    {
+      "law_id": "moel_expc:23740",
+      "title": "워킹타워의 안전인증 대상 여부",
+      "issued_at": "2019-05-27",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:43:58.864322+00:00"
+    },
+    {
+      "law_id": "moel_expc:23738",
+      "title": "협동로봇 안전인증",
+      "issued_at": "2019-05-22",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:01.125512+00:00"
+    },
+    {
+      "law_id": "moel_expc:30786",
+      "title": "안전난간 설치 기준",
+      "issued_at": "2019-05-01",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "안전난간 설치 기준은 추락 방지를 위한 안전장치로서의 역할을 한다.",
+        "안전난간은 고소 작업 시 필수적으로 설치해야 하는 장비이다."
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:04.063478+00:00"
+    },
+    {
+      "law_id": "moel_expc:23734",
+      "title": "날염기의 안전검사 대상 여부",
+      "issued_at": "2019-04-17",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:06.616362+00:00"
+    },
+    {
+      "law_id": "moel_expc:23732",
+      "title": "안전검사 미수검 기계·기구 사용에 따른 과태료 부과 기준",
+      "issued_at": "2019-03-28",
+      "relevance": "uncertain",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:09.048654+00:00"
+    },
+    {
+      "law_id": "moel_expc:23730",
+      "title": "압력용기 안전인증",
+      "issued_at": "2019-03-19",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:11.383507+00:00"
+    },
+    {
+      "law_id": "moel_expc:30642",
+      "title": "특별교육 대상 화재위험작업의 범위",
+      "issued_at": "2019-03-12",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FIRE"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "특별교육 대상 화재위험작업의 범위",
+        "화재위험작업"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:14.433291+00:00"
+    },
+    {
+      "law_id": "moel_expc:23348",
+      "title": "지연보고에 따른 과태료 부과 여부 및 산업재해조사표 제출 시점",
+      "issued_at": "2019-03-12",
+      "relevance": "uncertain",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:17.123795+00:00"
+    },
+    {
+      "law_id": "moel_expc:23728",
+      "title": "기계·기구 방호장치 설치업체 자격요건",
+      "issued_at": "2019-02-28",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.5,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:19.355629+00:00"
+    },
+    {
+      "law_id": "moel_expc:23402",
+      "title": "도급 시 산업재해 예방을 위한 안전조치 이행 주체",
+      "issued_at": "2019-01-29",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:22.137623+00:00"
+    },
+    {
+      "law_id": "moel_expc:30778",
+      "title": "추락재해방지표준안전작업지침 적용 여부",
+      "issued_at": "2018-12-18",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "추락재해방지표준안전작업지침 적용 여부",
+        "안건명: 추락재해방지표준안전작업지침"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:24.738347+00:00"
+    },
+    {
+      "law_id": "moel_expc:23726",
+      "title": "안전검사 불합격 행정처분 주체",
+      "issued_at": "2018-12-13",
+      "relevance": "uncertain",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:27.291553+00:00"
+    },
+    {
+      "law_id": "moel_expc:23724",
+      "title": "파이프서포트 안전인증기준 위반 여부",
+      "issued_at": "2018-09-14",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:29.620529+00:00"
+    },
+    {
+      "law_id": "moel_expc:23722",
+      "title": "산업용로봇 안전검사 시기 개선",
+      "issued_at": "2018-09-04",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:31.762281+00:00"
+    },
+    {
+      "law_id": "moel_expc:23720",
+      "title": "안전검사 대상 여부",
+      "issued_at": "2018-08-13",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:34.130594+00:00"
+    },
+    {
+      "law_id": "moel_expc:23714",
+      "title": "안전검사기관 검사방법 및 안전검사 시 안전장치 제외 적합 여부",
+      "issued_at": "2018-06-12",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:36.506829+00:00"
+    },
+    {
+      "law_id": "moel_expc:30772",
+      "title": "리볼빙 크레인 안전기준 위반 여부",
+      "issued_at": "2018-06-12",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL",
+        "ELEC"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "리볼빙 크레인 안전기준 위반 여부",
+        "크레인 안전기준"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:39.258727+00:00"
+    },
+    {
+      "law_id": "moel_expc:23710",
+      "title": "절연장갑 안전인증 기준 개선 요청",
+      "issued_at": "2018-04-09",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:41.428112+00:00"
+    },
+    {
+      "law_id": "moel_expc:30210",
+      "title": "산업재해 발생건수 등 공표 대상 기준",
+      "issued_at": "2018-04-06",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:43.718440+00:00"
+    },
+    {
+      "law_id": "moel_expc:23308",
+      "title": "중대재해 발생 미보고에 대한 과태료 부과기준 적용 시점",
+      "issued_at": "2018-04-04",
+      "relevance": "uncertain",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:45.999956+00:00"
+    },
+    {
+      "law_id": "moel_expc:30770",
+      "title": "낙하물에 의한 위험의 방지 조치",
+      "issued_at": "2017-12-21",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "DROP"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "낙하물에 의한 위험의 방지 조치",
+        "물체가 떨어지는 경우 발생할 수 있는 위험"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:48.494757+00:00"
+    },
+    {
+      "law_id": "moel_expc:23708",
+      "title": "같은 사업장안에서 옮겨 설치하는 경우 안전인증대상 여부",
+      "issued_at": "2017-12-01",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:50.989321+00:00"
+    },
+    {
+      "law_id": "moel_expc:23338",
+      "title": "산업재해 은폐 해당 여부의 판단기준",
+      "issued_at": "2017-06-12",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:53.319140+00:00"
+    },
+    {
+      "law_id": "moel_expc:23704",
+      "title": "안전인증제도 시행 이전 시스템동바리 및 시스템 비계 사용 가능 여부",
+      "issued_at": "2017-05-16",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "안전인증제도 시행 이전 시스템동바리 및 시스템 비계 사용 가능 여부",
+        "시스템 비계 사용 가능 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:56.483731+00:00"
+    },
+    {
+      "law_id": "moel_expc:30760",
+      "title": "붕괴 또는 추락방지 안전조치 적용 여부",
+      "issued_at": "2016-11-11",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL",
+        "COLLAPSE"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "붕괴 또는 추락방지 안전조치 적용 여부",
+        "안전조치 적용 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:44:59.035084+00:00"
+    },
+    {
+      "law_id": "moel_expc:23702",
+      "title": "기계·기구 방호장치 설치업체 자격요건",
+      "issued_at": "2016-11-11",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:01.411494+00:00"
+    },
+    {
+      "law_id": "moel_expc:23700",
+      "title": "모듈형 시스템비계 안전인증 대상 여부",
+      "issued_at": "2016-10-12",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL",
+        "DROP"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "모듈형 시스템비계 안전인증",
+        "시스템 비계"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:04.291115+00:00"
+    },
+    {
+      "law_id": "moel_expc:24544",
+      "title": "수급업체에서 중대재해 발생 시, 도급업체에도 3차 위반시 금액으로 과태료 부과하여야 하는지",
+      "issued_at": "2016-09-12",
+      "relevance": "uncertain",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:07.759720+00:00"
+    },
+    {
+      "law_id": "moel_expc:24330",
+      "title": "보일러탱크의 안전인증 대상 여부",
+      "issued_at": "2016-02-05",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:09.872480+00:00"
+    },
+    {
+      "law_id": "moel_expc:24328",
+      "title": "안전인증 면제 요건 미충족시 조치",
+      "issued_at": "2015-12-18",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:12.246833+00:00"
+    },
+    {
+      "law_id": "moel_expc:24326",
+      "title": "워킹타워 안전인증 대상 여부",
+      "issued_at": "2015-12-15",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:14.557835+00:00"
+    },
+    {
+      "law_id": "moel_expc:24446",
+      "title": "작업환경측정 주기 관련 질의",
+      "issued_at": "2015-11-19",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:16.952713+00:00"
+    },
+    {
+      "law_id": "moel_expc:23306",
+      "title": "중대재해 발생보고 시적 범위",
+      "issued_at": "2015-09-10",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:19.355114+00:00"
+    },
+    {
+      "law_id": "moel_expc:24324",
+      "title": "안전인증 소요기간 단축",
+      "issued_at": "2015-05-29",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:21.955263+00:00"
+    },
+    {
+      "law_id": "moel_expc:24444",
+      "title": "작업환경측정 분석 인정기관 측정 범위에 대한 질의",
+      "issued_at": "2015-04-14",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:24.543319+00:00"
+    },
+    {
+      "law_id": "moel_expc:30752",
+      "title": "화재예방설비가 설치된 구획실의 저산소 공간에 대한 출입을 위한 안전조치 여부",
+      "issued_at": "2015-02-23",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:26.998040+00:00"
+    },
+    {
+      "law_id": "moel_expc:24322",
+      "title": "형식 변경 시 안전인증 여부",
+      "issued_at": "2015-01-06",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:29.750328+00:00"
+    },
+    {
+      "law_id": "moel_expc:23326",
+      "title": "업무상 질병 또는 질환의 산업재해 발생보고 시기",
+      "issued_at": "2014-12-05",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:32.307961+00:00"
+    },
+    {
+      "law_id": "moel_expc:23304",
+      "title": "재해일과 사망일이 다른 경우 중대재해 발생보고 여부",
+      "issued_at": "2014-11-25",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:34.646905+00:00"
+    },
+    {
+      "law_id": "moel_expc:23324",
+      "title": "교통사고에 대한 산업재해 발생 보고 여부",
+      "issued_at": "2014-10-01",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:37.265780+00:00"
+    },
+    {
+      "law_id": "moel_expc:23322",
+      "title": "업무상 질병의 산업재해조사표 제출 시기",
+      "issued_at": "2014-09-25",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:39.971346+00:00"
+    },
+    {
+      "law_id": "moel_expc:24310",
+      "title": "안전인증 제품간 혼용 사용 여부",
+      "issued_at": "2014-03-07",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:42.567128+00:00"
+    },
+    {
+      "law_id": "moel_expc:23698",
+      "title": "안전인증기준 마련 제도 개선 건의",
+      "issued_at": "2014-03-07",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:44.785184+00:00"
+    },
+    {
+      "law_id": "moel_expc:15872",
+      "title": "문화재조사연구단의 발굴조사원이 기간제한의 예외에 해당하는지",
+      "issued_at": "2014-02-18",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:47.446949+00:00"
+    },
+    {
+      "law_id": "moel_expc:23696",
+      "title": "안전인증 일부 면제 가능 여부",
+      "issued_at": "2014-02-12",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.5,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:49.844075+00:00"
+    },
+    {
+      "law_id": "moel_expc:28114",
+      "title": "산업재해 해당 여부",
+      "issued_at": "2013-12-27",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:52.764364+00:00"
+    },
+    {
+      "law_id": "moel_expc:23694",
+      "title": "농업용 고소작업차 안전인증 대상 여부",
+      "issued_at": "2013-11-19",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL",
+        "ELEC"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "고소작업차는 고소작업대의 일종으로 추락 위험이 존재합니다.",
+        "고소작업차 사용 시 감전 위험도 고려해야 합니다."
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:55.949009+00:00"
+    },
+    {
+      "law_id": "moel_expc:23692",
+      "title": "공기호흡기 안전인증 면제 대상",
+      "issued_at": "2013-11-07",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:45:57.946362+00:00"
+    },
+    {
+      "law_id": "moel_expc:23302",
+      "title": "중대재해 발생 현장 훼손 여부",
+      "issued_at": "2013-10-02",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:00.033515+00:00"
+    },
+    {
+      "law_id": "moel_expc:24442",
+      "title": "작업환경측정 실시의 주체",
+      "issued_at": "2013-09-05",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:02.400413+00:00"
+    },
+    {
+      "law_id": "moel_expc:23690",
+      "title": "위험물 운반용기의 안전인증 대상 여부",
+      "issued_at": "2013-08-26",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:04.495161+00:00"
+    },
+    {
+      "law_id": "moel_expc:23688",
+      "title": "안전인증 받은 제품의 판매",
+      "issued_at": "2013-07-25",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:07.104111+00:00"
+    },
+    {
+      "law_id": "moel_expc:30742",
+      "title": "보호구 착용 의무",
+      "issued_at": "2013-07-25",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:10.722569+00:00"
+    },
+    {
+      "law_id": "moel_expc:23300",
+      "title": "중대재해 발생보고 의무 위반 여부",
+      "issued_at": "2013-07-08",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:13.248862+00:00"
+    },
+    {
+      "law_id": "moel_expc:30740",
+      "title": "일산화탄소의 위험물질 해당 여부",
+      "issued_at": "2013-07-05",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "POISON"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "일산화탄소의 위험물질 해당 여부",
+        "위험물질 해당 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:15.585863+00:00"
+    },
+    {
+      "law_id": "moel_expc:30738",
+      "title": "안전·보건조치가 필요한 밀폐공간 작업",
+      "issued_at": "2013-07-01",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:17.792917+00:00"
+    },
+    {
+      "law_id": "moel_expc:23684",
+      "title": "안전인증 제외 대상 여부",
+      "issued_at": "2013-05-16",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:20.026307+00:00"
+    },
+    {
+      "law_id": "moel_expc:23686",
+      "title": "안전인증 제외 대상 여부",
+      "issued_at": "2013-05-16",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:22.388520+00:00"
+    },
+    {
+      "law_id": "moel_expc:23682",
+      "title": "안전인증 제외 기준",
+      "issued_at": "2013-05-16",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:24.888782+00:00"
+    },
+    {
+      "law_id": "moel_expc:23680",
+      "title": "안전검사 면제 여부",
+      "issued_at": "2013-05-16",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:28.320475+00:00"
+    },
+    {
+      "law_id": "moel_expc:23678",
+      "title": "자율안전확인신고 받은 기계도 안전인증 대상인지",
+      "issued_at": "2013-04-19",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:31.567743+00:00"
+    },
+    {
+      "law_id": "moel_expc:23676",
+      "title": "자율안전확인신고 대상 여부",
+      "issued_at": "2013-04-18",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:34.435457+00:00"
+    },
+    {
+      "law_id": "moel_expc:23674",
+      "title": "자율안전확인신고 대상 여부",
+      "issued_at": "2013-04-18",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:36.959245+00:00"
+    },
+    {
+      "law_id": "moel_expc:23672",
+      "title": "의무안전인증제도 적용 여부",
+      "issued_at": "2013-04-08",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:39.259745+00:00"
+    },
+    {
+      "law_id": "moel_expc:23670",
+      "title": "안전인증·안전검사 기관의 인력기준 관련",
+      "issued_at": "2013-02-19",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:41.947236+00:00"
+    },
+    {
+      "law_id": "moel_expc:23668",
+      "title": "승강식 작업대 설비 안전인증 대상 여부",
+      "issued_at": "2013-01-30",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "승강식 작업대 설비 안전인증",
+        "작업대 설비"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:46.099896+00:00"
+    },
+    {
+      "law_id": "moel_expc:23666",
+      "title": "의무안전인증 대상 리프트를 도급하여 설치한 경우 의무 주체",
+      "issued_at": "2013-01-14",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "의무안전인증 대상 리프트를 도급하여 설치한 경우",
+        "리프트를 도급하여 설치한 경우 의무 주체"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:50.054466+00:00"
+    },
+    {
+      "law_id": "moel_expc:29570",
+      "title": "노. 사간 합의 지연으로 작업환경측정 주기를 넘긴 경우 과태료 부과 여부",
+      "issued_at": "2012-11-21",
+      "relevance": "uncertain",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:52.301304+00:00"
+    },
+    {
+      "law_id": "moel_expc:28438",
+      "title": "군용으로 제작될 15톤 텐더트럭 상부크레인이 안전인증 대상인지 여부",
+      "issued_at": "2012-09-27",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "15톤 텐더트럭 상부크레인",
+        "안전인증 대상"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:55.069337+00:00"
+    },
+    {
+      "law_id": "moel_expc:27606",
+      "title": "밀폐공간작업시 적정공기 수준일 경우 안전보건조치는",
+      "issued_at": "2012-09-04",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:46:57.467305+00:00"
+    },
+    {
+      "law_id": "moel_expc:27362",
+      "title": "공장의 가동이 연기 또는 중단된 경우 작업환경측정의 실시 여부",
+      "issued_at": "2012-08-30",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:00.228194+00:00"
+    },
+    {
+      "law_id": "moel_expc:27410",
+      "title": "유해· 위험성이 분류되지 않는 화학물질의 경고표지 대상여부",
+      "issued_at": "2012-07-31",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:02.809880+00:00"
+    },
+    {
+      "law_id": "moel_expc:29558",
+      "title": "중대재해 발생 시 수시감독 대상",
+      "issued_at": "2012-07-30",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:05.288089+00:00"
+    },
+    {
+      "law_id": "moel_expc:27408",
+      "title": "경고표지 항목 및 대상화학물질 해당여부",
+      "issued_at": "2012-07-06",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "CHEM"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "경고표지 항목 및 대상화학물질 해당여부",
+        "화학물질 해당여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:08.088764+00:00"
+    },
+    {
+      "law_id": "moel_expc:27604",
+      "title": "정화조 시설이 밀폐공간에 해당하는지",
+      "issued_at": "2012-07-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:10.331223+00:00"
+    },
+    {
+      "law_id": "moel_expc:28436",
+      "title": "타 법령에 의해 형식 승인 및 자체점검 받은 고압가스용기가 안전인증 대상인지 여부",
+      "issued_at": "2012-06-22",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:12.822724+00:00"
+    },
+    {
+      "law_id": "moel_expc:29544",
+      "title": "작업환경측정기관 지정인력의 석면 감리업무 가능 여부",
+      "issued_at": "2012-06-05",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:15.290546+00:00"
+    },
+    {
+      "law_id": "moel_expc:27406",
+      "title": "MSDS 작성 시 구성 성분 관련 질의",
+      "issued_at": "2012-06-04",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:17.885853+00:00"
+    },
+    {
+      "law_id": "moel_expc:29556",
+      "title": "중대재해조사 등 관할",
+      "issued_at": "2012-05-01",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:20.059552+00:00"
+    },
+    {
+      "law_id": "moel_expc:27218",
+      "title": "시스템비계 안전인증 대상 여부 질의에 대한 회신",
+      "issued_at": "2012-04-12",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "시스템비계 안전인증 대상 여부 질의에 대한 회신",
+        "시스템 비계"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:23.414882+00:00"
+    },
+    {
+      "law_id": "moel_expc:27404",
+      "title": "화학물질 경고라벨(GHS라벨)중 그림문자 표시사항",
+      "issued_at": "2012-03-13",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "CHEM"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "화학물질 경고라벨(GHS라벨)",
+        "그림문자 표시사항"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:26.076560+00:00"
+    },
+    {
+      "law_id": "moel_expc:27360",
+      "title": "허용소비량 및 함유량 산정에 따른 작업환경측정 대상 여부",
+      "issued_at": "2012-03-08",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:28.691034+00:00"
+    },
+    {
+      "law_id": "moel_expc:27520",
+      "title": "밀폐된 맨홀내에서 자연발생한 유해가스가 특수건강진단 대상물질에 해당되는지",
+      "issued_at": "2012-03-05",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "POISON"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "밀폐된 맨홀내에서 자연발생한 유해가스",
+        "특수건강진단 대상물질에 해당되는지"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:31.724412+00:00"
+    },
+    {
+      "law_id": "moel_expc:28724",
+      "title": "산업안전보건법 제10조제2항(산업재해 발생보고)의 적용 여부",
+      "issued_at": "2012-01-17",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:34.603165+00:00"
+    },
+    {
+      "law_id": "moel_expc:29568",
+      "title": "공립초등학교에서 기능직공무원 사망 시 중대재해 발생 미보고에 대한 과태료 부과 대상",
+      "issued_at": "2011-12-07",
+      "relevance": "uncertain",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:37.010266+00:00"
+    },
+    {
+      "law_id": "moel_expc:28000",
+      "title": "가스 매니폴더가 안전검사 대상인지 여부",
+      "issued_at": "2011-10-05",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "ELEC"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "가스 매니폴더가 안전검사 대상인지 여부",
+        "가스 매니폴더의 전기적 안전성 관련"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:39.905370+00:00"
+    },
+    {
+      "law_id": "moel_expc:28720",
+      "title": "산업안전보건법 시행규칙 제4조제2항의 중대재해 발생보고 여부",
+      "issued_at": "2011-09-06",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:41.883888+00:00"
+    },
+    {
+      "law_id": "moel_expc:28434",
+      "title": "위험기계기구 중고품 수입, 유통 및 출고시점에 대한 질의",
+      "issued_at": "2011-07-29",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:44.103003+00:00"
+    },
+    {
+      "law_id": "moel_expc:28432",
+      "title": "타법의 검사를 받은 방폭구조 전기기계 . 기구 및 부품이 안전인증 면제 대상인지 여부",
+      "issued_at": "2011-07-12",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:47.191461+00:00"
+    },
+    {
+      "law_id": "moel_expc:27452",
+      "title": "석면관련규정 위반 시 산업안전보건법령 적용에 대한 사항",
+      "issued_at": "2011-05-24",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:49.620370+00:00"
+    },
+    {
+      "law_id": "moel_expc:28430",
+      "title": "Spider 장비의 의무안전인증대상 여부",
+      "issued_at": "2011-05-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:51.817883+00:00"
+    },
+    {
+      "law_id": "moel_expc:27450",
+      "title": "자연재해로 인한 건축물 붕괴 시 석면조사 실시 대상여부",
+      "issued_at": "2011-01-05",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "COLLAPSE"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "자연재해로 인한 건축물 붕괴",
+        "붕괴 시 석면조사 실시"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:54.863451+00:00"
+    },
+    {
+      "law_id": "moel_expc:15482",
+      "title": "문화재상시감시인력이 사용기간 제한 예외에 해당하는지 여부",
+      "issued_at": "2010-12-22",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:47:57.516842+00:00"
+    },
+    {
+      "law_id": "moel_expc:27392",
+      "title": "화학물질 경고표시 의무위반 여러건에 대한 과태료 부과",
+      "issued_at": "2010-10-22",
+      "relevance": "uncertain",
+      "hazard_candidates": [
+        "CHEM"
+      ],
+      "confidence": 0.75,
+      "evidence_spans": [
+        "화학물질 경고표시 의무위반",
+        "과태료 부과"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:00.060128+00:00"
+    },
+    {
+      "law_id": "moel_expc:27358",
+      "title": "유기용제 작업환경측정 시 수동식 시료채취기 사용가능 여부",
+      "issued_at": "2010-08-10",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "CHEM"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "유기용제 작업환경측정 시 수동식 시료채취기 사용가능 여부",
+        "수동식 시료채취기 사용가능 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:03.814165+00:00"
+    },
+    {
+      "law_id": "moel_expc:27388",
+      "title": "화학물질 경고표시의 “공급자 정보”기재 방법",
+      "issued_at": "2010-07-13",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "CHEM"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "화학물질 경고표시의 “공급자 정보”기재 방법",
+        "화학물질 관련 정보"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:09.962473+00:00"
+    },
+    {
+      "law_id": "moel_expc:28266",
+      "title": "용접작업 안전장구의 산업안전보건관리비 사용 및 집행",
+      "issued_at": "2010-07-10",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "용접작업 안전장구의 산업안전보건관리비 사용",
+        "용접작업 안전장구의 집행"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:14.782391+00:00"
+    },
+    {
+      "law_id": "moel_expc:29540",
+      "title": "작업환경측정기관이 분리 독립한 경우 지정신청 여부",
+      "issued_at": "2010-07-08",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:17.511517+00:00"
+    },
+    {
+      "law_id": "moel_expc:28428",
+      "title": "수입품(절연용 방호구)의 안전인증 대상여부",
+      "issued_at": "2010-07-07",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:19.944196+00:00"
+    },
+    {
+      "law_id": "moel_expc:28426",
+      "title": "신규 차량에 고소작업대 설치시 안전인증 대상여부",
+      "issued_at": "2010-06-16",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL",
+        "ELEC"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "고소작업대 설치시 안전인증 대상여부",
+        "신규 차량에 고소작업대 설치"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:23.073879+00:00"
+    },
+    {
+      "law_id": "moel_expc:28716",
+      "title": "산업안전보건법 시행규칙 제4조제1항에 의하여 사망자를 포함한 산업재해를 1개월 이내에 보고한 경우 동조 제2항에 의한 중대재해 발생보고를 한 것으로 보아야하는지",
+      "issued_at": "2010-06-14",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:26.885125+00:00"
+    },
+    {
+      "law_id": "moel_expc:28424",
+      "title": "근로자 작업용으로 사용하는 제품의 안전인증 및 안전보건관리비 사용",
+      "issued_at": "2010-06-01",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:29.140235+00:00"
+    },
+    {
+      "law_id": "moel_expc:28422",
+      "title": "안전인증 및 자율안전확인 신고제도에서 ‘출고’에 대한 시점은",
+      "issued_at": "2010-05-25",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:31.998522+00:00"
+    },
+    {
+      "law_id": "moel_expc:28420",
+      "title": "굴절식 크레인 안전인증 대상 여부",
+      "issued_at": "2010-04-22",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "굴절식 크레인 안전인증 대상 여부",
+        "크레인 안전인증"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:34.678418+00:00"
+    },
+    {
+      "law_id": "moel_expc:27740",
+      "title": "터널공사의 산업안전보건관리비 계상 방법",
+      "issued_at": "2010-04-08",
+      "relevance": "uncertain",
+      "hazard_candidates": [],
+      "confidence": 0.75,
+      "evidence_spans": [
+        "터널공사의 산업안전보건관리비 계상 방법",
+        "터널공사"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:37.324921+00:00"
+    },
+    {
+      "law_id": "moel_expc:28418",
+      "title": "타워크레인 안전인증 서면심사 여부",
+      "issued_at": "2010-02-02",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "타워크레인 안전인증 서면심사 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:39.754583+00:00"
+    },
+    {
+      "law_id": "moel_expc:28416",
+      "title": "사출성형기 안전인증 적용 여부",
+      "issued_at": "2010-02-02",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:41.904569+00:00"
+    },
+    {
+      "law_id": "moel_expc:29832",
+      "title": "타워크레인 검사 비용의 산업안전관리비 사용가능 여부",
+      "issued_at": "2009-12-11",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "타워크레인 검사 비용의 산업안전관리비 사용가능 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:44.583377+00:00"
+    },
+    {
+      "law_id": "moel_expc:28414",
+      "title": "보호구의 안전인증기준 이후 “개조” 없이 성능검정 부적합 판정시 법위반 여부",
+      "issued_at": "2009-11-13",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:46.800070+00:00"
+    },
+    {
+      "law_id": "moel_expc:29202",
+      "title": "‘통로용 작업발판’의 안전인증 절차 예외 적용",
+      "issued_at": "2009-11-02",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:49.344118+00:00"
+    },
+    {
+      "law_id": "moel_expc:29200",
+      "title": "차량탑재 크레인의 안전인증 시행일자 법 적용여부",
+      "issued_at": "2009-10-06",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL",
+        "ELEC"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "차량탑재 크레인의 안전인증 시행일자 법 적용여부",
+        "크레인 사용 시 발생할 수 있는 위험"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:53.272160+00:00"
+    },
+    {
+      "law_id": "moel_expc:27214",
+      "title": "희망근로 사업 참여 근로자의 안전모 착용여부",
+      "issued_at": "2009-08-24",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:56.203936+00:00"
+    },
+    {
+      "law_id": "moel_expc:28246",
+      "title": "안전화용 안전양말의 산업안전보건관리비 사용가능 여부",
+      "issued_at": "2009-07-24",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:48:58.919773+00:00"
+    },
+    {
+      "law_id": "moel_expc:29824",
+      "title": "추락방지용 안전발판의 안전보건관리비 사용가능 여부",
+      "issued_at": "2009-04-10",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "추락방지용 안전발판의 안전보건관리비 사용가능 여부",
+        "안전발판의 안전보건관리비"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:02.148695+00:00"
+    },
+    {
+      "law_id": "moel_expc:27998",
+      "title": "안전검사에서 적용 제외되는 산업용의 구체적인 정의는",
+      "issued_at": "2009-02-17",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:04.628236+00:00"
+    },
+    {
+      "law_id": "moel_expc:27996",
+      "title": "위험기계기구 검사의 법적효력 발생시기",
+      "issued_at": "2009-01-07",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:07.113591+00:00"
+    },
+    {
+      "law_id": "moel_expc:27356",
+      "title": "병원 및 의원의 작업환경측정 대상 여부",
+      "issued_at": "2008-12-30",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:09.510637+00:00"
+    },
+    {
+      "law_id": "moel_expc:29538",
+      "title": "작업환경측정 분석업무의 타 기관 의뢰 가능 여부",
+      "issued_at": "2008-12-01",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:12.522632+00:00"
+    },
+    {
+      "law_id": "moel_expc:8584",
+      "title": "산별노조 지부.분회가 독자적으로 체결한 단체협약의 효력(2) (사실관계) 당사는 산업별 노조 ○○지부 산하의 △△지회 사업장으로서 2001년에 기업별노조에서 산별노조로 조직형태를 변경하여 산별노조에 가입한 후 □□노조관계사용자에 교섭권을 위임하는 방법으로 회사는 2002~2004년도까지 산업별 중앙교섭, ○○지부 집단교섭에 참가하여 왔음. 그런데 2005년도 ○○지부교섭에서 당사 면직자에 대한 복직과 관련한 사안에 대해 ○○지부와 △△지회의 갈등으로 동 지회는 산별노조 참여중단, 의무금 납부거절 등을 의결하고 이에 산별노조는 동 지회를 제명하지는 않았으나 사고사업장으로 분류하여 사실상 관계가 단절되었음. 이후 △△지회는 본조의 위임없이 당사와 독자적으로 교섭하고 협약을 체결(‘05~’07년간)하여 왔으나, ‘07. 10월에 신집행부가 구성되면서 그동안 산별노조에 미납한 의무금을 납부하고 산별노조에 신규 가입하는 형식으로 관계를 복원하여 2002년도 및 2004년도에 체결된 기본협약을 근거로 중앙교섭 및 지부집단교섭의 참가를 요구하고 있음.※ 2002년도 기본협약 : 전략--□□노조관계사용자는 조합과 집단교섭에 적극 임하는 가운데--후략",
+      "issued_at": "2008-08-08",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:14.819627+00:00"
+    },
+    {
+      "law_id": "moel_expc:28712",
+      "title": "산업재해 발생일로부터 1개월이 지난 이후에 제3자가 근골격계질환 건을 신고하였을 경우 산업재해 발생보고 의무",
+      "issued_at": "2008-07-24",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:17.466302+00:00"
+    },
+    {
+      "law_id": "moel_expc:9302",
+      "title": "법인세 차감전 순익의 5% 기준",
+      "issued_at": "2008-07-10",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:19.876566+00:00"
+    },
+    {
+      "law_id": "moel_expc:280134",
+      "title": "법인세 차감전 순익의 5% 기준",
+      "issued_at": "2008-07-10",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:23.048749+00:00"
+    },
+    {
+      "law_id": "moel_expc:29348",
+      "title": "와이어로프를 이용한 안전난간대 사용가능 여부",
+      "issued_at": "2008-06-27",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "안전난간대 사용가능 여부",
+        "와이어로프를 이용한"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:25.908782+00:00"
+    },
+    {
+      "law_id": "moel_expc:28710",
+      "title": "근로자가 산업재해 발생일로부터 1개월이 지나 사업주에게 보고하였을 경우 산업재해 발생보고 의무 위반인지",
+      "issued_at": "2008-06-12",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:29.166950+00:00"
+    },
+    {
+      "law_id": "moel_expc:28708",
+      "title": "근로자가 산업재해 발생 사실을 사무실에 신고하지 않아 늦게 알았을 경우의 보고기한",
+      "issued_at": "2008-04-18",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:31.696734+00:00"
+    },
+    {
+      "law_id": "moel_expc:1948",
+      "title": "「산업재해보상보험법」에 의한 상병보상연금을 받고 있는 경우 「근로기준법」에 의한 일시보상을 받은 것으로 볼 수 있는지",
+      "issued_at": "2008-03-06",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:33.864932+00:00"
+    },
+    {
+      "law_id": "moel_expc:29812",
+      "title": "안전화 건조를 위한 에어건을 안전보건관리비로 사용가능 여부",
+      "issued_at": "2007-12-07",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "안전화 건조를 위한 에어건",
+        "에어건을 안전보건관리비로 사용가능 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:36.998515+00:00"
+    },
+    {
+      "law_id": "moel_expc:28240",
+      "title": "군사작전지역 매몰 폭발물 탐지장치 구입비의 안전보건관리비 사용가능 여부",
+      "issued_at": "2007-12-06",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:39.482594+00:00"
+    },
+    {
+      "law_id": "moel_expc:29810",
+      "title": "법에 규정한 타워크레인 검사외 추가로 실시한 검사비를 안전보건관리비로 사용가능 여부",
+      "issued_at": "2007-11-29",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "타워크레인 검사외 추가로 실시한 검사비",
+        "안전보건관리비로 사용가능 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:42.146860+00:00"
+    },
+    {
+      "law_id": "moel_expc:29254",
+      "title": "안전용구(보호구) 미 지급시 사업주의 책임 관련",
+      "issued_at": "2007-11-27",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:44.793431+00:00"
+    },
+    {
+      "law_id": "moel_expc:28066",
+      "title": "산소농도측정기, 소음측정기의 안전보건관리비로 사용가능 여부",
+      "issued_at": "2007-11-01",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:47.338957+00:00"
+    },
+    {
+      "law_id": "moel_expc:28238",
+      "title": "갱폼의 추락방지 안전장치비를 산업안전보건관리비로 사용가능 여부",
+      "issued_at": "2007-10-24",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "갱폼의 추락방지 안전장치",
+        "추락방지 안전장치비"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:51.060853+00:00"
+    },
+    {
+      "law_id": "moel_expc:29250",
+      "title": "수직그물망으로 안전난간대 설치의 대체가능 여부",
+      "issued_at": "2007-09-11",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "수직그물망으로 안전난간대 설치",
+        "안전난간대 설치의 대체가능 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:54.317735+00:00"
+    },
+    {
+      "law_id": "moel_expc:28232",
+      "title": "타워크레인 지지방식 구조검토비의 안전보건관리비 사용가능 여부",
+      "issued_at": "2007-08-31",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "타워크레인 지지방식 구조검토비의 안전보건관리비 사용가능 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:49:57.469569+00:00"
+    },
+    {
+      "law_id": "moel_expc:28050",
+      "title": "배수로에서 갖추어야 할 추락방지 조치는",
+      "issued_at": "2007-07-31",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "배수로에서 갖추어야 할 추락방지 조치는",
+        "추락방지 조치"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:00.141964+00:00"
+    },
+    {
+      "law_id": "moel_expc:28048",
+      "title": "지급된 개인보호구를 회수한 후 재사용 가능 여부",
+      "issued_at": "2007-07-11",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:02.644341+00:00"
+    },
+    {
+      "law_id": "moel_expc:28228",
+      "title": "간이 흙막이 시설의 안전보건관리비로 사용 가능 여부에 대한 회시",
+      "issued_at": "2007-05-29",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "간이 흙막이 시설의 안전보건관리비로 사용 가능 여부",
+        "흙막이 시설"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:06.259349+00:00"
+    },
+    {
+      "law_id": "moel_expc:29794",
+      "title": "열차감시원에게 지급하는 개인보호구 및 완장의 안전보건관리비 사용가능 여부",
+      "issued_at": "2007-05-22",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:09.072973+00:00"
+    },
+    {
+      "law_id": "moel_expc:29530",
+      "title": "작업환경측정 분석장비의 공동활용 가능 여부",
+      "issued_at": "2007-05-18",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:11.435455+00:00"
+    },
+    {
+      "law_id": "moel_expc:29514",
+      "title": "안전대행기관의 출장소 설치 가능 여부",
+      "issued_at": "2007-02-21",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:14.233822+00:00"
+    },
+    {
+      "law_id": "moel_expc:29310",
+      "title": "누전차단기의 안전보건관리비로 사용가능 여부",
+      "issued_at": "2006-12-27",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "ELEC"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "누전차단기의 안전보건관리비로 사용가능 여부",
+        "전기 안전 관련 장비에 대한 언급"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:17.661667+00:00"
+    },
+    {
+      "law_id": "moel_expc:28222",
+      "title": "꽂음접속식 누전차단기의 안전보건관리비 사용가능 여부",
+      "issued_at": "2006-12-26",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "ELEC"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "누전차단기의 안전보건관리비 사용가능 여부",
+        "꽂음접속식 누전차단기"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:21.509079+00:00"
+    },
+    {
+      "law_id": "moel_expc:29546",
+      "title": "중대산업사고 적용여부 및 조사대상재해 선정기준",
+      "issued_at": "2006-12-13",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:24.023640+00:00"
+    },
+    {
+      "law_id": "moel_expc:29160",
+      "title": "해상교량공사중 선박내에서 산소결핍으로 사망사고 발생시 도급사업주의 책임범위",
+      "issued_at": "2006-09-04",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:26.208682+00:00"
+    },
+    {
+      "law_id": "moel_expc:28032",
+      "title": "고소작업대가 계단으로 분류되는 경우 안전기준 적용 시점은",
+      "issued_at": "2006-06-09",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "고소작업대가 계단으로 분류되는 경우 안전기준 적용 시점은",
+        "고소작업대가 계단으로 분류되는 경우"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:29.020767+00:00"
+    },
+    {
+      "law_id": "moel_expc:313848",
+      "title": "노출수준을 달리하는 작업장이 혼재할 경우 작업환경측정 주기는",
+      "issued_at": "2006-04-10",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:31.787679+00:00"
+    },
+    {
+      "law_id": "moel_expc:29334",
+      "title": "수직으로 안전그물망을 설치한 경우 낙하물방지망을 설치해야 되는지",
+      "issued_at": "2006-03-24",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "DROP"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "수직으로 안전그물망을 설치한 경우 낙하물방지망을 설치해야 되는지",
+        "낙하물방지망을 설치해야 되는지"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:35.400476+00:00"
+    },
+    {
+      "law_id": "moel_expc:313822",
+      "title": "토목현장의 작업환경측정 대상 여부를 자체적으로 판단할 수 있는지",
+      "issued_at": "2006-03-07",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:38.182653+00:00"
+    },
+    {
+      "law_id": "moel_expc:27352",
+      "title": "토목 건설현장 소음의 작업환경측정 대상 여부",
+      "issued_at": "2006-03-07",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:40.548379+00:00"
+    },
+    {
+      "law_id": "moel_expc:313774",
+      "title": "리프트에 설치해야 할 방호장치와 관련하여",
+      "issued_at": "2006-03-06",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:42.886356+00:00"
+    },
+    {
+      "law_id": "moel_expc:29154",
+      "title": "산소결핍장소에서 화재발생시 도급사업주의 산업안전보건법 제29조(도급사업에 있어서의 안전 . 보건 조치) 적용여부",
+      "issued_at": "2006-02-23",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FIRE"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "산소결핍장소에서 화재발생시",
+        "도급사업주의 산업안전보건법 제29조"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:45.994958+00:00"
+    },
+    {
+      "law_id": "moel_expc:29304",
+      "title": "보온재 사용작업시 암면에 의한 작업자의 피부 알레르기 방지를 위한 분진복이 산업안전보건관리로 사용이 가능한지",
+      "issued_at": "2006-02-14",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:49.093068+00:00"
+    },
+    {
+      "law_id": "moel_expc:29528",
+      "title": "대학 산업보건학 전공자 등의 작업환경측정기관 분석전담자 해당 여부",
+      "issued_at": "2006-02-08",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:52.977580+00:00"
+    },
+    {
+      "law_id": "moel_expc:313846",
+      "title": "작업환경측정주기를 연장하는 경우 작업장별로 적용할 수 있는지",
+      "issued_at": "2006-01-27",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.5,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:50:56.932909+00:00"
+    },
+    {
+      "law_id": "moel_expc:313786",
+      "title": "기 사용 중인 프레스에 방호장치를 설치할 경우 설계.성능검사를 별도로 받아야 하는지 여부",
+      "issued_at": "2006-01-27",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "기 사용 중인 프레스에 방호장치를 설치할 경우",
+        "설계.성능검사를 별도로 받아야 하는지 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:51:00.426399+00:00"
+    },
+    {
+      "law_id": "moel_expc:313960",
+      "title": "굴착작업 가시설이 산업안전보건관리비로 사용이 가능한지",
+      "issued_at": "2006-01-26",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:51:03.959325+00:00"
+    },
+    {
+      "law_id": "moel_expc:313962",
+      "title": "타워크레인을 다수 사용 현장에서 노동부 지정검사기관의 소속 직원을 상주하여 장비점검 등의 업무를 수행케 하는 경우 당해 직원의 인건비를 산업안전보건관리비로 사용이 가능한지",
+      "issued_at": "2006-01-12",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "타워크레인을 다수 사용 현장에서",
+        "장비점검 등의 업무를 수행케 하는 경우"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:51:07.865865+00:00"
+    },
+    {
+      "law_id": "moel_expc:28216",
+      "title": "타워크레인을 다수 사용 현장에서 노동부 지정검사기관의 소속 직원을 상주하여 장비점검 등의 업무를 수행케 하는 경우 당해 직원의 인건비를 산업안전보건관리비로 사용이 가능한지",
+      "issued_at": "2006-01-12",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "타워크레인을 다수 사용 현장에서",
+        "장비점검 등의 업무를 수행케 하는 경우"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:51:11.387670+00:00"
+    },
+    {
+      "law_id": "moel_expc:313942",
+      "title": "타워크레인에 안전 홍보용 간판설치 비용이 산업안전보건관리비로 사용이 가능한지",
+      "issued_at": "2006-01-10",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "타워크레인에 안전 홍보용 간판설치",
+        "산업안전보건관리비로 사용이 가능한지"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:51:14.920076+00:00"
+    },
+    {
+      "law_id": "moel_expc:29300",
+      "title": "타워크레인에 안전 홍보용 간판설치 비용이 산업안전보건관리비로 사용이 가능한지",
+      "issued_at": "2006-01-10",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "타워크레인에 안전 홍보용 간판설치",
+        "타워크레인에 안전 홍보용 간판설치 비용"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:51:18.323265+00:00"
+    },
+    {
+      "law_id": "moel_expc:28026",
+      "title": "안전기준 제327조(전기기계 . 기구 등의 충전부 방호)를 위반한 외부인에 대해 처벌이 가능한지 여부",
+      "issued_at": "2006-01-06",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "ELEC"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "전기기계 . 기구 등의 충전부 방호를 위반한 외부인",
+        "처벌이 가능한지 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:51:21.693328+00:00"
+    },
+    {
+      "law_id": "moel_expc:313792",
+      "title": "안전기준 제327조(전기기계.기구 등의 충전부 방호)를 위반한 외부인에 대해 처벌이 가능한지 여부",
+      "issued_at": "2006-01-06",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "ELEC"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "전기기계.기구 등의 충전부 방호를 위반한 외부인",
+        "처벌이 가능한지 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:51:25.587229+00:00"
+    },
+    {
+      "law_id": "moel_expc:29298",
+      "title": "엘리베이터 핏트 내부에 근로자 추락 및 낙하방지를 위해 매층 20cm 간격으로 철근을 배근하고 합판을 설치할 경우 산업안전보건관리비로 사용이 가능한지",
+      "issued_at": "2006-01-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL",
+        "DROP"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "근로자 추락 및 낙하방지를 위해 매층 20cm 간격으로 철근을 배근하고",
+        "합판을 설치할 경우"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:51:29.198799+00:00"
+    },
+    {
+      "law_id": "moel_expc:313940",
+      "title": "엘리베이터 핏트 내부에 근로자 추락 및 낙하방지를 위해 매층 20cm 간격으로 철근을 배근하고 합판을 설치할 경우 산업안전보건관리비로 사용이 가능한지",
+      "issued_at": "2006-01-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL",
+        "DROP"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "엘리베이터 핏트 내부에 근로자 추락 및 낙하방지를 위해",
+        "매층 20cm 간격으로 철근을 배근하고 합판을 설치할 경우"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:51:32.548988+00:00"
+    },
+    {
+      "law_id": "moel_expc:313764",
+      "title": "박물관, 홍보관, 건축.플랜트 모형 제작, 납품 사업장의 안전관리자 선임 대상 여부",
+      "issued_at": "2005-12-14",
+      "relevance": "uncertain",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:51:35.305631+00:00"
+    },
+    {
+      "law_id": "moel_expc:29332",
+      "title": "수직보호망을 설치하였을 경우 낙하물 방지망 및 안전난간대를 추가로 설치하여야 하는지 여부",
+      "issued_at": "2005-12-07",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "DROP"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "낙하물 방지망 및 안전난간대를 추가로 설치하여야 하는지 여부",
+        "수직보호망을 설치하였을 경우"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:51:38.814439+00:00"
+    },
+    {
+      "law_id": "moel_expc:313798",
+      "title": "수직보호망을 설치하였을 경우 낙하물 방지망 및 안전난간대를 추가로 설치하여야 하는지 여부",
+      "issued_at": "2005-12-07",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "DROP"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "낙하물 방지망 및 안전난간대를 추가로 설치하여야 하는지 여부",
+        "수직보호망을 설치하였을 경우"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:51:42.298719+00:00"
+    },
+    {
+      "law_id": "moel_expc:28706",
+      "title": "사업주(차주겸 운전사)가 부상 등을 당한 경우 산업재해에 포함되는지여부",
+      "issued_at": "2005-11-25",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:51:44.712099+00:00"
+    },
+    {
+      "law_id": "moel_expc:313788",
+      "title": "산업안전보건법 개정에 따른 타워크레인의 자체검사 주기 산정 방법",
+      "issued_at": "2005-10-21",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "타워크레인의 자체검사 주기 산정 방법",
+        "산업안전보건법 개정에 따른"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:51:51.782919+00:00"
+    },
+    {
+      "law_id": "moel_expc:29418",
+      "title": "운송업체 운전기사의 산업재해가 원수급업체 재해율에 산입되는지 여부",
+      "issued_at": "2005-10-18",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:51:54.442767+00:00"
+    },
+    {
+      "law_id": "moel_expc:313976",
+      "title": "운송업체 운전기사의 산업재해가 원수급업체 재해율에 산입되는지 여부",
+      "issued_at": "2005-10-18",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:51:57.163152+00:00"
+    },
+    {
+      "law_id": "moel_expc:313934",
+      "title": "휴대용천공기 안전커버의 산업안전보건관리비 사용가능 여부",
+      "issued_at": "2005-09-14",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:01.129326+00:00"
+    },
+    {
+      "law_id": "moel_expc:29294",
+      "title": "안전감시용 케이블 TV 설치비용 및 감리단 직원에게 지급하는 안전화 등 개인보호구 구입비용의 산업안전보건관리비 사용 가능 여부",
+      "issued_at": "2005-09-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:04.117117+00:00"
+    },
+    {
+      "law_id": "moel_expc:313932",
+      "title": "안전감시용 케이블 TV 설치비용 및 감리단 직원에게 지급하는 안전화 등 개인보호구 구입비용의 산업안전보건관리비 사용 가능 여부",
+      "issued_at": "2005-09-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:07.765030+00:00"
+    },
+    {
+      "law_id": "moel_expc:313866",
+      "title": "건물 내에 석면제품 사용가능 여부 및 석면의 유해성",
+      "issued_at": "2005-08-09",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:10.527608+00:00"
+    },
+    {
+      "law_id": "moel_expc:313772",
+      "title": "KS인증을 받은 안전화도 성능검정을 받아야 하는지 여부",
+      "issued_at": "2005-07-21",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:13.108265+00:00"
+    },
+    {
+      "law_id": "moel_expc:28704",
+      "title": "질병의 경우 산업재해 발생보고 시점에 대하여",
+      "issued_at": "2005-07-06",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:15.579883+00:00"
+    },
+    {
+      "law_id": "moel_expc:313928",
+      "title": "크레인에 설치하는 감시용 카메라의 산업안전보건관리비 사용가능 여부",
+      "issued_at": "2005-06-13",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "크레인에 설치하는 감시용 카메라",
+        "크레인"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:18.559873+00:00"
+    },
+    {
+      "law_id": "moel_expc:313818",
+      "title": "시멘트 분진의 작업환경측정 대상 여부",
+      "issued_at": "2005-05-10",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "DUST"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "시멘트 분진의 작업환경측정",
+        "작업환경측정 대상 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:21.285497+00:00"
+    },
+    {
+      "law_id": "moel_expc:27346",
+      "title": "시멘트 분진의 작업환경측정 대상 여부",
+      "issued_at": "2005-05-10",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "DUST"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "시멘트 분진의 작업환경측정",
+        "작업환경측정 대상 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:24.926968+00:00"
+    },
+    {
+      "law_id": "moel_expc:313816",
+      "title": "소독약 제조업체에서 취급하는 메탄올 등이 작업환경측정 대상 여부",
+      "issued_at": "2005-04-19",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "POISON",
+        "CHEM"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "소독약 제조업체에서 취급하는 메탄올",
+        "작업환경측정 대상 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:28.275672+00:00"
+    },
+    {
+      "law_id": "moel_expc:313790",
+      "title": "천정크레인 취급작업 등이 안전모 착용 대상작업에 해당되는지 여부",
+      "issued_at": "2005-04-16",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL",
+        "ELEC"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "천정크레인 취급작업",
+        "안전모 착용 대상작업"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:31.580325+00:00"
+    },
+    {
+      "law_id": "moel_expc:28022",
+      "title": "천정크레인 취급작업 등이 안전모 착용 대상작업에 해당되는지 여부",
+      "issued_at": "2005-04-16",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL",
+        "ELEC"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "천정크레인 취급작업",
+        "안전모 착용 대상작업"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:36.603043+00:00"
+    },
+    {
+      "law_id": "moel_expc:28702",
+      "title": "산업재해 발생보고를 지연하였을 경우 법 위반 여부",
+      "issued_at": "2005-03-28",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.5,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:39.142520+00:00"
+    },
+    {
+      "law_id": "moel_expc:27512",
+      "title": "작업환경측정 대상에서 제외되는 임시작업 등의 특수건강진단 대상 여부",
+      "issued_at": "2005-03-17",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:41.846478+00:00"
+    },
+    {
+      "law_id": "moel_expc:27342",
+      "title": "염화비닐의 작업환경측정 및 건강진단 대상 여부",
+      "issued_at": "2005-03-02",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:44.006812+00:00"
+    },
+    {
+      "law_id": "moel_expc:313728",
+      "title": "산업재해발생보고 방법 및 근골격계질환 판정기준",
+      "issued_at": "2005-02-19",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:46.382059+00:00"
+    },
+    {
+      "law_id": "moel_expc:28700",
+      "title": "산업재해발생보고 방법 및 근골격계질환 판정기준",
+      "issued_at": "2005-02-19",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:48.882910+00:00"
+    },
+    {
+      "law_id": "moel_expc:313722",
+      "title": "사내 협력업체의 산업재해율 산정 방법",
+      "issued_at": "2005-01-07",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:51.718510+00:00"
+    },
+    {
+      "law_id": "moel_expc:28698",
+      "title": "사내 협력업체의 산업재해율 산정 방법",
+      "issued_at": "2005-01-07",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:54.404265+00:00"
+    },
+    {
+      "law_id": "moel_expc:313938",
+      "title": "공사설계내역서에 낙하물방지망 등의 공사내역이 포함되어 있다면 당해 비용을 산업안전보건관리비로 사용이 가능",
+      "issued_at": "2005-01-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "DROP"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "낙하물방지망 등의 공사내역이 포함되어 있다면",
+        "당해 비용을 산업안전보건관리비로 사용이 가능"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:52:57.643899+00:00"
+    },
+    {
+      "law_id": "moel_expc:28016",
+      "title": "공사설계내역서에 낙하물방지망 등의 공사내역이 포함되어 있다면 당해 비용을 산업안전보건관리비로 사용이 가능",
+      "issued_at": "2005-01-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "DROP"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "낙하물방지망 등의 공사내역이 포함되어 있다면",
+        "당해 비용을 산업안전보건관리비로 사용이 가능"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:01.491654+00:00"
+    },
+    {
+      "law_id": "moel_expc:313952",
+      "title": "설계시 미 반영된 외부비계공사를 산업안전보건관리비로 사용가능한지",
+      "issued_at": "2004-10-22",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "외부비계공사",
+        "비계공사"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:04.159431+00:00"
+    },
+    {
+      "law_id": "moel_expc:279530",
+      "title": "교통사고로 도로시설물을 파손하고 원인자부담금을 납부하지 않고 있는 원인자의 급여압류를 위한 고용보험 가입이력 조회가능 여부",
+      "issued_at": "2004-09-24",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:06.772599+00:00"
+    },
+    {
+      "law_id": "moel_expc:313892",
+      "title": "사내 근골격계질환 재활센터를 통해 근골격계질환자를 치료할 경우 산업재해발생보고를 하여야 하는지 여부",
+      "issued_at": "2004-09-02",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:09.324012+00:00"
+    },
+    {
+      "law_id": "moel_expc:28824",
+      "title": "작업환경측정결과 설명회를 정기교육으로 대체 가능한지",
+      "issued_at": "2004-08-18",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:12.191384+00:00"
+    },
+    {
+      "law_id": "moel_expc:313918",
+      "title": "리프트 호출장치를 포함, 임대하여 건설용리프트 운전원을 배치할 경우 산업안전보건관리비를 정산할 수 있는지",
+      "issued_at": "2004-08-18",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "리프트 호출장치를 포함",
+        "건설용리프트 운전원을 배치할 경우"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:14.826863+00:00"
+    },
+    {
+      "law_id": "moel_expc:313878",
+      "title": "작업환경측정 미실시 사업장의 향후 측정시기는",
+      "issued_at": "2004-08-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:16.895360+00:00"
+    },
+    {
+      "law_id": "moel_expc:27318",
+      "title": "작업환경측정 미실시 사업장의 향후 측정시기는",
+      "issued_at": "2004-08-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:19.713875+00:00"
+    },
+    {
+      "law_id": "moel_expc:313756",
+      "title": "일반소비재도 MSDS를 작성하여야 하는지 여부",
+      "issued_at": "2004-08-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:22.212235+00:00"
+    },
+    {
+      "law_id": "moel_expc:313720",
+      "title": "산업재해 발생시 요양일수 산정 방법",
+      "issued_at": "2004-07-29",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:24.281887+00:00"
+    },
+    {
+      "law_id": "moel_expc:28696",
+      "title": "산업재해 발생시 요양일수 산정 방법",
+      "issued_at": "2004-07-29",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:26.622708+00:00"
+    },
+    {
+      "law_id": "moel_expc:313762",
+      "title": "도급사업에서의 하도급업체 소속 근로자에 대한 안전보호구 지급, 안전교육 및 건강진단 실시 주체",
+      "issued_at": "2004-07-26",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:29.184007+00:00"
+    },
+    {
+      "law_id": "moel_expc:313814",
+      "title": "작업환경측정 주기 완화 및 단시간 작업의 작업환경측정 대상 여부",
+      "issued_at": "2004-06-29",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:31.897843+00:00"
+    },
+    {
+      "law_id": "moel_expc:313750",
+      "title": "작업환경측정결과보고서의 지방노동관서 보고기한",
+      "issued_at": "2004-06-29",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:35.606872+00:00"
+    },
+    {
+      "law_id": "moel_expc:313870",
+      "title": "특수건강진단기관 및 보건관리대행기관 소속 의사의 상근대상 여부",
+      "issued_at": "2004-06-25",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:38.941369+00:00"
+    },
+    {
+      "law_id": "moel_expc:313914",
+      "title": "전기기계.기구 및 이동형 투광등 등에 감전사고 방지를 위하여 철제 외함에 접지시설 및 누전차단기를 설치할 경우 산업안전보건관리비로 사용 가능한 지",
+      "issued_at": "2004-06-12",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "ELEC"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "감전사고 방지를 위하여 철제 외함에 접지시설 및 누전차단기를 설치할 경우",
+        "전기기계.기구 및 이동형 투광등 등에"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:42.225960+00:00"
+    },
+    {
+      "law_id": "moel_expc:28012",
+      "title": "전기기계.기구 및 이동형 투광등 등에 감전사고 방지를 위하여 철제 외함에 접지시설 및 누전차단기를 설치할 경우 산업안전보건관리비로 사용 가능한 지",
+      "issued_at": "2004-06-12",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "ELEC"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "감전사고 방지를 위하여 철제 외함에 접지시설 및 누전차단기를 설치할 경우",
+        "전기기계.기구 및 이동형 투광등 등에"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:45.735965+00:00"
+    },
+    {
+      "law_id": "moel_expc:313780",
+      "title": "외국의 안전인증기관에서 인증받은 방폭기기에 대해 성능검정 면제가 가능한지 여부",
+      "issued_at": "2004-06-04",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:48.104978+00:00"
+    },
+    {
+      "law_id": "moel_expc:27314",
+      "title": "포름알데히드 노출시간이 1~2분일 때 작업환경측정 대상 여부",
+      "issued_at": "2004-04-30",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:50.527805+00:00"
+    },
+    {
+      "law_id": "moel_expc:313844",
+      "title": "유해물질별 올바른 측정주기는 어떻게 되는지",
+      "issued_at": "2004-04-16",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:52.821465+00:00"
+    },
+    {
+      "law_id": "moel_expc:28198",
+      "title": "분전함, 누전차단기 등을 설치할 경우 이에 소요되는 비용은 산업안전보건관리비로 사용 가능한지",
+      "issued_at": "2004-04-16",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "분전함, 누전차단기 등을 설치할 경우",
+        "소요되는 비용은 산업안전보건관리비로 사용 가능한지"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:55.819446+00:00"
+    },
+    {
+      "law_id": "moel_expc:27312",
+      "title": "8시간 이상 소음에 노출될 경우 작업환경 평가방법",
+      "issued_at": "2004-04-09",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "NOISE"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "8시간 이상 소음에 노출될 경우 작업환경 평가방법",
+        "소음에 노출될 경우 작업환경 평가방법"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:53:58.593682+00:00"
+    },
+    {
+      "law_id": "moel_expc:27310",
+      "title": "매일 1일 1~2회 단시간 작업을 행할 경우 작업환경측정 대상인지",
+      "issued_at": "2004-04-08",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:01.507321+00:00"
+    },
+    {
+      "law_id": "moel_expc:27308",
+      "title": "작업환경측정기관 추가 지정 및 출장소 운영 가능 여부",
+      "issued_at": "2004-03-19",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:03.874695+00:00"
+    },
+    {
+      "law_id": "moel_expc:313812",
+      "title": "소음성난청유소견자(D1)가 근무하는 작업장은 반드시 작업환경측정을 하여야하는지 여부",
+      "issued_at": "2004-03-18",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:06.247849+00:00"
+    },
+    {
+      "law_id": "moel_expc:27304",
+      "title": "근로자가 용접용 보안면을 착용하고 작업시 작업환경측정 방법",
+      "issued_at": "2004-03-15",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:08.800898+00:00"
+    },
+    {
+      "law_id": "moel_expc:313840",
+      "title": "작업환경측정장비의 검교정 기관.방법.주기",
+      "issued_at": "2004-03-10",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:11.067111+00:00"
+    },
+    {
+      "law_id": "moel_expc:313842",
+      "title": "만 노출기준 초과시 작업환경측정주기 완화가 가능한지",
+      "issued_at": "2004-03-10",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:13.080674+00:00"
+    },
+    {
+      "law_id": "moel_expc:313826",
+      "title": "작업환경측정결과보고서 기록방법 및 노출기준 적용",
+      "issued_at": "2004-02-26",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:15.155351+00:00"
+    },
+    {
+      "law_id": "moel_expc:27302",
+      "title": "용접작업시 발생되는 오존이 작업환경측정 대상 유해인자에 포함되는지 여부",
+      "issued_at": "2004-02-24",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "용접작업시 발생되는 오존이 작업환경측정 대상 유해인자에 포함되는지 여부",
+        "용접작업"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:17.972184+00:00"
+    },
+    {
+      "law_id": "moel_expc:313808",
+      "title": "용접작업시 발생되는 오존이 작업환경측정 대상 유해인자에 포함되는지 여부",
+      "issued_at": "2004-02-24",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "용접작업시 발생되는 오존이 작업환경측정 대상 유해인자에 포함되는지 여부",
+        "용접작업"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:21.120955+00:00"
+    },
+    {
+      "law_id": "moel_expc:313806",
+      "title": "용접작업시 발생되는 니켈 및 6가크롬의 작업환경측정 대상 여부",
+      "issued_at": "2004-02-23",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "용접작업시 발생되는 니켈 및 6가크롬",
+        "작업환경측정 대상 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:24.032749+00:00"
+    },
+    {
+      "law_id": "moel_expc:14880",
+      "title": "산업재해 관련 서류가 사용증명서의 대상이 되는지 여부",
+      "issued_at": "2004-02-19",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:26.391027+00:00"
+    },
+    {
+      "law_id": "moel_expc:12508",
+      "title": "사용증명서 【 관 련 조 항 】 법 제38조(사용증명서) ①사용자는 근로자가 퇴직 후라도 사용기간, 업무종류, 지위와 임금 기타 필요한 사항에 관한 증명서를 청구한 때에는 사실대로 기입하여 즉시 교부하여야 한다.②제1항의 증명서에는 근로자가 요구한 사항만을 기입하여야 한다. 요점산업재해 관련서류가 사용증명서의 대상이 되는지 여부",
+      "issued_at": "2004-02-19",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:28.951238+00:00"
+    },
+    {
+      "law_id": "moel_expc:313794",
+      "title": "낙하물방지망을 설치시 안전기준 적합 여부",
+      "issued_at": "2004-02-19",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "DROP"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "낙하물방지망을 설치시 안전기준 적합 여부",
+        "낙하물 방지와 관련된 안전기준"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:31.346161+00:00"
+    },
+    {
+      "law_id": "moel_expc:27986",
+      "title": "타워크레인 작업구역 제한 및 충돌방지 시스템을 구입·설치할 경우 이에 소요되는 비용을 산업안전보건관리비로 사용 가능한지 여부",
+      "issued_at": "2004-02-10",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "COLLIDE"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "타워크레인 작업구역 제한 및 충돌방지 시스템",
+        "충돌방지 시스템을 구입·설치할 경우"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:34.146592+00:00"
+    },
+    {
+      "law_id": "moel_expc:29146",
+      "title": "도급사업에서의 산업재해 발생보고 및 안전 . 보건교육 등 실시 주체",
+      "issued_at": "2004-01-29",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:36.536742+00:00"
+    },
+    {
+      "law_id": "moel_expc:313760",
+      "title": "도급사업에서의 산업재해 발생보고 및 안전.보건교육 등 실시 주체",
+      "issued_at": "2004-01-29",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:38.995043+00:00"
+    },
+    {
+      "law_id": "moel_expc:27300",
+      "title": "전자부품서비스센타에서 행하는 납땜 작업이 작업환경측정 대상인지",
+      "issued_at": "2004-01-26",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:41.180565+00:00"
+    },
+    {
+      "law_id": "moel_expc:313804",
+      "title": "건설현장과 같이 한시적인 옥외작업장의 작업환경측정 대상 여부",
+      "issued_at": "2004-01-16",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:43.417390+00:00"
+    },
+    {
+      "law_id": "moel_expc:313838",
+      "title": "작업환경측정기관 합병시 측정업무 수행 방법",
+      "issued_at": "2004-01-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:45.726073+00:00"
+    },
+    {
+      "law_id": "moel_expc:27298",
+      "title": "작업환경측정기관 합병시 측정업무 수행 방법",
+      "issued_at": "2004-01-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:48.015530+00:00"
+    },
+    {
+      "law_id": "moel_expc:28404",
+      "title": "터널 내의 조명·공기정화시설의 안전보호시설 해당여부",
+      "issued_at": "2003-11-05",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:50.386816+00:00"
+    },
+    {
+      "law_id": "moel_expc:237406",
+      "title": "터널내의 조명.공기정화시설의 안전보호시설 해당 여부",
+      "issued_at": "2003-11-05",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:52.502255+00:00"
+    },
+    {
+      "law_id": "moel_expc:28694",
+      "title": "요양기간이 불분명한 산업재해의 보고대상 여부 판단은",
+      "issued_at": "2003-10-11",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:54.727328+00:00"
+    },
+    {
+      "law_id": "moel_expc:313688",
+      "title": "건설현장의 작업환경측정 대상 여부",
+      "issued_at": "2003-09-20",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:56.853478+00:00"
+    },
+    {
+      "law_id": "moel_expc:313554",
+      "title": "낙하물방지망을 “안”자 제품을 사용하여야만 안전관리비 집행이 가능한지 여부",
+      "issued_at": "2003-09-18",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "DROP"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "낙하물방지망을 '안'자 제품을 사용하여야만 안전관리비 집행이 가능한지 여부",
+        "안전관리비 집행이 가능한지 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:54:59.954433+00:00"
+    },
+    {
+      "law_id": "moel_expc:214270",
+      "title": "화학물질에 대한 수질검사 등을 1일 9시간으로 연장근무가 가능한지",
+      "issued_at": "2003-09-15",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "CHEM"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "화학물질에 대한 수질검사",
+        "연장근무가 가능한지"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:02.372832+00:00"
+    },
+    {
+      "law_id": "moel_expc:313686",
+      "title": "석면포 취급작업의 작업환경측정 대상 여부",
+      "issued_at": "2003-09-01",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "POISON"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "석면포 취급작업의 작업환경측정",
+        "석면 해체·제거"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:04.957440+00:00"
+    },
+    {
+      "law_id": "moel_expc:313684",
+      "title": "공기업의 작업환경측정 대상 및 미실시시 조치사항",
+      "issued_at": "2003-08-20",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:07.247383+00:00"
+    },
+    {
+      "law_id": "moel_expc:214240",
+      "title": "작업환경측정대상 유해인자중 분진의 올바른 노출기준 적용등은 무엇인지",
+      "issued_at": "2003-07-31",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:09.785977+00:00"
+    },
+    {
+      "law_id": "moel_expc:313550",
+      "title": "용접흄 배출을 위한 환기시설 안전관리비 사용 여부",
+      "issued_at": "2003-07-29",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:12.174119+00:00"
+    },
+    {
+      "law_id": "moel_expc:313996",
+      "title": "안전화 세균살균기 안전관리비 사용여부",
+      "issued_at": "2003-07-29",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:14.983383+00:00"
+    },
+    {
+      "law_id": "moel_expc:313992",
+      "title": "안전화 건조기 구입비용 안전관리비 사용여부",
+      "issued_at": "2003-06-19",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:16.943528+00:00"
+    },
+    {
+      "law_id": "moel_expc:214232",
+      "title": "작업환경측정결과표상 평면도의 구체적인 의미등",
+      "issued_at": "2003-05-28",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:18.878226+00:00"
+    },
+    {
+      "law_id": "moel_expc:28020",
+      "title": "타워크레인 안전조치",
+      "issued_at": "2003-04-15",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL",
+        "ELEC"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "타워크레인 안전조치",
+        "타워크레인 관련 안전조치"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:21.576771+00:00"
+    },
+    {
+      "law_id": "moel_expc:313546",
+      "title": "벽체 그라인더 작업시 발생하는 분진 집진시설 안전관리비 사용 여부",
+      "issued_at": "2003-03-19",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "DUST"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "벽체 그라인더 작업시 발생하는 분진",
+        "안전관리비 사용 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:24.564155+00:00"
+    },
+    {
+      "law_id": "moel_expc:27972",
+      "title": "벽체 그라인더 작업시 발생하는 분진 집진시설 안전관리비 사용 여부",
+      "issued_at": "2003-03-19",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "DUST"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "벽체 그라인더 작업시 발생하는 분진",
+        "안전관리비 사용 여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:27.203672+00:00"
+    },
+    {
+      "law_id": "moel_expc:27968",
+      "title": "터널공사에서 긴급 대피용 발전기 및 CCTV의 안전관리비 사용여부",
+      "issued_at": "2003-03-10",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "긴급 대피용 발전기",
+        "CCTV의 안전관리비"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:30.271468+00:00"
+    },
+    {
+      "law_id": "moel_expc:313544",
+      "title": "가설비계에 추가로 설치하는 안전난간의 안전관리비 사용 여부",
+      "issued_at": "2003-02-21",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "가설비계에 추가로 설치하는 안전난간의 안전관리비 사용 여부",
+        "안전난간의 안전관리비"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:33.454551+00:00"
+    },
+    {
+      "law_id": "moel_expc:27966",
+      "title": "가설비계에 추가로 설치하는 안전난간의 안전관리비 사용 여부",
+      "issued_at": "2003-02-21",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "가설비계에 추가로 설치하는 안전난간의 안전관리비 사용 여부",
+        "안전난간의 안전관리비"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:36.358003+00:00"
+    },
+    {
+      "law_id": "moel_expc:28018",
+      "title": "위험물질 보관",
+      "issued_at": "2002-08-12",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "CHEM"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "위험물질 보관",
+        "화학물질 관련"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:38.830708+00:00"
+    },
+    {
+      "law_id": "moel_expc:214210",
+      "title": "위험물질 보관",
+      "issued_at": "2002-08-12",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "CHEM"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "위험물질 보관",
+        "화학물질 관련 작업"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:41.003054+00:00"
+    },
+    {
+      "law_id": "moel_expc:27956",
+      "title": "안전체험교육장 임차비용 및 바지선 추락방지대 사용여부",
+      "issued_at": "2002-08-06",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "바지선 추락방지대 사용여부",
+        "안전체험교육장 임차비용"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:43.647131+00:00"
+    },
+    {
+      "law_id": "moel_expc:313534",
+      "title": "안전체험교육장 임차비용 및 바지선 추락방지대 사용여부",
+      "issued_at": "2002-08-06",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 0.95,
+      "evidence_spans": [
+        "바지선 추락방지대 사용여부",
+        "안전체험교육장 임차비용"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:47.644781+00:00"
+    },
+    {
+      "law_id": "moel_expc:27284",
+      "title": "사업장과 지정측정기관에서 작업환경측정결과표 보존 연한",
+      "issued_at": "2002-07-29",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.0,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:50.219781+00:00"
+    },
+    {
+      "law_id": "moel_expc:27670",
+      "title": "전력구 터널공사의 안전관리비 적용 요율",
+      "issued_at": "2002-07-24",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:52.370843+00:00"
+    },
+    {
+      "law_id": "moel_expc:313692",
+      "title": "안전시설.보호구 무상지원(CLEAN 3D) 비용 정산시 감액여부",
+      "issued_at": "2002-07-22",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:54.955357+00:00"
+    },
+    {
+      "law_id": "moel_expc:27954",
+      "title": "안전모 햇볕가리개의 안전관리비 사용여부",
+      "issued_at": "2002-07-09",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:56.915909+00:00"
+    },
+    {
+      "law_id": "moel_expc:313658",
+      "title": "작업장소에 적합한 보호구",
+      "issued_at": "2002-07-05",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:55:58.991523+00:00"
+    },
+    {
+      "law_id": "moel_expc:313660",
+      "title": "위험물 취급공장내 전동기의 방폭구조 적용여부",
+      "issued_at": "2002-07-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "ELEC"
+      ],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "전동기의 방폭구조 적용여부",
+        "위험물 취급공장내 전동기"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:56:01.503971+00:00"
+    },
+    {
+      "law_id": "moel_expc:27952",
+      "title": "이동식크레인 권과방지장치 등의 안전관리비 사용여부",
+      "issued_at": "2002-06-17",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "이동식크레인 권과방지장치 등의 안전관리비 사용여부",
+        "이동식 크레인"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:56:04.189406+00:00"
+    },
+    {
+      "law_id": "moel_expc:313528",
+      "title": "이동식크레인 권과방지장치 등의 안전관리비 사용여부",
+      "issued_at": "2002-06-17",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.9,
+      "evidence_spans": [
+        "이동식크레인 권과방지장치 등의 안전관리비 사용여부",
+        "이동식 크레인"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:56:06.987203+00:00"
+    },
+    {
+      "law_id": "moel_expc:27282",
+      "title": "일용직 근로자의 작업환경측정 대상",
+      "issued_at": "2002-06-15",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:56:09.215102+00:00"
+    },
+    {
+      "law_id": "moel_expc:29330",
+      "title": "위험요인이 없는 경우에도 보호구를 착용하여야 하는지",
+      "issued_at": "2002-06-12",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.5,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:56:11.445853+00:00"
+    },
+    {
+      "law_id": "moel_expc:27950",
+      "title": "고압전선 전기재해 예방시설 안전관리비 사용여부",
+      "issued_at": "2002-06-12",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "ELEC"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "고압전선 전기재해 예방시설 안전관리비 사용여부",
+        "전기재해 예방시설 안전관리"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:56:14.564538+00:00"
+    },
+    {
+      "law_id": "moel_expc:27278",
+      "title": "파견(용역)업체의 근로자에 대한 작업환경측정은 누가 실시해야 하는지",
+      "issued_at": "2002-05-29",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:56:17.167588+00:00"
+    },
+    {
+      "law_id": "moel_expc:28178",
+      "title": "굴착면 주위 안전휀스 및 차량 우회표지판 등 안전관리비 사용여부",
+      "issued_at": "2002-05-22",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:56:19.331002+00:00"
+    },
+    {
+      "law_id": "moel_expc:313592",
+      "title": "감리원 등이 사용하는 개인보호구의 안전관리비 사용여부",
+      "issued_at": "2002-05-22",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:56:21.724206+00:00"
+    },
+    {
+      "law_id": "moel_expc:27936",
+      "title": "교량 공사에서 안전난간 및 난간 고정용 브라켓 안전관리비 사용여부",
+      "issued_at": "2002-05-16",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "안전난간 및 난간 고정용 브라켓 안전관리비 사용여부",
+        "교량 공사에서 안전난간"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:56:24.877058+00:00"
+    },
+    {
+      "law_id": "moel_expc:313520",
+      "title": "교량 공사에서 안전난간 및 난간 고정용 브라켓 안전관리비 사용여부",
+      "issued_at": "2002-05-16",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "안전난간 및 난간 고정용 브라켓 안전관리비 사용여부",
+        "교량 공사에서 안전난간"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:56:27.589965+00:00"
+    },
+    {
+      "law_id": "moel_expc:27228",
+      "title": "유해· 위험방지계획서 제출대상 굴착깊이",
+      "issued_at": "2002-05-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "유해· 위험방지계획서 제출대상 굴착깊이",
+        "굴착깊이"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:56:30.612408+00:00"
+    },
+    {
+      "law_id": "moel_expc:313676",
+      "title": "유해.위험방지계획서 제출대상 굴착깊이",
+      "issued_at": "2002-05-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "유해.위험방지계획서 제출대상 굴착깊이",
+        "굴착깊이"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:56:33.638082+00:00"
+    },
+    {
+      "law_id": "moel_expc:313594",
+      "title": "교량하부에 수평비계 설치시 안전관리비 사용여부",
+      "issued_at": "2002-05-03",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "FALL"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "교량하부에 수평비계 설치시",
+        "안전관리비 사용여부"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:56:37.784496+00:00"
+    },
+    {
+      "law_id": "moel_expc:27930",
+      "title": "리프트 무인 자동운전장치 임대시 안전관리비 사용여부",
+      "issued_at": "2002-04-10",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:56:40.087111+00:00"
+    },
+    {
+      "law_id": "moel_expc:27526",
+      "title": "사업장내 3톤미만 지게차 운전중 사고발생시 운전자 및 사업주의 책임",
+      "issued_at": "2002-04-01",
+      "relevance": "physical_safety",
+      "hazard_candidates": [
+        "COLLIDE",
+        "TRIP"
+      ],
+      "confidence": 1.0,
+      "evidence_spans": [
+        "3톤미만 지게차 운전중 사고발생시",
+        "운전자 및 사업주의 책임"
+      ],
+      "needs_review": false,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:56:42.672080+00:00"
+    },
+    {
+      "law_id": "moel_expc:27654",
+      "title": "물품납부 및 설치시 안전관리비 계상여부 및 발주자의 책임한계",
+      "issued_at": "2002-04-01",
+      "relevance": "uncertain",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:56:45.191329+00:00"
+    },
+    {
+      "law_id": "moel_expc:214290",
+      "title": "물품납부 및 설치시 안전관리비 계상여부 및 발주자의 책임한계",
+      "issued_at": "2002-04-01",
+      "relevance": "uncertain",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:56:47.232704+00:00"
+    },
+    {
+      "law_id": "moel_expc:313576",
+      "title": "안전화 털이개 안전관리비 사용여부",
+      "issued_at": "2002-03-04",
+      "relevance": "physical_safety",
+      "hazard_candidates": [],
+      "confidence": 0.3,
+      "evidence_spans": [],
+      "needs_review": true,
+      "ai_model": "gpt-4o-mini",
+      "classified_at": "2026-04-21T08:56:49.251759+00:00"
+    }
+  ]
+}

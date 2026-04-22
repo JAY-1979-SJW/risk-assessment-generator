@@ -1,0 +1,116 @@
+{
+  "url": "https://portal.kosha.or.kr/archive/resources/tech-support/revision/RevisionNoticePage",
+  "xhr_calls": [
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/any/js/manifest.js",
+      "resource_type": "script",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/resources/tech-support/revision/RevisionNoticePage"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/any/js/vendor.js",
+      "resource_type": "script",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/resources/tech-support/revision/RevisionNoticePage"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/any/js/app.js",
+      "resource_type": "script",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/resources/tech-support/revision/RevisionNoticePage"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/token/refresh",
+      "resource_type": "xhr",
+      "post_data": "{\"chnlId\":\"portal24\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/resources/tech-support/revision/RevisionNoticePage",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/v1/etc/menus",
+      "resource_type": "xhr",
+      "post_data": "{\"ippsId\":\"PM00000002\",\"apiId\":\"ACMB_UCUST_700\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/resources/tech-support/revision/RevisionNoticePage",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/stdtboard/process.do",
+      "resource_type": "xhr",
+      "post_data": "_JSON=%257B%2522common%2522%253A%257B%2522frontInfo%2522%253A%257B%2522viewId%2522%253A%2522%2522%252C%2522menuId%2522%253A%2522%2522%252C%2522siteId%2522%253A%2522%2522%257D%252C%2522frontAuthKey%2522%253A%2522%2522%252C%2522auth%2522%253A%257B%257D%252C%2522securityInfo%2522%253A%257B%257D%252C%2522data%2522%253A%257B%2522pagingInfo%2522%253Anull%252C%2522whereId%2522%253Anull%252C%2522tboard%2522%253A%257B%2522systemCd%2522%253A%252220%2522%252C%2522channel%2522%253A%2522web%2522%252C%2522bbsId%2522%253A%2522B2025011500001%2522%252C%2522bbsGrpId%2522%253A%2522%2522%252C%2522serviceId%2522%253A%2522getBbsDefaultInfo%2522%257D%257D%257D%252C%2522service%2522%253A%257B%2522info%2522%253A%257B%2522id%2522%253A%2522%2522%252C%2522type%2522%253A%2522%2522%257D%252C%2522data%2522%253A%257B%2522writeInfo%2522%253A%257B%257D%257D%257D%257D",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/resources/tech-support/revision/RevisionNoticePage",
+        "accept": "application/json, text/javascript, */*; q=0.01",
+        "content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/v1/dsctn/cntn/menu",
+      "resource_type": "xhr",
+      "post_data": "{\"apiId\":\"ACMB_UCUST_910\",\"chnlId\":\"portal24\",\"menuId\":\"M000000933\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/resources/tech-support/revision/RevisionNoticePage",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/stdtboard/process.do",
+      "resource_type": "xhr",
+      "post_data": "_JSON=%257B%2522common%2522%253A%257B%2522frontInfo%2522%253A%257B%2522viewId%2522%253A%2522%2522%252C%2522menuId%2522%253A%2522%2522%252C%2522siteId%2522%253A%2522%2522%257D%252C%2522frontAuthKey%2522%253A%2522%2522%252C%2522auth%2522%253A%257B%257D%252C%2522securityInfo%2522%253A%257B%257D%252C%2522data%2522%253A%257B%2522pagingInfo%2522%253Anull%252C%2522whereId%2522%253Anull%252C%2522tboard%2522%253A%257B%2522systemCd%2522%253A%252220%2522%252C%2522channel%2522%253A%2522web%2522%252C%2522bbsId%2522%253A%2522B2025011500001%2522%252C%2522bbsGrpId%2522%253A%2522%2522%252C%2522serviceId%2522%253A%2522basicAccess%2522%257D%257D%257D%252C%2522service%2522%253A%257B%2522info%2522%253A%257B%2522id%2522%253A%2522%2522%252C%2522type%2522%253A%2522%2522%257D%252C%2522data%2522%253A%257B%2522searchDefaultCndGrid%2522%253A%255B%257B%2522orPstNm%2522%253A%2522%2522%252C%2522orPstCn%2522%253A%2522%2522%252C%2522curPageCo%2522%253A1%252C%2522recodePageCo%2522%253A10%252C%2522rowsPerPage%2522%253A10%252C%2522pstSeCd%2522%253A%25221200001%2522%252C%2522atcflCntSrchYn%2522%253A%2522Y%2522%252C%2522artclNoList%2522%253A%255B%255D%252C%2522pstNoOrder%2522%253A%2522Y%2522%252C%2522isDesc%2522%253A%2522Y%2522%252C%2522sortType%2522%253A%252201%2522%252C%2522sortOrder%2522%253A%25221%2522%252C%2522isAddPstCn%2522%253A%2522N%2522%257D%255D%252C%2522searchArtclCndGrid%2522%253A%255B%255D%257D%257D%257D",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/resources/tech-support/revision/RevisionNoticePage",
+        "accept": "application/json, text/javascript, */*; q=0.01",
+        "content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+      }
+    }
+  ],
+  "api_jsons": [
+    {
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/token/refresh",
+      "status": 401,
+      "body": "{\"statusCode\":401}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/v1/etc/menus",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"요청 성공\",\"payload\":{\"result\":{\"menus\":[{\"meta\":{\"menuId\":\"M000101713\",\"title\":\"누리집 안내지도\",\"rootName\":\"Sitemap\",\"mLevel\":1,\"menuNavi\":\"누리집 안내지도\",\"layout\":\"PagePatternBLayout\",\"prgrmId\":\"PG00010483\",\"scrnOtptYn\":\"Y\",\"lgnMenuYn\":\"N\",\"addCertEsntlYn\":\"N\",\"addCertSeCd\":\"20\",\"prvcPrslRsnEsntlInptYn\":\"N\",\"bkmkUseYn\":\"N\",\"custDgstfnExmnTrgtYn\":\"N\",\"ippsId\":\"PM00000002\",\"prgrmNm\":\"누리집 안내지도\",\"prvcInclYn\":\"N\"},\"type\":\"router\",\"name\":\"Sitemap\",\"label\":\"누리집 안내지도\",\"path\":\"sitemap\",\"fullPath\":\"/sitemap\",\"component\":\"/src/publish/pages/etc/SitemapPage.vue\",\"depth\":2},{\"meta\":{\"menuId\":\"M000000001\",\"title\":\"로그인\",\"rootName\":\"Login\",\"mLevel\":1,\"menuNavi\":\"로그인\",\"layout\":\"PagePatternBLayout\",\"scrnOtptYn\":\"Y\",\"lgnMenuYn\":\"N\",\"addCertEsntlYn\":\"N\",\"addCertSeCd\":\"90\",\"prvcPrslRsnEsntlInptYn\":\"Y\",\"bkmkUseYn\":\"N\",\"custDgstfnExmnTrgtYn\":\"N\",\"ippsId\":\"PM00000002\"},\"type\":\"router\",\"name\":\"Login\",\"label\":\"로그인\",\"path\":\"login\",\"fullPath\":\"/login\",\"redirect\":\"LoginPortal24\",\"depth\":2,\"children\":[{\"meta\":{\"menuId\":\"M000000733\",\"title\":\"안전보건공단 로그인\",\"rootName\":\"Login\",\"mLevel\":2,\"menuNavi\":\"로그인 > 로그인\",\"layout\":\"PagePatternBLayout\",\"prgrmId\":\"PG00011159\",\"scrnOtptYn\":\"Y\",\"lgnMenuYn\":\"N\",\"addCertEsntlYn\":\"N\",\"addCertSeCd\":\"90\",\"prvcPrslRsnEsntlInptYn\":\"N\",\"bkmkUseYn\":\"N\",\"custDgstfnExmnTrgtYn\":\"N\",\"ippsId\":\"PM00000002\",\"prgrmNm\":\"SSO 로그인\",\"prvcInclYn\":\"N\"},\"type\":\"router\",\"name\":\"LoginPortal24\",\"label\":\"로그인\",\"path\":\"login\",\"fullPath\":\"/login/login\",\"component\":\"/src/biz/login/pages/SsoLoginPage.vue\"},{\"meta\":{\"menuId\":\"M000102525\",\"title\":\"안전보건공단 로그인\",\"rootName\":\"Login\",\"mLevel\":2,\"menuNavi\":\"로그인 > 로그인\",\"layout\":\"PagePatternBLayout\",\"prgrmId\":\"PG00011159\",\"scrnOtptYn\":\"Y\",\"lgnMenuYn\":\"N\",\"addCertEsntlYn\":\"N\",\"addCertSeCd\":\"90\",\"prvcPrslRsnEsntlInptYn\":\"N\",\"bkmkUseYn\":\"N\",\"custDgstfnExmnTrgtYn\":\"N\",\"ippsId\":\"PM00000002\",\"prgrmNm\":\"SSO 로그인\",\"prvcInclYn\":\"N\"},\"type\":\"router\",\"name\":\"SsoLoginPortal24\",\"label\":\"로그인\",\"path\":\"ssoLogin\",\"fullPath\":\"/login/ssoLogin\",\"component\":\"/src/biz/login/pages/SsoLoginPage.vue\"},{\"meta\":{\"menuId\":\"M000102542\",\"rootName\":\"Login\",\"mLevel\":2,\"menuNavi\":\"로그인 > 로그인 리다이렉트\",\"layout\":\"PagePatternBLayout\",\"prgrmId\":\"PG00011160\",\"scrnOtptYn\":\"Y\",\"lgnMenuYn\":\"N\",\"addCertEsntlYn\":\"N\",\"addCertSeCd\":\"90\",\"prvcPrslRsnEsntlInptYn\":\"N\",\"bkmkUseYn\":\"N\",\"custDgstfnExmnTrgtYn\":\"N\",\"ippsId\":\"PM00000002\",\"prgrmNm\":\"PRE SSO 로그인\",\"prvcInclYn\":\"N\"},\"type\":\"router\",\"name\":\"SsoRedirectPortal24\",\"label\":\"로그인 리다이렉트\",\"path\":\"ssoRedirect\",\"fullPath\":\"/login/ssoRedirect\",\"component\":\"/src/biz/login/pages/SsoLoginRedirect.vue\"},{\"meta\":{\"menuId\":\"M000103276\",\"rootName\":\"Login\",\"mLevel\":2,\"menuNavi\":\"로그인 > 앱 링크\",\"prgrmId\":\"PG00011635\",\"scrnOtptYn\":\"Y\",\"lgnMenuYn\":\"N\",\"addCertEsntlYn\":\"N\",\"addCertSeCd\":\"90\",\"prvcPrslRsnEsntlInptYn\":\"N\",\"bkmkUseYn\":\"N\",\"custDgstfnExmnTrgtYn\":\"N\",\"ippsId\":\"PM00000002\",\"prgrmNm\":\"로그인링크\",\"prvcInclYn\":\"N\"},\"type\":\"router\",\"name\":\"link\",\"label\":\"앱 링크\",\"path\":\"link\",\"fullPath\":\"/login/link\",\"component\":\"/src/biz/login/pages/LoginLink.vue\"}]},{\"meta\":{\"menuId\":\"M000000009\",\"title\":\"회원가입\",\"rootName\":\"Join\",\"mLevel\":1,\"menuNavi\":\"회원가입\",\"scrnOtptYn\":\"Y\",\"lgnMenuYn\":\"N\",\"addCertEsntlYn\":\"N\",\"addCertSeCd\":\"90\",\"prvcPrslRsnEsntlInptYn\":\"Y\",\"bkmkUseYn\":\"N\",\"custDgstfnExmnTrgtYn\":\"N\",\"ippsId\":\"PM00000002\"},\"type\":\"router\",\"name\":\"Join\",\"label\":\"회원가입\",\"path\":\"join\",\"fullPath\":\"/join\",\"redirect\":\"JoinStep\",\"depth\":2,\"children\":[{\"meta\":{\"menuId\":\"M000000010\",\"title\":\"회원가입\",\"rootName\":\"Join\",\"mLevel\":2,\"menuNavi\":\"회원가입 > 회원가입\",\"layout\":"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/stdtboard/process.do",
+      "status": 200,
+      "body": "{\"code\":0,\"message\":\"OK\",\"created\":\"2026-04-22T06:22:15.721+00:00\",\"subCode\":0,\"subMessage\":\"\",\"response\":{\"newWriteInfo\":{},\"userInfo\":{\"userNm\":\"\",\"authGroupId\":\"\",\"authrtIdList\":[],\"itemInfo\":{},\"userId\":\"\",\"ipAddr\":\"220.79.246.190\"},\"bbsInfo\":{\"bbsId\":\"B2025011500001\",\"bbsNm\":\"기술지원규정 제·개정 공지사항\",\"bbsExpln\":\"포탈24 > 기술지원규정 제·개정 공지사항\",\"useYn\":\"Y\"},\"artclDefaultGrid\":[{\"artclNo\":\"D010100001\",\"artclScrnIndctNm\":\"제목\",\"artclScrnIndctEngNm\":null,\"indctYn\":\"Y\"},{\"artclNo\":\"D010100003\",\"artclScrnIndctNm\":\"작성자\",\"artclScrnIndctEngNm\":null,\"indctYn\":\"Y\"},{\"artclNo\":\"D010100010\",\"artclScrnIndctNm\":\"검색키워드명\",\"artclScrnIndctEngNm\":null,\"indctYn\":\"Y\"},{\"artclNo\":\"D010200001\",\"artclScrnIndctNm\":\"내용\",\"artclScrnIndctEngNm\":null,\"indctYn\":\"Y\"},{\"artclNo\":\"D020100001\",\"artclScrnIndctNm\":\"No\",\"artclScrnIndctEngNm\":null,\"indctYn\":\"Y\"},{\"artclNo\":\"D020100004\",\"artclScrnIndctNm\":\"조회수\",\"artclScrnIndctEngNm\":null,\"indctYn\":\"Y\"},{\"artclNo\":\"D030100001\",\"artclScrnIndctNm\":\"작성일자\",\"artclScrnIndctEngNm\":null,\"indctYn\":\"Y\"},{\"artclNo\":\"D030100003\",\"artclScrnIndctNm\":\"작성일시\",\"artclScrnIndctEngNm\":null,\"indctYn\":\"Y\"},{\"artclNo\":\"D030100004\",\"artclScrnIndctNm\":\"수정일시\",\"artclScrnIndctEngNm\":null,\"indctYn\":\"Y\"},{\"artclNo\":\"D060100002\",\"artclScrnIndctNm\":\"공지여부\",\"artclScrnIndctEngNm\":null,\"indctYn\":\"Y\"},{\"artclNo\":\"D080100001\",\"artclScrnIndctNm\":\"첨부\",\"artclScrnIndctEngNm\":null,\"indctYn\":\"Y\"}],\"acmComCode\":null,\"isReloadConfig\":false,\"astComCode\":null,\"bbsArtclAll\":{\"search\":{\"control\":{\"D010200001\":{\"all\":\"\",\"len\":\"50\",\"src\":\"\",\"cct\":\"\",\"cpt\":\"defaultType1\",\"req\":\"\"},\"D010100001\":{\"all\":\"Y\",\"len\":\"50\",\"src\":\"\",\"cct\":\"\",\"cpt\":\"defaultType1\",\"req\":\"\"}},\"sort\":{\"1\":\"D010100001\",\"2\":\"D010200001\"}},\"detail\":{\"control\":{\"D010200001\":{\"src\":\"\",\"cct\":\"\",\"cpt\":\"editType1\"},\"D010100001\":{\"src\":\"\",\"cct\":\"\",\"cpt\":\"defaultType1\"},\"D020100004\":{\"src\":\"\",\"cct\":\"\",\"cpt\":\"defaultType2\"},\"D080100001\":{\"src\":\"\",\"cct\":\"\",\"cpt\":\"atchType1\"},\"D030100003\":{\"src\":\"\",\"cct\":\"\",\"cpt\":\"defaultType1\",\"title\":\"등록일\",\"mask\":\"yyyy-mm-dd hh24:mi\"},\"D010100003\":{\"src\":\"\",\"cct\":\"\",\"cpt\":\"defaultType1\"}},\"sort\":{\"1\":\"D010100001\",\"2\":\"D010200001\",\"3\":\"D010100003\",\"4\":\"D030100003\",\"5\":\"D020100004\",\"6\":\"D080100001\"}},\"list\":{\"control\":{\"D020100004\":{\"src\":\"\",\"cct\":\"\",\"cpt\":\"defaultType1\",\"width\":\"80\",\"align\":\"r\"},\"D080100001\":{\"src\":\"\",\"cct\":\"\",\"cpt\":\"atchType1\",\"width\":\"80\",\"align\":\"c\"},\"D010100001\":{\"src\":\"\",\"cct\":\"\",\"cpt\":\"titleType1\",\"width\":\"\",\"align\":\"n\"},\"D030100003\":{\"src\":\"\",\"cct\":\"\",\"cpt\":\"defaultType1\",\"width\":\"150\",\"align\":\"c\",\"title\":\"등록일\",\"mask\":\"YYYY-MM-DD\"},\"D010100003\":{\"src\":\"\",\"cct\":\"\",\"cpt\":\"defaultType1\",\"width\":\"100\",\"align\":\"c\"},\"D020100001\":{\"src\":\"\",\"cct\":\"\",\"cpt\":\"defaultType1\",\"width\":\"100\",\"align\":\"c\"}},\"sort\":{\"1\":\"D020100001\",\"2\":\"D010100001\",\"3\":\"D080100001\",\"4\":\"D010100003\",\"5\":\"D030100003\",\"6\":\"D020100004\"}},\"reply\":{\"control\":{},\"sort\":{}},\"writeReply\":{\"control\":{},\"sort\":{}},\"write\":{\"control\":{},\"sort\":{}}},\"bbsFwkAll\":{\"writeName\":\"\",\"boardtype\":\"type1\",\"sortUseYn\":\"N\",\"multiDown\":\"Y\",\"basic.access\":\"19B97854410NUTAKLEMO\",\"file.download\":\"19B97854410CNLBCBPRG\",\"viewcnt\":\"0\",\"basic.read\":\"19B97854410KMSYWRGDJ\",\"secret\":\"N\",\"editlock\":\"\"}},\"tboardMsgCode\":\"\"}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/v1/dsctn/cntn/menu",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"요청 성공\",\"payload\":{\"result\":{\"rstCnt\":1},\"resultCd\":\"000\",\"resultMsg\":\"정상적으로 처리 되었습니다.\"}}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/stdtboard/process.do",
+      "status": 200,
+      "body": "{\"code\":0,\"message\":\"OK\",\"created\":\"2026-04-22T06:22:15.918+00:00\",\"subCode\":0,\"subMessage\":\"\",\"response\":{\"thumbGrid\":[],\"fileGrid\":[],\"totalCnt\":13,\"totalNoticeCnt\":7,\"totalNormalCnt\":6,\"isReloadConfig\":false,\"pstNoGrid\":[{\"rnum\":1,\"pstNo\":\"20260211165347H0FZMS\",\"inqCnt\":1921,\"totalCount\":7},{\"rnum\":2,\"pstNo\":\"20260211164951P93T3F\",\"inqCnt\":969,\"totalCount\":7},{\"rnum\":3,\"pstNo\":\"20260211164837ECUUM2\",\"inqCnt\":1399,\"totalCount\":7},{\"rnum\":4,\"pstNo\":\"20260211164643L8SI6Z\",\"inqCnt\":962,\"totalCount\":7},{\"rnum\":5,\"pstNo\":\"20260211163142GNQ135\",\"inqCnt\":841,\"totalCount\":7},{\"rnum\":6,\"pstNo\":\"202601300911438097UD\",\"inqCnt\":1577,\"totalCount\":7},{\"rnum\":7,\"pstNo\":\"20260129100425TTR8ZK\",\"inqCnt\":1039,\"totalCount\":7},{\"rnum\":1,\"pstNo\":\"202601221537183BFBGP\",\"inqCnt\":407,\"totalCount\":6},{\"rnum\":2,\"pstNo\":\"202506271612469Z3M16\",\"inqCnt\":3089,\"totalCount\":6},{\"rnum\":3,\"pstNo\":\"20250627161127BHNTK6\",\"inqCnt\":1652,\"totalCount\":6},{\"rnum\":4,\"pstNo\":\"20250627161040IJ02HB\",\"inqCnt\":2862,\"totalCount\":6},{\"rnum\":5,\"pstNo\":\"20250627160938861FN7\",\"inqCnt\":2123,\"totalCount\":6},{\"rnum\":6,\"pstNo\":\"20250627160758BCYT4F\",\"inqCnt\":2106,\"totalCount\":6}],\"artclValueGrid\":[{\"pstNo\":\"20250627160758BCYT4F\",\"artclNo\":\"D020100004\",\"lcpctyArtclInptYn\":\"N\",\"artclLcpctyInptCn\":null,\"artclInptCn\":\"2106\"},{\"pstNo\":\"20250627160938861FN7\",\"artclNo\":\"D020100004\",\"lcpctyArtclInptYn\":\"N\",\"artclLcpctyInptCn\":null,\"artclInptCn\":\"2123\"},{\"pstNo\":\"20250627161040IJ02HB\",\"artclNo\":\"D020100004\",\"lcpctyArtclInptYn\":\"N\",\"artclLcpctyInptCn\":null,\"artclInptCn\":\"2862\"},{\"pstNo\":\"20250627161127BHNTK6\",\"artclNo\":\"D020100004\",\"lcpctyArtclInptYn\":\"N\",\"artclLcpctyInptCn\":null,\"artclInptCn\":\"1652\"},{\"pstNo\":\"202506271612469Z3M16\",\"artclNo\":\"D020100004\",\"lcpctyArtclInptYn\":\"N\",\"artclLcpctyInptCn\":null,\"artclInptCn\":\"3089\"},{\"pstNo\":\"202601221537183BFBGP\",\"artclNo\":\"D020100004\",\"lcpctyArtclInptYn\":\"N\",\"artclLcpctyInptCn\":null,\"artclInptCn\":\"407\"},{\"pstNo\":\"20260129100425TTR8ZK\",\"artclNo\":\"D020100004\",\"lcpctyArtclInptYn\":\"N\",\"artclLcpctyInptCn\":null,\"artclInptCn\":\"1039\"},{\"pstNo\":\"202601300911438097UD\",\"artclNo\":\"D020100004\",\"lcpctyArtclInptYn\":\"N\",\"artclLcpctyInptCn\":null,\"artclInptCn\":\"1577\"},{\"pstNo\":\"20260211163142GNQ135\",\"artclNo\":\"D020100004\",\"lcpctyArtclInptYn\":\"N\",\"artclLcpctyInptCn\":null,\"artclInptCn\":\"841\"},{\"pstNo\":\"20260211164643L8SI6Z\",\"artclNo\":\"D020100004\",\"lcpctyArtclInptYn\":\"N\",\"artclLcpctyInptCn\":null,\"artclInptCn\":\"962\"},{\"pstNo\":\"20260211164837ECUUM2\",\"artclNo\":\"D020100004\",\"lcpctyArtclInptYn\":\"N\",\"artclLcpctyInptCn\":null,\"artclInptCn\":\"1399\"},{\"pstNo\":\"20260211164951P93T3F\",\"artclNo\":\"D020100004\",\"lcpctyArtclInptYn\":\"N\",\"artclLcpctyInptCn\":null,\"artclInptCn\":\"969\"},{\"pstNo\":\"20260211165347H0FZMS\",\"artclNo\":\"D020100004\",\"lcpctyArtclInptYn\":\"N\",\"artclLcpctyInptCn\":null,\"artclInptCn\":\"1921\"}],\"atcflArtclGrid\":[{\"pstNo\":\"20260129100425TTR8ZK\",\"bbsAtcflNo\":\"D080100001\",\"bbsAtcflYn\":\"Y\"},{\"pstNo\":\"20250627161040IJ02HB\",\"bbsAtcflNo\":\"D080100001\",\"bbsAtcflYn\":\"Y\"},{\"pstNo\":\"20260211163142GNQ135\",\"bbsAtcflNo\":\"D080100001\",\"bbsAtcflYn\":\"Y\"},{\"pstNo\":\"20260211164837ECUUM2\",\"bbsAtcflNo\":\"D080100001\",\"bbsAtcflYn\":\"Y\"},{\"pstNo\":\"20250627161127BHNTK6\",\"bbsAtcflNo\":\"D080100001\",\"bbsAtcflYn\":\"Y\"},{\"pstNo\":\"20250627160758BCYT4F\",\"bbsAtcflNo\":\"D080100001\",\"bbsAtcflYn\":\"Y\"},{\"pstNo\":\"20260211164951P93T3F\",\"bbsAtcflNo\":\"D080100001\",\"bbsAtcflYn\":\"Y\"},{\"pstNo\":\"20260211164643L8SI6Z\",\"bbsAtcflNo\":\"D080100001\",\"bbsAtcflYn\":\"Y\"},{\"pstNo\":\"20260211165347H0FZMS\",\"bbsAtcflNo\":\"D080100001\",\"bbsAtcflYn\":\"Y\"},{"
+    }
+  ],
+  "link_count": 166,
+  "text_preview": "본문 바로가기\n서브메뉴 바로가기\n\n이 누리집은 대한민국 공식 전자정부 누리집입니다.\n\n산업안전포털\n통합검색\n로그인\n누리집 안내지도\n화면크기\n축소\n100%\n확대\nlanguage \n열기\n사업신청·조회\n열기\n산재예방 정보\n열기\n안전보건교육\nKRAS(위험성평가)\n열기\n고객센터\n열기\n산재예방 정보\n법령/규정\n펼치기\n가이드\n접기\n기술지원규정(KOSHA GUIDE)\n(현재 페이지)\n내부규정\n안전보건 용어사전\n안전보건 자료실\n펼치기\n재해사례\n펼치기\n산업재해현황(보상통계)\n펼치기\n산업재해현황(조사통계)\n펼치기\n연구보고서 및 연구자료\n펼치기\n국외정보 소개\n펼치기\n화학물질정보\n펼치기\n홈\n산재예방 정보\n가이드\nURL복사\n프린트\n기술지원규정(KOSHA GUIDE)\n분야별 규정\nKOSHA GUIDE 길라잡이\nKOSHA GUIDE AI 검색\nGPT 활성화\n기술지원규정 안내\n알림마당\n(현재화면)\n참여마당\n기술지원규정 조회\n표준제정위원회\n공지사항\n(현재화면)\n분야별 담당자 및 문의처\n제·개정 예고\n검색\n전체\n제목\n내용\n검색\n총\n13\n건\nNo\t제목\t첨부\t작성자\t등록일\t조회수\n\nNo\n공지\t\n제목\n[2025년] 산업안전보건분야, 산업위생분야, 산업의학분야 및 산업독성분야 기술지원규정\t\n첨부\n다운로드\n\t\n작성자\n관리자\t\n등록일\n2026-02-11\t\n조회수\n1,921\n\nNo\n공지\t\n제목\n[2025년] 화학안전분야 기술지원규정\t\n첨부\n다운로드\n\t\n작성자\n관리자\t\n등록일\n2026-02-11\t\n조회수\n969\n\nNo\n공지\t\n제목\n[2025년] 건설안전분야 기술지원규정\t\n첨부\n다운로드\n\t\n작성자\n관리자\t\n등록일\n2026-02-11\t\n조회수\n1,399\n\nNo"
+}

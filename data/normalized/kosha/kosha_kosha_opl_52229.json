@@ -1,0 +1,41 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "52229",
+  "title": "키메시지(4호_떨어짐)",
+  "title_normalized": "키메시지(4호_떨어짐)",
+  "body_text": "OPS\n동영상\n교안\n지붕바닥에기와잇기작업중떨어짐\n건물유지보수중A형사다리떨어짐편\n안전보건교육기본서교안(건설업)\n2026-교육총괄실-126\n추락할위험이있는장소에는안전난간, 울타리, 수직형추락방망\n또는덮개등의방호조치를충분한강도로튼튼하게설치\n건물과외부비계사이의개구부에추락방호망설치\n안전난간설치된이동식비계, 고소작업대등올바른작업발판사용\n높이2미터이상의추락위험이있는장소에서는안전모, 안전대\n지급및착용\n(’26.2.2.) 경북청도군, 건축물시설공사현장발코니에서청소작업중바닥으로떨어짐<사망1명>\n(’26.2.28.) 서울강남구, 공사현장에서사다리를이용하여보의면정리작업중건물과외부비계사이로떨어짐<사망1명>\n주요사고사례\n안전작업방법\n콘텐츠링크\n스마트폰APP\n산업안전포털설치\n안전보건공단\n산업안전포털\n산업안전포털\n중대재해사이렌\n안전보건자료실\n검색\n4호\n동영상\n건설현장7가지안전수칙\n떨어짐",
+  "has_text": false,
+  "content_length": 431,
+  "hazards": [
+    "추락",
+    "화학물질",
+    "협착",
+    "전도",
+    "비래낙하"
+  ],
+  "work_types": [
+    "고소작업",
+    "지붕",
+    "운반",
+    "기계정비",
+    "청소"
+  ],
+  "equipment": [
+    "고소작업대",
+    "이동식비계",
+    "사다리",
+    "안전대"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2026031109475234854655&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2026031109475234854655&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "건설업",
+  "published_at": "20260311",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

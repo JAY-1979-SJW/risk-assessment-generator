@@ -1,0 +1,17 @@
+{
+  "item_id": "33461",
+  "title": "[중대재해_비금속]산소 가스절단기 화염 역화로 LPG 용기 폭발",
+  "category": "kosha_opl",
+  "industry": "제조업",
+  "list_type": "OPS",
+  "atcfl_no": "FL00014169240",
+  "download_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169240&atcflSeq=1",
+  "reg_date": "20131216",
+  "keyword": "산소, 가스절단기, 역화, LPG, 폭발,재해사례, 안전작업방법, 역화방지",
+  "source": "kosha",
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169240&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169240&atcflSeq=1",
+  "content": "LPG & 산소 가스절단기 취관(토치)에서 가연성 가스(LPG)가 나오지 않자 점검 중 불꽃이 역화되면서 \nLPG 용기가 폭발\n재해발생 원인\n!\n안전작업 방법\n화염의 역화 방지를 위한 안전기(역화방지기) 설치\n- 가스 각 용기 내의 압력차에 의해서 가스의 역류에 의한 화염 역화를\n   방지하는 안전기(역화방지기)를 가연성가스 압력조정기 후단과 \n   취관(토치)호스 사이에 설치\n토치의 화구 및 LPG 용기 충진 상태 확인 철저\n- 토치 화구(노즐)가 막히지 않도록 관리하고 막힌 경우 즉시 교체\n- 용기에 설치된 압력계를 정상 상태로 관리하고, 내부 충압 상태를 \n   정기적 확인 및 점검\n취관(토치) 팁의 막힘, 가스 소진 등으로 인한 역화\n- 고압 산소의 역류로 산소+LPG 혼합가스 연소분위기 조성 상태에서,\n   점화원인 라이터, 외부충격 등에 의해 불꽃이 발생하여 역화\n※ LPG & 산소 가스용접기 사용 압력비 : 통상 절단작업에서 \n    LPG는 0.03∼0.1MPa, 산소는 0.3∼0.8MPa 정도로 \n   작업하므로 산소와 LPG의 압력비는 약 10배 정도임\n가스 절단작업 중 LPG 용기 폭발\nTIP\n1\n1\n2\n2\n2013-교육미디어-1316\n제조업\n재해사례\n(LPG용기)\n\n●  산업안전보건기준에 관한 규칙    제233조(가스용접 등의 작업), 제234조(가스 등의 용기)  ●  KOSHA Guide G-7-2009(가스용접 및 \n   절단작업에 관한 가이드), M-15-2009(가스를 이용한 용접 및 절단 등 작업에 관한 안전 가이드) \n만화로 보는 재해사례\n산소가스절단작업, 화염 역화 방지 장치가 중요 !\n가스 절단작업 중 LPG 용기 폭발\n참고법령 및 기준\n法",
+  "has_text": true,
+  "collected_at": "2026-04-22"
+}

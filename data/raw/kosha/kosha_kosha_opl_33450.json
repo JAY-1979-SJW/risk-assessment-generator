@@ -1,0 +1,17 @@
+{
+  "item_id": "33450",
+  "title": "[중대재해_화학제품]원심분리기 내부 톨루엔 증기 폭발",
+  "category": "kosha_opl",
+  "industry": "제조업",
+  "list_type": "OPS",
+  "atcfl_no": "FL00014169229",
+  "download_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169229&atcflSeq=1",
+  "reg_date": "20131216",
+  "keyword": "원심기, 원심분리기, 톨루엔, 증기, 폭발, 부딪힘",
+  "source": "kosha",
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169229&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169229&atcflSeq=1",
+  "content": "원심분리기를 이용하여 감광제 원료와 물, 톨루엔을 분리하는 과정에서 원심분리기 내부에서 발생한 폭발로 \n작업자가 원심분리기 덮개에 머리를 부딪힘\n재해발생 원인\n!\n안전작업 방법\n원심분리기 내부 불활성가스(질소) 공급\n- 원심분리기에 톨루엔 등 위험물을 공급할 경우 폭발분위기가 \n   형성될 수 있어 충분한 질소 퍼지 후 대상물질이 투입되도록 조치\n점화원 관리 철저\n- 원심분리기 주요 부분의 축적된 정전기가 지면으로 방출되도록 설비 개선\n안전운전 작업 절차 관리 및 해당 작업에 대한 교육 철저\n원심분리기 내부 불활성가스(질소) 미공급\n- 톨루엔 증기의 폭발위험분위기 상황에서 질소공급이 중단된 \n   상태였기 때문에 연소에 필요한 공기 중의 산소가 산화제로 \n   작용하고, 정전기 등의 점화원에 의해 폭발\n※ 톨루엔 : 폭발범위(1.2~7.1%), 인화점(4℃), 발화점(480℃)\n원심분리기 내부 톨루엔 증기 폭발\nTIP\n1\n1\n2\n2\n2013-교육미디어-1327\n제조업\n재해사례\n(원심분리기)\n\n●  산업안전보건기준에 관한 규칙    제232조(폭발 또는 화재 등의 예방), 제325조(정전기로 인한 화재·폭발 등 방지)\n만화로 보는 재해사례\n원심분리기 내부, 불활성가스로 치환하세요 !\n원심분리기 내부 톨루엔 증기 폭발\n참고법령 및 기준\n法",
+  "has_text": true,
+  "collected_at": "2026-04-22"
+}

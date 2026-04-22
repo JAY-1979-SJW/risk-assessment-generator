@@ -1,0 +1,184 @@
+{
+  "_meta": {
+    "source_type": "law",
+    "source_name": "산업안전보건기준에 관한 규칙",
+    "source_ref": "제18장 밀폐공간 작업, 제14장 화재폭발, 제11장 굴착, 제5장 고소작업",
+    "source_org": "고용노동부",
+    "collected_at": "2026-04-21"
+  },
+  "entries": [
+    {
+      "entry_id": "WC-001",
+      "subject_code": "CONFINED_SPACE",
+      "subject_name": "밀폐공간",
+      "conditions": [
+        {
+          "condition_key": "confined_space=true",
+          "condition_desc": "밀폐공간(산소결핍 또는 유해가스 위험 장소)에서 작업",
+          "obligations": [
+            {
+              "obligation_type": "측정",
+              "obligation": "작업 전 산소농도 및 유해가스 농도 측정 (산소: 18~23.5%, CO: 30ppm 이하)",
+              "legal_basis": "산안규칙 제619조"
+            },
+            {
+              "obligation_type": "환기",
+              "obligation": "순환환기 또는 강제환기 실시 (산소농도 18% 이상 유지)",
+              "legal_basis": "산안규칙 제620조"
+            },
+            {
+              "obligation_type": "감시인",
+              "obligation": "외부 감시인 1명 이상 배치 (내부 작업자와 연락 유지)",
+              "legal_basis": "산안규칙 제622조"
+            },
+            {
+              "obligation_type": "구조장비",
+              "obligation": "공기호흡기, 사다리, 섬유로프 등 구조 장비 비치",
+              "legal_basis": "산안규칙 제624조"
+            },
+            {
+              "obligation_type": "출입제한",
+              "obligation": "관계자 외 출입 금지 표지 설치",
+              "legal_basis": "산안규칙 제618조"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entry_id": "WC-002",
+      "subject_code": "HOT_WORK",
+      "subject_name": "화기작업",
+      "conditions": [
+        {
+          "condition_key": "hot_work=true AND (flammable_material=true OR flammable_gas=true)",
+          "condition_desc": "인화성·가연성 물질 주변 화기 작업",
+          "obligations": [
+            {
+              "obligation_type": "가스농도측정",
+              "obligation": "작업 전 가연성 가스 농도 측정 (폭발하한계 25% 미만 확인)",
+              "legal_basis": "산안규칙 제241조"
+            },
+            {
+              "obligation_type": "소화기비치",
+              "obligation": "작업 반경 5m 이내 소화기 1개 이상 배치",
+              "legal_basis": "산안규칙 제241조"
+            },
+            {
+              "obligation_type": "인화물질격리",
+              "obligation": "인화성 물질 작업 반경 밖으로 이동 또는 방화덮개 설치",
+              "legal_basis": "산안규칙 제241조"
+            },
+            {
+              "obligation_type": "작업허가",
+              "obligation": "화기작업 허가서 발행 및 작업 감시자 배치",
+              "legal_basis": "산안규칙 제241조",
+              "needs_review": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entry_id": "WC-003",
+      "subject_code": "EXCAVATION",
+      "subject_name": "굴착 작업",
+      "conditions": [
+        {
+          "condition_key": "excavation_depth >= 2",
+          "condition_desc": "굴착면 높이 2m 이상",
+          "obligations": [
+            {
+              "obligation_type": "작업계획서",
+              "obligation": "굴착 작업계획서 작성 및 근로자 교육",
+              "legal_basis": "산안규칙 제38조"
+            },
+            {
+              "obligation_type": "토사붕괴방지",
+              "obligation": "흙막이 지보공 설치 또는 경사면 안전기울기(35~90도) 유지",
+              "legal_basis": "산안규칙 제339조"
+            },
+            {
+              "obligation_type": "낙하방지",
+              "obligation": "굴착 주변 2m 이내 낙하물 방지 조치",
+              "legal_basis": "산안규칙 제340조"
+            },
+            {
+              "obligation_type": "지반점검",
+              "obligation": "굴착 전 지반 상태 점검 및 지하매설물 확인",
+              "legal_basis": "산안규칙 제38조"
+            }
+          ]
+        },
+        {
+          "condition_key": "excavation_depth >= 5",
+          "condition_desc": "굴착면 높이 5m 이상",
+          "obligations": [
+            {
+              "obligation_type": "설계감리",
+              "obligation": "흙막이 구조 설계 및 안전성 검토 (전문기술자 확인)",
+              "legal_basis": "산안규칙 제339조 제2항",
+              "needs_review": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entry_id": "WC-004",
+      "subject_code": "AWP",
+      "subject_name": "고소작업대",
+      "conditions": [
+        {
+          "condition_key": "work_height >= 2",
+          "condition_desc": "작업 높이 2m 이상",
+          "obligations": [
+            {
+              "obligation_type": "안전대착용",
+              "obligation": "안전대 착용 및 안전대 부착설비(안전고리) 설치",
+              "legal_basis": "산안규칙 제44조"
+            },
+            {
+              "obligation_type": "과부하방지",
+              "obligation": "정격하중 준수, 과부하 방지장치 작동 확인",
+              "legal_basis": "산안규칙 제44조"
+            },
+            {
+              "obligation_type": "작업전점검",
+              "obligation": "승강장치·안전장치·제동장치 작업 전 점검",
+              "legal_basis": "산안규칙 제44조"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entry_id": "WC-005",
+      "subject_code": "CRANE",
+      "subject_name": "크레인 양중작업",
+      "conditions": [
+        {
+          "condition_key": "crane_lift=true",
+          "condition_desc": "크레인 양중 작업",
+          "obligations": [
+            {
+              "obligation_type": "인양반경통제",
+              "obligation": "인양 반경 내 근로자 출입 통제 및 경보장치 설치",
+              "legal_basis": "산안규칙 제146조"
+            },
+            {
+              "obligation_type": "신호수배치",
+              "obligation": "양중 작업 시 신호수 1명 이상 배치",
+              "legal_basis": "산안규칙 제146조"
+            },
+            {
+              "obligation_type": "달기기구점검",
+              "obligation": "와이어로프 안전계수(5 이상), 손상 여부 사전 점검",
+              "legal_basis": "산안규칙 제163조"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

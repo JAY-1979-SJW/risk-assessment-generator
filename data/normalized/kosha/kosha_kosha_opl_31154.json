@@ -1,0 +1,33 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "31154",
+  "title": "[중대재해사례]자동캐리어카와 벽 사이에 협착",
+  "title_normalized": "자동캐리어카와 벽 사이에 협착",
+  "body_text": "2011-교육미디어-1234\n제조업\n2012-교육미디어-638\n작업구역 확인\n경광등 및 경보음\n시야확보\n자동캐리어카와 벽 사이에 협착\n발생 원인\n● 자동 캐리어카 운행영역에 대한 확인 미흡 \n- \u0007양생실 투입 자동 캐리어카 주행로 상에서 양생실 보호 커튼 조작\n- 보온용 커튼 조작작업자와 충돌 \n● 자동캐리어카의 비상벨 미작동\n- \u0007적재된 랙을 운반 및 양생실에 투입작업 시 비상벨 미설치\n보도블럭 양생공정에서 양생굴의 보온용 커튼을 내리던 중 진입하던 자동캐리어카와 양생굴의 벽 사이에 \n협착되어 사망\n● 산업안전보건기준에 관한 규칙 제38조 (사전조사 및 작업계획서의 작성 등)\n● 산업안전보건기준에 관한 규칙 제89조 (운전 시작 전 조치)\n● 산업안전보건기준에 관한 규칙 제172조 (접촉의 방지)\n작동 전 확인 철저 \n- \u0007양생굴에 자동캐리어카를 운행할 경우 작\n업구역의 안전 여부를 확인\n경광등 및 경보음 작동 \n- \u0007자동캐리어카 운행 경보설비 설치(경광\n등, 경보음)\n1\n2\n준수해야 할 관련 법령\n안전작업\nTIP\n\n만화로 보는 중대재해사례_\n자동캐리어카와 벽 사이에 협착\n작업구역의 안전 여부를 확인하세요!",
+  "has_text": true,
+  "content_length": 572,
+  "hazards": [
+    "끼임",
+    "충돌",
+    "중량물",
+    "화학물질",
+    "협착"
+  ],
+  "work_types": [
+    "콘크리트",
+    "운반"
+  ],
+  "equipment": [],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014167023&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014167023&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20121010",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

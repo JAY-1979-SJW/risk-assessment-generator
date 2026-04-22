@@ -49,6 +49,10 @@ export const api = {
   // AI Generate
   generateAI: (data)         => req('POST', '/generate', data),
 
+  // Draft Recommend / Recalculate
+  draftRecommend:    (data)  => req('POST', '/risk-assessment/draft/recommend', data),
+  draftRecalculate:  (data)  => req('POST', '/risk-assessment/draft/recalculate', data),
+
   // Export
   exportExcel: async (pid) => {
     const r = await fetch(`${BASE}/projects/${pid}/export/excel`)

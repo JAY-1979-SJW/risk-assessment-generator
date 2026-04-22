@@ -1,0 +1,37 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "31126",
+  "title": "[중대재해사례]PC암거 해체작업 중 몰드 앞판이 넘어지며 협착",
+  "title_normalized": "PC암거 해체작업 중 몰드 앞판이 넘어지며 협착",
+  "body_text": "2011-교육미디어-1234\n제조업\n2012-교육미디어-610\n작업계획서의 작성 및 교육\n몰드 측면판 탈락방지 체인\n크레인 \n운전자\n줄걸이 작업 책임자\n줄걸이 작업자\n신\n호\n자\n작업계획서\nPC 암거 해체작업 중 몰드 앞판이 \n넘어지며 협착\n발생 원인\n● 몰드의 측면판의 불시 전도를 막을 수 있는 안전체인 미설치\n- \u0007몰드의 한쪽에만 측면판의 전도를 막을 수 있는 안전체인이 설치되어 있고 다른 쪽에는 미설치 \n● 중량물 취급 작업계획서상에 위험요인 및 안전작업절차에 대한 내용 누락\n콘크리트 구조물 (PC암거)을 생산 현장에서 양생이 완료된 콘크리트 PC 암거 몰드 해체를 위해 전면판 체결 \n볼트를 풀고 해체 준비작업 중 넘어지는 몰드판에 협착 사망\n● 산업안전보건기준에 관한 규칙 제20조 (출입의 금지 등)\n● 산업안전보건기준에 관한 규칙 제38조 (사전조사 및 작업계획성의 작성 등)\n몰드 측면판의 불시 전도를 예방할 수 있는 \n안전체인 설치\n중량물 취급 작업계획서에 위험요인 및 \n안전작업절차 명시하고 근로자가 숙지토록 \n교육 실시 \n1\n2\n준수해야 할 관련 법령\n안전작업\nTIP\n\n만화로 보는 중대재해사례_\nPC 암거 해체작업 중 몰드 앞판이 넘어지며 협착\n몰드판 전도방지를 위해 안전체인을 설치하세요!",
+  "has_text": true,
+  "content_length": 624,
+  "hazards": [
+    "끼임",
+    "충돌",
+    "중량물",
+    "화학물질",
+    "협착",
+    "전도"
+  ],
+  "work_types": [
+    "양중",
+    "콘크리트",
+    "해체"
+  ],
+  "equipment": [
+    "크레인"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014166995&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014166995&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20121010",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

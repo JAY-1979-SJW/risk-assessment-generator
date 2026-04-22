@@ -1,0 +1,28 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "43093",
+  "title": "[Quick Message] 달비계 사용 외벽작업 중 추락사고",
+  "title_normalized": "달비계 사용 외벽작업 중 추락사고",
+  "body_text": "",
+  "has_text": false,
+  "content_length": 0,
+  "hazards": [
+    "추락"
+  ],
+  "work_types": [],
+  "equipment": [
+    "달비계"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00016098228&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00016098228&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "건설업",
+  "published_at": "20210413",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

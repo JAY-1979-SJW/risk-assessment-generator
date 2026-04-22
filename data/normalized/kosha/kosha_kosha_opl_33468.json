@@ -1,0 +1,36 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "33468",
+  "title": "[중대재해_수송용]언코일러에 철판코일 장착 중 깔림",
+  "title_normalized": "언코일러에 철판코일 장착 중 깔림",
+  "body_text": "언코일러에 철판코일을 장착하기 위해 천장크레인으로 철판코일을 권상 후 코일카에 안착시켜 코일카를 운행하던 \n중 1,250kg의 철판코일이 떨어지면서 부딪쳐 코일에 깔림\n재해발생 원인\n!\n안전작업 방법\n언코일러 장착작업시 안전봉 체결 철저\n- 코일카에 적재된 철판코일의 낙하 위험을 방지하는 방호장치인 \n   안전봉을 반드시 체결하고 작업 실시\n중량물 취급에 대한 작업계획서 작성 및 준수\n- 중량물의 종류 및 형상, 취급방법 및 순서, 작업장소의 넓이 및 \n   지형, 낙하 위험을 예방할 수 있는 안전대책 등이 포함된 \n   작업계획서를 작성하고 당해 근로자가 준수하도록 관리\n철판코일 언코일러 장착작업시 방호장치(안전봉) 미체결\n중량물 취급 작업계획서 미작성\n※ 철판코일 사양\n언코일러에 철판코일 장착 중 깔림\nTIP\n1\n1\n2013-교육미디어-1309\n제조업\n재해사례\n(철판코일)\n무게(Kg)\n1,250\n철판 규격(mm)\n폭125×두께1.5\n외관(mm)\n내경590×외경1,500\n비  고\n철재 밴드가 코일의 원주방향으로 \n묶음 처리된 상태\n\n●  산업안전보건기준에 관한 규칙    제38조(사전조사 및 작업계획서의 작성 등), 제93조(방호장치의 해체금지)\n만화로 보는 재해사례\n해당 기계의 방호장치는 반드시 부착하세요 !\n언코일러에 철판코일 장착 중 깔림\n참고법령 및 기준\n法",
+  "has_text": true,
+  "content_length": 662,
+  "hazards": [
+    "추락",
+    "충돌",
+    "중량물",
+    "화학물질",
+    "비래낙하"
+  ],
+  "work_types": [
+    "해체",
+    "운반"
+  ],
+  "equipment": [
+    "크레인",
+    "안전대"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169247&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169247&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20131216",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

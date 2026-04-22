@@ -1,0 +1,33 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "50859",
+  "title": "낙하물방지망 설치해체작업 안전수칙",
+  "title_normalized": "낙하물방지망 설치해체작업 안전수칙",
+  "body_text": "낙하물방지망\n설치·해체 작업\n안전수칙\n내민길이(2m이상) 및\n간격(10m이내)설치\n4\n앵커 매립길이䞱볼트\n결속상태 등 준수\n7\n낙하물 방지망 시험성적서 확인\n(한국산업표준성능기능준수)\n8\n추락방호조치 선행점검\n(안전대 부착설비 등) 후\n설치 및 해체 실시\n9\n작업 시 하부 출입통제 및\n관리 감독자 배치\n10\n안전대 부착 설비\n적정 체결\n1\n10M 간격 이내\n2M 이상\n20~30˚\n수명면과의 각도(20~30˚)준수\n5\n로프 지름에 따른\nClip 체결 갯수 및\n상태점검\n3\n안전대 고정점 확인\n2\n<16mm의 경우>\n앵커, J-Bolt, 아이볼트 등\n와이어로프 체결 적정여부\n6\n매립길이 준수\n\n2025-건설안전실-1063\n낙하물방지망 안전 점검표\n연번\n점검결과\n조치사항\n점검내용\n점검부서 ㅣ\n점검자 ㅣ\n점검일자 ㅣ\n안전대 부착 설비 적정 체결\n1\n안전대 고정점 확인\n2\n로프 지름에 따른 Clip 체결 갯수 및 상태점검\n3\n내민길이(2m이상) 및 간격(10m이내)설치\n4\n수명면과의 각도(20~30˚)준수\n5\n앵커, J-Bolt, 아이볼트 등 와이어로프 체결 적정여부\n6\n앵커 매립길이·볼트 결속상태 등 준수\n7\n낙하물 방지망 시험성적서 확인(한국산업표준성능기능준수)\n8\n추락방호조치 선행점검(안전대 부착설비 등) 후\n설치 및 해체 실시\n9\n작업 시 하부 출입통제 및 관리 감독자 배치\n10",
+  "has_text": true,
+  "content_length": 667,
+  "hazards": [
+    "추락",
+    "화학물질",
+    "비래낙하"
+  ],
+  "work_types": [
+    "해체",
+    "기계정비"
+  ],
+  "equipment": [
+    "안전대"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2025102710441459357381&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2025102710441459357381&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "건설업",
+  "published_at": "20251028",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

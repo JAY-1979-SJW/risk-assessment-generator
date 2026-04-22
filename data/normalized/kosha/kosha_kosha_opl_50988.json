@@ -1,0 +1,27 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "50988",
+  "title": "[안전기준] 제4절 화학설비 · 압력용기 등(Part 1)",
+  "title_normalized": "제4절 화학설비 · 압력용기 등(Part 1)",
+  "body_text": "",
+  "has_text": false,
+  "content_length": 0,
+  "hazards": [
+    "감전",
+    "협착"
+  ],
+  "work_types": [],
+  "equipment": [],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2025111317450199323701&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2025111317450199323701&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20251113",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

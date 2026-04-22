@@ -1,0 +1,113 @@
+{
+  "_meta": {
+    "source_type": "law",
+    "source_name": "산업안전보건법 시행규칙",
+    "source_ref": "별표5 (특별안전보건교육 대상 작업별 교육내용)",
+    "law_id": "산업안전보건법 시행규칙",
+    "source_org": "고용노동부",
+    "collected_at": "2026-04-21",
+    "note": "산업안전보건법 제29조 제3항 근거. 특별교육은 16시간 이상 (단기 작업은 2시간 이상)"
+  },
+  "entries": [
+    {
+      "entry_id": "SE-001",
+      "work_type": "고소작업대 작업",
+      "subject_code": "AWP",
+      "condition": "차량탑재형 고소작업대 운전 및 작업",
+      "education_hours_min": 16,
+      "education_type": "특별안전보건교육",
+      "content": ["작업 전 점검요령", "안전대 착용 및 관리", "작업계획서 작성요령", "이동 및 작업 시 안전조치"],
+      "legal_basis": "산업안전보건법 시행규칙 별표5 제1호 나목"
+    },
+    {
+      "entry_id": "SE-002",
+      "work_type": "크레인 운전",
+      "subject_code": "CRANE",
+      "condition": "이동식 크레인 또는 천장크레인 운전",
+      "education_hours_min": 16,
+      "education_type": "특별안전보건교육",
+      "content": ["방호장치의 종류 및 취급요령", "화물의 취급 및 작업방법", "신호 방법", "작업계획서 작성"],
+      "legal_basis": "산업안전보건법 시행규칙 별표5 제1호 가목"
+    },
+    {
+      "entry_id": "SE-003",
+      "work_type": "지게차 운전",
+      "subject_code": "FORKLIFT",
+      "condition": "지게차를 사용하는 작업",
+      "education_hours_min": 16,
+      "education_type": "특별안전보건교육",
+      "content": ["방호장치의 종류 및 취급요령", "화물의 취급 및 작업방법", "주행로 안전조치"],
+      "legal_basis": "산업안전보건법 시행규칙 별표5 제1호 다목"
+    },
+    {
+      "entry_id": "SE-004",
+      "work_type": "굴착기 운전",
+      "subject_code": "EXCAVATOR",
+      "condition": "굴착기(굴삭기) 운전",
+      "education_hours_min": 16,
+      "education_type": "특별안전보건교육",
+      "content": ["방호장치 취급요령", "작업계획서 작성", "지반 안전성 확인"],
+      "legal_basis": "산업안전보건법 시행규칙 별표5 제1호 라목"
+    },
+    {
+      "entry_id": "SE-005",
+      "work_type": "용접·용단 작업",
+      "subject_code": "WELDING",
+      "condition": "가스·전기 용접 및 용단 작업",
+      "education_hours_min": 16,
+      "education_type": "특별안전보건교육",
+      "content": ["용접 흄 및 유해광선 예방", "화재·폭발 예방", "보호구 착용", "환기 조치"],
+      "legal_basis": "산업안전보건법 시행규칙 별표5 제3호 나목"
+    },
+    {
+      "entry_id": "SE-006",
+      "work_type": "밀폐공간 작업",
+      "subject_code": "CONFINED_SPACE",
+      "condition": "산소결핍·유해가스 위험 장소에서의 작업",
+      "education_hours_min": 16,
+      "education_type": "특별안전보건교육",
+      "content": ["산소농도 측정 방법", "환기 방법", "보호구 착용", "구조 방법 및 응급처치"],
+      "legal_basis": "산업안전보건법 시행규칙 별표5 제4호 가목"
+    },
+    {
+      "entry_id": "SE-007",
+      "work_type": "화기작업",
+      "subject_code": "HOT_WORK",
+      "condition": "인화성 물질 취급 또는 가연성 가스 발생 장소에서의 화기 작업",
+      "education_hours_min": 16,
+      "education_type": "특별안전보건교육",
+      "content": ["가스농도 측정", "소화기 배치", "인화성 물질 격리", "작업허가제 운영"],
+      "legal_basis": "산업안전보건법 시행규칙 별표5 제3호 가목"
+    },
+    {
+      "entry_id": "SE-008",
+      "work_type": "굴착 작업",
+      "subject_code": "EXCAVATION",
+      "condition": "굴착면 높이 2m 이상인 지반 굴착 작업",
+      "education_hours_min": 16,
+      "education_type": "특별안전보건교육",
+      "content": ["토석 붕괴 예방", "흙막이 지보공 설치", "작업계획서 작성", "지반 안전성 확인"],
+      "legal_basis": "산업안전보건법 시행규칙 별표5 제2호 나목"
+    },
+    {
+      "entry_id": "SE-009",
+      "work_type": "전기 작업",
+      "subject_code": "ELECTRIC_WORK",
+      "condition": "충전전로에서의 전기작업 (고압 이상)",
+      "education_hours_min": 16,
+      "education_type": "특별안전보건교육",
+      "content": ["전기 위험성", "LOTO 절차", "절연보호구 착용", "감전 응급처치"],
+      "legal_basis": "산업안전보건법 시행규칙 별표5 제3호 다목"
+    },
+    {
+      "entry_id": "SE-010",
+      "work_type": "해체 작업",
+      "subject_code": "DEMOLITION",
+      "condition": "건축물 해체 작업",
+      "education_hours_min": 16,
+      "education_type": "특별안전보건교육",
+      "content": ["해체 순서 및 방법", "분진·석면 예방", "낙하물 방지", "작업계획서 작성"],
+      "legal_basis": "산업안전보건법 시행규칙 별표5 제2호 가목"
+    }
+  ]
+}

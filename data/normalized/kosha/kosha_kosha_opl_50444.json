@@ -1,0 +1,30 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "50444",
+  "title": "(동티모르)크레인 작업 사망사고 유발 고위험요인(SIF)",
+  "title_normalized": "(동티모르)크레인 작업 사망사고 유발 고위험요인(SIF)",
+  "body_text": "Fatór Risku\n       Falha atu asegura \nvista ba operadór grua sira\n       Métodu \nelevasaun (rigging) \nne'ebé sala\nDispozitivu elevasaun \n(rigging) avaria* \nFalha atu asegura vista ba operadór grua sira\nDispozitivu elevasaun (rigging) avaria \n(Abrazaun, deformasaun, estragu, solda laloos, nst)\nMétodu elevasaun (rigging) ne'ebé sala\nOperasaun grua hosi fatin ida bele verifika rota movimentu tomak ba \ntransporte karga nian\nTransporta servisu tuir sinál sira liuhosi dezignasaun supervizór\nMedida \nPreventiva \nsira\nFatór Risku\nMedida \nPreventiva \nsira\nFatór Risku\nMedida \nPreventiva \nsira\nDezenvolvimentu padraun sira kona-ba soe (jestaun) dispozitivu \nelevasaun (rigging) nian\nInspesaun regulár ba estragu sira husi dispozitivu elevasaun/rigging \nnian (soe dispozitivu ne'ebé hetan estragu)\nInspesaun ba formasaun avansadu ba traballadór sira no ninia \nimplementasaun kona-ba métodu elevasaun (rigging) ne'ebé apropriadu\nInklui métodu sira elevasaun (rigging) nian* apropriadu atu mantein \nforma/medida no ekilíbriu hosi transporte materiál sira iha planu \nservisu kona-ba tratamentu ba materiál pezadu sira \n* Elevasaun (rigging) tali-rua, elevasaun (rigging) tali-haat, ekipamentu foti sa'e dedikadu, nst.\n  * Abrazaun, deformasaun, estragu, \n    solda laloos, nst\nne'ebé kauza \nasidente fatál \nSigniﬁka katak servisu/situasaun ho fatór sira ne'ebé kauza asidente iha risku aas no \nprontu atu kauza asidente fatál\nFatór Risku Aas sira\nObra Prinsipál 3\n몽티모르어\n2025-외국인전담팀-730",
+  "has_text": true,
+  "content_length": 1476,
+  "hazards": [
+    "충돌"
+  ],
+  "work_types": [
+    "양중"
+  ],
+  "equipment": [
+    "크레인"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2025091809061410444762&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2025091809061410444762&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "건설업",
+  "published_at": "20251002",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

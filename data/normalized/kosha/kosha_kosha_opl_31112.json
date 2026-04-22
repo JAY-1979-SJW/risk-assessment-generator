@@ -1,0 +1,32 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "31112",
+  "title": "[중대재해사례]압력용기 기밀시험 중 용기에 부착된 엘보우 비래",
+  "title_normalized": "압력용기 기밀시험 중 용기에 부착된 엘보우 비래",
+  "body_text": "2011-교육미디어-1234\n제조업\n2012-교육미디어-596\n정비 전 압력용기 내부 압력 방출\n압력용기 기밀시험 중 용기에 \n부착된 엘보우 비래\n발생 원인\n● 압력용기 안전성에 대한 안전인증 미실시\n● 압력용기 기밀시험방법 부적절 \n- \u0007압력용기 정비수리작업 시 용기 내부 고압상태에서 실시\n압력용기 설치 완료 후 압축공기로 기밀시험을 하던 중 용기에 부착된 엘보우 연결부에서 공기가 새는 것을 \n발견하고 스패너로 클램프 나비너트를 조이던 중 클램프가 파손, 고압공기가 분출되며 엘보우가 비래하여 \n재해자를 가격하여 사망\n● 산업안전보건기준에 관한 규칙 제36조 (사용의 제한)\n● 산업안전보건기준에 관한 규칙 제92조 (정비 등의 작업시의 운전정지 등)\n압력용기 안전성에 대한 안전인증 실시\n- \u0007해당 압력용기의 설계압력이 게이지 압력이 3.6Kgf/㎠이므로 안전\n성에 관한 안전인증기관으로부터 안전인증을 받은 후에 기밀시험 \n등을 실시\n압력용기 내부 압력 방출\n- \u0007압력용기 내부에 압축된 기체가 있는 용기의 정비·수리 작업 시 \n미리 내부 압력을 제거하여 위험을 방지하여야 함\n1\n2\n준수해야 할 관련 법령\n안전작업\nTIP\n\n만화로 보는 중대재해사례_\n압력용기 기밀시험 중 용기에 부착된 엘보우 비래\n고압용기 정비·보수작업 시에는 내부압력을 방출하고 작업하세요!",
+  "has_text": true,
+  "content_length": 654,
+  "hazards": [
+    "화학물질",
+    "협착",
+    "비래낙하"
+  ],
+  "work_types": [
+    "기계정비"
+  ],
+  "equipment": [
+    "압축공기"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014166981&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014166981&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20121010",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

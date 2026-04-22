@@ -1,0 +1,35 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "37475",
+  "title": "화학공정 설비 조작 위험과 예방_공기압축기",
+  "title_normalized": "화학공정 설비 조작 위험과 예방_공기압축기",
+  "body_text": "건설업 공정별 위험성평가\n화재폭발 사고예방\n60\n화학공정 설비\n조작 위험과 예방_공기압축기\n대형 공기압축기의 윤활유와 고압공기 접촉에 의한 \n화재 폭발사고 위험\n ※ 고압 공기 중에서는 가연성물질이 대기 중에서보다 용이하게 발화\n  재해사례\n안전대책 및 수칙\n-  KOSHA GUIDE P-69-2012「화학공정 설비의 운전 및 작업에 관한 안전관리 기술지침」\n참고 법령 및\n작성 기준\n    공기압축기 토출배관에서의 칸막이 밸브 개폐조작은 단열압축에 의한 온도상승을 방지하기 위하여 \n서서히 실시\n    ※ 고압공기의 급격한 밸브 조작을 통하여 비교적 작은 밀폐계에서 단열압축에 의한 착화원으로 작용\n    토출배관, 공기 저장조, 오일분리기 등은 정기적으로 점검\n    윤활유의 적정한 소비량을 파악하고 소비량의 증가가 현저할 경우 압축기의 운전을 정지하고 점검 및 정비 실시\n    압축기의 윤활유는 인화점이 높고 열안정성, 산화안정성이 양호한 것을 사용하고 정기적으로 열화도 분석 실시\n    윤활유 관리 철저\n    ※ 압축기 고무링에 일부 탄화가 일어나 마찰열이 발생하고, 부착된 카본과 열화된 윤활유가 발화하면서 유막 폭굉 발생\n    안전밸브는 최고사용압력 이하에서 작동하도록 유지, 관리\n    고압공기가 반드시 필요하지 않은 설비는 가급적 질소 등을 사용\n    고압 공기압축기는 가능하면 무급유형의 제품 사용\n[ 왕복동형 압축기 ]\n[ 회전식 압축기 ]\n2016-교육미디어-931\n※ 해당 자료의 자세한 내용은 안전보건기술지침(KOSHA GUIDE)을 참고하시기 바랍니다.",
+  "has_text": true,
+  "content_length": 779,
+  "hazards": [
+    "충돌",
+    "화재폭발",
+    "화학물질",
+    "협착"
+  ],
+  "work_types": [
+    "배관",
+    "기계정비"
+  ],
+  "equipment": [
+    "압축공기",
+    "안전대"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014172985&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014172985&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20161220",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

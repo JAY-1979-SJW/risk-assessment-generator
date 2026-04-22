@@ -1,0 +1,31 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "46399",
+  "title": "키메세지(8월_질식재해예방)",
+  "title_normalized": "키메세지(8월_질식재해예방)",
+  "body_text": "1.\n교육\n2.\n교육\n3.\n교육\n텍스트\n스마트폰APP (위기탈출안전보건)\n애플리케이션설치\n안전보건자료실\n질식, 중독\n포털사이트에‘안전보건공단’ 검색\n2019.09.10. [4명사망] 집수조내부에서작업하던근로자가황화수소중독으로쓰러지자\n외부에있던근로자3인이차례로구조하던중4명모두사망\n사고사례\n안전수칙\n콘텐츠링크\n포스터\n동영상(국·영문)\n제2024 - 4  호\nVR\n음원(국·영문)\n※ 자료이미지클릭시, 다운로드페이지로이동\nOPS(원콜사업)\n2024.02.06. [1명사망] 폐수처리장저류조슬러지반출작업중황화수소에중독되어사망\n[작업중]\n관계근로자외출입금지\n작업상황감시자배치\n작업시호흡용보호구착용\n출입·퇴장인원점검\n보호장구없이구조금지\n[ 작업시작전]\n밀폐공간내출입금지\n밀폐공간작업교육및훈련실시\n출입전충분한환기실시\n작업전가스농도측정\n작업자에호흡용보호구지급\n(송기마스크, 공기호흡기등)",
+  "has_text": false,
+  "content_length": 443,
+  "hazards": [
+    "질식",
+    "협착"
+  ],
+  "work_types": [
+    "밀폐공간",
+    "운반",
+    "기계정비"
+  ],
+  "equipment": [],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00021069464&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00021069464&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20240822",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

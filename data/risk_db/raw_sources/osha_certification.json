@@ -1,0 +1,101 @@
+{
+  "_meta": {
+    "source_type": "law",
+    "source_name": "건설기계관리법 / 국가기술자격법",
+    "source_ref": "건설기계관리법 제26조 (건설기계조종사면허), 산업안전보건법 제140조 (유해위험작업 자격)",
+    "source_org": "국토교통부 / 고용노동부",
+    "collected_at": "2026-04-21",
+    "note": "장비 운전 자격 요건. 면허 없이 운전 시 형사처벌 대상"
+  },
+  "entries": [
+    {
+      "entry_id": "CERT-001",
+      "subject_code": "CRANE",
+      "subject_name": "크레인",
+      "condition": "정격하중 3톤 이상 이동식 크레인 운전",
+      "certification_required": "건설기계조종사면허 (이동식 크레인)",
+      "certification_issuer": "국토교통부",
+      "alternative": "없음 (면허 필수)",
+      "legal_basis": "건설기계관리법 제26조",
+      "penalty": "1년 이하 징역 또는 1천만원 이하 벌금"
+    },
+    {
+      "entry_id": "CERT-002",
+      "subject_code": "CRANE",
+      "subject_name": "크레인",
+      "condition": "정격하중 3톤 미만 이동식 크레인 운전",
+      "certification_required": "소형건설기계 교육 이수 (6시간)",
+      "certification_issuer": "한국건설기계교육원 또는 지정교육기관",
+      "alternative": "특별안전교육으로 대체 불가",
+      "legal_basis": "건설기계관리법 시행규칙 제73조의2",
+      "penalty": "과태료"
+    },
+    {
+      "entry_id": "CERT-003",
+      "subject_code": "FORKLIFT",
+      "subject_name": "지게차",
+      "condition": "지게차 운전 (정격하중 무관)",
+      "certification_required": "지게차운전기능사 또는 건설기계조종사면허",
+      "certification_issuer": "한국산업인력공단 / 국토교통부",
+      "alternative": "없음 (자격 필수)",
+      "legal_basis": "건설기계관리법 제26조, 국가기술자격법",
+      "penalty": "1년 이하 징역 또는 1천만원 이하 벌금"
+    },
+    {
+      "entry_id": "CERT-004",
+      "subject_code": "EXCAVATOR",
+      "subject_name": "굴착기(굴삭기)",
+      "condition": "굴착기 운전 (정격중량 무관)",
+      "certification_required": "건설기계조종사면허 (굴착기)",
+      "certification_issuer": "국토교통부",
+      "alternative": "1톤 미만: 소형건설기계 교육 이수",
+      "legal_basis": "건설기계관리법 제26조",
+      "penalty": "1년 이하 징역 또는 1천만원 이하 벌금"
+    },
+    {
+      "entry_id": "CERT-005",
+      "subject_code": "AWP",
+      "subject_name": "고소작업대 (차량탑재형)",
+      "condition": "차량탑재형 고소작업대 운전 (도로주행 포함)",
+      "certification_required": "건설기계조종사면허 (콘크리트펌프 또는 특수건설기계)",
+      "certification_issuer": "국토교통부",
+      "alternative": "작업대 자체 조작만: 특별안전교육 이수로 조작 가능 (운전면허 별도)",
+      "legal_basis": "건설기계관리법 제26조",
+      "needs_review": true,
+      "note": "차량형/자주식 구분 필요. 시설 내 작업용은 건설기계에 해당 안 될 수 있음"
+    },
+    {
+      "entry_id": "CERT-006",
+      "subject_code": "WELDING_GAS",
+      "subject_name": "가스용접",
+      "condition": "아세틸렌 또는 가스용접 작업",
+      "certification_required": "가스용접기능사 (권고) 또는 특별안전교육 이수",
+      "certification_issuer": "한국산업인력공단",
+      "alternative": "특별안전교육 이수 후 작업 가능 (자격 강제 아님)",
+      "legal_basis": "산업안전보건법 제140조, 시행규칙 별표28",
+      "needs_review": false
+    },
+    {
+      "entry_id": "CERT-007",
+      "subject_code": "TOWER_CRANE",
+      "subject_name": "타워크레인",
+      "condition": "타워크레인 운전",
+      "certification_required": "타워크레인운전기능사 또는 건설기계조종사면허",
+      "certification_issuer": "한국산업인력공단 / 국토교통부",
+      "alternative": "없음 (자격 필수)",
+      "legal_basis": "건설기계관리법 제26조, 국가기술자격법",
+      "penalty": "1년 이하 징역 또는 1천만원 이하 벌금"
+    },
+    {
+      "entry_id": "CERT-008",
+      "subject_code": "CRANE_SIGNAL",
+      "subject_name": "크레인 신호수",
+      "condition": "크레인 양중 작업 시 신호 업무",
+      "certification_required": "신호업무 특별교육 이수 (16시간)",
+      "certification_issuer": "사업장 내 교육기관",
+      "alternative": "자격증 없으나 교육 이수 필수",
+      "legal_basis": "산업안전보건기준에 관한 규칙 제146조",
+      "needs_review": false
+    }
+  ]
+}

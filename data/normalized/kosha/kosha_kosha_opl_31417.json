@@ -1,0 +1,42 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "31417",
+  "title": "정밀기구 제조 및 수리 종사자 - 정밀금형 가공작업",
+  "title_normalized": "정밀기구 제조 및 수리 종사자 - 정밀금형 가공작업",
+  "body_text": "감김(말려들어감)\n감김(말려들어감)\n베임\n중량물낙하\n주요위험요인\n작업안전대책\nwww.kosha.or.krⅠ032-5100-500\n●공작기계운전중노출된회전\n절삭날에감김\n●금형연삭작업중회전하는숫돌에\n닿아베임\n●금형을천장크레인등으로운반\n작업중낙하\n●회전중인가공물은절대만지지않는다.\n●옷이나소매등복장을단정히한다.\n●청소, 수리및보수작업시에는반드시기계를정지\n시킨다.\n적정한줄걸이도구사용\n안전덮개설치하여사용\n●작업장주변을청소및정리정돈한다.       \n●가공물은숫돌에천천히, 필요한힘만가하여연삭한다.\n●안전덮개는반드시설치하여사용한다.\n베임\n●금형의무게, 크기등을고려하여적정한줄걸이도구\n등을사용하여운반한다.\n●안전화, 안전모등개인보호구를착용한다.\n●주행경로상에장애물, 작업자등이없는지수시로확\n인한다.\n중량물낙하\n\nwww.kosha.or.krⅠ032-5100-500\n정밀기구제조및수리종사자-정밀금형가공작업\n2012-교육미디어-849\n재해사례개요\n기계가멈추지않은상태에서가공중이던소재를꺼내려다손에끼고있던장갑이\n커터날에말리면서손등부분이협착된재해\n면장갑을낀채로작동중인절삭날등에는접촉을하지마세요!\n면장갑을낀채로\n작동중인절삭날\n등에접촉을\n하지마세요!",
+  "has_text": true,
+  "content_length": 573,
+  "hazards": [
+    "추락",
+    "끼임",
+    "충돌",
+    "중량물",
+    "협착",
+    "전도",
+    "비래낙하"
+  ],
+  "work_types": [
+    "양중",
+    "운반",
+    "기계정비",
+    "절단",
+    "청소"
+  ],
+  "equipment": [
+    "크레인",
+    "프레스",
+    "안전대"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014167280&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014167280&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20121204",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

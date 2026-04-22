@@ -1,0 +1,33 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "33451",
+  "title": "[중대재해_금속재료]자동이송 포장작업 중 상부 제품이 하강해 끼임",
+  "title_normalized": "자동이송 포장작업 중 상부 제품이 하강해 끼임",
+  "body_text": "동관(Copper tube)코일 포장공정에서 자동이송장치에서 공급된 약 150kg의 동관코일(지름 1,030mm, 높이 \n290mm) 이 하강하면서 하강된 코일과 포장 중이던 코일 사이에 상반신이 끼임\n재해발생 원인\n!\n안전작업 방법\n끼임 재해 발생 위험구간 방호장치 설치\n- 자동이송장치 운반경로 상의 끼임 재해 발생 위험구간에 작업자의\n   신체일부가 있을 경우 이를 감지 후 자동이송장치가 자동 정지가\n   되도록 광전자식 방호장치 또는 안전매트 등을 설치\n제품 이송장치 운전순서(Sequence) 재설정\n- 포장작업위치에 동관코일이 없음을 확인하는 센서 등을 설치하여 \n   포장작업을 완료한 후 대기 중인 동관코일이 이송될 수 있도록 \n   제품이송장치의 운전순서(Sequence)를 설정할 필요가 있음 \n끼임 재해 발생 위험구간 방호장치 미비\n제품 이송장치 운전순서(Sequence) 설정 미흡\n자동이송 포장작업 중 상부 제품이 \n하강해 끼임\nTIP\n1\n1\n2\n2\n2013-교육미디어-1326\n제조업\n재해사례\n(동관코일)\n\n●  KOSHA Guide M-137-2012(기계의 제작 사용시 안전기준에 관한 기술지침)\n만화로 보는 재해사례\n끼임재해 발생 위험 점에는 방호조치를 하세요 !\n자동이송 포장작업 중 상부 제품이 하강해 끼임\n참고법령 및 기준\n法",
+  "has_text": true,
+  "content_length": 651,
+  "hazards": [
+    "끼임",
+    "감전",
+    "중량물",
+    "협착"
+  ],
+  "work_types": [
+    "운반"
+  ],
+  "equipment": [
+    "컨베이어"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169230&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169230&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20131216",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

@@ -1,0 +1,34 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "43200",
+  "title": "산업재해예방을 위한 OPS (산업용로봇)",
+  "title_normalized": "산업재해예방을 위한 OPS (산업용로봇)",
+  "body_text": "사망사고예방 이것만은 지키자!\n▶\u0001출입문 연동장치 설치\n▶\u0001안전매트 또는 감응형 방호장치 \t\n설치 및 정상작동 유지\n▶\u0001비정형작업 시 로봇 기동스위치는 \t\n열쇠로 잠근 후\n▶\u0001표지판 부착하여 타 근로자의 \t\n불시기동 방지\n▶\u0001산업용 로봇 셀에는 높이 1.8미터 \t\n이상의 방책 설치\n▶\u0001산업용로봇 셀 출입 시 로봇과 지그 \t\n사이에 끼임\n2020. 7.\n사망1명\n▶\u0001로봇 교시(티칭)작업 중 로봇과 설비 \t\n사이에 끼임\n2019. 3.\n사망1명\n▶작업구역 내 청소작업 중 로봇에 부딪힘\n2018. 3.\n사망1명\n중대재해 사례\n산업용로봇 위험요인 및 안전대책\n위험\n요인\n안전\n대책\n로봇 방호장치 무효화로\n인한 보호영역 출입\n비정형작업 시 산업용 로봇\n불시기동으로 인한 위험\n산업용로봇 작업반경 내\n접근으로 인한 위험\n중대재해 발생현황\n(최근 10년간 28명 사망사고 발생)\n「국민생명 지키기 프로젝트」\n산업용로봇 수리점검 시\n 중대재해 발생\n(19명, 68%)\n산업용로봇 사용 중\n 중대재해 발생\n(8명, 29%)\n산업용로봇 교시작업 중\n중대재해 발생\n(1명, 3%)\n산업용로봇 재해예방 OPS\n2021-산업안전보건인증원-249\n운전정지 후\n기동스위치를\n열쇠로 잠근다\n로봇의\n가동범위에는\n안전조치해야\n1.8m\n이상\n접근금지\n 끼임 (18명, 95%)\n 부딪힘 (1명, 5%)\n 끼임 (7명, 88%)\n 부딪힘 (1명, 12%)\n 끼임 (1명, 100%)",
+  "has_text": true,
+  "content_length": 700,
+  "hazards": [
+    "끼임",
+    "충돌",
+    "화학물질",
+    "협착"
+  ],
+  "work_types": [
+    "기계정비",
+    "청소"
+  ],
+  "equipment": [
+    "안전대"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00016180587&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00016180587&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20210616",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

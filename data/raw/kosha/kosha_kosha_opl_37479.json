@@ -1,0 +1,17 @@
+{
+  "item_id": "37479",
+  "title": "화학공정설비 반응기 잔유물 제거 작업안전",
+  "category": "kosha_opl",
+  "industry": "제조업",
+  "list_type": "OPS",
+  "atcfl_no": "FL00014172989",
+  "download_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014172989&atcflSeq=1",
+  "reg_date": "20161220",
+  "keyword": "반응기, 화학공정설비, 반응기, 잔유물, 제거, 화학공정, 잔여물, 잔류, 잔액, 화재, 폭발",
+  "source": "kosha",
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014172989&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014172989&atcflSeq=1",
+  "content": "건설업 공정별 위험성평가\n화재폭발 사고예방\n68\n화학공정설비 반응기\n잔유물 제거 작업안전\n반응공정 운전 중 생성 물질이 부착되거나 기기 \n개방시 배출 잔액과 세정 잔액 또는 잔류 공기 등이 \n있을경우, 운전이 개시되거나 수리시 이상반응이 \n일어나면서 화재폭발 위험성 발생\n  재해사례\n안전대책 및 수칙\n-  KOSHA GUIDE P-69-2012「화학공정 설비의 운전 및 작업에 관한 안전관리 기술지침」\n참고 법령 및\n작성 기준\n    설비 내에 탄화물이나 산화물과 같은 부생성물과 잔유물의 유무 확인\n    취급물질에 대해 잔존 물질의 촉매작용 여부를 확인 후 이상반응 물질 제거\n    잔유물을 확인한 경우, 스팀 세정과 화학세정 실시, 그리고 각 첨가제를 투입하여 물질의 변성 및 물질 \n치환 방식에 의해 제거\n    ※ 위 방법이 어려운 경우 에어펌프를 사용하고 가급적 탱크 내에 인력 투입 금지\n    중합물을 만들기 쉬운 물질 취급시 시스템 내에 산소가 존재하면 계장기기의 취출 노즐, 벤트 노즐, 안전밸브, \n파열판 등과 같은 데드 스페이스(Dead space)에 고체 중합물이 생성되어 기기가 파괴될 수 있음\n    중합물이 산소와 접촉하면 발화할 가능성에 대비, 시스템 외부로부터 산소 혼입을 방지하고 중합금지제를 \n사용하여 중합반응을 정지시키도록 하며 부식(Corrosion)과 데드 스페이스를 제거\n[ 교반조형 반응기 ]\n[ 관형 반응기 ]\n2016-교육미디어-927\n교반기\n주입구\n원료\n펌프\n열\n매체\n입구\n반\n응\n기\n열\n매체\n입구\n제품\n가열기\n또는\n냉각기 \n연결부\n※ 해당 자료의 자세한 내용은 안전보건기술지침(KOSHA GUIDE)을 참고하시기 바랍니다.",
+  "has_text": true,
+  "collected_at": "2026-04-22"
+}

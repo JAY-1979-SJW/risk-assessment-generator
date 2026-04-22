@@ -1,0 +1,30 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "33012",
+  "title": "(제조,스리랑카)Safety and Healthcare Manual for Foreign Workers-Manufacturing Industry : Checking press protective devices 외국인 근로자 안전보건 매뉴얼 - 제조업 : 프레스 방호장치 점검",
+  "title_normalized": "(제조,스리랑카)Safety and Healthcare Manual for Foreign Workers-Manufacturing Industry : Checking press protective devices 외국인 근로자 안전보건 매뉴얼 - 제조업 : 프레스 방호장치 점검",
+  "body_text": "",
+  "has_text": false,
+  "content_length": 0,
+  "hazards": [
+    "끼임"
+  ],
+  "work_types": [
+    "기계정비"
+  ],
+  "equipment": [
+    "프레스"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014168800&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014168800&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20120831",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

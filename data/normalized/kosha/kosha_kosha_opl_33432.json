@@ -1,0 +1,34 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "33432",
+  "title": "[중대재해_도자기요업]벽돌성형 자동화 라인 언로더 점검 중 끼임",
+  "title_normalized": "벽돌성형 자동화 라인 언로더 점검 중 끼임",
+  "body_text": "벽돌성형 자동화 라인에서 언로더가 후진하지 않자 설비를 정지하지 않은 상태에서 언로더 하부에 들어가 이상 \n유무를 확인하던 중 언로더가 갑자기 작동되면서 이송체인 가이드와 언로더 사이에 끼임\n※ 언로더 : 양생된 벽돌을 이송체인으로 이동시키는 장치\n재해발생 원인\n!\n안전작업 방법\n점검·정비작업 중 운전정지 실시\n- 정비작업시 반드시 전원 차단 후 작업을 하고, 가능한 전문업체\n   또는 전문가에 의해 정비 실시\n점검·정비 작업시 작업지휘자 배치\n- 정비 등의 작업시 작업방법으로 인하여 기계가 갑자기 가동될 \n   우려가 있는 경우 작업지휘자를 배치하는 등의 조치\n끼임 위험 장소에 대한 접근방지 조치\n- 언로더와 이송체인의 운행구간에 작업자가 접근하지 않도록 방호울 등 \n   접근방지 조치 실시\n점검·정비작업 중 운전정지 미실시\n끼임 위험 장소에 대한 방호울 등 접근방지 조치 미비\n벽돌성형 자동화 라인 언로더 점검 중 \n끼임\nTIP\n1\n1\n2\n2\n2013-교육미디어-1345\n제조업\n재해사례\n(언로더)\n\n●  산업안전보건기준에 관한 규칙    제92조(정비 등의 작업시의 운전정지 등), 제87조(원동기·회전축 등의 위험 방지)\n만화로 보는 재해사례\n점검·정비작업, 반드시 기계운전을 정지하세요 !\n벽돌성형 자동화 라인 언로더 점검 중 끼임\n참고법령 및 기준\n法",
+  "has_text": true,
+  "content_length": 655,
+  "hazards": [
+    "끼임",
+    "충돌",
+    "화학물질",
+    "협착"
+  ],
+  "work_types": [
+    "콘크리트",
+    "운반",
+    "기계정비",
+    "조적"
+  ],
+  "equipment": [],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169211&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169211&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20131216",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

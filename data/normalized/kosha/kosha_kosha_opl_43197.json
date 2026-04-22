@@ -1,0 +1,35 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "43197",
+  "title": "산업재해예방을 위한 OPS (이동식크레인)",
+  "title_normalized": "산업재해예방을 위한 OPS (이동식크레인)",
+  "body_text": "산재 사망사고 절반으로 줄입시다\n!\n중대재해 발생현황\n이동식크레인 불법탑승설비 부착 사례\n이동식크레인(차량탑재형)의 최근 10년간 총 재해건수는 67건(사망 71명, 부상 10명)\n그 중 불법 탑승설비 부착으로 인한 재해 건수는 총 19건(사망 24명, 부상 6명)으로 약 29% 차지\n이동식크레인(차량탑재형)\n2016. 12.\n사망 3명\n부상 1명\n2013. 7.\n사망 2명\n2015. 7.\n사망 2명\n<자동차관리법>\n제34조(자동차의 튜닝) ① 자동차소유자가 국토교통부령으로 정하는 항목에 대하여 튜닝을 하려는 경우에는 시장·\n군수·구청장의 승인을 받아야 한다. ※ 1년 이하의 징역 또는 1,000만원 이하의 벌금\n<산업안전보건기준에 관한 규칙>\n제86조(탑승의 제한) ② 사업주는 이동식 크레인을 사용하여 근로자를 운반하거나 근로자를 달아 올린 상태에서 \n작업에 종사시켜서는 아니 된다. ※ 5년 이하의 징역 또는 5,000만원 이하의 벌금\n탑승설비 부착 금지\n탑승설비 부착 금지\n관련법령\n신호등 설치·해체 작업\n수목 전지 작업\n간판 설치·해체 작업\n탑승설비\n추락장소\n2021-산업안전보건인증원-252",
+  "has_text": true,
+  "content_length": 564,
+  "hazards": [
+    "추락",
+    "충돌",
+    "중량물",
+    "화학물질"
+  ],
+  "work_types": [
+    "해체",
+    "운반"
+  ],
+  "equipment": [
+    "크레인",
+    "이동식크레인"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00016180658&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00016180658&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20210616",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

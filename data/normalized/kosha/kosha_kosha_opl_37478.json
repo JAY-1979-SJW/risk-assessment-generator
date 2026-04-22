@@ -1,0 +1,31 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "37478",
+  "title": "화학공정설비 계기류 고장에 의한 폭발 대비",
+  "title_normalized": "화학공정설비 계기류 고장에 의한 폭발 대비",
+  "body_text": "63\n건설업 공정별 위험성평가\n화재폭발 사고예방\n \nㅍ\n-  KOSHA GUIDE P-69-2012「화학공정 설비의 운전 및 작업에 관한 안전관리 기술지침」\n참고 법령 및\n작성 기준\n화학공정설비 계기류\n고장에 의한 폭발 대비\n    공정설비의 운전담당자는 항상 온도, 압력, 유량, 액면 등의 운전관리범위를 파악하고 계기류 지시값의 \n정상여부 확인\n    ※ 현장 지시값과 계기실 지시값의 일치 여부를 정기적으로 점검\n    현장 계기류에 일상적으로 사용하는 운전 지시값과 최대 및 최소값을 표시해 두고 지시값이 정상인지를 \n명확하게 알 수 있도록 하며, 압력계 등의 지시값 기록시 단위(CGS 또는 SI)를 혼동하지 않도록 확인\n    액면계는 액면계 취출 노즐의 막힘에 의해 그 지시값이 정상이 아닌 경우가 있으므로 주의 필요\n    중요한 현장계측은 매일 확인하며, 계기류의 고장이나 지시값 단위의 착오로 인한 조작으로 인해 폭발이나 \n이상반응을 초래할 위험이 있으므로 운전담당자의 상시적인 주의 요망\n    계기류의 지시값이 정상이 아닌 것을 발견할 경우 확인자 혼자서 처리하지 말고 즉시 정비담당 책임자에게 연락\n    계기류의 수치 확인을 전달하는 경우 반드시 단위를 함께 기입\n    계기류의 교환작업은 계측기 담당자가 직접 실시해야 하지만, 단순한 현장압력계의 교환 등은 운전담당자가 \n직접 할 수 있음\n안전대책 및 수칙\n관련 사진\n[ 온도센서 ]\n[ 온도계 ]\n[ 압력계 ]\n2016-교육미디어-928\n※ 해당 자료의 자세한 내용은 안전보건기술지침(KOSHA GUIDE)을 참고하시기 바랍니다.",
+  "has_text": true,
+  "content_length": 789,
+  "hazards": [
+    "화재폭발",
+    "협착"
+  ],
+  "work_types": [
+    "기계정비"
+  ],
+  "equipment": [
+    "안전대"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014172988&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014172988&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20161220",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

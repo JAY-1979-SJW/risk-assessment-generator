@@ -1,0 +1,17 @@
+{
+  "item_id": "45661",
+  "title": "건설현장 콘크리트 보온 및 양생작업 재해예방 OPS",
+  "category": "kosha_opl",
+  "industry": "건설업",
+  "list_type": "OPS",
+  "atcfl_no": "FL00020678031",
+  "download_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00020678031&atcflSeq=1",
+  "reg_date": "20240122",
+  "keyword": "질식,동절기,양생,밀폐,밀폐공간",
+  "source": "kosha",
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00020678031&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00020678031&atcflSeq=1",
+  "content": "전기열풍기: 위험없음\n등유열풍기: 일산화탄소 발생가능\n[최근 4년간(’19~’22) 12건 발생, 4명 사망, 25명 부상]\n열풍기를 우선적으로 사용 (전기열풍기 사용 권장)\n \n갈탄이나 숯 등 연료방식의 양생설비를 사용해야 한다면 출입시 일산화탄소 농도를 측정\n ▶ (권장) 양생작업장 내부에 일산화탄소 감지기를 설치하여 외부에서 가스농도를\n      확인할 수 있도록 하세요!\n※ 감지기 설치 위치 선정 시 양생작업장 내 일산화탄소 발생 특성을 고려\n※등유방식의 열풍기는 일산화탄소 발생 위험을 충분히 고려하여 사용\n※일산화탄소 농도기준 초과 시 공기호흡기나 송기마스크 착용\n※ 환기가 가능한 경우 환기를 실시하고 적정공기 수준 확인 후 출입\n- 양생작업 시 열풍기를 우선적으로 사용 (전기열풍기 사용 권장)\n※등유방식의 열풍기는 일산화탄소 발생 위험을 충분히 고려하여 사용\n- 부득이하게 갈탄, 숯 등 연료사용 시 작업장 내부 일산화탄소 측정\n     ▶ 갈탄(숯탄) 보충 및 양생상태 확인을 위해 내부로 들어가는 경우 일산화탄소 농도를 측정하고\n       출입관리(일산화탄소 농도 기준 초과시 송기마스크 또는 공기호흡기를 착용하고 내부 출입)\n겨울철 건설현장 콘크리트 양생작업 시 『열풍기 사용』으로 질식사고를 예방합시다.\n사용하는 연료에 대한 물질안전보건자료(MSDS) 비치 및 교육 실시\n\n감지기 설치 위치 선정 시 양생작업장 내 일산화탄소 발생 특성을 고려",
+  "has_text": true,
+  "collected_at": "2026-04-22"
+}

@@ -1,0 +1,37 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "52327",
+  "title": "건설업 사망사고 유발 SIF(거푸집동바리 조립해체작업)",
+  "title_normalized": "건설업 사망사고 유발 SIF(거푸집동바리 조립해체작업)",
+  "body_text": "단부, 개구부 주변 작업\n추락방지조치 미실시\n20.2%\n벽체 등 거푸집 작업\n거푸집 전도방지조치 미실시\n18.2%\n사망사고를 초래할 수 있는\n고위험작업䞺상황 및 재해유발요인을 말함\n2026-건설안전실-246\n1\n건설업 사망사고 유발\n거푸집동바리\n조립䞻해체 작업\n추락\n깔림\n상부 거푸집 설치·해체 등 고소작업\n작업발판 미설치 및 고정 불량\n18.2%\n추락\n추락\n갱폼 조립·인양·해체 작업\n작업 고정볼트 선해체\n13.2%\n본 자료에 명시된 통계수치는 건설업  SIF 자료를 기반으로 산정됨\n\n고위험요인별  안전대책\n1\n건설업 사망사고 유발\n거푸집동바리 조립䞻해체 작업\n추락\n추락\n깔림\n단부, 개구부 주변 작업\n추락방지조치 미실시\n안전난간 또는 추락방호망 설치\n안전대 부착설비 설치 및 체결\n상부 거푸집 설치·해체 등 고소작업\n작업발판 미설치 및 고정 불량\n작업발판 및 안전난간 설치\n작업발판 2개소 이상 견고하게 고정\n추락\n갱폼 조립·인양·해체 작업\n고정볼트 선해체\n고정볼트 해체 전 매달린 상태 확인\n인양장비에 매달기 전 해체금지, 순서 준수\n벽체 등 거푸집 작업\n거푸집 전도방지조치 미실시\n거푸집 간 체결 후 견고한 버팀대 설치\n전도방지 조치 전 주변 출입통제",
+  "has_text": true,
+  "content_length": 593,
+  "hazards": [
+    "추락",
+    "붕괴",
+    "화학물질",
+    "전도"
+  ],
+  "work_types": [
+    "고소작업",
+    "양중",
+    "콘크리트",
+    "해체"
+  ],
+  "equipment": [
+    "동바리",
+    "안전대"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2026040211034462501667&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2026040211034462501667&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "건설업",
+  "published_at": "20260402",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

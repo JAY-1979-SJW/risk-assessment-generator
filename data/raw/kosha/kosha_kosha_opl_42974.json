@@ -1,0 +1,17 @@
+{
+  "item_id": "42974",
+  "title": "작업 전 안전점검(크레인) - 자율안전점검표 포함",
+  "category": "kosha_opl",
+  "industry": "제조업",
+  "list_type": "OPS",
+  "atcfl_no": "FL00016027158",
+  "download_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00016027158&atcflSeq=1",
+  "reg_date": "20210218",
+  "keyword": "크레인, 작업 전 안전점검, 끼임, 크레인, 점검, 점검표, 제조, 재해사례, 재해, 자율안전, 자율, 권상, 중량물, 부딪힘",
+  "source": "kosha",
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00016027158&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00016027158&atcflSeq=1",
+  "content": "",
+  "has_text": false,
+  "collected_at": "2026-04-22"
+}

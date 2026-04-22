@@ -1,0 +1,17 @@
+{
+  "item_id": "31116",
+  "title": "[중대재해사례]프레스 자동송급장치 점검 중 소재이송로봇에 협착",
+  "category": "kosha_opl",
+  "industry": "제조업",
+  "list_type": "OPS",
+  "atcfl_no": "FL00014166985",
+  "download_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014166985&atcflSeq=1",
+  "reg_date": "20121010",
+  "keyword": "기계, 기구, 제조업, 산업용로봇, 매니퓰레이터, 점검작업, 협착, 끼임",
+  "source": "kosha",
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014166985&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014166985&atcflSeq=1",
+  "content": "2011-교육미디어-1234\n제조업\n2012-교육미디어-600\n정상적으로 설치된 \n방책(방호울) 연동장치\n수리·정비 시 \n운전 정지\nSTOP\n프레스 자동송급장치 점검작업 중 \n소재 이송로봇에 협착\n발생 원인\n● 출입문 연동장치 기능 해제 \n● 로봇 일시정지 상태에서 정비작업 수행\n● 자동송급장치 작동회로 제어용 근접스위치 설치상태 불량\n프레스 공정에서 소재 자동공급라인이 정지되자 정지된 원인을 파악하기 위해 재해자가 자동화 라인 내부로 \n들어가 수동운전용 풋 페달스위치를 조작하던 중 정지하고 있던 소재 이송로봇이 갑자기 작동하여 로봇 팔과 \n소재 자동송급장치(피더) 사이에 머리가 협착되어 사망\n● 산업안전보건기준에 관한 규칙 제93조 (방호장치의 해체금지)\n● 산업안전보건기준에 관한 규칙 제223조 (운전 중 위험방지)\n출입문 방호장치 해제 금지 \n- \u0007산업용 로봇이 설치된 장소의 출입문 연동\n장치 해제사용 금지\n수리·정비작업 시 운전 정지 \n- \u0007자동화 설비 이상발생 시 조치를 위한 정비\n작업 시에는 반드시 전원을 차단\n자동화라인 각 구조부에 대한 정비·점검 \n철저\n1\n2\n3\n준수해야 할 관련 법령\n안전작업\nTIP\n\n만화로 보는 중대재해사례_\n프레스 자동송급장치 점검작업 중 소재 이송로봇에 협착\n자동화 설비 점검 시에는 반드시 전원을 차단하고 작업하세요!",
+  "has_text": true,
+  "collected_at": "2026-04-22"
+}

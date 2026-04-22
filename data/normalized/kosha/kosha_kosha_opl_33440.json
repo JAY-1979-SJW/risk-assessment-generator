@@ -1,0 +1,39 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "33440",
+  "title": "[중대재해_선박]컨테이너 해체 중 지붕이 무너져 깔림",
+  "title_normalized": "컨테이너 해체 중 지붕이 무너져 깔림",
+  "body_text": "폐기용 컨테이너를 차량으로 운반할 수 있도록 내부에서 산소절단기로 절단·해체 작업 중 지붕이 무너지면서 \n하부에 깔림\n재해발생 원인\n!\n안전작업 방법\n컨테이너 해체작업시 작업계획서 작성\n- 해체 방법 및 해체 순서도면, 해체작업용 기계·기구, 기타 안전보건에 \n   관련된 사항 등이 포함된 작업계획서를 작성하고 그 계획에 따라 \n   작업을 실시\n부가되는 하중 등으로 무너질 위험이 있는 구조물에 대한 \n안전성평가 후 작업\n컨테이너 지붕 자중 등에 대한 사전 위험요인 파악 미흡\n- 컨테이너(약 10년, 길이 4m×너비 4m) 지붕에 빗물 등이 새어 \n   1.5톤 철판(6mm 2장)을 사고 전에 올려놓은 상태였음\n- 벽면 2개 해체 후 남은 벽면의 바닥과 벽면 연결부 약 1m정도를 \n   절단 중 무너짐\n컨테이너 해체 중 지붕이 무너져 깔림\nTIP\n1\n1\n2013-교육미디어-1337\n제조업\n재해사례\n(컨테이너)\n\n●  산업안전보건기준에 관한 규칙\n    제38조(사전조사 및 작업계획서의 작성 등), 제52조(구축물 또는 이와 유사한 시설물의 안전성평가)\n만화로 보는 재해사례\n구조물 해체, 안전성평가로 잠재위험을 제거하세요 !\n컨테이너 해체 중 지붕이 무너져 깔림\n참고법령 및 기준\n法",
+  "has_text": true,
+  "content_length": 613,
+  "hazards": [
+    "추락",
+    "충돌",
+    "붕괴",
+    "중량물",
+    "화학물질",
+    "전도"
+  ],
+  "work_types": [
+    "용접",
+    "지붕",
+    "해체",
+    "운반",
+    "절단"
+  ],
+  "equipment": [
+    "절단기"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169219&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169219&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20131216",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

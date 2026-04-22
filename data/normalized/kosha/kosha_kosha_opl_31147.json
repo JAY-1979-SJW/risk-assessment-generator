@@ -1,0 +1,30 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "31147",
+  "title": "[중대재해사례]조형기 정비작업 중 기계작동으로 협착",
+  "title_normalized": "조형기 정비작업 중 기계작동으로 협착",
+  "body_text": "2011-교육미디어-1234\n제조업\n2012-교육미디어-631\n기동스위치 잠금장치 설치\n안전표지 부착\n조형기 정비작업 중 기계작동으로 협착\n발생 원인\n● 안전조치를 하지 않은 상태에서 보수작업 실시\n- \u0007다른 작업자가 기계를 작동시키지 못하도록 하는 등의 안전조치를 하지 않은 상태에서 보수\n작업 실시 \n● 정비작업 후 기계 재가동시 확인 미실시\n- \u0007정비작업 후 기계 재가동시 위험부위 작업자 유무에 대한 확인 미실시\n자동 조형기 상부 선로에 간섭이 발생되어 선로 정비 작업 중 하부의 조형기 운전자가 조형기를 작동시켜 정비\n작업 중이던 피재자가 셔틀내의 유압실린더와 지지대 사이에 협착\n● 산업안전보건기준에 관한 규칙 제89조 (운전 시작 전 조치)\n● 산업안전보건기준에 관한 규칙 제92조(정비 등의 작업시의 운전정지 등) 등\n정비 등의 작업 시 안전조치 실시\n- \u0007기계 등의 정비·수리 시에는 가동을 중지\n하고 기동스위치에 잠금장치를 하고“정비 \n중 조작금지”등의 안전표지 부착\n- 정비작업에 대한 사전 회의 실시\n보수정비작업 절차서 제정 및 준수\n- \u0007보수정비작업 시 설비가동 정지, 보수정비 \n완료 후 재가동 등에 대한 안전절차서 제정 \n및 준수\n1\n2\n준수해야 할 관련 법령\n안전작업\nTIP\n\n만화로 보는 중대재해사례_\n조형기 정비작업 중 기계작동으로 협착\n설비의 정비·수리 시에는 작업자 간 협의 후 작업하세요!",
+  "has_text": true,
+  "content_length": 686,
+  "hazards": [
+    "끼임",
+    "화학물질",
+    "협착"
+  ],
+  "work_types": [
+    "기계정비"
+  ],
+  "equipment": [],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014167016&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014167016&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20121010",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

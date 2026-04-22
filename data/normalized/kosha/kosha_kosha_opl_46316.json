@@ -1,0 +1,33 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "46316",
+  "title": "키메세지(6월_장마철 재해예방)",
+  "title_normalized": "키메세지(6월_장마철 재해예방)",
+  "body_text": "텍스트\n1.\n교육\n2.\n교육\n3.\n교육\n텍스트\n텍스트\n텍스트\n스마트폰APP (위기탈출안전보건)\n애플리케이션설치\n안전보건자료실\n장마, 호우, 폭우\n포털사이트에‘안전보건공단’ 검색\n텍스트\n관련콘텐츠\n제2024 -2 호\n< < 호우발생전, 「예보\n예보」단계>>\n- 사업장소재지역의태풍북상시기, 호우특보발효여부수시확인\n- 비상사태대비대책수립, 유관기관연락망구축및유사시대피로확보와교육실시\n<< 호우발생, 「주의보\n주의보∙경보\n경보」단계>>\n- 저지대·상습침수지역내사업장은근로자임시대피실시\n- 가설구조물인근등위험장소접근통제, 젖은손으로전기기계기구등접촉금지\n- 지하층등침수된장소의출입통제(감전, 질식및익사위험)\n•\n2019.07.31.<3명사망> 저류시설공사중기습적폭우로수문이개방되면서유입된우수에수몰\n•\n2021.06.28.<1명사망, 부상1명> 상수도배관작업중폭우로익사\n사고사례\n호우발생단계별재해예방조치사항\n텍스트\n텍스트\nOPS\n책자\n리플릿\n책자\n표지(스티커)\n텍스트\n장마철\n안전수칙(건설)\n장마철안전수칙(제조, 서비스)\n장마철\n안전수칙(건설)\n※ 자료이미지클릭시, 해당콘텐츠다운로드페이지로이동\n태풍호우시사업장안전관리\n장마철미끄러짐, 넘어짐주의",
+  "has_text": true,
+  "content_length": 578,
+  "hazards": [
+    "충돌",
+    "감전",
+    "질식",
+    "협착",
+    "전도"
+  ],
+  "work_types": [
+    "배관",
+    "운반"
+  ],
+  "equipment": [],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00021002010&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00021002010&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20240701",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

@@ -1,0 +1,30 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "47160",
+  "title": "키메세지(1호_화재 및 붕괴)",
+  "title_normalized": "키메세지(1호_화재 및 붕괴)",
+  "body_text": "주요사고개요\n안전작업방법\n콘텐츠링크\n(‘25. 02. 14.) 부산OOOO신축공사현장에서인테리어작업중화재발생<사망6명, 다수인명피해발생>\n(‘25. 02. 25.) 충남천안OOOO고속도로공사현장에서PC빔거더거치작업중교량붕괴발생\n<사망4명, 부상6명> (’25.02.26. 기준)\n2025-교육혁신실-62\n작업전가연물제거및차단\n안전점검및화기작업허가철저\n불티비산방지조치\n화재감시자배치\n배포처안전보건공단교육혁신실|  주소울산광역시중구종가로400 |  홈페이지www.kosha.or.kr\n동절기안전보건\nOPS\n화재·폭발\n동영상\n교량작업\n교안\n교량설치작업\n동영상\n스마트폰APP\n‘위기탈출안전보건’ 설치\n포털사이트\n‘안전보건공단’ 검색\n고용노동부\n'중대재해사이렌'\n화재\n붕괴\n작업계획서작성철저\n- 작업방법및순서준수\n작업지휘자지정\n가설철구조물등의안전성검토",
+  "has_text": false,
+  "content_length": 424,
+  "hazards": [
+    "붕괴",
+    "화재폭발",
+    "화학물질"
+  ],
+  "work_types": [
+    "기계정비"
+  ],
+  "equipment": [],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00021399512&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00021399512&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "건설업",
+  "published_at": "20250227",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

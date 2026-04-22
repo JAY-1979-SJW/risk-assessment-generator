@@ -1,0 +1,126 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KOSHA 안전보건 문서 공통 스키마",
+  "description": "KOSHA / law / expc 수집 문서의 공통 정규화 스키마 (v1.0)",
+  "version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "원천 시스템 식별자",
+      "enum": ["kosha", "law", "expc", "admrul"],
+      "example": "kosha"
+    },
+    "source_type": {
+      "type": "string",
+      "description": "원천 데이터 유형",
+      "enum": ["portal_api", "law_api", "web_scrape", "manual"],
+      "example": "portal_api"
+    },
+    "doc_category": {
+      "type": "string",
+      "description": "문서 분류 코드",
+      "enum": ["kosha_opl", "kosha_edu", "kosha_guide", "law_statute", "law_admrul", "law_expc"],
+      "example": "kosha_opl"
+    },
+    "source_id": {
+      "type": "string",
+      "description": "원천 시스템 고유 ID (medSeq, MST 등)",
+      "example": "33423"
+    },
+    "title": {
+      "type": "string",
+      "description": "원본 제목 (가공 없음)",
+      "example": "[중대재해_건설업]비계 조립 작업 중 실족하여 떨어짐"
+    },
+    "title_normalized": {
+      "type": "string",
+      "description": "정규화된 제목 (접두어 제거, 특수문자 정리)",
+      "example": "비계 조립 작업 중 실족하여 떨어짐"
+    },
+    "body_text": {
+      "type": "string",
+      "description": "정규화된 본문 텍스트 (최대 8000자)"
+    },
+    "has_text": {
+      "type": "boolean",
+      "description": "본문 텍스트 500자 이상 여부"
+    },
+    "content_length": {
+      "type": "integer",
+      "description": "body_text 실제 글자 수",
+      "minimum": 0
+    },
+    "url": {
+      "type": "string",
+      "description": "원본 문서 상세 페이지 URL"
+    },
+    "file_url": {
+      "type": "string",
+      "description": "파일 직접 다운로드 URL"
+    },
+    "pdf_path": {
+      "type": "string",
+      "description": "로컬 저장 PDF 경로 (data/raw/kosha/pdf/{category}/{id}.pdf)"
+    },
+    "file_sha256": {
+      "type": "string",
+      "description": "PDF 원본 SHA-256 해시 (중복 판정 기준)",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "published_at": {
+      "type": "string",
+      "description": "원천 문서 등록/공표 일자 (YYYY-MM-DD)",
+      "format": "date"
+    },
+    "collected_at": {
+      "type": "string",
+      "description": "수집 일자 (YYYY-MM-DD)",
+      "format": "date"
+    },
+    "industry": {
+      "type": "string",
+      "description": "업종 분류",
+      "enum": ["제조업", "건설업", "서비스업", "조선업", "기타산업", "공통", ""]
+    },
+    "work_types": {
+      "type": "array",
+      "description": "매핑된 작업 유형 코드 목록",
+      "items": { "type": "string" },
+      "example": ["비계_조립", "고소작업"]
+    },
+    "hazards": {
+      "type": "array",
+      "description": "매핑된 위험요인 코드 목록",
+      "items": { "type": "string" },
+      "example": ["추락", "협착"]
+    },
+    "equipment": {
+      "type": "array",
+      "description": "매핑된 장비 코드 목록",
+      "items": { "type": "string" },
+      "example": ["이동식비계", "안전대"]
+    },
+    "tags": {
+      "type": "array",
+      "description": "기타 자유 태그",
+      "items": { "type": "string" }
+    },
+    "language": {
+      "type": "string",
+      "description": "문서 언어",
+      "enum": ["ko", "en", "unknown"],
+      "default": "ko"
+    },
+    "status": {
+      "type": "string",
+      "description": "처리 상태",
+      "enum": ["raw", "normalized", "mapped", "excluded"],
+      "default": "raw"
+    }
+  },
+  "required": [
+    "source", "doc_category", "source_id", "title",
+    "has_text", "collected_at", "status"
+  ]
+}

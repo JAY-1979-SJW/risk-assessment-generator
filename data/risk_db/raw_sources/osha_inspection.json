@@ -1,0 +1,104 @@
+{
+  "_meta": {
+    "source_type": "law",
+    "source_name": "산업안전보건법 / 건설기계관리법",
+    "source_ref": "산업안전보건법 제93조 (안전검사), 제98조 (자율검사프로그램), 건설기계관리법 제13조 (정기검사)",
+    "source_org": "고용노동부 / 국토교통부",
+    "collected_at": "2026-04-21"
+  },
+  "entries": [
+    {
+      "entry_id": "INSP-001",
+      "subject_code": "CRANE",
+      "subject_name": "이동식 크레인",
+      "inspections": [
+        {
+          "inspection_type": "작업전점검",
+          "frequency": "매 작업 전",
+          "items": ["와이어로프 손상 여부", "훅 안전장치", "과부하 방지장치", "제동장치"],
+          "legal_basis": "산안규칙 제132조"
+        },
+        {
+          "inspection_type": "월간자체점검",
+          "frequency": "월 1회",
+          "items": ["전체 구조 및 장치 이상 유무", "와이어로프 교체 여부"],
+          "legal_basis": "산안법 제98조"
+        },
+        {
+          "inspection_type": "안전검사",
+          "frequency": "최초 3년 후, 이후 2년마다",
+          "inspector": "안전검사기관 (고용노동부 지정)",
+          "items": ["전체 구조 안전성 검사"],
+          "legal_basis": "산안법 제93조"
+        }
+      ]
+    },
+    {
+      "entry_id": "INSP-002",
+      "subject_code": "AWP",
+      "subject_name": "고소작업대",
+      "inspections": [
+        {
+          "inspection_type": "작업전점검",
+          "frequency": "매 작업 전",
+          "items": ["승강장치", "안전장치(과부하 방지)", "제동장치", "구조물 이상 유무"],
+          "legal_basis": "산안규칙 제44조"
+        },
+        {
+          "inspection_type": "안전검사",
+          "frequency": "최초 3년 후, 이후 2년마다",
+          "inspector": "안전검사기관",
+          "items": ["구조 안전성 검사"],
+          "legal_basis": "산안법 제93조"
+        }
+      ]
+    },
+    {
+      "entry_id": "INSP-003",
+      "subject_code": "FORKLIFT",
+      "subject_name": "지게차",
+      "inspections": [
+        {
+          "inspection_type": "작업전점검",
+          "frequency": "매 작업 전",
+          "items": ["제동장치", "조향장치", "마스트 이상 유무", "경보장치"],
+          "legal_basis": "산안규칙 제171조"
+        },
+        {
+          "inspection_type": "안전검사",
+          "frequency": "최초 3년 후, 이후 2년마다",
+          "inspector": "안전검사기관",
+          "items": ["전체 안전성 검사"],
+          "legal_basis": "산안법 제93조"
+        }
+      ]
+    },
+    {
+      "entry_id": "INSP-004",
+      "subject_code": "PRESSURE_VESSEL",
+      "subject_name": "압력용기",
+      "inspections": [
+        {
+          "inspection_type": "안전검사",
+          "frequency": "2년마다",
+          "inspector": "안전검사기관",
+          "items": ["압력용기 내부 부식, 균열, 두께 측정"],
+          "legal_basis": "산안법 제93조, 산안규칙 제116조"
+        }
+      ]
+    },
+    {
+      "entry_id": "INSP-005",
+      "subject_code": "EXCAVATOR",
+      "subject_name": "굴착기",
+      "inspections": [
+        {
+          "inspection_type": "작업전점검",
+          "frequency": "매 작업 전",
+          "items": ["제동장치", "조향장치", "붐·아암 이상 유무", "안전잠금장치"],
+          "legal_basis": "산안규칙 제168조"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "51938",
+  "title": "[중대재해] 굴삭기가 무게중심을 잃고 굴러 넘어짐",
+  "title_normalized": "굴삭기가 무게중심을 잃고 굴러 넘어짐",
+  "body_text": "",
+  "has_text": false,
+  "content_length": 0,
+  "hazards": [
+    "전도"
+  ],
+  "work_types": [],
+  "equipment": [
+    "굴착기"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2025121813473929282228&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=HTR2025121813473929282228&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "건설업",
+  "published_at": "20251218",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

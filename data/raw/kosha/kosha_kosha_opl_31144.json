@@ -1,0 +1,17 @@
+{
+  "item_id": "31144",
+  "title": "[중대재해사례]원심탈수기 작업 중 누전으로 감전",
+  "category": "kosha_opl",
+  "industry": "제조업",
+  "list_type": "OPS",
+  "atcfl_no": "FL00014167013",
+  "download_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014167013&atcflSeq=1",
+  "reg_date": "20121010",
+  "keyword": "섬유제품제조업, 탈수기, 원심탈수기, 누전, 금속, 감전",
+  "source": "kosha",
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014167013&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014167013&atcflSeq=1",
+  "content": "2011-교육미디어-1234\n제조업\n2012-교육미디어-628\n누전차단기\n물기 투입방지조치\n원심탈수기 작업 중 누전으로 감전\n발생 원인\n● 원심탈수기 모터(Motor) 누전\n- \u0007원심탈수기의 모터에 물기(습기)가 들어가 누전되고 있는 상태에서 접지저항이 낮은 원단정리기 \n프레임에 접촉하는 순간 통전회로가 구성되어 감전\n- \u0007모터 누전 시 차단기능이 없는 배선용차단기 설치·사용\n외국인 근로자가 원심탈수기에서 탈수를 마친 섬유원단을 원단정리기로 보내기 위해 원단정리기가 설치된 \n금속 프레임을 잡는 순간 누전되고 있던 원심탈수기 외통에 접촉, 감전되어 사망\n● 산업안전보건기준에 관한 규칙 제111조 (운전의 정지)\n● 산업안전보건기준에 관한 규칙 제302조 (전기기계·기구의 접지)\n● 산업안전보건기준에 관한 규칙 제303조 (전기기계·기구의 적정설치 등)\n● 산업안전보건기준에 관한 규칙 제304조 (누전차단기에 의한 감전방지) 등\n누전차단기 설치\n- \u0007습윤한 장소에서 사용하는 전기기계·\n기구에 누전차단기 설치 사용\n작업 공정 개선\n- \u0007수세공정 특성을 고려하여 모터에 물기\n투입방지조치(차단막 설치)\n1\n2\n준수해야 할 관련 법령\n안전작업\nTIP\n\n만화로 보는 중대재해사례_\n원심탈수기 작업 중 누전으로 감전\n누전차단기를 설치하고 접지를 꼭 하세요!",
+  "has_text": true,
+  "collected_at": "2026-04-22"
+}

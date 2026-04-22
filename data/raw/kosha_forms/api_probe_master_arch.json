@@ -1,0 +1,1510 @@
+{
+  "url": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+  "xhr_calls": [
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/any/js/manifest.js",
+      "resource_type": "script",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/any/js/vendor.js",
+      "resource_type": "script",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/any/js/app.js",
+      "resource_type": "script",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/token/refresh",
+      "resource_type": "xhr",
+      "post_data": "{\"chnlId\":\"portal24\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/v1/etc/menus",
+      "resource_type": "xhr",
+      "post_data": "{\"ippsId\":\"PM00000002\",\"apiId\":\"ACMB_UCUST_700\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/selectNotice",
+      "resource_type": "xhr",
+      "post_data": "{}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/v1/dsctn/cntn/menu",
+      "resource_type": "xhr",
+      "post_data": "{\"apiId\":\"ACMB_UCUST_910\",\"chnlId\":\"portal24\",\"menuId\":\"M000000862\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/selectCateList",
+      "resource_type": "xhr",
+      "post_data": "{}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/ACMCA02001/codes",
+      "resource_type": "xhr",
+      "post_data": "{\"groupId\":\"CONTS_GNRL_CD\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/ACMCA02001/codes",
+      "resource_type": "xhr",
+      "post_data": "{\"groupId\":\"CONTS_MCHN_FXTR_REL_CD\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/ACMCA02001/codes",
+      "resource_type": "xhr",
+      "post_data": "{\"groupId\":\"CONTS_JOB_REL_CD\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/ACMCA02001/codes",
+      "resource_type": "xhr",
+      "post_data": "{\"groupId\":\"CONTS_CR_HLTH_REL_CD\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/ACMCA02001/codes",
+      "resource_type": "xhr",
+      "post_data": "{\"groupId\":\"CONTS_SPCL_SHP_CD\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/selectMediaFaverList",
+      "resource_type": "xhr",
+      "post_data": "{}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/selectMediaRecomList",
+      "resource_type": "xhr",
+      "post_data": "{}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/selectMediaCateCount0",
+      "resource_type": "xhr",
+      "post_data": "{\"ctgr01\":0,\"arrCtgrStr01\":\"\",\"ctgr02\":0,\"arrCtgrStr02\":\"\",\"ctgr03\":0,\"arrCtgrStr03\":\"\",\"ctgr04\":0,\"arrCtgrStr04\":\"\",\"ctgr05\":0,\"arrCtgrStr05\":\"\",\"selectPeriod\":\"1\",\"startDt\":null,\"endDt\":null,\"searchType\":\"all\",\"searchVal\":null}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/selectMediaCateList0",
+      "resource_type": "xhr",
+      "post_data": "{\"ctgr01\":0,\"arrCtgrStr01\":\"\",\"ctgr02\":0,\"arrCtgrStr02\":\"\",\"ctgr03\":0,\"arrCtgrStr03\":\"\",\"ctgr04\":0,\"arrCtgrStr04\":\"\",\"ctgr05\":0,\"arrCtgrStr05\":\"\",\"selectPeriod\":\"1\",\"startDt\":null,\"endDt\":null,\"searchType\":\"all\",\"searchVal\":null}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/21/9d4ed8f9-22c1-4d0d-8d19-aa9e5154b3ec46024431.PNG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/20/f2e123cd-3734-4224-af12-bfaf16624e6490497877.png",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/13/9c68547e-5dd4-447f-a9fc-45029207bc4757318363.jpg",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/10/ff129a54-95c6-4a14-b2f0-daf425c702c173742120.jpg",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/7/a42ccc48-cc2e-47db-941a-d11517f795fc96299293.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/7/935481c1-e16c-47a8-a7bb-09039fab13e958800219.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/3/fbc93f51-26b8-4467-987f-cdca9304e09399862872.PNG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/2/40093cb3-341d-41ac-8904-74f5723e695c10232137.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/2/a18cdca4-2f81-488c-946a-a4192e6deab872771219.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/2/3bb8221a-c51c-4322-9ccd-0e63efc1aa9395912324.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/20/43e6c502-a9bc-4ca5-a7e9-c357f43dea1b72103108.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/20/df5d3cb7-33a1-4ca2-a4d6-ff382e575f8248535274.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/20/e0b1a85f-9dce-4fab-bebd-e7c39610c8ed32135247.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/20/767e1733-52d6-4c31-b9cd-82ab62140ce478511924.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/3/17/9c6bd7ed-ba00-4094-a652-c68408ba23a834967930.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/3/17/efeda582-4917-4cf5-a4ce-7946280a1c1963451945.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/3/17/cb73a198-9b14-4cb0-aa2e-e55831b08e6914600813.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/3/17/45b948a5-68dc-4b34-b529-523aec4fd00131840939.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/1/16/9401efce-9ad5-4700-b200-7a563c530b8b40090917.jpg",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/1/16/1eba52d3-fa45-4271-a097-088e5ab43ad292954540.jpg",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/14/da5bdc7b-1647-4227-840f-841007987caf91559090.png",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/1/930429a4-7831-42a5-b680-f97ee9d0c71a92667025.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/3/20/c15ef196-ff11-4b16-9761-fdf7ad2530e826178310.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/3/12/60f3fb53-7e59-412e-8464-7cc54e96219c10567198.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/3/4/dd477efe-6fc1-427b-8037-a7b3ed21a90a68884155.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/2/5/a4b283dc-5b33-404d-b3ed-33d6aa772da175835192.jpg",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/2/12/b66ca9d5-a20d-4e41-af50-1ab7cd29ca8f57120296.png",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2025/12/31/ba6d3ae3-6dae-4a25-ae8a-5ffaf9d6c2c385403442.png",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2025/12/29/20b5b5bc-3ef9-4c3e-8103-6a3d5611836a25023362.jpg",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2025/12/29/c7453404-c944-46cf-a5fd-a585082813ce98473756.jpg",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/14/08b92b6e-8003-47ad-97f7-69c9a6dfbd9212964024.png",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/3/5/0a861db4-d37c-48d6-9c97-d972145aa2a589815820.jpg",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/3/24/d3a8b18f-6f84-4406-a34b-e0f72bd47f5728384789.jpg",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/3/24/0f0205a4-9028-46d2-bfb1-87ebdb414ca374070786.jpg",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/1/5/b2153b1f-4d0f-4346-9689-a442c964fcc480924518.jpg",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/1/5/fd60c82e-fce7-48bf-b9dd-cc96baa37cb193982309.jpg",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/1/5/441f27c6-53ce-4518-b380-1334daba9d4d27843243.jpg",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/1/5/d772a418-b9e9-4c6b-958b-2a5443735b6857344222.jpg",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/1/5/b169a7ff-debc-4412-8610-e9d9124ee9fb30503049.jpg",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/1/5/46d7c951-b566-49a4-83b8-55c181e57c1133662220.jpg",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/21/ef0a4c41-c7ce-47b1-a18a-1fd64c2d92c376847083.png",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/21/8b4bf6a5-f82b-4b1e-be35-0d4e94c0096c59573138.png",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/20/dfe6fd5d-71d3-42b1-86d6-1c29046a903d48194878.png",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/7/1c4884fa-76e8-487e-8813-9dcf895367be51732636.png",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/2/bc8a06ff-ebab-4eca-aafb-c210f8f8501339623747.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/2/782364e2-ee57-41b5-867f-a29d5b770c0626303648.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/3/20/b1bccaeb-b8f5-4d2e-8fca-22463a58b28129372214.JPG",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/3/10/03042082-7aed-4aa0-bf09-a67e93c5bdfe46392730.png",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/2/9/6172b074-8de9-4014-ba4f-1c41555bc1c347079069.png",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/2/3/f114a2de-a47d-444a-86f3-35c12a575e0818366528.jpg",
+      "resource_type": "image",
+      "post_data": null,
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026042117112699992350\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026042019210086263189\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026041317510675631772\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026041017402548347468\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026040711025915820520\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026040710524665252525\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026040310352469413257\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026040210504395862350\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026040210500350562098\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026040210491980479045\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026042018344013827611\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026042018333635021000\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026042018323895227424\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026042018303987606586\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026031709403150669898\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026031709340111169840\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026031709360899922850\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026031709392199103168\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2025121814473286180138\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2025121814471546546608\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026041413272118810792\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026040109263299667935\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026030507341511180982\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026031210564621986667\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026030417394427569543\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026020522030223769250\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026021210092347900762\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2025123113584551574349\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2025122908473246713662\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2025122908491117747596\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026030913245831417577\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026021213265934260798\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2025122613160213902815\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2025122613450986052520\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2025123117170677807016\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2025123117180970114878\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2025123117184715288881\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2025123117192197015022\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2025123117202295196174\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2025123117204996223118\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026042116173497788195\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026042116315396500458\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026042018253363016690\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026040716352597128890\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026040210361865209479\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026040215282692106335\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026032009105365138100\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026031011092190640653\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026020915291041610421\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "resource_type": "xhr",
+      "post_data": "{\"fileId\":\"HTR2026020314005642220078\",\"fileUploadType\":\"02\",\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\"}",
+      "headers": {
+        "referer": "https://portal.kosha.or.kr/archive/cent-archive/master-arch",
+        "accept": "application/json, text/plain, */*",
+        "content-type": "application/json"
+      }
+    }
+  ],
+  "api_jsons": [
+    {
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/token/refresh",
+      "status": 401,
+      "body": "{\"statusCode\":401}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/v1/etc/menus",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"요청 성공\",\"payload\":{\"result\":{\"menus\":[{\"meta\":{\"menuId\":\"M000101713\",\"title\":\"누리집 안내지도\",\"rootName\":\"Sitemap\",\"mLevel\":1,\"menuNavi\":\"누리집 안내지도\",\"layout\":\"PagePatternBLayout\",\"prgrmId\":\"PG00010483\",\"scrnOtptYn\":\"Y\",\"lgnMenuYn\":\"N\",\"addCertEsntlYn\":\"N\",\"addCertSeCd\":\"20\",\"prvcPrslRsnEsntlInptYn\":\"N\",\"bkmkUseYn\":\"N\",\"custDgstfnExmnTrgtYn\":\"N\",\"ippsId\":\"PM00000002\",\"prgrmNm\":\"누리집 안내지도\",\"prvcInclYn\":\"N\"},\"type\":\"router\",\"name\":\"Sitemap\",\"label\":\"누리집 안내지도\",\"path\":\"sitemap\",\"fullPath\":\"/sitemap\",\"component\":\"/src/publish/pages/etc/SitemapPage.vue\",\"depth\":2},{\"meta\":{\"menuId\":\"M000000001\",\"title\":\"로그인\",\"rootName\":\"Login\",\"mLevel\":1,\"menuNavi\":\"로그인\",\"layout\":\"PagePatternBLayout\",\"scrnOtptYn\":\"Y\",\"lgnMenuYn\":\"N\",\"addCertEsntlYn\":\"N\",\"addCertSeCd\":\"90\",\"prvcPrslRsnEsntlInptYn\":\"Y\",\"bkmkUseYn\":\"N\",\"custDgstfnExmnTrgtYn\":\"N\",\"ippsId\":\"PM00000002\"},\"type\":\"router\",\"name\":\"Login\",\"label\":\"로그인\",\"path\":\"login\",\"fullPath\":\"/login\",\"redirect\":\"LoginPortal24\",\"depth\":2,\"children\":[{\"meta\":{\"menuId\":\"M000000733\",\"title\":\"안전보건공단 로그인\",\"rootName\":\"Login\",\"mLevel\":2,\"menuNavi\":\"로그인 > 로그인\",\"layout\":\"PagePatternBLayout\",\"prgrmId\":\"PG00011159\",\"scrnOtptYn\":\"Y\",\"lgnMenuYn\":\"N\",\"addCertEsntlYn\":\"N\",\"addCertSeCd\":\"90\",\"prvcPrslRsnEsntlInptYn\":\"N\",\"bkmkUseYn\":\"N\",\"custDgstfnExmnTrgtYn\":\"N\",\"ippsId\":\"PM00000002\",\"prgrmNm\":\"SSO 로그인\",\"prvcInclYn\":\"N\"},\"type\":\"router\",\"name\":\"LoginPortal24\",\"label\":\"로그인\",\"path\":\"login\",\"fullPath\":\"/login/login\",\"component\":\"/src/biz/login/pages/SsoLoginPage.vue\"},{\"meta\":{\"menuId\":\"M000102525\",\"title\":\"안전보건공단 로그인\",\"rootName\":\"Login\",\"mLevel\":2,\"menuNavi\":\"로그인 > 로그인\",\"layout\":\"PagePatternBLayout\",\"prgrmId\":\"PG00011159\",\"scrnOtptYn\":\"Y\",\"lgnMenuYn\":\"N\",\"addCertEsntlYn\":\"N\",\"addCertSeCd\":\"90\",\"prvcPrslRsnEsntlInptYn\":\"N\",\"bkmkUseYn\":\"N\",\"custDgstfnExmnTrgtYn\":\"N\",\"ippsId\":\"PM00000002\",\"prgrmNm\":\"SSO 로그인\",\"prvcInclYn\":\"N\"},\"type\":\"router\",\"name\":\"SsoLoginPortal24\",\"label\":\"로그인\",\"path\":\"ssoLogin\",\"fullPath\":\"/login/ssoLogin\",\"component\":\"/src/biz/login/pages/SsoLoginPage.vue\"},{\"meta\":{\"menuId\":\"M000102542\",\"rootName\":\"Login\",\"mLevel\":2,\"menuNavi\":\"로그인 > 로그인 리다이렉트\",\"layout\":\"PagePatternBLayout\",\"prgrmId\":\"PG00011160\",\"scrnOtptYn\":\"Y\",\"lgnMenuYn\":\"N\",\"addCertEsntlYn\":\"N\",\"addCertSeCd\":\"90\",\"prvcPrslRsnEsntlInptYn\":\"N\",\"bkmkUseYn\":\"N\",\"custDgstfnExmnTrgtYn\":\"N\",\"ippsId\":\"PM00000002\",\"prgrmNm\":\"PRE SSO 로그인\",\"prvcInclYn\":\"N\"},\"type\":\"router\",\"name\":\"SsoRedirectPortal24\",\"label\":\"로그인 리다이렉트\",\"path\":\"ssoRedirect\",\"fullPath\":\"/login/ssoRedirect\",\"component\":\"/src/biz/login/pages/SsoLoginRedirect.vue\"},{\"meta\":{\"menuId\":\"M000103276\",\"rootName\":\"Login\",\"mLevel\":2,\"menuNavi\":\"로그인 > 앱 링크\",\"prgrmId\":\"PG00011635\",\"scrnOtptYn\":\"Y\",\"lgnMenuYn\":\"N\",\"addCertEsntlYn\":\"N\",\"addCertSeCd\":\"90\",\"prvcPrslRsnEsntlInptYn\":\"N\",\"bkmkUseYn\":\"N\",\"custDgstfnExmnTrgtYn\":\"N\",\"ippsId\":\"PM00000002\",\"prgrmNm\":\"로그인링크\",\"prvcInclYn\":\"N\"},\"type\":\"router\",\"name\":\"link\",\"label\":\"앱 링크\",\"path\":\"link\",\"fullPath\":\"/login/link\",\"component\":\"/src/biz/login/pages/LoginLink.vue\"}]},{\"meta\":{\"menuId\":\"M000000009\",\"title\":\"회원가입\",\"rootName\":\"Join\",\"mLevel\":1,\"menuNavi\":\"회원가입\",\"scrnOtptYn\":\"Y\",\"lgnMenuYn\":\"N\",\"addCertEsntlYn\":\"N\",\"addCertSeCd\":\"90\",\"prvcPrslRsnEsntlInptYn\":\"Y\",\"bkmkUseYn\":\"N\",\"custDgstfnExmnTrgtYn\":\"N\",\"ippsId\":\"PM00000002\"},\"type\":\"router\",\"name\":\"Join\",\"label\":\"회원가입\",\"path\":\"join\",\"fullPath\":\"/join\",\"redirect\":\"JoinStep\",\"depth\":2,\"children\":[{\"meta\":{\"menuId\":\"M000000010\",\"title\":\"회원가입\",\"rootName\":\"Join\",\"mLevel\":2,\"menuNavi\":\"회원가입 > 회원가입\",\"layout\":"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/selectNotice",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"success\",\"payload\":{\"list\":[{\"cnt\":0}],\"totalCount\":0}}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/compn24/auth/v1/dsctn/cntn/menu",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"요청 성공\",\"payload\":{\"result\":{\"rstCnt\":1},\"resultCd\":\"000\",\"resultMsg\":\"정상적으로 처리 되었습니다.\"}}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/selectCateList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"success\",\"payload\":{\"list\":[{\"cd\":\"CONTS_GNRL_CD\",\"nm\":\"콘텐츠일반코드\",\"kor\":\"일반분야\",\"eng\":\"General\"},{\"cd\":\"CONTS_MCHN_FXTR_REL_CD\",\"nm\":\"콘텐츠기계설비관계코드\",\"kor\":\"기계설비\",\"eng\":\"Machinery Equipment\"},{\"cd\":\"CONTS_JOB_REL_CD\",\"nm\":\"콘텐츠작업관계코드\",\"kor\":\"작업\",\"eng\":\"Work\"},{\"cd\":\"CONTS_CR_HLTH_REL_CD\",\"nm\":\"콘텐츠직업건강관계코드\",\"kor\":\"직업건강\",\"eng\":\"Occupational Health\"},{\"cd\":\"CONTS_SPCL_SHP_CD\",\"nm\":\"콘텐츠특수형태코드\",\"kor\":\"특수형태\",\"eng\":\"Special Work Relations\"},{\"cd\":\"CONTS_MAIN_STTY_OBLG_MTTR_CD\",\"nm\":\"콘텐츠주요법정의무사항코드\",\"kor\":\"주요법정의무\",\"eng\":\"Mandatory Obligation\"},{\"cd\":\"CONTS_ACDNT_KND_CD\",\"nm\":\"콘텐츠사고종류코드\",\"kor\":\"사고종류\",\"eng\":\"Accident Types\"}],\"totalCount\":0}}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/ACMCA02001/codes",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"code\":\"01\",\"name\":\"전도\",\"id\":\"01\",\"label\":\"전도\",\"comGroupCd\":\"CONTS_GNRL_CD\",\"comGroupCdNm\":\"콘텐츠일반코드\",\"comCd\":\"01\",\"comCdNm\":\"전도\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":1},{\"code\":\"02\",\"name\":\"조도\",\"id\":\"02\",\"label\":\"조도\",\"comGroupCd\":\"CONTS_GNRL_CD\",\"comGroupCdNm\":\"콘텐츠일반코드\",\"comCd\":\"02\",\"comCdNm\":\"조도\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":2},{\"code\":\"03\",\"name\":\"안전난간\",\"id\":\"03\",\"label\":\"안전난간\",\"comGroupCd\":\"CONTS_GNRL_CD\",\"comGroupCdNm\":\"콘텐츠일반코드\",\"comCd\":\"03\",\"comCdNm\":\"안전난간\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":3},{\"code\":\"04\",\"name\":\"비상구\",\"id\":\"04\",\"label\":\"비상구\",\"comGroupCd\":\"CONTS_GNRL_CD\",\"comGroupCdNm\":\"콘텐츠일반코드\",\"comCd\":\"04\",\"comCdNm\":\"비상구\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":4},{\"code\":\"05\",\"name\":\"통로\",\"id\":\"05\",\"label\":\"통로\",\"comGroupCd\":\"CONTS_GNRL_CD\",\"comGroupCdNm\":\"콘텐츠일반코드\",\"comCd\":\"05\",\"comCdNm\":\"통로\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":5},{\"code\":\"06\",\"name\":\"계단\",\"id\":\"06\",\"label\":\"계단\",\"comGroupCd\":\"CONTS_GNRL_CD\",\"comGroupCdNm\":\"콘텐츠일반코드\",\"comCd\":\"06\",\"comCdNm\":\"계단\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":6},{\"code\":\"07\",\"name\":\"사다리\",\"id\":\"07\",\"label\":\"사다리\",\"comGroupCd\":\"CONTS_GNRL_CD\",\"comGroupCdNm\":\"콘텐츠일반코드\",\"comCd\":\"07\",\"comCdNm\":\"사다리\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":7},{\"code\":\"08\",\"name\":\"보호구\",\"id\":\"08\",\"label\":\"보호구\",\"comGroupCd\":\"CONTS_GNRL_CD\",\"comGroupCdNm\":\"콘텐츠일반코드\",\"comCd\":\"08\",\"comCdNm\":\"보호구\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":8},{\"code\":\"09\",\"name\":\"추락\",\"id\":\"09\",\"label\":\"추락\",\"comGroupCd\":\"CONTS_GNRL_CD\",\"comGroupCdNm\":\"콘텐츠일반코드\",\"comCd\":\"09\",\"comCdNm\":\"추락\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":9},{\"code\":\"10\",\"name\":\"위험\",\"id\":\"10\",\"label\":\"위험\",\"comGroupCd\":\"CONTS_GNRL_CD\",\"comGroupCdNm\":\"콘텐츠일반코드\",\"comCd\":\"10\",\"comCdNm\":\"위험\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":10},{\"code\":\"11\",\"name\":\"붕괴\",\"id\":\"11\",\"label\":\"붕괴\",\"c"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/ACMCA02001/codes",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"code\":\"01\",\"name\":\"공작기계\",\"id\":\"01\",\"label\":\"공작기계\",\"comGroupCd\":\"CONTS_MCHN_FXTR_REL_CD\",\"comGroupCdNm\":\"콘텐츠기계설비관계코드\",\"comCd\":\"01\",\"comCdNm\":\"공작기계\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":17},{\"code\":\"02\",\"name\":\"프레스\",\"id\":\"02\",\"label\":\"프레스\",\"comGroupCd\":\"CONTS_MCHN_FXTR_REL_CD\",\"comGroupCdNm\":\"콘텐츠기계설비관계코드\",\"comCd\":\"02\",\"comCdNm\":\"프레스\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":18},{\"code\":\"03\",\"name\":\"전단기\",\"id\":\"03\",\"label\":\"전단기\",\"comGroupCd\":\"CONTS_MCHN_FXTR_REL_CD\",\"comGroupCdNm\":\"콘텐츠기계설비관계코드\",\"comCd\":\"03\",\"comCdNm\":\"전단기\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":19},{\"code\":\"04\",\"name\":\"목재가공용기계\",\"id\":\"04\",\"label\":\"목재가공용기계\",\"comGroupCd\":\"CONTS_MCHN_FXTR_REL_CD\",\"comGroupCdNm\":\"콘텐츠기계설비관계코드\",\"comCd\":\"04\",\"comCdNm\":\"목재가공용기계\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":20},{\"code\":\"05\",\"name\":\"원심기\",\"id\":\"05\",\"label\":\"원심기\",\"comGroupCd\":\"CONTS_MCHN_FXTR_REL_CD\",\"comGroupCdNm\":\"콘텐츠기계설비관계코드\",\"comCd\":\"05\",\"comCdNm\":\"원심기\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":21},{\"code\":\"06\",\"name\":\"분쇄기\",\"id\":\"06\",\"label\":\"분쇄기\",\"comGroupCd\":\"CONTS_MCHN_FXTR_REL_CD\",\"comGroupCdNm\":\"콘텐츠기계설비관계코드\",\"comCd\":\"06\",\"comCdNm\":\"분쇄기\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":22},{\"code\":\"07\",\"name\":\"고속회전체\",\"id\":\"07\",\"label\":\"고속회전체\",\"comGroupCd\":\"CONTS_MCHN_FXTR_REL_CD\",\"comGroupCdNm\":\"콘텐츠기계설비관계코드\",\"comCd\":\"07\",\"comCdNm\":\"고속회전체\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":23},{\"code\":\"08\",\"name\":\"보일러\",\"id\":\"08\",\"label\":\"보일러\",\"comGroupCd\":\"CONTS_MCHN_FXTR_REL_CD\",\"comGroupCdNm\":\"콘텐츠기계설비관계코드\",\"comCd\":\"08\",\"comCdNm\":\"보일러\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":24},{\"code\":\"09\",\"name\":\"사출성형기\",\"id\":\"09\",\"label\":\"사출성형기\",\"comGroupCd\":\"CONTS_MCHN_FXTR_REL_CD\",\"comGroupCdNm\":\"콘텐츠기계설비관계코드\",\"comCd\":\"09\",\"comCdNm\":\"사출성형기\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":25},{\"code\":\"10\",\"name\":\"크레인\",\"id\":\"10\",\"label\":\"크레인\",\"comGroupCd\":\"CONTS_MCHN_FXTR_REL_CD\",\"comGroupCdNm\":\"콘텐츠기계설비관계코드\",\"comCd\":\"10\",\"comCdNm\":\"크레인\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColN"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/ACMCA02001/codes",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"code\":\"01\",\"name\":\"거푸집\",\"id\":\"01\",\"label\":\"거푸집\",\"comGroupCd\":\"CONTS_JOB_REL_CD\",\"comGroupCdNm\":\"콘텐츠작업관계코드\",\"comCd\":\"01\",\"comCdNm\":\"거푸집\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":53},{\"code\":\"02\",\"name\":\"동바리\",\"id\":\"02\",\"label\":\"동바리\",\"comGroupCd\":\"CONTS_JOB_REL_CD\",\"comGroupCdNm\":\"콘텐츠작업관계코드\",\"comCd\":\"02\",\"comCdNm\":\"동바리\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":54},{\"code\":\"03\",\"name\":\"콘크리트타설\",\"id\":\"03\",\"label\":\"콘크리트타설\",\"comGroupCd\":\"CONTS_JOB_REL_CD\",\"comGroupCdNm\":\"콘텐츠작업관계코드\",\"comCd\":\"03\",\"comCdNm\":\"콘크리트타설\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":55},{\"code\":\"04\",\"name\":\"굴착작업\",\"id\":\"04\",\"label\":\"굴착작업\",\"comGroupCd\":\"CONTS_JOB_REL_CD\",\"comGroupCdNm\":\"콘텐츠작업관계코드\",\"comCd\":\"04\",\"comCdNm\":\"굴착작업\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":56},{\"code\":\"05\",\"name\":\"흙막이지보공\",\"id\":\"05\",\"label\":\"흙막이지보공\",\"comGroupCd\":\"CONTS_JOB_REL_CD\",\"comGroupCdNm\":\"콘텐츠작업관계코드\",\"comCd\":\"05\",\"comCdNm\":\"흙막이지보공\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":57},{\"code\":\"06\",\"name\":\"발파작업\",\"id\":\"06\",\"label\":\"발파작업\",\"comGroupCd\":\"CONTS_JOB_REL_CD\",\"comGroupCdNm\":\"콘텐츠작업관계코드\",\"comCd\":\"06\",\"comCdNm\":\"발파작업\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":58},{\"code\":\"07\",\"name\":\"터널작업\",\"id\":\"07\",\"label\":\"터널작업\",\"comGroupCd\":\"CONTS_JOB_REL_CD\",\"comGroupCdNm\":\"콘텐츠작업관계코드\",\"comCd\":\"07\",\"comCdNm\":\"터널작업\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":59},{\"code\":\"08\",\"name\":\"낙반\",\"id\":\"08\",\"label\":\"낙반\",\"comGroupCd\":\"CONTS_JOB_REL_CD\",\"comGroupCdNm\":\"콘텐츠작업관계코드\",\"comCd\":\"08\",\"comCdNm\":\"낙반\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":60},{\"code\":\"09\",\"name\":\"터널지보공\",\"id\":\"09\",\"label\":\"터널지보공\",\"comGroupCd\":\"CONTS_JOB_REL_CD\",\"comGroupCdNm\":\"콘텐츠작업관계코드\",\"comCd\":\"09\",\"comCdNm\":\"터널지보공\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":61},{\"code\":\"10\",\"name\":\"터널거푸집\",\"id\":\"10\",\"label\":\"터널거푸집\",\"comGroupCd\":\"CONTS_JOB_REL_CD\",\"comGroupCdNm\":\"콘텐츠작업관계코드\",\"comCd\":\"10\",\"comCdNm\":\"터널거푸집\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddCol"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/ACMCA02001/codes",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"code\":\"01\",\"name\":\"국소배기장치\",\"id\":\"01\",\"label\":\"국소배기장치\",\"comGroupCd\":\"CONTS_CR_HLTH_REL_CD\",\"comGroupCdNm\":\"콘텐츠직업건강관계코드\",\"comCd\":\"01\",\"comCdNm\":\"국소배기장치\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":77},{\"code\":\"02\",\"name\":\"전체환기장치\",\"id\":\"02\",\"label\":\"전체환기장치\",\"comGroupCd\":\"CONTS_CR_HLTH_REL_CD\",\"comGroupCdNm\":\"콘텐츠직업건강관계코드\",\"comCd\":\"02\",\"comCdNm\":\"전체환기장치\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":78},{\"code\":\"03\",\"name\":\"특별관리물질\",\"id\":\"03\",\"label\":\"특별관리물질\",\"comGroupCd\":\"CONTS_CR_HLTH_REL_CD\",\"comGroupCdNm\":\"콘텐츠직업건강관계코드\",\"comCd\":\"03\",\"comCdNm\":\"특별관리물질\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":79},{\"code\":\"04\",\"name\":\"화학물질관리\",\"id\":\"04\",\"label\":\"화학물질관리\",\"comGroupCd\":\"CONTS_CR_HLTH_REL_CD\",\"comGroupCdNm\":\"콘텐츠직업건강관계코드\",\"comCd\":\"04\",\"comCdNm\":\"화학물질관리\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":80},{\"code\":\"05\",\"name\":\"개인보호구\",\"id\":\"05\",\"label\":\"개인보호구\",\"comGroupCd\":\"CONTS_CR_HLTH_REL_CD\",\"comGroupCdNm\":\"콘텐츠직업건강관계코드\",\"comCd\":\"05\",\"comCdNm\":\"개인보호구\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":81},{\"code\":\"06\",\"name\":\"허가대상물질\",\"id\":\"06\",\"label\":\"허가대상물질\",\"comGroupCd\":\"CONTS_CR_HLTH_REL_CD\",\"comGroupCdNm\":\"콘텐츠직업건강관계코드\",\"comCd\":\"06\",\"comCdNm\":\"허가대상물질\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":82},{\"code\":\"07\",\"name\":\"베릴륨\",\"id\":\"07\",\"label\":\"베릴륨\",\"comGroupCd\":\"CONTS_CR_HLTH_REL_CD\",\"comGroupCdNm\":\"콘텐츠직업건강관계코드\",\"comCd\":\"07\",\"comCdNm\":\"베릴륨\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":83},{\"code\":\"08\",\"name\":\"석면\",\"id\":\"08\",\"label\":\"석면\",\"comGroupCd\":\"CONTS_CR_HLTH_REL_CD\",\"comGroupCdNm\":\"콘텐츠직업건강관계코드\",\"comCd\":\"08\",\"comCdNm\":\"석면\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":84},{\"code\":\"09\",\"name\":\"금지유해물질\",\"id\":\"09\",\"label\":\"금지유해물질\",\"comGroupCd\":\"CONTS_CR_HLTH_REL_CD\",\"comGroupCdNm\":\"콘텐츠직업건강관계코드\",\"comCd\":\"09\",\"comCdNm\":\"금지유해물질\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":85},{\"code\":\"10\",\"name\":\"소음\",\"id\":\"10\",\"label\":\"소음\",\"comGroupCd\":\"CONTS_CR_HLTH_REL_CD\",\"comGroupCdNm\":\"콘텐츠직업건강관계코드\",\"comCd\":\"10\",\"comCdNm\":\"소음\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/ACMCA02001/codes",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"code\":\"01\",\"name\":\"특수형태근로종사자\",\"id\":\"01\",\"label\":\"특수형태근로종사자\",\"comGroupCd\":\"CONTS_SPCL_SHP_CD\",\"comGroupCdNm\":\"콘텐츠특수형태코드\",\"comCd\":\"01\",\"comCdNm\":\"특수형태근로종사자\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":105},{\"code\":\"02\",\"name\":\"배달종사자\",\"id\":\"02\",\"label\":\"배달종사자\",\"comGroupCd\":\"CONTS_SPCL_SHP_CD\",\"comGroupCdNm\":\"콘텐츠특수형태코드\",\"comCd\":\"02\",\"comCdNm\":\"배달종사자\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":106},{\"code\":\"00\",\"name\":\"해당없음\",\"id\":\"00\",\"label\":\"해당없음\",\"comGroupCd\":\"CONTS_SPCL_SHP_CD\",\"comGroupCdNm\":\"콘텐츠특수형태코드\",\"comCd\":\"00\",\"comCdNm\":\"해당없음\",\"upComCd\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"sortSeq\":107}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/selectMediaCateCount0",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"success\",\"payload\":{\"list\":[{\"comCd\":\"12\",\"contsFbctnShpCdNm\":\"OPS\",\"cnt\":3625},{\"comCd\":\"02\",\"contsFbctnShpCdNm\":\"동영상\",\"cnt\":803},{\"comCd\":\"01\",\"contsFbctnShpCdNm\":\"책자\",\"cnt\":1133},{\"comCd\":\"07\",\"contsFbctnShpCdNm\":\"교안(PPT)\",\"cnt\":486},{\"comCd\":\"10\",\"contsFbctnShpCdNm\":\"기타\",\"cnt\":2923}],\"totalCount\":0}}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/selectMediaCateList0",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"success\",\"payload\":{\"list1\":[{\"contsAplyNo\":52416,\"medSeq\":52416,\"contsPblsNo\":\"2026-중소기업지원실-316\",\"contsFbctnShpCd\":\"12\",\"contsTtlNm\":\"부정수급 위험 사이렌 [2026-05호]\",\"medName\":\"부정수급 위험 사이렌 [2026-05호]\",\"srchKywdCn\":\"공작기계,프레스,전단기,목재가공용기계,원심기,분쇄기,고속회전체,보일러,사출성형기,크레인,이동식크레인,리프트,곤돌라,승강기,와이어로프,지게차,구내운반차,고소작업대,화물자동차,컨베이어,항타기,항발기,굴착기,산업용로봇,화기설비,용융고열물,화학설비,압력용기,건조설비,아세틸렌용접장치,가스집합용접장치,용접장치,전기로,이동전선,접지,안전인증,자율안전확인신고,재정지원,안전동행,목재가공,부정수급,보조금\",\"contsTpbizCd\":\"01\",\"contsFldCd\":\"01\",\"corprInstDataYn\":\"N\",\"contsCnSeCd\":\"09\",\"contsRegYmd\":\"20260421\",\"totHitSum\":98,\"contsAtcflNo\":\"HTR2026042117112699992350\",\"contsAtcflYn\":\"Y\",\"medThumbnailPath\":\"/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/21/9d4ed8f9-22c1-4d0d-8d19-aa9e5154b3ec46024431.PNG\",\"thumbPath\":\"/erp24/file/H/HTR/HTRD/2026/4/21/9d4ed8f9-22c1-4d0d-8d19-aa9e5154b3ec46024431.PNG\",\"actlInvtQty\":0,\"medGdsNo\":null},{\"contsAplyNo\":52400,\"medSeq\":52400,\"contsPblsNo\":\"2026-산업안전실-285\",\"contsFbctnShpCd\":\"12\",\"contsTtlNm\":\"안전모 착용을 유도하기 위한 화물차 운전원 맞춤형 안전모\",\"medName\":\"안전모 착용을 유도하기 위한 화물차 운전원 맞춤형 안전모\",\"srchKywdCn\":\"보호구,추락,화물자동차,화물취급작업,특수형태근로종사자,배달종사자,중대재해\",\"contsTpbizCd\":\"04\",\"contsFldCd\":\"01\",\"corprInstDataYn\":\"N\",\"contsCnSeCd\":\"09\",\"contsRegYmd\":\"20260421\",\"totHitSum\":194,\"contsAtcflNo\":\"HTR2026042019210086263189\",\"contsAtcflYn\":\"Y\",\"medThumbnailPath\":\"/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/20/f2e123cd-3734-4224-af12-bfaf16624e6490497877.png\",\"thumbPath\":\"/erp24/file/H/HTR/HTRD/2026/4/20/f2e123cd-3734-4224-af12-bfaf16624e6490497877.png\",\"actlInvtQty\":0,\"medGdsNo\":null},{\"contsAplyNo\":52387,\"medSeq\":52387,\"contsPblsNo\":\"2026-교육총괄실-276\",\"contsFbctnShpCd\":\"12\",\"contsTtlNm\":\"키메시지(6호_화재·폭발)\",\"medName\":\"키메시지(6호_화재·폭발)\",\"srchKywdCn\":\"화재,폭발,위험물취급,인화성물질,가연성물질,키메세지\",\"contsTpbizCd\":\"02\",\"contsFldCd\":\"01\",\"corprInstDataYn\":\"N\",\"contsCnSeCd\":\"03\",\"contsRegYmd\":\"20260413\",\"totHitSum\":1195,\"contsAtcflNo\":\"HTR2026041317510675631772\",\"contsAtcflYn\":\"Y\",\"medThumbnailPath\":\"/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/13/9c68547e-5dd4-447f-a9fc-45029207bc4757318363.jpg\",\"thumbPath\":\"/erp24/file/H/HTR/HTRD/2026/4/13/9c68547e-5dd4-447f-a9fc-45029207bc4757318363.jpg\",\"actlInvtQty\":0,\"medGdsNo\":null},{\"contsAplyNo\":52357,\"medSeq\":52357,\"contsPblsNo\":\"2026-건설안전실-275\",\"contsFbctnShpCd\":\"12\",\"contsTtlNm\":\"풍력발전기 해체공사 사고예방을 위한 10대 안전수칙\",\"medName\":\"풍력발전기 해체공사 사고예방을 위한 10대 안전수칙\",\"srchKywdCn\":\"붕괴,붕괴위험,해체작업,중대재해,풍력발전기,해체공사,10대 안전수칙,풍력발전기 해체공사,풍력\",\"contsTpbizCd\":\"03\",\"contsFldCd\":\"01\",\"corprInstDataYn\":\"N\",\"contsCnSeCd\":\"01\",\"contsRegYmd\":\"20260410\",\"totHitSum\":746,\"contsAtcflNo\":\"HTR2026041017402548347468\",\"contsAtcflYn\":\"Y\",\"medThumbnailPath\":\"/api/portal24/bizV/p/VCPDG01007/viewThumbnailMain?atcflPathName=/svc/erp24/file/H/HTR/HTRD/2026/4/10/ff129a54-95c6-4a14-b2f0-daf425c702c173742120.jpg\",\"thumbPath\":\"/erp24/file/H/HTR/HTRD/2026/4/10/ff129a54-95c6-4a14-b2f0-daf425c702c173742120.jpg\",\"actlInvtQty\":0,\"medGdsNo\":null},{\"contsAplyNo\":52379,\"medSeq\":52379,\"contsPblsNo\":\"2026-산업안전실-261\",\"contsFbctnShpCd\":\"12\",\"contsTtlNm\":\"사업장 위험성평가 KRAS로 쉽고 간편하게 하세요\",\"medName\":\"사업장 위험성평가 KRAS로 쉽고 간편하게 하세요\",\"srchKywdCn\":\"위험성평가\",\"contsTpbizCd\":\"01\",\"contsFldCd\":\"03\",\"corprInstDataYn\":\"N\",\"contsCnSeCd\":\"01\",\"contsRegYmd\":\"20260407\",\"totHitSum\":1976,\"contsAtcflNo\":\"HTR2026040711025915820520\",\"contsAtcflYn\":\"Y\",\"medThumbnailPath\":\"/api/portal24/bizV/p/VCPDG01007/viewThumbnailMa"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/selectMediaRecomList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"success\",\"payload\":{\"list\":[{\"medSeq\":52427,\"medName\":\"산재예방요율제 안내\",\"thumbPath\":\"/erp24/file/H/HTR/HTRD/2026/4/21/ef0a4c41-c7ce-47b1-a18a-1fd64c2d92c376847083.png\",\"actlInvtQty\":0,\"medGdsNo\":null,\"medThumbnailPath\":\"data:image/jpeg;base64,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"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026042019210086263189\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-산업안전실-285]화물차 운전원 맞춤형 안전모(OPS)_웹용.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/20\",\"atcflSrvrFileNm\":\"74e7ebbe-b1f5-48cd-874d-cd1fe3aa879778903502.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":454480,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-20\",\"lastMdfcnDt\":\"2026-04-20\"},{\"atcflNo\":\"HTR2026042019210086263189\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":2,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-산업안전실-285]화물차 운전원 맞춤형 안전모(OPS)_인쇄용.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/20\",\"atcflSrvrFileNm\":\"c1a348a1-9ed2-40e9-a2ef-902ee042f8ce87929476.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":11720089,\"sortSeq\":2,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-20\",\"lastMdfcnDt\":\"2026-04-20\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026042117112699992350\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":2,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-중소기업지원실-316]붙임_부정수급 위험 사이렌(제2026-05호).pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/22\",\"atcflSrvrFileNm\":\"2922dcca-9dc7-4801-97ef-69068ce6c08d99522132.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":130645,\"sortSeq\":2,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-22\",\"lastMdfcnDt\":\"2026-04-22\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026041317510675631772\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-교육총괄실-276]키메시지(6호_화재·폭발).pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/13\",\"atcflSrvrFileNm\":\"4a7823b6-b7c8-4eb4-9067-cb5646c5476883695710.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":342906,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-13\",\"lastMdfcnDt\":\"2026-04-13\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026040711025915820520\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-산업안전실-261]★(2026-산업안전실-261)위험성평가 KRAS로 쉽고 간편하게 하세요 OPS.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/7\",\"atcflSrvrFileNm\":\"4032f8b3-7cd6-4e50-8f3a-9c80cc06823f91556983.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":2552806,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-07\",\"lastMdfcnDt\":\"2026-04-07\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026041017402548347468\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-건설안전실-275]260409_풍력발전기 해체 공사 재해 예방을 위한 10대 안전 수칙.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/10\",\"atcflSrvrFileNm\":\"c3c4be28-c977-4fa7-ac13-bba5e2ee0efe80769299.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":42028565,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-10\",\"lastMdfcnDt\":\"2026-04-10\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026040310352469413257\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-중소기업지원실-263]붙임_부정수급 위험 사이렌(제2026-04호)_최종.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/3\",\"atcflSrvrFileNm\":\"4293dee5-fa88-40e7-97ad-1afc9dcd0e4c12481078.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":210899,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-03\",\"lastMdfcnDt\":\"2026-04-03\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026040710524665252525\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-산업안전실-262]★(2026-산업안전실-262)위험성평가 인정, 안전도 챙기고 혜택도 챙기세요 OPS.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/7\",\"atcflSrvrFileNm\":\"94954571-12a2-48ff-bdb0-4fdff3079ac455619220.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":2256657,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-07\",\"lastMdfcnDt\":\"2026-04-07\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026040210500350562098\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-산업안전실-206]34. 피트, 맨홀, 오폐수 처리시설 등 밀폐된  장소에서 작업.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/2\",\"atcflSrvrFileNm\":\"fca8197e-1ecc-4460-ad9e-b4cc033aef8599144239.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":8471939,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-02\",\"lastMdfcnDt\":\"2026-04-02\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026040210491980479045\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-산업안전실-207]33.  폐기물 수거·선별 작업.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/2\",\"atcflSrvrFileNm\":\"f1c2f3ab-99a0-4a60-b62b-8b24bdea7c5853944803.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":13402013,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-02\",\"lastMdfcnDt\":\"2026-04-02\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026040210504395862350\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-산업안전실-205]35. 혼재작업(작업자-작업차량).pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/2\",\"atcflSrvrFileNm\":\"1132ec39-5db1-4d6a-8153-6679b93baf3c87677567.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":22637837,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-02\",\"lastMdfcnDt\":\"2026-04-02\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026042018333635021000\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-교육총괄실-296]3단계_(대피해).mp4\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/20\",\"atcflSrvrFileNm\":\"04bb6479-c8c9-4abc-b153-d52086a1e92a96399749.mp4\",\"atcflExtnNm\":\"mp4\",\"mimeType\":\"video/mp4\",\"atcflSz\":28416267,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-20\",\"lastMdfcnDt\":\"2026-04-20\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026042018323895227424\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-교육총괄실-295]2단계_(비상벨눌러).mp4\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/20\",\"atcflSrvrFileNm\":\"6257b0ea-8675-4582-8852-d8e3f773df5f59770834.mp4\",\"atcflExtnNm\":\"mp4\",\"mimeType\":\"video/mp4\",\"atcflSz\":22322168,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-20\",\"lastMdfcnDt\":\"2026-04-20\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026031709403150669898\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-교육총괄실-185]4 오폐수 작업장.mp4\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/3/17\",\"atcflSrvrFileNm\":\"bd2894ed-c5eb-43b1-90ac-1d38607f21b965881865.mp4\",\"atcflExtnNm\":\"mp4\",\"mimeType\":\"video/mp4\",\"atcflSz\":158751142,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-03-17\",\"lastMdfcnDt\":\"2026-03-17\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026042018344013827611\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-교육총괄실-297]4단계_(119신고해).mp4\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/20\",\"atcflSrvrFileNm\":\"a04474ba-c94f-4cc5-91e3-06545f0cb63098033799.mp4\",\"atcflExtnNm\":\"mp4\",\"mimeType\":\"video/mp4\",\"atcflSz\":29240687,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-20\",\"lastMdfcnDt\":\"2026-04-20\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026042018303987606586\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-교육총괄실-294]1단계_(불이야).mp4\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/20\",\"atcflSrvrFileNm\":\"1ccdc4df-f82d-4d22-ae64-ae1892a56ae332451351.mp4\",\"atcflExtnNm\":\"mp4\",\"mimeType\":\"video/mp4\",\"atcflSz\":28276713,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-20\",\"lastMdfcnDt\":\"2026-04-20\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026031709340111169840\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-교육총괄실-183]2 안전모 착용.mp4\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/3/17\",\"atcflSrvrFileNm\":\"b4193b5a-90f0-4c53-b213-6d37bcaf7eb426734240.mp4\",\"atcflExtnNm\":\"mp4\",\"mimeType\":\"video/mp4\",\"atcflSz\":142953231,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-03-17\",\"lastMdfcnDt\":\"2026-03-17\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026031709360899922850\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-교육총괄실-182]1 지게차 안전벨트.mp4\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/3/17\",\"atcflSrvrFileNm\":\"e907e651-8d0b-4588-8033-8bf1242b46b130630057.mp4\",\"atcflExtnNm\":\"mp4\",\"mimeType\":\"video/mp4\",\"atcflSz\":97795001,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-03-17\",\"lastMdfcnDt\":\"2026-03-17\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026031709392199103168\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-교육총괄실-184]3 끼임사고 방지.mp4\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/3/17\",\"atcflSrvrFileNm\":\"78bcb8da-c7df-4a87-a3da-99e484285c0e13627914.mp4\",\"atcflExtnNm\":\"mp4\",\"mimeType\":\"video/mp4\",\"atcflSz\":184577995,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-03-17\",\"lastMdfcnDt\":\"2026-03-17\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026041413272118810792\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-안전문화홍보실-292]중소규모사업장 안전문화 향상을 위한 가이드북(KSCI 활용)_배포용.zip\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/14\",\"atcflSrvrFileNm\":\"b1a48df3-0969-4f28-8686-e1c0ae8d6c7c10648259.zip\",\"atcflExtnNm\":\"zip\",\"mimeType\":\"application/zip\",\"atcflSz\":72914580,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-14\",\"lastMdfcnDt\":\"2026-04-14\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2025121814473286180138\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":3,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2025-교육혁신실-2090]35. Worker loses consciousness in manure spreader tank – 사고 조사_분뇨 살포기 탱크 내 작업자 질식 사고.mp4\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/1/28\",\"atcflSrvrFileNm\":\"40942331-7131-4033-ab4a-309dda6aa4aa34137005.mp4\",\"atcflExtnNm\":\"mp4\",\"mimeType\":\"video/mp4\",\"atcflSz\":763220971,\"sortSeq\":3,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-01-28\",\"lastMdfcnDt\":\"2026-01-28\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2025121814471546546608\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":4,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2025-교육혁신실-2089]34. Kitchen Safety_Preventing Lifting Injuries – 주방 안전 수칙_중량물 취급 부상 예방.mp4\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/1/28\",\"atcflSrvrFileNm\":\"e94edb77-5418-4dc2-ad87-ca47925e68e896075513.mp4\",\"atcflExtnNm\":\"mp4\",\"mimeType\":\"video/mp4\",\"atcflSz\":392868651,\"sortSeq\":4,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-01-28\",\"lastMdfcnDt\":\"2026-01-28\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026030507341511180982\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":2,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-산업안전실-27]2026 안전보건개선계획 수립시행 기술지원 안내.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/3/20\",\"atcflSrvrFileNm\":\"55af1294-ba8d-47bf-9d9e-0d04ace68c4d59268699.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":5580167,\"sortSeq\":2,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-03-20\",\"lastMdfcnDt\":\"2026-03-20\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026030417394427569543\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-건설안전실-75]2026 해빙기 건설현장 안전보건 길잡이.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/3/4\",\"atcflSrvrFileNm\":\"fd765654-3e12-4ade-ab6c-ba3fae45db5f12613606.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":110503173,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-03-04\",\"lastMdfcnDt\":\"2026-03-04\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026040109263299667935\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-안전문화홍보실-64]안전문화 길라잡이 3권(최종).zip\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/1\",\"atcflSrvrFileNm\":\"e0df6f46-b633-4bd3-ac2e-83eef9a068ac52456279.zip\",\"atcflExtnNm\":\"zip\",\"mimeType\":\"application/zip\",\"atcflSz\":59663311,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-01\",\"lastMdfcnDt\":\"2026-04-01\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026031210564621986667\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-건설안전실-95]260312 추락사망사고 예방 OPS BOOK 전체.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/3/12\",\"atcflSrvrFileNm\":\"dae1d08e-21b7-409f-add2-c1441d414f7881309871.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":254677349,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-03-12\",\"lastMdfcnDt\":\"2026-03-12\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026021210092347900762\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-안전문화홍보실-1]붙임1. 안전문화 실천추진단 활동 사례집(양면).pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/2/12\",\"atcflSrvrFileNm\":\"5ba0c967-cfec-43d0-9507-edf266ffb1c267325995.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":25024002,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-02-12\",\"lastMdfcnDt\":\"2026-02-12\"},{\"atcflNo\":\"HTR2026021210092347900762\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":2,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-안전문화홍보실-1]붙임2. 안전문화 실천추진단 활동 사례집(단면).pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/2/12\",\"atcflSrvrFileNm\":\"cf3309bf-79e2-4eeb-8987-3d32e4a0246e55041100.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":25287360,\"sortSeq\":2,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-02-12\",\"lastMdfcnDt\":\"2026-02-12\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizV/p/VCPDG01007/selectMediaFaverList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"success\",\"payload\":{\"list\":[{\"medSeq\":50299,\"medName\":\"[동영상] 안전보건교육 자료 활용법\",\"thumbPath\":\"/erp24/file/H/HTR/HTRD/2025/7/30/e7d18796-157f-4611-bc1e-30110964807175459105.png\",\"actlInvtQty\":0,\"medGdsNo\":null,\"medThumbnailPath\":\"data:image/jpeg;base64,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"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026020522030223769250\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":2,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-건설안전실-28]2026년 건설업 안전보건관리체계 구축 지원 컨설팅(위탁) 안내서.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/2/5\",\"atcflSrvrFileNm\":\"840dca46-90ef-47f1-b920-5b141f8ca25f60811989.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":50719765,\"sortSeq\":2,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-02-05\",\"lastMdfcnDt\":\"2026-02-05\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2025123113584551574349\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2025-교육혁신실-2225]공단 체험교육 콘텐츠 국내외 수준 비교 조사 및 국외 전파를 위한 연구용역 연구보고서.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2025/12/31\",\"atcflSrvrFileNm\":\"e379f690-b12a-47c7-baa3-bf8da819c50c88199853.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":21993872,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2025-12-31\",\"lastMdfcnDt\":\"2026-02-04\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2025122908473246713662\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2025-외국인전담팀-1916](키르기스스탄)외국인 노동자를 위한 안전보건용어 400선_웹용.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2025/12/29\",\"atcflSrvrFileNm\":\"30920794-5cd5-47c0-9243-9cca15273e7010146164.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":19616087,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2025-12-29\",\"lastMdfcnDt\":\"2025-12-29\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026021213265934260798\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":9,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-교육총괄실-31][외부용]축산업 안전보건교안(떨어짐, 질식·중독).pptx\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/14\",\"atcflSrvrFileNm\":\"aa2660df-dd8e-404f-9a2f-b72a0d6bc98a99898962.pptx\",\"atcflExtnNm\":\"pptx\",\"mimeType\":\"application/vnd.ms-powerpoint\",\"atcflSz\":672770894,\"sortSeq\":9,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-14\",\"lastMdfcnDt\":\"2026-04-14\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2025122908491117747596\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2025-외국인전담팀-1907](네팔)외국인 노동자를 위한 안전보건용어 400선_웹용.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2025/12/29\",\"atcflSrvrFileNm\":\"e91a7c0b-5d9f-4f68-a50d-e0236b37a6b736749687.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":19699413,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2025-12-29\",\"lastMdfcnDt\":\"2025-12-29\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026030913245831417577\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":6,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-교육총괄실-118][외부용] 태양광 설비 지붕작업 안전보건교육 교안.pptx\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/14\",\"atcflSrvrFileNm\":\"b260c403-67d2-4dbd-8d6e-96072368602e97081346.pptx\",\"atcflExtnNm\":\"pptx\",\"mimeType\":\"application/vnd.ms-powerpoint\",\"atcflSz\":319751327,\"sortSeq\":6,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-14\",\"lastMdfcnDt\":\"2026-04-14\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2025122613160213902815\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":2,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2025-외국인전담팀-1901](타지키스탄)[입국 후 교육]외국인 노동자를 위한 산업안전보건 교안-어업.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/1/5\",\"atcflSrvrFileNm\":\"acf3e9fa-c5c3-493a-a885-1daa624866e844090363.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":11270987,\"sortSeq\":2,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-01-05\",\"lastMdfcnDt\":\"2026-01-05\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2025122613450986052520\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":2,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2025-외국인전담팀-1900](라오스)[입국 후 교육]외국인 노동자를 위한 산업안전보건 교안-어업.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/1/5\",\"atcflSrvrFileNm\":\"13166f02-f26e-40e6-b5e8-c9a60a6422a496551045.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":11327665,\"sortSeq\":2,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-01-05\",\"lastMdfcnDt\":\"2026-01-05\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2025123117180970114878\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":3,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2025-외국인전담팀-1899](미얀마)[입국 후 교육]외국인 노동자를 위한 산업안전보건 교안-어업.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/1/5\",\"atcflSrvrFileNm\":\"e7531d4a-11cd-4ad4-b7cf-1e56b01aaad136419149.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":11321759,\"sortSeq\":3,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-01-05\",\"lastMdfcnDt\":\"2026-01-05\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2025123117170677807016\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":3,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2025-외국인전담팀-1898](동티모르)[입국 후 교육]외국인 노동자를 위한 산업안전보건 교안-어업.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/1/5\",\"atcflSrvrFileNm\":\"43ab7677-eba3-4e10-893d-ad6d15742a9784403855.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":13964975,\"sortSeq\":3,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-01-05\",\"lastMdfcnDt\":\"2026-01-05\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2025123117184715288881\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":3,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2025-외국인전담팀-1893](키르기스스탄)[입국 후 교육]외국인 노동자를 위한 산업안전보건 교안-어업.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/1/5\",\"atcflSrvrFileNm\":\"4135379e-70d4-44ce-aa02-7f68d4e7265661884270.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":13880196,\"sortSeq\":3,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-01-05\",\"lastMdfcnDt\":\"2026-01-05\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2025123117204996223118\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":3,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2025-외국인전담팀-1889](중국)[입국 후 교육]외국인 노동자를 위한 산업안전보건 교안-어업.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/1/5\",\"atcflSrvrFileNm\":\"d1c331dd-d8ef-436e-a963-c3cfcd35dca498502154.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":9671984,\"sortSeq\":3,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-01-05\",\"lastMdfcnDt\":\"2026-01-05\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2025123117202295196174\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":3,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2025-외국인전담팀-1887](방글라데시)[입국 후 교육]외국인 노동자를 위한 산업안전보건 교안-어업.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/1/5\",\"atcflSrvrFileNm\":\"54001c10-8e9a-4e85-b682-60ded007b4b298691966.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":14025507,\"sortSeq\":3,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-01-05\",\"lastMdfcnDt\":\"2026-01-05\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2025123117192197015022\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":5,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2025-외국인전담팀-1888](네팔)[입국 후 교육]외국인 노동자를 위한 산업안전보건 교안-어업.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/1/5\",\"atcflSrvrFileNm\":\"2ab621e9-7671-440f-9f7e-c3cff322bf9b93985223.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":13926463,\"sortSeq\":5,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-01-05\",\"lastMdfcnDt\":\"2026-01-05\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026042116173497788195\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":2,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-교육총괄실-314]산재예방요율제 안내.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/21\",\"atcflSrvrFileNm\":\"9eb3dd60-23bc-4107-be00-740162814d5446510726.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":3836789,\"sortSeq\":2,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-21\",\"lastMdfcnDt\":\"2026-04-21\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026042018253363016690\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-교육총괄실-268]외국인노동자용_화재안전가이드_포스터.png\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/20\",\"atcflSrvrFileNm\":\"a1609ad9-135b-488d-b639-519e48ee068493186864.png\",\"atcflExtnNm\":\"png\",\"mimeType\":\"image/png\",\"atcflSz\":538284,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-20\",\"lastMdfcnDt\":\"2026-04-20\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026042116315396500458\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":2,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-교육총괄실-313]2026년 안전보건교육 안내.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/21\",\"atcflSrvrFileNm\":\"7f11096c-6a5d-4019-8283-02e1232a34f159375877.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":283431525,\"sortSeq\":2,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-21\",\"lastMdfcnDt\":\"2026-04-21\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026040716352597128890\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-국제협력단-260]2026년 제1호 국제산업안전보건 동향.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/7\",\"atcflSrvrFileNm\":\"8451ceb2-aab4-4caa-8e51-92c23b8ef8fc53540940.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":9964627,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-07\",\"lastMdfcnDt\":\"2026-04-07\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026040210361865209479\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":2,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-산업안전실-267]붙임. 사망사고 고위험요인(SIF) 아카이브(제조업 등, 건설업).xlsx\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/2\",\"atcflSrvrFileNm\":\"deaebb4d-14aa-4904-8f26-1b72de00e8ac91714163.xlsx\",\"atcflExtnNm\":\"xlsx\",\"mimeType\":\"application/vnd.ms-excel\",\"atcflSz\":1302167,\"sortSeq\":2,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-02\",\"lastMdfcnDt\":\"2026-04-02\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026040215282692106335\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-산업안전실-251]260402 2026 안전보건진단 사업안내_리플렛 대문접지_최종.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/4/2\",\"atcflSrvrFileNm\":\"3487a368-4165-40dd-9721-953beee5bdc633092581.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":1829465,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-04-02\",\"lastMdfcnDt\":\"2026-04-02\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026031011092190640653\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":5,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-산업보건실-99]고객응대근로자 보호 캠페인 슬로건 배너.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/3/10\",\"atcflSrvrFileNm\":\"3ea1f59b-ae4f-4714-a2c8-2c08369ebe5b12725660.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":2342988,\"sortSeq\":5,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-03-10\",\"lastMdfcnDt\":\"2026-03-10\"},{\"atcflNo\":\"HTR2026031011092190640653\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":6,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-산업보건실-99]고객응대근로자 보호 캠페인 슬로건 현수막.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/3/10\",\"atcflSrvrFileNm\":\"69c492d0-93b5-47d6-9f82-0c7d6b948d4871830719.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":4979181,\"sortSeq\":6,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-03-10\",\"lastMdfcnDt\":\"2026-03-10\"},{\"atcflNo\":\"HTR2026031011092190640653\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":7,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-산업보건실-99]고객응대근로자 보호 캠페인 슬로건 배너.ai\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/3/10\",\"atcflSrvrFileNm\":\"fa5a1060-8cbb-4b11-8197-4fdb00bd983960658347.ai\",\"atcflExtnNm\":\"ai\",\"mimeType\":null,\"atcflSz\":2341271,\"sortSeq\":7,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-03-10\",\"lastMdfcnDt\":\"2026-03-10\"},{\"atcflNo\":\"HTR2026031011092190640653\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":8,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-산업보건실-99]고객응대근로자 보호 캠페인 슬로건 현수막.ai\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/3/10\",\"atcflSrvrFileNm\":\"bd7533e3-f44a-419e-bac7-8f10d6592e5c27884285.ai\",\"atcflExtnNm\":\"ai\",\"mimeType\":null,\"atcflSz\":5429657,\"sortSeq\":8,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":n"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026032009105365138100\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-전문기술실-17][2026-전문기술실-17] 260312_안보공_중대산업사고 예방 가이드 리플렛.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/3/20\",\"atcflSrvrFileNm\":\"44959af8-aa02-42e2-92df-151d7e6053df93109060.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":2222983,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-03-20\",\"lastMdfcnDt\":\"2026-03-20\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026020915291041610421\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-건설안전실-46]26체계구축우수사례카드뉴스_4차.pdf\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/2/9\",\"atcflSrvrFileNm\":\"c49c3686-f012-4f2f-b635-7f1212bfb47e49943246.pdf\",\"atcflExtnNm\":\"pdf\",\"mimeType\":\"application/pdf\",\"atcflSz\":149436749,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-02-09\",\"lastMdfcnDt\":\"2026-02-09\"}]}"
+    },
+    {
+      "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/getFileList",
+      "status": 200,
+      "body": "{\"result\":\"success\",\"message\":\"\",\"payload\":[{\"atcflNo\":\"HTR2026020314005642220078\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":1,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-교육총괄실-26]20260127_안전보건공단_CMS메뉴얼_v2.2.pptx\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/2/3\",\"atcflSrvrFileNm\":\"efabe403-bcbb-4493-a3bd-56263dbb9a9a78380255.pptx\",\"atcflExtnNm\":\"pptx\",\"mimeType\":\"application/vnd.ms-powerpoint\",\"atcflSz\":53430932,\"sortSeq\":1,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-02-03\",\"lastMdfcnDt\":\"2026-02-03\"},{\"atcflNo\":\"HTR2026020314005642220078\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":2,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-교육총괄실-26]CMS_Pico.zip\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/2/3\",\"atcflSrvrFileNm\":\"7f900912-54ba-4d23-a7b7-ef04d27b07fa71875038.zip\",\"atcflExtnNm\":\"zip\",\"mimeType\":\"application/zip\",\"atcflSz\":461306802,\"sortSeq\":2,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-02-03\",\"lastMdfcnDt\":\"2026-02-03\"},{\"atcflNo\":\"HTR2026020314005642220078\",\"atcflTmpltId\":\"HTRD00000030\",\"delYn\":\"N\",\"sysSeCd\":\"10\",\"atcflSeq\":3,\"atcflSeCd\":\"09\",\"orgnlAtchFileNm\":\"[2026-교육총괄실-26]CMS_Quest.zip\",\"atcflSrvrStrgDtlPathAddr\":\"/erp24/file/H/HTR/HTRD/2026/2/3\",\"atcflSrvrFileNm\":\"f8b13793-63b7-487a-89bc-ccd41b240e7d54455522.zip\",\"atcflExtnNm\":\"zip\",\"mimeType\":\"application/zip\",\"atcflSz\":467725157,\"sortSeq\":3,\"eldocNo\":null,\"imgShtYmd\":null,\"imgShtAltd\":null,\"imgShtLat\":null,\"imgShtLot\":null,\"imgWdthLen\":null,\"imgVrtcLen\":null,\"imgrsoWdthLen\":null,\"imgrsoVrtcLen\":null,\"imgRttrt\":null,\"atcflTaskColNm\":\"lastFile\",\"atcflSeTaskComCdNm\":\"Y\",\"thmbImgFileNm\":null,\"atchFileExpln\":null,\"j1AddColNm\":null,\"j2AddColNm\":null,\"j3AddColNm\":null,\"j4AddColNm\":null,\"j5AddColNm\":null,\"j6AddColNm\":null,\"j7AddColNm\":null,\"j8AddColNm\":null,\"j9AddColNm\":null,\"j10AddColNm\":null,\"frstRegDt\":\"2026-02-03\",\"lastMdfcnDt\":\"2026-02-03\"}]}"
+    }
+  ],
+  "link_count": 301,
+  "text_preview": "본문 바로가기\n서브메뉴 바로가기\n\n이 누리집은 대한민국 공식 전자정부 누리집입니다.\n\n산업안전포털\n통합검색\n로그인\n누리집 안내지도\n화면크기\n축소\n100%\n확대\nlanguage \n열기\n사업신청·조회\n열기\n산재예방 정보\n열기\n안전보건교육\nKRAS(위험성평가)\n열기\n고객센터\n열기\n산재예방 정보\n법령/규정\n펼치기\n가이드\n펼치기\n안전보건 자료실\n접기\n전체 자료\n(현재 페이지)\n업종별 자료\n분야별 자료\n외국인 자료\n안전문화(홍보) 자료\n산업보건통계\n산업안전보건정보\n안전보건 e-Book\n노하우/사례\nVR 전용관\n구독·신청 서비스\n재해사례\n펼치기\n산업재해현황(보상통계)\n펼치기\n산업재해현황(조사통계)\n펼치기\n연구보고서 및 연구자료\n펼치기\n국외정보 소개\n펼치기\n화학물질정보\n펼치기\n홈\n산재예방 정보\n안전보건 자료실\nURL복사\n프린트\n전체 자료\n공지사항\n설문조사\nQuick\nTop\n검색\n전체\n(열기)\n기간\n직접입력\n(열기)\n달력 보기\n초기화\n검색\n일반분야\n(General)\n전체\n전도\n조도\n안전난간\n비상구\n통로\n계단\n사다리\n보호구\n추락\n위험\n붕괴\n붕괴위험\n비계\n환기장치\n휴게시설\n잔재물\n해당없음\n기계설비\n(Machinery Equipment)\n전체\n공작기계\n프레스\n전단기\n목재가공용기계\n원심기\n분쇄기\n고속회전체\n보일러\n사출성형기\n크레인\n이동식크레인\n리프트\n곤돌라\n승강기\n와이어로프\n지게차\n구내운반차\n고소작업대\n화물자동차\n컨베이어\n항타기\n항발기\n굴착기\n산업용로봇\n화기설비\n용융고열물\n화학설비\n압력용기\n건조설비\n아세틸렌용접장치\n가스집합용접장치\n용접장치\n전기로\n이동전선\n접지\n해당없음\n작업\n(Work)\n전체\n거푸집\n동바리\n콘크리트타설\n굴착작업\n흙막"
+}

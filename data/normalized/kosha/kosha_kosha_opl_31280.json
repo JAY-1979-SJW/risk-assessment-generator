@@ -1,0 +1,34 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "31280",
+  "title": "종이 제조장치 조작종사자 - 리와인더작업",
+  "title_normalized": "종이 제조장치 조작종사자 - 리와인더작업",
+  "body_text": "협착(끼임)\n협착(끼임)\n베임\n충돌\n주요위험요인\n작업안전대책\nwww.kosha.or.krⅠ032-5100-500\n●파지제거및원지연결작업중\n롤사이에협착\n●지필연결시칼에의해손베임\n●권취기에서재단롤을내리는\n작업중전도되는롤과의충돌\n●정비, 수리등의작업시운전정지및안내표지판부착\n●설비운전중근로자접근금지\n●표준작업안전절차에의하여작업실시\n전도방지용스토퍼설치\n작업시운전정지및안내표지판부착\n●지필연결시칼에손이닿지않도록주의\n●손베임방지용안전장갑착용\n베임\n●전도방지용스토퍼설치\n●다단적재금지\n●작업장정리정돈실시하여안전통로확보\n충돌\n\nwww.kosha.or.krⅠ032-5100-500\n종이제조장치조작종사자-리와인더작업\n2012-교육미디어-762\n재해사례개요\n화장지합지공정리와인더기운전중에원단끊어짐이발생하여이를조치하던중\n회전중인상측권취롤과하측드럼로울러사이에끼임\n설비등의정비∙점검등작업시는반드시운전을정지한후하세요!\n종이가\n말리더라도\n기다리자~\n비상정지후에도\n완전정지까지\n10~12초정도걸리니,\n완전정지까지기다렸다\n점검하세요~",
+  "has_text": true,
+  "content_length": 504,
+  "hazards": [
+    "끼임",
+    "충돌",
+    "협착",
+    "전도"
+  ],
+  "work_types": [
+    "운반",
+    "기계정비"
+  ],
+  "equipment": [
+    "안전대"
+  ],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014167149&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014167149&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20121204",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

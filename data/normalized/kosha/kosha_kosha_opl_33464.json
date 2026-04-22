@@ -1,0 +1,34 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "33464",
+  "title": "[중대재해_비금속]콘크리트 믹서기 청소작업 중 끼임",
+  "title_normalized": "콘크리트 믹서기 청소작업 중 끼임",
+  "body_text": "콘크리트의 믹서기 내부 샤프트(Shaft)에 고착된 콘크리트 제거를 위하여  76Cm×43Cm의 점검 맨홀을 통해 \n내부로 들어가던 중 믹서기가 작동하여 샤프트 팁(Tip)과 내부벽면 사이에 끼임\n재해발생 원인\n!\n안전작업 방법\n정비 등의 작업시 운전정지(전원차단) 실시\n- 기계 등의 정비·청소 등 작업시 반드시 운전 정지(전원차단)\n- 적절하지 아니한 작업방법으로 인하여 기계가 갑자기 가동될 \n   우려가 있는 경우 작업지휘자 배치 후 안전하게 작업\n믹서기 연동장치 등 수시 점검을 통한 관리 철저\n- 기계에 설치된 방호 및 연동장치의 수시 점검, 교체 등 \n   정상 기능이 되도록 조치\n믹서기 내부 이물질 제거 작업시 전원 차단 미실시\n- 조정실 메인전원 미차단, 현장선택스위치(Local Selector Switch)의\n 「정지위치」미선택\n믹서기 점검도어 개방시 차단되는 리미트 연동장치 고장\n콘크리트 믹서기 청소작업 중 끼임\nTIP\n1\n1\n2\n2\n2013-교육미디어-1313\n제조업\n재해사례\n(콘크리트 믹서기)\n\n●  산업안전보건기준에 관한 규칙    제91조(고장난 기계의 정비 등), 제92조(정비 등의 작업시의 운전정지 등)\n만화로 보는 재해사례\n기계의 정비, 청소 등의 작업시 전원 차단하세요 !\n콘크리트 믹서기 청소작업 중 끼임\n참고법령 및 기준\n法",
+  "has_text": true,
+  "content_length": 655,
+  "hazards": [
+    "끼임",
+    "질식",
+    "화학물질",
+    "협착"
+  ],
+  "work_types": [
+    "밀폐공간",
+    "콘크리트",
+    "기계정비",
+    "청소"
+  ],
+  "equipment": [],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169243&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169243&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20131216",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

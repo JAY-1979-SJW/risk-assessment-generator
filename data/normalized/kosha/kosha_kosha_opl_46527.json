@@ -1,0 +1,31 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "46527",
+  "title": "키메세지(10월_화학물질 중독예방)",
+  "title_normalized": "키메세지(10월_화학물질 중독예방)",
+  "body_text": "텍스트\n1.\n교육\n2.\n교육\n3.\n교육\n텍스트\n텍스트\n텍스트\n스마트폰APP (위기탈출안전보건)\n애플리케이션설치\n안전보건자료실\n화학물질, MSDS\n포털사이트에‘안전보건공단’ 검색\n텍스트\n텍스트\n텍스트\n텍스트\n· (MSDS) 사용하는물질의MSDS 확인및교육을통해물질의유해성확인\n↳2.유해성·위험성, 4.응급조치요령, 7.취급및저장방법, 8.노출방지및개인보호구, 11.독성에관한정보등\n· (환기) 실내작업장에서관리대상유해물질취급시, 국소배기장치를설치하고작동\n- 환기가불충분한공간에서는급기또는배기팬을이용하여작업중환기실시\n· (호흡보호구) 유기화합물취급시‘방독마스크(갈색정화통)’ 착용\n- 환기가불충분장소나유해물질지속발생시송기마스크, 공기호흡기착용\n· (관리) 화학물질은지정장소에보관, 물질저장장소는관계자외출입금지\n· (교육내용) 취급물질의성질및상태, 인체에미치는영향, 안전작업방법및보호구사용등\n> 그림파일클릭시다운로드페이지로이동\n사고개요\n안전작업방법\n화학물질취급관련콘텐츠\n숏츠\n동영상\n제2024-6호\n포스터\n•\n2024.09.26.<1명사망> 기계식주차장에서도장작업중톨루엔중독, 1명사망및2명의식불명\n•\n2022.02.10.<16명부상> 세척제에함유된트리클로로메탄에노출된근로자16명급성독성간염\nOPS\n텍스트",
+  "has_text": true,
+  "content_length": 615,
+  "hazards": [
+    "화학물질"
+  ],
+  "work_types": [
+    "도장",
+    "운반",
+    "화학취급",
+    "청소"
+  ],
+  "equipment": [],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00021154904&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00021154904&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20241022",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}

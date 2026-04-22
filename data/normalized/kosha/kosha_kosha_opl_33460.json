@@ -1,0 +1,35 @@
+{
+  "source": "kosha",
+  "source_type": "portal_api",
+  "doc_category": "kosha_opl",
+  "source_id": "33460",
+  "title": "[중대재해_비금속]중량물 인양 중 러그 탈락으로 깔림",
+  "title_normalized": "중량물 인양 중 러그 탈락으로 깔림",
+  "body_text": "약 700kg의 중량물인 로터(Rotor) 교체작업을 위하여 체인블록 후크를 로터리의 러그(Lug)에 걸어 세우는 순간 \n가용접된 러그가 탈락되어 넘어지는 중량물에 깔림\n재해발생 원인\n!\n안전작업 방법\n중량물 형상, 무게 등 사전 검토를 통한 적정한 러그 설치 사용\n- 중량물의 형상과 무게, 지형 등을 고려하여 러그 수량, \n   용접부 크기 및 위치 등 위험성을 평가하여 대책 수립 후 작업 실시\n- 작업 전 러그 용접부 상태에 대한 점검 및 표준작업절차 수립 시행 \n작업계획서 작성 및 작업지휘자 지정 후 안전작업 실시\n- 해당 작업내용, 지형 등에 대한 사전조사를 하고 떨어짐, 쓰러짐 등의 \n   위험예방 대책을 포함한 작업계획서를 작성하고, 작업지휘자 관리 하에 \n   안전작업 수행\n협소한 작업공간에서 중량물 인양 중 설비에 간섭되지 않게 \n방향을 잡아 주기 위하여 위험지역에 근접하여 작업 실시\n무게, 형상, 용접면 크기, 수량 등이 반영되지 않은 \n러그 사용 및 작업 전 점검 미흡\n※ 러그(Lug) : 달기기구의 위쪽에 줄걸이 용구인 로프, 훅 등을 \n                  직접 결속할 수 있도록 원형구멍을 낸 걸고리쇠\n중량물 인양 중 러그 탈락으로 깔림\nTIP\n1\n1\n2\n2\n2013-교육미디어-1317\n제조업\n재해사례\n(중량물)\n\n●  산업안전보건기준에 관한 규칙    제38조(사전조사 및 작업계획서 작성 등), 제39조(작업지휘자의 지정)\n만화로 보는 재해사례\n중량물 인양 ! 작업 전 위험요인 철저히 점검하세요 !\n중량물 인양 중 러그 탈락으로 깔림\n참고법령 및 기준\n法",
+  "has_text": true,
+  "content_length": 788,
+  "hazards": [
+    "추락",
+    "끼임",
+    "붕괴",
+    "중량물",
+    "화학물질"
+  ],
+  "work_types": [
+    "용접",
+    "양중",
+    "기계정비",
+    "조적"
+  ],
+  "equipment": [],
+  "tags": [],
+  "url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169239&atcflSeq=1",
+  "file_url": "https://portal.kosha.or.kr/api/portal24/bizA/p/files/downloadAtchFile?atcflNo=FL00014169239&atcflSeq=1",
+  "pdf_path": "",
+  "file_sha256": "",
+  "industry": "제조업",
+  "published_at": "20131216",
+  "collected_at": "2026-04-22",
+  "language": "ko",
+  "status": "mapped"
+}
