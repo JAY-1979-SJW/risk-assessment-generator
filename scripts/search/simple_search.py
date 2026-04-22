@@ -96,13 +96,18 @@ def search(
     query: str,
     top: int = 5,
     sources: list[str] | None = None,
+    diverse: bool = True,
 ) -> list[dict]:
+    """
+    diverse=True(기본): 소스별 상위 결과를 라운드로빈으로 섞어 반환.
+      - 각 소스 최소 1건 보장, 나머지는 점수 순 채움.
+    diverse=False: 순수 top-N (소스 편중 발생 가능).
+    """
     if not INDEX_PATH.exists():
         raise FileNotFoundError(f"인덱스 없음: {INDEX_PATH}\n→ python -m scripts.search.build_index 먼저 실행")
 
     tokens = _tokenize(query)
 
-    # 쿼리 토큰 → hint 코드 추출
     hint_hazards: set[str] = set()
     hint_works:   set[str] = set()
     for tok in tokens:
@@ -111,23 +116,52 @@ def search(
         if tok in _WORK_HINT:
             hint_works.add(_WORK_HINT[tok])
 
-    results = []
+    buckets: dict[str, list[tuple[float, dict]]] = {"kosha": [], "law": [], "expc": []}
+
     with INDEX_PATH.open(encoding="utf-8") as f:
         for line in f:
             line = line.strip()
             if not line:
                 continue
             rec = json.loads(line)
+            src = rec.get("source", "")
 
-            if sources and rec.get("source") not in sources:
+            if sources and src not in sources:
                 continue
 
             s = _score(rec, tokens, hint_hazards, hint_works)
-            if s > 0:
-                results.append((s, rec))
+            if s > 0 and src in buckets:
+                buckets[src].append((s, rec))
 
-    results.sort(key=lambda x: x[0], reverse=True)
-    return [{"score": s, **r} for s, r in results[:top]]
+    for src in buckets:
+        buckets[src].sort(key=lambda x: x[0], reverse=True)
+
+    if not diverse or sources:
+        flat = [(s, r) for src in buckets for s, r in buckets[src]]
+        flat.sort(key=lambda x: x[0], reverse=True)
+        return [{"score": s, **r} for s, r in flat[:top]]
+
+    # 라운드로빈: 소스별 최소 1건 우선 확보 후 점수순 채움
+    order = ["kosha", "expc", "law"]
+    taken: dict[str, int] = {s: 0 for s in order}
+    result: list[tuple[float, dict]] = []
+
+    # 1라운드: 각 소스 top-1 확보
+    for src in order:
+        if buckets[src]:
+            result.append(buckets[src][0])
+            taken[src] = 1
+
+    # 나머지: 남은 자리를 점수 순 채움 (소스 무관)
+    remaining = []
+    for src in order:
+        for item in buckets[src][taken[src]:]:
+            remaining.append(item)
+    remaining.sort(key=lambda x: x[0], reverse=True)
+    result.extend(remaining[: top - len(result)])
+
+    result.sort(key=lambda x: x[0], reverse=True)
+    return [{"score": s, **r} for s, r in result[:top]]
 
 
 def _print_results(query: str, hits: list[dict]) -> None:
@@ -154,7 +188,7 @@ def run_demo() -> None:
         "용접 화재",
     ]
     for q in queries:
-        hits = search(q, top=5)
+        hits = search(q, top=5, diverse=True)
         _print_results(q, hits)
 
     # 품질 평가
@@ -163,7 +197,7 @@ def run_demo() -> None:
     print("="*60)
     all_pass = True
     for q in queries:
-        hits = search(q, top=5)
+        hits = search(q, top=5, diverse=True)
         sources_hit = {h["source"] for h in hits}
         has_mixed   = len(sources_hit) >= 2
         has_result  = len(hits) >= 3
