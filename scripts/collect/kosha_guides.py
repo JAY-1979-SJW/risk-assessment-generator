@@ -230,21 +230,40 @@ class KoshaCollector:
 
         return items_all
 
-    # ── PDF 다운로드 + 텍스트 추출 ──────────────────────────────────────────
+    # ── PDF 다운로드 + 저장 + 텍스트 추출 ──────────────────────────────────
 
-    def _parse_pdf(self, session: requests.Session, dl_url: str) -> tuple[str, bool]:
+    def _pdf_path(self, category: str, item_id: str) -> Path:
+        p = OUT_DIR / "pdf" / category / f"{item_id}.pdf"
+        p.parent.mkdir(parents=True, exist_ok=True)
+        return p
+
+    def _parse_pdf(
+        self, session: requests.Session, dl_url: str, category: str, item_id: str
+    ) -> tuple[str, bool, str, str]:
+        """(content, has_text, pdf_path, sha256) 반환. 실패 시 ("", False, "", "")."""
         if not dl_url:
-            return "", False
+            return "", False, "", ""
         try:
             r = session.get(dl_url, timeout=(10, 60), stream=False)
             r.raise_for_status()
-            content = r.content
-            if not content or not content.startswith(b"%PDF"):
-                return "", False
-            return self._extract_text(content)
+            raw = r.content
+            if not raw or not raw.startswith(b"%PDF"):
+                return "", False, "", ""
+
+            sha256 = hashlib.sha256(raw).hexdigest()
+            pdf_path = self._pdf_path(category, item_id)
+
+            # 동일 SHA256 파일이 이미 있으면 다운로드 skip
+            if pdf_path.exists() and hashlib.sha256(pdf_path.read_bytes()).hexdigest() == sha256:
+                log.debug(f"PDF 중복 skip: {pdf_path.name}")
+            else:
+                pdf_path.write_bytes(raw)
+
+            text, has_text = self._extract_text(raw)
+            return text, has_text, str(pdf_path), sha256
         except Exception as e:
-            log.debug(f"PDF 다운로드 실패 [{dl_url}]: {e}")
-            return "", False
+            log.debug(f"PDF 실패 [{dl_url}]: {e}")
+            return "", False, "", ""
 
     def _extract_text(self, content: bytes) -> tuple[str, bool]:
         try:
@@ -311,21 +330,26 @@ class KoshaCollector:
                     continue
                 self._seen.add(uid)
 
-                content, has_text = "", False
+                content, has_text, pdf_path, sha256 = "", False, "", ""
                 if item["download_url"]:
-                    content, has_text = self._parse_pdf(session, item["download_url"])
-                    if item["download_url"] and not has_text and not content:
+                    content, has_text, pdf_path, sha256 = self._parse_pdf(
+                        session, item["download_url"], item["category"], uid
+                    )
+                    if not has_text and not content:
                         fail_cnt += 1
                     time.sleep(DELAY)
 
                 record = {
                     **item,
-                    "source":       "kosha",
-                    "url":          item["download_url"],
-                    "file_url":     item["download_url"],
-                    "content":      content,
-                    "has_text":     has_text,
-                    "collected_at": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+                    "source":         "kosha",
+                    "url":            item["download_url"],
+                    "file_url":       item["download_url"],
+                    "content":        content,
+                    "has_text":       has_text,
+                    "pdf_path":       pdf_path,
+                    "file_sha256":    sha256,
+                    "content_length": len(content),
+                    "collected_at":   datetime.now(timezone.utc).strftime("%Y-%m-%d"),
                 }
                 self._save(record)
                 total += 1
