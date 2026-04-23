@@ -9,7 +9,17 @@ from typing import Any, Optional
 from fastapi import APIRouter, Body
 from fastapi.responses import JSONResponse
 
-_ROOT = Path(__file__).parent.parent.parent
+# engine/ 위치 탐색: 컨테이너(/app/engine 볼륨 마운트)와 로컬(프로젝트 루트) 양쪽 지원
+def _find_engine_root() -> Path:
+    for candidate in [
+        Path(__file__).parent.parent,          # 컨테이너: /app
+        Path(__file__).parent.parent.parent,   # 로컬: project root
+    ]:
+        if (candidate / "engine" / "kras_connector" / "mapper.py").exists():
+            return candidate
+    return Path(__file__).parent.parent.parent  # fallback
+
+_ROOT = _find_engine_root()
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 

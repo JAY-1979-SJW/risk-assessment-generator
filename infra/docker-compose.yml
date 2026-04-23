@@ -41,6 +41,7 @@ services:
     volumes:
       - ../docs:/app/docs:ro
       - ../app:/app/app:ro
+      - ../engine:/app/engine:ro
       - ../scripts:/app/scripts:ro
       - /home/ubuntu/apps/risk-assessment-app/logs:/app/logs
       - /home/ubuntu/apps/risk-assessment-app/data:/app/data
