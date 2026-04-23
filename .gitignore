@@ -113,3 +113,11 @@ export/위험성평가표_표준양식_테스트_structure.json
 # 접속정보/민감 문서
 서버_접속정보.md
 *_접속정보.md
+
+# 법령 수집 산출물 (서버 로컬 데이터 — git 추적 불필요)
+data/raw/law_content/
+data/raw/law_api/licbyl/files_manifest.json
+data/index/
+
+# ops 임시 파일
+modified_before_cleanup.txt
