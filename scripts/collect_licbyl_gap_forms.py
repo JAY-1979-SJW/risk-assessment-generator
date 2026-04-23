@@ -48,14 +48,14 @@ FILES_DIR = OUT_DIR / "files"
 INDEX_PATH = OUT_DIR / "licbyl_gap_index.json"
 
 QUERIES = [
-    "산업재해",
-    "산업재해조사",
-    "교육",
-    "회의록",
-    "안전점검",
-    "유해위험방지",
-    "작업계획",
-    "도급",
+    # 산안법 법령명 직접 매칭 → is_target_item law 필터와 결합
+    "산업안전보건",       # 산업안전보건법 시행규칙/령 별지 전체
+    "산업재해조사표",     # 별지 30호서식 (확인용)
+    "유해위험방지계획서", # 별지 19·22호서식
+    "도급승인",           # 별지 31·33호서식 licbyl 원본
+    "안전보건교육일지",   # P1-B 별지 52호의2서식 (존재 시)
+    "공정안전보고서",     # P1-C PSM 서식 (존재 시)
+    "안전보건관리비",     # 별지 102호서식
 ]
 
 
@@ -78,20 +78,14 @@ def gw_search(query: str, page_no: int = 1, num_of_rows: int = 100) -> dict:
 
 
 def is_target_item(item: dict) -> bool:
-    """관련 법령이 산업안전보건 계열이거나, 제목이 타깃 키워드를 포함하는지."""
+    """관련 법령이 산업안전보건 계열인 항목만 수집.
+    단독 키워드(교육, 회의록 등)는 타 법령 서식을 과수집하므로 법령명 기준만 사용.
+    """
     law = (item.get("관련법령명") or "")
-    title = (item.get("별표명") or "")
-    if any(k in law for k in (
+    return any(k in law for k in (
         "산업안전보건법", "산업안전보건기준에 관한 규칙",
-        "중대재해", "안전보건공단법",
-    )):
-        return True
-    if any(k in title for k in (
-        "산업재해조사표", "교육", "회의록", "TBM", "작업계획서",
-        "안전점검", "유해위험", "도급", "위험성평가",
-    )):
-        return True
-    return False
+        "중대재해 처벌 등에 관한 법률", "안전보건공단법",
+    ))
 
 
 def extract_id(item: dict) -> str:

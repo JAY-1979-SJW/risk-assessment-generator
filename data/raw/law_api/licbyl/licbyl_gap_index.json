@@ -1,0 +1,430 @@
+{
+  "queries": [
+    "산업안전보건",
+    "산업재해조사표",
+    "유해위험방지계획서",
+    "도급승인",
+    "안전보건교육일지",
+    "공정안전보고서",
+    "안전보건관리비"
+  ],
+  "per_query": {
+    "산업안전보건": {
+      "hits": 10,
+      "downloaded": 0
+    },
+    "산업재해조사표": {
+      "hits": 2,
+      "downloaded": 0
+    },
+    "유해위험방지계획서": {
+      "hits": 9,
+      "downloaded": 14
+    },
+    "도급승인": {
+      "hits": 4,
+      "downloaded": 8
+    },
+    "안전보건교육일지": {
+      "hits": 0,
+      "downloaded": 0
+    },
+    "공정안전보고서": {
+      "hits": 0,
+      "downloaded": 0
+    },
+    "안전보건관리비": {
+      "hits": 1,
+      "downloaded": 0
+    }
+  },
+  "new_items": [
+    {
+      "별표일련번호": "17853693",
+      "관련법령일련번호": "271485",
+      "관련법령ID": "007364",
+      "별표명": "건설공사 유해위험방지계획서",
+      "관련법령명": "산업안전보건법 시행규칙",
+      "별표번호": "001700",
+      "별표종류": "서식",
+      "소관부처명": "고용노동부",
+      "공포일자": "20250530",
+      "공포번호": "00443",
+      "제개정구분명": "일부개정",
+      "법령종류": "고용노동부령",
+      "별표서식파일링크": "/LSW/flDownload.do?flSeq=159570693",
+      "별표서식PDF파일링크": "/LSW/flDownload.do?flSeq=159570695",
+      "별표법령상세링크": "/DRF/lawService.do?OC=sapphire_5&target=licbyl&ID=17853693&type=HTML&mobileYn="
+    },
+    {
+      "별표일련번호": "17853699",
+      "관련법령일련번호": "271485",
+      "관련법령ID": "007364",
+      "별표명": "유해위험방지계획서 심사 결과 통지서",
+      "관련법령명": "산업안전보건법 시행규칙",
+      "별표번호": "002000",
+      "별표종류": "서식",
+      "소관부처명": "고용노동부",
+      "공포일자": "20250530",
+      "공포번호": "00443",
+      "제개정구분명": "일부개정",
+      "법령종류": "고용노동부령",
+      "별표서식파일링크": "/LSW/flDownload.do?flSeq=159570711",
+      "별표서식PDF파일링크": "/LSW/flDownload.do?flSeq=159570713",
+      "별표법령상세링크": "/DRF/lawService.do?OC=sapphire_5&target=licbyl&ID=17853699&type=HTML&mobileYn="
+    },
+    {
+      "별표일련번호": "17853701",
+      "관련법령일련번호": "271485",
+      "관련법령ID": "007364",
+      "별표명": "유해위험방지계획서 심사 결과(부적정) 통지서",
+      "관련법령명": "산업안전보건법 시행규칙",
+      "별표번호": "002100",
+      "별표종류": "서식",
+      "소관부처명": "고용노동부",
+      "공포일자": "20250530",
+      "공포번호": "00443",
+      "제개정구분명": "일부개정",
+      "법령종류": "고용노동부령",
+      "별표서식파일링크": "/LSW/flDownload.do?flSeq=159570717",
+      "별표서식PDF파일링크": "/LSW/flDownload.do?flSeq=159570719",
+      "별표법령상세링크": "/DRF/lawService.do?OC=sapphire_5&target=licbyl&ID=17853701&type=HTML&mobileYn="
+    },
+    {
+      "별표일련번호": "17853695",
+      "관련법령일련번호": "271485",
+      "관련법령ID": "007364",
+      "별표명": "유해위험방지계획서 자체심사서",
+      "관련법령명": "산업안전보건법 시행규칙",
+      "별표번호": "001800",
+      "별표종류": "서식",
+      "소관부처명": "고용노동부",
+      "공포일자": "20250530",
+      "공포번호": "00443",
+      "제개정구분명": "일부개정",
+      "법령종류": "고용노동부령",
+      "별표서식파일링크": "/LSW/flDownload.do?flSeq=159570699",
+      "별표서식PDF파일링크": "/LSW/flDownload.do?flSeq=159570701",
+      "별표법령상세링크": "/DRF/lawService.do?OC=sapphire_5&target=licbyl&ID=17853695&type=HTML&mobileYn="
+    },
+    {
+      "별표일련번호": "17853869",
+      "관련법령일련번호": "271485",
+      "관련법령ID": "007364",
+      "별표명": "유해위험방지계획서 자체확인 결과서",
+      "관련법령명": "산업안전보건법 시행규칙",
+      "별표번호": "010300",
+      "별표종류": "서식",
+      "소관부처명": "고용노동부",
+      "공포일자": "20250530",
+      "공포번호": "00443",
+      "제개정구분명": "일부개정",
+      "법령종류": "고용노동부령",
+      "별표서식파일링크": "/LSW/flDownload.do?flSeq=159571263",
+      "별표서식PDF파일링크": "/LSW/flDownload.do?flSeq=159571265",
+      "별표법령상세링크": "/DRF/lawService.do?OC=sapphire_5&target=licbyl&ID=17853869&type=HTML&mobileYn="
+    },
+    {
+      "별표일련번호": "17853617",
+      "관련법령일련번호": "271485",
+      "관련법령ID": "007364",
+      "별표명": "유해위험방지계획서 첨부서류(제42조제3항 관련)",
+      "관련법령명": "산업안전보건법 시행규칙",
+      "별표번호": "001000",
+      "별표종류": "별표",
+      "소관부처명": "고용노동부",
+      "공포일자": "20250530",
+      "공포번호": "00443",
+      "제개정구분명": "일부개정",
+      "법령종류": "고용노동부령",
+      "별표서식파일링크": "/LSW/flDownload.do?flSeq=159570275",
+      "별표서식PDF파일링크": "/LSW/flDownload.do?flSeq=159570277",
+      "별표법령상세링크": "/DRF/lawService.do?OC=sapphire_5&target=licbyl&ID=17853617&type=HTML&mobileYn="
+    },
+    {
+      "별표일련번호": "17853691",
+      "관련법령일련번호": "271485",
+      "관련법령ID": "007364",
+      "별표명": "제조업 등 유해위험방지계획서",
+      "관련법령명": "산업안전보건법 시행규칙",
+      "별표번호": "001600",
+      "별표종류": "서식",
+      "소관부처명": "고용노동부",
+      "공포일자": "20250530",
+      "공포번호": "00443",
+      "제개정구분명": "일부개정",
+      "법령종류": "고용노동부령",
+      "별표서식파일링크": "/LSW/flDownload.do?flSeq=159570687",
+      "별표서식PDF파일링크": "/LSW/flDownload.do?flSeq=159570689",
+      "별표법령상세링크": "/DRF/lawService.do?OC=sapphire_5&target=licbyl&ID=17853691&type=HTML&mobileYn="
+    },
+    {
+      "별표일련번호": "17853725",
+      "관련법령일련번호": "271485",
+      "관련법령ID": "007364",
+      "별표명": "유해ㆍ위험작업 도급승인 변경신청서",
+      "관련법령명": "산업안전보건법 시행규칙",
+      "별표번호": "003300",
+      "별표종류": "서식",
+      "소관부처명": "고용노동부",
+      "공포일자": "20250530",
+      "공포번호": "00443",
+      "제개정구분명": "일부개정",
+      "법령종류": "고용노동부령",
+      "별표서식파일링크": "/LSW/flDownload.do?flSeq=159570793",
+      "별표서식PDF파일링크": "/LSW/flDownload.do?flSeq=159570795",
+      "별표법령상세링크": "/DRF/lawService.do?OC=sapphire_5&target=licbyl&ID=17853725&type=HTML&mobileYn="
+    },
+    {
+      "별표일련번호": "17853721",
+      "관련법령일련번호": "271485",
+      "관련법령ID": "007364",
+      "별표명": "유해ㆍ위험작업 도급승인 신청서",
+      "관련법령명": "산업안전보건법 시행규칙",
+      "별표번호": "003100",
+      "별표종류": "서식",
+      "소관부처명": "고용노동부",
+      "공포일자": "20250530",
+      "공포번호": "00443",
+      "제개정구분명": "일부개정",
+      "법령종류": "고용노동부령",
+      "별표서식파일링크": "/LSW/flDownload.do?flSeq=159570781",
+      "별표서식PDF파일링크": "/LSW/flDownload.do?flSeq=159570783",
+      "별표법령상세링크": "/DRF/lawService.do?OC=sapphire_5&target=licbyl&ID=17853721&type=HTML&mobileYn="
+    },
+    {
+      "별표일련번호": "17853723",
+      "관련법령일련번호": "271485",
+      "관련법령ID": "007364",
+      "별표명": "유해ㆍ위험작업 도급승인 연장신청서",
+      "관련법령명": "산업안전보건법 시행규칙",
+      "별표번호": "003200",
+      "별표종류": "서식",
+      "소관부처명": "고용노동부",
+      "공포일자": "20250530",
+      "공포번호": "00443",
+      "제개정구분명": "일부개정",
+      "법령종류": "고용노동부령",
+      "별표서식파일링크": "/LSW/flDownload.do?flSeq=159570787",
+      "별표서식PDF파일링크": "/LSW/flDownload.do?flSeq=159570789",
+      "별표법령상세링크": "/DRF/lawService.do?OC=sapphire_5&target=licbyl&ID=17853723&type=HTML&mobileYn="
+    },
+    {
+      "별표일련번호": "17853727",
+      "관련법령일련번호": "271485",
+      "관련법령ID": "007364",
+      "별표명": "유해ㆍ위험작업 도급승인서",
+      "관련법령명": "산업안전보건법 시행규칙",
+      "별표번호": "003400",
+      "별표종류": "서식",
+      "소관부처명": "고용노동부",
+      "공포일자": "20250530",
+      "공포번호": "00443",
+      "제개정구분명": "일부개정",
+      "법령종류": "고용노동부령",
+      "별표서식파일링크": "/LSW/flDownload.do?flSeq=159570799",
+      "별표서식PDF파일링크": "/LSW/flDownload.do?flSeq=159570801",
+      "별표법령상세링크": "/DRF/lawService.do?OC=sapphire_5&target=licbyl&ID=17853727&type=HTML&mobileYn="
+    }
+  ],
+  "downloaded": [
+    {
+      "id": "17853693",
+      "query": "유해위험방지계획서",
+      "title": "건설공사 유해위험방지계획서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853693/[별지 제17호서식] 건설공사 유해위험방지계획서(산업안전보건법 시행규칙).hwp",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570693"
+    },
+    {
+      "id": "17853693",
+      "query": "유해위험방지계획서",
+      "title": "건설공사 유해위험방지계획서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853693/[별지 제17호서식] 건설공사 유해위험방지계획서(산업안전보건법 시행규칙).pdf",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570695"
+    },
+    {
+      "id": "17853699",
+      "query": "유해위험방지계획서",
+      "title": "유해위험방지계획서 심사 결과 통지서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853699/[별지 제20호서식] 유해위험방지계획서 심사 결과 통지서(산업안전보건법 시행규칙).hwp",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570711"
+    },
+    {
+      "id": "17853699",
+      "query": "유해위험방지계획서",
+      "title": "유해위험방지계획서 심사 결과 통지서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853699/[별지 제20호서식] 유해위험방지계획서 심사 결과 통지서(산업안전보건법 시행규칙).pdf",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570713"
+    },
+    {
+      "id": "17853701",
+      "query": "유해위험방지계획서",
+      "title": "유해위험방지계획서 심사 결과(부적정) 통지서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853701/[별지 제21호서식] 유해위험방지계획서 심사 결과(부적정) 통지서(산업안전보건법 시행규칙).hwp",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570717"
+    },
+    {
+      "id": "17853701",
+      "query": "유해위험방지계획서",
+      "title": "유해위험방지계획서 심사 결과(부적정) 통지서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853701/[별지 제21호서식] 유해위험방지계획서 심사 결과(부적정) 통지서(산업안전보건법 시행규칙).pdf",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570719"
+    },
+    {
+      "id": "17853695",
+      "query": "유해위험방지계획서",
+      "title": "유해위험방지계획서 자체심사서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853695/[별지 제18호서식] 유해위험방지계획서 자체심사서(산업안전보건법 시행규칙).hwp",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570699"
+    },
+    {
+      "id": "17853695",
+      "query": "유해위험방지계획서",
+      "title": "유해위험방지계획서 자체심사서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853695/[별지 제18호서식] 유해위험방지계획서 자체심사서(산업안전보건법 시행규칙).pdf",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570701"
+    },
+    {
+      "id": "17853869",
+      "query": "유해위험방지계획서",
+      "title": "유해위험방지계획서 자체확인 결과서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853869/[별지 제103호서식] 유해위험방지계획서 자체확인 결과서(산업안전보건법 시행규칙).hwp",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159571263"
+    },
+    {
+      "id": "17853869",
+      "query": "유해위험방지계획서",
+      "title": "유해위험방지계획서 자체확인 결과서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853869/[별지 제103호서식] 유해위험방지계획서 자체확인 결과서(산업안전보건법 시행규칙).pdf",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159571265"
+    },
+    {
+      "id": "17853617",
+      "query": "유해위험방지계획서",
+      "title": "유해위험방지계획서 첨부서류(제42조제3항 관련)",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "별표",
+      "local": "data/raw/law_api/licbyl/files/17853617/[별표 10] 유해위험방지계획서 첨부서류(제42조제3항 관련)(산업안전보건법 시행규칙).hwp",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570275"
+    },
+    {
+      "id": "17853617",
+      "query": "유해위험방지계획서",
+      "title": "유해위험방지계획서 첨부서류(제42조제3항 관련)",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "별표",
+      "local": "data/raw/law_api/licbyl/files/17853617/[별표 10] 유해위험방지계획서 첨부서류(제42조제3항 관련)(산업안전보건법 시행규칙).pdf",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570277"
+    },
+    {
+      "id": "17853691",
+      "query": "유해위험방지계획서",
+      "title": "제조업 등 유해위험방지계획서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853691/[별지 제16호서식] 제조업 등 유해위험방지계획서(산업안전보건법 시행규칙).hwp",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570687"
+    },
+    {
+      "id": "17853691",
+      "query": "유해위험방지계획서",
+      "title": "제조업 등 유해위험방지계획서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853691/[별지 제16호서식] 제조업 등 유해위험방지계획서(산업안전보건법 시행규칙).pdf",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570689"
+    },
+    {
+      "id": "17853725",
+      "query": "도급승인",
+      "title": "유해ㆍ위험작업 도급승인 변경신청서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853725/[별지 제33호서식] 유해ㆍ위험작업 도급승인 변경신청서(산업안전보건법 시행규칙).hwp",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570793"
+    },
+    {
+      "id": "17853725",
+      "query": "도급승인",
+      "title": "유해ㆍ위험작업 도급승인 변경신청서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853725/[별지 제33호서식] 유해ㆍ위험작업 도급승인 변경신청서(산업안전보건법 시행규칙).pdf",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570795"
+    },
+    {
+      "id": "17853721",
+      "query": "도급승인",
+      "title": "유해ㆍ위험작업 도급승인 신청서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853721/[별지 제31호서식] 유해ㆍ위험작업 도급승인 신청서(산업안전보건법 시행규칙).hwp",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570781"
+    },
+    {
+      "id": "17853721",
+      "query": "도급승인",
+      "title": "유해ㆍ위험작업 도급승인 신청서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853721/[별지 제31호서식] 유해ㆍ위험작업 도급승인 신청서(산업안전보건법 시행규칙).pdf",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570783"
+    },
+    {
+      "id": "17853723",
+      "query": "도급승인",
+      "title": "유해ㆍ위험작업 도급승인 연장신청서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853723/[별지 제32호서식] 유해ㆍ위험작업 도급승인 연장신청서(산업안전보건법 시행규칙).hwp",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570787"
+    },
+    {
+      "id": "17853723",
+      "query": "도급승인",
+      "title": "유해ㆍ위험작업 도급승인 연장신청서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853723/[별지 제32호서식] 유해ㆍ위험작업 도급승인 연장신청서(산업안전보건법 시행규칙).pdf",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570789"
+    },
+    {
+      "id": "17853727",
+      "query": "도급승인",
+      "title": "유해ㆍ위험작업 도급승인서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853727/[별지 제34호서식] 유해ㆍ위험작업 도급승인서(산업안전보건법 시행규칙).hwp",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570799"
+    },
+    {
+      "id": "17853727",
+      "query": "도급승인",
+      "title": "유해ㆍ위험작업 도급승인서",
+      "law": "산업안전보건법 시행규칙",
+      "kind": "서식",
+      "local": "data/raw/law_api/licbyl/files/17853727/[별지 제34호서식] 유해ㆍ위험작업 도급승인서(산업안전보건법 시행규칙).pdf",
+      "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=159570801"
+    }
+  ]
+}
