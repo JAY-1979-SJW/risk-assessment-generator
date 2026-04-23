@@ -41,9 +41,20 @@ def get_logger(name: str) -> logging.Logger:
     return logger
 
 
-def save_json(path: Path, data: dict) -> None:
+def save_json(path: Path, data: dict) -> bool:
+    """canonical JSON으로 저장. 기존 내용과 동일하면 write skip → mtime 불변.
+    반환: True=written, False=skipped
+    """
+    canonical = json.dumps(data, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    if path.exists():
+        try:
+            if path.read_text(encoding="utf-8") == canonical:
+                return False
+        except OSError:
+            pass
+    path.write_text(canonical, encoding="utf-8")
+    return True
 
 
 def write_status(log_name: str, status: str, success: int, fail: int) -> None:
