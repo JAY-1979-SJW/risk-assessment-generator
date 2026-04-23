@@ -1,0 +1,81 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "basis": "고소작업 PASS 결과(0009 migration) 기준 템플릿 공통화",
+    "created": "2026-04-23",
+    "total_work_types": 10,
+    "total_hazards": 40
+  },
+  "work_types": [
+    {
+      "work_type": "고소작업",
+      "hazards": ["추락", "낙하물", "전도", "협착"],
+      "hazard_count": 4,
+      "status": "PASS (0009 migration 완료)"
+    },
+    {
+      "work_type": "전기작업",
+      "hazards": ["감전", "아크·화재", "추락", "협착"],
+      "hazard_count": 4,
+      "status": "pending"
+    },
+    {
+      "work_type": "용접작업",
+      "hazards": ["화재", "폭발", "화상", "흄·가스"],
+      "hazard_count": 4,
+      "status": "pending"
+    },
+    {
+      "work_type": "굴착작업",
+      "hazards": ["붕괴", "매몰", "협착", "전도"],
+      "hazard_count": 4,
+      "status": "pending"
+    },
+    {
+      "work_type": "양중작업",
+      "hazards": ["낙하", "충돌", "협착", "전도"],
+      "hazard_count": 4,
+      "status": "pending"
+    },
+    {
+      "work_type": "이동식비계 작업",
+      "hazards": ["추락", "전도", "낙하물", "붕괴"],
+      "hazard_count": 4,
+      "status": "pending"
+    },
+    {
+      "work_type": "고소작업대 작업",
+      "hazards": ["추락", "전도", "협착", "충돌"],
+      "hazard_count": 4,
+      "status": "pending"
+    },
+    {
+      "work_type": "밀폐공간 작업",
+      "hazards": ["질식", "중독", "화재·폭발", "구조지연"],
+      "hazard_count": 4,
+      "status": "pending"
+    },
+    {
+      "work_type": "절단/천공 작업",
+      "hazards": ["비산", "절단상", "분진", "소음"],
+      "hazard_count": 4,
+      "status": "pending"
+    },
+    {
+      "work_type": "배관/설비 설치 작업",
+      "hazards": ["추락", "협착", "낙하물", "화재"],
+      "hazard_count": 4,
+      "status": "pending"
+    }
+  ],
+  "summary": {
+    "total_rows_expected": 40,
+    "hazard_types_unique": [
+      "추락", "낙하물", "낙하", "전도", "협착", "감전", "아크·화재",
+      "화재", "폭발", "화상", "흄·가스", "붕괴", "매몰", "충돌",
+      "질식", "중독", "화재·폭발", "구조지연", "비산", "절단상", "분진", "소음"
+    ],
+    "min_hazards_per_work": 4,
+    "max_hazards_per_work": 4
+  }
+}
