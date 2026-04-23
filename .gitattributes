@@ -1,0 +1,60 @@
+# ── git-guard cleanup (2026-04-23, 옵션 B) ─────────────────────────────
+# 목적: line-ending flapping 으로 Modified 대량 발생을 차단한다.
+#       OS/편집기마다 CRLF↔LF 재저장이 반복되어 서버 git-guard 가 dirty 판정했음.
+
+# 텍스트 소스: LF 고정
+*.json      text eol=lf
+*.md        text eol=lf
+*.py        text eol=lf
+*.csv       text eol=lf
+*.yaml      text eol=lf
+*.yml       text eol=lf
+*.sql       text eol=lf
+*.sh        text eol=lf
+*.txt       text eol=lf
+*.html      text eol=lf
+*.js        text eol=lf
+*.ts        text eol=lf
+*.tsx       text eol=lf
+*.toml      text eol=lf
+*.cfg       text eol=lf
+*.ini       text eol=lf
+.gitignore  text eol=lf
+.gitattributes text eol=lf
+
+# Windows 전용 스크립트는 CRLF 유지
+*.bat       text eol=crlf
+*.cmd       text eol=crlf
+*.ps1       text eol=crlf
+
+# 문서·양식 이진 파일 (diff 수행하지 않음)
+*.hwp       binary
+*.hwpx      binary
+*.pdf       binary
+*.doc       binary
+*.docx      binary
+*.xls       binary
+*.xlsx      binary
+*.ppt       binary
+*.pptx      binary
+*.zip       binary
+*.tar       binary
+*.tar.gz    binary
+*.tgz       binary
+*.gz        binary
+*.7z        binary
+*.rar       binary
+
+# 이미지·영상·바이너리 빌드 산출물
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.ico       binary
+*.mp4       binary
+*.avi       binary
+*.so        binary
+*.dll       binary
+*.exe       binary
+*.pyd       binary
+*.bin       binary

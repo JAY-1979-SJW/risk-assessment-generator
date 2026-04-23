@@ -66,6 +66,43 @@ data/law_db/
 data/raw/law_api/licbyl/files/
 data/risk_db/laws/
 
+# ── git-guard cleanup (2026-04-23, 옵션 B) ─────────────────────────────
+# 대용량 수집 원본·파생물: 디스크는 보존하되 git 추적 중단.
+# 메타 인덱스 JSON 은 개별 예외로 유지 (! 패턴).
+
+# KOSHA 수집 산출물
+data/raw/kosha/**
+data/raw/kosha_forms/**
+data/raw/kosha_external/**
+
+# 정규화 파이프라인 산출물 (data/raw에서 재생성 가능)
+data/normalized/**
+
+# 권위 뷰 (data/raw 에서 재구축 가능 — source_map.csv 만 커밋 유지)
+data/forms/**
+!data/forms/
+!data/forms/source_map.csv
+
+# 엔진/엑셀 출력 산출물
+export/
+engine/output/
+
+# 임시·캐시
+tmp/
+cache/
+**/__pycache__/
+*.pyc
+
+# 메타 인덱스는 예외로 유지 (수집 상태 파악용)
+!data/raw/law_api/**/*_index.json
+!data/raw/law_api/**/rename_map.json
+!data/raw/law_api/licbyl/licbyl_gap_index.json
+!data/raw/law_api/licbyl/_cleanup_plan.json
+!data/raw/kosha_external/download_manifest.json
+
+# 본 cleanup 로그·런북
+!docs/ops/**
+
 # 임시 변환 로그
 convert_*.err
 convert_*.json
