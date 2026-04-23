@@ -7,6 +7,7 @@
   data/risk_db/law_raw/laws_index.json          (pipeline 입력용, 항상 덮어씀)
   data/raw/law_api/law/YYYY-MM-DD/laws_index.json  (날짜 archive)
 """
+import json
 import time
 from ._base import (
     get_logger, get_service_key, get_oc_key,
@@ -52,6 +53,16 @@ DRF_QUERIES = [
 
 # 중복 제거 키
 _DEDUP_KEY = lambda item: item.get("법령일련번호") or item.get("법령명한글") or item.get("법령명_한글")
+
+
+def _stable_law_sort_key(item: dict) -> tuple:
+    return (
+        str(item.get("법령ID") or ""),
+        str(item.get("법령일련번호") or ""),
+        str(item.get("시행일자") or ""),
+        str(item.get("법령명한글") or ""),
+        json.dumps(item, ensure_ascii=False, sort_keys=True),
+    )
 
 
 def run() -> bool:
@@ -114,6 +125,8 @@ def run() -> bool:
             continue
         seen.add(key)
         deduped.append(item)
+
+    deduped = sorted(deduped, key=_stable_law_sort_key)
 
     is_dry = (not service_key and not oc_key)
     output = {
