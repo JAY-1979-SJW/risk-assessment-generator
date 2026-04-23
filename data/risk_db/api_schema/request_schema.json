@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kras.haehan-ai.kr/api/v1/risk-assessment/build/request",
+  "title": "RiskAssessmentBuildRequest",
+  "description": "위험성평가 매핑 결과 조회 요청 스키마 (v1.0)",
+  "type": "object",
+  "required": ["work_type"],
+  "additionalProperties": false,
+  "properties": {
+    "work_type": {
+      "type": "string",
+      "minLength": 1,
+      "description": "조회할 작업 유형명. risk_mapping_core.work_type 값과 정확히 일치해야 함.",
+      "examples": ["고소작업", "전기작업", "밀폐공간 작업"]
+    }
+  },
+  "x-reserved-fields": {
+    "_comment": "아래 필드는 향후 구현 예정 — 현재 버전에서는 무시됨",
+    "top_k": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10,
+      "description": "[RESERVED] 반환할 hazard 최대 수 (기본: 전체 반환)"
+    },
+    "min_confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "[RESERVED] confidence_score 하한 필터 (기본: 미적용)"
+    }
+  },
+  "x-policy": {
+    "work_type_match": "완전 일치 (exact match) — 대소문자 구분, 공백 포함",
+    "unknown_work_type": "404 UNKNOWN_WORK_TYPE 반환",
+    "normalization": "없음 (v1.0) — 입력값 그대로 조회",
+    "free_text_input": "지원 안 함 (v1.0 범위 제외)"
+  }
+}

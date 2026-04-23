@@ -1,0 +1,258 @@
+openapi: "3.1.0"
+
+info:
+  title: KRAS Risk Assessment Mapping API
+  version: "1.0.0"
+  description: |
+    위험성평가표 자동생성 — 작업유형 기반 매핑 결과 조회 API
+
+    **이 문서는 초안입니다 (문서화 전용 — endpoint 미구현)**
+
+    - 데이터 소스: `risk_mapping_core` 테이블
+    - 엔진 함수: `build_risk_assessment(work_type)` (`engine/kras_connector/mapper.py`)
+    - 금지: `related_expc_ids` 응답 노출 금지
+
+servers:
+  - url: https://kras.haehan-ai.kr/api/v1
+    description: 운영 서버
+
+paths:
+  /risk-assessment/build:
+    post:
+      summary: 작업유형 기반 위험성평가 매핑 결과 조회
+      operationId: buildRiskAssessment
+      description: |
+        `work_type` 을 입력받아 해당 작업의 위험요인(hazard)과
+        안전조치(controls), 참조 법령/해석례/KOSHA 자료를 반환합니다.
+
+        - hazards는 `confidence_score` DESC 정렬
+        - `work_type` 은 등록된 10개 작업 유형과 완전 일치해야 함
+        - 정규화(유사 문자열 매칭) 미지원 (v1.0)
+      tags:
+        - risk-assessment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RiskAssessmentBuildRequest"
+            examples:
+              고소작업:
+                summary: 고소작업 조회
+                value:
+                  work_type: "고소작업"
+              전기작업:
+                summary: 전기작업 조회
+                value:
+                  work_type: "전기작업"
+              밀폐공간_작업:
+                summary: 밀폐공간 작업 조회
+                value:
+                  work_type: "밀폐공간 작업"
+      responses:
+        "200":
+          description: 조회 성공
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RiskAssessmentBuildResponse"
+              example:
+                work_type: "전기작업"
+                hazards:
+                  - hazard: "감전"
+                    controls:
+                      - "충전전로 작업 전 정전 확인 및 개폐기 잠금(LOTO) 조치 (산안기준규칙 제321조)"
+                      - "전기기계·기구 접지 및 누전차단기 설치 (제302조, 제304조)"
+                      - "절연용 보호구(절연장갑·절연복) 착용"
+                      - "활선 인접 작업 시 절연방호구 설치"
+                      - "전기작업 감시인 배치 및 2인 1조 작업"
+                    references:
+                      law_ids: [17109, 17088, 17090]
+                      moel_expc_ids: [24363, 28709, 28708]
+                      kosha_ids: [35222, 35237, 1726]
+                    confidence_score: 0.88
+                    evidence_summary: "산안기준규칙 제321조(충전전로에서의 전기작업), 제302조(접지), 제304조(누전차단기) 직접 명시..."
+        "400":
+          description: 잘못된 요청 (work_type 누락 또는 빈값)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+              examples:
+                누락:
+                  summary: work_type 누락
+                  value:
+                    error:
+                      code: "MISSING_WORK_TYPE"
+                      message: "work_type 필드가 필요합니다."
+                      details: {}
+                빈값:
+                  summary: work_type 빈값
+                  value:
+                    error:
+                      code: "EMPTY_WORK_TYPE"
+                      message: "work_type 값이 비어 있습니다."
+                      details:
+                        work_type: ""
+        "404":
+          description: 등록되지 않은 작업유형
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+              example:
+                error:
+                  code: "UNKNOWN_WORK_TYPE"
+                  message: "등록되지 않은 작업유형입니다."
+                  details:
+                    work_type: "도장작업"
+                    supported_work_types:
+                      - "고소작업"
+                      - "굴착작업"
+                      - "양중작업"
+                      - "이동식비계 작업"
+                      - "고소작업대 작업"
+                      - "밀폐공간 작업"
+                      - "화기작업"
+                      - "전기작업"
+                      - "절단/천공 작업"
+                      - "중장비 작업"
+        "500":
+          description: 내부 서버 오류
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+              example:
+                error:
+                  code: "INTERNAL_ERROR"
+                  message: "내부 오류가 발생했습니다. 잠시 후 다시 시도하세요."
+                  details: {}
+
+components:
+  schemas:
+
+    RiskAssessmentBuildRequest:
+      type: object
+      required:
+        - work_type
+      additionalProperties: false
+      properties:
+        work_type:
+          type: string
+          minLength: 1
+          description: "조회할 작업 유형명 (등록된 10개 작업 중 완전 일치)"
+          example: "전기작업"
+
+    RiskAssessmentBuildResponse:
+      type: object
+      required:
+        - work_type
+        - hazards
+      additionalProperties: false
+      properties:
+        work_type:
+          type: string
+          description: "조회된 작업 유형명"
+        hazards:
+          type: array
+          minItems: 1
+          description: "위험요인 배열 (confidence_score DESC)"
+          items:
+            $ref: "#/components/schemas/HazardItem"
+
+    HazardItem:
+      type: object
+      required:
+        - hazard
+        - controls
+        - references
+        - confidence_score
+        - evidence_summary
+      additionalProperties: false
+      properties:
+        hazard:
+          type: string
+          minLength: 1
+          description: "위험요인명"
+          example: "감전"
+        controls:
+          type: array
+          minItems: 1
+          description: "안전조치 목록 (4~6개)"
+          items:
+            type: string
+            minLength: 1
+        references:
+          $ref: "#/components/schemas/References"
+        confidence_score:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+          description: "매핑 신뢰도"
+          example: 0.88
+        evidence_summary:
+          type: string
+          description: "근거 요약 (법령·해석례·KOSHA 출처)"
+
+    References:
+      type: object
+      required:
+        - law_ids
+        - moel_expc_ids
+        - kosha_ids
+      additionalProperties: false
+      description: "참조 출처 3축 — related_expc_ids 노출 금지"
+      properties:
+        law_ids:
+          type: array
+          description: "관련 법령 ID 목록"
+          items:
+            type: integer
+            minimum: 1
+          example: [17109, 17088, 17090]
+        moel_expc_ids:
+          type: array
+          description: "고용노동부 행정해석례 ID 목록"
+          items:
+            type: integer
+            minimum: 1
+          example: [24363, 28709, 28708]
+        kosha_ids:
+          type: array
+          description: "KOSHA 기술자료 ID 목록"
+          items:
+            type: integer
+            minimum: 1
+          example: [35222, 35237, 1726]
+
+    ApiError:
+      type: object
+      required:
+        - error
+      additionalProperties: false
+      properties:
+        error:
+          type: object
+          required:
+            - code
+            - message
+          additionalProperties: false
+          properties:
+            code:
+              type: string
+              enum:
+                - MISSING_WORK_TYPE
+                - EMPTY_WORK_TYPE
+                - UNKNOWN_WORK_TYPE
+                - INTERNAL_ERROR
+              description: "에러 코드 (영문 상수)"
+            message:
+              type: string
+              description: "에러 메시지 (한국어)"
+              minLength: 1
+            details:
+              type: object
+              description: "에러 상세 정보 (선택) — DB 컬럼명 노출 금지"
+              additionalProperties: true

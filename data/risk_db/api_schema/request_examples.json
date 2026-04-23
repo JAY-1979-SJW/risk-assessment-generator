@@ -1,0 +1,72 @@
+{
+  "_meta": {
+    "schema_ref": "request_schema.json",
+    "version": "1.0",
+    "generated": "2026-04-23"
+  },
+  "valid_examples": [
+    {
+      "_label": "정상 — 고소작업",
+      "work_type": "고소작업"
+    },
+    {
+      "_label": "정상 — 전기작업",
+      "work_type": "전기작업"
+    },
+    {
+      "_label": "정상 — 밀폐공간 작업 (공백 포함)",
+      "work_type": "밀폐공간 작업"
+    },
+    {
+      "_label": "정상 — 절단/천공 작업 (슬래시 포함)",
+      "work_type": "절단/천공 작업"
+    }
+  ],
+  "invalid_examples": [
+    {
+      "_label": "오류 — work_type 누락",
+      "_expected_error": "MISSING_WORK_TYPE (400)",
+      "request_body": {}
+    },
+    {
+      "_label": "오류 — work_type 빈 문자열",
+      "_expected_error": "EMPTY_WORK_TYPE (400)",
+      "request_body": {
+        "work_type": ""
+      }
+    },
+    {
+      "_label": "오류 — 공백만 입력",
+      "_expected_error": "EMPTY_WORK_TYPE (400)",
+      "request_body": {
+        "work_type": "   "
+      }
+    },
+    {
+      "_label": "오류 — 미등록 작업명",
+      "_expected_error": "UNKNOWN_WORK_TYPE (404)",
+      "request_body": {
+        "work_type": "도장작업"
+      }
+    },
+    {
+      "_label": "오류 — 대소문자 불일치 (정규화 없음)",
+      "_expected_error": "UNKNOWN_WORK_TYPE (404)",
+      "request_body": {
+        "work_type": "고소 작업"
+      }
+    }
+  ],
+  "supported_work_types": [
+    "고소작업",
+    "굴착작업",
+    "양중작업",
+    "이동식비계 작업",
+    "고소작업대 작업",
+    "밀폐공간 작업",
+    "화기작업",
+    "전기작업",
+    "절단/천공 작업",
+    "중장비 작업"
+  ]
+}

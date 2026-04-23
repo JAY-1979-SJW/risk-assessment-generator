@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kras.haehan-ai.kr/api/v1/risk-assessment/build/response",
+  "title": "RiskAssessmentBuildResponse",
+  "description": "위험성평가 매핑 결과 응답 스키마 (v1.0) — build_risk_assessment() 출력 직접 반영",
+  "type": "object",
+  "required": ["work_type", "hazards"],
+  "additionalProperties": false,
+  "properties": {
+    "work_type": {
+      "type": "string",
+      "minLength": 1,
+      "description": "조회된 작업 유형명 (요청 work_type 그대로 반환)"
+    },
+    "hazards": {
+      "type": "array",
+      "minItems": 1,
+      "description": "위험요인 배열 — confidence_score DESC 정렬",
+      "items": {
+        "$ref": "#/$defs/HazardItem"
+      }
+    }
+  },
+  "$defs": {
+    "HazardItem": {
+      "type": "object",
+      "required": ["hazard", "controls", "references", "confidence_score", "evidence_summary"],
+      "additionalProperties": false,
+      "properties": {
+        "hazard": {
+          "type": "string",
+          "minLength": 1,
+          "description": "위험요인명 (예: 추락, 감전, 질식)"
+        },
+        "controls": {
+          "type": "array",
+          "minItems": 1,
+          "description": "안전조치 목록 (4~6개 목표)",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "references": {
+          "$ref": "#/$defs/References"
+        },
+        "confidence_score": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "description": "매핑 신뢰도 (0.0~1.0)"
+        },
+        "evidence_summary": {
+          "type": "string",
+          "description": "근거 요약 (법령·해석례·KOSHA 출처 포함, 100자 이상 권장)"
+        }
+      }
+    },
+    "References": {
+      "type": "object",
+      "required": ["law_ids", "moel_expc_ids", "kosha_ids"],
+      "additionalProperties": false,
+      "description": "참조 출처 ID 3축 — related_expc_ids 노출 금지",
+      "properties": {
+        "law_ids": {
+          "type": "array",
+          "description": "관련 법령 ID 목록 (law 테이블 FK)",
+          "items": {"type": "integer", "minimum": 1}
+        },
+        "moel_expc_ids": {
+          "type": "array",
+          "description": "고용노동부 행정해석례 ID 목록 (moel_expc 테이블 FK)",
+          "items": {"type": "integer", "minimum": 1}
+        },
+        "kosha_ids": {
+          "type": "array",
+          "description": "KOSHA 기술자료 ID 목록 (kosha_material_files 테이블 FK)",
+          "items": {"type": "integer", "minimum": 1}
+        }
+      }
+    }
+  },
+  "x-policy": {
+    "sort_order": "hazards는 confidence_score DESC 정렬",
+    "hazard_dedup": "동일 hazard 중복 없음 (UNIQUE 제약)",
+    "forbidden_field": "related_expc_ids — legacy 컬럼, 절대 노출 금지",
+    "empty_hazards": "API에서 404 반환 (엔진 빈 배열 → API 에러 변환)"
+  }
+}

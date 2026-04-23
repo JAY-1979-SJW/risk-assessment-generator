@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kras.haehan-ai.kr/api/v1/risk-assessment/build/error",
+  "title": "RiskAssessmentBuildError",
+  "description": "위험성평가 API 에러 응답 스키마 (v1.0)",
+  "type": "object",
+  "required": ["error"],
+  "additionalProperties": false,
+  "properties": {
+    "error": {
+      "$ref": "#/$defs/ErrorBody"
+    }
+  },
+  "$defs": {
+    "ErrorBody": {
+      "type": "object",
+      "required": ["code", "message"],
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "에러 코드 (영문 상수)",
+          "enum": [
+            "MISSING_WORK_TYPE",
+            "EMPTY_WORK_TYPE",
+            "UNKNOWN_WORK_TYPE",
+            "INTERNAL_ERROR"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "description": "에러 메시지 (한국어)",
+          "minLength": 1
+        },
+        "details": {
+          "type": "object",
+          "description": "에러 상세 정보 (선택)",
+          "additionalProperties": true
+        }
+      }
+    }
+  },
+  "x-error-codes": {
+    "MISSING_WORK_TYPE": {
+      "http_status": 400,
+      "trigger": "요청 body에 work_type 키 없음",
+      "message_ko": "work_type 필드가 필요합니다."
+    },
+    "EMPTY_WORK_TYPE": {
+      "http_status": 400,
+      "trigger": "work_type 빈 문자열 또는 공백만 입력",
+      "message_ko": "work_type 값이 비어 있습니다."
+    },
+    "UNKNOWN_WORK_TYPE": {
+      "http_status": 404,
+      "trigger": "등록되지 않은 work_type 값 입력 / 엔진 조회 결과 0건",
+      "message_ko": "등록되지 않은 작업유형입니다."
+    },
+    "INTERNAL_ERROR": {
+      "http_status": 500,
+      "trigger": "DB 연결 실패, 엔진 내부 예외",
+      "message_ko": "내부 오류가 발생했습니다. 잠시 후 다시 시도하세요.",
+      "policy": "내부 DB 컬럼명·쿼리·스택트레이스 details에 포함 금지"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "_meta": {
+    "schema_ref": "error_schema.json",
+    "version": "1.0",
+    "generated": "2026-04-23"
+  },
+  "examples": [
+    {
+      "_label": "400 — work_type 누락",
+      "_trigger": "POST body가 {} 이거나 work_type 키 자체 없음",
+      "_http_status": 400,
+      "error": {
+        "code": "MISSING_WORK_TYPE",
+        "message": "work_type 필드가 필요합니다.",
+        "details": {}
+      }
+    },
+    {
+      "_label": "400 — work_type 빈값",
+      "_trigger": "work_type: '' 또는 work_type: '   '",
+      "_http_status": 400,
+      "error": {
+        "code": "EMPTY_WORK_TYPE",
+        "message": "work_type 값이 비어 있습니다.",
+        "details": {
+          "work_type": ""
+        }
+      }
+    },
+    {
+      "_label": "404 — 미등록 work_type",
+      "_trigger": "work_type: '도장작업' 등 risk_mapping_core에 없는 값",
+      "_http_status": 404,
+      "error": {
+        "code": "UNKNOWN_WORK_TYPE",
+        "message": "등록되지 않은 작업유형입니다.",
+        "details": {
+          "work_type": "도장작업",
+          "supported_work_types": [
+            "고소작업",
+            "굴착작업",
+            "양중작업",
+            "이동식비계 작업",
+            "고소작업대 작업",
+            "밀폐공간 작업",
+            "화기작업",
+            "전기작업",
+            "절단/천공 작업",
+            "중장비 작업"
+          ]
+        }
+      }
+    },
+    {
+      "_label": "500 — 내부 조회 실패",
+      "_trigger": "DB 연결 타임아웃, 엔진 예외 등",
+      "_http_status": 500,
+      "error": {
+        "code": "INTERNAL_ERROR",
+        "message": "내부 오류가 발생했습니다. 잠시 후 다시 시도하세요.",
+        "details": {}
+      }
+    }
+  ]
+}
