@@ -1,0 +1,53 @@
+{
+  "_meta": {
+    "purpose": "고소작업 보호 row 변경 제안 시 사용하는 diff 리포트 표준 형식 (샘플)",
+    "policy": "UPDATE 금지 — 이 리포트 생성 후 수동 검토·승인 시에만 별도 migration 허용",
+    "baseline_source": "protected_baseline_gosojakup.json",
+    "generated": "2026-04-23",
+    "trigger": "0010_risk_mapping_core_expand.sql evidence_summary UPDATE 위반 → 재발 방지용 샘플"
+  },
+  "comparison": {
+    "work_type": "고소작업",
+    "hazard": "추락",
+    "baseline_migration": "0009_risk_mapping_core.sql",
+    "proposed_source": "재계산 — 법령 조문 추가 발견 (예시용)"
+  },
+  "field_diffs": [
+    {
+      "field": "confidence_score",
+      "current": 0.90,
+      "proposed": 0.92,
+      "delta": "+0.02",
+      "reason": "law_id 추가 2건 발견으로 A항목(source 충족) 재평가",
+      "action": "PENDING_REVIEW — 수동 검토 후 별도 migration 필요. 자동 UPDATE 금지."
+    },
+    {
+      "field": "related_law_ids",
+      "current": [16733, 16754, 16767],
+      "proposed": [16733, 16754, 16767, 99001, 99002],
+      "delta": "+2건",
+      "reason": "신규 조문 발견 (99001: 산안법 시행규칙 별표, 99002: 고소작업 특별교육 조항)",
+      "action": "PENDING_REVIEW — 조문 내용 직접 확인 후 신규 migration으로만 반영 가능."
+    },
+    {
+      "field": "evidence_summary",
+      "current": "산안기준규칙 제13조(안전난간), 제32조(보호구 지급), 제42조(추락의 방지) 직접 명시. moel_expc: 고소작업 안전벨트 미착용 벌칙 해석례(23752), 높이별 부상 경중 질의(26331). KOSHA OPL(1726) 및 해빙기 건설현장 안전수칙(3057)에서 추락 예방 구체 조치 확인.",
+      "proposed": "산안기준규칙 제13조(안전난간), 제32조(보호구 지급), 제42조(추락의 방지) 직접 명시. moel_expc: 고소작업 안전벨트 미착용 벌칙 해석례(23752), 높이별 부상 경중 질의(26331). KOSHA OPL(1726) 및 해빙기 건설현장 안전수칙(3057)에서 추락 예방 구체 조치 확인. 신규: 특별교육 조항 확인.",
+      "delta": "+26자 (보완)",
+      "reason": "신규 law_id 추가에 따른 evidence_summary 보완 필요",
+      "action": "PENDING_REVIEW — evidence_summary는 단독 UPDATE 금지. law_ids 변경과 동시에 신규 migration에서만 반영."
+    }
+  ],
+  "unchanged_fields": [
+    "related_moel_expc_ids",
+    "related_kosha_ids",
+    "control_measures"
+  ],
+  "overall_action": "PROTECTED — 이 리포트는 정보 제공 전용. 실제 DB 변경은 수동 검토·승인 후 별도 migration(0012+)으로만 수행.",
+  "review_checklist": [
+    "[ ] 신규 law_id 조문 원문 직접 확인",
+    "[ ] confidence_score 재산정 5항목 체크리스트 재실행",
+    "[ ] 고소작업 4 row 모두 fingerprint 변동 없음 확인 (overwrite_guard_rule.md 사전 검증 쿼리 실행)",
+    "[ ] 승인 시 신규 migration 파일명: 0012_gosojakup_law_update.sql (예시)"
+  ]
+}

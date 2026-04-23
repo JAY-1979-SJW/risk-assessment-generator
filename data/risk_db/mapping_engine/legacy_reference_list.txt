@@ -1,0 +1,38 @@
+# legacy related_expc_ids 참조 전수 목록
+# 생성: 2026-04-23
+# 범위: *.py *.sql *.json *.md 전체 grep
+# 기준: "related_expc_ids" 포함 && "related_moel_expc_ids" 미포함 행
+
+[FILE] data/risk_db/schema/migrations/0009_risk_mapping_core.sql
+  Line 16  : related_expc_ids JSONB  NOT NULL DEFAULT '[]',   -- 컬럼 생성
+  Line 29  : COMMENT ON COLUMN risk_mapping_core.related_expc_ids IS ...
+  Line 43  : INSERT ... (related_expc_ids ...) VALUES ...  [추락]
+  Line 62  : ON CONFLICT ... SET related_expc_ids=...       [추락]
+  Line 72  : INSERT ... (related_expc_ids ...)              [낙하물]
+  Line 91  : ON CONFLICT ... SET related_expc_ids=...       [낙하물]
+  Line 101 : INSERT ... (related_expc_ids ...)              [전도]
+  Line 120 : ON CONFLICT ... SET related_expc_ids=...       [전도]
+  Line 130 : INSERT ... (related_expc_ids ...)              [협착]
+  Line 149 : ON CONFLICT ... SET related_expc_ids=...       [협착]
+  Line 159 : CREATE INDEX idx_rmc_expc_ids ...              [GIN 인덱스]
+  상태: 완료된 migration 히스토리 — 수정 불가
+
+[FILE] data/risk_db/schema/migrations/0010_risk_mapping_core_expand.sql
+  Line 42+ : 36개 INSERT/ON CONFLICT ... related_expc_ids 참조
+  상태: 완료된 migration 히스토리 — 수정 불가
+
+[FILE] data/risk_db/schema/migrations/0011_risk_mapping_add_moel_expc_col.sql
+  Line 6,7 : 주석에서 related_expc_ids 언급 (설명 목적)
+  Line 17  : UPDATE SET 대상으로 related_expc_ids 참조
+  Line 21  : WHERE related_expc_ids != '[]' 참조
+  상태: 완료된 migration — 하위 호환 목적 참조, 수정 불가
+
+[ACTIVE CODE] scripts/ backend/ engine/ 디렉토리
+  상태: related_expc_ids 참조 없음 (0건)
+
+[CONCLUSION]
+  - 모든 legacy 참조는 완료된 migration SQL 파일 내 존재
+  - 신규 코드 경로: 0건
+  - 신규 write 경로: 0건
+  - 즉시 조치 필요 항목: 없음
+  - 향후 신규 migration 작성 시 related_moel_expc_ids 만 사용할 것
