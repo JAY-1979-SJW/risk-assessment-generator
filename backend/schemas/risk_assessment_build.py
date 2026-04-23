@@ -10,7 +10,13 @@ from pydantic import BaseModel, ConfigDict, Field
 class ApiErrorDetail(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
-    code: Literal["MISSING_WORK_TYPE", "EMPTY_WORK_TYPE", "UNKNOWN_WORK_TYPE", "INTERNAL_ERROR"]
+    code: Literal[
+        "MISSING_WORK_TYPE",
+        "EMPTY_WORK_TYPE",
+        "UNKNOWN_WORK_TYPE",
+        "INVALID_INPUT_OPTION",
+        "INTERNAL_ERROR",
+    ]
     message: str = Field(min_length=1)
     details: Optional[Dict[str, Any]] = None
 
@@ -39,8 +45,30 @@ class HazardItem(BaseModel):
     evidence_summary: str
 
 
+class InputContext(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    equipment: List[str] = Field(default_factory=list)
+    location: List[str] = Field(default_factory=list)
+    conditions: List[str] = Field(default_factory=list)
+
+
+class RiskAssessmentBuildRequest(BaseModel):
+    """v2 확장 요청. equipment/location/conditions 는 선택형 whitelist."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    work_type: str = Field(min_length=1)
+    equipment: Optional[List[str]] = None
+    location: Optional[List[str]] = None
+    conditions: Optional[List[str]] = None
+
+
 class RiskAssessmentBuildResponse(BaseModel):
+    """v1 하위호환 유지. input_context 는 v2 입력 제공 시에만 포함."""
+
     model_config = ConfigDict(extra="forbid")
 
     work_type: str
     hazards: List[HazardItem]
+    input_context: Optional[InputContext] = None

@@ -24,6 +24,12 @@ if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
 from engine.kras_connector.mapper import build_risk_assessment  # noqa: E402
+from engine.kras_connector.enrichment import (  # noqa: E402
+    InvalidInputOption,
+    apply_rules,
+    context_is_empty,
+    normalize_input_context,
+)
 from schemas.risk_assessment_build import ApiError, RiskAssessmentBuildResponse  # noqa: E402
 
 router = APIRouter(prefix="/v1/risk-assessment", tags=["risk-assessment"])
@@ -50,14 +56,18 @@ def _err(code: str, message: str, details: Optional[dict] = None) -> dict:
     "/build",
     operation_id="buildRiskAssessment",
     response_model=RiskAssessmentBuildResponse,
+    response_model_exclude_none=True,
     responses={
-        400: {"model": ApiError, "description": "work_type 누락 또는 빈값"},
+        400: {
+            "model": ApiError,
+            "description": "work_type 누락/빈값 또는 equipment/location/conditions 허용값 위반",
+        },
         404: {"model": ApiError, "description": "등록되지 않은 작업유형"},
         500: {"model": ApiError, "description": "내부 서버 오류"},
     },
 )
 def build(body: Optional[Any] = Body(default=None)):
-    """작업유형 기반 위험성평가 매핑 결과를 반환한다."""
+    """작업유형 기반 위험성평가 매핑 결과를 반환한다. v2: equipment/location/conditions 선택형 보강."""
     # ── 1. body / work_type 존재 여부 검증 ────────────────────────────────────
     if body is None or not isinstance(body, dict) or "work_type" not in body:
         return JSONResponse(
@@ -85,10 +95,27 @@ def build(body: Optional[Any] = Body(default=None)):
 
     work_type = work_type_raw  # 완전 일치 정책 — strip/normalize 하지 않음
 
-    # ── 2. 매퍼 호출 ─────────────────────────────────────────────────────────
+    # ── 2. v2 입력 확장 정규화/검증 ───────────────────────────────────────────
     try:
-        result = build_risk_assessment(work_type)
-    except Exception as exc:
+        input_ctx = normalize_input_context(body)
+    except InvalidInputOption as exc:
+        return JSONResponse(
+            status_code=400,
+            content=_err(
+                "INVALID_INPUT_OPTION",
+                "입력 옵션이 허용되지 않은 값입니다.",
+                {
+                    "field": exc.field,
+                    "value": exc.value,
+                    "allowed_values": exc.allowed,
+                },
+            ),
+        )
+
+    # ── 3. 매퍼 호출 ─────────────────────────────────────────────────────────
+    try:
+        base_result = build_risk_assessment(work_type)
+    except Exception:
         import logging
         logging.getLogger(__name__).exception(
             "build_risk_assessment 오류: work_type=%r", work_type
@@ -98,8 +125,8 @@ def build(body: Optional[Any] = Body(default=None)):
             content=_err("INTERNAL_ERROR", "내부 오류가 발생했습니다. 잠시 후 다시 시도하세요."),
         )
 
-    # ── 3. 결과 없음 → 미등록 작업유형 ───────────────────────────────────────
-    if not result.get("hazards"):
+    # ── 4. 결과 없음 → 미등록 작업유형 ───────────────────────────────────────
+    if not base_result.get("hazards"):
         return JSONResponse(
             status_code=404,
             content=_err(
@@ -112,5 +139,22 @@ def build(body: Optional[Any] = Body(default=None)):
             ),
         )
 
-    # ── 4. 정상 반환 ──────────────────────────────────────────────────────────
-    return result
+    # ── 5. 하위호환: 컨텍스트 미제공 시 v1 응답 그대로 반환 ───────────────────
+    if context_is_empty(input_ctx):
+        return base_result
+
+    # ── 6. enrichment 적용 → input_context 부가 ───────────────────────────────
+    try:
+        enriched = apply_rules(base_result, input_ctx)
+    except Exception:
+        import logging
+        logging.getLogger(__name__).exception(
+            "enrichment 오류: work_type=%r ctx=%r", work_type, input_ctx
+        )
+        return JSONResponse(
+            status_code=500,
+            content=_err("INTERNAL_ERROR", "내부 오류가 발생했습니다. 잠시 후 다시 시도하세요."),
+        )
+
+    enriched["input_context"] = input_ctx
+    return enriched

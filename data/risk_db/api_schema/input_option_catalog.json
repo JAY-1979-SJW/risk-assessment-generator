@@ -1,0 +1,44 @@
+{
+  "version": "v2.0",
+  "effective_from": "2026-04-23",
+  "description": "POST /api/v1/risk-assessment/build — equipment/location/conditions whitelist. 1차 확장용. 10개 work_type 기준 상식적 조합만 포함.",
+  "policy": {
+    "unknown_value": "400 INVALID_INPUT_OPTION",
+    "empty_string": "400 INVALID_INPUT_OPTION",
+    "duplicates": "auto dedupe (순서 보존)",
+    "empty_array": "ignore (규칙 미적용)",
+    "null_field": "ignore (규칙 미적용)"
+  },
+  "equipment": [
+    "사다리",
+    "이동식비계",
+    "고소작업대",
+    "전동공구",
+    "절단기",
+    "용접기",
+    "크레인",
+    "굴착기"
+  ],
+  "location": [
+    "옥상",
+    "실내",
+    "지하",
+    "맨홀",
+    "협소구간",
+    "외부",
+    "천장부",
+    "PIT"
+  ],
+  "conditions": [
+    "활선근접",
+    "화기작업",
+    "중량물취급",
+    "협업작업",
+    "야간작업",
+    "우천",
+    "밀폐공간",
+    "추락위험",
+    "비산분진",
+    "소음발생"
+  ]
+}

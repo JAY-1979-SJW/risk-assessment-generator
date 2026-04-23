@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "risk_assessment_build_request_v2.json",
+  "title": "RiskAssessmentBuildRequest (v2)",
+  "description": "POST /api/v1/risk-assessment/build — v2 확장 요청. v1 하위호환 유지 (equipment/location/conditions optional).",
+  "type": "object",
+  "required": ["work_type"],
+  "additionalProperties": false,
+  "properties": {
+    "work_type": {
+      "type": "string",
+      "minLength": 1,
+      "description": "등록된 10개 작업 유형과 완전 일치 (v1 동일)",
+      "example": "전기작업"
+    },
+    "equipment": {
+      "type": "array",
+      "description": "사용 장비 (선택형 whitelist, 중복 제거, 빈 문자열 금지)",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "enum": [
+          "사다리",
+          "이동식비계",
+          "고소작업대",
+          "전동공구",
+          "절단기",
+          "용접기",
+          "크레인",
+          "굴착기"
+        ]
+      },
+      "default": [],
+      "example": ["사다리"]
+    },
+    "location": {
+      "type": "array",
+      "description": "작업 장소 (선택형 whitelist)",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "enum": [
+          "옥상",
+          "실내",
+          "지하",
+          "맨홀",
+          "협소구간",
+          "외부",
+          "천장부",
+          "PIT"
+        ]
+      },
+      "default": [],
+      "example": ["옥상"]
+    },
+    "conditions": {
+      "type": "array",
+      "description": "추가 조건 (선택형 whitelist)",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "enum": [
+          "활선근접",
+          "화기작업",
+          "중량물취급",
+          "협업작업",
+          "야간작업",
+          "우천",
+          "밀폐공간",
+          "추락위험",
+          "비산분진",
+          "소음발생"
+        ]
+      },
+      "default": [],
+      "example": ["활선근접"]
+    }
+  }
+}

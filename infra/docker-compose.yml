@@ -46,6 +46,8 @@ services:
       - /home/ubuntu/apps/risk-assessment-app/logs:/app/logs
       - /home/ubuntu/apps/risk-assessment-app/data:/app/data
       - ../data/risk_db/mapping:/app/data/risk_db/mapping:ro
+      - ../data/risk_db/api_schema:/app/data/risk_db/api_schema:ro
+      - ../data/risk_db/rules:/app/data/risk_db/rules:ro
       - /home/ubuntu/apps/risk-assessment-app/backups:/app/backups
       - ../scraper/logs:/app/scraper_logs:ro
     ports:

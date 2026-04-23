@@ -1,0 +1,303 @@
+{
+  "version": "v2.0",
+  "effective_from": "2026-04-23",
+  "description": "Risk assessment build API v2 enrichment rules. Applied as post-processing on top of build_risk_assessment(work_type) output. Reference: docs/design/enrichment_rulebook.md",
+  "constraints": {
+    "max_add_hazard_per_request": 1,
+    "max_added_controls_per_hazard": 2,
+    "boost_delta_cap": 0.1,
+    "confidence_upper_bound": 1.0,
+    "remove_hazard": false,
+    "remove_control": false,
+    "modify_references": false
+  },
+  "rules": [
+    {
+      "id": "R001",
+      "rationale": "활선근접 작업은 감전 재해의 결정적 원인. 산안기준규칙 §321(충전전로 작업) 기준.",
+      "when": {
+        "work_type": "전기작업",
+        "conditions_any": ["활선근접"]
+      },
+      "effects": [
+        { "type": "boost_hazard",  "match_hazard_contains": "감전", "delta": 0.05 },
+        { "type": "add_controls",  "match_hazard_contains": "감전", "controls": [
+          "활선 인접 작업 시 절연방호구 설치 및 절연용 보호구(절연장갑·절연복·절연화) 착용",
+          "전기작업 감시인 배치 및 2인 1조 작업 원칙 엄수"
+        ]},
+        { "type": "tag_evidence",  "match_hazard_contains": "감전", "note": "활선근접 조건" }
+      ]
+    },
+    {
+      "id": "R002",
+      "rationale": "전기작업에 사다리를 병행할 경우 최상부 2단 작업 금지 및 안전대 체결이 필수.",
+      "when": {
+        "work_type": "전기작업",
+        "equipment_any": ["사다리"]
+      },
+      "effects": [
+        { "type": "boost_hazard", "match_hazard_contains": "추락", "delta": 0.05 },
+        { "type": "add_controls", "match_hazard_contains": "추락", "controls": [
+          "사다리 최상부 2단 사용 금지 및 안전대 걸이 확보"
+        ]}
+      ]
+    },
+    {
+      "id": "R003",
+      "rationale": "옥상·천장부는 단부/개구부 인접 작업으로 추락 고위험 구역.",
+      "when": {
+        "work_type": "전기작업",
+        "location_any": ["옥상", "천장부"]
+      },
+      "effects": [
+        { "type": "boost_hazard", "match_hazard_contains": "추락", "delta": 0.05 },
+        { "type": "add_controls", "match_hazard_contains": "추락", "controls": [
+          "단부·개구부 주변 안전난간 및 덮개 설치 확인"
+        ]}
+      ]
+    },
+    {
+      "id": "R004",
+      "rationale": "우천 시 누전 및 감전 위험이 급증. KOSHA GUIDE E-19.",
+      "when": {
+        "work_type": "전기작업",
+        "conditions_any": ["우천"]
+      },
+      "effects": [
+        { "type": "boost_hazard", "match_hazard_contains": "감전", "delta": 0.05 },
+        { "type": "add_controls", "match_hazard_contains": "감전", "controls": [
+          "우천 시 옥외 전기작업 중단 또는 임시 방수 커버 설치"
+        ]}
+      ]
+    },
+    {
+      "id": "R010",
+      "rationale": "맨홀·PIT는 산소결핍 및 유해가스 축적 위험. 산안기준규칙 §619.",
+      "when": {
+        "work_type": "밀폐공간 작업",
+        "location_any": ["맨홀", "PIT"]
+      },
+      "effects": [
+        { "type": "boost_hazard", "match_hazard_contains": "질식", "delta": 0.05 },
+        { "type": "add_controls", "match_hazard_contains": "질식", "controls": [
+          "작업 전 산소농도(18~23.5%)·유해가스 농도 측정 및 작업 중 연속 측정",
+          "외부 감시인 상주 및 구조용 삼각대·송기마스크 상시 비치"
+        ]}
+      ]
+    },
+    {
+      "id": "R011",
+      "rationale": "conditions에 밀폐공간이 중복 명시된 경우 구조지연 대비 체계 강조.",
+      "when": {
+        "work_type": "밀폐공간 작업",
+        "conditions_any": ["밀폐공간"]
+      },
+      "effects": [
+        { "type": "boost_hazard", "match_hazard_contains": "질식", "delta": 0.05 },
+        { "type": "add_controls", "match_hazard_contains": "질식", "controls": [
+          "밀폐공간 작업 허가서 발급 및 구조 훈련 이수자 배치"
+        ]}
+      ]
+    },
+    {
+      "id": "R012",
+      "rationale": "밀폐공간 내 화기작업은 점화원·가연물 동시 존재로 폭발 위험. add_hazard 허용 유일 규칙.",
+      "when": {
+        "work_type": "밀폐공간 작업",
+        "conditions_any": ["화기작업"]
+      },
+      "effects": [
+        { "type": "add_controls", "match_hazard_contains": "화재", "controls": [
+          "점화원 관리 및 가연성 가스 농도 측정 (LEL 10% 이하 확인)"
+        ]},
+        { "type": "add_hazard", "hazard": "화재·폭발", "controls": [
+          "점화원 관리 및 가연성 가스 농도 측정 (LEL 10% 이하)",
+          "소화기·방화포 비치 및 화기감시자 배치"
+        ], "confidence_score": 0.70, "evidence_summary": "조건 기반 보강 — 밀폐공간 작업 중 화기작업 병행 시 KOSHA GUIDE D-15 기준 점화원·가연물 분리 원칙 적용." }
+      ]
+    },
+    {
+      "id": "R020",
+      "rationale": "실내 화기작업은 환기 부족으로 가연성 가스 누적 및 산소 농도 저하 가능.",
+      "when": {
+        "work_type": "화기작업",
+        "location_any": ["실내"]
+      },
+      "effects": [
+        { "type": "boost_hazard", "match_hazard_contains": "화재", "delta": 0.05 },
+        { "type": "add_controls", "match_hazard_contains": "화재", "controls": [
+          "작업 공간 국소배기장치 설치 또는 강제 환기 (환기량 30 m³/min 이상)",
+          "가연성 가스·분진 농도 측정 후 작업 개시"
+        ]}
+      ]
+    },
+    {
+      "id": "R021",
+      "rationale": "용접기·절단기 사용 시 스파크 비산거리(최소 11m) 내 가연물 제거 필수.",
+      "when": {
+        "work_type": "화기작업",
+        "equipment_any": ["용접기", "절단기"]
+      },
+      "effects": [
+        { "type": "add_controls", "match_hazard_contains": "화재", "controls": [
+          "스파크 비산거리(11m) 내 가연물 제거 및 불티방지포 설치"
+        ]}
+      ]
+    },
+    {
+      "id": "R022",
+      "rationale": "분진 환경에서 점화원 사용 시 분진 폭발 위험. KOSHA GUIDE D-15.",
+      "when": {
+        "work_type": "화기작업",
+        "conditions_any": ["비산분진"]
+      },
+      "effects": [
+        { "type": "boost_hazard", "match_hazard_contains": "화재", "delta": 0.05 },
+        { "type": "add_controls", "match_hazard_contains": "화재", "controls": [
+          "작업 전 분진 제거 및 방폭형 조명·전기설비 사용"
+        ]}
+      ]
+    },
+    {
+      "id": "R030",
+      "rationale": "옥상·천장부 고소작업은 단부 추락 사고의 주요 발생 장소.",
+      "when": {
+        "work_type": "고소작업",
+        "location_any": ["옥상", "천장부"]
+      },
+      "effects": [
+        { "type": "boost_hazard", "match_hazard_contains": "추락", "delta": 0.05 },
+        { "type": "add_controls", "match_hazard_contains": "추락", "controls": [
+          "단부 2m 이내 접근 시 안전대 부착설비(생명줄) 걸이"
+        ]}
+      ]
+    },
+    {
+      "id": "R031",
+      "rationale": "우천·야간 시 시인성 및 마찰 저하로 추락 위험 상승.",
+      "when": {
+        "work_type": "고소작업",
+        "conditions_any": ["우천", "야간작업"]
+      },
+      "effects": [
+        { "type": "boost_hazard", "match_hazard_contains": "추락", "delta": 0.05 },
+        { "type": "add_controls", "match_hazard_contains": "추락", "controls": [
+          "우천·야간 작업 시 미끄럼방지 보호구 착용 및 작업장 조도 150 lux 이상 확보"
+        ]}
+      ]
+    },
+    {
+      "id": "R032",
+      "rationale": "이동식비계 승강·이동 중 추락은 KOSHA 통계상 상위 재해.",
+      "when": {
+        "work_type": "이동식비계 작업",
+        "conditions_any": ["추락위험"]
+      },
+      "effects": [
+        { "type": "boost_hazard", "match_hazard_contains": "추락", "delta": 0.05 },
+        { "type": "add_controls", "match_hazard_contains": "추락", "controls": [
+          "비계 이동 시 작업자 전원 하차 및 승강용 내부 사다리 사용"
+        ]}
+      ]
+    },
+    {
+      "id": "R033",
+      "rationale": "고소작업대 붐 조작 중 2차 작업 병행 시 협착 가능성.",
+      "when": {
+        "work_type": "고소작업대 작업",
+        "conditions_any": ["협업작업"]
+      },
+      "effects": [
+        { "type": "add_controls", "match_hazard_contains": "협착", "controls": [
+          "작업대 상승 중 주변 구조물과의 이격 1m 이상 유지 및 신호체계 사전 협의"
+        ]}
+      ]
+    },
+    {
+      "id": "R040",
+      "rationale": "굴착기 선회반경 및 지반 전도 위험.",
+      "when": {
+        "work_type": "굴착작업",
+        "equipment_any": ["굴착기"]
+      },
+      "effects": [
+        { "type": "boost_hazard", "match_hazard_contains": "협착", "delta": 0.05 },
+        { "type": "add_controls", "match_hazard_contains": "협착", "controls": [
+          "굴착기 선회반경 내 작업자 출입통제 및 신호수 배치"
+        ]},
+        { "type": "add_controls", "match_hazard_contains": "전도", "controls": [
+          "작업 전 지반 지지력 점검 및 아웃트리거 전개 확인"
+        ]}
+      ]
+    },
+    {
+      "id": "R041",
+      "rationale": "우천 + 외부 굴착은 토사붕괴·매몰 위험 극대화.",
+      "when": {
+        "work_type": "굴착작업",
+        "location_any": ["외부"],
+        "conditions_any": ["우천"]
+      },
+      "effects": [
+        { "type": "boost_hazard", "match_hazard_contains": "붕괴", "delta": 0.05 },
+        { "type": "add_controls", "match_hazard_contains": "붕괴", "controls": [
+          "우천 중 굴착 중단 및 굴착면 경사 완화(1:1 이하) 유지, 토사 배수 조치"
+        ]}
+      ]
+    },
+    {
+      "id": "R042",
+      "rationale": "중장비 협업 시 신호 오류로 인한 충돌 재해.",
+      "when": {
+        "work_type": "중장비 작업",
+        "conditions_any": ["협업작업"]
+      },
+      "effects": [
+        { "type": "add_controls", "match_hazard_contains": "충돌", "controls": [
+          "단일 신호수 지정 및 후방경보장치·카메라 작동 확인"
+        ]}
+      ]
+    },
+    {
+      "id": "R050",
+      "rationale": "크레인 인양물 낙하 재해는 하부 출입자 인명사고로 직결.",
+      "when": {
+        "work_type": "양중작업",
+        "equipment_any": ["크레인"]
+      },
+      "effects": [
+        { "type": "boost_hazard", "match_hazard_contains": "낙하", "delta": 0.05 },
+        { "type": "add_controls", "match_hazard_contains": "낙하", "controls": [
+          "인양물 하부 출입통제 구역 설정 및 줄걸이 상태 작업 전 점검"
+        ]}
+      ]
+    },
+    {
+      "id": "R060",
+      "rationale": "회전체 방호덮개 해체 시 절단 재해 급증.",
+      "when": {
+        "work_type": "절단/천공 작업",
+        "equipment_any": ["절단기"]
+      },
+      "effects": [
+        { "type": "boost_hazard", "match_hazard_contains": "절단", "delta": 0.05 },
+        { "type": "add_controls", "match_hazard_contains": "절단", "controls": [
+          "절단기 방호덮개 부착 및 재료 고정 후 작업"
+        ]}
+      ]
+    },
+    {
+      "id": "R061",
+      "rationale": "절단·천공 중 분진·소음 노출은 호흡기·청력 장해 유발.",
+      "when": {
+        "work_type": "절단/천공 작업",
+        "conditions_any": ["비산분진", "소음발생"]
+      },
+      "effects": [
+        { "type": "add_controls", "match_hazard_contains": "절단", "controls": [
+          "방진마스크·보안경·귀마개 착용 및 주변 3m 이내 작업자 출입 제한"
+        ]}
+      ]
+    }
+  ]
+}
