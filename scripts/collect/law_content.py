@@ -144,6 +144,15 @@ def _fmt_date(raw: str) -> str | None:
     return raw or None
 
 
+def _stable_item_sort_key(item: dict) -> tuple:
+    return (
+        str(item.get("법령ID") or ""),
+        str(item.get("법령일련번호") or ""),
+        str(item.get("시행일자") or ""),
+        str(item.get("법령명한글") or ""),
+    )
+
+
 def run() -> bool:
     oc_key = get_oc_key()
     log.info("=== 법령 본문 수집 시작 (target=law) ===")
@@ -163,34 +172,36 @@ def run() -> bool:
     jsonl_path = out_dir / "law_content.jsonl"
     meta_path  = out_dir / "law_content_meta.json"
 
-    # 이미 수집된 doc_id 로드 (재실행 시 중복 방지)
-    done_ids: set[str] = set()
+    # 이미 수집된 MST 로드 (재실행·동일 실행 내 중복 방지)
+    done_msts: set[str] = set()
     if jsonl_path.exists():
         with open(jsonl_path, encoding="utf-8") as f:
             for line in f:
                 line = line.strip()
                 if line:
                     try:
-                        done_ids.add(json.loads(line)["doc_id"])
+                        done_msts.add(json.loads(line)["raw_id"])
                     except Exception:
                         pass
-        log.info(f"이미 수집된 기록: {len(done_ids)}개")
+        log.info(f"이미 수집된 법령: {len(done_msts)}건")
 
     stats = {"total": len(items), "success": 0, "fail": 0,
              "articles_total": 0, "articles_has_text": 0}
     fail_list: list[dict] = []
+
+    items = sorted(items, key=_stable_item_sort_key)
 
     with open(jsonl_path, "a", encoding="utf-8") as out_f:
         for item in items:
             mst  = item.get("법령일련번호", "")
             name = item.get("법령명한글", item.get("법령명_한글", "?"))
 
-            # 이미 수집된 법령이면 건너뜀 (첫 조문 doc_id 기준)
-            if f"law_{mst}_0000" in done_ids:
+            if mst in done_msts:
                 log.info(f"  [SKIP] {name} (MST={mst})")
                 stats["success"] += 1
                 continue
 
+            done_msts.add(mst)  # 동일 실행 내 재처리 방지
             log.info(f"  [{name}] MST={mst}")
             result = drf_service_get("law", mst, oc_key, "XML")
 
