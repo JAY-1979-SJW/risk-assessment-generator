@@ -24,9 +24,9 @@ if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
 from engine.kras_connector.mapper import build_risk_assessment  # noqa: E402
-from schemas.risk_assessment_build import RiskAssessmentBuildResponse  # noqa: E402
+from schemas.risk_assessment_build import ApiError, RiskAssessmentBuildResponse  # noqa: E402
 
-router = APIRouter(prefix="/v1/risk-assessment", tags=["risk-assessment-build"])
+router = APIRouter(prefix="/v1/risk-assessment", tags=["risk-assessment"])
 
 _SUPPORTED_WORK_TYPES = [
     "고소작업",
@@ -48,11 +48,12 @@ def _err(code: str, message: str, details: Optional[dict] = None) -> dict:
 
 @router.post(
     "/build",
+    operation_id="buildRiskAssessment",
     response_model=RiskAssessmentBuildResponse,
     responses={
-        400: {"description": "work_type 누락 또는 빈값"},
-        404: {"description": "등록되지 않은 작업유형"},
-        500: {"description": "내부 서버 오류"},
+        400: {"model": ApiError, "description": "work_type 누락 또는 빈값"},
+        404: {"model": ApiError, "description": "등록되지 않은 작업유형"},
+        500: {"model": ApiError, "description": "내부 서버 오류"},
     },
 )
 def build(body: Optional[Any] = Body(default=None)):
