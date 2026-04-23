@@ -85,7 +85,7 @@ data/forms/**
 
 # 엔진/엑셀 출력 산출물
 export/
-engine/output/
+# engine/output/ Python 소스 파일은 git 추적 유지 (xlsx 산출물은 라인 16 *.xlsx 전역 제외)
 
 # 임시·캐시
 tmp/
