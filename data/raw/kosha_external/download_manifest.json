@@ -1,0 +1,167 @@
+[
+  {
+    "category": "work_plan",
+    "doc_type": "작업계획서",
+    "title": "작업계획서 및 안전교육일지 (조선업 본선용)",
+    "authority": "B",
+    "origin": "KOSHA 조선업 자료실 (articleNo=327835)",
+    "url": "https://oshri.kosha.or.kr/kosha/data/shipbuilding_A.do?mode=download&articleNo=327835&attachNo=171689",
+    "local": "data/raw/kosha_external/work_plan/작업계획서_및_안전교육일지[KCTC].doc",
+    "size": 177664,
+    "msg": "skip (existing same size, 177,664B)"
+  },
+  {
+    "category": "hoisting",
+    "doc_type": "작업계획서",
+    "title": "건설현장 중량물 취급 작업계획서 (이동식 크레인) 작성지침 C-102-2023",
+    "authority": "B",
+    "origin": "KOSHA Guide C-102-2023",
+    "url": "https://oshri.kosha.or.kr/extappKosha/kosha/guidance/fileDownload.do?sfhlhTchnlgyManualNo=C-102-2023&fileOrdrNo=2",
+    "local": "data/raw/kosha_external/hoisting/C-102-2023 건설현장의 중량물 취급 작업계획서 (이동식크레인) 작성지침.pdf",
+    "size": 227298,
+    "msg": "skip (existing same size, 227,298B)"
+  },
+  {
+    "category": "work_plan",
+    "doc_type": "작업계획서",
+    "title": "전기작업계획서 작성에 관한 기술지침 E-154-2016",
+    "authority": "B",
+    "origin": "KOSHA Guide E-154-2016",
+    "url": "https://oshri.kosha.or.kr/extappKosha/kosha/guidance/fileDownload.do?sfhlhTchnlgyManualNo=E-154-2016&fileOrdrNo=3",
+    "local": "data/raw/kosha_external/work_plan/E-154-2016 전기작업계획서의 작성에 관한 기술지침.pdf",
+    "size": 281647,
+    "msg": "saved 281,647B"
+  },
+  {
+    "category": "excavation",
+    "doc_type": "작업계획서",
+    "title": "굴착공사 안전작업 지침 C-39-2023",
+    "authority": "B",
+    "origin": "KOSHA Guide C-39-2023",
+    "url": "https://oshri.kosha.or.kr/extappKosha/kosha/guidance/fileDownload.do?sfhlhTchnlgyManualNo=C-39-2023&fileOrdrNo=2",
+    "local": "data/raw/kosha_external/excavation/C-39-2023 굴착공사 안전작업 지침.pdf",
+    "size": 156484,
+    "msg": "skip (existing same size, 156,484B)"
+  },
+  {
+    "category": "aerial_lift",
+    "doc_type": "작업계획서",
+    "title": "차량형 고소작업대 안전작업 자료 (재해 사례 및 작업계획서)",
+    "authority": "B",
+    "origin": "KOSHA 건설안전 자료실 (articleNo=453778)",
+    "url": "https://oshri.kosha.or.kr/kosha/data/construction.do?mode=download&articleNo=453778&attachNo=260018",
+    "local": "data/raw/kosha_external/aerial_lift/(건설업)_고소작업대_작업_중_추락.pdf",
+    "size": 190317,
+    "msg": "skip (existing same size, 190,317B)"
+  },
+  {
+    "category": "aerial_lift",
+    "doc_type": "작업계획서",
+    "title": "안전관리계획 및 위험성평가 — 시저형 고소작업대 사용",
+    "authority": "B",
+    "origin": "KOSHA e-book 572 (204)",
+    "url": "https://oshri.kosha.or.kr/ebook/fcatalog/download.jsp?kd=feb&sdir=572&cimg=&fn=204+%EC%95%88%EC%A0%84%EA%B4%80%EB%A6%AC%EA%B3%84%ED%9A%8D+%EB%B0%8F+%EC%9C%84%ED%97%98%EC%84%B1%ED%8F%89%EA%B0%80_%EC%8B%9C%EC%A0%80%ED%98%95+%EA%B3%A0%EC%86%8C%EC%9E%91%EC%97%85%EB%8C%80+%EC%82%AC%EC%9A%A9.pdf",
+    "local": "data/raw/kosha_external/aerial_lift/204 ¾ÈÀü°ü¸®°èÈ¹ ¹× À§Çè¼ºÆò°¡_½ÃÀúÇü °í¼ÒÀÛ¾÷´ë »ç¿ë.pdf",
+    "size": 130921,
+    "msg": "skip (existing same size, 130,921B)"
+  },
+  {
+    "category": "confined_space",
+    "doc_type": "작업계획서",
+    "title": "밀폐공간 작업 프로그램 수립 및 시행 기술지침 H-80-2021",
+    "authority": "B",
+    "origin": "KOSHA Guide H-80-2021",
+    "url": "https://oshri.kosha.or.kr/extappKosha/kosha/guidance/fileDownload.do?sfhlhTchnlgyManualNo=H-80-2021&fileOrdrNo=13",
+    "local": "data/raw/kosha_external/confined_space/H-80-2021 밀폐공간 작업 프로그램 수립 및 시행에 관한 기술지침.pdf",
+    "size": 557239,
+    "msg": "saved 557,239B"
+  },
+  {
+    "category": "confined_space",
+    "doc_type": "작업계획서",
+    "title": "밀폐공간 위험관리 기술지침 X-68-2015",
+    "authority": "B",
+    "origin": "KOSHA Guide X-68-2015",
+    "url": "https://oshri.kosha.or.kr/extappKosha/kosha/guidance/fileDownload.do?sfhlhTchnlgyManualNo=X-68-2015&fileOrdrNo=3",
+    "local": "data/raw/kosha_external/confined_space/X-68-2015 밀폐공간 위험관리에 관한 기술지침.pdf",
+    "size": 396962,
+    "msg": "saved 396,962B"
+  },
+  {
+    "category": "confined_space",
+    "doc_type": "안전작업매뉴얼",
+    "title": "밀폐공간 안전작업 매뉴얼",
+    "authority": "B",
+    "origin": "KOSHA 자료실 (articleNo=296344)",
+    "url": "https://oshri.kosha.or.kr/kosha/data/musculoskeletalPreventionData_A.do?mode=download&articleNo=296344&attachNo=166843",
+    "local": "data/raw/kosha_external/confined_space/경기도_안전작업이행확인서_및_작업일지.hwp",
+    "size": 48128,
+    "msg": "skip (existing same size, 48,128B)"
+  },
+  {
+    "category": "welding",
+    "doc_type": "작업계획서",
+    "title": "안전작업허가지침 (용접·화기 포함) P-94-2021",
+    "authority": "B",
+    "origin": "KOSHA Guide P-94-2021",
+    "url": "https://oshri.kosha.or.kr/extappKosha/kosha/guidance/fileDownload.do?sfhlhTchnlgyManualNo=P-94-2021&fileOrdrNo=2",
+    "local": "data/raw/kosha_external/welding/P-94-2021 안전작업허가지침.pdf",
+    "size": 477352,
+    "msg": "saved 477,352B"
+  },
+  {
+    "category": "tbm",
+    "doc_type": "TBM",
+    "title": "작업허가 및 작업전 안전회의에 관한 지침 Z-5-2022",
+    "authority": "B",
+    "origin": "KOSHA Guide Z-5-2022",
+    "url": "https://oshri.kosha.or.kr/extappKosha/kosha/guidance/fileDownload.do?sfhlhTchnlgyManualNo=Z-5-2022&fileOrdrNo=2",
+    "local": "data/raw/kosha_external/tbm/Z-5-2022_작업허가 및 작업전 안전회의에 관한 지침.pdf",
+    "size": 1438796,
+    "msg": "saved 1,438,796B"
+  },
+  {
+    "category": "tbm",
+    "doc_type": "TBM",
+    "title": "TBM 실행 시나리오 및 회의록 양식",
+    "authority": "B",
+    "origin": "KOSHA e-book 544",
+    "url": "https://kosha.or.kr/ebook/fcatalog/download.jsp?kd=feb&sdir=544&cimg=&fn=TBM+%EC%8B%A4%ED%96%89+%EC%8B%9C%EB%82%98%EB%A6%AC%EC%98%A4+%EB%B0%8F+%ED%9A%8C%EC%9D%98%EB%A1%9D+%EC%96%91%EC%8B%9D.pdf",
+    "local": "data/raw/kosha_external/tbm/TBM ½ÇÇà ½Ã³ª¸®¿À ¹× È¸ÀÇ·Ï ¾ç½Ä.pdf",
+    "size": 56779,
+    "msg": "skip (existing same size, 56,779B)"
+  },
+  {
+    "category": "education",
+    "doc_type": "교육일지",
+    "title": "안전보건교육일지 (양식) — MOEL 의정부지청",
+    "authority": "B",
+    "origin": "MOEL 의정부지청 자료실 (bbs_seq=1332895608140)",
+    "url": "https://www.moel.go.kr/local/uijeongbu/common/downloadFile.do?file_seq=21171285442&bbs_seq=1332895608140&bbs_id=LOCAL1",
+    "local": "data/raw/kosha_external/education/안전보건교육일지_양식_MOEL의정부지청.hwp",
+    "size": 51712,
+    "msg": "saved via session retry"
+  },
+  {
+    "category": "committee",
+    "doc_type": "회의록",
+    "title": "[별표 2의2] 산업안전보건위원회 회의록 양식 (법정 별표)",
+    "authority": "A",
+    "origin": "법령정보센터 flDownload (flSeq=138431615)",
+    "url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=138431615&flNm=%5B%EB%B3%84%ED%91%9C+2%EC%9D%982%5D+%EC%82%B0%EC%97%85%EC%95%88%EC%A0%84%EB%B3%B4%EA%B1%B4%EC%9C%84%EC%9B%90%ED%9A%8C+%ED%9A%8C%EC%9D%98%EB%A1%9D+%EC%96%91%EC%8B%9D&bylClsCd=200201",
+    "local": "data/raw/kosha_external/committee/[별표 2의2] 산업안전보건위원회 회의록 양식(국가보훈부 안전보건관리규정).pdf",
+    "size": 44946,
+    "msg": "saved via session retry"
+  },
+  {
+    "category": "general",
+    "doc_type": "작업계획서",
+    "title": "안전작업절차에 관한 지침 Z-47-2022",
+    "authority": "B",
+    "origin": "KOSHA Guide Z-47-2022",
+    "url": "https://oshri.kosha.or.kr/extappKosha/kosha/guidance/fileDownload.do?sfhlhTchnlgyManualNo=Z-47-2022&fileOrdrNo=2",
+    "local": "data/raw/kosha_external/general/Z-47-2022_안전작업절차에 관한 지침.pdf",
+    "size": 93044,
+    "msg": "saved 93,044B"
+  }
+]
