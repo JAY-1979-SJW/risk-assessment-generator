@@ -1,0 +1,187 @@
+{
+  "version": "v1.0",
+  "effective_from": "2026-04-23",
+  "scope": "위험성평가표 본표 (위험성평가실시) — 1차 확정",
+  "legal_basis": [
+    "산업안전보건법 제36조",
+    "산업안전보건법 시행규칙 제37조 (제1항 각 호 기록 필수)",
+    "고용노동부고시 제2023-19호 (사업장 위험성평가에 관한 지침)",
+    "건설업 위험성평가 활용가이드 (고용노동부)"
+  ],
+  "evidence": {
+    "공문기반 서식 v2": "export/위험성평가표_공문기반_20250114_v2.xlsx (5시트, 본표 16컬럼)",
+    "KRAS 표준양식": "export/위험성평가표_표준양식_테스트.xlsx (5시트, 본표 12컬럼 축약형)"
+  },
+  "fields": [
+    {
+      "id": "process",
+      "label": "공정명",
+      "category": "legal_required",
+      "legal_ref": "시행규칙 §37-1호 '유해위험요인 대상'의 특정 요소",
+      "description": "대분류 작업명. 예: 용접·용단 작업, 전기작업",
+      "industry_note": "건설업은 공종(工種) 명칭 사용 권장"
+    },
+    {
+      "id": "sub_work",
+      "label": "세부작업명",
+      "category": "industry_construction",
+      "legal_ref": "건설업 활용가이드 — 단위작업(unit task) 분해 원칙",
+      "description": "공정 하위 단위작업. 예: 천장 배관 고정, 활선 인입",
+      "notes": "건설업 필수. 비건설업에서는 선택."
+    },
+    {
+      "id": "hazard_category_major",
+      "label": "위험분류 (대)",
+      "category": "practice_recommended",
+      "legal_ref": "고시 별표/KOSHA 분류 체계",
+      "description": "재해유형 대분류. 예: 추락·전도·감전·화재·폭발·끼임·질식·화학적·물리적",
+      "notes": "KRAS 축약 12컬럼 서식은 통합 표기, 공문 16컬럼 서식은 대/중 분리"
+    },
+    {
+      "id": "hazard_category_minor",
+      "label": "위험분류 (중)",
+      "category": "practice_recommended",
+      "legal_ref": "고시 별표/KOSHA 분류 체계",
+      "description": "재해유형 중분류. 예: 추락>고소작업, 감전>활선, 화재>용접",
+      "notes": "건설업 공문기반 서식에서 사용. 선택."
+    },
+    {
+      "id": "hazard",
+      "label": "유해위험요인",
+      "category": "legal_required",
+      "legal_ref": "시행규칙 §37-1호",
+      "description": "구체 상황·대상·예상결과 자유서술. 예: '활선 접촉으로 감전될 수 있음'",
+      "notes": "명사형 나열이 아닌 '상황+원인+결과' 서술 요구"
+    },
+    {
+      "id": "legal_basis",
+      "label": "관련근거 (법적기준)",
+      "category": "practice_recommended",
+      "legal_ref": "고시 §8 (위험성 결정 시 법령 기준 참고)",
+      "description": "산안기준규칙 조문, KOSHA 기술자료 등 인용",
+      "example": "산업안전보건기준에 관한 규칙 제321조"
+    },
+    {
+      "id": "current_measures",
+      "label": "현재의 안전보건조치",
+      "category": "legal_required",
+      "legal_ref": "고시 §10 (현재 관리수준 파악)",
+      "description": "현장에 이미 적용 중인 보호구·안전장치·절차. '현재 상태'에서 출발하는 것이 평가의 출발점.",
+      "notes": "제안(감소대책)과 구분. 공란 허용하되 감사 지적 대상."
+    },
+    {
+      "id": "risk_scale",
+      "label": "평가척도",
+      "category": "practice_recommended",
+      "legal_ref": "고시 §7 (위험성 추정 방식 선택)",
+      "description": "'3x3'(곱셈식), '4x4', 체크리스트식 등 평가방식 표기",
+      "default": "3x3"
+    },
+    {
+      "id": "probability",
+      "label": "가능성 (빈도)",
+      "category": "legal_required",
+      "legal_ref": "시행규칙 §37-2호 (위험성 결정 내용)",
+      "description": "사고·질병으로 이어질 가능성 1~3 정수",
+      "domain": {
+        "1": "하 — 발생 가능성 낮음 (비정상 작업 수반)",
+        "2": "중 — 발생 가능성 있음 (일상 작업 수반)",
+        "3": "상 — 발생 가능성 높음 (장시간 일상 작업)"
+      }
+    },
+    {
+      "id": "severity",
+      "label": "중대성 (강도)",
+      "category": "legal_required",
+      "legal_ref": "시행규칙 §37-2호",
+      "description": "사고·질병 발생 시 피해 정도 1~3 정수",
+      "domain": {
+        "1": "소 — 응급처치 수준 경상",
+        "2": "중 — 휴업 필요한 부상·질병",
+        "3": "대 — 중상·사망·중증 질병"
+      }
+    },
+    {
+      "id": "risk_level",
+      "label": "위험성",
+      "category": "legal_required",
+      "legal_ref": "시행규칙 §37-2호",
+      "description": "가능성 × 중대성 곱 (1~9)",
+      "bands": {
+        "1-2": "낮음",
+        "3-4": "보통",
+        "6": "높음",
+        "9": "매우높음"
+      }
+    },
+    {
+      "id": "control_measures",
+      "label": "위험성 감소대책",
+      "category": "legal_required",
+      "legal_ref": "시행규칙 §37-3호 (위험성 결정에 따른 조치의 내용)",
+      "description": "추가 도입·개선할 안전보건조치. 구체 실행 단위로 서술.",
+      "notes": "고시 §11 위험성 우선순위에 따른 감소대책 수립 원칙 준수"
+    },
+    {
+      "id": "residual_risk",
+      "label": "개선후 위험성",
+      "category": "practice_recommended",
+      "legal_ref": "고시 §12 (감소대책 이행 후 잔여위험성 재추정)",
+      "description": "감소대책 이행 후 가능성 × 중대성 재추정 (1~9)",
+      "notes": "동일 척도(3x3) 사용"
+    },
+    {
+      "id": "target_date",
+      "label": "개선 예정일",
+      "category": "practice_recommended",
+      "legal_ref": "고시 §13 (이행계획 수립)",
+      "description": "감소대책 이행 예정 일자 (YYYY-MM-DD)"
+    },
+    {
+      "id": "completion_date",
+      "label": "완료일",
+      "category": "practice_recommended",
+      "legal_ref": "고시 §13",
+      "description": "감소대책 실제 완료 일자 (YYYY-MM-DD). 미완료 시 공란."
+    },
+    {
+      "id": "responsible_person",
+      "label": "담당자",
+      "category": "practice_recommended",
+      "legal_ref": "고시 §13",
+      "description": "감소대책 이행 책임자 성명",
+      "notes": "관리감독자·안전관리자·현장소장 등 직책 병기 권장"
+    }
+  ],
+  "meta_header_fields": [
+    { "id": "company_name", "label": "회사명", "category": "legal_required", "source": "시트1/시트5 상단 메타" },
+    { "id": "site_name", "label": "현장명/사업장명", "category": "legal_required", "source": "시트1/시트5 상단 메타" },
+    { "id": "industry", "label": "업종", "category": "legal_required", "source": "시트1 상단 메타" },
+    { "id": "representative", "label": "대표자", "category": "legal_required", "source": "시트1 상단 메타" },
+    { "id": "assessment_type", "label": "평가유형", "category": "legal_required", "source": "시트1 상단 메타", "domain": ["최초평가", "정기평가", "수시평가", "상시평가"] },
+    { "id": "assessment_date", "label": "평가일자", "category": "legal_required", "source": "시트1/시트5 상단 메타" }
+  ],
+  "category_summary": {
+    "legal_required": [
+      "process", "hazard", "current_measures",
+      "probability", "severity", "risk_level", "control_measures",
+      "company_name", "site_name", "industry", "representative",
+      "assessment_type", "assessment_date"
+    ],
+    "practice_recommended": [
+      "hazard_category_major", "hazard_category_minor",
+      "legal_basis", "risk_scale",
+      "residual_risk", "target_date", "completion_date", "responsible_person"
+    ],
+    "industry_construction": [
+      "sub_work"
+    ]
+  },
+  "notes": [
+    "법적 필수의 근거는 시행규칙 §37 각호. 고시·안내서는 해당 필수 항목을 구체화한 것.",
+    "'practice_recommended' 항목은 감사·원청 요구·재해 조사 대응에 실질적으로 필요.",
+    "'industry_construction'은 건설업 활용가이드 기준 권장. 비건설업에서는 선택.",
+    "관련근거(legal_basis) 는 법적 필수는 아니나, 명시 없으면 감독관 지적 대상.",
+    "상시평가(일일)를 채택하는 건설현장은 TBM 일지와 본표를 동시 유지 필수."
+  ]
+}
