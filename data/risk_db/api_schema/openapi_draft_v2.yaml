@@ -1,0 +1,323 @@
+openapi: "3.1.0"
+
+info:
+  title: KRAS Risk Assessment Mapping API
+  version: "2.0.0"
+  description: |
+    위험성평가표 자동생성 — 작업유형 기반 매핑 + 선택형 보강(v2).
+
+    **v2 변경 요약**
+    - request: `equipment`, `location`, `conditions` (각 optional, whitelist)
+    - response: `input_context` (v2 입력 제공 시에만 포함, v1 하위호환)
+    - error: `INVALID_INPUT_OPTION` (400) 추가
+    - hazards 구조는 v1 유지. 규칙 기반 후처리로 `controls` 추가/`confidence_score` 상향만 수행.
+    - related_expc_ids 노출 금지 정책 유지.
+
+servers:
+  - url: https://kras.haehan-ai.kr/api/v1
+    description: 운영 서버
+
+paths:
+  /risk-assessment/build:
+    post:
+      summary: 작업유형 기반 위험성평가 매핑 + 선택형 보강
+      operationId: buildRiskAssessment
+      description: |
+        `work_type`을 입력받아 기본 hazard/controls/references를 반환한다.
+        v2에서 `equipment`/`location`/`conditions`를 함께 보내면 rule 기반 후처리로 결과를 보강한다.
+
+        - work_type 단독 요청은 v1과 의미 동일 (input_context 응답 미포함)
+        - 규칙은 `data/risk_db/rules/enrichment_rule_matrix.json` 참조
+        - 허용값 whitelist 위반 시 400 INVALID_INPUT_OPTION
+      tags:
+        - risk-assessment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RiskAssessmentBuildRequest"
+            examples:
+              v1_호환:
+                summary: v1 — work_type 단독
+                value:
+                  work_type: "전기작업"
+              v2_전기_사다리_옥상_활선근접:
+                summary: v2 — 전기작업 + 사다리 + 옥상 + 활선근접
+                value:
+                  work_type: "전기작업"
+                  equipment: ["사다리"]
+                  location: ["옥상"]
+                  conditions: ["활선근접"]
+              v2_밀폐_맨홀:
+                summary: v2 — 밀폐공간 + 맨홀
+                value:
+                  work_type: "밀폐공간 작업"
+                  location: ["맨홀"]
+                  conditions: ["밀폐공간"]
+      responses:
+        "200":
+          description: 조회 성공
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RiskAssessmentBuildResponse"
+        "400":
+          description: 요청 검증 실패 (work_type 누락·빈값 또는 옵션 whitelist 위반)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+              examples:
+                work_type_누락:
+                  summary: work_type 누락
+                  value:
+                    error:
+                      code: "MISSING_WORK_TYPE"
+                      message: "work_type 필드가 필요합니다."
+                      details: {}
+                work_type_빈값:
+                  summary: work_type 빈값
+                  value:
+                    error:
+                      code: "EMPTY_WORK_TYPE"
+                      message: "work_type 값이 비어 있습니다."
+                      details:
+                        work_type: ""
+                invalid_option_빈문자열:
+                  summary: equipment 배열 내 빈 문자열
+                  value:
+                    error:
+                      code: "INVALID_INPUT_OPTION"
+                      message: "입력 옵션이 허용되지 않은 값입니다."
+                      details:
+                        field: "equipment"
+                        value: ""
+                        allowed_values:
+                          - "사다리"
+                          - "이동식비계"
+                          - "고소작업대"
+                          - "전동공구"
+                          - "절단기"
+                          - "용접기"
+                          - "크레인"
+                          - "굴착기"
+                invalid_option_미지원:
+                  summary: 미지원 equipment 값
+                  value:
+                    error:
+                      code: "INVALID_INPUT_OPTION"
+                      message: "입력 옵션이 허용되지 않은 값입니다."
+                      details:
+                        field: "equipment"
+                        value: "없는장비"
+                        allowed_values:
+                          - "사다리"
+                          - "이동식비계"
+                          - "고소작업대"
+                          - "전동공구"
+                          - "절단기"
+                          - "용접기"
+                          - "크레인"
+                          - "굴착기"
+        "404":
+          description: 등록되지 않은 작업유형
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+        "500":
+          description: 내부 서버 오류
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+
+components:
+  schemas:
+
+    RiskAssessmentBuildRequest:
+      type: object
+      required:
+        - work_type
+      additionalProperties: false
+      properties:
+        work_type:
+          type: string
+          minLength: 1
+          description: "등록된 10개 작업 유형과 완전 일치 (v1 정책 동일)"
+          example: "전기작업"
+        equipment:
+          type: array
+          description: "사용 장비 whitelist (v2 신규, optional)"
+          items:
+            type: string
+            minLength: 1
+            enum:
+              - 사다리
+              - 이동식비계
+              - 고소작업대
+              - 전동공구
+              - 절단기
+              - 용접기
+              - 크레인
+              - 굴착기
+          default: []
+        location:
+          type: array
+          description: "작업 장소 whitelist (v2 신규, optional)"
+          items:
+            type: string
+            minLength: 1
+            enum:
+              - 옥상
+              - 실내
+              - 지하
+              - 맨홀
+              - 협소구간
+              - 외부
+              - 천장부
+              - PIT
+          default: []
+        conditions:
+          type: array
+          description: "추가 조건 whitelist (v2 신규, optional)"
+          items:
+            type: string
+            minLength: 1
+            enum:
+              - 활선근접
+              - 화기작업
+              - 중량물취급
+              - 협업작업
+              - 야간작업
+              - 우천
+              - 밀폐공간
+              - 추락위험
+              - 비산분진
+              - 소음발생
+          default: []
+
+    RiskAssessmentBuildResponse:
+      type: object
+      required:
+        - work_type
+        - hazards
+      additionalProperties: false
+      properties:
+        work_type:
+          type: string
+        hazards:
+          type: array
+          minItems: 1
+          description: "위험요인 배열 (confidence_score DESC)"
+          items:
+            $ref: "#/components/schemas/HazardItem"
+        input_context:
+          $ref: "#/components/schemas/InputContext"
+          description: "v2 입력 제공 시에만 포함. v1 호환 요청에서는 필드 자체가 미출력."
+
+    InputContext:
+      type: object
+      required:
+        - equipment
+        - location
+        - conditions
+      additionalProperties: false
+      description: "v2 입력 정규화 결과 (whitelist 통과·dedupe 완료)"
+      properties:
+        equipment:
+          type: array
+          items: { type: string }
+        location:
+          type: array
+          items: { type: string }
+        conditions:
+          type: array
+          items: { type: string }
+
+    HazardItem:
+      type: object
+      required:
+        - hazard
+        - controls
+        - references
+        - confidence_score
+        - evidence_summary
+      additionalProperties: false
+      properties:
+        hazard:
+          type: string
+          minLength: 1
+        controls:
+          type: array
+          minItems: 1
+          items:
+            type: string
+            minLength: 1
+        references:
+          $ref: "#/components/schemas/References"
+        confidence_score:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+        evidence_summary:
+          type: string
+
+    References:
+      type: object
+      required:
+        - law_ids
+        - moel_expc_ids
+        - kosha_ids
+      additionalProperties: false
+      description: "참조 출처 3축 — related_expc_ids 노출 금지"
+      properties:
+        law_ids:
+          type: array
+          items:
+            type: integer
+            minimum: 1
+        moel_expc_ids:
+          type: array
+          items:
+            type: integer
+            minimum: 1
+        kosha_ids:
+          type: array
+          items:
+            type: integer
+            minimum: 1
+
+    ApiError:
+      type: object
+      required:
+        - error
+      additionalProperties: false
+      properties:
+        error:
+          $ref: "#/components/schemas/ApiErrorDetail"
+
+    ApiErrorDetail:
+      type: object
+      required:
+        - code
+        - message
+      additionalProperties: false
+      properties:
+        code:
+          type: string
+          enum:
+            - MISSING_WORK_TYPE
+            - EMPTY_WORK_TYPE
+            - UNKNOWN_WORK_TYPE
+            - INVALID_INPUT_OPTION
+            - INTERNAL_ERROR
+        message:
+          type: string
+          minLength: 1
+        details:
+          type: object
+          description: "에러 상세 — DB 컬럼명 노출 금지"
+          additionalProperties: true
