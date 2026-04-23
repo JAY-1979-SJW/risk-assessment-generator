@@ -29,6 +29,7 @@ from engine.output.education_log_builder import (
     MAX_ATTENDEES,
     SHEET_NAME,
     SHEET_HEADING,
+    _SHEET_SUBTITLE,
     build_education_log_excel,
 )
 
@@ -151,7 +152,7 @@ def validate_empty(xlsx_bytes: bytes) -> list[bool]:
     # 제목·헤더 외 값 셀이 모두 빈 문자열 또는 정수(순번)인지 확인
     non_blank_non_header = []
     header_texts = {
-        SHEET_HEADING, "교육 내용", "수강자 명단",
+        SHEET_HEADING, _SHEET_SUBTITLE, "교육 내용", "수강자 명단",
         "사업장명", "사업장 소재지", "교육 종류", "교육 장소",
         "교육 일시", "교육 시간", "교육 대상", "강사명", "강사 자격",
         "순번", "교육 과목명", "교육 내용 요약", "시간(h)",

@@ -143,12 +143,25 @@ def _apply_col_widths(ws) -> None:
 # 섹션별 렌더링 함수
 # ---------------------------------------------------------------------------
 
+_SHEET_SUBTITLE = "「산업안전보건법」 제29조에 따른 안전보건교육"
+_FONT_SUBTITLE  = Font(name="맑은 고딕", size=9, italic=True)
+
+
 def _write_title(ws, row: int) -> int:
     ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=TOTAL_COLS)
     cell = ws.cell(row=row, column=1, value=SHEET_HEADING)
     cell.font      = _FONT_TITLE
     cell.alignment = _ALIGN_CENTER
     ws.row_dimensions[row].height = 28
+
+    # P1: 법적 근거 부제 (시행규칙 제32조 / 법 제29조)
+    row += 1
+    ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=TOTAL_COLS)
+    sub = ws.cell(row=row, column=1, value=_SHEET_SUBTITLE)
+    sub.font      = _FONT_SUBTITLE
+    sub.alignment = _ALIGN_CENTER
+    ws.row_dimensions[row].height = 16
+
     return row + 1
 
 
@@ -234,7 +247,7 @@ def _write_subject_table(ws, start_row: int,
         _write_cell(ws, r, 2, 4, _v(subj, "subject_name"),   font=_FONT_DEFAULT, align=_ALIGN_LEFT)
         _write_cell(ws, r, 5, 7, _v(subj, "subject_content"), font=_FONT_DEFAULT, align=_ALIGN_LEFT)
         _write_cell(ws, r, 8, 8, _v(subj, "subject_hours"),  font=_FONT_DEFAULT, align=_ALIGN_CENTER)
-        ws.row_dimensions[r].height = 20
+        ws.row_dimensions[r].height = 30  # P2: 20→30pt (내용 기록 공간)
         r += 1
 
     return r
@@ -268,7 +281,7 @@ def _write_attendee_table(ws, start_row: int,
         _write_cell(ws, r, 2, 3, _v(att, "attendee_name"),     font=_FONT_DEFAULT, align=_ALIGN_LEFT)
         _write_cell(ws, r, 4, 5, _v(att, "attendee_job_type"), font=_FONT_DEFAULT, align=_ALIGN_LEFT)
         _write_cell(ws, r, 6, 8, "",                            font=_FONT_DEFAULT, align=_ALIGN_LEFT)
-        ws.row_dimensions[r].height = 18
+        ws.row_dimensions[r].height = 22  # P3: 18→22pt (서명 공간)
         r += 1
 
     return r
@@ -292,7 +305,7 @@ def _write_confirmation(ws, start_row: int, data: Dict[str, Any]) -> int:
                             _L1, _V1_START, _V1_END)
     _write_label_value_pair(ws, r, "확인 일자", _v(data, "confirm_date"),
                             _L2, _V2_START, _V2_END)
-    ws.row_dimensions[r].height = 30
+    ws.row_dimensions[r].height = 40  # P4: 30→40pt (직인 공간)
 
     return r + 1
 
