@@ -1,0 +1,52 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "created": "2026-04-23",
+    "source_table": "risk_mapping_core",
+    "consumer": "engine/kras_connector/mapper.py :: build_risk_assessment()"
+  },
+  "input": {
+    "work_type": "string — risk_mapping_core.work_type 값과 완전 일치 필요",
+    "supported_values": [
+      "고소작업",
+      "굴착작업",
+      "양중작업",
+      "이동식비계 작업",
+      "고소작업대 작업",
+      "밀폐공간 작업",
+      "화기작업",
+      "전기작업",
+      "절단/천공 작업",
+      "중장비 작업"
+    ]
+  },
+  "output": {
+    "work_type": "string",
+    "hazards": [
+      {
+        "hazard": "string — risk_mapping_core.hazard",
+        "controls": "string[] — control_measures.measures 배열 그대로",
+        "references": {
+          "law_ids": "number[] — related_law_ids 그대로",
+          "moel_expc_ids": "number[] — related_moel_expc_ids 그대로 (related_expc_ids 사용 금지)",
+          "kosha_ids": "number[] — related_kosha_ids 그대로"
+        },
+        "confidence_score": "float — 0.0~1.0",
+        "evidence_summary": "string — 100자 이상"
+      }
+    ]
+  },
+  "constraints": {
+    "hazards_min": 1,
+    "controls_per_hazard_min": 1,
+    "controls_per_hazard_target": "4~6",
+    "reference_axes": 3,
+    "sort_order": "confidence_score DESC",
+    "dedup": "hazard 중복 불가 (UNIQUE 제약 보장)",
+    "forbidden_field": "related_expc_ids"
+  },
+  "error_cases": {
+    "work_type_not_found": {"hazards": [], "work_type": "<입력값>"},
+    "partial_data_warn": "WARN 로그 기록 후 해당 필드 빈 값으로 반환"
+  }
+}
