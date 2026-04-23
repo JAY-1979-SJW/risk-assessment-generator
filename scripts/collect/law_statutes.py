@@ -12,7 +12,7 @@ import time
 from ._base import (
     get_logger, get_service_key, get_oc_key,
     gw_collect_all, drf_collect_all,
-    save_json, save_raw_dated, write_status, now_iso, ROOT,
+    save_json, save_raw_dated, write_status, today_str, ROOT,
 )
 
 log = get_logger("law_statutes")
@@ -133,7 +133,7 @@ def run() -> bool:
         "source":      "data.go.kr+law.go.kr",
         "target":      TARGET,
         "endpoint":    GW_ENDPOINT,
-        "fetched_at":  now_iso(),
+        "fetched_at":  today_str(),
         "queries":     GW_QUERIES,
         "num_of_rows": 100,
         "total_count": len(deduped),
@@ -143,7 +143,7 @@ def run() -> bool:
         "items":       deduped,
     }
     save_json(OUT_PATH, output)
-    save_raw_dated(TARGET, "laws_index.json", output)
+    save_raw_dated(TARGET, "laws_index.json", {k: v for k, v in output.items() if k != "fetched_at"})
 
     status = "SUCCESS" if fail == 0 else ("PARTIAL" if success > 0 else "FAIL")
     write_status("law_statutes", status, success, fail)

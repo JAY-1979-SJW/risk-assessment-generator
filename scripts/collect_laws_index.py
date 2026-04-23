@@ -87,7 +87,7 @@ def collect_law_meta(target: dict) -> dict:
         "mst": None,
         "effective_date": None,
         "raw_url": None,
-        "fetched_at": datetime.now(timezone.utc).isoformat(),
+        "fetched_at": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "status": "pending",
         "error": None,
     }
@@ -138,13 +138,13 @@ def run() -> bool:
                 "law_name": target["query"],
                 "status": "error",
                 "error": str(e),
-                "fetched_at": datetime.now(timezone.utc).isoformat(),
+                "fetched_at": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
             })
             fail += 1
 
     output = {
         "version": "1.0",
-        "fetched_at": datetime.now(timezone.utc).isoformat(),
+        "fetched_at": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "source": "law.go.kr",
         "total": len(results),
         "success": success,

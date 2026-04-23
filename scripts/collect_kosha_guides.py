@@ -101,7 +101,7 @@ def collect_guide_meta(guide: dict) -> dict:
         "source": "kosha.or.kr",
         "source_org": guide["source_org"],
         "raw_url": f"{KOSHA_BASE}/kosha/data/publicDataList.do",
-        "fetched_at": datetime.now(timezone.utc).isoformat(),
+        "fetched_at": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "status": "pending",
         "error": None,
     }
@@ -145,13 +145,13 @@ def run() -> bool:
                 "title": guide["title"],
                 "status": "error",
                 "error": str(e),
-                "fetched_at": datetime.now(timezone.utc).isoformat(),
+                "fetched_at": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
             })
             fail += 1
 
     output = {
         "version": "1.0",
-        "fetched_at": datetime.now(timezone.utc).isoformat(),
+        "fetched_at": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "source": "kosha.or.kr",
         "total": len(results),
         "success": success,

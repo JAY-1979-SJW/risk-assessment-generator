@@ -14,7 +14,7 @@
 """
 import time
 import requests
-from ._base import get_logger, get_env, save_json, write_status, now_iso, ROOT
+from ._base import get_logger, get_env, save_json, write_status, today_str, ROOT
 
 log = get_logger("law_moel_expc")
 
@@ -123,7 +123,7 @@ def run() -> bool:
         deduped.append(item)
 
     save_json(OUT_PATH, {
-        "version": "1.0", "fetched_at": now_iso(), "source": "law.go.kr",
+        "version": "1.0", "fetched_at": today_str(), "source": "law.go.kr",
         "api_target": "moelCgmExpc",
         "keywords": KEYWORDS,
         "total": len(deduped), "success": success, "fail": fail,

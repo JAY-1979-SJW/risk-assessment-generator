@@ -12,7 +12,7 @@ target: licbyl
 import time
 from ._base import (
     get_logger, get_service_key, gw_collect_all,
-    save_json, write_status, now_iso, ROOT,
+    save_json, write_status, today_str, ROOT,
 )
 
 log = get_logger("law_licbyl")
@@ -71,7 +71,7 @@ def run() -> bool:
         "source":      "data.go.kr",
         "target":      TARGET,
         "endpoint":    ENDPOINT,
-        "fetched_at":  now_iso(),
+        "fetched_at":  today_str(),
         "queries":     QUERIES,
         "num_of_rows": 100,
         "total_count": len(deduped),
