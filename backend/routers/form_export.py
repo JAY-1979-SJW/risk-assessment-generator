@@ -123,9 +123,12 @@ def _validate(form_type: str, form_data: dict,
                                "필수 입력 항목이 누락되었습니다.",
                                {"missing_fields": missing})
 
-    # 3. repeat_field 길이 제한
-    rf       = spec.get("repeat_field")
-    max_rows = spec.get("max_repeat_rows")
+    # 3. repeat_field 길이 제한 + extra_list_fields 타입 확인
+    rf            = spec.get("repeat_field")
+    max_rows      = spec.get("max_repeat_rows")
+    extra_lists   = set(spec.get("extra_list_fields") or [])
+    list_fields   = ({rf} if rf else set()) | extra_lists  # 타입 체크 제외 대상 전체
+
     if rf and max_rows and rf in form_data and form_data[rf] is not None:
         rows = form_data[rf]
         if not isinstance(rows, list):
@@ -142,7 +145,6 @@ def _validate(form_type: str, form_data: dict,
                                        "limit": max_rows,
                                        "received": len(rows),
                                    })
-        # repeat 항목이 dict인지 확인
         for idx, item in enumerate(rows):
             if not isinstance(item, dict):
                 return _error_response(422, "INVALID_FIELD_TYPE",
@@ -152,9 +154,30 @@ def _validate(form_type: str, form_data: dict,
                                            "received": type(item).__name__,
                                        })
 
-    # 4. 스칼라 필드 타입 (repeat_field 제외, string|null만 허용)
+    # extra_list_fields — list 타입만 허용 (max_rows 제한 없음, 항목은 dict만)
+    for elf in extra_lists:
+        if elf not in form_data or form_data[elf] is None:
+            continue
+        val = form_data[elf]
+        if not isinstance(val, list):
+            return _error_response(422, "INVALID_FIELD_TYPE",
+                                   "필드 타입이 올바르지 않습니다.", {
+                                       "field": elf,
+                                       "expected": "array",
+                                       "received": type(val).__name__,
+                                   })
+        for idx, item in enumerate(val):
+            if not isinstance(item, dict):
+                return _error_response(422, "INVALID_FIELD_TYPE",
+                                       "필드 타입이 올바르지 않습니다.", {
+                                           "field": f"{elf}[{idx}]",
+                                           "expected": "object",
+                                           "received": type(item).__name__,
+                                       })
+
+    # 4. 스칼라 필드 타입 (list_fields 전체 제외, string|null만 허용)
     for key, val in form_data.items():
-        if key == rf:
+        if key in list_fields:
             continue
         if val is not None and not isinstance(val, str):
             return _error_response(422, "INVALID_FIELD_TYPE",

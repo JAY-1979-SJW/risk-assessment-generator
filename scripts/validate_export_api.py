@@ -5,7 +5,7 @@ TestClient로 최소 FastAPI 앱을 구성해 엔드포인트를 검증.
 DB 연결 없이 동작 (form_registry + builder만 사용).
 
 검증 항목:
-  1. GET /api/forms/types — 3종 포함
+  1. GET /api/forms/types — 5종 포함
   2. POST /api/forms/export — education_log, file 모드
   3. POST /api/forms/export — excavation_workplan, base64 모드
   4. POST /api/forms/export — risk_assessment, file 모드
@@ -89,7 +89,13 @@ _EXC_FULL = {
 }
 
 _XLSX_MIME = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-_EXPECTED_TYPES = {"education_log", "excavation_workplan", "risk_assessment"}
+_EXPECTED_TYPES = {
+    "education_log",
+    "excavation_workplan",
+    "risk_assessment",
+    "vehicle_construction_workplan",
+    "material_handling_workplan",
+}
 
 _RISK_FULL = {
     "company_name": "테스트 주식회사",

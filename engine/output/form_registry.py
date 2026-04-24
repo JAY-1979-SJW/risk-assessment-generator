@@ -5,8 +5,11 @@ form_type 문자열로 builder 함수를 선택하고 호출하는 최소 디스
 export API 연결 전 단계 — builder 호출 인터페이스만 제공.
 
 지원 form_type:
-    education_log        — 안전보건교육일지 (v1.1)
-    excavation_workplan  — 굴착 작업계획서 (v1.0)
+    education_log                  — 안전보건교육일지 (v1.1)
+    risk_assessment                — 위험성평가표 (v1.0)
+    excavation_workplan            — 굴착 작업계획서 (v1.0)
+    vehicle_construction_workplan  — 차량계 건설기계 작업계획서 (v1.0)
+    material_handling_workplan     — 차량계 하역운반기계 작업계획서 (v1.0)
 
 사용법:
     from engine.output.form_registry import (
@@ -24,6 +27,8 @@ from typing import Any, Callable, Tuple
 
 from engine.output.education_log_builder import build_education_log_excel
 from engine.output.form_excel_builder import build_form_excel as _build_risk_assessment_excel_raw
+from engine.output.material_handling_workplan_builder import build_material_handling_workplan_excel
+from engine.output.vehicle_workplan_builder import build_vehicle_workplan_excel
 from engine.output.workplan_builder import build_excavation_workplan_excel
 
 
@@ -55,19 +60,21 @@ class FormSpec:
     builder: Callable[[dict], bytes]
     required_fields: Tuple[str, ...]
     optional_fields: Tuple[str, ...]
-    repeat_field: str | None        # 반복행 list 필드명 (없으면 None)
-    max_repeat_rows: int | None     # 최대 반복행 수 (없으면 None)
+    repeat_field: str | None          # 주 반복행 list 필드명 (없으면 None)
+    max_repeat_rows: int | None       # 주 반복행 최대 행 수 (없으면 None)
+    extra_list_fields: Tuple[str, ...] = ()  # 2번째 이상 list 필드명 (validator 타입 체크 제외)
 
     def to_dict(self) -> dict[str, Any]:
         """builder 제외 공개 메타데이터 dict 반환."""
         return {
-            "form_type":       self.form_type,
-            "display_name":    self.display_name,
-            "version":         self.version,
-            "required_fields": list(self.required_fields),
-            "optional_fields": list(self.optional_fields),
-            "repeat_field":    self.repeat_field,
-            "max_repeat_rows": self.max_repeat_rows,
+            "form_type":         self.form_type,
+            "display_name":      self.display_name,
+            "version":           self.version,
+            "required_fields":   list(self.required_fields),
+            "optional_fields":   list(self.optional_fields),
+            "repeat_field":      self.repeat_field,
+            "max_repeat_rows":   self.max_repeat_rows,
+            "extra_list_fields": list(self.extra_list_fields),
         }
 
 
@@ -162,6 +169,79 @@ _REGISTRY: dict[str, FormSpec] = {
         ),
         repeat_field="safety_steps",
         max_repeat_rows=10,  # MAX_STEPS
+    ),
+    "vehicle_construction_workplan": FormSpec(
+        form_type="vehicle_construction_workplan",
+        display_name="차량계 건설기계 작업계획서",
+        version="1.0",
+        builder=build_vehicle_workplan_excel,
+        required_fields=(
+            # 산업안전보건기준에 관한 규칙 제38조 제1항 제3호 + 제170조 법정 필수
+            "machine_type",       # 기계의 종류 [제170조 제1호]
+            "machine_capacity",   # 기계의 성능·최대작업능력 [제170조 제1호]
+            "work_method",        # 작업방법 [제170조 제3호]
+            "travel_route_text",  # 운행경로 [제170조 제2호]
+        ),
+        optional_fields=(
+            "site_name",
+            "project_name",
+            "work_location",
+            "work_date",
+            "supervisor",
+            "contractor",
+            "prepared_by",
+            "operator_name",
+            "operator_license",
+            "guide_worker_required",
+            "speed_limit",
+            "work_radius",
+            "ground_survey",
+            "travel_route_sketch_note",
+            "access_control",
+            "emergency_contact",   # 비상연락처
+            "emergency_measure",   # 비상조치 방법
+            "sign_date",
+        ),
+        repeat_field="hazard_items",      # list[dict]: hazard, safety_measure
+        max_repeat_rows=10,               # MAX_HAZARD
+        extra_list_fields=("pre_check_items",),  # list[dict]: check_item, result, note
+    ),
+    "material_handling_workplan": FormSpec(
+        form_type="material_handling_workplan",
+        display_name="차량계 하역운반기계 작업계획서",
+        version="1.0",
+        builder=build_material_handling_workplan_excel,
+        required_fields=(
+            # 산업안전보건기준에 관한 규칙 제38조 제1항 제2호 + 제38조 제2항 법정 필수
+            "machine_type",       # 기계의 종류 [제38조 제2항]
+            "machine_max_load",   # 기계의 최대 하중 [제38조 제2항] — machine_capacity와 다름
+            "work_method",        # 작업방법 [제38조 제2항]
+            "travel_route_text",  # 운행경로 [제38조 제2항]
+            "emergency_measure",  # 비상조치 방법 [제38조 제2항]
+        ),
+        optional_fields=(
+            "site_name",
+            "project_name",
+            "work_location",
+            "work_date",
+            "supervisor",
+            "contractor",
+            "prepared_by",
+            "machine_count",
+            "operator_name",
+            "operator_license",
+            "guide_worker_required",
+            "speed_limit",
+            "ground_survey",
+            "travel_route_sketch_note",
+            "access_control",
+            "emergency_contact",        # 비상연락처 (emergency_measure와 별도 필드)
+            "pedestrian_separation",    # 보행자 동선 분리 (하역운반기계 전용)
+            "sign_date",
+        ),
+        repeat_field="hazard_items",      # list[dict]: hazard, safety_measure
+        max_repeat_rows=10,               # MAX_HAZARD
+        extra_list_fields=("pre_check_items",),  # list[dict]: check_item, result, note (미제공 시 제179조 기본값 자동 적용)
     ),
 }
 
