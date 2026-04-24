@@ -10,6 +10,12 @@ export API 연결 전 단계 — builder 호출 인터페이스만 제공.
     excavation_workplan            — 굴착 작업계획서 (v1.0)
     vehicle_construction_workplan  — 차량계 건설기계 작업계획서 (v1.0)
     material_handling_workplan     — 차량계 하역운반기계 작업계획서 (v1.0)
+    tower_crane_workplan           — 타워크레인 작업계획서 (v1.0)       [WP-006]
+    mobile_crane_workplan          — 이동식 크레인 작업계획서 (v1.0)    [WP-007]
+    confined_space_workplan        — 밀폐공간 작업계획서 (v1.0)         [WP-014]
+    tbm_log                        — TBM 안전점검 일지 (v1.0)           [RA-004]
+    confined_space_permit          — 밀폐공간 작업허가서 (v1.0)         [PTW-001]
+    confined_space_checklist       — 밀폐공간 사전 안전점검표 (v1.0)    [CL-010]
 
 사용법:
     from engine.output.form_registry import (
@@ -25,9 +31,15 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass, field
 from typing import Any, Callable, Tuple
 
+from engine.output.confined_space_checklist_builder import build_confined_space_checklist_excel
+from engine.output.confined_space_permit_builder import build_confined_space_permit_excel
+from engine.output.confined_space_workplan_builder import build_confined_space_workplan_excel
 from engine.output.education_log_builder import build_education_log_excel
 from engine.output.form_excel_builder import build_form_excel as _build_risk_assessment_excel_raw
 from engine.output.material_handling_workplan_builder import build_material_handling_workplan_excel
+from engine.output.mobile_crane_workplan_builder import build_mobile_crane_workplan_excel
+from engine.output.tbm_log_builder import build_tbm_log_excel
+from engine.output.tower_crane_workplan_builder import build_tower_crane_workplan_excel
 from engine.output.vehicle_workplan_builder import build_vehicle_workplan_excel
 from engine.output.workplan_builder import build_excavation_workplan_excel
 
@@ -242,6 +254,132 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="hazard_items",      # list[dict]: hazard, safety_measure
         max_repeat_rows=10,               # MAX_HAZARD
         extra_list_fields=("pre_check_items",),  # list[dict]: check_item, result, note (미제공 시 제179조 기본값 자동 적용)
+    ),
+    # ------------------------------------------------------------------
+    # P0 신규 등록 (2026-04-24)
+    # ------------------------------------------------------------------
+    "tower_crane_workplan": FormSpec(
+        form_type="tower_crane_workplan",
+        display_name="타워크레인 작업계획서",
+        version="1.0",
+        builder=build_tower_crane_workplan_excel,
+        required_fields=(
+            "crane_type",       # 기계의 종류 [법정] 제38조
+            "crane_capacity",   # 정격하중   [법정] 제142조
+            "work_method",      # 작업방법   [법정] 제38조
+            "emergency_measure",# 비상조치   [법정] 제38조
+        ),
+        optional_fields=(
+            "site_name", "project_name", "work_location", "work_date",
+            "supervisor", "contractor", "prepared_by",
+            "crane_reg_no", "installation_location", "work_radius",
+            "load_info", "signal_worker", "work_sequence",
+            "anti_fall_measures", "sign_date",
+        ),
+        repeat_field="safety_steps",   # list[dict]: task_step, hazard, safety_measure
+        max_repeat_rows=10,
+    ),
+    "mobile_crane_workplan": FormSpec(
+        form_type="mobile_crane_workplan",
+        display_name="이동식 크레인 작업계획서",
+        version="1.0",
+        builder=build_mobile_crane_workplan_excel,
+        required_fields=(
+            "crane_type",        # 기계의 종류 [법정] 제38조
+            "crane_capacity",    # 정격하중   [법정] 제134조
+            "work_method",       # 작업방법   [법정] 제38조
+            "emergency_measure", # 비상조치   [법정] 제38조
+        ),
+        optional_fields=(
+            "site_name", "project_name", "work_location", "work_date",
+            "supervisor", "contractor", "prepared_by",
+            "vehicle_no", "outrigger_setup", "ground_condition",
+            "load_weight", "work_radius", "rigging_method", "signal_worker",
+            "travel_route_text", "travel_route_sketch_note",
+            "anti_topple_measures", "sign_date",
+        ),
+        repeat_field="safety_steps",   # list[dict]: task_step, hazard, safety_measure
+        max_repeat_rows=10,
+    ),
+    "confined_space_workplan": FormSpec(
+        form_type="confined_space_workplan",
+        display_name="밀폐공간 작업계획서",
+        version="1.0",
+        builder=build_confined_space_workplan_excel,
+        required_fields=(
+            "confined_space_location",  # 밀폐공간 위치   [법정] 제619조
+            "gas_measurement_plan",     # 측정계획        [법정] 제619조
+            "ventilation_plan",         # 환기계획        [법정] 제619조
+            "emergency_measure",        # 비상조치        [법정] 제619조
+        ),
+        optional_fields=(
+            "site_name", "project_name", "work_date",
+            "supervisor", "contractor", "prepared_by",
+            "work_content", "worker_count", "confined_space_type",
+            "monitor_placement", "rescue_equipment", "emergency_contact",
+            "access_control", "work_before_check", "work_during_check",
+            "work_after_check", "sign_date",
+        ),
+        repeat_field=None,
+        max_repeat_rows=None,
+    ),
+    "tbm_log": FormSpec(
+        form_type="tbm_log",
+        display_name="TBM 안전점검 일지",
+        version="1.0",
+        builder=build_tbm_log_excel,
+        required_fields=(
+            "tbm_date",            # 실시 일시 [실무 권장]
+            "today_work",          # 작업 내용 [실무 권장]
+            "hazard_points",       # 위험요인  [실무 권장]
+            "safety_instructions", # 안전수칙  [실무 권장]
+        ),
+        optional_fields=(
+            "site_name", "project_name", "tbm_location",
+            "ppe_check", "worker_opinion", "action_items",
+        ),
+        repeat_field="attendees",   # list[dict]: name, job_type
+        max_repeat_rows=20,
+    ),
+    "confined_space_permit": FormSpec(
+        form_type="confined_space_permit",
+        display_name="밀폐공간 작업허가서",
+        version="1.0",
+        builder=build_confined_space_permit_excel,
+        required_fields=(
+            "permit_no",     # 허가 번호     [실무 권장]
+            "work_location", # 작업 장소     [법정] 제619조
+            "work_content",  # 작업 내용     [법정] 제619조
+            "monitor_name",  # 감시인 성명   [법정] 제625조
+            "oxygen_level",  # 산소농도 측정값 [법정] 제622조
+            "permit_issuer", # 허가자        [실무 권장]
+        ),
+        optional_fields=(
+            "site_name", "project_name",
+            "permit_datetime", "validity_period",
+            "gas_h2s_level", "gas_co_level", "gas_other",
+            "ventilation_status", "rescue_equipment_check",
+            "work_end_time", "completion_confirm",
+        ),
+        repeat_field="workers",   # list[dict]: name, role
+        max_repeat_rows=10,
+    ),
+    "confined_space_checklist": FormSpec(
+        form_type="confined_space_checklist",
+        display_name="밀폐공간 사전 안전점검표",
+        version="1.0",
+        builder=build_confined_space_checklist_excel,
+        required_fields=(
+            "check_date",    # 점검 일자   [실무 권장]
+            "work_location", # 작업 장소   [법정] 제619조
+            "checker_name",  # 점검자 성명 [실무 권장]
+        ),
+        optional_fields=(
+            "site_name", "project_name", "work_content",
+        ),
+        repeat_field=None,
+        max_repeat_rows=None,
+        extra_list_fields=("check_items",),  # list[dict]: item, result, note (미제공 시 기본 10개 자동 적용)
     ),
 }
 
