@@ -62,4 +62,19 @@ export const api = {
     }
     return r.blob()
   },
+
+  // Form Export
+  getFormTypes: () => req('GET', '/forms/types'),
+  exportForm: async (form_type, form_data) => {
+    const r = await fetch(`${BASE}/forms/export`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ form_type, form_data }),
+    })
+    if (!r.ok) {
+      const err = await r.json().catch(() => ({ message: '서식 생성 실패' }))
+      throw new Error(err.message || '서식 생성 실패')
+    }
+    return r.blob()
+  },
 }

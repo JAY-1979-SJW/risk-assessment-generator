@@ -5,6 +5,7 @@ import OrgTab from './tabs/OrgTab'
 import AssessmentTab from './tabs/AssessmentTab'
 import MeetingTab from './tabs/MeetingTab'
 import CriteriaTab from './tabs/CriteriaTab'
+import FormsTab from './tabs/FormsTab'
 import { api } from '../api/client'
 
 const TABS = [
@@ -13,6 +14,7 @@ const TABS = [
   { id: 'assessment', label: '③ 위험성평가' },
   { id: 'meeting',    label: '④ 회의/교육' },
   { id: 'criteria',   label: '⑤ 평가기준' },
+  { id: 'forms',      label: '⑥ 법정서식' },
 ]
 
 export default function ProjectDetail({ pid, onBack }) {
@@ -76,6 +78,7 @@ export default function ProjectDetail({ pid, onBack }) {
       {tab === 'assessment' && <AssessmentTab pid={pid} />}
       {tab === 'meeting'    && <MeetingTab    pid={pid} />}
       {tab === 'criteria'   && <CriteriaTab             />}
+      {tab === 'forms'      && <FormsTab               />}
     </Layout>
   )
 }
