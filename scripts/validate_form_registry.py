@@ -2,15 +2,17 @@
 Form Registry 검증 스크립트.
 
 검증 항목:
-  1. list_supported_forms() — 2종 포함 확인
+  1. list_supported_forms() — 3종 포함 확인
   2. get_form_spec() — 각 form_type별 dict 반환
-  3. 각 spec: required_fields 비어있지 않음
+  3. education_log / excavation_workplan: required_fields 비어있지 않음
   4. 각 spec: repeat_field 값 존재
-  5. 각 spec: max_repeat_rows > 0
-  6. build_form_excel('education_log', ...) → bytes
-  7. build_form_excel('excavation_workplan', ...) → bytes
-  8. 미지원 form_type → ValueError (UnsupportedFormTypeError)
-  9. 빈 form_data → bytes (오류 없이 공란 생성)
+  5. education_log / excavation_workplan: max_repeat_rows > 0
+  6. risk_assessment 전용 spec 검증 (required_fields=[], max_repeat_rows=None 허용)
+  7. build_form_excel('education_log', ...) → bytes
+  8. build_form_excel('excavation_workplan', ...) → bytes
+  9. build_form_excel('risk_assessment', ...) → bytes
+ 10. 미지원 form_type → ValueError (UnsupportedFormTypeError)
+ 11. 빈 form_data → bytes (오류 없이 공란 생성)
 
 실행:
   python scripts/validate_form_registry.py
@@ -30,9 +32,40 @@ from engine.output.form_registry import (
     list_supported_forms,
 )
 
-_EXPECTED_TYPES = {"education_log", "excavation_workplan"}
+_EXPECTED_TYPES = {"education_log", "excavation_workplan", "risk_assessment"}
+# required_fields 비어있지 않음 / max_repeat_rows > 0 조건은 이 두 종류에만 적용
+_STRICT_TYPED   = {"education_log", "excavation_workplan"}
 
 _SAMPLES: dict[str, dict] = {
+    "risk_assessment": {
+        "company_name": "검증용 회사",
+        "industry": "건설업",
+        "site_name": "검증용 현장",
+        "assessment_type": "최초평가",
+        "assessment_date": "2026-04-24",
+        "work_type": "굴착공사",
+        "rows": [
+            {
+                "no": "1",
+                "process": "굴착",
+                "sub_work": "지반 굴착",
+                "hazard_category_major": "기계적",
+                "hazard_category_minor": "전도",
+                "hazard": "굴착기 전도",
+                "legal_basis": "기준 규칙 제82조",
+                "current_measures": "안전대 착용",
+                "risk_scale": "3×3",
+                "probability": "2",
+                "severity": "3",
+                "risk_level": "6",
+                "control_measures": "유도자 배치",
+                "residual_risk_level": "3",
+                "target_date": "2026-05-01",
+                "completion_date": None,
+                "responsible_person": "김안전",
+            },
+        ],
+    },
     "education_log": {
         "site_name": "검증용 사업장",
         "education_type": "정기교육",
@@ -108,9 +141,9 @@ def validate_list_supported_forms() -> list[bool]:
 
 def validate_get_form_spec() -> list[bool]:
     results: list[bool] = []
-    print("\n=== get_form_spec() 검증 ===")
+    print("\n=== get_form_spec() 검증 — education_log / excavation_workplan ===")
 
-    for ft in _EXPECTED_TYPES:
+    for ft in _STRICT_TYPED:
         try:
             spec = get_form_spec(ft)
         except Exception as e:
@@ -146,6 +179,42 @@ def validate_get_form_spec() -> list[bool]:
             f"  {ft}: version 존재",
             repr(spec.get("version")),
         ))
+
+    return results
+
+
+def validate_risk_assessment_spec() -> list[bool]:
+    results: list[bool] = []
+    print("\n=== get_form_spec('risk_assessment') 검증 ===")
+
+    try:
+        spec = get_form_spec("risk_assessment")
+    except Exception as e:
+        results.append(_check(False, "get_form_spec('risk_assessment') 반환 성공", str(e)))
+        return results
+
+    results.append(_check(isinstance(spec, dict),
+                          "get_form_spec('risk_assessment') → dict"))
+    results.append(_check(spec.get("form_type") == "risk_assessment",
+                          "form_type == 'risk_assessment'"))
+    results.append(_check(spec.get("display_name") == "위험성평가표",
+                          "display_name == '위험성평가표'",
+                          repr(spec.get("display_name"))))
+    results.append(_check(isinstance(spec.get("required_fields"), list),
+                          "required_fields → list (빈 리스트 허용)",
+                          str(spec.get("required_fields"))))
+    results.append(_check(isinstance(spec.get("optional_fields"), list),
+                          "optional_fields → list"))
+    results.append(_check(spec.get("repeat_field") == "rows",
+                          "repeat_field == 'rows'",
+                          repr(spec.get("repeat_field"))))
+    results.append(_check(spec.get("max_repeat_rows") is None,
+                          "max_repeat_rows is None (제한 없음)"))
+    results.append(_check("builder" not in spec,
+                          "builder 참조 미노출"))
+    results.append(_check(isinstance(spec.get("version"), str) and spec["version"] == "1.0",
+                          "version == '1.0'",
+                          repr(spec.get("version"))))
 
     return results
 
@@ -229,6 +298,7 @@ def main() -> int:
     all_results: list[bool] = []
     all_results += validate_list_supported_forms()
     all_results += validate_get_form_spec()
+    all_results += validate_risk_assessment_spec()
     all_results += validate_build_form_excel()
     all_results += validate_unsupported_type()
 

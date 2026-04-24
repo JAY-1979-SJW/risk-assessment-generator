@@ -23,6 +23,7 @@ from dataclasses import asdict, dataclass, field
 from typing import Any, Callable, Tuple
 
 from engine.output.education_log_builder import build_education_log_excel
+from engine.output.form_excel_builder import build_form_excel as _build_risk_assessment_excel_raw
 from engine.output.workplan_builder import build_excavation_workplan_excel
 
 
@@ -71,6 +72,25 @@ class FormSpec:
 
 
 # ---------------------------------------------------------------------------
+# 위험성평가표 어댑터
+# ---------------------------------------------------------------------------
+# form_excel_builder는 {"header": {...}, "rows": [...]} 구조를 기대하지만
+# registry API는 flat dict를 form_data로 수신한다.
+# 이 어댑터가 flat → nested 변환만 수행하며, Excel 렌더링은 기존 builder에 위임.
+
+_RISK_ASSESSMENT_HEADER_KEYS: frozenset[str] = frozenset((
+    "company_name", "industry", "site_name", "representative",
+    "assessment_type", "assessment_date", "work_type",
+))
+
+
+def _risk_assessment_builder(form_data: dict) -> bytes:
+    header = {k: form_data.get(k) for k in _RISK_ASSESSMENT_HEADER_KEYS}
+    rows   = form_data.get("rows") or []
+    return _build_risk_assessment_excel_raw({"header": header, "rows": rows})
+
+
+# ---------------------------------------------------------------------------
 # Registry 등록 테이블
 # ---------------------------------------------------------------------------
 
@@ -101,6 +121,16 @@ _REGISTRY: dict[str, FormSpec] = {
         ),
         repeat_field="attendees",
         max_repeat_rows=30,  # MAX_ATTENDEES
+    ),
+    "risk_assessment": FormSpec(
+        form_type="risk_assessment",
+        display_name="위험성평가표",
+        version="1.0",
+        builder=_risk_assessment_builder,
+        required_fields=(),          # builder에 필수 필드 없음 (모두 optional 처리)
+        optional_fields=tuple(_RISK_ASSESSMENT_HEADER_KEYS),
+        repeat_field="rows",         # 위험성평가 행 목록
+        max_repeat_rows=None,        # builder에 행 수 제한 없음
     ),
     "excavation_workplan": FormSpec(
         form_type="excavation_workplan",

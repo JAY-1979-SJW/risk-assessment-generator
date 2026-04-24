@@ -5,15 +5,16 @@ TestClient로 최소 FastAPI 앱을 구성해 엔드포인트를 검증.
 DB 연결 없이 동작 (form_registry + builder만 사용).
 
 검증 항목:
-  1. GET /api/forms/types — 2종 포함
+  1. GET /api/forms/types — 3종 포함
   2. POST /api/forms/export — education_log, file 모드
   3. POST /api/forms/export — excavation_workplan, base64 모드
-  4. POST /api/forms/export — 미지원 form_type → 400 UNSUPPORTED_FORM_TYPE
-  5. POST /api/forms/export — required_field 누락 → 400 MISSING_REQUIRED_FIELDS
-  6. POST /api/forms/export — repeat 한도 초과 → 400 REPEAT_LIMIT_EXCEEDED
-  7. POST /api/forms/export — 스칼라 필드 타입 오류 → 422 INVALID_FIELD_TYPE
-  8. POST /api/forms/export — options.filename override 동작
-  9. POST /api/forms/export — 빈 form_data 공란 생성 (required 없는 경우)
+  4. POST /api/forms/export — risk_assessment, file 모드
+  5. POST /api/forms/export — risk_assessment, base64 모드
+  6. POST /api/forms/export — 미지원 form_type → 400 UNSUPPORTED_FORM_TYPE
+  7. POST /api/forms/export — required_field 누락 → 400 MISSING_REQUIRED_FIELDS
+  8. POST /api/forms/export — repeat 한도 초과 → 400 REPEAT_LIMIT_EXCEEDED
+  9. POST /api/forms/export — 스칼라 필드 타입 오류 → 422 INVALID_FIELD_TYPE
+ 10. POST /api/forms/export — options.filename override 동작
 
 실행:
   python scripts/validate_export_api.py
@@ -85,7 +86,38 @@ _EXC_FULL = {
 }
 
 _XLSX_MIME = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-_EXPECTED_TYPES = {"education_log", "excavation_workplan"}
+_EXPECTED_TYPES = {"education_log", "excavation_workplan", "risk_assessment"}
+
+_RISK_FULL = {
+    "company_name": "테스트 주식회사",
+    "industry": "건설업",
+    "site_name": "테스트 현장",
+    "representative": "홍대표",
+    "assessment_type": "최초평가",
+    "assessment_date": "2026-04-24",
+    "work_type": "굴착공사",
+    "rows": [
+        {
+            "no": "1",
+            "process": "굴착",
+            "sub_work": "지반 굴착",
+            "hazard_category_major": "기계적",
+            "hazard_category_minor": "전도",
+            "hazard": "굴착기 전도",
+            "legal_basis": "기준 규칙 제82조",
+            "current_measures": "안전대 착용",
+            "risk_scale": "3×3",
+            "probability": "2",
+            "severity": "3",
+            "risk_level": "6",
+            "control_measures": "유도자 배치, 작업반경 내 출입 금지",
+            "residual_risk_level": "3",
+            "target_date": "2026-05-01",
+            "completion_date": None,
+            "responsible_person": "김안전",
+        },
+    ],
+}
 
 
 # ---------------------------------------------------------------------------
@@ -116,7 +148,8 @@ def test_get_types() -> list[bool]:
     forms = body.get("forms", [])
     types_set = {f["form_type"] for f in forms}
 
-    results.append(_check(len(forms) == 2, "forms 2종 반환", str(len(forms))))
+    results.append(_check(len(forms) == len(_EXPECTED_TYPES),
+                          f"forms {len(_EXPECTED_TYPES)}종 반환", str(len(forms))))
     results.append(_check(types_set == _EXPECTED_TYPES,
                           f"form_type 목록 == {sorted(_EXPECTED_TYPES)}",
                           str(sorted(types_set))))
@@ -175,6 +208,65 @@ def test_export_excavation_workplan_base64() -> list[bool]:
     if "file_base64" in body:
         try:
             decoded = base64.b64decode(body["file_base64"])
+            results.append(_check(len(decoded) > 5000,
+                                  "base64 디코딩 후 bytes 크기 > 5000",
+                                  f"{len(decoded):,} bytes"))
+        except Exception as e:
+            results.append(_check(False, "base64 디코딩 가능", str(e)))
+
+    return results
+
+
+def test_export_risk_assessment_file() -> list[bool]:
+    results: list[bool] = []
+    print("\n=== POST /api/forms/export — risk_assessment (file) ===")
+
+    r = client.post("/api/forms/export", json={
+        "form_type": "risk_assessment",
+        "form_data": _RISK_FULL,
+        "options": {"return_type": "file"},
+    })
+    results.append(_check(r.status_code == 200, "HTTP 200", str(r.status_code)))
+    results.append(_check(r.headers.get("content-type", "").startswith(_XLSX_MIME),
+                          "Content-Type: xlsx",
+                          r.headers.get("content-type", "")))
+    disp = r.headers.get("content-disposition", "")
+    results.append(_check("content-disposition" in r.headers,
+                          "Content-Disposition 헤더 존재", disp))
+    results.append(_check("risk_assessment_" in disp,
+                          "파일명에 form_type 포함", disp))
+    results.append(_check(len(r.content) > 5000, "xlsx bytes 크기 > 5000",
+                          f"{len(r.content):,} bytes"))
+
+    return results
+
+
+def test_export_risk_assessment_base64() -> list[bool]:
+    results: list[bool] = []
+    print("\n=== POST /api/forms/export — risk_assessment (base64) ===")
+
+    r = client.post("/api/forms/export", json={
+        "form_type": "risk_assessment",
+        "form_data": _RISK_FULL,
+        "options": {"return_type": "base64"},
+    })
+    results.append(_check(r.status_code == 200, "HTTP 200", str(r.status_code)))
+
+    body = r.json()
+    results.append(_check(body.get("success") is True, "success == true"))
+    results.append(_check(body.get("form_type") == "risk_assessment",
+                          "form_type 반환"))
+    results.append(_check(body.get("display_name") == "위험성평가표",
+                          "display_name == '위험성평가표'",
+                          repr(body.get("display_name"))))
+    results.append(_check("file_base64" in body, "file_base64 포함"))
+    results.append(_check(isinstance(body.get("size"), int) and body["size"] > 0,
+                          "size > 0", str(body.get("size"))))
+
+    if "file_base64" in body:
+        try:
+            import base64 as _b64
+            decoded = _b64.b64decode(body["file_base64"])
             results.append(_check(len(decoded) > 5000,
                                   "base64 디코딩 후 bytes 크기 > 5000",
                                   f"{len(decoded):,} bytes"))
@@ -321,6 +413,8 @@ def main() -> int:
     all_results += test_get_types()
     all_results += test_export_education_log_file()
     all_results += test_export_excavation_workplan_base64()
+    all_results += test_export_risk_assessment_file()
+    all_results += test_export_risk_assessment_base64()
     all_results += test_unsupported_form_type()
     all_results += test_missing_required_fields()
     all_results += test_repeat_limit_exceeded()
