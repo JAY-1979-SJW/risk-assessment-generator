@@ -154,6 +154,9 @@ _REGISTRY: dict[str, FormSpec] = {
             "work_date",
             "supervisor",
             "contractor",
+            "guide_worker_required",
+            "access_control",
+            "emergency_contact",
             "safety_steps",  # list[dict]: task_step, hazard, safety_measure
             "sign_date",
         ),

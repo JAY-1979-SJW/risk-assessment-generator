@@ -90,6 +90,9 @@ _SAMPLES: dict[str, dict] = {
         "water_disposal": "웰포인트 공법",
         "work_method": "단계별 굴착",
         "emergency_measure": "즉시 작업중단 및 대피",
+        "guide_worker_required": "필요 (굴착기 진입 시 1명 배치)",
+        "access_control": "작업구역 울타리 설치, 안전표지판 부착",
+        "emergency_contact": "현장소장 010-0000-0000 / 119",
         "safety_steps": [
             {"task_step": "지하매설물 확인", "hazard": "파손", "safety_measure": "시험굴착"},
         ],

@@ -19,6 +19,9 @@ Input — form_data dict:
     water_disposal       str|None   용수 처리 방법 [법정] 제82조 제1항 제5호
     work_method          str|None   작업 방법 [법정] 제38조 제2항
     emergency_measure    str|None   긴급조치 계획 [법정] 제38조 제2항
+    guide_worker_required str|None  유도자 배치 여부 및 방법 [법정] 기준규칙 제172조, 제38조 제2항
+    access_control       str|None   출입통제 방법 [법정] 기준규칙 제38조 제1항 제6호
+    emergency_contact    str|None   비상연락망 [실무] 기준규칙 제38조 제2항 세부
     safety_steps         list[dict] 작업단계별 안전조치 (최대 MAX_STEPS=10)
         task_step        str|None   작업 단계
         hazard           str|None   위험 요인
@@ -64,6 +67,9 @@ LEGAL_LABELS = [
     "용수 처리 방법",
     "작업 방법",
     "긴급조치 계획",
+    "유도자 배치",
+    "출입통제 방법",
+    "비상연락망",
 ]
 
 # ---------------------------------------------------------------------------
@@ -229,19 +235,22 @@ def _write_legal_items(ws, start_row: int, data: Dict[str, Any]) -> int:
 
     # 섹션 헤더
     _write_cell(ws, r, 1, TOTAL_COLS,
-                "법정 기재 사항 (산업안전보건기준에 관한 규칙 제82조)",
+                "법정 기재 사항 (산업안전보건기준에 관한 규칙 제38조·제82조)",
                 font=_FONT_BOLD, fill=_FILL_SECTION,
                 align=_ALIGN_CENTER, height=18)
     r += 1
 
     legal_rows = [
-        ("굴착의 방법",          "excavation_method",  40),
-        ("흙막이 지보공 및 방호망", "earth_retaining",    40),
-        ("사용 기계 종류 및 능력", "excavation_machine", 30),
-        ("토석 처리 방법",        "soil_disposal",      30),
-        ("용수 처리 방법",        "water_disposal",     30),
-        ("작업 방법",            "work_method",        40),
-        ("긴급조치 계획",         "emergency_measure",  40),
+        ("굴착의 방법",          "excavation_method",      40),
+        ("흙막이 지보공 및 방호망", "earth_retaining",        40),
+        ("사용 기계 종류 및 능력", "excavation_machine",     30),
+        ("토석 처리 방법",        "soil_disposal",          30),
+        ("용수 처리 방법",        "water_disposal",         30),
+        ("작업 방법",            "work_method",            40),
+        ("긴급조치 계획",         "emergency_measure",      40),
+        ("유도자 배치",           "guide_worker_required",  30),
+        ("출입통제 방법",         "access_control",         30),
+        ("비상연락망",            "emergency_contact",      30),
     ]
 
     for label, field, h in legal_rows:
@@ -365,7 +374,7 @@ def render_excavation_workplan_sheet(ws, form_data: Dict[str, Any]) -> None:
     ws.page_setup.orientation = "portrait"
     ws.page_setup.fitToPage   = True
     ws.page_setup.fitToWidth  = 1
-    ws.print_area              = "A1:H29"
+    ws.print_area              = "A1:H32"
     ws.page_margins.left   = 0.5
     ws.page_margins.right  = 0.5
     ws.page_margins.top    = 0.75
