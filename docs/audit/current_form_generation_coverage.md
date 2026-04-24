@@ -43,11 +43,11 @@
 |------|------|
 | 용도 | 위험성평가표 (실시표) Excel 생성 |
 | 공개 함수 | `build_form_excel(form_data)` |
-| form_data 출처 | `engine.kras_connector.form_builder.build_risk_assessment_form()` 출력 (kras_standard_form_v1 스키마) |
+| form_data 출처 | kras_standard_form_v1 스키마 (`{"header":{...}, "rows":[...]}`) |
 | 컬럼 구성 | 번호, 공정명, 세부작업명, 위험분류(대/중), 유해위험요인, 관련근거, 현재안전보건조치, 평가척도, 가능성, 중대성, 위험성, 위험성감소대책, 개선후위험성, 개선예정일 |
-| registry 등록 | ✗ (별도 라우터에서 직접 호출, form_registry API와 분리) |
-| API 경로 | 기존 별도 export 경로 (form_registry 거치지 않음) |
-| 상태 | **PARTIAL** — builder는 완성이나 통합 API 미연결 |
+| registry 등록 | ✓ `risk_assessment` form_type으로 등록 (2026-04-24, 커밋 548ceee) |
+| API 경로 | `POST /api/forms/export` → `form_type: "risk_assessment"` |
+| 상태 | **DONE** — thin adapter(flat→nested 변환)를 통해 export API 통합 완료 |
 
 ---
 
@@ -55,7 +55,7 @@
 
 ### GET /api/forms/types
 
-현재 응답 (registry 기준):
+현재 응답 (registry 기준, 3종):
 
 ```json
 {
@@ -139,6 +139,6 @@ A-grade 내 법적 서식 핵심 수집 목록:
 | Form Export API (`POST /api/forms/export`) | ✓ 운영 중 |
 | 교육일지 생성 | ✓ 완료 |
 | 굴착 작업계획서 생성 | ✓ 완료 |
-| 위험성평가표 생성 (별도 경로) | △ 운영 중 (통합 API 미연결) |
+| 위험성평가표 생성 | ✓ 완료 (2026-04-24, 커밋 548ceee) |
 | 기타 법정서류 생성 | ✗ 미구현 |
 | 법정 별지 원본 수집 | △ 일부 수집 (builder 연결은 별개) |
