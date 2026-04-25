@@ -7,8 +7,8 @@
     제43조 (개구부 등의 방호조치)
     제44조 (안전대의 부착설비 등)
     제45조 (지붕 위에서의 위험 방지)
-    제57조 이하 (비계 조립·해체·변경 — 관리감독자 배치 의무)
-    제86조 이하 (고소작업대 설치 등의 조치)
+    제57조~제58조 (비계 조립·해체·변경 — 관리감독자 배치 의무 및 비계 점검·보수)
+    제186조 (고소작업대 설치 등의 조치)
     KOSHA GUIDE P-94-2021 안전작업허가지침 (참고)
     KOSHA GUIDE C-74-2015 건설공사의 고소작업대 안전보건작업지침 (참고)
     KOSHA GUIDE M-155-2023 이동식 고소작업대의 선정과 안전관리 (참고)
@@ -154,7 +154,7 @@ WORKBOARD_CHECK_ITEMS = [
     "작업발판 폭·고정 상태 확인",
     "작업발판 미끄럼 방지 조치",
     "안전난간·중간난간·발끝막이판 설치 확인",
-    "비계 사용 시 CL-001 비계 점검표 병행 확인 (제57조 이하)",
+    "비계 사용 시 CL-001 비계 점검표 병행 확인 (제57조~제58조)",
     "사다리 전도방지 조치 확인",
     "사다리 상부 고정 또는 보조자 배치 확인",
     "사다리 최상부 작업 금지 확인",
@@ -167,7 +167,7 @@ WORKBOARD_CHECK_ITEMS = [
 # ---------------------------------------------------------------------------
 
 AERIAL_WORK_PLATFORM_CHECK_ITEMS = [
-    "장비 점검표(CL-003) 확인 (제86조 이하)",
+    "장비 점검표(CL-003) 확인 (제186조)",
     "아웃트리거 설치 상태 확인",
     "작업대 난간 상태 확인",
     "비상정지장치 작동 확인",
@@ -395,14 +395,21 @@ def _write_s2_work_info(ws, row: int, data: Dict[str, Any]) -> int:
 def _write_s3_work_types(ws, row: int, data: Dict[str, Any]) -> int:
     row = _write_section_header(ws, row, "3. 고소작업 유형  (해당 항목 선택)")
     selected = set(data.get("work_types") or [])
-    col_count = 2
-    col_span  = TOTAL_COLS // col_count
-    for item in WORK_AT_HEIGHT_TYPES:
-        mark = "■" if item in selected else "□"
-        _write_cell(ws, row, 1, col_span, f"{mark} {item}",
+    col_span = TOTAL_COLS // 2  # 4열씩 2열 배치
+    items = WORK_AT_HEIGHT_TYPES
+    for i in range(0, len(items), 2):
+        left  = items[i]
+        right = items[i + 1] if i + 1 < len(items) else None
+        l_mark = "■" if left in selected else "□"
+        _write_cell(ws, row, 1, col_span, f"{l_mark} {left}",
                     font=_FONT_DEFAULT, align=_ALIGN_LEFT, height=20)
-        _write_cell(ws, row, col_span + 1, TOTAL_COLS, "",
-                    font=_FONT_DEFAULT, align=_ALIGN_LEFT)
+        if right:
+            r_mark = "■" if right in selected else "□"
+            _write_cell(ws, row, col_span + 1, TOTAL_COLS, f"{r_mark} {right}",
+                        font=_FONT_DEFAULT, align=_ALIGN_LEFT)
+        else:
+            _write_cell(ws, row, col_span + 1, TOTAL_COLS, "",
+                        font=_FONT_DEFAULT, align=_ALIGN_LEFT)
         row += 1
     return row
 
@@ -456,7 +463,7 @@ def _write_s5_pre_work(ws, row: int, data: Dict[str, Any]) -> int:
 
 
 def _write_s6_workboard(ws, row: int, data: Dict[str, Any]) -> int:
-    row = _write_section_header(ws, row, "6. 작업발판·비계·사다리 확인  (제42조, 제57조 이하)")
+    row = _write_section_header(ws, row, "6. 작업발판·비계·사다리 확인  (제42조, 제57조~제58조)")
     row = _write_notice(ws, row, NOTICE_SCAFFOLD)
     checked = set(data.get("workboard_checks") or [])
     for item in WORKBOARD_CHECK_ITEMS:
@@ -468,7 +475,7 @@ def _write_s6_workboard(ws, row: int, data: Dict[str, Any]) -> int:
 
 
 def _write_s7_aerial(ws, row: int, data: Dict[str, Any]) -> int:
-    row = _write_section_header(ws, row, "7. 고소작업대 확인  (제86조 이하)")
+    row = _write_section_header(ws, row, "7. 고소작업대 확인  (제186조)")
     row = _write_notice(ws, row, NOTICE_AERIAL)
     checked = set(data.get("aerial_checks") or [])
     for item in AERIAL_WORK_PLATFORM_CHECK_ITEMS:
