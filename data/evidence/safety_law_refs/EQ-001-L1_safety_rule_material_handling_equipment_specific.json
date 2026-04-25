@@ -1,0 +1,48 @@
+{
+  "evidence_id": "EQ-001-L1",
+  "document_id": "EQ-001",
+  "evidence_file": "EQ-001-L1_safety_rule_material_handling_equipment_specific.json",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "law_mst": "273603",
+  "article_or_table": "제38조 제1항 제2호·제2항, 제171조~제178조 (공통), 제179조~제182조 (지게차) — 장비별 특화 운용 기록",
+  "article_title": "차량계 하역운반기계 작업계획서 (장비특화) — 동일 법령 근거를 장비단위로 운용",
+  "scope": "차량계 하역운반기계등 장비특화 — WP-009와 동일 builder(material_handling_workplan), 장비 단위(지게차·구내운반차·화물자동차 등) 작성·관리",
+  "verification_result": "PARTIAL_VERIFIED",
+  "verification_note": "WP-009와 동일 법령 근거(제171~182) 적용 — 장비단위 운용 기록만 분리. CL-003-L2(공통 PARTIAL) + CL-003-L3(지게차 PARTIAL) 통합 인용. EQ-001은 WP-009의 장비특화 인스턴스이며 법령 근거는 동일.",
+  "writing_required_items": {
+    "source_note": "WP-009 본 작업계획서의 장비별 특화 운용 기록",
+    "expected_items": [
+      "장비 식별번호 및 모델 (예: 지게차 #003 도요타 8FB25)",
+      "지게차의 경우 헤드가드·백레스트·좌석안전띠·후방감지기 부착 상태",
+      "공통 — 전조등·전도방지·접촉방지 조치 이력",
+      "운전위치 이탈 시 조치 이행 기록",
+      "운행경로 및 작업방법(WP-009 본 계획서 연계)"
+    ]
+  },
+  "commonly_cited_items": {
+    "공통 — 전조등 설치": "야간 또는 악천후 시 전조등 설치 의무 추정 (NEEDS_VERIFICATION)",
+    "공통 — 전도·접촉 방지": "전도 위험 구간 통제, 작업반경 출입 금지 추정 (NEEDS_VERIFICATION)",
+    "지게차 — 헤드가드·백레스트": "지게차 헤드가드·백레스트·후방확인·좌석안전띠 설치 추정 (NEEDS_VERIFICATION)"
+  },
+  "needs_verification_items": [
+    "제171조~제178조 각 조항 실제 내용 확인",
+    "제179조~제182조 지게차 세부 조항 실제 내용 확인"
+  ],
+  "exclusion_note": "EQ-001은 WP-009 본 작업계획서를 대체하지 않으며 장비단위 특화 기록용. 차량계 건설기계는 EQ-002 별도 사용.",
+  "related_documents": ["WP-009", "CL-003"],
+  "related_evidence": ["WP-009-L1", "CL-003-L2", "CL-003-L3"],
+  "source": "law.go.kr DRF API (MST 273603) — 제171~182 PARTIAL_VERIFIED 영역 (WP-009-L1·CL-003-L2·L3 인용)",
+  "source_url": "https://www.law.go.kr/DRF/lawService.do?OC=haehan2026&target=law&MST=273603&type=XML",
+  "source_url_or_api": "https://www.law.go.kr/DRF/lawService.do?OC=***&target=law&MST=273603&type=JSON",
+  "effective_date": "20260302",
+  "collected_at": "2026-04-26T00:00:00.000000+09:00",
+  "collection_method": "WP-009-L1 + CL-003-L2 + CL-003-L3 통합 인용 — 원문 후속 수집 시 VERIFIED 승격 후보",
+  "verifier": "manual_review_partial",
+  "verification_keywords": [
+    "차량계 하역운반기계",
+    "지게차",
+    "헤드가드",
+    "백레스트"
+  ],
+  "notes": "EQ-001(차량계 하역운반기계 작업계획서 장비특화) 전용 evidence. WP-009-L1과 동일 법령 근거를 장비단위로 적용. builder는 material_handling_workplan을 WP-009와 공유. PARTIAL_VERIFIED 상태 유지."
+}

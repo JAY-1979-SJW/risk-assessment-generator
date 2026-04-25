@@ -1,0 +1,60 @@
+{
+  "evidence_id": "WP-008-L1",
+  "document_id": "WP-008",
+  "evidence_file": "WP-008-L1_safety_rule_articles_196_199_vehicle_construction.json",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "law_mst": "273603",
+  "article_or_table": "제38조 제1항 제3호, 제196조~제199조",
+  "article_title": "차량계 건설기계 작업계획서 작성 의무 + 차량계 건설기계 안전조치 (정의·전조등·낙하물 보호구조·전도방지)",
+  "scope": "차량계 건설기계 전용 — 굴착기, 불도저, 로더, 스크레이퍼, 덤프트럭, 롤러, 콘크리트 펌프카, 천공기 등",
+  "verification_result": "VERIFIED",
+  "verification_note": "제196조~제199조 4개 조항 원문 확인 완료 (CL-003-L1 evidence 인용). 작성 의무 근거 제38조 제1항 제3호는 WP-005-L1·WP-015-L1과 동일 조항 계열. 본 evidence는 WP-008(차량계 건설기계 작업계획서) 전용 — EQ-002 장비특화 계획서는 EQ-002-L1을 별도 사용.",
+  "confirmed_articles": {
+    "196": "차량계 건설기계의 정의",
+    "197": "전조등의 설치",
+    "198": "낙하물 보호구조",
+    "199": "전도 등의 방지"
+  },
+  "writing_required_items": {
+    "source_note": "제38조 제1항 제3호 작업계획서 작성 의무 — 차량계 건설기계 사용 작업",
+    "expected_items": [
+      "사용하는 차량계 건설기계의 종류 및 성능",
+      "운행경로",
+      "작업방법",
+      "전조등 설치 상태 확인 (제197조)",
+      "낙하물 보호구조 확인 (제198조)",
+      "전도·전락 방지조치 (제199조)"
+    ]
+  },
+  "commonly_cited_items": {
+    "전조등 설치": "야간 또는 악천후 시 전조등 설치 의무 (제197조)",
+    "낙하물 보호구조": "조종사 위로 낙하물 방호 구조 설치 의무 (제198조)",
+    "전도·전락 방지": "작업 시 전도·전락 방지 조치, 유도자 배치, 갓길 붕괴 방지 (제199조)",
+    "접촉 방지": "작업반경 내 관계자 외 출입 금지"
+  },
+  "exclusion_note": "제171조는 차량계 하역운반기계등 조항으로 본 evidence에 포함하지 않음 — 하역운반기계는 WP-009-L1 별도 evidence 사용.",
+  "related_documents": ["EQ-002", "CL-003"],
+  "related_evidence": ["CL-003-L1"],
+  "source": "law.go.kr DRF API (MST 273603, XML) — 제196~199 본문 VERIFIED",
+  "source_url": "https://www.law.go.kr/DRF/lawService.do?OC=haehan2026&target=law&MST=273603&type=XML",
+  "source_url_or_api": "https://www.law.go.kr/DRF/lawService.do?OC=***&target=law&MST=273603&type=JSON",
+  "effective_date": "20260302",
+  "collected_at": "2026-04-26T00:00:00.000000+09:00",
+  "verified_at": "2026-04-25T09:40:59.048052+00:00",
+  "verified_excerpt_hash": "f975c01ee54963a6",
+  "collection_method": "law.go.kr DRF API (MST 273603, XML) — CL-003-L1 인용",
+  "verifier": "automated_law_source_check",
+  "verification_keywords": [
+    "차량계 건설기계",
+    "전조등",
+    "낙하물",
+    "전도"
+  ],
+  "keywords_found": [
+    "차량계 건설기계",
+    "전조등",
+    "낙하물",
+    "전도"
+  ],
+  "notes": "WP-008(차량계 건설기계 작업계획서) 전용 evidence. 기반 자료: CL-003-L1 (제196~199 VERIFIED, 2026-04-25 law.go.kr DRF XML 자동 검증). 제38조 제1항 제3호 작성 의무 근거는 WP-005-L1과 동일 조문(제38조)에서 확인됨."
+}

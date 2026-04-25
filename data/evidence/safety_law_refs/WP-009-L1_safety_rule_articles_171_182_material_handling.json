@@ -1,0 +1,55 @@
+{
+  "evidence_id": "WP-009-L1",
+  "document_id": "WP-009",
+  "evidence_file": "WP-009-L1_safety_rule_articles_171_182_material_handling.json",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "law_mst": "273603",
+  "article_or_table": "제38조 제1항 제2호·제2항, 제171조~제178조 (공통), 제179조~제182조 (지게차 세부)",
+  "article_title": "차량계 하역운반기계 작업계획서 작성 의무 + 공통 안전조치 + 지게차 세부 안전조치",
+  "scope": "차량계 하역운반기계등 — 지게차, 구내운반차, 화물자동차, 고소작업대 등",
+  "verification_result": "PARTIAL_VERIFIED",
+  "verification_note": "제38조 제1항 제2호 및 제2항(작업계획서 작성 의무)은 WP-009 catalog legal_basis에 명시. 제171조~제178조 공통 조항(차량계 하역운반기계등 전조등·전도방지·접촉방지·운전위치이탈·탑승제한 등)은 CL-003-L2에 PARTIAL_VERIFIED로 수집됨 — 조항번호별 세부 내용은 NEEDS_VERIFICATION 영역 존재. 제179조~제182조 지게차 세부 조항(헤드가드·백레스트·후방확인·좌석안전띠 등)은 CL-003-L3에 PARTIAL_VERIFIED. 본 evidence는 두 base를 통합해 WP-009 작업계획서 단위로 인용.",
+  "writing_required_items": {
+    "source_note": "제38조 제1항 제2호·제2항 작업계획서 작성 의무 — 차량계 하역운반기계 사용 작업",
+    "expected_items": [
+      "사용하는 차량계 하역운반기계의 종류 및 능력",
+      "운행경로",
+      "작업방법",
+      "지게차의 경우 제179조~제182조 안전조치 확인 (CL-003-L3)",
+      "공통 안전조치 — 전조등·전도방지·접촉방지·운전위치이탈·탑승제한 (CL-003-L2 추정)"
+    ]
+  },
+  "commonly_cited_items": {
+    "공통 — 전조등 설치": "야간 또는 악천후 시 전조등 설치 의무 추정 (제171~178 범위, NEEDS_VERIFICATION)",
+    "공통 — 전도·전락 방지": "전도 위험 구간 통제, 갓길 붕괴 방지 추정 (제171~178 범위, NEEDS_VERIFICATION)",
+    "공통 — 접촉 방지": "작업반경 내 관계자 외 출입 금지 추정 (제171~178 범위, NEEDS_VERIFICATION)",
+    "공통 — 운전위치 이탈 시 조치": "포크·버킷 내림, 주차 브레이크 체결 의무 추정 (NEEDS_VERIFICATION)",
+    "공통 — 탑승 제한": "탑승석 외 탑승 금지 추정 (NEEDS_VERIFICATION)",
+    "지게차 — 전조등·후방확인": "지게차 전조등 및 후진경보기·경광등·후방감지기 설치 추정 (제179~182, NEEDS_VERIFICATION)",
+    "지게차 — 헤드가드": "헤드가드 설치 의무 추정 (NEEDS_VERIFICATION)",
+    "지게차 — 백레스트": "백레스트 설치 의무 추정 (NEEDS_VERIFICATION)",
+    "지게차 — 좌석안전띠": "지게차 운전 시 좌석안전띠 착용 의무 추정 (NEEDS_VERIFICATION)"
+  },
+  "needs_verification_items": [
+    "제171조~제178조 각 조항 실제 내용 확인 (law.go.kr DRF XML 후속 수집)",
+    "제179조~제182조 지게차 세부 조항 실제 내용 확인",
+    "공통 조항과 지게차 전용 조항 경계 확인"
+  ],
+  "exclusion_note": "차량계 건설기계(굴착기·불도저 등)는 WP-008-L1 별도 evidence 사용. 제170조는 분류 미확정 — 본 evidence에 포함하지 않음.",
+  "related_documents": ["EQ-001", "CL-003"],
+  "related_evidence": ["CL-003-L2", "CL-003-L3"],
+  "source": "law.go.kr DRF API (MST 273603) — 제171~182 PARTIAL_VERIFIED 영역 (CL-003-L2·L3 인용)",
+  "source_url": "https://www.law.go.kr/DRF/lawService.do?OC=haehan2026&target=law&MST=273603&type=XML",
+  "source_url_or_api": "https://www.law.go.kr/DRF/lawService.do?OC=***&target=law&MST=273603&type=JSON",
+  "effective_date": "20260302",
+  "collected_at": "2026-04-26T00:00:00.000000+09:00",
+  "collection_method": "CL-003-L2 + CL-003-L3 통합 인용 — 원문 후속 수집 시 VERIFIED 승격 후보",
+  "verifier": "manual_review_partial",
+  "verification_keywords": [
+    "차량계 하역운반기계",
+    "지게차",
+    "헤드가드",
+    "백레스트"
+  ],
+  "notes": "WP-009(차량계 하역운반기계 작업계획서) 전용 evidence. 기반 자료: CL-003-L2(공통 PARTIAL) + CL-003-L3(지게차 PARTIAL). PARTIAL_VERIFIED 상태 유지 — law.go.kr DRF XML 원문 추가 수집으로 VERIFIED 승격 가능."
+}

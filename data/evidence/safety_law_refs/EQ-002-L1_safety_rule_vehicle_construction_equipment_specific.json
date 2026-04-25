@@ -1,0 +1,57 @@
+{
+  "evidence_id": "EQ-002-L1",
+  "document_id": "EQ-002",
+  "evidence_file": "EQ-002-L1_safety_rule_vehicle_construction_equipment_specific.json",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "law_mst": "273603",
+  "article_or_table": "제38조 제1항 제3호, 제196조~제199조 (장비별 특화 운용 기록)",
+  "article_title": "차량계 건설기계 작업계획서 (장비특화) — 동일 법령 근거를 장비단위로 운용",
+  "scope": "차량계 건설기계 장비특화 — WP-008과 동일 builder(vehicle_construction_workplan), 장비 단위(굴착기·불도저·로더 등) 작성·관리",
+  "verification_result": "VERIFIED",
+  "verification_note": "WP-008과 동일 법령 근거(제196~199) 적용 — 장비단위 운용 기록만 분리. CL-003-L1 evidence 4개 조항 VERIFIED 인용. EQ-002는 WP-008의 장비특화 인스턴스이며 법령 근거는 동일.",
+  "confirmed_articles": {
+    "196": "차량계 건설기계의 정의",
+    "197": "전조등의 설치",
+    "198": "낙하물 보호구조",
+    "199": "전도 등의 방지"
+  },
+  "writing_required_items": {
+    "source_note": "WP-008 본 작업계획서의 장비별 특화 운용 기록",
+    "expected_items": [
+      "장비 식별번호 및 모델",
+      "장비별 전조등·낙하물 보호구조 부착 상태 (제197·198조)",
+      "장비별 전도·전락 방지 조치 이력 (제199조)",
+      "운행경로 및 작업방법(WP-008 본 계획서 연계)"
+    ]
+  },
+  "commonly_cited_items": {
+    "전조등 설치": "야간 또는 악천후 시 전조등 설치 의무 (제197조)",
+    "낙하물 보호구조": "조종사 위로 낙하물 방호 구조 설치 의무 (제198조)",
+    "전도·전락 방지": "작업 시 전도·전락 방지 조치, 유도자 배치, 갓길 붕괴 방지 (제199조)"
+  },
+  "exclusion_note": "EQ-002는 WP-008 본 작업계획서를 대체하지 않으며 장비단위 특화 기록용. 차량계 하역운반기계는 EQ-001 별도 사용.",
+  "related_documents": ["WP-008", "CL-003"],
+  "related_evidence": ["WP-008-L1", "CL-003-L1"],
+  "source": "law.go.kr DRF API (MST 273603, XML) — 제196~199 본문 VERIFIED (CL-003-L1·WP-008-L1 인용)",
+  "source_url": "https://www.law.go.kr/DRF/lawService.do?OC=haehan2026&target=law&MST=273603&type=XML",
+  "source_url_or_api": "https://www.law.go.kr/DRF/lawService.do?OC=***&target=law&MST=273603&type=JSON",
+  "effective_date": "20260302",
+  "collected_at": "2026-04-26T00:00:00.000000+09:00",
+  "verified_at": "2026-04-25T09:40:59.048052+00:00",
+  "verified_excerpt_hash": "f975c01ee54963a6",
+  "collection_method": "law.go.kr DRF API (MST 273603, XML) — CL-003-L1·WP-008-L1 인용",
+  "verifier": "automated_law_source_check",
+  "verification_keywords": [
+    "차량계 건설기계",
+    "전조등",
+    "낙하물",
+    "전도"
+  ],
+  "keywords_found": [
+    "차량계 건설기계",
+    "전조등",
+    "낙하물",
+    "전도"
+  ],
+  "notes": "EQ-002(차량계 건설기계 작업계획서 장비특화) 전용 evidence. WP-008-L1과 동일 법령 근거를 장비단위로 적용. builder는 vehicle_construction_workplan을 WP-008과 공유."
+}

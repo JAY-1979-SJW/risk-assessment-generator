@@ -133,8 +133,16 @@ documents:
     priority: DONE
     form_type: vehicle_construction_workplan
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제3호, 제170조 이하"
-    notes: "builder v1.0"
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제3호, 제170조 이하 (실효 범위: 제196조~제199조 차량계 건설기계 안전조치)"
+    evidence_status: VERIFIED
+    evidence_id:
+      - "WP-008-L1"
+    evidence_file:
+      - "data/evidence/safety_law_refs/WP-008-L1_safety_rule_articles_196_199_vehicle_construction.json"
+    related_documents:
+      - EQ-002
+      - CL-003
+    notes: "builder v1.0. 제38조 제1항 제3호 작성 의무 + 제196~199 차량계 건설기계 안전조치(VERIFIED, CL-003-L1 인용). EQ-002 장비특화 계획서와 builder(vehicle_construction_workplan) 공유."
 
   - id: WP-009
     name: 차량계 하역운반기계 작업계획서
@@ -146,8 +154,16 @@ documents:
     priority: DONE
     form_type: material_handling_workplan
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제2호, 제2항, 제179조~제182조"
-    notes: "지게차 포함. builder v1.0"
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제2호, 제2항, 제171조~제178조 (공통, PARTIAL_VERIFIED), 제179조~제182조 (지게차, PARTIAL_VERIFIED)"
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - "WP-009-L1"
+    evidence_file:
+      - "data/evidence/safety_law_refs/WP-009-L1_safety_rule_articles_171_182_material_handling.json"
+    related_documents:
+      - EQ-001
+      - CL-003
+    notes: "지게차 포함. builder v1.0. 제38조 제1항 제2호·제2항 작성 의무 + 제171~178 공통(CL-003-L2 PARTIAL) + 제179~182 지게차(CL-003-L3 PARTIAL) 통합 인용. law.go.kr DRF XML 후속 수집 시 VERIFIED 승격 후보."
 
   - id: WP-010
     name: 항타기·항발기 사용 작업계획서
@@ -292,8 +308,16 @@ documents:
     priority: DONE
     form_type: material_handling_workplan
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제2호, 제2항, 제179조"
-    notes: "WP-009와 동일 builder. 장비별 특화 운용 기록"
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제2호·제2항, 제171조~제178조 (공통), 제179조~제182조 (지게차) — 장비단위 운용"
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - "EQ-001-L1"
+    evidence_file:
+      - "data/evidence/safety_law_refs/EQ-001-L1_safety_rule_material_handling_equipment_specific.json"
+    related_documents:
+      - WP-009
+      - CL-003
+    notes: "WP-009와 동일 builder(material_handling_workplan). 장비별 특화 운용 기록. WP-009-L1 + CL-003-L2 + CL-003-L3 인용. PARTIAL_VERIFIED 상태 — 본 계획서를 대체하지 않음."
 
   - id: EQ-002
     name: 차량계 건설기계 작업계획서 (장비특화)
@@ -305,8 +329,16 @@ documents:
     priority: DONE
     form_type: vehicle_construction_workplan
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제3호, 제170조 이하"
-    notes: "WP-008과 동일 builder. 장비별 특화 운용 기록"
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제3호, 제196조~제199조 (장비단위 운용)"
+    evidence_status: VERIFIED
+    evidence_id:
+      - "EQ-002-L1"
+    evidence_file:
+      - "data/evidence/safety_law_refs/EQ-002-L1_safety_rule_vehicle_construction_equipment_specific.json"
+    related_documents:
+      - WP-008
+      - CL-003
+    notes: "WP-008과 동일 builder(vehicle_construction_workplan). 장비별 특화 운용 기록. WP-008-L1 + CL-003-L1 인용. 제196~199 VERIFIED — 본 계획서를 대체하지 않음."
 
   - id: EQ-003
     name: 타워크레인 작업계획서 (장비특화)
