@@ -4256,9 +4256,15 @@ def run_smoke_test() -> None:
     crane_results = run_crane_workplan_smoke_test()
     results.extend(crane_results)
 
+    # ════════════════════════════════════════════════════════════
+    # RA 묶음 2건 검증 (RA-001/RA-004 — 중간 수준 — 2026-04-26)
+    # ════════════════════════════════════════════════════════════
+    ra_results = run_ra_forms_smoke_test()
+    results.extend(ra_results)
+
     # ── 출력 ─────────────────────────────────────────────────────────────
     print("\n" + "=" * 80)
-    print("  KRAS P1 Smoke Test — ED-003 + WP-011 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002 + PTW-002 + PTW-003 + PTW-007 + WP-005 + CL-007 + PTW-004 + CL-004 + CL-005 + HM-001 + HM-002 + WP-008/WP-009/EQ-001/EQ-002 + WP-006/WP-007/EQ-003/EQ-004")
+    print("  KRAS P1 Smoke Test — ED-003 + WP-011 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002 + PTW-002 + PTW-003 + PTW-007 + WP-005 + CL-007 + PTW-004 + CL-004 + CL-005 + HM-001 + HM-002 + WP-008/WP-009/EQ-001/EQ-002 + WP-006/WP-007/EQ-003/EQ-004 + RA-001/RA-004")
     print("=" * 80)
 
     pass_cnt = warn_cnt = fail_cnt = 0
@@ -6063,6 +6069,176 @@ def run_crane_workplan_smoke_test() -> list[tuple[str, str, str]]:
             ))
         except Exception as exc:
             results.append(_check(False, f"evidence 파일 로딩: {ev_fname[:50]}", str(exc)))
+
+    return results
+
+
+# ===========================================================================
+# RA 묶음 — RA-001(위험성평가표) / RA-004(TBM 안전점검 일지)
+# ===========================================================================
+
+RA_TARGET_DOC_IDS = ["RA-001", "RA-004"]
+
+# doc_id → (primary_ev_id, primary_ev_fname, expected_form_type, expected_ev_status)
+RA_EVIDENCE_BY_DOC: dict = {
+    "RA-001": (
+        "RA-001-L1",
+        "RA-001-L1_industrial_safety_health_act_article_36.json",
+        "risk_assessment",
+        "VERIFIED",
+    ),
+    "RA-004": (
+        "RA-004-L1",
+        "RA-004-L1_notice_2023_19_tbm_daily_assessment.json",
+        "tbm_log",
+        "VERIFIED",
+    ),
+}
+
+RA_ALL_EVIDENCE_FILES = [
+    "RA-001-L1_industrial_safety_health_act_article_36.json",
+    "RA-001-L2_industrial_safety_health_rule_article_37.json",
+    "RA-001-L3_notice_2023_19_risk_assessment_method.json",
+    "RA-004-L1_notice_2023_19_tbm_daily_assessment.json",
+]
+
+
+def run_ra_forms_smoke_test() -> list[tuple[str, str, str]]:
+    """RA 묶음 2건 (RA-001/RA-004) 중간 수준 smoke test."""
+    results: list[tuple[str, str, str]] = []
+    supported = {f["form_type"] for f in list_supported_forms()}
+
+    # ── 1. registry 등록 확인 ────────────────────────────────────────────
+    results.append(_check(
+        "risk_assessment" in supported,
+        "registry: risk_assessment 등록됨 (RA-001)",
+    ))
+    results.append(_check(
+        "tbm_log" in supported,
+        "registry: tbm_log 등록됨 (RA-004)",
+    ))
+
+    # ── 2. get_form_spec 검증 ────────────────────────────────────────────
+    for form_type, expected_name in (
+        ("risk_assessment", "위험성평가표"),
+        ("tbm_log",         "TBM 안전점검 일지"),
+    ):
+        try:
+            spec = get_form_spec(form_type)
+            results.append(_check(
+                isinstance(spec, dict) and spec.get("display_name") == expected_name,
+                f"get_form_spec('{form_type}') → display_name == '{expected_name}'",
+                repr(spec.get("display_name")) if isinstance(spec, dict) else "",
+            ))
+            results.append(_check(
+                isinstance(spec.get("required_fields"), (list, tuple)),
+                f"{form_type}: required_fields 리스트 타입",
+                repr(type(spec.get("required_fields")).__name__),
+            ))
+        except Exception as exc:
+            results.append(_check(False, f"get_form_spec('{form_type}') 호출 성공", str(exc)))
+
+    # ── 3. sample build × 2 ──────────────────────────────────────────────
+    for form_type, sample in (
+        ("risk_assessment", {"site_name": "테스트현장", "assessment_date": "2026-04-26"}),
+        ("tbm_log",         {"site_name": "테스트현장", "tbm_date": "2026-04-26"}),
+    ):
+        try:
+            xlsx_bytes = build_form_excel(form_type, sample)
+            results.append(_check(
+                isinstance(xlsx_bytes, bytes) and len(xlsx_bytes) > 0,
+                f"{form_type} sample build → bytes 생성",
+                f"{len(xlsx_bytes):,} bytes",
+            ))
+        except Exception as exc:
+            results.append(_check(False, f"{form_type} sample build", str(exc)))
+
+    # ── 4. catalog 항목 검증 + evidence_file 존재 ────────────────────────
+    try:
+        import yaml
+        catalog_path = Path("data/masters/safety/documents/document_catalog.yml")
+        with open(catalog_path, encoding="utf-8") as f:
+            cat = yaml.safe_load(f)
+
+        for doc_id in RA_TARGET_DOC_IDS:
+            doc = next((d for d in cat["documents"] if d["id"] == doc_id), None)
+            results.append(_check(doc is not None, f"catalog: {doc_id} 항목 존재"))
+            if not doc:
+                continue
+
+            ev_id, ev_fname, expected_form_type, expected_status = RA_EVIDENCE_BY_DOC[doc_id]
+
+            results.append(_check(
+                doc.get("implementation_status") == "DONE",
+                f"catalog: {doc_id} implementation_status == DONE",
+                repr(doc.get("implementation_status")),
+            ))
+            results.append(_check(
+                doc.get("form_type") == expected_form_type,
+                f"catalog: {doc_id} form_type == '{expected_form_type}'",
+                repr(doc.get("form_type")),
+            ))
+
+            ev_status = doc.get("evidence_status", "")
+            results.append(_check(
+                ev_status == "READY",
+                f"catalog: {doc_id} evidence_status == 'READY'",
+                repr(ev_status),
+            ))
+
+            ev_ids = doc.get("evidence_ids") or []
+            if isinstance(ev_ids, str):
+                ev_ids = [ev_ids]
+            results.append(_check(
+                ev_id in ev_ids,
+                f"catalog: {doc_id} evidence_ids 포함 — {ev_id}",
+            ))
+
+            ev_files = doc.get("evidence_files") or []
+            if isinstance(ev_files, str):
+                ev_files = [ev_files]
+            ev_basenames = {Path(p).name for p in ev_files}
+            results.append(_check(
+                ev_fname in ev_basenames,
+                f"catalog: {doc_id} evidence_files 등록 — {ev_fname[:50]}",
+            ))
+
+            fpath = EVIDENCE_DIR / ev_fname
+            results.append(_check(
+                fpath.exists(),
+                f"evidence_file 실제 존재: {ev_fname[:50]}",
+            ))
+
+    except Exception as exc:
+        tb = traceback.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "RA catalog 검증 중 예외", tb))
+
+    # ── 5. 모든 evidence 파일 내용 검증 ──────────────────────────────────
+    for ev_fname in RA_ALL_EVIDENCE_FILES:
+        fpath = EVIDENCE_DIR / ev_fname
+        if not fpath.exists():
+            results.append(_check(False, f"evidence 파일 존재: {ev_fname[:55]}"))
+            continue
+        try:
+            ev_data = json.loads(fpath.read_text(encoding="utf-8"))
+            vr = ev_data.get("verification_result", "")
+            results.append(_check(
+                vr == "VERIFIED",
+                f"evidence {ev_data.get('evidence_id', '?')}: verification_result == 'VERIFIED'",
+                repr(vr),
+            ))
+            results.append(_check(
+                bool(ev_data.get("document_id")),
+                f"evidence {ev_data.get('evidence_id', '?')}: document_id 존재",
+                repr(ev_data.get("document_id")),
+            ))
+            results.append(_check(
+                bool(ev_data.get("evidence_id")),
+                f"evidence {ev_fname[:40]}: evidence_id 존재",
+                repr(ev_data.get("evidence_id")),
+            ))
+        except Exception as exc:
+            results.append(_check(False, f"evidence 파일 로딩: {ev_fname[:55]}", str(exc)))
 
     return results
 

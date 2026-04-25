@@ -572,6 +572,15 @@ documents:
     source_type: law
     legal_basis: "산업안전보건법 제36조, 시행규칙 제37조, 고용노동부고시 제2023-19호"
     notes: "builder v1.0"
+    evidence_status: READY
+    evidence_ids:
+      - RA-001-L1
+      - RA-001-L2
+      - RA-001-L3
+    evidence_files:
+      - RA-001-L1_industrial_safety_health_act_article_36.json
+      - RA-001-L2_industrial_safety_health_rule_article_37.json
+      - RA-001-L3_notice_2023_19_risk_assessment_method.json
 
   - id: RA-002
     name: 위험성평가 관리 등록부
@@ -611,6 +620,11 @@ documents:
     source_type: practical
     legal_basis: "고용노동부고시 제2023-19호 (상시평가 실시 권고)"
     notes: "법정 의무 아님. builder v1.0"
+    evidence_status: READY
+    evidence_ids:
+      - RA-004-L1
+    evidence_files:
+      - RA-004-L1_notice_2023_19_tbm_daily_assessment.json
 
   - id: RA-005
     name: 위험성평가 실시 규정
