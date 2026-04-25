@@ -1,0 +1,24 @@
+{
+  "evidence_id": "EQ-003-L1",
+  "document_id": "EQ-003",
+  "title": "산업안전보건기준에 관한 규칙 제38조 제1항 제1호 + 제142조~제148조 — 타워크레인 장비특화 작업계획서",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "article": "제38조 제1항 제1호, 제142조~제148조",
+  "article_title": "타워크레인 장비단위 작업계획서 — WP-006 builder 재사용 (EQ-001/EQ-002 패턴)",
+  "law_mst": "273603",
+  "source": "law.go.kr",
+  "collection_method": "MANUAL_REVIEW (WP-006-L1 + CL-006-L1/L2 재인용)",
+  "verification_result": "PARTIAL_VERIFIED",
+  "verification_note": "EQ-003은 WP-006(타워크레인 작업계획서)과 동일 builder(tower_crane_workplan)를 장비단위로 운용. 법적 근거는 WP-006-L1과 동일: 제38조 제1항 제1호(작성 의무), 제142조~제148조(타워크레인 세부 기준). EQ-001/EQ-002 패턴 준용. WP-006-L1, CL-006-L1, CL-006-L2 검증 내용 재인용. 원문 수집 후 VERIFIED 전환 예정.",
+  "key_obligations_known": [
+    "타워크레인 장비별 작업계획서 작성 의무 (제38조 제1항 제1호)",
+    "타워크레인 설치·운용·해체 자격자 배치 (제142조 이하)",
+    "작업 시 신호업무 담당자 배치 (제146조)",
+    "기초부·앵커프레임·마스트 수직도 기준 (제143~145조 이하)"
+  ],
+  "reused_evidence": ["WP-006-L1", "CL-006-L1", "CL-006-L2"],
+  "scope_note": "WP-006 tower_crane_workplan builder 재사용. 장비단위 운용 기록. EQ-001/EQ-002 패턴 — 본 계획서는 WP-006을 대체하지 않음.",
+  "related_documents": ["WP-006", "CL-006"],
+  "collected_at": "2026-04-26",
+  "collected_by": "MANUAL_REVIEW"
+}

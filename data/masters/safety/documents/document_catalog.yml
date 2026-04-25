@@ -107,8 +107,17 @@ documents:
     priority: DONE
     form_type: tower_crane_workplan
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제1호, 제142조 이하"
-    notes: "builder v1.0"
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제1호, 제142조~제148조"
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - WP-006-L1
+    evidence_file:
+      - "data/evidence/safety_law_refs/WP-006-L1_safety_rule_article_38_142_148_tower_crane_workplan.json"
+    related_documents:
+      - EQ-003
+      - CL-006
+      - PTW-007
+    notes: "builder v1.0. EQ-003 장비특화 계획서와 builder(tower_crane_workplan) 공유. CL-006-L1/L2 수동 검증 내용 재인용. 원문 수집 후 VERIFIED 전환 예정."
 
   - id: WP-007
     name: 이동식 크레인 작업계획서
@@ -120,8 +129,17 @@ documents:
     priority: DONE
     form_type: mobile_crane_workplan
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제14호, 제134조 이하"
-    notes: "builder v1.0"
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제14호, 제134조~제141조, 제146조"
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - WP-007-L1
+    evidence_file:
+      - "data/evidence/safety_law_refs/WP-007-L1_safety_rule_article_38_134_146_mobile_crane_workplan.json"
+    related_documents:
+      - EQ-004
+      - PTW-007
+      - CL-003
+    notes: "builder v1.0. EQ-004 장비특화 계획서와 builder(mobile_crane_workplan) 공유. 제138조·제146조 제4·5항은 PTW-007-L4(VERIFIED, DRF XML 2026-04-25) 재인용. 원문 수집 후 VERIFIED 전환 예정."
 
   - id: WP-008
     name: 차량계 건설기계 작업계획서
@@ -351,7 +369,15 @@ documents:
     form_type: tower_crane_workplan
     source_type: law
     legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제1호, 제142조~제148조"
-    notes: "WP-006 tower_crane_workplan builder 재사용 (EQ-001/EQ-002 패턴). 자격/면허 자동판정은 E-06 후속 단계"
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - EQ-003-L1
+    evidence_file:
+      - "data/evidence/safety_law_refs/EQ-003-L1_safety_rule_tower_crane_equipment_specific.json"
+    related_documents:
+      - WP-006
+      - CL-006
+    notes: "WP-006 tower_crane_workplan builder 재사용 (EQ-001/EQ-002 패턴). WP-006-L1 + CL-006-L1/L2 재인용. 자격/면허 자동판정은 E-06 후속 단계. 원문 수집 후 VERIFIED 전환 예정."
 
   - id: EQ-004
     name: 이동식 크레인·카고크레인 작업계획서 (장비특화)
@@ -363,8 +389,16 @@ documents:
     priority: DONE
     form_type: mobile_crane_workplan
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제14호, 제134조~제141조"
-    notes: "WP-007 mobile_crane_workplan builder 재사용 (EQ-001/EQ-002 패턴). 자격/면허 자동판정은 E-06 후속 단계"
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제14호, 제134조~제141조, 제146조"
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - EQ-004-L1
+    evidence_file:
+      - "data/evidence/safety_law_refs/EQ-004-L1_safety_rule_mobile_crane_equipment_specific.json"
+    related_documents:
+      - WP-007
+      - PTW-007
+    notes: "WP-007 mobile_crane_workplan builder 재사용 (EQ-001/EQ-002 패턴). WP-007-L1 + PTW-007-L4(VERIFIED) 재인용. 카고크레인 포함. 자격/면허 자동판정은 E-06 후속 단계. 원문 수집 후 VERIFIED 전환 예정."
 
   - id: EQ-005
     name: 고소작업대 사용계획서

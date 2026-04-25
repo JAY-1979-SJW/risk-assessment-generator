@@ -1,0 +1,26 @@
+{
+  "evidence_id": "WP-007-L1",
+  "document_id": "WP-007",
+  "title": "산업안전보건기준에 관한 규칙 제38조 제1항 제14호 + 제134조~제146조 — 이동식 크레인 작업계획서 작성 의무",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "article": "제38조 제1항 제14호, 제134조~제141조, 제138조, 제146조 제4항·제5항",
+  "article_title": "이동식 크레인 사용 작업 시 작업계획서 작성 의무 및 이동식 크레인 안전기준",
+  "law_mst": "273603",
+  "source": "law.go.kr",
+  "collection_method": "DRF API 검증(PTW-007-L4 VERIFIED 재인용) + MANUAL_REVIEW (제134~141조)",
+  "verification_result": "PARTIAL_VERIFIED",
+  "verification_note": "제38조 제1항 제14호: 이동식 크레인 사용 작업 시 작업계획서 작성 의무 조항. 제138조(경사각 제한), 제146조 제4항(하부 출입통제), 제146조 제5항(신호수 배치)은 PTW-007-L4(VERIFIED, DRF XML 2026-04-25)에서 검증 완료. 제134조~제137조, 제139조~제141조 세부 내용(점검 의무, 사용 제한 기준 등)은 수동 검토 후 원문 수집 예정.",
+  "key_obligations_known": [
+    "이동식 크레인 사용 작업 시 작업계획서 작성 의무 (제38조 제1항 제14호)",
+    "이동식 크레인 사용 전 권과방지장치·브레이크·클러치 등 점검 의무 (제134조 이하)",
+    "붐 경사각 제한 기준 준수 의무 — VERIFIED (제138조)",
+    "인양 중인 물건 하부 근로자 출입금지 통제 의무 — VERIFIED (제146조 제4항)",
+    "인양물 미확인 시 신호수 배치 의무 — VERIFIED (제146조 제5항)"
+  ],
+  "reused_evidence": ["PTW-007-L4"],
+  "verified_articles": ["138", "146"],
+  "scope_note": "WP-007 이동식 크레인 작업계획서의 법적 작성 의무 및 계획서 기재 항목 근거. EQ-004 (이동식 크레인·카고크레인 장비특화)은 동일 builder 재사용 — EQ-004-L1 참조.",
+  "related_documents": ["EQ-004", "PTW-007", "CL-003"],
+  "collected_at": "2026-04-26",
+  "collected_by": "MANUAL_REVIEW+DRF_VERIFIED"
+}
