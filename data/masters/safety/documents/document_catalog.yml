@@ -30,8 +30,15 @@ documents:
     priority: DONE
     form_type: excavation_workplan
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제6호, 제82조"
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제6호, 제339조"
     notes: "굴착면 2m 이상. builder v1.0"
+    evidence_status: READY
+    evidence_id:
+      - WP-001-L1
+      - WP-001-L2
+    evidence_file:
+      - "data/evidence/safety_law_refs/WP-001-L1_safety_rule_article_38_item6_excavation.json"
+      - "data/evidence/safety_law_refs/WP-001-L2_safety_rule_article_339_excavation_face.json"
 
   - id: WP-002
     name: 터널 굴착 작업계획서

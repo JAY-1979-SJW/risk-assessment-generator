@@ -4268,9 +4268,15 @@ def run_smoke_test() -> None:
     confined_results = run_confined_space_forms_smoke_test()
     results.extend(confined_results)
 
+    # ════════════════════════════════════════════════════════════
+    # WP-001 굴착 작업계획서 검증 (중간 수준 — 2026-04-26)
+    # ════════════════════════════════════════════════════════════
+    wp001_results = run_wp001_smoke_test()
+    results.extend(wp001_results)
+
     # ── 출력 ─────────────────────────────────────────────────────────────
     print("\n" + "=" * 80)
-    print("  KRAS P1 Smoke Test — ED-003 + WP-011 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002 + PTW-002 + PTW-003 + PTW-007 + WP-005 + CL-007 + PTW-004 + CL-004 + CL-005 + HM-001 + HM-002 + WP-008/WP-009/EQ-001/EQ-002 + WP-006/WP-007/EQ-003/EQ-004 + RA-001/RA-004 + WP-014/PTW-001/CL-010")
+    print("  KRAS P1 Smoke Test — ED-003 + WP-011 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002 + PTW-002 + PTW-003 + PTW-007 + WP-005 + CL-007 + PTW-004 + CL-004 + CL-005 + HM-001 + HM-002 + WP-008/WP-009/EQ-001/EQ-002 + WP-006/WP-007/EQ-003/EQ-004 + RA-001/RA-004 + WP-014/PTW-001/CL-010 + WP-001")
     print("=" * 80)
 
     pass_cnt = warn_cnt = fail_cnt = 0
@@ -6424,6 +6430,144 @@ def run_confined_space_forms_smoke_test() -> list[tuple[str, str, str]]:
             results.append(_check(
                 ev_data.get("document_id") == doc_id,
                 f"evidence {ev_id}: document_id == '{doc_id}'",
+                repr(ev_data.get("document_id")),
+            ))
+            results.append(_check(
+                ev_data.get("evidence_id") == ev_id,
+                f"evidence {ev_id}: evidence_id 자기참조 일치",
+                repr(ev_data.get("evidence_id")),
+            ))
+        except Exception as exc:
+            results.append(_check(False, f"evidence 파일 로딩: {ev_fname[:50]}", str(exc)))
+
+    return results
+
+
+# ===========================================================================
+# WP-001 — 굴착 작업계획서
+# ===========================================================================
+
+SAMPLE_WP001_MINIMAL: dict = {
+    "site_name": "테스트건설(주) 테스트현장",
+    "work_date": "2026-04-26",
+    "work_location": "1공구 굴착구간",
+    "work_supervisor": "홍길동",
+    "excavation_depth": "3.5",
+    "excavation_method": "오픈컷",
+}
+
+WP001_EVIDENCE_FILES = [
+    "WP-001-L1_safety_rule_article_38_item6_excavation.json",
+    "WP-001-L2_safety_rule_article_339_excavation_face.json",
+]
+WP001_EVIDENCE_IDS = ["WP-001-L1", "WP-001-L2"]
+
+
+def run_wp001_smoke_test() -> list[tuple[str, str, str]]:
+    """WP-001 굴착 작업계획서 중간 수준 smoke test."""
+    results: list[tuple[str, str, str]] = []
+    supported = {f["form_type"] for f in list_supported_forms()}
+
+    # ── 1. registry 등록 확인 ────────────────────────────────────────────
+    results.append(_check(
+        "excavation_workplan" in supported,
+        "registry: excavation_workplan 등록됨 (WP-001)",
+    ))
+
+    # ── 2. get_form_spec 검증 ────────────────────────────────────────────
+    try:
+        spec = get_form_spec("excavation_workplan")
+        results.append(_check(
+            isinstance(spec, dict),
+            "get_form_spec('excavation_workplan') → dict",
+        ))
+        results.append(_check(
+            isinstance(spec.get("required_fields"), (list, tuple))
+            and len(spec["required_fields"]) > 0,
+            "excavation_workplan: required_fields 비어있지 않음",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "get_form_spec('excavation_workplan') 호출 성공", str(exc)))
+
+    # ── 3. sample build ──────────────────────────────────────────────────
+    try:
+        xlsx_bytes = build_form_excel("excavation_workplan", SAMPLE_WP001_MINIMAL)
+        results.append(_check(
+            isinstance(xlsx_bytes, bytes) and len(xlsx_bytes) > 0,
+            "excavation_workplan sample build → bytes 생성",
+            f"{len(xlsx_bytes):,} bytes",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "excavation_workplan sample build", str(exc)))
+
+    # ── 4. catalog 항목 검증 ─────────────────────────────────────────────
+    try:
+        import yaml
+        catalog_path = Path("data/masters/safety/documents/document_catalog.yml")
+        with open(catalog_path, encoding="utf-8") as f:
+            cat = yaml.safe_load(f)
+
+        doc = next((d for d in cat["documents"] if d["id"] == "WP-001"), None)
+        results.append(_check(doc is not None, "catalog: WP-001 항목 존재"))
+
+        if doc:
+            results.append(_check(
+                doc.get("implementation_status") == "DONE",
+                "catalog: WP-001 implementation_status == DONE",
+                repr(doc.get("implementation_status")),
+            ))
+            results.append(_check(
+                doc.get("form_type") == "excavation_workplan",
+                "catalog: WP-001 form_type == 'excavation_workplan'",
+                repr(doc.get("form_type")),
+            ))
+            ev_status = doc.get("evidence_status", "")
+            results.append(_check(
+                ev_status == "READY",
+                "catalog: WP-001 evidence_status == 'READY'",
+                repr(ev_status),
+            ))
+
+            ev_ids = doc.get("evidence_id") or []
+            if isinstance(ev_ids, str):
+                ev_ids = [ev_ids]
+            for eid in WP001_EVIDENCE_IDS:
+                results.append(_check(
+                    eid in ev_ids,
+                    f"catalog: WP-001 evidence_id 포함 — {eid}",
+                ))
+
+            ev_files = doc.get("evidence_file") or []
+            if isinstance(ev_files, str):
+                ev_files = [ev_files]
+            ev_basenames = {Path(p).name for p in ev_files}
+            for efname in WP001_EVIDENCE_FILES:
+                results.append(_check(
+                    efname in ev_basenames,
+                    f"catalog: WP-001 evidence_file 등록 — {efname[:55]}",
+                ))
+
+    except Exception as exc:
+        tb = traceback.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "WP-001 catalog 검증 중 예외", tb))
+
+    # ── 5. evidence 파일 존재 + 내용 검증 ────────────────────────────────
+    for ev_fname, ev_id in zip(WP001_EVIDENCE_FILES, WP001_EVIDENCE_IDS):
+        fpath = EVIDENCE_DIR / ev_fname
+        results.append(_check(fpath.exists(), f"evidence_file 실제 존재: {ev_fname[:55]}"))
+        if not fpath.exists():
+            continue
+        try:
+            ev_data = json.loads(fpath.read_text(encoding="utf-8"))
+            vr = ev_data.get("verification_result", "")
+            results.append(_check(
+                vr == "VERIFIED",
+                f"evidence {ev_id}: verification_result == 'VERIFIED'",
+                repr(vr),
+            ))
+            results.append(_check(
+                ev_data.get("document_id") == "WP-001",
+                f"evidence {ev_id}: document_id == 'WP-001'",
                 repr(ev_data.get("document_id")),
             ))
             results.append(_check(
