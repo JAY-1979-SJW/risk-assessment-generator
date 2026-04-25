@@ -283,7 +283,15 @@ documents:
     form_type: confined_space_workplan
     source_type: law
     legal_basis: "산업안전보건기준에 관한 규칙 제619조~제626조"
-    notes: "builder v1.0"
+    evidence_status: VERIFIED
+    evidence_id:
+      - WP-014-L1
+    evidence_file:
+      - WP-014-L1_safety_rule_articles_619_confined_space_workplan.json
+    notes: "builder v1.0. 제619조 작업프로그램 수립·시행 의무 및 작업 전 확인사항 근거. DRF API 직접 수집 (2026-04-26)."
+    related_documents:
+      - PTW-001
+      - CL-010
 
   - id: WP-015
     name: 거푸집·동바리 작업계획서
@@ -760,7 +768,15 @@ documents:
     form_type: confined_space_permit
     source_type: law
     legal_basis: "산업안전보건기준에 관한 규칙 제619조~제626조"
-    notes: "builder v1.0"
+    evidence_status: VERIFIED
+    evidence_id:
+      - PTW-001-L1
+    evidence_file:
+      - PTW-001-L1_safety_rule_articles_619_622_confined_space_permit.json
+    notes: "builder v1.0. 제619조 제2항·제3항 작업 전 확인·게시 의무, 제622조 출입금지 근거. DRF API 직접 수집 (2026-04-26)."
+    related_documents:
+      - WP-014
+      - CL-010
 
   - id: PTW-002
     name: 화기작업 허가서
@@ -1302,7 +1318,15 @@ documents:
     form_type: confined_space_checklist
     source_type: law
     legal_basis: "산업안전보건기준에 관한 규칙 제622조~제625조"
-    notes: "builder v1.0"
+    evidence_status: VERIFIED
+    evidence_id:
+      - CL-010-L1
+    evidence_file:
+      - CL-010-L1_safety_rule_articles_622_625_confined_space_checklist.json
+    notes: "builder v1.0. 제622조 출입금지, 제623조 감시인 배치·연락설비, 제624조 안전대·보호구, 제625조 대피기구 근거. DRF API 직접 수집 (2026-04-26)."
+    related_documents:
+      - WP-014
+      - PTW-001
 
   # ═══════════════════════════════════════════════════════════════
   # PPE — 보호구·장비 반입 관리 (4종)

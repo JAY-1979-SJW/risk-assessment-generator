@@ -4262,9 +4262,15 @@ def run_smoke_test() -> None:
     ra_results = run_ra_forms_smoke_test()
     results.extend(ra_results)
 
+    # ════════════════════════════════════════════════════════════
+    # 밀폐공간 묶음 3건 검증 (WP-014/PTW-001/CL-010 — 중간 수준 — 2026-04-26)
+    # ════════════════════════════════════════════════════════════
+    confined_results = run_confined_space_forms_smoke_test()
+    results.extend(confined_results)
+
     # ── 출력 ─────────────────────────────────────────────────────────────
     print("\n" + "=" * 80)
-    print("  KRAS P1 Smoke Test — ED-003 + WP-011 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002 + PTW-002 + PTW-003 + PTW-007 + WP-005 + CL-007 + PTW-004 + CL-004 + CL-005 + HM-001 + HM-002 + WP-008/WP-009/EQ-001/EQ-002 + WP-006/WP-007/EQ-003/EQ-004 + RA-001/RA-004")
+    print("  KRAS P1 Smoke Test — ED-003 + WP-011 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002 + PTW-002 + PTW-003 + PTW-007 + WP-005 + CL-007 + PTW-004 + CL-004 + CL-005 + HM-001 + HM-002 + WP-008/WP-009/EQ-001/EQ-002 + WP-006/WP-007/EQ-003/EQ-004 + RA-001/RA-004 + WP-014/PTW-001/CL-010")
     print("=" * 80)
 
     pass_cnt = warn_cnt = fail_cnt = 0
@@ -6239,6 +6245,194 @@ def run_ra_forms_smoke_test() -> list[tuple[str, str, str]]:
             ))
         except Exception as exc:
             results.append(_check(False, f"evidence 파일 로딩: {ev_fname[:55]}", str(exc)))
+
+    return results
+
+
+
+# ===========================================================================
+# 밀폐공간 묶음 smoke test — WP-014 / PTW-001 / CL-010
+#   1. registry: confined_space_workplan, confined_space_permit,
+#                confined_space_checklist 등록 확인
+#   2. get_form_spec × 3 조회 확인
+#   3. sample build × 3
+#   4. 3개 catalog 항목 evidence_* 필드 등록 확인
+#   5. evidence 파일 존재 + verification_result 확인
+# ===========================================================================
+
+CONFINED_TARGET_DOC_IDS = ["WP-014", "PTW-001", "CL-010"]
+
+CONFINED_EVIDENCE_BY_DOC = {
+    "WP-014": (
+        "WP-014-L1",
+        "WP-014-L1_safety_rule_articles_619_confined_space_workplan.json",
+        "confined_space_workplan",
+        "VERIFIED",
+    ),
+    "PTW-001": (
+        "PTW-001-L1",
+        "PTW-001-L1_safety_rule_articles_619_622_confined_space_permit.json",
+        "confined_space_permit",
+        "VERIFIED",
+    ),
+    "CL-010": (
+        "CL-010-L1",
+        "CL-010-L1_safety_rule_articles_622_625_confined_space_checklist.json",
+        "confined_space_checklist",
+        "VERIFIED",
+    ),
+}
+
+SAMPLE_CONFINED_WORKPLAN_MINIMAL: dict = {
+    "site_name": "테스트건설(주) 테스트현장",
+    "work_date": "2026-04-26",
+    "confined_space_location": "맨홀 MH-01",
+}
+
+SAMPLE_CONFINED_PERMIT_MINIMAL: dict = {
+    "site_name": "테스트건설(주) 테스트현장",
+    "work_date": "2026-04-26",
+    "confined_space_location": "오수받이 CS-02",
+}
+
+SAMPLE_CONFINED_CHECKLIST_MINIMAL: dict = {
+    "site_name": "테스트건설(주) 테스트현장",
+    "check_date": "2026-04-26",
+    "confined_space_location": "저류조 TS-01",
+}
+
+
+def run_confined_space_forms_smoke_test() -> list[tuple[str, str, str]]:
+    """밀폐공간 묶음 3건 (WP-014/PTW-001/CL-010) 중간 수준 smoke test."""
+    results: list[tuple[str, str, str]] = []
+    supported = {f["form_type"] for f in list_supported_forms()}
+
+    # ── 1. registry 등록 확인 ────────────────────────────────────────────
+    for ft in ("confined_space_workplan", "confined_space_permit", "confined_space_checklist"):
+        results.append(_check(ft in supported, f"registry: {ft} 등록됨"))
+
+    # ── 2. get_form_spec × 3 ────────────────────────────────────────────
+    expected_names = {
+        "confined_space_workplan": "밀폐공간 작업계획서",
+        "confined_space_permit":   "밀폐공간 작업허가서",
+        "confined_space_checklist": "밀폐공간 사전 안전점검표",
+    }
+    for form_type, expected_name in expected_names.items():
+        try:
+            spec = get_form_spec(form_type)
+            results.append(_check(
+                isinstance(spec, dict) and spec.get("display_name") == expected_name,
+                f"get_form_spec('{form_type}') → display_name == '{expected_name}'",
+                repr(spec.get("display_name")) if isinstance(spec, dict) else "",
+            ))
+            results.append(_check(
+                isinstance(spec.get("required_fields"), (list, tuple))
+                and len(spec["required_fields"]) > 0,
+                f"{form_type}: required_fields 비어있지 않음",
+            ))
+        except Exception as exc:
+            results.append(_check(False, f"get_form_spec('{form_type}') 호출 성공", str(exc)))
+
+    # ── 3. sample build × 3 ──────────────────────────────────────────────
+    for form_type, sample in (
+        ("confined_space_workplan",  SAMPLE_CONFINED_WORKPLAN_MINIMAL),
+        ("confined_space_permit",    SAMPLE_CONFINED_PERMIT_MINIMAL),
+        ("confined_space_checklist", SAMPLE_CONFINED_CHECKLIST_MINIMAL),
+    ):
+        try:
+            xlsx_bytes = build_form_excel(form_type, sample)
+            results.append(_check(
+                isinstance(xlsx_bytes, bytes) and len(xlsx_bytes) > 0,
+                f"{form_type} sample build → bytes 생성",
+                f"{len(xlsx_bytes):,} bytes",
+            ))
+        except Exception as exc:
+            results.append(_check(False, f"{form_type} sample build", str(exc)))
+
+    # ── 4. 3개 catalog 항목 검증 + evidence_file 존재 ────────────────────
+    try:
+        import yaml
+        catalog_path = Path("data/masters/safety/documents/document_catalog.yml")
+        with open(catalog_path, encoding="utf-8") as f:
+            cat = yaml.safe_load(f)
+
+        for doc_id in CONFINED_TARGET_DOC_IDS:
+            doc = next((d for d in cat["documents"] if d["id"] == doc_id), None)
+            results.append(_check(doc is not None, f"catalog: {doc_id} 항목 존재"))
+            if not doc:
+                continue
+
+            ev_id, ev_fname, expected_form_type, expected_status = CONFINED_EVIDENCE_BY_DOC[doc_id]
+
+            results.append(_check(
+                doc.get("implementation_status") == "DONE",
+                f"catalog: {doc_id} implementation_status == DONE",
+                repr(doc.get("implementation_status")),
+            ))
+            results.append(_check(
+                doc.get("form_type") == expected_form_type,
+                f"catalog: {doc_id} form_type == '{expected_form_type}'",
+                repr(doc.get("form_type")),
+            ))
+
+            ev_status = doc.get("evidence_status", "")
+            results.append(_check(
+                ev_status == expected_status,
+                f"catalog: {doc_id} evidence_status == '{expected_status}'",
+                repr(ev_status),
+            ))
+
+            ev_ids = doc.get("evidence_id") or []
+            if isinstance(ev_ids, str):
+                ev_ids = [ev_ids]
+            results.append(_check(
+                ev_id in ev_ids,
+                f"catalog: {doc_id} evidence_id 포함 — {ev_id}",
+            ))
+
+            ev_files = doc.get("evidence_file") or []
+            if isinstance(ev_files, str):
+                ev_files = [ev_files]
+            ev_basenames = {Path(p).name for p in ev_files}
+            results.append(_check(
+                ev_fname in ev_basenames,
+                f"catalog: {doc_id} evidence_file 등록 — {ev_fname[:50]}",
+            ))
+            fpath = EVIDENCE_DIR / ev_fname
+            results.append(_check(
+                fpath.exists(),
+                f"evidence_file 실제 존재: {ev_fname[:50]}",
+            ))
+    except Exception as exc:
+        tb = traceback.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "밀폐공간 catalog 검증 중 예외", tb))
+
+    # ── 5. evidence 파일 내용 검증 ────────────────────────────────────────
+    for doc_id, (ev_id, ev_fname, _, expected_status) in CONFINED_EVIDENCE_BY_DOC.items():
+        fpath = EVIDENCE_DIR / ev_fname
+        if not fpath.exists():
+            results.append(_check(False, f"evidence 파일 존재: {ev_fname[:55]}"))
+            continue
+        try:
+            ev_data = json.loads(fpath.read_text(encoding="utf-8"))
+            vr = ev_data.get("verification_result", "")
+            results.append(_check(
+                vr == expected_status,
+                f"evidence {ev_id}: verification_result == '{expected_status}'",
+                repr(vr),
+            ))
+            results.append(_check(
+                ev_data.get("document_id") == doc_id,
+                f"evidence {ev_id}: document_id == '{doc_id}'",
+                repr(ev_data.get("document_id")),
+            ))
+            results.append(_check(
+                ev_data.get("evidence_id") == ev_id,
+                f"evidence {ev_id}: evidence_id 자기참조 일치",
+                repr(ev_data.get("evidence_id")),
+            ))
+        except Exception as exc:
+            results.append(_check(False, f"evidence 파일 로딩: {ev_fname[:50]}", str(exc)))
 
     return results
 
