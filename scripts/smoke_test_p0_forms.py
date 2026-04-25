@@ -1,5 +1,7 @@
 """
 P0 6종 + 기존 DONE 5종 Excel 생성 smoke test.
+EQ-003/EQ-004 catalog form_type 연결 검증 포함.
+HM-001/HM-002 보건관리 builder 검증 포함.
 
 실행:
     cd <project_root>
@@ -21,6 +23,8 @@ from openpyxl import load_workbook
 sys.path.insert(0, ".")
 
 from engine.output.form_registry import build_form_excel, list_supported_forms
+from engine.output.work_environment_measurement_builder import ORIGINAL_REPORT_NOTE
+from engine.output.special_health_examination_builder import ORIGINAL_RESULT_NOTE
 
 # ---------------------------------------------------------------------------
 # 샘플 form_data (최소 required_fields 채움, optional 생략 가능)
@@ -119,6 +123,9 @@ SAMPLES: dict[str, dict] = {
         "hazard_points": "산소결핍, 황화수소 발생 가능, 미끄러짐",
         "safety_instructions": "공기호흡기 착용 필수, 30분마다 가스 측정, 이상 시 즉시 대피",
         "tbm_location": "현장 조립식 사무실 앞",
+        "trade_name": "기계설비 배관 보수",
+        "pre_work_checks": "1. 가스 농도 측정 완료\n2. 환기 설비 가동 확인\n3. 안전장비 지급 완료",
+        "permit_check": "밀폐공간 작업허가서 #CS-2026-001 확인",
         "ppe_check": "안전모, 안전화, 공기호흡기, 안전대 착용 확인",
         "attendees": [
             {"name": "홍길동", "job_type": "배관공"},
@@ -160,6 +167,48 @@ SAMPLES: dict[str, dict] = {
             {"result": "",  "note": "작업 종료 후 작성 예정"},
         ],
     },
+    # ── HM-001/HM-002 보건관리 ───────────────────────────────────────────────
+    "work_environment_measurement": {
+        "site_name": "테스트사업장",
+        "target_process": "용접·도장 작업 구역 (1공장 A라인)",
+        "hazardous_agents": "소음, 분진, 톨루엔",
+        "measurement_agency": "한국산업안전보건공단 인정 측정기관 (가나다측정원)",
+        "agency_contact": "02-0000-0000",
+        "measurement_date": "2026-04-10",
+        "result_received_date": "2026-04-17",
+        "result_summary": "소음 87dB(A) — 기준 90dB(A) 이하, 분진 0.8mg/m³ — 기준 이하, 톨루엔 15ppm — 기준 이하",
+        "exceedance_status": "초과 없음",
+        "improvement_plan": "소음 수준 지속 모니터링, 귀마개 착용 의무화",
+        "worker_notification": "2026-04-18 전체 근로자 측정 결과 공지 (게시판 게시 및 반장 전달)",
+        "original_attached": "첨부 완료 (안전보건 서류함 보관)",
+        "measurement_rows": [
+            {"target_location": "1공장 A라인", "hazardous_agent": "소음", "measured_value": "87dB(A)", "exposure_limit": "90dB(A)", "exceedance": "미초과"},
+            {"target_location": "1공장 A라인", "hazardous_agent": "분진", "measured_value": "0.8mg/m³", "exposure_limit": "10mg/m³", "exceedance": "미초과"},
+        ],
+        "sign_date": "2026-04-25",
+    },
+    "special_health_examination": {
+        "site_name": "테스트사업장",
+        "exam_target_work": "소음 발생 작업, 분진 발생 작업",
+        "exam_agency": "서울산업보건센터 (지정 검진기관)",
+        "agency_contact": "02-1111-2222",
+        "exam_date": "2026-04-05",
+        "result_received_date": "2026-04-15",
+        "exam_type": "정기",
+        "hazardous_agents": "소음, 분진",
+        "judgment_summary": "A(정상) 8명, C1(직업적 질병 요관찰) 2명, 미수검 1명",
+        "followup_plan": "C1 판정자 2명 작업 환경 개선 및 3개월 후 재검진 실시",
+        "non_exam_count": "1명",
+        "non_exam_reason": "장기 출장",
+        "non_exam_action": "귀임 후 1개월 내 수시건강진단 실시 예정",
+        "original_stored": "보관 완료 (인사팀 잠금 서류함)",
+        "privacy_confirmed": "확인 — 열람 권한자 제한 완료",
+        "worker_rows": [
+            {"employee_no": "E001", "name": "홍길동", "birth_year": "1985", "job_type": "용접공", "exam_done": "완료", "judgment": "A", "followup_needed": "없음"},
+            {"employee_no": "E002", "name": "이순신", "birth_year": "1979", "job_type": "배관공", "exam_done": "완료", "judgment": "C1", "followup_needed": "필요"},
+        ],
+        "sign_date": "2026-04-25",
+    },
 }
 
 # ---------------------------------------------------------------------------
@@ -167,17 +216,19 @@ SAMPLES: dict[str, dict] = {
 # ---------------------------------------------------------------------------
 
 REQUIRED_SHEET_HEADINGS: dict[str, str] = {
-    "education_log":              "안전보건교육",
-    "risk_assessment":            "위험성평가",
-    "excavation_workplan":        "굴착",
-    "vehicle_construction_workplan": "차량계 건설기계",
-    "material_handling_workplan": "차량계 하역운반기계",
-    "tower_crane_workplan":       "타워크레인",
-    "mobile_crane_workplan":      "이동식 크레인",
-    "confined_space_workplan":    "밀폐공간",
-    "tbm_log":                    "TBM",
-    "confined_space_permit":      "밀폐공간",
-    "confined_space_checklist":   "밀폐공간",
+    "education_log":                   "안전보건교육",
+    "risk_assessment":                 "위험성평가",
+    "excavation_workplan":             "굴착",
+    "vehicle_construction_workplan":   "차량계 건설기계",
+    "material_handling_workplan":      "차량계 하역운반기계",
+    "tower_crane_workplan":            "타워크레인",
+    "mobile_crane_workplan":           "이동식 크레인",
+    "confined_space_workplan":         "밀폐공간",
+    "tbm_log":                         "TBM",
+    "confined_space_permit":           "밀폐공간",
+    "confined_space_checklist":        "밀폐공간",
+    "work_environment_measurement":    "작업환경측정",
+    "special_health_examination":      "특수건강진단",
 }
 
 # ---------------------------------------------------------------------------
@@ -242,6 +293,63 @@ def run_smoke_test() -> None:
         overall = "WARN"
     else:
         overall = "PASS"
+
+    # ── EQ-003/EQ-004 catalog form_type 연결 검증 ──────────────────
+    print("  " + "-" * 56)
+    print("  EQ-003/EQ-004 catalog 연결 검증")
+    eq_links = {
+        "EQ-003 (타워크레인 장비특화)":     "tower_crane_workplan",
+        "EQ-004 (이동식크레인 장비특화)":   "mobile_crane_workplan",
+    }
+    eq_fail = 0
+    for label, ft in eq_links.items():
+        ok = ft in supported
+        icon = "✅" if ok else "❌"
+        print(f"  {icon} {label} → form_type={ft}")
+        if not ok:
+            eq_fail += 1
+    if eq_fail:
+        overall = "FAIL"
+
+    # ── HM-001/HM-002 원본 첨부 문구 검증 ─────────────────────────
+    print("  " + "-" * 56)
+    print("  HM-001/HM-002 원본 첨부 문구 검증")
+    hm_checks = [
+        ("HM-001 (작업환경측정)", "work_environment_measurement",
+         SAMPLES.get("work_environment_measurement", {}),
+         "외부 전문 측정기관"),
+        ("HM-002 (특수건강진단)", "special_health_examination",
+         SAMPLES.get("special_health_examination", {}),
+         "외부 지정 검진기관"),
+    ]
+    hm_fail = 0
+    for label, ft, sample, note_keyword in hm_checks:
+        try:
+            xlsx_bytes = build_form_excel(ft, sample)
+            wb2 = load_workbook(BytesIO(xlsx_bytes))
+            found = any(
+                note_keyword in str(cell.value or "")
+                for ws2 in wb2.worksheets
+                for row in ws2.iter_rows()
+                for cell in row
+            )
+            icon = "✅" if found else "❌"
+            msg  = "원본 첨부 문구 확인" if found else f"문구 미발견: '{note_keyword}'"
+            print(f"  {icon} {label} → {msg}")
+            if not found:
+                hm_fail += 1
+                overall = "FAIL"
+        except Exception as exc:
+            print(f"  ❌ {label} → 검증 중 예외: {exc}")
+            hm_fail += 1
+            overall = "FAIL"
+    if hm_fail == 0 and "work_environment_measurement" in supported and "special_health_examination" in supported:
+        print("  ✅ HM-001/HM-002 catalog form_type 연결 확인")
+    else:
+        for ft in ("work_environment_measurement", "special_health_examination"):
+            if ft not in supported:
+                print(f"  ❌ {ft} → registry 미등록")
+                overall = "FAIL"
 
     print(f"\n  최종 판정: {overall}")
     print("=" * 60 + "\n")

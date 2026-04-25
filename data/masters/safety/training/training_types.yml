@@ -1,0 +1,220 @@
+# 교육 유형 마스터
+# 버전: 1.0
+# 작성일: 2026-04-24
+# 기준: 산업안전보건법 제29조, 시행규칙 별표 4~8 (대분류 기준)
+# 주의: required_hours는 법령에 명시된 경우만 기재. 불확실 항목은 NEEDS_VERIFICATION
+
+_meta:
+  version: "1.2"
+  total_types: 13
+  last_updated: "2026-04-25"
+  legal_basis: "산업안전보건법 제29조, 제32조, 시행규칙 제26~32조"
+
+training_types:
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 정기 교육 (법정 의무, 시행규칙 별표 4)
+  # ─────────────────────────────────────────────────────────────────────
+
+  - training_code: EDU_REG_WORKER_HALFYEAR
+    training_name: 근로자 정기안전보건교육 (매반기)
+    category: regular
+    required_hours: 6
+    cycle: 매반기 (6개월마다)
+    legal_basis: "산업안전보건법 제29조, 시행규칙 별표 4 제1호 가목"
+    source_type: law
+    is_mandatory: true
+    target_role: 일반 근로자
+    verification_status: confirmed
+    note: "사무직 종사 근로자: 매반기 3시간 이상 (별도 확인 필요)"
+
+  - training_code: EDU_REG_MANAGER_QUARTERLY
+    training_name: 관리감독자 정기교육 (매분기)
+    category: regular
+    required_hours: 8
+    cycle: 매분기 (3개월마다)
+    legal_basis: "산업안전보건법 제29조, 시행규칙 별표 4 제1호 나목"
+    source_type: law
+    is_mandatory: true
+    target_role: 관리감독자
+    verification_status: confirmed
+    note: null
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 채용 시 교육 (법정 의무, 시행규칙 별표 4)
+  # ─────────────────────────────────────────────────────────────────────
+
+  - training_code: EDU_ONBOARD_WORKER
+    training_name: 채용 시 안전보건교육 (근로자)
+    category: onboarding
+    required_hours: 8
+    cycle: 채용 시 1회
+    legal_basis: "산업안전보건법 제29조, 시행규칙 별표 4 제1호 다목"
+    source_type: law
+    is_mandatory: true
+    target_role: 신규 근로자
+    verification_status: confirmed
+    note: "일용근로자: 1시간 이상 (별도 확인 필요)"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 작업변경 시 교육 (법정 의무, 시행규칙 별표 4)
+  # ─────────────────────────────────────────────────────────────────────
+
+  - training_code: EDU_TASK_CHANGE
+    training_name: 작업변경 시 안전보건교육
+    category: task_change
+    required_hours: 2
+    cycle: 작업변경 시마다
+    legal_basis: "산업안전보건법 제29조, 시행규칙 별표 4 제1호 라목"
+    source_type: law
+    is_mandatory: true
+    target_role: 작업변경 근로자
+    verification_status: confirmed
+    note: null
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 특별안전보건교육 (법정 의무, 시행규칙 별표 5)
+  # ─────────────────────────────────────────────────────────────────────
+
+  - training_code: EDU_SPECIAL_16H
+    training_name: 특별안전보건교육 (16시간)
+    category: special
+    required_hours: 16
+    cycle: 해당 작업 최초 수행 전
+    legal_basis: "산업안전보건법 제29조 제3항, 시행규칙 별표 5"
+    source_type: law
+    is_mandatory: true
+    target_role: 유해위험작업 근로자
+    verification_status: confirmed
+    note: >
+      산업안전보건기준에 관한 규칙 별표 1의 유해위험작업 해당 시 적용.
+      대상 작업: 고압실내작업, 아세틸렌 용접, 크레인 운전, 밀폐공간 작업 등
+      (시행규칙 별표 5 전체 확인 필요 — NEEDS_VERIFICATION: 대상 작업 전체 목록)
+
+  - training_code: EDU_SPECIAL_2H
+    training_name: 특별안전보건교육 (단시간, 2시간)
+    category: special
+    required_hours: 2
+    cycle: 해당 작업 수행 전 (단시간·일용근로자)
+    legal_basis: "산업안전보건법 시행규칙 별표 5 단서"
+    source_type: law
+    is_mandatory: true
+    target_role: 단시간·일용 근로자 (유해위험작업)
+    verification_status: NEEDS_VERIFICATION
+    note: "단시간/일용 적용 조건 법령 원문 재확인 필요"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # TBM (Tool Box Meeting) — 법정 의무 아님
+  # ─────────────────────────────────────────────────────────────────────
+
+  - training_code: EDU_TBM
+    training_name: TBM(Tool Box Meeting) 안전점검
+    category: tbm
+    required_hours: null
+    cycle: 작업 시작 전 매일 (현장 관행)
+    legal_basis: null
+    source_type: practical
+    is_mandatory: false
+    target_role: 현장 근로자 전원
+    verification_status: confirmed
+    note: "법정 의무 아님. 중대재해처벌법 대응 실무 관행. form_type: tbm_log"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 밀폐공간 교육 (법정 의무)
+  # ─────────────────────────────────────────────────────────────────────
+
+  - training_code: EDU_CONFINED_SPACE
+    training_name: 밀폐공간 작업 특별교육
+    category: confined_space
+    required_hours: 16
+    cycle: 최초 수행 전
+    legal_basis: "산업안전보건법 시행규칙 별표 5, 산업안전보건기준에 관한 규칙 제619조"
+    source_type: law
+    is_mandatory: true
+    target_role: 밀폐공간 작업 근로자
+    verification_status: confirmed
+    note: "EDU_SPECIAL_16H의 하위 유형. 밀폐공간 전용 교육 내용 포함"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # MSDS 교육 (법정 의무)
+  # ─────────────────────────────────────────────────────────────────────
+
+  - training_code: EDU_MSDS
+    training_name: 물질안전보건자료(MSDS) 교육
+    category: msds
+    required_hours: null
+    cycle: "유해화학물질 취급 작업 시작 전, 변경 시"
+    legal_basis: "산업안전보건법 제114조"
+    source_type: law
+    is_mandatory: true
+    target_role: 유해화학물질 취급 근로자
+    verification_status: NEEDS_VERIFICATION
+    note: "필요 교육 시간 법령에 미명시 — 법령 원문 재확인 필요"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 건설업 기초안전보건교육 (산안법 제31조) — P0 등록
+  # ─────────────────────────────────────────────────────────────────────
+
+  - training_code: EDU_CONSTRUCTION_BASIC
+    training_name: 건설업 기초안전보건교육
+    category: construction_basic
+    required_hours: 8
+    cycle: 건설 일용근로자 최초 현장 취업 전
+    legal_basis: "산업안전보건법 제31조"
+    source_type: law
+    is_mandatory: true
+    target_role: 건설 일용근로자
+    verification_status: confirmed
+    note: "법령 원문 미확인. 시간(8h), 대상, 주기 법령 원문 재확인 필요 — evidence_status: NEEDS_VERIFICATION"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # D축 직무교육 3종 (산안법 제32조 — 2026-04-25 등록)
+  # 교육시간/주기는 시행규칙 원문 미확인(NEEDS_VERIFICATION) — 입력값 기반 처리
+  # ─────────────────────────────────────────────────────────────────────
+
+  - training_code: EDU_RESP_MANAGER_DUTY
+    training_name: 안전보건관리책임자 직무교육
+    category: duty_training
+    required_hours: null
+    cycle: "신규교육: 선임 후 3개월 이내 / 보수교육: 매 2년마다 (NEEDS_VERIFICATION: 시행규칙 원문 재확인 필요)"
+    legal_basis: "산업안전보건법 제32조, 제15조, 시행규칙 직무교육 조항 (조항번호 NEEDS_VERIFICATION)"
+    source_type: law
+    is_mandatory: true
+    target_role: 안전보건관리책임자
+    role_type: safety_health_manager_responsible
+    related_document_id: ED-004
+    verification_status: NEEDS_VERIFICATION
+    note: "교육시간·기한은 시행규칙 별표 4 원문 재확인 필요. 교육기관: 고용노동부 등록 안전보건교육기관. form_type: manager_job_training_record"
+
+  - training_code: EDU_SAFETY_MANAGER_DUTY
+    training_name: 안전관리자 직무교육
+    category: duty_training
+    required_hours: null
+    cycle: "신규교육: 선임 후 3개월 이내 / 보수교육: 매 2년마다 (NEEDS_VERIFICATION: 시행규칙 원문 재확인 필요)"
+    legal_basis: "산업안전보건법 제32조, 제17조, 시행규칙 직무교육 조항 (조항번호 NEEDS_VERIFICATION)"
+    source_type: law
+    is_mandatory: true
+    target_role: 안전관리자
+    role_type: safety_manager
+    related_document_id: ED-004
+    verification_status: NEEDS_VERIFICATION
+    note: "교육시간·기한은 시행규칙 별표 4 원문 재확인 필요. 교육기관: 고용노동부 등록 안전보건교육기관. form_type: manager_job_training_record"
+
+  - training_code: EDU_HEALTH_MANAGER_DUTY
+    training_name: 보건관리자 직무교육
+    category: duty_training
+    required_hours: null
+    cycle: "신규교육: 선임 후 3개월 이내(보건관리자가 의사인 경우 1년 이내) / 보수교육: 매 2년마다 (NEEDS_VERIFICATION: 시행규칙 원문 재확인 필요)"
+    legal_basis: "산업안전보건법 제32조, 제18조, 시행규칙 직무교육 조항 (조항번호 NEEDS_VERIFICATION)"
+    source_type: law
+    is_mandatory: true
+    target_role: 보건관리자
+    role_type: health_manager
+    related_document_id: ED-004
+    verification_status: NEEDS_VERIFICATION
+    note: "보건관리자가 의사인 경우 신규교육 기한 특례(1년) NEEDS_VERIFICATION. 교육시간·기한 시행규칙 원문 재확인 필요. form_type: manager_job_training_record"
+
+# ─────────────────────────────────────────────────────────────────────
+# TODO: 추가 예정 교육 유형
+# ─────────────────────────────────────────────────────────────────────
+# - 관리감독자 능력향상교육 — NEEDS_VERIFICATION

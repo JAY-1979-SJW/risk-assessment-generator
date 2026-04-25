@@ -1,0 +1,466 @@
+# 소방설비 공종 프리셋
+# 버전: 1.0
+# 작성일: 2026-04-25
+# source_status: PRACTICAL (현장 실무 경험 기반, 법령 원문 개별 확인 필요)
+# 스키마: trade_id, trade_name, trade_group, description, enabled, priority,
+#         default_hazards, required_documents, recommended_documents,
+#         required_trainings, required_permits, common_equipment, ppe,
+#         source_status, notes
+
+_meta:
+  version: "1.0"
+  trade_group: 소방설비
+  total: 10
+  last_updated: "2026-04-25"
+
+trades:
+
+  - trade_id: FIRE_PIPE_INSTALL
+    trade_name: 소방 배관 설치
+    trade_group: 소방설비
+    description: >
+      스프링클러·옥내소화전·옥외소화전·소화배관(주배관·가지배관) 설치 작업.
+      고소 작업, 용접·절단, 중량 자재 취급, 코어 천공 포함.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - FALLING_OBJECT
+      - CAUGHT_BETWEEN
+      - HOT_WORK_FIRE
+      - CUT_GRINDING
+      - HEAVY_LIFTING
+      - ELECTRIC_SHOCK
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-002
+      - PTW-003
+      - PTW-007
+      - CL-003
+      - PPE-001
+      - PPE-004
+      - EQ-014
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-002
+      - PTW-003
+    common_equipment:
+      - welding_machine
+      - grinder
+      - chain_block
+      - aerial_work_platform
+      - pipe_threading_machine
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - safety_gloves
+      - safety_shoes
+      - welding_face_shield
+    source_status: PRACTICAL
+    notes: >
+      candidate_document: 소방 배관 작업계획서 (별도 WP 신규 필요).
+      용접·절단 포함 시 PTW-002 필수, 2m 이상 고소 시 PTW-003 필수.
+      화재감시자 배치 필요.
+
+  - trade_id: FIRE_SPRINKLER_INSTALL
+    trade_name: 스프링클러 배관 설치
+    trade_group: 소방설비
+    description: >
+      습식·건식·준비작동식 스프링클러 가지배관·헤드 설치 작업.
+      주로 천장 내 고소 작업. 헤드 감도 보호 필요.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - FALLING_OBJECT
+      - CAUGHT_BETWEEN
+      - CUT_GRINDING
+      - HEAVY_LIFTING
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-003
+      - CL-003
+      - PPE-001
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-003
+    common_equipment:
+      - aerial_work_platform
+      - pipe_threading_machine
+      - chain_block
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - safety_gloves
+      - safety_shoes
+    source_status: PRACTICAL
+    notes: >
+      스프링클러 헤드를 설치하기 전 헤드 감지부 보호캡 제거 금지.
+      고소작업 2m 이상 시 PTW-003 필수.
+
+  - trade_id: FIRE_HYDRANT_PIPE_INSTALL
+    trade_name: 옥내·옥외소화전 배관 설치
+    trade_group: 소방설비
+    description: >
+      옥내소화전·옥외소화전 급수 배관 및 호스릴 설치 작업.
+      대구경 배관(100A 이상) 취급, 용접 또는 플랜지 이음 포함.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - FALLING_OBJECT
+      - CAUGHT_BETWEEN
+      - HOT_WORK_FIRE
+      - CUT_GRINDING
+      - HEAVY_LIFTING
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-002
+      - PTW-003
+      - PPE-001
+      - EQ-014
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-002
+      - PTW-003
+    common_equipment:
+      - welding_machine
+      - grinder
+      - chain_block
+      - pipe_threading_machine
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - safety_gloves
+      - safety_shoes
+      - welding_face_shield
+    source_status: PRACTICAL
+    notes: >
+      100A 이상 대구경 배관 용접 시 EQ-014(용접·화기작업 계획서) 권장.
+      PTW-002(화기작업 허가서) 필수.
+
+  - trade_id: FIRE_PUMP_ROOM_WORK
+    trade_name: 소방 펌프실 기계설비 작업
+    trade_group: 소방설비
+    description: >
+      소방 펌프(주펌프·충압펌프·비상펌프) 설치 및 배관 연결 작업.
+      협소한 펌프실 내 중량물 취급, 전기 연결 포함.
+    enabled: true
+    priority: 2
+    default_hazards:
+      - CAUGHT_BETWEEN
+      - HEAVY_LIFTING
+      - ELECTRIC_SHOCK
+      - HOT_WORK_FIRE
+      - ROTATING_PARTS
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-002
+      - PTW-004
+      - PTW-007
+      - PPE-001
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-007
+    common_equipment:
+      - chain_block
+      - pallet_jack
+      - welding_machine
+    ppe:
+      - safety_helmet
+      - safety_gloves
+      - safety_shoes
+    source_status: PRACTICAL
+    notes: >
+      펌프실 진입 시 산소 농도 확인 권장 (환기 불량 가능성).
+      전기 연결 시 PTW-004(전기작업 허가서) 필수.
+
+  - trade_id: FIRE_WELDING_CUTTING
+    trade_name: 소방 배관 용접·절단 작업
+    trade_group: 소방설비
+    description: >
+      소방 배관 용접(아크·TIG·가스) 및 산소-아세틸렌 절단 작업.
+      화기작업 허가서 발행 필수 대상.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - HOT_WORK_FIRE
+      - GAS_CYLINDER
+      - CUT_GRINDING
+      - ELECTRIC_SHOCK
+      - ARC_FLASH
+      - FALLING_OBJECT
+      - NOISE_DUST
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+      - PTW-002
+    recommended_documents:
+      - EQ-014
+      - PPE-001
+      - PPE-004
+      - CL-005
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_TBM
+    required_permits:
+      - PTW-002
+    common_equipment:
+      - welding_machine
+      - grinder
+      - gas_cutting_torch
+      - oxygen_cylinder
+      - acetylene_cylinder
+    ppe:
+      - safety_helmet
+      - welding_face_shield
+      - welding_gloves
+      - welding_apron
+      - safety_shoes
+    source_status: PRACTICAL
+    notes: >
+      PTW-002(화기작업 허가서)는 매 작업 개시 전 반드시 발행.
+      화재감시자 배치 필수. 용접 흄 흡입 방지를 위한 환기 확보.
+      가스 용기(산소·아세틸렌) 분리 보관 및 전도방지 체인 고정.
+
+  - trade_id: FIRE_CEILING_PIPE_WORK
+    trade_name: 천장 내 소방 배관 작업
+    trade_group: 소방설비
+    description: >
+      슬래브 하부 천장 속(반자 공간) 내 소방 배관 설치·수정·점검 작업.
+      고소 작업이 핵심 위험. 천장 내 공간 협소로 인한 ergonomic 위험 포함.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - FALLING_OBJECT
+      - CAUGHT_BETWEEN
+      - NOISE_DUST
+      - ELECTRIC_SHOCK
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-003
+      - CL-007
+      - PPE-001
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-003
+    common_equipment:
+      - scissor_lift
+      - step_ladder
+      - aerial_work_platform
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - safety_gloves
+      - safety_shoes
+      - dust_mask
+    source_status: PRACTICAL
+    notes: >
+      천장 내 기존 전선 인접 작업 시 감전 주의 → PTW-004 검토.
+      고소 2m 이상 시 PTW-003(고소작업 허가서) 필수.
+
+  - trade_id: FIRE_ALARM_WIRING
+    trade_name: 자동화재탐지설비 배선 작업
+    trade_group: 소방설비
+    description: >
+      감지기·발신기·수신기·수동조작함 연결 배선 및 전선관 설치 작업.
+      전기 작업 특성, 고소 천장 배선 포함.
+    enabled: true
+    priority: 2
+    default_hazards:
+      - ELECTRIC_SHOCK
+      - ARC_FLASH
+      - FALL_FROM_HEIGHT
+      - FALLING_OBJECT
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-004
+      - PTW-003
+      - CL-004
+      - PPE-001
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-004
+    common_equipment:
+      - electric_drill
+      - step_ladder
+      - cable_pulling_tool
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - insulated_gloves
+      - safety_shoes
+    source_status: PRACTICAL
+    notes: >
+      전기작업 시 PTW-004(전기작업 허가서) 필수.
+      충전 상태 기존 배선 근접 시 LOTO(잠금·태그아웃) 준수.
+
+  - trade_id: FIRE_EQUIPMENT_LIFTING
+    trade_name: 소방 장비 반입·양중 작업
+    trade_group: 소방설비
+    description: >
+      소방 펌프·수신기·제연장비 등 중량 설비의 건물 내 반입,
+      층간 이동, 설치 위치 양중 작업.
+    enabled: true
+    priority: 2
+    default_hazards:
+      - HEAVY_LIFTING
+      - FALLING_OBJECT
+      - STRUCK_BY_EQUIPMENT
+      - VEHICLE_TURNOVER
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-007
+      - WP-007
+      - EQ-004
+      - PPE-001
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_TBM
+    required_permits:
+      - PTW-007
+    common_equipment:
+      - mobile_crane
+      - chain_block
+      - pallet_jack
+      - roller_skid
+    ppe:
+      - safety_helmet
+      - safety_gloves
+      - safety_shoes
+      - high_visibility_vest
+    source_status: PRACTICAL
+    notes: >
+      이동식 크레인 사용 시 WP-007(이동식 크레인 작업계획서) 필수.
+      인양 경로 하부 출입통제 필수.
+
+  - trade_id: FIRE_CORE_DRILLING
+    trade_name: 코어 천공 작업
+    trade_group: 소방설비
+    description: >
+      배관·전선 관통을 위한 콘크리트 슬래브·벽체 코어 천공 작업.
+      소음·분진 발생, 고소 천공 포함.
+    enabled: true
+    priority: 2
+    default_hazards:
+      - NOISE_DUST
+      - FALLING_OBJECT
+      - ELECTRIC_SHOCK
+      - FALL_FROM_HEIGHT
+      - CUT_GRINDING
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-003
+      - PPE-001
+      - PPE-004
+    required_trainings:
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+      - EDU_SPECIAL_2H
+    required_permits: []
+    common_equipment:
+      - core_drill_machine
+      - step_ladder
+      - aerial_work_platform
+    ppe:
+      - safety_helmet
+      - dust_mask
+      - ear_protection
+      - safety_gloves
+      - safety_shoes
+      - safety_goggles
+    source_status: PRACTICAL
+    notes: >
+      2m 이상 고소 천공 시 PTW-003 필요.
+      슬래브 천공 시 철근 위치 확인(스캐너) 후 작업.
+      기존 배선·배관 손상 방지 사전 확인.
+
+  - trade_id: FIRE_PIT_SHAFT_WORK
+    trade_name: 피트·샤프트 내 소방 작업
+    trade_group: 소방설비
+    description: >
+      지하 피트(기계실 피트·엘리베이터 피트) 및 설비 샤프트 내
+      소방 배관 설치·점검 작업. 반밀폐 환경, 고소, 추락 위험 복합.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - CONFINED_SPACE_ASPHYXIATION
+      - OXYGEN_DEFICIENCY
+      - FALLING_OBJECT
+      - CAUGHT_BETWEEN
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-001
+      - PTW-003
+      - CL-010
+      - WP-014
+      - PPE-001
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONFINED_SPACE
+      - EDU_TBM
+    required_permits:
+      - PTW-003
+    common_equipment:
+      - portable_ventilation_fan
+      - gas_detector
+      - step_ladder
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - safety_gloves
+      - safety_shoes
+    source_status: PARTIAL_VERIFIED
+    notes: >
+      밀폐공간 해당 여부(산소결핍·유해가스 위험) 사전 판단 필요.
+      밀폐공간 해당 시 PTW-001(밀폐공간 작업 허가서) 및
+      CL-010(밀폐공간 사전 안전 점검표) 필수.
+      피트 진입 전 산소 농도 18% 이상 확인.

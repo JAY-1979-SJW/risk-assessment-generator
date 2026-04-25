@@ -1,0 +1,134 @@
+# 운전원·조종사 자격/면허 마스터
+# 버전: 1.0
+# 작성일: 2026-04-24
+# 용도: 장비 투입 시 운전원 자격 요건 참조 (자동판정 엔진 연결 전 CATALOG_ONLY 단계)
+# 주의:
+#   - 법령 원문 미확인 항목은 evidence_status: NEEDS_VERIFICATION
+#   - 이번 단계는 마스터 구조 생성만. 자격 자동판정 엔진은 별도 구현 단계에서 추가.
+#   - 법령 원문 확인 후 evidence_status를 VERIFIED로 갱신할 것.
+
+_meta:
+  version: "1.0"
+  total_licenses: 7
+  last_updated: "2026-04-24"
+  stage: CATALOG_ONLY
+  note: "법령 원문 미확인. 장비 마스터 연결 가능 항목만 초기 등록. 자동판정 엔진 미연결."
+
+worker_licenses:
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 크레인 운전 자격
+  # 추정 근거: 유해·위험작업의 취업 제한에 관한 규칙, 국가기술자격법
+  # ─────────────────────────────────────────────────────────────────────
+
+  - license_id: LIC_CRANE_TOWER
+    license_name: 타워크레인 조종 자격
+    applies_to_equipment:
+      - EQ_CRANE_TOWER
+    work_type: WT_CRANE_LIFTING
+    required_by_law: unknown
+    law_refs:
+      - law_name: "유해·위험작업의 취업 제한에 관한 규칙"
+        article: NEEDS_VERIFICATION
+        evidence_status: NEEDS_VERIFICATION
+    evidence_status: NEEDS_VERIFICATION
+    notes: "타워크레인 조종 자격증 또는 크레인운전기능사 요구 추정. 법령 원문 재확인 필요."
+
+  - license_id: LIC_CRANE_MOBILE
+    license_name: 이동식 크레인 운전 자격 (크레인운전기능사)
+    applies_to_equipment:
+      - EQ_CRANE_MOB
+    work_type: WT_CRANE_LIFTING
+    required_by_law: unknown
+    law_refs:
+      - law_name: "유해·위험작업의 취업 제한에 관한 규칙"
+        article: NEEDS_VERIFICATION
+        evidence_status: NEEDS_VERIFICATION
+    evidence_status: NEEDS_VERIFICATION
+    notes: "크레인운전기능사(국가기술자격) 요구 추정. 법령 원문 재확인 필요."
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 지게차 운전 자격
+  # 추정 근거: 유해·위험작업의 취업 제한에 관한 규칙 별표 제1호
+  # ─────────────────────────────────────────────────────────────────────
+
+  - license_id: LIC_FORKLIFT
+    license_name: 지게차운전기능사
+    applies_to_equipment:
+      - EQ_FORKLIFT
+    work_type: WT_MATERIAL_HANDLING
+    required_by_law: unknown
+    law_refs:
+      - law_name: "유해·위험작업의 취업 제한에 관한 규칙"
+        article: NEEDS_VERIFICATION
+        evidence_status: NEEDS_VERIFICATION
+    evidence_status: NEEDS_VERIFICATION
+    notes: "지게차운전기능사(국가기술자격) 요구 추정. 법령 원문 재확인 필요."
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 건설기계 조종 면허
+  # 추정 근거: 건설기계관리법 제26조, 유해위험작업취업제한규칙
+  # ─────────────────────────────────────────────────────────────────────
+
+  - license_id: LIC_CONSTRUCTION_MACHINE_EXCAVATOR
+    license_name: 굴착기 조종 면허 (건설기계조종사면허)
+    applies_to_equipment:
+      - EQ_EXCAV
+    work_type: WT_EXCAVATION
+    required_by_law: true
+    law_refs:
+      - law_name: "건설기계관리법"
+        article: NEEDS_VERIFICATION
+        evidence_status: VERIFIED
+    evidence_status: VERIFIED
+    notes: "건설기계조종사면허(시도지사 발급) 요구 추정. 건설기계관리법 제26조 재확인 필요."
+
+  - license_id: LIC_CONSTRUCTION_MACHINE_BULLDOZER
+    license_name: 불도저 조종 면허 (건설기계조종사면허)
+    applies_to_equipment:
+      - EQ_BULLDOZER
+    work_type: null
+    required_by_law: true
+    law_refs:
+      - law_name: "건설기계관리법"
+        article: NEEDS_VERIFICATION
+        evidence_status: VERIFIED
+    evidence_status: VERIFIED
+    notes: "건설기계조종사면허 요구 추정. 법령 원문 재확인 필요."
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 고소작업대 운전 자격
+  # 추정 근거: 유해·위험작업의 취업 제한에 관한 규칙
+  # ─────────────────────────────────────────────────────────────────────
+
+  - license_id: LIC_AWP
+    license_name: 고소작업대 운전 자격
+    applies_to_equipment:
+      - EQ_AWP
+      - EQ_SCISSORLIFT
+    work_type: null
+    required_by_law: unknown
+    law_refs:
+      - law_name: "유해·위험작업의 취업 제한에 관한 규칙"
+        article: NEEDS_VERIFICATION
+        evidence_status: NEEDS_VERIFICATION
+    evidence_status: NEEDS_VERIFICATION
+    notes: "고소작업대 운전 자격 요구 여부 및 구체적 자격종류 법령 원문 재확인 필요."
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 항타기·항발기 운전 자격
+  # 추정 근거: 유해·위험작업의 취업 제한에 관한 규칙
+  # ─────────────────────────────────────────────────────────────────────
+
+  - license_id: LIC_PILEDRIVER
+    license_name: 항타기·항발기 운전 자격
+    applies_to_equipment:
+      - EQ_PILEDRIVER
+    work_type: null
+    required_by_law: unknown
+    law_refs:
+      - law_name: "유해·위험작업의 취업 제한에 관한 규칙"
+        article: NEEDS_VERIFICATION
+        evidence_status: NEEDS_VERIFICATION
+    evidence_status: NEEDS_VERIFICATION
+    notes: "항타기·항발기 운전 자격 요건 법령 원문 재확인 필요."

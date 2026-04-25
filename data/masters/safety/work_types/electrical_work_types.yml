@@ -1,0 +1,381 @@
+# 전기 공종 프리셋
+# 버전: 1.0
+# 작성일: 2026-04-25
+# source_status: PRACTICAL / PARTIAL_VERIFIED
+
+_meta:
+  version: "1.0"
+  trade_group: 전기
+  total: 9
+  last_updated: "2026-04-25"
+
+trades:
+
+  - trade_id: ELEC_CONDUIT_WIRING
+    trade_name: 전선관·배선 작업
+    trade_group: 전기
+    description: >
+      금속관·CD관·PF관 등 전선관 설치 및 전선 입선(배선) 작업.
+      고소 작업, 드릴·핸드그라인더 사용 포함.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - ELECTRIC_SHOCK
+      - FALL_FROM_HEIGHT
+      - FALLING_OBJECT
+      - CAUGHT_BETWEEN
+      - CUT_GRINDING
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-003
+      - PTW-004
+      - CL-004
+      - PPE-001
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-004
+    common_equipment:
+      - electric_drill
+      - step_ladder
+      - wire_puller
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - insulated_gloves
+      - safety_shoes
+      - safety_goggles
+    source_status: PRACTICAL
+    notes: >
+      충전부 근접 작업 시 LOTO 준수 및 PTW-004 필수.
+      2m 이상 고소 시 PTW-003(고소작업 허가서) 추가.
+
+  - trade_id: ELEC_CABLE_TRAY
+    trade_name: 케이블 트레이 설치
+    trade_group: 전기
+    description: >
+      래더형·트레이형 케이블 트레이 브라켓·트레이 본체 설치 작업.
+      주로 천장·상부 공간에서의 고소 작업.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - FALLING_OBJECT
+      - ELECTRIC_SHOCK
+      - HEAVY_LIFTING
+      - CAUGHT_BETWEEN
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-003
+      - PTW-004
+      - PPE-001
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-003
+      - PTW-004
+    common_equipment:
+      - aerial_work_platform
+      - scissor_lift
+      - chain_block
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - safety_gloves
+      - safety_shoes
+    source_status: PRACTICAL
+    notes: >
+      기존 배선 위 설치 시 충전부 접근 위험 → PTW-004 필수.
+
+  - trade_id: ELEC_PANEL_INSTALL
+    trade_name: 분전반·제어반 설치
+    trade_group: 전기
+    description: >
+      저압·고압 분전반, MCC반, 제어반의 설치·배선 연결·시험 작업.
+      활선 근접 위험 및 중량 기기 취급.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - ELECTRIC_SHOCK
+      - ARC_FLASH
+      - HEAVY_LIFTING
+      - CAUGHT_BETWEEN
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-004
+      - PPE-001
+      - WP-011
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-004
+    common_equipment:
+      - chain_block
+      - pallet_jack
+      - insulated_tools
+    ppe:
+      - safety_helmet
+      - insulated_gloves
+      - arc_flash_ppe
+      - safety_shoes
+    source_status: PRACTICAL
+    notes: >
+      PTW-004(전기작업 허가서) 및 LOTO 필수.
+      WP-011(전기 작업계획서) 작성 권장.
+      활선 상태 배선 작업 원칙 금지.
+
+  - trade_id: ELEC_POWER_CABLE_PULLING
+    trade_name: 전력케이블 포설
+    trade_group: 전기
+    description: >
+      CV케이블·FR-CV케이블 등 전력케이블을 트레이·전선관·지중에 포설하는 작업.
+      케이블 드럼 취급, 장거리 당김 작업 포함.
+    enabled: true
+    priority: 2
+    default_hazards:
+      - ELECTRIC_SHOCK
+      - MANUAL_HANDLING
+      - CAUGHT_BETWEEN
+      - ROTATING_PARTS
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-004
+      - PPE-001
+      - WP-011
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-004
+    common_equipment:
+      - cable_drum_jack
+      - cable_puller
+      - forklift
+    ppe:
+      - safety_helmet
+      - safety_gloves
+      - safety_shoes
+    source_status: PRACTICAL
+    notes: >
+      케이블 드럼(중량 수백 kg) 취급 시 지게차·드럼잭 사용 필수.
+      케이블 포설 중 회전부(드럼) 협착 주의.
+
+  - trade_id: ELEC_LIGHTING_INSTALL
+    trade_name: 조명기구 설치
+    trade_group: 전기
+    description: >
+      형광등·LED·가로등·투광등 등 조명기구 설치 및 배선 연결 작업.
+      주로 천장 고소 작업.
+    enabled: true
+    priority: 2
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - ELECTRIC_SHOCK
+      - FALLING_OBJECT
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-003
+      - PTW-004
+      - CL-004
+      - PPE-001
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-003
+    common_equipment:
+      - step_ladder
+      - aerial_work_platform
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - insulated_gloves
+      - safety_shoes
+    source_status: PRACTICAL
+    notes: >
+      고소 2m 이상 시 PTW-003(고소작업 허가서) 필수.
+      기존 충전부 근접 배선 작업 시 PTW-004 추가.
+
+  - trade_id: ELEC_GROUNDING
+    trade_name: 접지 작업
+    trade_group: 전기
+    description: >
+      접지극 매설·접지 도선(접지동봉·메시접지) 설치 및 접지 저항 측정 작업.
+      굴착·천공 작업 포함.
+    enabled: true
+    priority: 2
+    default_hazards:
+      - ELECTRIC_SHOCK
+      - EXCAVATION_COLLAPSE
+      - CUT_GRINDING
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-004
+      - PPE-001
+      - WP-011
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-004
+    common_equipment:
+      - electric_drill
+      - grounding_rod_driver
+    ppe:
+      - safety_helmet
+      - insulated_gloves
+      - safety_shoes
+    source_status: PARTIAL_VERIFIED
+    notes: >
+      접지극 매설을 위한 굴착 작업 시 지하 매설물(배관·케이블) 확인 필수.
+      WP-011(전기 작업계획서) 작성 권장.
+
+  - trade_id: ELEC_TEMP_POWER
+    trade_name: 임시전기 설치
+    trade_group: 전기
+    description: >
+      공사 기간 중 가설 전기(임시 수전 패널·배선·전기기기) 설치 및 관리 작업.
+      PTW-008(임시전기 설치·연결 허가서) 필수 대상.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - ELECTRIC_SHOCK
+      - ARC_FLASH
+      - HOT_WORK_FIRE
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-008
+      - CL-004
+      - PPE-001
+      - EQ-013
+      - WP-011
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-008
+    common_equipment:
+      - temporary_distribution_board
+      - rcd_breaker
+      - extension_cord
+    ppe:
+      - safety_helmet
+      - insulated_gloves
+      - safety_shoes
+    source_status: PARTIAL_VERIFIED
+    notes: >
+      PTW-008(임시전기 설치·연결 허가서) 필수 발행.
+      누전차단기(30mA 이하) 설치 의무.
+      임시 전기설비 정기 점검표(CL-004) 작성.
+
+  - trade_id: ELEC_LIVE_PROXIMITY_WORK
+    trade_name: 충전부 근접 작업
+    trade_group: 전기
+    description: >
+      활선 상태(전원 차단 불가)의 충전부 근접에서 수행하는 전기 작업.
+      최고 위험 등급. LOTO 적용 불가 조건에서만 해당.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - ELECTRIC_SHOCK
+      - ARC_FLASH
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+      - PTW-004
+    recommended_documents:
+      - CL-004
+      - PPE-001
+      - WP-011
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_TBM
+    required_permits:
+      - PTW-004
+    common_equipment:
+      - insulated_tools
+      - live_line_indicators
+    ppe:
+      - arc_flash_ppe
+      - insulated_gloves
+      - face_shield
+      - safety_helmet
+      - insulated_shoes
+    source_status: PARTIAL_VERIFIED
+    notes: >
+      PTW-004(전기작업 허가서) 필수. 활선 작업은 원칙 금지 —
+      불가피한 경우에만 2인 1조, 절연 등급 PPE 착용.
+      WP-011(전기 작업계획서) 반드시 작성.
+
+  - trade_id: ELEC_TESTING_COMMISSIONING
+    trade_name: 전기 시험·시운전
+    trade_group: 전기
+    description: >
+      설치 완료 후 절연 저항 측정, 차단기 트립 시험, 전동기 시운전 등
+      전기 시스템 검증 작업.
+    enabled: true
+    priority: 2
+    default_hazards:
+      - ELECTRIC_SHOCK
+      - ARC_FLASH
+      - TOXIC_GAS
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-004
+      - CL-004
+      - PPE-001
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-004
+    common_equipment:
+      - insulation_resistance_tester
+      - clamp_meter
+      - power_analyzer
+    ppe:
+      - safety_helmet
+      - insulated_gloves
+      - arc_flash_ppe
+      - safety_shoes
+    source_status: PARTIAL_VERIFIED
+    notes: >
+      PTW-004(전기작업 허가서) 필수.
+      고압 시험 시 출입통제 구역 설정 필요.
+      배터리·커패시터 잔류 전하 방전 확인 후 작업.

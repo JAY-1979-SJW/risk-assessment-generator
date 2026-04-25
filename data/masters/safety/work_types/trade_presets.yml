@@ -1,0 +1,478 @@
+# 공종별 위험성평가 프리셋 인덱스
+# 버전: 1.0
+# 작성일: 2026-04-25
+# 목적: 전체 공종 ID와 그룹·우선순위·활성화 여부를 한곳에서 관리
+
+_meta:
+  version: "1.0"
+  last_updated: "2026-04-25"
+  total_trades: 54
+  enabled_trades: 54
+  skeleton_trades: 16  # architecture(5)+civil(4)+steel(4)+demolition(3)
+  groups:
+    - 소방설비
+    - 전기
+    - 기계설비
+    - 공통 고위험작업
+    - 건축
+    - 토목
+    - 철골
+    - 해체
+
+trade_index:
+
+  # ─────────────────────────────────────────────
+  # 소방설비 (10종)
+  # ─────────────────────────────────────────────
+  - trade_id: FIRE_PIPE_INSTALL
+    trade_name: 소방 배관 설치
+    trade_group: 소방설비
+    priority: 1
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: firefighting_work_types.yml
+
+  - trade_id: FIRE_SPRINKLER_INSTALL
+    trade_name: 스프링클러 배관 설치
+    trade_group: 소방설비
+    priority: 1
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: firefighting_work_types.yml
+
+  - trade_id: FIRE_HYDRANT_PIPE_INSTALL
+    trade_name: 옥내·옥외소화전 배관 설치
+    trade_group: 소방설비
+    priority: 1
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: firefighting_work_types.yml
+
+  - trade_id: FIRE_PUMP_ROOM_WORK
+    trade_name: 소방 펌프실 기계설비 작업
+    trade_group: 소방설비
+    priority: 2
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: firefighting_work_types.yml
+
+  - trade_id: FIRE_WELDING_CUTTING
+    trade_name: 소방 배관 용접·절단 작업
+    trade_group: 소방설비
+    priority: 1
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: firefighting_work_types.yml
+
+  - trade_id: FIRE_CEILING_PIPE_WORK
+    trade_name: 천장 내 소방 배관 작업
+    trade_group: 소방설비
+    priority: 1
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: firefighting_work_types.yml
+
+  - trade_id: FIRE_ALARM_WIRING
+    trade_name: 자동화재탐지설비 배선 작업
+    trade_group: 소방설비
+    priority: 2
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: firefighting_work_types.yml
+
+  - trade_id: FIRE_EQUIPMENT_LIFTING
+    trade_name: 소방 장비 반입·양중 작업
+    trade_group: 소방설비
+    priority: 2
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: firefighting_work_types.yml
+
+  - trade_id: FIRE_CORE_DRILLING
+    trade_name: 코어 천공 작업
+    trade_group: 소방설비
+    priority: 2
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: firefighting_work_types.yml
+
+  - trade_id: FIRE_PIT_SHAFT_WORK
+    trade_name: 피트·샤프트 내 소방 작업
+    trade_group: 소방설비
+    priority: 1
+    enabled: true
+    source_status: PARTIAL_VERIFIED
+    detail_file: firefighting_work_types.yml
+
+  # ─────────────────────────────────────────────
+  # 전기 (9종)
+  # ─────────────────────────────────────────────
+  - trade_id: ELEC_CONDUIT_WIRING
+    trade_name: 전선관·배선 작업
+    trade_group: 전기
+    priority: 1
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: electrical_work_types.yml
+
+  - trade_id: ELEC_CABLE_TRAY
+    trade_name: 케이블 트레이 설치
+    trade_group: 전기
+    priority: 1
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: electrical_work_types.yml
+
+  - trade_id: ELEC_PANEL_INSTALL
+    trade_name: 분전반·제어반 설치
+    trade_group: 전기
+    priority: 1
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: electrical_work_types.yml
+
+  - trade_id: ELEC_POWER_CABLE_PULLING
+    trade_name: 전력케이블 포설
+    trade_group: 전기
+    priority: 2
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: electrical_work_types.yml
+
+  - trade_id: ELEC_LIGHTING_INSTALL
+    trade_name: 조명기구 설치
+    trade_group: 전기
+    priority: 2
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: electrical_work_types.yml
+
+  - trade_id: ELEC_GROUNDING
+    trade_name: 접지 작업
+    trade_group: 전기
+    priority: 2
+    enabled: true
+    source_status: PARTIAL_VERIFIED
+    detail_file: electrical_work_types.yml
+
+  - trade_id: ELEC_TEMP_POWER
+    trade_name: 임시전기 설치
+    trade_group: 전기
+    priority: 1
+    enabled: true
+    source_status: PARTIAL_VERIFIED
+    detail_file: electrical_work_types.yml
+
+  - trade_id: ELEC_LIVE_PROXIMITY_WORK
+    trade_name: 충전부 근접 작업
+    trade_group: 전기
+    priority: 1
+    enabled: true
+    source_status: PARTIAL_VERIFIED
+    detail_file: electrical_work_types.yml
+
+  - trade_id: ELEC_TESTING_COMMISSIONING
+    trade_name: 전기 시험·시운전
+    trade_group: 전기
+    priority: 2
+    enabled: true
+    source_status: PARTIAL_VERIFIED
+    detail_file: electrical_work_types.yml
+
+  # ─────────────────────────────────────────────
+  # 기계설비 (9종)
+  # ─────────────────────────────────────────────
+  - trade_id: MECH_PIPE_INSTALL
+    trade_name: 기계 배관 설치
+    trade_group: 기계설비
+    priority: 1
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: mechanical_work_types.yml
+
+  - trade_id: MECH_DUCT_INSTALL
+    trade_name: 덕트 설치
+    trade_group: 기계설비
+    priority: 1
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: mechanical_work_types.yml
+
+  - trade_id: MECH_EQUIPMENT_INSTALL
+    trade_name: 기계장비 설치
+    trade_group: 기계설비
+    priority: 1
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: mechanical_work_types.yml
+
+  - trade_id: MECH_PUMP_INSTALL
+    trade_name: 펌프 설치
+    trade_group: 기계설비
+    priority: 2
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: mechanical_work_types.yml
+
+  - trade_id: MECH_WELDING_CUTTING
+    trade_name: 기계설비 용접·절단
+    trade_group: 기계설비
+    priority: 1
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: mechanical_work_types.yml
+
+  - trade_id: MECH_INSULATION
+    trade_name: 보온 작업
+    trade_group: 기계설비
+    priority: 2
+    enabled: true
+    source_status: PRACTICAL
+    detail_file: mechanical_work_types.yml
+
+  - trade_id: MECH_PRESSURE_TEST
+    trade_name: 수압·기밀 시험
+    trade_group: 기계설비
+    priority: 2
+    enabled: true
+    source_status: PARTIAL_VERIFIED
+    detail_file: mechanical_work_types.yml
+
+  - trade_id: MECH_CHILLER_BOILER_ROOM
+    trade_name: 냉동기·보일러실 작업
+    trade_group: 기계설비
+    priority: 1
+    enabled: true
+    source_status: PARTIAL_VERIFIED
+    detail_file: mechanical_work_types.yml
+
+  - trade_id: MECH_SHAFT_WORK
+    trade_name: 샤프트 작업
+    trade_group: 기계설비
+    priority: 1
+    enabled: true
+    source_status: PARTIAL_VERIFIED
+    detail_file: mechanical_work_types.yml
+
+  # ─────────────────────────────────────────────
+  # 공통 고위험작업 (10종)
+  # ─────────────────────────────────────────────
+  - trade_id: COMMON_WORK_AT_HEIGHT
+    trade_name: 고소작업
+    trade_group: 공통 고위험작업
+    priority: 1
+    enabled: true
+    source_status: PARTIAL_VERIFIED
+    detail_file: common_high_risk_work_types.yml
+
+  - trade_id: COMMON_HOT_WORK
+    trade_name: 화기작업
+    trade_group: 공통 고위험작업
+    priority: 1
+    enabled: true
+    source_status: PARTIAL_VERIFIED
+    detail_file: common_high_risk_work_types.yml
+
+  - trade_id: COMMON_CONFINED_SPACE
+    trade_name: 밀폐공간 작업
+    trade_group: 공통 고위험작업
+    priority: 1
+    enabled: true
+    source_status: PARTIAL_VERIFIED
+    detail_file: common_high_risk_work_types.yml
+
+  - trade_id: COMMON_HEAVY_LIFTING
+    trade_name: 중량물 취급·인양
+    trade_group: 공통 고위험작업
+    priority: 1
+    enabled: true
+    source_status: PARTIAL_VERIFIED
+    detail_file: common_high_risk_work_types.yml
+
+  - trade_id: COMMON_EQUIPMENT_OPERATION
+    trade_name: 차량계 장비 작업
+    trade_group: 공통 고위험작업
+    priority: 1
+    enabled: true
+    source_status: PARTIAL_VERIFIED
+    detail_file: common_high_risk_work_types.yml
+
+  - trade_id: COMMON_SCAFFOLD_WORK
+    trade_name: 비계 작업
+    trade_group: 공통 고위험작업
+    priority: 1
+    enabled: true
+    source_status: PARTIAL_VERIFIED
+    detail_file: common_high_risk_work_types.yml
+
+  - trade_id: COMMON_FORMWORK_SHORING
+    trade_name: 거푸집 및 동바리 작업
+    trade_group: 공통 고위험작업
+    priority: 1
+    enabled: true
+    source_status: PARTIAL_VERIFIED
+    detail_file: common_high_risk_work_types.yml
+
+  - trade_id: COMMON_EXCAVATION
+    trade_name: 굴착 작업
+    trade_group: 공통 고위험작업
+    priority: 1
+    enabled: true
+    source_status: PARTIAL_VERIFIED
+    detail_file: common_high_risk_work_types.yml
+
+  - trade_id: COMMON_ELECTRICAL_WORK
+    trade_name: 전기작업 (공통)
+    trade_group: 공통 고위험작업
+    priority: 1
+    enabled: true
+    source_status: PARTIAL_VERIFIED
+    detail_file: common_high_risk_work_types.yml
+
+  - trade_id: COMMON_CHEMICAL_HANDLING
+    trade_name: 화학물질 취급
+    trade_group: 공통 고위험작업
+    priority: 2
+    enabled: true
+    source_status: PARTIAL_VERIFIED
+    detail_file: common_high_risk_work_types.yml
+
+  # ─────────────────────────────────────────────
+  # 건축 skeleton (5종)
+  # ─────────────────────────────────────────────
+  - trade_id: ARCH_CONCRETE_WORK
+    trade_name: 콘크리트 타설 작업
+    trade_group: 건축
+    priority: 1
+    enabled: true
+    source_status: NEEDS_VERIFICATION
+    detail_file: architecture_work_types.yml
+
+  - trade_id: ARCH_MASONRY_WORK
+    trade_name: 조적 작업
+    trade_group: 건축
+    priority: 2
+    enabled: true
+    source_status: NEEDS_VERIFICATION
+    detail_file: architecture_work_types.yml
+
+  - trade_id: ARCH_FINISHING_WORK
+    trade_name: 마감 작업
+    trade_group: 건축
+    priority: 2
+    enabled: true
+    source_status: NEEDS_VERIFICATION
+    detail_file: architecture_work_types.yml
+
+  - trade_id: ARCH_INTERIOR_WORK
+    trade_name: 인테리어 작업
+    trade_group: 건축
+    priority: 3
+    enabled: true
+    source_status: NEEDS_VERIFICATION
+    detail_file: architecture_work_types.yml
+
+  - trade_id: ARCH_REBAR_WORK
+    trade_name: 철근 조립 작업
+    trade_group: 건축
+    priority: 1
+    enabled: true
+    source_status: NEEDS_VERIFICATION
+    detail_file: architecture_work_types.yml
+
+  # ─────────────────────────────────────────────
+  # 토목 skeleton (4종)
+  # ─────────────────────────────────────────────
+  - trade_id: CIVIL_EXCAVATION_WORK
+    trade_name: 토공 굴착 작업
+    trade_group: 토목
+    priority: 1
+    enabled: true
+    source_status: NEEDS_VERIFICATION
+    detail_file: civil_work_types.yml
+
+  - trade_id: CIVIL_PILING_WORK
+    trade_name: 파일 항타 작업
+    trade_group: 토목
+    priority: 1
+    enabled: true
+    source_status: NEEDS_VERIFICATION
+    detail_file: civil_work_types.yml
+
+  - trade_id: CIVIL_RETAINING_WALL
+    trade_name: 흙막이 벽 작업
+    trade_group: 토목
+    priority: 1
+    enabled: true
+    source_status: NEEDS_VERIFICATION
+    detail_file: civil_work_types.yml
+
+  - trade_id: CIVIL_ROAD_PAVING
+    trade_name: 도로 포장 작업
+    trade_group: 토목
+    priority: 2
+    enabled: true
+    source_status: NEEDS_VERIFICATION
+    detail_file: civil_work_types.yml
+
+  # ─────────────────────────────────────────────
+  # 철골 skeleton (4종)
+  # ─────────────────────────────────────────────
+  - trade_id: STEEL_ERECTION
+    trade_name: 철골 세우기 작업
+    trade_group: 철골
+    priority: 1
+    enabled: true
+    source_status: NEEDS_VERIFICATION
+    detail_file: steel_structure_work_types.yml
+
+  - trade_id: STEEL_BOLTING
+    trade_name: 철골 볼트 조임 작업
+    trade_group: 철골
+    priority: 1
+    enabled: true
+    source_status: NEEDS_VERIFICATION
+    detail_file: steel_structure_work_types.yml
+
+  - trade_id: STEEL_WELDING
+    trade_name: 철골 용접 작업
+    trade_group: 철골
+    priority: 1
+    enabled: true
+    source_status: NEEDS_VERIFICATION
+    detail_file: steel_structure_work_types.yml
+
+  - trade_id: STEEL_DECKING
+    trade_name: 데크플레이트 설치
+    trade_group: 철골
+    priority: 2
+    enabled: true
+    source_status: NEEDS_VERIFICATION
+    detail_file: steel_structure_work_types.yml
+
+  # ─────────────────────────────────────────────
+  # 해체 skeleton (3종)
+  # ─────────────────────────────────────────────
+  - trade_id: DEMO_MANUAL_DEMOLITION
+    trade_name: 수작업 해체
+    trade_group: 해체
+    priority: 1
+    enabled: true
+    source_status: NEEDS_VERIFICATION
+    detail_file: demolition_work_types.yml
+
+  - trade_id: DEMO_MECHANICAL_DEMOLITION
+    trade_name: 기계 해체
+    trade_group: 해체
+    priority: 1
+    enabled: true
+    source_status: NEEDS_VERIFICATION
+    detail_file: demolition_work_types.yml
+
+  - trade_id: DEMO_ASBESTOS_REMOVAL
+    trade_name: 석면 해체·제거
+    trade_group: 해체
+    priority: 1
+    enabled: true
+    source_status: NEEDS_VERIFICATION
+    detail_file: demolition_work_types.yml

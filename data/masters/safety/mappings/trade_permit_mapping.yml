@@ -1,0 +1,266 @@
+# 공종별 작업허가서 매핑
+# 버전: 1.0
+# 작성일: 2026-04-25
+# 원칙:
+#   - required_permits: 해당 공종에서 원칙적으로 항상 필요한 허가서
+#   - conditional_permits: 특정 조건(2m 이상, 용접 포함 등)에서 추가되는 허가서
+#   - 모든 ID는 document_catalog.yml PTW-xxx 계열에 존재하는 ID
+
+_meta:
+  version: "1.0"
+  last_updated: "2026-04-25"
+  permit_list:
+    PTW-001: 밀폐공간 작업 허가서
+    PTW-002: 화기작업 허가서
+    PTW-003: 고소작업 허가서
+    PTW-004: 전기작업 허가서
+    PTW-005: 굴착 작업 허가서
+    PTW-006: 방사선 투과검사 작업 허가서
+    PTW-007: 중량물 인양 작업 허가서
+    PTW-008: 임시전기 설치·연결 허가서
+
+mappings:
+
+  # 소방설비
+  - trade_id: FIRE_PIPE_INSTALL
+    required_permits: [PTW-002, PTW-003]
+    conditional_permits:
+      - permit_id: PTW-007
+        condition: 500kg 이상 중량물 인양 작업 포함 시
+    notes: 용접 포함 시 PTW-002, 2m 이상 고소 시 PTW-003 필수
+
+  - trade_id: FIRE_SPRINKLER_INSTALL
+    required_permits: [PTW-003]
+    conditional_permits:
+      - permit_id: PTW-002
+        condition: 용접·절단 작업 포함 시
+    notes: ""
+
+  - trade_id: FIRE_HYDRANT_PIPE_INSTALL
+    required_permits: [PTW-002, PTW-003]
+    conditional_permits: []
+    notes: ""
+
+  - trade_id: FIRE_PUMP_ROOM_WORK
+    required_permits: []
+    conditional_permits:
+      - permit_id: PTW-002
+        condition: 용접 작업 포함 시
+      - permit_id: PTW-004
+        condition: 전기 연결 작업 포함 시
+      - permit_id: PTW-007
+        condition: 중량물 인양 포함 시
+      - permit_id: PTW-001
+        condition: 밀폐공간 해당 시
+    notes: ""
+
+  - trade_id: FIRE_WELDING_CUTTING
+    required_permits: [PTW-002]
+    conditional_permits:
+      - permit_id: PTW-003
+        condition: 2m 이상 고소에서 용접 시
+    notes: PTW-002는 매 작업 개시 전 필수
+
+  - trade_id: FIRE_CEILING_PIPE_WORK
+    required_permits: [PTW-003]
+    conditional_permits:
+      - permit_id: PTW-004
+        condition: 기존 충전부 근접 작업 시
+    notes: ""
+
+  - trade_id: FIRE_ALARM_WIRING
+    required_permits: [PTW-004]
+    conditional_permits:
+      - permit_id: PTW-003
+        condition: 2m 이상 고소 배선 작업 시
+    notes: ""
+
+  - trade_id: FIRE_EQUIPMENT_LIFTING
+    required_permits: [PTW-007]
+    conditional_permits: []
+    notes: ""
+
+  - trade_id: FIRE_CORE_DRILLING
+    required_permits: []
+    conditional_permits:
+      - permit_id: PTW-003
+        condition: 2m 이상 고소 천공 시
+    notes: ""
+
+  - trade_id: FIRE_PIT_SHAFT_WORK
+    required_permits: [PTW-003]
+    conditional_permits:
+      - permit_id: PTW-001
+        condition: 밀폐공간 기준 충족 시 필수
+    notes: 밀폐공간 해당 여부 사전 판단 필수
+
+  # 전기
+  - trade_id: ELEC_CONDUIT_WIRING
+    required_permits: [PTW-004]
+    conditional_permits:
+      - permit_id: PTW-003
+        condition: 2m 이상 고소 작업 시
+    notes: ""
+
+  - trade_id: ELEC_CABLE_TRAY
+    required_permits: [PTW-003, PTW-004]
+    conditional_permits: []
+    notes: ""
+
+  - trade_id: ELEC_PANEL_INSTALL
+    required_permits: [PTW-004]
+    conditional_permits: []
+    notes: ""
+
+  - trade_id: ELEC_POWER_CABLE_PULLING
+    required_permits: [PTW-004]
+    conditional_permits: []
+    notes: ""
+
+  - trade_id: ELEC_LIGHTING_INSTALL
+    required_permits: [PTW-003]
+    conditional_permits:
+      - permit_id: PTW-004
+        condition: 충전부 근접 배선 작업 시
+    notes: ""
+
+  - trade_id: ELEC_GROUNDING
+    required_permits: [PTW-004]
+    conditional_permits: []
+    notes: ""
+
+  - trade_id: ELEC_TEMP_POWER
+    required_permits: [PTW-008]
+    conditional_permits: []
+    notes: ""
+
+  - trade_id: ELEC_LIVE_PROXIMITY_WORK
+    required_permits: [PTW-004]
+    conditional_permits: []
+    notes: 활선 작업은 PTW-004 필수, LOTO 병행
+
+  - trade_id: ELEC_TESTING_COMMISSIONING
+    required_permits: [PTW-004]
+    conditional_permits: []
+    notes: ""
+
+  # 기계설비
+  - trade_id: MECH_PIPE_INSTALL
+    required_permits: [PTW-002, PTW-003]
+    conditional_permits:
+      - permit_id: PTW-007
+        condition: 200A 이상 대구경 배관 인양 시
+    notes: ""
+
+  - trade_id: MECH_DUCT_INSTALL
+    required_permits: [PTW-003]
+    conditional_permits: []
+    notes: ""
+
+  - trade_id: MECH_EQUIPMENT_INSTALL
+    required_permits: [PTW-007]
+    conditional_permits: []
+    notes: ""
+
+  - trade_id: MECH_PUMP_INSTALL
+    required_permits: []
+    conditional_permits:
+      - permit_id: PTW-007
+        condition: 중량물 인양 포함 시
+      - permit_id: PTW-002
+        condition: 배관 용접 포함 시
+      - permit_id: PTW-004
+        condition: 전기 연결 포함 시
+    notes: ""
+
+  - trade_id: MECH_WELDING_CUTTING
+    required_permits: [PTW-002]
+    conditional_permits:
+      - permit_id: PTW-003
+        condition: 2m 이상 고소에서 용접 시
+    notes: ""
+
+  - trade_id: MECH_INSULATION
+    required_permits: []
+    conditional_permits:
+      - permit_id: PTW-003
+        condition: 2m 이상 고소 보온 작업 시
+    notes: ""
+
+  - trade_id: MECH_PRESSURE_TEST
+    required_permits: []
+    conditional_permits:
+      - permit_id: PTW-001
+        condition: 밀폐공간 내 기체 가압 시
+    notes: ""
+
+  - trade_id: MECH_CHILLER_BOILER_ROOM
+    required_permits: [PTW-004]
+    conditional_permits:
+      - permit_id: PTW-001
+        condition: 밀폐공간 해당 시
+    notes: ""
+
+  - trade_id: MECH_SHAFT_WORK
+    required_permits: [PTW-003]
+    conditional_permits:
+      - permit_id: PTW-001
+        condition: 밀폐공간 기준 충족 시
+    notes: ""
+
+  # 공통 고위험작업
+  - trade_id: COMMON_WORK_AT_HEIGHT
+    required_permits: [PTW-003]
+    conditional_permits: []
+    notes: 2m 이상 모든 고소작업
+
+  - trade_id: COMMON_HOT_WORK
+    required_permits: [PTW-002]
+    conditional_permits: []
+    notes: 용접·용단·연삭 등 화기 수반 모든 작업
+
+  - trade_id: COMMON_CONFINED_SPACE
+    required_permits: [PTW-001]
+    conditional_permits: []
+    notes: 밀폐공간 진입 전 필수
+
+  - trade_id: COMMON_HEAVY_LIFTING
+    required_permits: [PTW-007]
+    conditional_permits: []
+    notes: 크레인·호이스트 인양 작업
+
+  - trade_id: COMMON_EQUIPMENT_OPERATION
+    required_permits: []
+    conditional_permits:
+      - permit_id: PTW-005
+        condition: 굴착 작업 포함 시
+    notes: ""
+
+  - trade_id: COMMON_SCAFFOLD_WORK
+    required_permits: [PTW-003]
+    conditional_permits: []
+    notes: ""
+
+  - trade_id: COMMON_FORMWORK_SHORING
+    required_permits: [PTW-003]
+    conditional_permits: []
+    notes: ""
+
+  - trade_id: COMMON_EXCAVATION
+    required_permits: [PTW-005]
+    conditional_permits: []
+    notes: ""
+
+  - trade_id: COMMON_ELECTRICAL_WORK
+    required_permits: [PTW-004]
+    conditional_permits:
+      - permit_id: PTW-008
+        condition: 임시전기 설치·연결 시
+    notes: ""
+
+  - trade_id: COMMON_CHEMICAL_HANDLING
+    required_permits: []
+    conditional_permits:
+      - permit_id: PTW-002
+        condition: 인화성 화학물질 취급 시
+    notes: ""

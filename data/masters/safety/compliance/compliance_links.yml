@@ -1,0 +1,254 @@
+# compliance_links.yml
+# 근거(clause) ↔ 서류/작업/장비/교육 연결 마스터
+#
+# target_type: document | equipment | work | training
+# relation_type: required | recommended | reference
+
+compliance_links:
+
+  # ─── document → clause (15건) ────────────────────────────────
+
+  - link_id: CLINK-001
+    target_type: document
+    target_id: WP-001
+    clause_id: CC-006
+    relation_type: required
+    notes: 굴착 작업계획서 — 제38조에 따른 의무 작성
+
+  - link_id: CLINK-002
+    target_type: document
+    target_id: WP-001
+    clause_id: CC-007
+    relation_type: required
+    notes: 굴착 작업계획서 — 굴착면 기울기 기준 포함
+
+  - link_id: CLINK-003
+    target_type: document
+    target_id: WP-006
+    clause_id: CC-009
+    relation_type: required
+    notes: 타워크레인 작업계획서 — 제142조에 따른 의무 작성
+
+  - link_id: CLINK-004
+    target_type: document
+    target_id: WP-006
+    clause_id: CC-006
+    relation_type: required
+    notes: 타워크레인 작업계획서 — 제38조 제1항 제1호
+
+  - link_id: CLINK-005
+    target_type: document
+    target_id: WP-007
+    clause_id: CC-008
+    relation_type: required
+    notes: 이동식 크레인 작업계획서 — 제134조에 따른 의무 작성
+
+  - link_id: CLINK-006
+    target_type: document
+    target_id: WP-008
+    clause_id: CC-010
+    relation_type: required
+    notes: 차량계 건설기계 작업계획서 — 제170조에 따른 의무 작성
+
+  - link_id: CLINK-007
+    target_type: document
+    target_id: WP-009
+    clause_id: CC-011
+    relation_type: required
+    notes: 차량계 하역운반기계 작업계획서 — 제179조에 따른 의무 작성
+
+  - link_id: CLINK-008
+    target_type: document
+    target_id: WP-014
+    clause_id: CC-015
+    relation_type: required
+    notes: 밀폐공간 작업계획서 — 제619조~제626조 근거
+
+  - link_id: CLINK-009
+    target_type: document
+    target_id: RA-001
+    clause_id: CC-001
+    relation_type: required
+    notes: 위험성평가표 — 법 제36조 근거
+
+  - link_id: CLINK-010
+    target_type: document
+    target_id: RA-001
+    clause_id: CC-019
+    relation_type: required
+    notes: 위험성평가표 — 고시 제2023-19호 양식·절차 준수
+
+  - link_id: CLINK-011
+    target_type: document
+    target_id: RA-004
+    clause_id: CC-024
+    relation_type: recommended
+    notes: TBM 일지 — KOSHA TBM 운영 지침 참조
+
+  - link_id: CLINK-012
+    target_type: document
+    target_id: ED-001
+    clause_id: CC-002
+    relation_type: required
+    notes: 안전보건교육 일지 — 법 제29조 근거
+
+  - link_id: CLINK-013
+    target_type: document
+    target_id: ED-001
+    clause_id: CC-018
+    relation_type: required
+    notes: 안전보건교육 일지 — 시행규칙 제32조 시간·내용 기준
+
+  - link_id: CLINK-014
+    target_type: document
+    target_id: PTW-001
+    clause_id: CC-015
+    relation_type: required
+    notes: 밀폐공간 작업 허가서 — 제619조~제626조 근거
+
+  - link_id: CLINK-015
+    target_type: document
+    target_id: CL-010
+    clause_id: CC-016
+    relation_type: required
+    notes: 밀폐공간 사전 안전점검표 — 허가 절차(제622조~제625조)의 일부
+
+  # ─── equipment → clause (5건) ────────────────────────────────
+
+  - link_id: CLINK-016
+    target_type: equipment
+    target_id: EQ_CRANE_TOWER
+    clause_id: CC-009
+    relation_type: required
+    notes: 타워크레인 — 제142조~제148조 안전기준 적용 대상
+
+  - link_id: CLINK-017
+    target_type: equipment
+    target_id: EQ_CRANE_MOB
+    clause_id: CC-008
+    relation_type: required
+    notes: 이동식 크레인 — 제134조~제141조 안전기준 적용 대상
+
+  - link_id: CLINK-018
+    target_type: equipment
+    target_id: EQ_FORKLIFT
+    clause_id: CC-011
+    relation_type: required
+    notes: 지게차 — 차량계 하역운반기계 제179조 해당
+
+  - link_id: CLINK-019
+    target_type: equipment
+    target_id: EQ_EXCAV
+    clause_id: CC-010
+    relation_type: required
+    notes: 굴착기(포클레인) — 차량계 건설기계 제170조 해당
+
+  - link_id: CLINK-020
+    target_type: equipment
+    target_id: EQ_MANHOLE_BLOWER
+    clause_id: CC-015
+    relation_type: required
+    notes: 맨홀 강제 환기 장비 — 밀폐공간 환기 의무(제619조~제626조)
+
+  # ─── work → clause (5건) ─────────────────────────────────────
+
+  - link_id: CLINK-021
+    target_type: work
+    target_id: WT_EXCAVATION
+    clause_id: CC-006
+    relation_type: required
+    notes: 굴착 작업 — 작업계획서 작성 의무 대상
+
+  - link_id: CLINK-022
+    target_type: work
+    target_id: WT_CRANE_LIFTING
+    clause_id: CC-009
+    relation_type: required
+    notes: 크레인 양중 작업 — 타워크레인 안전기준 적용
+
+  - link_id: CLINK-023
+    target_type: work
+    target_id: WT_CONFINED_SPACE
+    clause_id: CC-015
+    relation_type: required
+    notes: 밀폐공간 작업 — 측정·환기·허가 의무
+
+  - link_id: CLINK-024
+    target_type: work
+    target_id: WT_CHEMICAL_HANDLING
+    clause_id: CC-012
+    relation_type: required
+    notes: 화학물질 취급 작업 — 화학설비 안전기준 적용
+
+  - link_id: CLINK-025
+    target_type: work
+    target_id: WT_MATERIAL_HANDLING
+    clause_id: CC-011
+    relation_type: required
+    notes: 하역·운반 작업 — 차량계 하역운반기계 기준 적용
+
+  # ─── inspection → clause (8건) ────────────────────────────────
+
+  - link_id: CLINK-026
+    target_type: inspection
+    target_id: INSP_DAILY_PRE_WORK
+    clause_id: CC-006
+    relation_type: reference
+    notes: >
+      장비별 작업 시작 전 점검 의무; 산안보건기준규칙 각 장비 해당 조항 적용
+      (제134조·제142조·제170조·제172조·제180조 등); NEEDS_VERIFICATION — 장비별 세부 조항 개별 확인 필요
+
+  - link_id: CLINK-027
+    target_type: inspection
+    target_id: INSP_MONTHLY
+    clause_id: CC-009
+    relation_type: reference
+    notes: >
+      타워크레인 등 월 1회 정기점검; 산안보건기준규칙 제140조 해당;
+      NEEDS_VERIFICATION — 제140조 세부 요건 원문 확인 필요 (CC-009는 제142조 기준)
+
+  - link_id: CLINK-028
+    target_type: inspection
+    target_id: INSP_WEEKLY
+    clause_id: CC-006
+    relation_type: reference
+    notes: >
+      주 1회 정기점검; 산안보건기준규칙 제207조(항타기 등) 해당;
+      NEEDS_VERIFICATION — 제207조 적용 장비 범위 원문 확인 필요
+
+  - link_id: CLINK-029
+    target_type: inspection
+    target_id: INSP_SELF_EXAM_ANNUAL
+    clause_id: CC-028
+    relation_type: required
+    notes: 산업안전보건법 제93조 연 1회 안전검사 의무; 시행규칙 별표 9 해당
+
+  - link_id: CLINK-030
+    target_type: inspection
+    target_id: INSP_SELF_EXAM_HALFYEAR
+    clause_id: CC-028
+    relation_type: required
+    notes: 산업안전보건법 제93조 반기 1회 안전검사 의무; 시행규칙 별표 9 해당
+
+  - link_id: CLINK-031
+    target_type: inspection
+    target_id: INSP_CONFINED_SPACE_GAS
+    clause_id: CC-015
+    relation_type: required
+    notes: 밀폐공간 작업 전 산소·유해가스 농도 측정 의무 — 제619조 제1항
+
+  - link_id: CLINK-032
+    target_type: inspection
+    target_id: INSP_INSULATION_MONTHLY
+    clause_id: CC-013
+    relation_type: required
+    notes: 전기설비 월 1회 절연저항 측정 의무 — 제301조 이하 전기작업 안전기준
+
+  - link_id: CLINK-033
+    target_type: inspection
+    target_id: INSP_SPECIAL
+    clause_id: CC-006
+    relation_type: reference
+    notes: >
+      사고 발생 후 또는 장기 미사용 재가동 전 특별점검;
+      NEEDS_VERIFICATION — 특별점검 법정 근거 원문 확인 필요

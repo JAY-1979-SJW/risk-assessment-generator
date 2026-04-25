@@ -1,0 +1,111 @@
+# 해체 공종 프리셋 — skeleton
+# 버전: 0.1 (skeleton)
+# 작성일: 2026-04-25
+
+_meta:
+  version: "0.1"
+  trade_group: 해체
+  status: SKELETON
+  total: 3
+  last_updated: "2026-04-25"
+  note: 해체 공종 상세 데이터는 다음 단계에서 작성.
+
+trades:
+
+  - trade_id: DEMO_MANUAL_DEMOLITION
+    trade_name: 수작업 해체
+    trade_group: 해체
+    description: 핸드해머·착암기 등을 이용한 수작업 구조물 해체
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - FALLING_OBJECT
+      - NOISE_DUST
+      - FALLING_OBJECT
+    required_documents:
+      - RA-001
+      - RA-004
+      - WP-003
+    recommended_documents:
+      - ED-003
+      - PTW-003
+    required_trainings:
+      - EDU_TBM
+    required_permits:
+      - PTW-003
+    common_equipment: []
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - dust_mask
+      - ear_protection
+      - safety_shoes
+    source_status: NEEDS_VERIFICATION
+    notes: >
+      skeleton — 상세 데이터 입력 필요.
+      WP-003(건축물 해체 작업계획서) 참조.
+
+  - trade_id: DEMO_MECHANICAL_DEMOLITION
+    trade_name: 기계 해체
+    trade_group: 해체
+    description: 굴착기·대형 브레이커를 이용한 구조물 기계 해체
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALLING_OBJECT
+      - STRUCK_BY_EQUIPMENT
+      - NOISE_DUST
+      - EXCAVATION_COLLAPSE
+    required_documents:
+      - RA-001
+      - RA-004
+      - WP-003
+    recommended_documents:
+      - ED-003
+      - CL-003
+    required_trainings:
+      - EDU_TBM
+    required_permits: []
+    common_equipment: []
+    ppe:
+      - safety_helmet
+      - dust_mask
+      - ear_protection
+      - safety_shoes
+      - high_visibility_vest
+    source_status: NEEDS_VERIFICATION
+    notes: skeleton — 상세 데이터 입력 필요
+
+  - trade_id: DEMO_ASBESTOS_REMOVAL
+    trade_name: 석면 해체·제거
+    trade_group: 해체
+    description: 석면 함유 자재(텍스·슬레이트·단열재) 해체·제거 작업
+    enabled: true
+    priority: 1
+    default_hazards:
+      - CHEMICAL_EXPOSURE
+      - NOISE_DUST
+      - FALL_FROM_HEIGHT
+    required_documents:
+      - RA-001
+      - RA-004
+    recommended_documents:
+      - ED-003
+      - PPE-004
+    required_trainings:
+      - EDU_TBM
+    required_permits: []
+    common_equipment: []
+    ppe:
+      - asbestos_respirator
+      - protective_suit
+      - safety_gloves
+      - safety_goggles
+      - safety_shoes
+    source_status: NEEDS_VERIFICATION
+    notes: >
+      skeleton — 상세 데이터 입력 필요.
+      석면 해체·제거 작업은 석면조사기관 사전 조사 및
+      고용노동부 신고 절차 확인 필요 (산업안전보건법 제119조).
+      candidate_training: 석면 해체·제거 전문 교육 (현재 training_types.yml 미등록)

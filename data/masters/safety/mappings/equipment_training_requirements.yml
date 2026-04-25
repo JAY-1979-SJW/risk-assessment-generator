@@ -1,0 +1,108 @@
+# 장비별 필수 교육 요구사항 매핑
+# 버전: 1.0
+# 작성일: 2026-04-24
+# 기준: 산업안전보건법 시행규칙 별표 5 (특별교육 대상 작업)
+# 원칙: 특별교육 의무 작업 목록(별표 5) 기준. 불확실 항목은 NEEDS_VERIFICATION
+
+_meta:
+  version: "1.0"
+  total_mappings: 7
+  status_confirmed: 4
+  status_needs_verification: 3
+  last_updated: "2026-04-24"
+  note: "특별교육 대상 장비 중심 수록. 전체 매핑은 별표 5 전수 검토 후 추가"
+
+requirements:
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 타워크레인 (EQ_CRANE_TOWER)
+  # ─────────────────────────────────────────────────────────────────────
+
+  - equipment_code: EQ_CRANE_TOWER
+    training_code: EDU_SPECIAL_16H
+    required_hours: 16
+    condition_note: "타워크레인 설치·해체·인상 작업에 종사하는 근로자"
+    legal_basis: "산업안전보건법 시행규칙 별표 5 제33호"
+    source_type: law
+    verification_status: confirmed
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 이동식 크레인 (EQ_CRANE_MOB)
+  # ─────────────────────────────────────────────────────────────────────
+
+  - equipment_code: EQ_CRANE_MOB
+    training_code: EDU_SPECIAL_16H
+    required_hours: 16
+    condition_note: "이동식 크레인 운전 및 인양 작업 근로자"
+    legal_basis: "산업안전보건법 시행규칙 별표 5"
+    source_type: law
+    verification_status: NEEDS_VERIFICATION
+    note: "별표 5 해당 호수 원문 재확인 필요"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 밀폐공간 환기 장비 (EQ_MANHOLE_BLOWER) — 밀폐공간 작업
+  # ─────────────────────────────────────────────────────────────────────
+
+  - equipment_code: EQ_MANHOLE_BLOWER
+    training_code: EDU_CONFINED_SPACE
+    required_hours: 16
+    condition_note: "밀폐공간 작업에 종사하는 근로자 (환기 장비 운용 포함)"
+    legal_basis: "산업안전보건법 시행규칙 별표 5 제26호"
+    source_type: law
+    verification_status: confirmed
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 아크 용접기 (EQ_WELDER_ARC)
+  # ─────────────────────────────────────────────────────────────────────
+
+  - equipment_code: EQ_WELDER_ARC
+    training_code: EDU_SPECIAL_16H
+    required_hours: 16
+    condition_note: "아세틸렌 용접장치 또는 가스집합 용접장치를 사용하는 금속 용접·용단 작업"
+    legal_basis: "산업안전보건법 시행규칙 별표 5 제2호"
+    source_type: law
+    verification_status: confirmed
+    note: "아크 용접은 별표 5 적용 여부 재확인 — 현재 가스집합장치 기준 적용"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 고소작업대 (EQ_AWP, EQ_SCISSORLIFT)
+  # ─────────────────────────────────────────────────────────────────────
+
+  - equipment_code: EQ_AWP
+    training_code: EDU_SPECIAL_16H
+    required_hours: 2
+    condition_note: "고소작업대(AWP) 작업 단시간·일용근로자"
+    legal_basis: "산업안전보건법 시행규칙 별표 5 단서"
+    source_type: law
+    verification_status: NEEDS_VERIFICATION
+    note: "고소작업대 특별교육 적용 여부 및 시간 법령 원문 재확인 필요"
+
+  - equipment_code: EQ_AWP
+    training_code: EDU_REG_WORKER_HALFYEAR
+    required_hours: 6
+    condition_note: "고소작업대 운전 근로자 정기교육"
+    legal_basis: "산업안전보건법 제29조, 시행규칙 별표 4"
+    source_type: law
+    verification_status: confirmed
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 지게차 (EQ_FORKLIFT)
+  # ─────────────────────────────────────────────────────────────────────
+
+  - equipment_code: EQ_FORKLIFT
+    training_code: EDU_SPECIAL_16H
+    required_hours: 16
+    condition_note: "지게차 운전 업무 (도로 주행 제외)"
+    legal_basis: "산업안전보건법 시행규칙 별표 5 제16호"
+    source_type: law
+    verification_status: NEEDS_VERIFICATION
+    note: "별표 5 제16호 '지게차' 적용 여부 및 요건 재확인 필요"
+
+# ─────────────────────────────────────────────────────────────────────
+# TODO: 추가 예정 매핑
+# ─────────────────────────────────────────────────────────────────────
+# - EQ_CRANE_TOWER → 자격/면허(크레인운전기능사) 연결 — sp_worker_licenses
+# - EQ_FORKLIFT → 자격/면허(지게차운전기능사) 연결
+# - EQ_WELDER_GAS → 가스집합용접장치 특별교육
+# - EQ_PILEDRIVER → 항타기 특별교육 여부 NEEDS_VERIFICATION
+# 전체 장비 31종 × 교육 유형 매핑은 시행규칙 별표 5 전수 검토 후 추가

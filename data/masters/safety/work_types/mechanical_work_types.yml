@@ -1,0 +1,410 @@
+# 기계설비 공종 프리셋
+# 버전: 1.0
+# 작성일: 2026-04-25
+# source_status: PRACTICAL / PARTIAL_VERIFIED
+
+_meta:
+  version: "1.0"
+  trade_group: 기계설비
+  total: 9
+  last_updated: "2026-04-25"
+
+trades:
+
+  - trade_id: MECH_PIPE_INSTALL
+    trade_name: 기계 배관 설치
+    trade_group: 기계설비
+    description: >
+      냉온수·급수·급탕·냉매·증기 등 기계설비 배관 설치 작업.
+      고소 작업, 용접·플랜지 이음, 중량 배관 취급 포함.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - FALLING_OBJECT
+      - HOT_WORK_FIRE
+      - CAUGHT_BETWEEN
+      - HEAVY_LIFTING
+      - CUT_GRINDING
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-002
+      - PTW-003
+      - PTW-007
+      - PPE-001
+      - EQ-014
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-002
+      - PTW-003
+    common_equipment:
+      - welding_machine
+      - grinder
+      - chain_block
+      - aerial_work_platform
+      - pipe_threading_machine
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - safety_gloves
+      - safety_shoes
+      - welding_face_shield
+    source_status: PRACTICAL
+    notes: >
+      용접 포함 시 PTW-002(화기작업 허가서) 필수.
+      2m 이상 고소 시 PTW-003(고소작업 허가서) 필수.
+      대구경 배관(200A 이상) 양중 시 PTW-007 필요.
+
+  - trade_id: MECH_DUCT_INSTALL
+    trade_name: 덕트 설치
+    trade_group: 기계설비
+    description: >
+      냉난방·환기·제연용 직사각·원형 덕트의 제작·설치 작업.
+      대형 덕트 고소 설치, 절단·절곡 작업 포함.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - FALLING_OBJECT
+      - CUT_GRINDING
+      - HEAVY_LIFTING
+      - CAUGHT_BETWEEN
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-003
+      - PPE-001
+      - CL-003
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-003
+    common_equipment:
+      - scissor_lift
+      - aerial_work_platform
+      - chain_block
+      - duct_seamer
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - cut_resistant_gloves
+      - safety_shoes
+    source_status: PRACTICAL
+    notes: >
+      덕트 절단 시 날카로운 절단면에 의한 열상 주의 — 절단 장갑 필수.
+      대형 덕트(600×400 이상) 설치 시 체인블록 사용.
+
+  - trade_id: MECH_EQUIPMENT_INSTALL
+    trade_name: 기계장비 설치
+    trade_group: 기계설비
+    description: >
+      AHU·FCU·냉동기·에어컨 실외기 등 대형 기계설비 반입 및 설치 작업.
+      이동식 크레인·체인블록 인양, 앵커 고정 포함.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - HEAVY_LIFTING
+      - CAUGHT_BETWEEN
+      - STRUCK_BY_EQUIPMENT
+      - VEHICLE_TURNOVER
+      - FALLING_OBJECT
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-007
+      - WP-007
+      - EQ-004
+      - CL-003
+      - PPE-001
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-007
+    common_equipment:
+      - mobile_crane
+      - chain_block
+      - pallet_jack
+      - roller_skid
+    ppe:
+      - safety_helmet
+      - safety_gloves
+      - safety_shoes
+      - high_visibility_vest
+    source_status: PRACTICAL
+    notes: >
+      이동식 크레인 사용 시 WP-007(이동식 크레인 작업계획서) 필수.
+      인양 경로 하부 출입통제 및 유도자(신호수) 배치 필수.
+
+  - trade_id: MECH_PUMP_INSTALL
+    trade_name: 펌프 설치
+    trade_group: 기계설비
+    description: >
+      순환 펌프·급수 펌프·소방 펌프 외 기계설비용 각종 펌프의
+      기초 설치, 배관 연결, 전기 연결 작업.
+    enabled: true
+    priority: 2
+    default_hazards:
+      - HEAVY_LIFTING
+      - CAUGHT_BETWEEN
+      - ELECTRIC_SHOCK
+      - HOT_WORK_FIRE
+      - ROTATING_PARTS
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-002
+      - PTW-004
+      - PTW-007
+      - PPE-001
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-007
+    common_equipment:
+      - chain_block
+      - pallet_jack
+      - welding_machine
+    ppe:
+      - safety_helmet
+      - safety_gloves
+      - safety_shoes
+    source_status: PRACTICAL
+    notes: >
+      전기 연결 시 PTW-004(전기작업 허가서) 필요.
+      배관 용접 포함 시 PTW-002 필요.
+
+  - trade_id: MECH_WELDING_CUTTING
+    trade_name: 기계설비 용접·절단
+    trade_group: 기계설비
+    description: >
+      기계설비 배관·덕트·지지대 용접(아크·TIG·가스) 및 절단 작업.
+      화기작업 허가서 필수 대상.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - HOT_WORK_FIRE
+      - GAS_CYLINDER
+      - CUT_GRINDING
+      - ELECTRIC_SHOCK
+      - ARC_FLASH
+      - FALLING_OBJECT
+      - NOISE_DUST
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+      - PTW-002
+    recommended_documents:
+      - EQ-014
+      - PPE-001
+      - PPE-004
+      - CL-005
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_TBM
+    required_permits:
+      - PTW-002
+    common_equipment:
+      - welding_machine
+      - grinder
+      - gas_cutting_torch
+      - oxygen_cylinder
+      - acetylene_cylinder
+    ppe:
+      - safety_helmet
+      - welding_face_shield
+      - welding_gloves
+      - welding_apron
+      - safety_shoes
+    source_status: PRACTICAL
+    notes: >
+      PTW-002(화기작업 허가서) 매 작업 전 필수 발행.
+      화재감시자 배치 및 잔화 확인(30분) 필수.
+      밀폐 공간 내 용접 시 환기 강화 및 용접 흄 관리.
+
+  - trade_id: MECH_INSULATION
+    trade_name: 보온 작업
+    trade_group: 기계설비
+    description: >
+      배관·덕트·탱크·기기류의 글라스울·우레탄폼·발포폴리에틸렌 등
+      보온재 시공 작업. 고소 작업, 화학물질(접착제·코팅재) 취급 포함.
+    enabled: true
+    priority: 2
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - FALLING_OBJECT
+      - CHEMICAL_EXPOSURE
+      - NOISE_DUST
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-003
+      - PPE-001
+      - PPE-004
+    required_trainings:
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+      - EDU_SPECIAL_2H
+    required_permits: []
+    common_equipment:
+      - step_ladder
+      - aerial_work_platform
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - dust_mask
+      - safety_gloves
+      - safety_shoes
+    source_status: PRACTICAL
+    notes: >
+      글라스울 취급 시 피부 자극·흡입 방지용 보호장갑·방진마스크 착용.
+      접착제·코팅재 사용 시 PPE-004(MSDS) 및 환기 확보.
+      2m 이상 고소 시 PTW-003 필요.
+
+  - trade_id: MECH_PRESSURE_TEST
+    trade_name: 수압·기밀 시험
+    trade_group: 기계설비
+    description: >
+      배관 시스템 수압(수압 시험) 또는 기체 가압(기밀 시험) 후
+      누수·누설 점검 작업. 폭발·누출 위험 관리 중요.
+    enabled: true
+    priority: 2
+    default_hazards:
+      - FALLING_OBJECT
+      - CHEMICAL_EXPOSURE
+      - CONFINED_SPACE_ASPHYXIATION
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PPE-001
+      - PPE-004
+    required_trainings:
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits: []
+    common_equipment:
+      - pressure_pump
+      - pressure_gauge
+      - hose
+    ppe:
+      - safety_helmet
+      - safety_gloves
+      - safety_goggles
+      - safety_shoes
+    source_status: PARTIAL_VERIFIED
+    notes: >
+      기체 가압 시험(공기·질소) 시 고압 폭발 위험 — 안전 구역 확보.
+      수압 시험 후 잔압 해제 확인 후 배관 개방.
+      밀폐 공간 내 질소 가압 시험 시 PTW-001 검토.
+
+  - trade_id: MECH_CHILLER_BOILER_ROOM
+    trade_name: 냉동기·보일러실 작업
+    trade_group: 기계설비
+    description: >
+      지하 기계실 내 냉동기·보일러·열교환기 설치·유지보수 작업.
+      반밀폐 환경, 냉매 가스 누출 위험, 전기 연결 포함.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - CONFINED_SPACE_ASPHYXIATION
+      - CHEMICAL_EXPOSURE
+      - ELECTRIC_SHOCK
+      - HEAVY_LIFTING
+      - TOXIC_GAS
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-001
+      - PTW-004
+      - WP-013
+      - PPE-001
+      - PPE-004
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONFINED_SPACE
+      - EDU_TBM
+    required_permits:
+      - PTW-004
+    common_equipment:
+      - refrigerant_recovery_machine
+      - chain_block
+      - portable_ventilation_fan
+      - gas_detector
+    ppe:
+      - safety_helmet
+      - safety_gloves
+      - chemical_resistant_gloves
+      - respirator
+      - safety_shoes
+    source_status: PARTIAL_VERIFIED
+    notes: >
+      밀폐공간 해당 시 PTW-001(밀폐공간 작업 허가서) 추가.
+      냉매(HFC류) 누출 시 산소결핍 위험 → 가스 감지기 필수.
+      WP-013(화학설비 작업계획서) 작성 검토.
+
+  - trade_id: MECH_SHAFT_WORK
+    trade_name: 샤프트 작업
+    trade_group: 기계설비
+    description: >
+      설비 샤프트(배관 샤프트·덕트 샤프트) 내 배관·덕트 설치 및
+      점검 작업. 수직 개구부, 고소 및 반밀폐 환경.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - CONFINED_SPACE_ASPHYXIATION
+      - OXYGEN_DEFICIENCY
+      - FALLING_OBJECT
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-001
+      - PTW-003
+      - CL-010
+      - WP-014
+      - PPE-001
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONFINED_SPACE
+      - EDU_TBM
+    required_permits:
+      - PTW-003
+    common_equipment:
+      - portable_ventilation_fan
+      - gas_detector
+      - step_ladder
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - safety_gloves
+      - safety_shoes
+    source_status: PARTIAL_VERIFIED
+    notes: >
+      밀폐공간 해당 여부 사전 판단 → 해당 시 PTW-001 필수.
+      샤프트 개구부 하부 낙하물 방지 조치 필수.

@@ -1,18 +1,18 @@
 """
 Form Registry 검증 스크립트.
 
+검증 범위:
+  - "현재 구현 완료된 form builder 등록 상태"를 검증한다.
+  - 전체 90종 카탈로그 완성 여부를 검증하는 스크립트가 아니다.
+  - 전체 카탈로그/매핑 검증은 validate_safety_platform_skeleton.py 에서 수행한다.
+
 검증 항목:
-  1. list_supported_forms() — 3종 포함 확인
-  2. get_form_spec() — 각 form_type별 dict 반환
-  3. education_log / excavation_workplan: required_fields 비어있지 않음
-  4. 각 spec: repeat_field 값 존재
-  5. education_log / excavation_workplan: max_repeat_rows > 0
-  6. risk_assessment 전용 spec 검증 (required_fields=[], max_repeat_rows=None 허용)
-  7. build_form_excel('education_log', ...) → bytes
-  8. build_form_excel('excavation_workplan', ...) → bytes
-  9. build_form_excel('risk_assessment', ...) → bytes
- 10. 미지원 form_type → ValueError (UnsupportedFormTypeError)
- 11. 빈 form_data → bytes (오류 없이 공란 생성)
+  1. list_supported_forms() — REQUIRED_FORM_TYPES 전체 포함 확인 (동적 기준)
+  2. registry key 중복 없음
+  3. get_form_spec() — education_log / excavation_workplan: 필드 구조 검증
+  4. risk_assessment 전용 spec 검증 (required_fields=[], max_repeat_rows=None 허용)
+  5. build_form_excel() → bytes (샘플 3종 + 공란 생성)
+  6. 미지원 form_type → ValueError (UnsupportedFormTypeError)
 
 실행:
   python scripts/validate_form_registry.py
@@ -32,9 +32,23 @@ from engine.output.form_registry import (
     list_supported_forms,
 )
 
-_EXPECTED_TYPES = {"education_log", "excavation_workplan", "risk_assessment"}
-# required_fields 비어있지 않음 / max_repeat_rows > 0 조건은 이 두 종류에만 적용
-_STRICT_TYPED   = {"education_log", "excavation_workplan"}
+# 현재 구현 완료된 서식 — registry에 반드시 존재해야 함
+REQUIRED_FORM_TYPES: set[str] = {
+    "excavation_workplan",
+    "vehicle_construction_workplan",
+    "material_handling_workplan",
+    "risk_assessment",
+    "education_log",
+    "tower_crane_workplan",
+    "mobile_crane_workplan",
+    "confined_space_workplan",
+    "tbm_log",
+    "confined_space_permit",
+    "confined_space_checklist",
+}
+
+# required_fields 비어있지 않음 / max_repeat_rows > 0 조건 적용 대상
+_STRICT_TYPED = {"education_log", "excavation_workplan"}
 
 _SAMPLES: dict[str, dict] = {
     "risk_assessment": {
@@ -122,17 +136,21 @@ def validate_list_supported_forms() -> list[bool]:
     print("\n=== list_supported_forms() 검증 ===")
 
     forms = list_supported_forms()
-    form_types = {f["form_type"] for f in forms}
+    form_type_list = [f["form_type"] for f in forms]
+    form_types = set(form_type_list)
 
+    # REQUIRED_FORM_TYPES가 모두 registry에 포함되는지 확인
+    missing = REQUIRED_FORM_TYPES - form_types
     results.append(_check(
-        isinstance(forms, list) and len(forms) == len(_EXPECTED_TYPES),
-        f"반환 건수 == {len(_EXPECTED_TYPES)}",
-        str(len(forms)),
+        len(missing) == 0,
+        f"REQUIRED_FORM_TYPES {len(REQUIRED_FORM_TYPES)}종 모두 등록됨",
+        f"누락: {sorted(missing)}" if missing else f"등록 총 {len(forms)}종",
     ))
+    # registry key 중복 없음
     results.append(_check(
-        form_types == _EXPECTED_TYPES,
-        f"form_type 목록 == {sorted(_EXPECTED_TYPES)}",
-        str(sorted(form_types)),
+        len(form_type_list) == len(form_types),
+        "registry key 중복 없음",
+        f"총 {len(form_type_list)}건 중 고유 {len(form_types)}건",
     ))
     # builder 참조가 dict에 노출되지 않는지 확인
     results.append(_check(
@@ -237,8 +255,8 @@ def validate_build_form_excel() -> list[bool]:
         except Exception as e:
             results.append(_check(False, f"build_form_excel('{ft}', sample)", str(e)))
 
-    # 빈 form_data → 공란 xlsx (오류 없이 생성)
-    for ft in _EXPECTED_TYPES:
+    # 빈 form_data → 공란 xlsx (오류 없이 생성, 샘플 보유 3종)
+    for ft in _SAMPLES:
         try:
             result = build_form_excel(ft, {})
             results.append(_check(

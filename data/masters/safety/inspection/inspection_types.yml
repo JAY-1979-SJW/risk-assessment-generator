@@ -1,0 +1,127 @@
+# 점검 유형 마스터
+# 버전: 1.0
+# 작성일: 2026-04-24
+# 기준: 산업안전보건기준에 관한 규칙 각 장비 조항, 산업안전보건법 제93조
+# 주의: cycle 및 legal_basis는 법령 원문 표현 기준. 불확실 항목은 NEEDS_VERIFICATION
+
+_meta:
+  version: "1.0"
+  total_types: 8
+  last_updated: "2026-04-24"
+
+inspection_types:
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 작업 전 일상점검
+  # ─────────────────────────────────────────────────────────────────────
+
+  - inspection_code: INSP_DAILY_PRE_WORK
+    inspection_name: 작업 시작 전 일상점검
+    target_type: equipment
+    cycle: 작업 시작 전 매일
+    legal_basis: "산업안전보건기준에 관한 규칙 각 장비 해당 조항"
+    source_type: law
+    is_mandatory: true
+    verification_status: confirmed
+    note: "장비별 법령 조항 상이. equipment_inspection_requirements에서 장비별 연결"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 정기점검
+  # ─────────────────────────────────────────────────────────────────────
+
+  - inspection_code: INSP_MONTHLY
+    inspection_name: 월 1회 정기점검
+    target_type: equipment
+    cycle: 매월 1회 이상
+    legal_basis: "산업안전보건기준에 관한 규칙 제140조(타워크레인 등)"
+    source_type: law
+    is_mandatory: true
+    verification_status: confirmed
+    note: "타워크레인, 고소작업대 등 법령에 명시된 장비에 적용"
+
+  - inspection_code: INSP_WEEKLY
+    inspection_name: 주 1회 정기점검
+    target_type: equipment
+    cycle: 매주 1회 이상
+    legal_basis: "산업안전보건기준에 관한 규칙 제207조(항타기 등)"
+    source_type: law
+    is_mandatory: true
+    verification_status: NEEDS_VERIFICATION
+    note: "적용 장비 범위 법령 원문 재확인 필요"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 자체검사 (산안법 제93조 대상)
+  # ─────────────────────────────────────────────────────────────────────
+
+  - inspection_code: INSP_SELF_EXAM_ANNUAL
+    inspection_name: 자체검사 (연 1회)
+    target_type: equipment
+    cycle: 연 1회 이상
+    legal_basis: "산업안전보건법 제93조, 시행규칙 별표 9"
+    source_type: law
+    is_mandatory: true
+    verification_status: NEEDS_VERIFICATION
+    note: >
+      산안법 제93조 및 시행령 별표 25 대상 기계·기구에 한정.
+      크레인, 리프트, 압력용기 등.
+      자체검사 대상 전체 목록 재확인 필요 — NEEDS_VERIFICATION
+
+  - inspection_code: INSP_SELF_EXAM_HALFYEAR
+    inspection_name: 자체검사 (반기 1회)
+    target_type: equipment
+    cycle: 반기 1회 이상
+    legal_basis: "산업안전보건법 제93조, 시행규칙 별표 9"
+    source_type: law
+    is_mandatory: true
+    verification_status: NEEDS_VERIFICATION
+    note: "일부 장비는 반기 주기 — 대상 장비 목록 법령 재확인 필요"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 밀폐공간 작업 전 측정
+  # ─────────────────────────────────────────────────────────────────────
+
+  - inspection_code: INSP_CONFINED_SPACE_GAS
+    inspection_name: 밀폐공간 작업 전 산소·유해가스 농도 측정
+    target_type: workplace
+    cycle: 작업 전 매회
+    legal_basis: "산업안전보건기준에 관한 규칙 제619조 제1항"
+    source_type: law
+    is_mandatory: true
+    verification_status: confirmed
+    note: "측정 결과 기록 보존 필요. 산소 18% 미만 시 작업 중지"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 절연 저항 측정
+  # ─────────────────────────────────────────────────────────────────────
+
+  - inspection_code: INSP_INSULATION_MONTHLY
+    inspection_name: 전기설비 절연저항 측정 (월 1회)
+    target_type: equipment
+    cycle: 매월 1회
+    legal_basis: "산업안전보건기준에 관한 규칙 제301조"
+    source_type: law
+    is_mandatory: true
+    verification_status: NEEDS_VERIFICATION
+    note: "분전반 등 전기설비 적용. 측정 주기 법령 원문 재확인 필요"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 특별점검 (사고 후 또는 장기 미사용 후)
+  # ─────────────────────────────────────────────────────────────────────
+
+  - inspection_code: INSP_SPECIAL
+    inspection_name: 특별점검 (사고 후·장기 미사용 재가동 전)
+    target_type: equipment
+    cycle: 사고 발생 후 또는 장기 미사용 재가동 전 1회
+    legal_basis: null
+    source_type: practical
+    is_mandatory: false
+    verification_status: practical
+    note: "법령 직접 의무 없음. 현장 실무 관행 및 KOSHA GUIDE 권고"
+
+# ─────────────────────────────────────────────────────────────────────
+# TODO: 추가 예정 점검 유형
+# ─────────────────────────────────────────────────────────────────────
+# - 비계 조립 후 점검 (산안규칙 제59조)
+# - 달비계·달대비계 작업 전 점검
+# - 화학설비 정기점검
+# - 압력용기 안전검사 (산안법 제93조 — 외부기관 검사)

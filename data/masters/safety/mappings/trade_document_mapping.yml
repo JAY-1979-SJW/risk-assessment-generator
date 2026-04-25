@@ -1,0 +1,256 @@
+# 공종별 필요 서류 매핑
+# 버전: 1.0
+# 작성일: 2026-04-25
+# 목적: 공종 선택 시 필요 서류를 빠르게 조회하기 위한 역색인
+# 참조: work_types/{group}_work_types.yml 의 required_documents / recommended_documents
+# 원칙: 모든 document_id는 document_catalog.yml에 존재하는 ID만 사용
+
+_meta:
+  version: "1.0"
+  last_updated: "2026-04-25"
+  note: >
+    required_documents: 해당 공종 작업 전 반드시 작성해야 하는 서류.
+    recommended_documents: 작업 내용에 따라 권장되는 서류.
+    conditional_documents: 특정 조건(허가서 발행, 장비 사용 등)에서만 필요한 서류.
+
+mappings:
+
+  # ──────────────────────────────────────
+  # 소방설비
+  # ──────────────────────────────────────
+  - trade_id: FIRE_PIPE_INSTALL
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-002, PTW-003, PTW-007, CL-003, PPE-001, PPE-004, EQ-014]
+    conditional_documents: [WP-007]
+    notes: 이동식 크레인 인양 시 WP-007 추가
+
+  - trade_id: FIRE_SPRINKLER_INSTALL
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-003, CL-003, PPE-001]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: FIRE_HYDRANT_PIPE_INSTALL
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-002, PTW-003, PPE-001, EQ-014]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: FIRE_PUMP_ROOM_WORK
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-002, PTW-004, PTW-007, PPE-001]
+    conditional_documents: [WP-014]
+    notes: 밀폐공간 해당 시 WP-014 추가
+
+  - trade_id: FIRE_WELDING_CUTTING
+    required_documents: [RA-001, RA-004, ED-003, PTW-002]
+    recommended_documents: [EQ-014, PPE-001, PPE-004, CL-005]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: FIRE_CEILING_PIPE_WORK
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-003, CL-007, PPE-001]
+    conditional_documents: [PTW-004]
+    notes: 기존 충전부 근접 시 PTW-004 추가
+
+  - trade_id: FIRE_ALARM_WIRING
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-004, PTW-003, CL-004, PPE-001]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: FIRE_EQUIPMENT_LIFTING
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-007, WP-007, EQ-004, PPE-001]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: FIRE_CORE_DRILLING
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-003, PPE-001, PPE-004]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: FIRE_PIT_SHAFT_WORK
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-001, PTW-003, CL-010, WP-014, PPE-001]
+    conditional_documents: [PTW-001, WP-014]
+    notes: 밀폐공간 해당 시 PTW-001·WP-014 필수화
+
+  # ──────────────────────────────────────
+  # 전기
+  # ──────────────────────────────────────
+  - trade_id: ELEC_CONDUIT_WIRING
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-003, PTW-004, CL-004, PPE-001]
+    conditional_documents: [PTW-003]
+    notes: 2m 이상 고소 시 PTW-003 추가
+
+  - trade_id: ELEC_CABLE_TRAY
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-003, PTW-004, PPE-001]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: ELEC_PANEL_INSTALL
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-004, PPE-001, WP-011]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: ELEC_POWER_CABLE_PULLING
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-004, PPE-001, WP-011]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: ELEC_LIGHTING_INSTALL
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-003, PTW-004, CL-004, PPE-001]
+    conditional_documents: [PTW-004]
+    notes: 충전부 근접 시 PTW-004 추가
+
+  - trade_id: ELEC_GROUNDING
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-004, PPE-001, WP-011]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: ELEC_TEMP_POWER
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-008, CL-004, PPE-001, EQ-013, WP-011]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: ELEC_LIVE_PROXIMITY_WORK
+    required_documents: [RA-001, RA-004, ED-003, PTW-004]
+    recommended_documents: [CL-004, PPE-001, WP-011]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: ELEC_TESTING_COMMISSIONING
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-004, CL-004, PPE-001]
+    conditional_documents: []
+    notes: ""
+
+  # ──────────────────────────────────────
+  # 기계설비
+  # ──────────────────────────────────────
+  - trade_id: MECH_PIPE_INSTALL
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-002, PTW-003, PTW-007, PPE-001, EQ-014]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: MECH_DUCT_INSTALL
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-003, PPE-001, CL-003]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: MECH_EQUIPMENT_INSTALL
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-007, WP-007, EQ-004, CL-003, PPE-001]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: MECH_PUMP_INSTALL
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-002, PTW-004, PTW-007, PPE-001]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: MECH_WELDING_CUTTING
+    required_documents: [RA-001, RA-004, ED-003, PTW-002]
+    recommended_documents: [EQ-014, PPE-001, PPE-004, CL-005]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: MECH_INSULATION
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-003, PPE-001, PPE-004]
+    conditional_documents: [PTW-003]
+    notes: 2m 이상 고소 시 PTW-003 추가
+
+  - trade_id: MECH_PRESSURE_TEST
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PPE-001, PPE-004]
+    conditional_documents: [PTW-001]
+    notes: 밀폐공간 내 기체 가압 시 PTW-001 검토
+
+  - trade_id: MECH_CHILLER_BOILER_ROOM
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-001, PTW-004, WP-013, PPE-001, PPE-004]
+    conditional_documents: [PTW-001, WP-013]
+    notes: 밀폐공간 해당 시 PTW-001 필수
+
+  - trade_id: MECH_SHAFT_WORK
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PTW-001, PTW-003, CL-010, WP-014, PPE-001]
+    conditional_documents: [PTW-001, WP-014]
+    notes: 밀폐공간 해당 시 PTW-001·WP-014 필수
+
+  # ──────────────────────────────────────
+  # 공통 고위험작업
+  # ──────────────────────────────────────
+  - trade_id: COMMON_WORK_AT_HEIGHT
+    required_documents: [RA-001, RA-004, ED-003, PTW-003]
+    recommended_documents: [CL-001, CL-007, PPE-001]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: COMMON_HOT_WORK
+    required_documents: [RA-001, RA-004, ED-003, PTW-002]
+    recommended_documents: [PPE-004, CL-005, EQ-014]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: COMMON_CONFINED_SPACE
+    required_documents: [RA-001, RA-004, ED-003, WP-014, PTW-001]
+    recommended_documents: [CL-010, PPE-001]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: COMMON_HEAVY_LIFTING
+    required_documents: [RA-001, RA-004, ED-003, WP-005]
+    recommended_documents: [PTW-007, EQ-004, WP-007, PPE-001]
+    conditional_documents: [WP-007]
+    notes: 이동식 크레인 사용 시 WP-007 추가
+
+  - trade_id: COMMON_EQUIPMENT_OPERATION
+    required_documents: [RA-001, RA-004, CL-003]
+    recommended_documents: [WP-008, WP-009, EQ-001, EQ-002]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: COMMON_SCAFFOLD_WORK
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [CL-001, PTW-003, PPE-001]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: COMMON_FORMWORK_SHORING
+    required_documents: [RA-001, RA-004, ED-003, WP-015]
+    recommended_documents: [CL-002, PTW-003, PPE-001]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: COMMON_EXCAVATION
+    required_documents: [RA-001, RA-004, ED-003, WP-001]
+    recommended_documents: [PTW-005, CL-003, EQ-002, EQ-007]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: COMMON_ELECTRICAL_WORK
+    required_documents: [RA-001, RA-004, ED-003, PTW-004]
+    recommended_documents: [CL-004, PPE-001, WP-011]
+    conditional_documents: []
+    notes: ""
+
+  - trade_id: COMMON_CHEMICAL_HANDLING
+    required_documents: [RA-001, RA-004, ED-003]
+    recommended_documents: [PPE-004, CL-009, WP-013]
+    conditional_documents: [PTW-002]
+    notes: 인화성 화학물질 시 PTW-002 검토

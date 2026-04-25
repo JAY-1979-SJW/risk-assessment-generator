@@ -1,0 +1,204 @@
+# 공종별 교육 매핑
+# 버전: 1.0
+# 작성일: 2026-04-25
+# 원칙: required_trainings는 training_types.yml에 존재하는 code만 사용
+
+_meta:
+  version: "1.0"
+  last_updated: "2026-04-25"
+
+mappings:
+
+  # 소방설비
+  - trade_id: FIRE_PIPE_INSTALL
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [고소작업, 화기작업, 중량물 인양]
+    notes: ""
+
+  - trade_id: FIRE_SPRINKLER_INSTALL
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [고소작업, 배관 설치]
+    notes: ""
+
+  - trade_id: FIRE_HYDRANT_PIPE_INSTALL
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [고소작업, 화기작업]
+    notes: ""
+
+  - trade_id: FIRE_PUMP_ROOM_WORK
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [중량물 취급, 전기 안전]
+    notes: ""
+
+  - trade_id: FIRE_WELDING_CUTTING
+    required_trainings: [EDU_SPECIAL_16H, EDU_TBM]
+    special_training_topics: [용접·용단 작업, 화기작업 허가]
+    notes: ""
+
+  - trade_id: FIRE_CEILING_PIPE_WORK
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [고소작업]
+    notes: ""
+
+  - trade_id: FIRE_ALARM_WIRING
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [전기 안전, 고소작업]
+    notes: ""
+
+  - trade_id: FIRE_EQUIPMENT_LIFTING
+    required_trainings: [EDU_SPECIAL_16H, EDU_TBM]
+    special_training_topics: [크레인·양중 작업, 중량물 인양]
+    notes: ""
+
+  - trade_id: FIRE_CORE_DRILLING
+    required_trainings: [EDU_CONSTRUCTION_BASIC, EDU_TBM, EDU_SPECIAL_2H]
+    special_training_topics: [소음·분진 관리]
+    notes: ""
+
+  - trade_id: FIRE_PIT_SHAFT_WORK
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONFINED_SPACE, EDU_TBM]
+    special_training_topics: [밀폐공간 작업, 고소작업]
+    notes: ""
+
+  # 전기
+  - trade_id: ELEC_CONDUIT_WIRING
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [전기 안전, 감전 예방]
+    notes: ""
+
+  - trade_id: ELEC_CABLE_TRAY
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [고소작업, 전기 안전]
+    notes: ""
+
+  - trade_id: ELEC_PANEL_INSTALL
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [활선 근접 작업, LOTO]
+    notes: ""
+
+  - trade_id: ELEC_POWER_CABLE_PULLING
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [전기 안전]
+    notes: ""
+
+  - trade_id: ELEC_LIGHTING_INSTALL
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [고소작업, 전기 안전]
+    notes: ""
+
+  - trade_id: ELEC_GROUNDING
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [전기 안전]
+    notes: ""
+
+  - trade_id: ELEC_TEMP_POWER
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [임시전기 설치 안전]
+    notes: ""
+
+  - trade_id: ELEC_LIVE_PROXIMITY_WORK
+    required_trainings: [EDU_SPECIAL_16H, EDU_TBM]
+    special_training_topics: [활선 작업 안전, LOTO, 아크 위험]
+    notes: ""
+
+  - trade_id: ELEC_TESTING_COMMISSIONING
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [전기 시험·시운전 안전]
+    notes: ""
+
+  # 기계설비
+  - trade_id: MECH_PIPE_INSTALL
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [고소작업, 화기작업, 중량물]
+    notes: ""
+
+  - trade_id: MECH_DUCT_INSTALL
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [고소작업, 절단 작업]
+    notes: ""
+
+  - trade_id: MECH_EQUIPMENT_INSTALL
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [중량물 인양, 크레인 작업]
+    notes: ""
+
+  - trade_id: MECH_PUMP_INSTALL
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [중량물 취급, 전기 안전]
+    notes: ""
+
+  - trade_id: MECH_WELDING_CUTTING
+    required_trainings: [EDU_SPECIAL_16H, EDU_TBM]
+    special_training_topics: [용접·용단, 화기작업]
+    notes: ""
+
+  - trade_id: MECH_INSULATION
+    required_trainings: [EDU_CONSTRUCTION_BASIC, EDU_TBM, EDU_SPECIAL_2H]
+    special_training_topics: [화학물질 취급, 고소작업]
+    notes: ""
+
+  - trade_id: MECH_PRESSURE_TEST
+    required_trainings: [EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [수압·기밀 시험 안전]
+    notes: ""
+
+  - trade_id: MECH_CHILLER_BOILER_ROOM
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONFINED_SPACE, EDU_TBM]
+    special_training_topics: [밀폐공간, 냉매 가스 안전, 전기 안전]
+    notes: ""
+
+  - trade_id: MECH_SHAFT_WORK
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONFINED_SPACE, EDU_TBM]
+    special_training_topics: [밀폐공간, 고소작업]
+    notes: ""
+
+  # 공통 고위험작업
+  - trade_id: COMMON_WORK_AT_HEIGHT
+    required_trainings: [EDU_SPECIAL_16H, EDU_TBM]
+    special_training_topics: [고소작업, 안전대 착용]
+    notes: ""
+
+  - trade_id: COMMON_HOT_WORK
+    required_trainings: [EDU_SPECIAL_16H, EDU_TBM]
+    special_training_topics: [화기작업 허가, 화재 예방]
+    notes: ""
+
+  - trade_id: COMMON_CONFINED_SPACE
+    required_trainings: [EDU_CONFINED_SPACE, EDU_TBM]
+    special_training_topics: [밀폐공간 진입, 산소 측정, 구조 절차]
+    notes: ""
+
+  - trade_id: COMMON_HEAVY_LIFTING
+    required_trainings: [EDU_SPECIAL_16H, EDU_TBM]
+    special_training_topics: [크레인·인양 작업, 슬링 점검]
+    notes: ""
+
+  - trade_id: COMMON_EQUIPMENT_OPERATION
+    required_trainings: [EDU_SPECIAL_16H, EDU_TBM]
+    special_training_topics: [건설기계 안전, 유도자 신호]
+    notes: ""
+
+  - trade_id: COMMON_SCAFFOLD_WORK
+    required_trainings: [EDU_SPECIAL_16H, EDU_TBM]
+    special_training_topics: [비계 조립·해체, 고소작업]
+    notes: ""
+
+  - trade_id: COMMON_FORMWORK_SHORING
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [거푸집·동바리 조립·해체, 고소작업]
+    notes: ""
+
+  - trade_id: COMMON_EXCAVATION
+    required_trainings: [EDU_SPECIAL_16H, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [굴착 안전, 흙막이 점검]
+    notes: ""
+
+  - trade_id: COMMON_ELECTRICAL_WORK
+    required_trainings: [EDU_SPECIAL_16H, EDU_TBM]
+    special_training_topics: [전기 안전, LOTO]
+    notes: ""
+
+  - trade_id: COMMON_CHEMICAL_HANDLING
+    required_trainings: [EDU_MSDS, EDU_CONSTRUCTION_BASIC, EDU_TBM]
+    special_training_topics: [MSDS 교육, 화학물질 취급 안전]
+    notes: ""

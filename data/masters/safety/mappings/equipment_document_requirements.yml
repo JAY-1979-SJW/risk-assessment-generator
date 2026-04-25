@@ -1,0 +1,100 @@
+# 장비별 필수 서류 요구사항 매핑
+# 버전: 1.0
+# 작성일: 2026-04-24
+# 기준: 산업안전보건기준에 관한 규칙 제38조 (작업계획서) + 각 장비 조항
+# 원칙: 법령 확인된 항목만 confirmed 표시. 나머지는 NEEDS_VERIFICATION
+
+_meta:
+  version: "1.0"
+  total_mappings: 8
+  status_confirmed: 6
+  status_needs_verification: 2
+  last_updated: "2026-04-24"
+  note: "대표 예시 8건 수록. 나머지는 법령 검토 후 단계적 추가"
+
+requirements:
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 타워크레인 (EQ_CRANE_TOWER)
+  # ─────────────────────────────────────────────────────────────────────
+
+  - equipment_code: EQ_CRANE_TOWER
+    doc_id: WP-006
+    condition_note: "타워크레인 설치·해체·인상·사용 작업 시"
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제1호"
+    source_type: law
+    verification_status: confirmed
+
+  - equipment_code: EQ_CRANE_TOWER
+    doc_id: RA-001
+    condition_note: "타워크레인 사용 작업 포함 현장"
+    legal_basis: "산업안전보건법 제36조"
+    source_type: law
+    verification_status: confirmed
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 이동식 크레인 (EQ_CRANE_MOB)
+  # ─────────────────────────────────────────────────────────────────────
+
+  - equipment_code: EQ_CRANE_MOB
+    doc_id: WP-007
+    condition_note: "이동식 크레인 사용 작업 시 — WP-006(타워크레인) 조항 준용 여부 확인 필요"
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제14호"
+    source_type: law
+    verification_status: NEEDS_VERIFICATION
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 굴착기 (EQ_EXCAV)
+  # ─────────────────────────────────────────────────────────────────────
+
+  - equipment_code: EQ_EXCAV
+    doc_id: WP-001
+    condition_note: "굴착면 높이 2m 이상인 굴착 작업에 사용 시"
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제5호, 제82조"
+    source_type: law
+    verification_status: confirmed
+
+  - equipment_code: EQ_EXCAV
+    doc_id: WP-008
+    condition_note: "굴착기가 차량계 건설기계로 사용되는 경우"
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제3호, 제170조"
+    source_type: law
+    verification_status: confirmed
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 지게차 (EQ_FORKLIFT)
+  # ─────────────────────────────────────────────────────────────────────
+
+  - equipment_code: EQ_FORKLIFT
+    doc_id: WP-009
+    condition_note: "지게차를 이용한 하역·운반 작업 시"
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제2호"
+    source_type: law
+    verification_status: confirmed
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 맨홀 강제 환기 장비 (EQ_MANHOLE_BLOWER)
+  # ─────────────────────────────────────────────────────────────────────
+
+  - equipment_code: EQ_MANHOLE_BLOWER
+    doc_id: WP-014
+    condition_note: "밀폐공간 작업 시 환기 장비 사용"
+    legal_basis: "산업안전보건기준에 관한 규칙 제619조"
+    source_type: law
+    verification_status: confirmed
+
+  - equipment_code: EQ_MANHOLE_BLOWER
+    doc_id: PTW-001
+    condition_note: "밀폐공간 진입 전 작업허가서 발행 필요"
+    legal_basis: "산업안전보건기준에 관한 규칙 제619조 제2항"
+    source_type: law
+    verification_status: NEEDS_VERIFICATION
+
+# ─────────────────────────────────────────────────────────────────────
+# TODO: 추가 예정 매핑
+# ─────────────────────────────────────────────────────────────────────
+# - EQ_CRANE_TOWER → 자체검사 기록 서류 (산안법 제93조)
+# - EQ_SCAFF → 작업 전 점검표 (CL 시리즈 — 미개발)
+# - EQ_WELDER_ARC → 화기작업 허가서 (법령 의무 여부 NEEDS_VERIFICATION)
+# - EQ_EXCAV → 차량계 건설기계 자체검사 (산안법 제93조 — NEEDS_VERIFICATION)
+# 나머지 31종 장비 × 서류 카탈로그 매핑은 법령 검토 후 추가

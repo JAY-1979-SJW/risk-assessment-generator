@@ -1,0 +1,125 @@
+# 토목 공종 프리셋 — skeleton
+# 버전: 0.1 (skeleton)
+# 작성일: 2026-04-25
+
+_meta:
+  version: "0.1"
+  trade_group: 토목
+  status: SKELETON
+  total: 4
+  last_updated: "2026-04-25"
+  note: 토목 공종 상세 데이터는 다음 단계에서 작성.
+
+trades:
+
+  - trade_id: CIVIL_EXCAVATION_WORK
+    trade_name: 토공 굴착 작업
+    trade_group: 토목
+    description: 도로·기초·지하 구조물 토공 굴착 작업
+    enabled: true
+    priority: 1
+    default_hazards:
+      - EXCAVATION_COLLAPSE
+      - STRUCK_BY_EQUIPMENT
+      - VEHICLE_TURNOVER
+    required_documents:
+      - RA-001
+      - RA-004
+      - WP-001
+    recommended_documents:
+      - ED-003
+      - PTW-005
+      - CL-003
+    required_trainings:
+      - EDU_TBM
+    required_permits:
+      - PTW-005
+    common_equipment: []
+    ppe:
+      - safety_helmet
+      - safety_shoes
+      - high_visibility_vest
+    source_status: NEEDS_VERIFICATION
+    notes: skeleton — 상세 데이터 입력 필요
+
+  - trade_id: CIVIL_PILING_WORK
+    trade_name: 파일 항타 작업
+    trade_group: 토목
+    description: PHC파일·강관파일 항타 및 현장타설말뚝 작업
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALLING_OBJECT
+      - NOISE_DUST
+      - STRUCK_BY_EQUIPMENT
+    required_documents:
+      - RA-001
+      - RA-004
+    recommended_documents:
+      - ED-003
+      - WP-010
+    required_trainings:
+      - EDU_TBM
+    required_permits: []
+    common_equipment: []
+    ppe:
+      - safety_helmet
+      - ear_protection
+      - safety_shoes
+    source_status: NEEDS_VERIFICATION
+    notes: skeleton — 상세 데이터 입력 필요
+
+  - trade_id: CIVIL_RETAINING_WALL
+    trade_name: 흙막이 벽 작업
+    trade_group: 토목
+    description: 흙막이 지보공(H파일·시트파일·CIP) 설치·해체 작업
+    enabled: true
+    priority: 1
+    default_hazards:
+      - EXCAVATION_COLLAPSE
+      - STRUCK_BY_EQUIPMENT
+      - HEAVY_LIFTING
+    required_documents:
+      - RA-001
+      - RA-004
+    recommended_documents:
+      - ED-003
+      - WP-001
+    required_trainings:
+      - EDU_TBM
+    required_permits: []
+    common_equipment: []
+    ppe:
+      - safety_helmet
+      - safety_shoes
+      - high_visibility_vest
+    source_status: NEEDS_VERIFICATION
+    notes: skeleton — 상세 데이터 입력 필요
+
+  - trade_id: CIVIL_ROAD_PAVING
+    trade_name: 도로 포장 작업
+    trade_group: 토목
+    description: 아스팔트·콘크리트 도로 포장 및 보수 작업
+    enabled: true
+    priority: 2
+    default_hazards:
+      - STRUCK_BY_EQUIPMENT
+      - CHEMICAL_EXPOSURE
+      - NOISE_DUST
+    required_documents:
+      - RA-001
+      - RA-004
+    recommended_documents:
+      - ED-003
+      - CL-003
+    required_trainings:
+      - EDU_TBM
+    required_permits: []
+    common_equipment: []
+    ppe:
+      - safety_helmet
+      - safety_shoes
+      - high_visibility_vest
+      - dust_mask
+    source_status: NEEDS_VERIFICATION
+    notes: skeleton — 상세 데이터 입력 필요

@@ -5,17 +5,26 @@ form_type 문자열로 builder 함수를 선택하고 호출하는 최소 디스
 export API 연결 전 단계 — builder 호출 인터페이스만 제공.
 
 지원 form_type:
-    education_log                  — 안전보건교육일지 (v1.1)
-    risk_assessment                — 위험성평가표 (v1.0)
-    excavation_workplan            — 굴착 작업계획서 (v1.0)
-    vehicle_construction_workplan  — 차량계 건설기계 작업계획서 (v1.0)
-    material_handling_workplan     — 차량계 하역운반기계 작업계획서 (v1.0)
-    tower_crane_workplan           — 타워크레인 작업계획서 (v1.0)       [WP-006]
-    mobile_crane_workplan          — 이동식 크레인 작업계획서 (v1.0)    [WP-007]
-    confined_space_workplan        — 밀폐공간 작업계획서 (v1.0)         [WP-014]
-    tbm_log                        — TBM 안전점검 일지 (v1.0)           [RA-004]
-    confined_space_permit          — 밀폐공간 작업허가서 (v1.0)         [PTW-001]
-    confined_space_checklist       — 밀폐공간 사전 안전점검표 (v1.0)    [CL-010]
+    education_log                       — 안전보건교육일지 (v1.1)
+    special_education_log               — 특별 안전보건교육 교육일지 (v1.0)  [ED-003]
+    manager_job_training_record         — 안전보건관리자 직무교육 이수 확인서 (v1.0) [ED-004]
+    risk_assessment                     — 위험성평가표 (v1.0)
+    excavation_workplan                 — 굴착 작업계획서 (v1.0)
+    vehicle_construction_workplan       — 차량계 건설기계 작업계획서 (v1.0)
+    material_handling_workplan          — 차량계 하역운반기계 작업계획서 (v1.0)
+    tower_crane_workplan                — 타워크레인 작업계획서 (v1.0)       [WP-006]
+    mobile_crane_workplan               — 이동식 크레인 작업계획서 (v1.0)    [WP-007]
+    confined_space_workplan             — 밀폐공간 작업계획서 (v1.0)         [WP-014]
+    tbm_log                             — TBM 안전점검 일지 (v1.0)           [RA-004]
+    confined_space_permit               — 밀폐공간 작업허가서 (v1.0)         [PTW-001]
+    confined_space_checklist            — 밀폐공간 사전 안전점검표 (v1.0)    [CL-010]
+    work_environment_measurement        — 작업환경측정 실시 및 결과 관리대장 (v1.0) [HM-001]
+    special_health_examination          — 특수건강진단 대상자 및 결과 관리대장 (v1.0) [HM-002]
+    formwork_shoring_workplan           — 거푸집·동바리 작업계획서 (v1.0)            [WP-015]
+    scaffold_installation_checklist     — 비계 설치 점검표 (v1.0)                    [CL-001]
+    tower_crane_self_inspection_checklist — 타워크레인 자체 점검표 (v1.0)            [CL-006]
+    construction_equipment_daily_checklist — 건설장비 일일 사전점검표 (v1.0)        [CL-003]
+    formwork_shoring_installation_checklist — 거푸집 및 동바리 설치 점검표 (v1.0)  [CL-002]
 
 사용법:
     from engine.output.form_registry import (
@@ -36,11 +45,20 @@ from engine.output.confined_space_permit_builder import build_confined_space_per
 from engine.output.confined_space_workplan_builder import build_confined_space_workplan_excel
 from engine.output.education_log_builder import build_education_log_excel
 from engine.output.form_excel_builder import build_form_excel as _build_risk_assessment_excel_raw
+from engine.output.formwork_shoring_workplan_builder import build_formwork_shoring_workplan_excel
+from engine.output.construction_equipment_daily_checklist_builder import build_construction_equipment_daily_checklist_excel
+from engine.output.formwork_shoring_installation_checklist_builder import build_formwork_shoring_installation_checklist_excel
+from engine.output.scaffold_installation_checklist_builder import build_scaffold_installation_checklist_excel
+from engine.output.tower_crane_self_inspection_checklist_builder import build_tower_crane_self_inspection_checklist_excel
+from engine.output.manager_job_training_record_builder import build_manager_job_training_record_excel
 from engine.output.material_handling_workplan_builder import build_material_handling_workplan_excel
 from engine.output.mobile_crane_workplan_builder import build_mobile_crane_workplan_excel
+from engine.output.special_education_log_builder import build_special_education_log_excel
+from engine.output.special_health_examination_builder import build_special_health_examination_excel
 from engine.output.tbm_log_builder import build_tbm_log_excel
 from engine.output.tower_crane_workplan_builder import build_tower_crane_workplan_excel
 from engine.output.vehicle_workplan_builder import build_vehicle_workplan_excel
+from engine.output.work_environment_measurement_builder import build_work_environment_measurement_excel
 from engine.output.workplan_builder import build_excavation_workplan_excel
 
 
@@ -140,6 +158,52 @@ _REGISTRY: dict[str, FormSpec] = {
         ),
         repeat_field="attendees",
         max_repeat_rows=30,  # MAX_ATTENDEES
+    ),
+    # ------------------------------------------------------------------
+    # P1 — ED-003 (2026-04-25)
+    # 법적 근거: 산안법 제29조 제3항, 시행규칙 제26조, 별표 4, 별표 5
+    # evidence_status: NEEDS_VERIFICATION (별표 4/5 원문 evidence 미수집)
+    # ------------------------------------------------------------------
+    "special_education_log": FormSpec(
+        form_type="special_education_log",
+        display_name="특별 안전보건교육 교육일지",
+        version="1.0",
+        builder=build_special_education_log_excel,
+        required_fields=(
+            # 산업안전보건법 제29조 제3항 / 시행규칙 제26조 법정 필수
+            "education_date",           # 교육 일자
+            "education_location",       # 교육 장소
+            "education_target_work",    # 교육 대상 작업명 (별표 5 기준)
+            "instructor_name",          # 강사 성명
+            "confirmer_name",           # 교육담당자 성명
+            "confirmer_role",           # 교육담당자 직위
+        ),
+        optional_fields=(
+            "site_name",
+            "site_address",
+            "education_name",
+            "target_work_free_input",   # 별표 5 미수집 시 자유입력
+            "related_education",
+            "duration_category",        # 교육시간 구분 (별표 4 기준)
+            "actual_duration_hours",
+            "remaining_hours",
+            "subjects",                 # list[dict]: subject_name, subject_content, subject_hours
+            "instructor_org",
+            "instructor_role",
+            "instructor_qualification",
+            "attendees",                # list[dict]: attendee_name, attendee_org, attendee_job_type, attendee_birth_year, attendee_completed
+            "comprehension_verbal",
+            "comprehension_checklist",
+            "comprehension_practice",
+            "retraining_targets",
+            "attachments",
+            "supervisor_name",
+            "site_manager_name",
+            "confirm_date",
+        ),
+        repeat_field="attendees",
+        max_repeat_rows=30,  # MAX_ATTENDEES
+        extra_list_fields=("subjects",),
     ),
     "risk_assessment": FormSpec(
         form_type="risk_assessment",
@@ -336,6 +400,9 @@ _REGISTRY: dict[str, FormSpec] = {
         ),
         optional_fields=(
             "site_name", "project_name", "tbm_location",
+            "trade_name",          # 작업 공종명 (공종별 프리셋 연동 시 자동 입력)
+            "pre_work_checks",     # 작업 전 확인사항 (서류·보호구·장비 체크리스트)
+            "permit_check",        # 작업허가서 확인 (허가서 번호/종류)
             "ppe_check", "worker_opinion", "action_items",
         ),
         repeat_field="attendees",   # list[dict]: name, job_type
@@ -380,6 +447,280 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field=None,
         max_repeat_rows=None,
         extra_list_fields=("check_items",),  # list[dict]: item, result, note (미제공 시 기본 10개 자동 적용)
+    ),
+    # ------------------------------------------------------------------
+    # P1 — ED-004 (2026-04-25)
+    # 법적 근거: 산안법 제32조, 제15조, 제17조, 제18조
+    # evidence_status: PARTIAL_VERIFIED (법 제32조 확인, 시행규칙 조항번호 NEEDS_VERIFICATION)
+    # 주의: 공식 수료증 대체 아님. 수료증 원본 별도 보관 필요.
+    # ------------------------------------------------------------------
+    "manager_job_training_record": FormSpec(
+        form_type="manager_job_training_record",
+        display_name="안전보건관리자 직무교육 이수 확인서",
+        version="1.0",
+        builder=build_manager_job_training_record_excel,
+        required_fields=(
+            # 산안법 제32조 법정 필수 — 역할 선택 통합 관리
+            "role_type",        # 역할 구분 (안전보건관리책임자/안전관리자/보건관리자)
+            "training_category", # 신규교육/보수교육 구분
+        ),
+        optional_fields=(
+            "site_name", "field_name", "employer_name", "write_date", "department",
+            "person_name", "person_org", "person_title", "appointment_date",
+            "is_training_target",
+            "legal_basis_text", "new_training_deadline", "refresher_cycle",
+            "doctor_special_case", "training_exemption",
+            "training_org", "training_course",
+            "training_start_date", "training_end_date",
+            "training_hours", "completion_no", "certificate_date", "completion_status",
+            "cert_attached", "agency_confirm_attached",
+            "appointment_doc_attached", "refresher_basis_attached",
+            "not_completed", "not_completed_reason",
+            "action_plan", "scheduled_training_date", "manager_name",
+            "writer_name", "safety_manager_sign", "supervisor_sign",
+            "site_manager_sign", "sign_date",
+        ),
+        repeat_field=None,
+        max_repeat_rows=None,
+    ),
+    # ------------------------------------------------------------------
+    # P1 — WP-015 (2026-04-25)
+    # 법적 근거: 산안규칙 제38조·제39조·제331조, 제328조~제337조
+    # evidence_status: PARTIAL_VERIFIED (제38조 별표4 포함 여부 미확인)
+    # 주의: 구조계산·조립도 자체 생성 없음. 첨부·보관 확인 필드로만 구현.
+    # ------------------------------------------------------------------
+    "formwork_shoring_workplan": FormSpec(
+        form_type="formwork_shoring_workplan",
+        display_name="거푸집·동바리 작업계획서",
+        version="1.0",
+        builder=build_formwork_shoring_workplan_excel,
+        required_fields=(
+            # 산안규칙 제331조 법정 필수 — 구조검토 및 조립도 작성
+            "structural_review_done",    # 구조검토 실시 여부 [제331조 제1항]
+            "assembly_drawing_done",     # 조립도 작성 여부   [제331조 제1항]
+            "work_location",             # 작업 위치          [제38조]
+        ),
+        optional_fields=(
+            "site_name", "project_name", "work_date", "work_period",
+            "contractor", "prepared_by", "reviewer", "approver",
+            "work_scope", "formwork_type", "shoring_type",
+            "floor_section", "work_phases",
+            "survey_ground", "survey_substructure", "survey_opening",
+            "survey_material_place", "survey_equipment_route",
+            "survey_weather", "survey_lighting",
+            "structural_reviewer", "member_spec", "install_interval",
+            "joint_method", "brace_plan", "base_plate_plan",
+            "structural_doc_attached", "assembly_drawing_attached",
+            "work_sequence", "safety_measures_text",
+            "work_commander_name", "work_commander_org",
+            "work_commander_contact", "work_commander_duties",
+            "work_commander_educated",
+            "education_done", "tbm_done", "sign_date",
+        ),
+        repeat_field="hazard_items",      # list[dict]: hazard, safety_measure
+        max_repeat_rows=10,               # MAX_HAZARD
+        extra_list_fields=("pre_check_items",),  # list[dict]: check_item, result, note
+    ),
+    # ------------------------------------------------------------------
+    # HM — 보건관리 서류 (2026-04-25)
+    # 외부 전문기관 발급 원본 결과서를 대체하지 않는 사업장 자체 관리대장
+    # ------------------------------------------------------------------
+    "work_environment_measurement": FormSpec(
+        form_type="work_environment_measurement",
+        display_name="작업환경측정 실시 및 결과 관리대장",
+        version="1.0",
+        builder=build_work_environment_measurement_excel,
+        required_fields=(
+            "target_process",       # 측정 대상 공정/장소  [법정] 산안법 제125조
+            "measurement_agency",   # 측정기관명           [법정] 산안법 제125조
+            "measurement_date",     # 측정 실시일          [법정] 산안법 제125조
+            "hazardous_agents",     # 유해인자 목록        [법정] 산안법 제125조
+        ),
+        optional_fields=(
+            "site_name", "project_name", "work_location",
+            "measurement_period", "supervisor", "contractor", "prepared_by",
+            "agency_contact", "result_received_date",
+            "result_summary", "exceedance_status", "exceedance_detail",
+            "improvement_plan", "improvement_deadline", "improvement_done",
+            "worker_notification", "original_attached",
+            "confirmer_name", "confirmer_role", "sign_date",
+        ),
+        repeat_field="measurement_rows",   # list[dict]: target_location, hazardous_agent, measured_value, exposure_limit, exceedance
+        max_repeat_rows=10,
+    ),
+    "special_health_examination": FormSpec(
+        form_type="special_health_examination",
+        display_name="특수건강진단 대상자 및 결과 관리대장",
+        version="1.0",
+        builder=build_special_health_examination_excel,
+        required_fields=(
+            "exam_agency",          # 검진기관명     [법정] 산안법 제130조
+            "exam_date",            # 검진 실시일    [법정] 산안법 제130조
+            "exam_type",            # 검진 구분      [법정] 산안법 제130조
+            "hazardous_agents",     # 해당 유해인자  [법정] 산안법 제130조
+        ),
+        optional_fields=(
+            "site_name", "project_name", "exam_target_work",
+            "exam_period", "supervisor", "contractor", "prepared_by",
+            "agency_contact", "result_received_date",
+            "judgment_summary", "followup_plan",
+            "non_exam_count", "non_exam_reason", "non_exam_action",
+            "original_stored", "privacy_confirmed",
+            "confirmer_name", "confirmer_role", "sign_date",
+        ),
+        repeat_field="worker_rows",   # list[dict]: employee_no, name, birth_year, job_type, exam_done, judgment, followup_needed
+        max_repeat_rows=15,
+    ),
+    # ------------------------------------------------------------------
+    # P1 — CL-001 (2026-04-25)
+    # 법적 근거: 산안규칙 제57조 (비계 조립·해체·변경)
+    # evidence_status: PARTIAL_VERIFIED (제57조 확인, 세부 조항 NEEDS_VERIFICATION)
+    # 주의: 비계 전용. 거푸집동바리는 CL-002 별도 서식으로 관리.
+    # ------------------------------------------------------------------
+    "scaffold_installation_checklist": FormSpec(
+        form_type="scaffold_installation_checklist",
+        display_name="비계 설치 점검표",
+        version="1.0",
+        builder=build_scaffold_installation_checklist_excel,
+        required_fields=(
+            # 산안규칙 제57조 이하 기반 — 점검 기본정보
+            "check_date",    # 점검 일자
+            "work_location", # 작업 장소
+            "checker_name",  # 점검자 성명
+        ),
+        optional_fields=(
+            "site_name", "project_name", "work_date", "supervisor_name",
+            "scaffold_type", "scaffold_height", "scaffold_length",
+            "scaffold_location", "scaffold_work_type",
+            "pre_install_items",   # list[dict]: item, result, note
+            "structure_items",     # list[dict]: item, result, note
+            "workboard_items",     # list[dict]: item, result, note
+            "railing_items",       # list[dict]: item, result, note
+            "assembly_items",      # list[dict]: item, result, note
+            "usage_items",         # list[dict]: item, result, note
+            "nonconformance_items", # list[dict]: content, location, action, deadline, completed
+            "inspector_sign", "supervisor_sign", "manager_sign", "sign_date",
+        ),
+        repeat_field=None,
+        max_repeat_rows=None,
+        extra_list_fields=(
+            "pre_install_items", "structure_items", "workboard_items",
+            "railing_items", "assembly_items", "usage_items",
+            "nonconformance_items",
+        ),
+    ),
+    # ------------------------------------------------------------------
+    # P2 → P1 — CL-002 (2026-04-25)
+    # 법적 근거: 산안규칙 제328조~제337조 (거푸집·동바리 재료·조립도·타설·해체)
+    # evidence_status: PARTIAL_VERIFIED (WP-015 evidence 연계, 세부 조항 NEEDS_VERIFICATION 포함)
+    # 주의: 거푸집·동바리 설치 점검 전용. 비계(CL-001) 대체 불가.
+    #       WP-015 작업계획서 및 구조검토서·조립도 원본 대체 불가.
+    #       제338조 이후 굴착작업 계열 조항은 본 서식 근거로 사용하지 않음.
+    # ------------------------------------------------------------------
+    "formwork_shoring_installation_checklist": FormSpec(
+        form_type="formwork_shoring_installation_checklist",
+        display_name="거푸집 및 동바리 설치 점검표",
+        version="1.0",
+        builder=build_formwork_shoring_installation_checklist_excel,
+        required_fields=(
+            "check_date",    # 점검 일자
+            "work_location", # 작업 장소
+            "checker_name",  # 점검자 성명
+        ),
+        optional_fields=(
+            "site_name", "project_name", "work_date", "supervisor_name",
+            "structure_type", "floor_level", "work_area",
+            "formwork_type", "shoring_type",
+            "inspector_sign", "supervisor_sign", "work_commander_sign",
+            "manager_sign", "sign_date",
+        ),
+        repeat_field=None,
+        max_repeat_rows=None,
+        extra_list_fields=(
+            "drawing_items", "material_items", "shoring_items",
+            "formwork_items", "stability_items", "platform_items",
+            "pre_pour_items", "during_pour_items", "removal_items",
+            "nonconformance_items",
+        ),
+    ),
+    # ------------------------------------------------------------------
+    # P1 — CL-003 (2026-04-25)
+    # 법적 근거: 산안규칙 제196조~제199조(차량계 건설기계 NEEDS_VERIFICATION),
+    #            제171조~제178조(하역운반기계등 PARTIAL_VERIFIED),
+    #            제179조~제183조(지게차 세부 PARTIAL_VERIFIED)
+    # evidence_status: PARTIAL_VERIFIED (차량계 건설기계 조항 NEEDS_VERIFICATION 포함)
+    # 주의: 일일 사전점검 전용. 작업계획서/장비사용계획서 대체 불가.
+    #       타워크레인·이동식 크레인·비계·거푸집동바리 전용 점검 제외.
+    # ------------------------------------------------------------------
+    "construction_equipment_daily_checklist": FormSpec(
+        form_type="construction_equipment_daily_checklist",
+        display_name="건설장비 일일 사전점검표",
+        version="1.0",
+        builder=build_construction_equipment_daily_checklist_excel,
+        required_fields=(
+            "check_date",    # 점검 일자
+            "work_location", # 작업 장소
+            "checker_name",  # 점검자 성명
+        ),
+        optional_fields=(
+            "site_name", "project_name",
+            "equipment_type", "equipment_model", "equipment_reg_no", "equipment_capacity",
+            "operator_name", "operator_license_no",
+            "guide_worker_name", "work_commander_name",
+            "sign_date",
+            "operator_sign", "guide_worker_sign", "work_commander_sign",
+            "supervisor_sign", "manager_sign",
+        ),
+        repeat_field=None,
+        max_repeat_rows=None,
+        extra_list_fields=(
+            "doc_check_items", "appearance_items", "light_items",
+            "brake_items", "stability_items", "contact_items",
+            "load_items", "additional_items", "nonconformance_items",
+        ),
+    ),
+    # ------------------------------------------------------------------
+    # P1 — CL-006 (2026-04-25)
+    # 법적 근거: 산안규칙 제142조~제146조 (타워크레인 설치·지지·작업 관련)
+    # evidence_status: PARTIAL_VERIFIED (제142조~제146조 확인, 세부 조항 NEEDS_VERIFICATION)
+    # 주의: 타워크레인 전용. 제147조·제148조(이동식 크레인) 미적용.
+    # ------------------------------------------------------------------
+    "tower_crane_self_inspection_checklist": FormSpec(
+        form_type="tower_crane_self_inspection_checklist",
+        display_name="타워크레인 자체 점검표",
+        version="1.0",
+        builder=build_tower_crane_self_inspection_checklist_excel,
+        required_fields=(
+            # 산안규칙 제142조 이하 기반 — 점검 기본정보
+            "check_date",    # 점검 일자
+            "work_location", # 타워크레인 설치 위치
+            "checker_name",  # 점검자 성명
+        ),
+        optional_fields=(
+            "site_name", "project_name", "work_date", "supervisor_name",
+            "crane_model", "crane_reg_no", "crane_capacity",
+            "crane_height", "crane_work_radius",
+            "installation_date", "next_inspection_date",
+            "operator_name", "operator_license_no",
+            "doc_check_items",       # list[dict]: item, result, note
+            "install_check_items",   # list[dict]: item, result, note
+            "structure_check_items", # list[dict]: item, result, note
+            "rope_check_items",      # list[dict]: item, result, note
+            "brake_check_items",     # list[dict]: item, result, note
+            "electric_check_items",  # list[dict]: item, result, note
+            "radius_check_items",    # list[dict]: item, result, note
+            "signal_check_items",    # list[dict]: item, result, note
+            "nonconformance_items",  # list[dict]: content, location, action, deadline, completed
+            "daily_inspector_sign", "operator_sign",
+            "supervisor_sign", "manager_sign", "sign_date",
+        ),
+        repeat_field=None,
+        max_repeat_rows=None,
+        extra_list_fields=(
+            "doc_check_items", "install_check_items", "structure_check_items",
+            "rope_check_items", "brake_check_items", "electric_check_items",
+            "radius_check_items", "signal_check_items", "nonconformance_items",
+        ),
     ),
 }
 

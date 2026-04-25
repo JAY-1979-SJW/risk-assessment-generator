@@ -1,0 +1,479 @@
+# compliance_clauses.yml
+# 통합 법령·기준 조항 마스터 (27건)
+#
+# source_level: LAW | ENFORCEMENT | TECHNICAL | GUIDELINE
+# law_type: OSHA | CONSTRUCTION | ELECTRICAL | FIRE | COMMUNICATION | CHEMICAL | GENERAL
+# source_type: law | moel | kosha | NEEDS_VERIFICATION
+# verification_status: confirmed | NEEDS_VERIFICATION
+
+compliance_clauses:
+
+  # ─── LAW (법률) ──────────────────────────────────────────────
+
+  - id: CC-001
+    law_name: 산업안전보건법
+    law_type: OSHA
+    source_level: LAW
+    clause: 제36조
+    title: 위험성평가 실시 의무
+    description: >
+      사업주는 건설물·기계·화학물질 등에 의한 위험을 평가하고 위험성 감소 대책을
+      수립·시행해야 한다.
+    applicability:
+      document: [RA-001]
+      work_type: []
+    related_category: [RA]
+    source_type: law
+    verification_status: confirmed
+    notes: 위험성평가 핵심 법조항; 고시 제2023-19호와 병행 적용
+
+  - id: CC-002
+    law_name: 산업안전보건법
+    law_type: OSHA
+    source_level: LAW
+    clause: 제29조
+    title: 안전보건교육 실시 의무
+    description: >
+      사업주는 근로자에게 정기교육·채용 시 교육·작업 변경 시 교육·특별교육을 실시하고
+      교육 일지를 작성·보관해야 한다.
+    applicability:
+      document: [ED-001]
+    related_category: [ED]
+    source_type: law
+    verification_status: confirmed
+    notes: 별지 제52호의2서식 교육일지 양식 법정화
+
+  - id: CC-003
+    law_name: 전기공사업법
+    law_type: ELECTRICAL
+    source_level: LAW
+    clause: 제2조
+    title: 전기공사업 면허 및 기술자격
+    description: >
+      전기공사는 면허를 받은 전기공사업자만 시공할 수 있으며,
+      공사 종류에 따라 자격 기술자를 배치해야 한다.
+    applicability:
+      work_type: []
+    related_category: [WP]
+    source_type: law
+    verification_status: NEEDS_VERIFICATION
+    notes: 세부 조문 번호 확인 필요
+
+  - id: CC-004
+    law_name: 소방시설공사업법
+    law_type: FIRE
+    source_level: LAW
+    clause: 제2조
+    title: 소방시설공사업 면허 및 감리
+    description: >
+      소방시설 공사는 면허를 받은 소방시설공사업자가 시공하고,
+      소방공사 감리업자의 감리를 받아야 한다.
+    applicability:
+      work_type: []
+    related_category: [WP, PTW]
+    source_type: law
+    verification_status: NEEDS_VERIFICATION
+    notes: 세부 조문 번호 확인 필요
+
+  - id: CC-005
+    law_name: 정보통신공사업법
+    law_type: COMMUNICATION
+    source_level: LAW
+    clause: 제2조
+    title: 정보통신공사업 면허 및 감리원 배치
+    description: >
+      정보통신공사는 면허를 받은 정보통신공사업자만 시공할 수 있으며,
+      공사 규모에 따라 감리원을 배치해야 한다.
+    applicability:
+      work_type: []
+    related_category: [WP]
+    source_type: law
+    verification_status: NEEDS_VERIFICATION
+    notes: 세부 조문 번호 확인 필요
+
+  # ─── ENFORCEMENT (시행령·시행규칙) ────────────────────────────
+
+  - id: CC-006
+    law_name: 산업안전보건기준에 관한 규칙
+    law_type: OSHA
+    source_level: ENFORCEMENT
+    clause: 제38조
+    title: 사전 작업계획서 작성·이행 의무
+    description: >
+      굴착·크레인·건설기계·하역운반기계 등 특정 작업 전 작업계획서를 작성하고
+      그 계획에 따라 작업해야 한다. 제1항 각 호에 해당 작업 유형이 열거된다.
+    applicability:
+      document: [WP-001, WP-006, WP-007, WP-008, WP-009]
+      work_type: [WT_EXCAVATION, WT_CRANE_LIFTING, WT_MATERIAL_HANDLING]
+    related_category: [WP]
+    source_type: law
+    verification_status: confirmed
+    notes: 작업계획서 작성 의무의 핵심 근거
+
+  - id: CC-007
+    law_name: 산업안전보건기준에 관한 규칙
+    law_type: OSHA
+    source_level: ENFORCEMENT
+    clause: 제82조
+    title: 굴착면 기울기 기준 준수
+    description: >
+      굴착면은 지반 종류에 따라 기울기 기준을 준수해야 하며,
+      2m 이상 굴착 시 작업계획서에 기울기·방호 조치를 명시해야 한다.
+    applicability:
+      document: [WP-001]
+      work_type: [WT_EXCAVATION]
+    related_category: [WP]
+    source_type: law
+    verification_status: confirmed
+    notes: 굴착면 2m 이상 시 의무 적용
+
+  - id: CC-008
+    law_name: 산업안전보건기준에 관한 규칙
+    law_type: OSHA
+    source_level: ENFORCEMENT
+    clause: 제134조
+    title: 이동식 크레인 작업 전 점검 및 작업계획
+    description: >
+      이동식 크레인 사용 전 권과방지장치·브레이크·클러치 등을 점검하고,
+      작업계획서를 작성해야 한다. 제134조~제141조 세부 기준 포함.
+    applicability:
+      document: [WP-007, EQ-004]
+      equipment: [EQ_CRANE_MOB]
+    related_category: [WP, EQ]
+    source_type: law
+    verification_status: confirmed
+    notes: 제134조~제141조 이동식 크레인 안전기준
+
+  - id: CC-009
+    law_name: 산업안전보건기준에 관한 규칙
+    law_type: OSHA
+    source_level: ENFORCEMENT
+    clause: 제142조
+    title: 타워크레인 안전기준
+    description: >
+      타워크레인 설치·해체·운용 시 자격자 배치, 작업계획서 작성,
+      지반 지지력 확보, 과부하 방지 조치를 이행해야 한다.
+    applicability:
+      document: [WP-006, EQ-003]
+      equipment: [EQ_CRANE_TOWER]
+    related_category: [WP, EQ]
+    source_type: law
+    verification_status: confirmed
+    notes: 제142조~제148조 타워크레인 세부 기준
+
+  - id: CC-010
+    law_name: 산업안전보건기준에 관한 규칙
+    law_type: OSHA
+    source_level: ENFORCEMENT
+    clause: 제170조
+    title: 차량계 건설기계 작업계획·유도자 배치
+    description: >
+      차량계 건설기계 사용 시 작업 종류·방법·운행경로를 포함한 계획서를 작성하고,
+      필요 시 유도자를 배치해야 한다.
+    applicability:
+      document: [WP-008, EQ-002]
+      equipment: [EQ_EXCAV, EQ_BULLDOZER, EQ_PILEDRIVER]
+      work_type: [WT_EXCAVATION]
+    related_category: [WP, EQ]
+    source_type: law
+    verification_status: confirmed
+    notes: 제170조~제178조 차량계 건설기계 세부 규정
+
+  - id: CC-011
+    law_name: 산업안전보건기준에 관한 규칙
+    law_type: OSHA
+    source_level: ENFORCEMENT
+    clause: 제179조
+    title: 차량계 하역운반기계 작업계획·신호
+    description: >
+      차량계 하역운반기계 사용 시 화물 낙하 방지, 운행 경로·속도 제한,
+      유도자 배치 및 작업계획서를 작성해야 한다.
+    applicability:
+      document: [WP-009, EQ-001]
+      equipment: [EQ_FORKLIFT]
+      work_type: [WT_MATERIAL_HANDLING]
+    related_category: [WP, EQ]
+    source_type: law
+    verification_status: confirmed
+    notes: 제179조~제182조 하역운반기계 세부 규정
+
+  - id: CC-012
+    law_name: 산업안전보건기준에 관한 규칙
+    law_type: CHEMICAL
+    source_level: ENFORCEMENT
+    clause: 제224조
+    title: 화학설비 작업계획 및 안전조치
+    description: >
+      화학설비·부속설비 사용 시 작업 절차 수립, 누출 방지 조치,
+      비상 대응 계획을 포함한 작업계획서를 작성해야 한다.
+    applicability:
+      work_type: [WT_CHEMICAL_HANDLING]
+    related_category: [WP, PTW]
+    source_type: law
+    verification_status: confirmed
+    notes: 제224조~제270조 화학설비 안전기준
+
+  - id: CC-013
+    law_name: 산업안전보건기준에 관한 규칙
+    law_type: ELECTRICAL
+    source_level: ENFORCEMENT
+    clause: 제301조
+    title: 전기 작업 전 안전조치 (LOTO)
+    description: >
+      전기 기계·기구 작업 전 잠금·표지 조치(LOTO), 절연 보호구 착용,
+      활선 작업 제한 등 안전조치를 이행해야 한다.
+    applicability:
+      work_type: []
+    related_category: [PTW, CL]
+    source_type: law
+    verification_status: NEEDS_VERIFICATION
+    notes: 제301조~제326조 전기 안전기준; 세부조항 확인 필요
+
+  - id: CC-014
+    law_name: 산업안전보건기준에 관한 규칙
+    law_type: OSHA
+    source_level: ENFORCEMENT
+    clause: 제615조
+    title: 밀폐공간 환기 기준
+    description: >
+      밀폐공간 내 산소 농도를 18% 이상 23.5% 미만으로 유지하고,
+      유해가스 농도는 허용기준 이하로 관리해야 한다.
+    applicability:
+      document: [WP-014, PTW-001]
+      equipment: [EQ_MANHOLE_BLOWER]
+      work_type: [WT_CONFINED_SPACE]
+    related_category: [WP, PTW]
+    source_type: law
+    verification_status: confirmed
+    notes: 제615조~제618조 환기·측정 기준
+
+  - id: CC-015
+    law_name: 산업안전보건기준에 관한 규칙
+    law_type: OSHA
+    source_level: ENFORCEMENT
+    clause: 제619조
+    title: 밀폐공간 보건작업 안전기준
+    description: >
+      밀폐공간 작업 전 산소·유해가스 농도 측정, 환기 실시, 관리감독자 지정,
+      작업 허가서 발급, 구조 장비 비치 의무가 있다.
+    applicability:
+      document: [WP-014, PTW-001, CL-010]
+      equipment: [EQ_MANHOLE_BLOWER]
+      work_type: [WT_CONFINED_SPACE]
+    related_category: [WP, PTW, CL]
+    source_type: law
+    verification_status: confirmed
+    notes: 제619조~제626조 밀폐공간 보건작업 세부 기준
+
+  - id: CC-016
+    law_name: 산업안전보건기준에 관한 규칙
+    law_type: OSHA
+    source_level: ENFORCEMENT
+    clause: 제622조
+    title: 밀폐공간 작업 허가 절차
+    description: >
+      밀폐공간 작업 전 관리감독자의 서면 허가를 받아야 하며,
+      허가서에는 측정 결과·환기 여부·구조 장비 비치 현황을 기재해야 한다.
+    applicability:
+      document: [PTW-001, CL-010]
+      work_type: [WT_CONFINED_SPACE]
+    related_category: [PTW, CL]
+    source_type: law
+    verification_status: confirmed
+    notes: 제622조~제625조 허가·점검 절차
+
+  - id: CC-017
+    law_name: 산업안전보건법 시행규칙
+    law_type: OSHA
+    source_level: ENFORCEMENT
+    clause: 제37조
+    title: 위험성평가 방법·절차
+    description: >
+      위험성평가는 사전 준비, 유해·위험요인 파악, 위험성 결정,
+      위험성 감소 대책 수립·시행 순서로 실시한다.
+    applicability:
+      document: [RA-001]
+    related_category: [RA]
+    source_type: law
+    verification_status: confirmed
+    notes: 고시 제2023-19호 절차와 연계
+
+  - id: CC-018
+    law_name: 산업안전보건법 시행규칙
+    law_type: OSHA
+    source_level: ENFORCEMENT
+    clause: 제32조
+    title: 안전보건교육 시간·내용 기준
+    description: >
+      교육 종류별 시간(정기 6~16h/분기 등)·내용을 별표 4로 규정하며,
+      미이수 시 과태료가 부과된다.
+    applicability:
+      document: [ED-001]
+    related_category: [ED]
+    source_type: law
+    verification_status: confirmed
+    notes: 별표 4 교육 내용·시간 기준
+
+  # ─── TECHNICAL (기술기준·고시) ────────────────────────────────
+
+  - id: CC-019
+    law_name: 고용노동부고시 제2023-19호
+    law_type: OSHA
+    source_level: TECHNICAL
+    clause: 전문
+    title: 위험성평가 실시에 관한 지침
+    description: >
+      위험성평가 실시 방법(빈도×강도 행렬, OPS법 등), 기록 양식,
+      상시평가 실시 기준을 규정한다. 소규모 사업장 간이평가 포함.
+    applicability:
+      document: [RA-001, RA-004]
+    related_category: [RA]
+    source_type: moel
+    verification_status: confirmed
+    notes: 2023년 개정; 핵심 고시
+
+  - id: CC-020
+    law_name: 화재안전기술기준 (NFTC)
+    law_type: FIRE
+    source_level: TECHNICAL
+    clause: 전문
+    title: 소화설비·경보설비 설치 기준
+    description: >
+      소화기·스프링클러·자동화재탐지설비 등의 설치 위치·수량·성능 기준을 규정한다.
+    applicability:
+      work_type: []
+    related_category: [CL, PTW]
+    source_type: moel
+    verification_status: NEEDS_VERIFICATION
+    notes: NFTC 세부 조문 번호 확인 필요; 소방청 고시
+
+  - id: CC-021
+    law_name: 전기설비 기술기준
+    law_type: ELECTRICAL
+    source_level: TECHNICAL
+    clause: 전문
+    title: 전기설비 안전 기술기준
+    description: >
+      전기설비의 절연·접지·방폭·감전 방지 등 설비 안전 기술기준을 규정한다.
+    applicability:
+      work_type: []
+    related_category: [WP, CL]
+    source_type: law
+    verification_status: NEEDS_VERIFICATION
+    notes: 산업통상자원부 고시; 세부 조문 확인 필요
+
+  - id: CC-022
+    law_name: 보호구 안전인증 고시
+    law_type: OSHA
+    source_level: TECHNICAL
+    clause: 전문
+    title: 개인보호구 성능 기준 및 안전인증
+    description: >
+      안전모·안전화·안전벨트·방진마스크 등 개인보호구의 성능 기준,
+      안전인증, 착용 의무를 규정한다.
+    applicability:
+      work_type: [WT_EXCAVATION, WT_CRANE_LIFTING, WT_CONFINED_SPACE]
+    related_category: [CL, PPE]
+    source_type: moel
+    verification_status: NEEDS_VERIFICATION
+    notes: 세부 고시 번호 확인 필요
+
+  # ─── GUIDELINE (KOSHA/MOEL 지침) ─────────────────────────────
+
+  - id: CC-023
+    law_name: KOSHA GUIDE G-63
+    law_type: OSHA
+    source_level: GUIDELINE
+    clause: 전문
+    title: 위험성평가 실시 지침 (KOSHA)
+    description: >
+      위험성평가 단계별 절차(사전 준비→위험요인 파악→위험성 결정→감소 대책 수립) 및
+      기록 양식을 안내한다.
+    applicability:
+      document: [RA-001]
+    related_category: [RA]
+    source_type: kosha
+    verification_status: NEEDS_VERIFICATION
+    notes: 최신 개정번호 확인 필요; 권고 수준
+
+  - id: CC-024
+    law_name: KOSHA GUIDE W-12
+    law_type: OSHA
+    source_level: GUIDELINE
+    clause: 전문
+    title: 작업 전 안전점검회의(TBM) 운영 지침
+    description: >
+      TBM의 실시 시간·절차·기록 방법, 팀장 역할,
+      TBM 일지 작성 요령을 안내한다.
+    applicability:
+      document: [RA-004]
+    related_category: [RA]
+    source_type: kosha
+    verification_status: NEEDS_VERIFICATION
+    notes: 최신 개정번호 확인 필요; 권고 수준
+
+  - id: CC-025
+    law_name: KOSHA GUIDE H-76
+    law_type: OSHA
+    source_level: GUIDELINE
+    clause: 전문
+    title: 밀폐공간 작업 안전보건 가이드
+    description: >
+      밀폐공간 식별 방법, 위험요인 평가, 보호구 선정,
+      구조 훈련, 체크리스트 작성 방법을 안내한다.
+    applicability:
+      document: [WP-014, PTW-001, CL-010]
+      work_type: [WT_CONFINED_SPACE]
+    related_category: [WP, PTW, CL]
+    source_type: kosha
+    verification_status: NEEDS_VERIFICATION
+    notes: 최신 개정번호 확인 필요; 권고 수준
+
+  - id: CC-026
+    law_name: KOSHA GUIDE C-10
+    law_type: OSHA
+    source_level: GUIDELINE
+    clause: 전문
+    title: 안전보건교육 운영 지침 (KOSHA)
+    description: >
+      안전보건교육 계획 수립, 교육 자료 준비, 교육 일지 작성,
+      강사 자격 기준을 안내한다.
+    applicability:
+      document: [ED-001]
+    related_category: [ED]
+    source_type: kosha
+    verification_status: NEEDS_VERIFICATION
+    notes: 최신 개정번호 확인 필요; 권고 수준
+
+  - id: CC-027
+    law_name: KOSHA GUIDE S-45
+    law_type: OSHA
+    source_level: GUIDELINE
+    clause: 전문
+    title: 건설현장 안전점검 체크리스트 활용 지침
+    description: >
+      건설현장 공종별 안전점검 항목 선정,
+      체크리스트 작성·기록·관리 방법을 안내한다.
+    applicability:
+      work_type: [WT_EXCAVATION, WT_CRANE_LIFTING]
+    related_category: [CL, SP]
+    source_type: kosha
+    verification_status: NEEDS_VERIFICATION
+    notes: 최신 개정번호 확인 필요; 권고 수준
+
+  - id: CC-028
+    law_name: 산업안전보건법
+    law_type: OSHA
+    source_level: LAW
+    clause: 제93조
+    title: 안전검사 실시 의무 (유해위험기계)
+    description: >
+      사업주는 유해·위험기계 등(크레인·지게차·호이스트 등)을 사용하는 경우
+      고용노동부장관이 정하는 주기(연 1회 또는 반기 1회)에 따라 안전검사를 받아야 하며,
+      검사 결과를 기록·보관해야 한다.
+    applicability:
+      equipment: [EQ_CRANE_TOWER, EQ_CRANE_MOB, EQ_FORKLIFT, EQ_HOIST]
+    related_category: [EQ]
+    source_type: law
+    verification_status: confirmed
+    notes: 시행규칙 별표 9 안전검사 대상·주기·방법 기준; 자체검사프로그램 인정 시 대체 가능

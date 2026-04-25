@@ -1,0 +1,296 @@
+# 장비 유형 마스터
+# 버전: 1.0
+# 작성일: 2026-04-24
+# 기준: data/risk_db/equipment/equipment_master.json (31종, 2026-04-20)
+# 유형 분류: 16종 equipment_type → 31종 개별 장비
+
+_meta:
+  version: "1.0"
+  total_types: 16
+  total_equipment: 31
+  last_updated: "2026-04-24"
+  source_file: "data/risk_db/equipment/equipment_master.json"
+
+equipment_types:
+
+  - type_code: access
+    type_name_ko: 가설통로·비계
+    description: 고소 작업을 위한 가설 구조물 및 이동 수단
+    sort_order: 1
+    equipment:
+      - code: EQ_SCAFF
+        name_ko: 강관 비계
+        inspection_cycle: 작업 시작 전 매일
+        law_ref: "산업안전보건기준에 관한 규칙 제59~76조"
+        source_type: law
+        verification_status: confirmed
+      - code: EQ_MOVSCAFF
+        name_ko: 이동식 비계
+        inspection_cycle: 작업 시작 전 매일
+        law_ref: "산업안전보건기준에 관한 규칙 제68조"
+        source_type: law
+        verification_status: confirmed
+      - code: EQ_AWP
+        name_ko: 고소작업대(차량형)
+        inspection_cycle: "작업 시작 전, 월 1회 이상"
+        law_ref: "산업안전보건기준에 관한 규칙 제186조"
+        source_type: law
+        verification_status: confirmed
+      - code: EQ_LADDER_MOV
+        name_ko: 이동식 사다리
+        inspection_cycle: 사용 전 점검
+        law_ref: "산업안전보건기준에 관한 규칙 제24조"
+        source_type: law
+        verification_status: confirmed
+      - code: EQ_SCISSORLIFT
+        name_ko: 시저형 고소작업대
+        inspection_cycle: "작업 시작 전, 월 1회 이상"
+        law_ref: "산업안전보건기준에 관한 규칙 제186조"
+        source_type: law
+        verification_status: confirmed
+      - code: EQ_SYST_SCAFF
+        name_ko: 시스템 비계
+        inspection_cycle: 작업 시작 전 매일
+        law_ref: "산업안전보건기준에 관한 규칙 제59조"
+        source_type: law
+        verification_status: confirmed
+
+  - type_code: lifting
+    type_name_ko: 양중기·크레인
+    description: 중량물 인양 및 이동 장비
+    sort_order: 2
+    equipment:
+      - code: EQ_CRANE_TOWER
+        name_ko: 타워크레인
+        inspection_cycle: "월 1회 정기점검 + 작업 전 일상점검"
+        law_ref: "산업안전보건기준에 관한 규칙 제139~147조"
+        source_type: law
+        verification_status: confirmed
+      - code: EQ_CRANE_MOB
+        name_ko: 이동식 크레인
+        inspection_cycle: 작업 시작 전 매일
+        law_ref: "산업안전보건기준에 관한 규칙 제146조"
+        source_type: law
+        verification_status: confirmed
+      - code: EQ_HOIST
+        name_ko: 호이스트
+        inspection_cycle: 사용 전 체인·훅 상태 점검
+        law_ref: "산업안전보건기준에 관한 규칙 제132조"
+        source_type: law
+        verification_status: confirmed
+
+  - type_code: transport
+    type_name_ko: 하역운반기계
+    description: 자재 운반용 동력 장비
+    sort_order: 3
+    equipment:
+      - code: EQ_FORKLIFT
+        name_ko: 지게차
+        inspection_cycle: 작업 시작 전 매일
+        law_ref: "산업안전보건기준에 관한 규칙 제179조"
+        source_type: law
+        verification_status: confirmed
+
+  - type_code: earthwork
+    type_name_ko: 토공·굴착 기계
+    description: 굴착 및 성토·절토 작업용 건설기계
+    sort_order: 4
+    equipment:
+      - code: EQ_EXCAV
+        name_ko: 굴착기(포클레인)
+        inspection_cycle: 작업 시작 전 매일
+        law_ref: "산업안전보건기준에 관한 규칙 제196조"
+        source_type: law
+        verification_status: confirmed
+      - code: EQ_BULLDOZER
+        name_ko: 불도저
+        inspection_cycle: 작업 시작 전 매일
+        law_ref: "산업안전보건기준에 관한 규칙 제196조"
+        source_type: law
+        verification_status: confirmed
+
+  - type_code: concrete
+    type_name_ko: 콘크리트 장비
+    description: 콘크리트 타설·압송·다짐·배합 장비
+    sort_order: 5
+    equipment:
+      - code: EQ_CONC_PUMP
+        name_ko: 콘크리트 펌프카
+        inspection_cycle: 작업 시작 전 매일
+        law_ref: "산업안전보건기준에 관한 규칙 제335조"
+        source_type: law
+        verification_status: confirmed
+      - code: EQ_VIBRATOR
+        name_ko: 콘크리트 바이브레이터
+        inspection_cycle: 사용 전 절연 상태 점검
+        law_ref: "산업안전보건기준에 관한 규칙 제305조"
+        source_type: law
+        verification_status: confirmed
+      - code: EQ_CONCRETE_MIXER
+        name_ko: 콘크리트 믹서
+        inspection_cycle: 사용 전 드럼·모터·절연 점검
+        law_ref: "산업안전보건기준에 관한 규칙 제87조"
+        source_type: law
+        verification_status: confirmed
+
+  - type_code: welding
+    type_name_ko: 용접 장비
+    description: 아크·가스 용접 및 절단 장비
+    sort_order: 6
+    equipment:
+      - code: EQ_WELDER_ARC
+        name_ko: 아크 용접기
+        inspection_cycle: 사용 전 절연 상태 점검
+        law_ref: "산업안전보건기준에 관한 규칙 제241조, 제304조"
+        source_type: law
+        verification_status: confirmed
+      - code: EQ_WELDER_GAS
+        name_ko: 가스 용접기(LPG/산소)
+        inspection_cycle: 사용 전 호스·밸브 누출 점검
+        law_ref: "산업안전보건기준에 관한 규칙 제232조"
+        source_type: law
+        verification_status: confirmed
+
+  - type_code: cutting
+    type_name_ko: 절단 공구
+    description: 연삭·절단·천공 전동 공구
+    sort_order: 7
+    equipment:
+      - code: EQ_GRINDER
+        name_ko: 그라인더
+        inspection_cycle: 사용 전 덮개·날 상태 점검
+        law_ref: "산업안전보건기준에 관한 규칙 제108조"
+        source_type: law
+        verification_status: confirmed
+      - code: EQ_CIRCULAR_SAW
+        name_ko: 원형 톱
+        inspection_cycle: 사용 전 날 상태·덮개 점검
+        law_ref: "산업안전보건기준에 관한 규칙 제108조"
+        source_type: law
+        verification_status: confirmed
+      - code: EQ_REBAR_CUTTER
+        name_ko: 철근 절단기
+        inspection_cycle: 사용 전 날 상태·페달 잠금 점검
+        law_ref: "산업안전보건기준에 관한 규칙 제87조"
+        source_type: law
+        verification_status: confirmed
+
+  - type_code: power_tool
+    type_name_ko: 전동 공구
+    description: 전동 드릴 등 일반 전동 공구
+    sort_order: 8
+    equipment:
+      - code: EQ_DRILL
+        name_ko: 전동 드릴
+        inspection_cycle: 사용 전 절연 상태 점검
+        law_ref: "산업안전보건기준에 관한 규칙 제305조"
+        source_type: law
+        verification_status: confirmed
+
+  - type_code: electrical
+    type_name_ko: 전기설비
+    description: 분전반, 발전기 등 현장 전력 설비
+    sort_order: 9
+    equipment:
+      - code: EQ_DIST_PANEL
+        name_ko: 분전반
+        inspection_cycle: "작업 시작 전 매일 + 월 1회 절연저항 측정"
+        law_ref: "산업안전보건기준에 관한 규칙 제301조"
+        source_type: law
+        verification_status: confirmed
+      - code: EQ_GENERATOR
+        name_ko: 발전기
+        inspection_cycle: 작업 시작 전 연료·오일·절연 점검
+        law_ref: "산업안전보건기준에 관한 규칙 제304조"
+        source_type: law
+        verification_status: confirmed
+
+  - type_code: air
+    type_name_ko: 공압 설비
+    description: 압축 공기 공급 설비
+    sort_order: 10
+    equipment:
+      - code: EQ_AIRCOMP
+        name_ko: 공기 압축기
+        inspection_cycle: 작업 전 압력 게이지·안전밸브 점검
+        law_ref: "산업안전보건기준에 관한 규칙 제116조"
+        source_type: law
+        verification_status: confirmed
+
+  - type_code: foundation
+    type_name_ko: 기초·말뚝 장비
+    description: 항타 및 기초 공사 장비
+    sort_order: 11
+    equipment:
+      - code: EQ_PILEDRIVER
+        name_ko: 항타기
+        inspection_cycle: "작업 시작 전 + 주 1회"
+        law_ref: "산업안전보건기준에 관한 규칙 제207조"
+        source_type: law
+        verification_status: confirmed
+
+  - type_code: painting
+    type_name_ko: 도장 장비
+    description: 도장 작업용 분무 장비
+    sort_order: 12
+    equipment:
+      - code: EQ_SPRAY_GUN
+        name_ko: 에어리스 스프레이
+        inspection_cycle: 사용 전 호스·노즐 점검
+        law_ref: "산업안전보건기준에 관한 규칙 제236조"
+        source_type: law
+        verification_status: confirmed
+
+  - type_code: road
+    type_name_ko: 도로 포장 기계
+    description: 아스팔트 포설 및 다짐 장비
+    sort_order: 13
+    equipment:
+      - code: EQ_ROLLER
+        name_ko: 도로 롤러
+        inspection_cycle: 작업 시작 전 매일
+        law_ref: "산업안전보건기준에 관한 규칙 제196조"
+        source_type: law
+        verification_status: confirmed
+      - code: EQ_ASPHALT_PAVER
+        name_ko: 아스팔트 피니셔
+        inspection_cycle: 작업 시작 전 매일
+        law_ref: "산업안전보건기준에 관한 규칙 제196조"
+        source_type: law
+        verification_status: confirmed
+
+  - type_code: gas
+    type_name_ko: 가스 설비
+    description: 압력 가스 용기 및 설비
+    sort_order: 14
+    equipment:
+      - code: EQ_GAS_CYLINDER
+        name_ko: 가스통(압력용기)
+        inspection_cycle: 사용 전 밸브·압력 게이지·호스 누출 점검
+        law_ref: "산업안전보건기준에 관한 규칙 제232조"
+        source_type: law
+        verification_status: confirmed
+
+  - type_code: ventilation
+    type_name_ko: 환기 설비
+    description: 밀폐공간 강제 환기 장비
+    sort_order: 15
+    equipment:
+      - code: EQ_MANHOLE_BLOWER
+        name_ko: 맨홀 강제 환기 장비
+        inspection_cycle: 작업 전 가동 상태 점검
+        law_ref: "산업안전보건기준에 관한 규칙 제619조"
+        source_type: law
+        verification_status: confirmed
+
+  - type_code: demolition
+    type_name_ko: 해체·파쇄 장비
+    description: 콘크리트 파쇄 및 암반 천공 장비
+    sort_order: 16
+    equipment:
+      - code: EQ_JACKHAMMER
+        name_ko: 착암기(해머드릴)
+        inspection_cycle: 사용 전 호스·타격부 점검
+        law_ref: "산업안전보건기준에 관한 규칙 제513조, 제605조"
+        source_type: law
+        verification_status: confirmed

@@ -1,0 +1,142 @@
+# 건축 공종 프리셋 — skeleton
+# 버전: 0.1 (skeleton, 상세 데이터 미입력)
+# 작성일: 2026-04-25
+# 다음 단계에서 default_hazards·required_documents 상세 데이터 입력 예정
+
+_meta:
+  version: "0.1"
+  trade_group: 건축
+  status: SKELETON
+  total: 5
+  last_updated: "2026-04-25"
+  note: >
+    건축 공종 상세 위험요인·감소대책 데이터는 다음 단계에서 작성.
+    현재는 trade_id·trade_name·enabled 최소 스키마만 등록.
+
+trades:
+
+  - trade_id: ARCH_CONCRETE_WORK
+    trade_name: 콘크리트 타설 작업
+    trade_group: 건축
+    description: 슬래브·기둥·보·벽체 콘크리트 타설 작업
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - FALLING_OBJECT
+    required_documents:
+      - RA-001
+      - RA-004
+    recommended_documents:
+      - ED-003
+      - WP-015
+      - CL-002
+    required_trainings:
+      - EDU_TBM
+    required_permits: []
+    common_equipment: []
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - safety_shoes
+    source_status: NEEDS_VERIFICATION
+    notes: skeleton — 상세 데이터 입력 필요
+
+  - trade_id: ARCH_MASONRY_WORK
+    trade_name: 조적 작업
+    trade_group: 건축
+    description: 벽돌·블록 조적 작업
+    enabled: true
+    priority: 2
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - FALLING_OBJECT
+    required_documents:
+      - RA-001
+      - RA-004
+    recommended_documents:
+      - ED-003
+    required_trainings:
+      - EDU_TBM
+    required_permits: []
+    common_equipment: []
+    ppe:
+      - safety_helmet
+      - safety_shoes
+    source_status: NEEDS_VERIFICATION
+    notes: skeleton — 상세 데이터 입력 필요
+
+  - trade_id: ARCH_FINISHING_WORK
+    trade_name: 마감 작업
+    trade_group: 건축
+    description: 바닥·벽·천장 타일·도장·미장·유리 마감 작업
+    enabled: true
+    priority: 2
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - CHEMICAL_EXPOSURE
+    required_documents:
+      - RA-001
+      - RA-004
+    recommended_documents:
+      - ED-003
+    required_trainings:
+      - EDU_TBM
+    required_permits: []
+    common_equipment: []
+    ppe:
+      - safety_helmet
+      - safety_shoes
+    source_status: NEEDS_VERIFICATION
+    notes: skeleton — 상세 데이터 입력 필요
+
+  - trade_id: ARCH_INTERIOR_WORK
+    trade_name: 인테리어 작업
+    trade_group: 건축
+    description: 경량철골·석고보드·천장재 설치 및 인테리어 마감 작업
+    enabled: true
+    priority: 3
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - CUT_GRINDING
+    required_documents:
+      - RA-001
+      - RA-004
+    recommended_documents:
+      - ED-003
+    required_trainings:
+      - EDU_TBM
+    required_permits: []
+    common_equipment: []
+    ppe:
+      - safety_helmet
+      - safety_shoes
+    source_status: NEEDS_VERIFICATION
+    notes: skeleton — 상세 데이터 입력 필요
+
+  - trade_id: ARCH_REBAR_WORK
+    trade_name: 철근 조립 작업
+    trade_group: 건축
+    description: 기초·슬래브·벽체 철근 가공·조립 작업
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - CUT_GRINDING
+      - FALLING_OBJECT
+    required_documents:
+      - RA-001
+      - RA-004
+    recommended_documents:
+      - ED-003
+    required_trainings:
+      - EDU_TBM
+    required_permits: []
+    common_equipment: []
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - safety_gloves
+      - safety_shoes
+    source_status: NEEDS_VERIFICATION
+    notes: skeleton — 상세 데이터 입력 필요

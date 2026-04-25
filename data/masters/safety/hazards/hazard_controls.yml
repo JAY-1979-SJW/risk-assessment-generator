@@ -1,0 +1,424 @@
+# 위험요인별 표준 감소대책
+# 버전: 1.0
+# 작성일: 2026-04-25
+# 목적: hazard_master.yml의 default_controls를 상세화하여 위험성평가표(RA-001) 자동 추천 입력값으로 사용
+# 원칙:
+#   - control_id 형식: CTRL_{hazard_id}_{순번}
+#   - control_type: ELIMINATION / SUBSTITUTION / ENGINEERING / ADMINISTRATIVE / PPE
+#   - priority: 1(가장 강력) ~ 5(보완적)
+
+_meta:
+  version: "1.0"
+  last_updated: "2026-04-25"
+  hierarchy: "ELIMINATION > SUBSTITUTION > ENGINEERING > ADMINISTRATIVE > PPE"
+
+controls:
+
+  # ──────────────────────────────────────────────
+  # FALL_FROM_HEIGHT — 추락
+  # ──────────────────────────────────────────────
+  - hazard_id: FALL_FROM_HEIGHT
+    standard_controls:
+      - control_id: CTRL_FALL_01
+        control_type: ENGINEERING
+        priority: 1
+        description: 안전난간 설치 (상부난간대 90~120cm, 중간난간대 45~60cm, 발끝막이판 10cm 이상)
+        applicable_conditions: 작업 단부·개구부 2m 이상
+
+      - control_id: CTRL_FALL_02
+        control_type: ENGINEERING
+        priority: 1
+        description: 추락방지망(안전망) 설치
+        applicable_conditions: 안전난간 설치 불가 시 추가 조치
+
+      - control_id: CTRL_FALL_03
+        control_type: ENGINEERING
+        priority: 2
+        description: 안전대 부착설비(수직구명줄·수평구명줄) 설치
+        applicable_conditions: 고소 이동 구간
+
+      - control_id: CTRL_FALL_04
+        control_type: ADMINISTRATIVE
+        priority: 3
+        description: PTW-003(고소작업 허가서) 작업 전 발행
+        applicable_conditions: 2m 이상 고소 모든 작업
+
+      - control_id: CTRL_FALL_05
+        control_type: PPE
+        priority: 4
+        description: 안전대(전신안전대·Y형 죔줄) 지급 및 착용 지시
+        applicable_conditions: 안전난간·망 설치 후에도 잔여 위험 존재 시
+
+      - control_id: CTRL_FALL_06
+        control_type: ADMINISTRATIVE
+        priority: 3
+        description: 작업 전 특별 안전교육(ED-003) 실시 — 고소작업 항목
+        applicable_conditions: 고소작업 전 필수
+
+  # ──────────────────────────────────────────────
+  # FALLING_OBJECT — 낙하물
+  # ──────────────────────────────────────────────
+  - hazard_id: FALLING_OBJECT
+    standard_controls:
+      - control_id: CTRL_FALLING_01
+        control_type: ENGINEERING
+        priority: 1
+        description: 낙하물 방지망(수평 방호망) 설치
+        applicable_conditions: 고소 작업 하부에 작업자 있는 경우
+
+      - control_id: CTRL_FALLING_02
+        control_type: ENGINEERING
+        priority: 2
+        description: 방호선반(방호 캐노피) 설치
+        applicable_conditions: 외부 비계·개구부 하부
+
+      - control_id: CTRL_FALLING_03
+        control_type: ADMINISTRATIVE
+        priority: 3
+        description: 낙하 위험 구역 출입통제 구획 및 경고표지 설치
+        applicable_conditions: 낙하물 비래 우려 구역
+
+      - control_id: CTRL_FALLING_04
+        control_type: PPE
+        priority: 4
+        description: 안전모(ABS 이상) 착용 관리
+        applicable_conditions: 모든 작업 구역
+
+      - control_id: CTRL_FALLING_05
+        control_type: ADMINISTRATIVE
+        priority: 3
+        description: 공구 낙하 방지 줄(Tool Lanyard) 사용 지시
+        applicable_conditions: 고소에서 공구 사용 시
+
+  # ──────────────────────────────────────────────
+  # HOT_WORK_FIRE — 화기작업 화재
+  # ──────────────────────────────────────────────
+  - hazard_id: HOT_WORK_FIRE
+    standard_controls:
+      - control_id: CTRL_HOTWORK_01
+        control_type: ADMINISTRATIVE
+        priority: 1
+        description: PTW-002(화기작업 허가서) 작업 전 발행
+        applicable_conditions: 용접·용단·가열·연마 등 화기 수반 모든 작업
+
+      - control_id: CTRL_HOTWORK_02
+        control_type: ENGINEERING
+        priority: 2
+        description: 작업 반경 5m 이내 가연물 제거 또는 불연 덮개(방화포) 설치
+        applicable_conditions: 화기작업 구역
+
+      - control_id: CTRL_HOTWORK_03
+        control_type: ENGINEERING
+        priority: 2
+        description: 소화기(분말 ABC 3.3kg 이상) 작업 위치 비치
+        applicable_conditions: 화기작업 시 필수
+
+      - control_id: CTRL_HOTWORK_04
+        control_type: ADMINISTRATIVE
+        priority: 3
+        description: 화재감시자 지정·배치 (작업 중 및 작업 종료 후 30분 잔화 확인)
+        applicable_conditions: 화기작업 전 기간
+
+      - control_id: CTRL_HOTWORK_05
+        control_type: ADMINISTRATIVE
+        priority: 3
+        description: 화재 예방 점검표(CL-005) 작성
+        applicable_conditions: 화기작업 전
+
+  # ──────────────────────────────────────────────
+  # ELECTRIC_SHOCK — 감전
+  # ──────────────────────────────────────────────
+  - hazard_id: ELECTRIC_SHOCK
+    standard_controls:
+      - control_id: CTRL_ELEC_01
+        control_type: ADMINISTRATIVE
+        priority: 1
+        description: PTW-004(전기작업 허가서) 작업 전 발행 및 LOTO(잠금·태그아웃) 시행
+        applicable_conditions: 모든 전기 작업
+
+      - control_id: CTRL_ELEC_02
+        control_type: ENGINEERING
+        priority: 2
+        description: 누전차단기 설치 및 동작 시험 (30mA 이하, 0.03초 이내 차단)
+        applicable_conditions: 가설 전기설비 전반
+
+      - control_id: CTRL_ELEC_03
+        control_type: ENGINEERING
+        priority: 2
+        description: 전기설비 정기 점검표(CL-004) 작성
+        applicable_conditions: 임시전기 설치 후 정기 점검
+
+      - control_id: CTRL_ELEC_04
+        control_type: PPE
+        priority: 3
+        description: 절연 장갑(저압 이상 등급) 및 절연화 착용
+        applicable_conditions: 충전부 작업 시
+
+      - control_id: CTRL_ELEC_05
+        control_type: ADMINISTRATIVE
+        priority: 3
+        description: 전기 작업계획서(WP-011) 작성
+        applicable_conditions: 임시전기·배선 작업
+
+  # ──────────────────────────────────────────────
+  # CONFINED_SPACE_ASPHYXIATION — 밀폐공간 질식
+  # ──────────────────────────────────────────────
+  - hazard_id: CONFINED_SPACE_ASPHYXIATION
+    standard_controls:
+      - control_id: CTRL_CONF_01
+        control_type: ADMINISTRATIVE
+        priority: 1
+        description: PTW-001(밀폐공간 작업 허가서) 발행 및 밀폐공간 작업계획서(WP-014) 작성
+        applicable_conditions: 밀폐공간 진입 전 필수
+
+      - control_id: CTRL_CONF_02
+        control_type: ENGINEERING
+        priority: 1
+        description: 환기팬(국소 배기 또는 공급) 설치 및 가동
+        applicable_conditions: 밀폐공간 진입 전 및 작업 중 지속
+
+      - control_id: CTRL_CONF_03
+        control_type: ADMINISTRATIVE
+        priority: 2
+        description: 작업 전 산소(18% 이상)·황화수소(10ppm 이하)·일산화탄소(30ppm 이하) 농도 측정
+        applicable_conditions: 매 작업 개시 전 및 정기 측정
+
+      - control_id: CTRL_CONF_04
+        control_type: ADMINISTRATIVE
+        priority: 2
+        description: 밀폐공간 사전 안전 점검표(CL-010) 작성
+        applicable_conditions: 진입 전 필수
+
+      - control_id: CTRL_CONF_05
+        control_type: ADMINISTRATIVE
+        priority: 2
+        description: 감시인 배치 및 비상연락 체계(119·현장 안전담당자) 확립
+        applicable_conditions: 작업 전 기간
+
+      - control_id: CTRL_CONF_06
+        control_type: PPE
+        priority: 3
+        description: 공기호흡기(SCBA) 또는 에어라인 마스크 비치 (구조용)
+        applicable_conditions: 작업 구역 외부 상시 비치
+
+  # ──────────────────────────────────────────────
+  # HEAVY_LIFTING — 중량물 취급
+  # ──────────────────────────────────────────────
+  - hazard_id: HEAVY_LIFTING
+    standard_controls:
+      - control_id: CTRL_LIFT_01
+        control_type: ADMINISTRATIVE
+        priority: 1
+        description: PTW-007(중량물 인양 작업 허가서) 발행
+        applicable_conditions: 크레인·호이스트·체인블록 인양 작업
+
+      - control_id: CTRL_LIFT_02
+        control_type: ENGINEERING
+        priority: 2
+        description: 인양 전 슬링벨트·체인·샤클 상태 점검
+        applicable_conditions: 매 인양 작업 전
+
+      - control_id: CTRL_LIFT_03
+        control_type: ADMINISTRATIVE
+        priority: 2
+        description: 인양 경로 하부 출입통제 및 유도자(신호수) 배치
+        applicable_conditions: 인양 작업 전 기간
+
+      - control_id: CTRL_LIFT_04
+        control_type: ADMINISTRATIVE
+        priority: 2
+        description: 중량물 취급 작업계획서(WP-005) 작성
+        applicable_conditions: 정기적 중량물 취급 작업
+
+  # ──────────────────────────────────────────────
+  # EXCAVATION_COLLAPSE — 굴착 붕괴
+  # ──────────────────────────────────────────────
+  - hazard_id: EXCAVATION_COLLAPSE
+    standard_controls:
+      - control_id: CTRL_EXCAV_01
+        control_type: ADMINISTRATIVE
+        priority: 1
+        description: 굴착 작업계획서(WP-001) 작성 및 굴착 작업 허가서(PTW-005) 발행
+        applicable_conditions: 굴착면 높이 2m 이상
+
+      - control_id: CTRL_EXCAV_02
+        control_type: ENGINEERING
+        priority: 1
+        description: 흙막이 지보공(H파일+흙막이판 또는 시트파일) 설치
+        applicable_conditions: 굴착 심도·지반 조건에 따라
+
+      - control_id: CTRL_EXCAV_03
+        control_type: ENGINEERING
+        priority: 2
+        description: 굴착면 경사각 준수 (점성토 1:0.5, 사질토 1:1 이상)
+        applicable_conditions: 지보공 미설치 구간
+
+      - control_id: CTRL_EXCAV_04
+        control_type: ADMINISTRATIVE
+        priority: 2
+        description: 매일 작업 개시 전 점검(균열·침하·변형) 및 이상 발견 시 즉시 대피
+        applicable_conditions: 굴착 작업 기간 내 매일
+
+  # ──────────────────────────────────────────────
+  # STRUCK_BY_EQUIPMENT — 장비 충돌
+  # ──────────────────────────────────────────────
+  - hazard_id: STRUCK_BY_EQUIPMENT
+    standard_controls:
+      - control_id: CTRL_EQUIP_01
+        control_type: ADMINISTRATIVE
+        priority: 1
+        description: 장비 작업반경 내 작업자 출입통제 및 경계 로프·펜스 설치
+        applicable_conditions: 장비 가동 구역
+
+      - control_id: CTRL_EQUIP_02
+        control_type: ADMINISTRATIVE
+        priority: 2
+        description: 유도자(신호수) 배치 및 신호 방법 사전 협의
+        applicable_conditions: 시야 사각지대 작업 시
+
+      - control_id: CTRL_EQUIP_03
+        control_type: ENGINEERING
+        priority: 2
+        description: 후방카메라·초음파 감지 센서·경광등 작동 확인
+        applicable_conditions: 후방 주행 차량 장비
+
+      - control_id: CTRL_EQUIP_04
+        control_type: PPE
+        priority: 3
+        description: 작업자 야광 조끼 착용 관리
+        applicable_conditions: 장비 혼재 작업 구역
+
+  # ──────────────────────────────────────────────
+  # 나머지 hazard — 간략 controls
+  # ──────────────────────────────────────────────
+  - hazard_id: ARC_FLASH
+    standard_controls:
+      - control_id: CTRL_ARC_01
+        control_type: ADMINISTRATIVE
+        priority: 1
+        description: 활선 작업 원칙 금지, 정전 후 LOTO 적용
+      - control_id: CTRL_ARC_02
+        control_type: PPE
+        priority: 2
+        description: 아크 등급 PPE(얼굴보호대 CAT2 이상, 방염복) 착용
+
+  - hazard_id: OXYGEN_DEFICIENCY
+    standard_controls:
+      - control_id: CTRL_OXY_01
+        control_type: ENGINEERING
+        priority: 1
+        description: 강제 환기 실시 — 산소 농도 18% 이상 유지
+      - control_id: CTRL_OXY_02
+        control_type: ADMINISTRATIVE
+        priority: 2
+        description: 가스 감지기(산소·유해가스 복합) 상시 측정
+
+  - hazard_id: TOXIC_GAS
+    standard_controls:
+      - control_id: CTRL_TOXIC_01
+        control_type: ENGINEERING
+        priority: 1
+        description: 환기 확보 및 가스 감지기 설치
+      - control_id: CTRL_TOXIC_02
+        control_type: PPE
+        priority: 2
+        description: 정화통식 마스크 또는 공기호흡기 착용
+
+  - hazard_id: CHEMICAL_EXPOSURE
+    standard_controls:
+      - control_id: CTRL_CHEM_01
+        control_type: ADMINISTRATIVE
+        priority: 1
+        description: MSDS 비치 및 사전 교육(PPE-004)
+      - control_id: CTRL_CHEM_02
+        control_type: PPE
+        priority: 2
+        description: 화학물질 전용 보호장갑·화학복·방독마스크 착용
+
+  - hazard_id: GAS_CYLINDER
+    standard_controls:
+      - control_id: CTRL_GAS_01
+        control_type: ENGINEERING
+        priority: 1
+        description: 가스 용기 전용 보관대 고정 및 산소·연료가스 분리 보관
+      - control_id: CTRL_GAS_02
+        control_type: ADMINISTRATIVE
+        priority: 2
+        description: 호스·밸브·레귤레이터 사용 전 점검
+
+  - hazard_id: CUT_GRINDING
+    standard_controls:
+      - control_id: CTRL_CUT_01
+        control_type: PPE
+        priority: 1
+        description: 방호 안경·안면보호대·절단 장갑 착용
+      - control_id: CTRL_CUT_02
+        control_type: ENGINEERING
+        priority: 2
+        description: 방호 덮개(Guards) 장착 상태 확인 후 작업
+
+  - hazard_id: ROTATING_PARTS
+    standard_controls:
+      - control_id: CTRL_ROT_01
+        control_type: ENGINEERING
+        priority: 1
+        description: 회전체 방호 덮개 설치 및 제거 금지
+      - control_id: CTRL_ROT_02
+        control_type: ADMINISTRATIVE
+        priority: 2
+        description: 정지 확인 후 점검(LOTO)
+
+  - hazard_id: CAUGHT_BETWEEN
+    standard_controls:
+      - control_id: CTRL_CATCH_01
+        control_type: ENGINEERING
+        priority: 1
+        description: 가동부·협착 위험 부위 방호 덮개 설치
+      - control_id: CTRL_CATCH_02
+        control_type: ADMINISTRATIVE
+        priority: 2
+        description: 인양·조립 작업 시 신호수 배치 및 손·발 위치 관리 교육
+
+  - hazard_id: VEHICLE_TURNOVER
+    standard_controls:
+      - control_id: CTRL_VEH_01
+        control_type: ENGINEERING
+        priority: 1
+        description: 연약 지반에 철판·받침목 설치 및 지반 지지력 확인
+      - control_id: CTRL_VEH_02
+        control_type: ADMINISTRATIVE
+        priority: 2
+        description: 전도 위험 구역 내 작업자 출입통제
+
+  - hazard_id: NOISE_DUST
+    standard_controls:
+      - control_id: CTRL_NOISE_01
+        control_type: PPE
+        priority: 2
+        description: 귀마개(소음 등급 NRR 25dB 이상) 또는 귀덮개 착용
+      - control_id: CTRL_NOISE_02
+        control_type: PPE
+        priority: 2
+        description: 방진마스크(1급 또는 KF94) 착용
+
+  - hazard_id: MANUAL_HANDLING
+    standard_controls:
+      - control_id: CTRL_MAN_01
+        control_type: ADMINISTRATIVE
+        priority: 2
+        description: 인력 운반 중량 기준 준수(1인 25kg 이하) 및 2인 1조 작업
+      - control_id: CTRL_MAN_02
+        control_type: ENGINEERING
+        priority: 1
+        description: 운반 보조도구(대차·핸드팔레트·전동 리프터) 사용
+
+  - hazard_id: SLIP_TRIP
+    standard_controls:
+      - control_id: CTRL_SLIP_01
+        control_type: ADMINISTRATIVE
+        priority: 2
+        description: 작업 구역 정리정돈 및 이물질 제거
+      - control_id: CTRL_SLIP_02
+        control_type: PPE
+        priority: 3
+        description: 미끄럼 방지 안전화 착용

@@ -13,10 +13,13 @@ Required form_data keys:
 
 Optional form_data keys:
     site_name, project_name
-    tbm_location  str  실시 장소
-    ppe_check     str  보호구 확인사항
+    trade_name     str  작업 공종명
+    tbm_location   str  실시 장소
+    pre_work_checks str  작업 전 확인사항 (체크리스트)
+    permit_check   str  작업허가서 확인 (허가서 번호/종류)
+    ppe_check      str  보호구 확인사항
     worker_opinion str  근로자 의견
-    action_items  str  조치사항
+    action_items   str  조치사항
 
     attendees  list[dict]  참석자 명단 (max 20)
         name     str  성명
@@ -125,6 +128,8 @@ def _write_header_block(ws, start_row: int, data: Dict[str, Any]) -> int:
     _write_lv(ws, r, "실시 일시", _v(data, "tbm_date"), _L1, _V1_START, _V1_END)
     _write_lv(ws, r, "실시 장소", _v(data, "tbm_location"), _L2, _V2_START, _V2_END)
     ws.row_dimensions[r].height = H; r += 1
+    _write_lv(ws, r, "작업공종", _v(data, "trade_name"), _L1, _V1_START, _FULL_VAL_END)
+    ws.row_dimensions[r].height = H; r += 1
     return r
 
 
@@ -135,12 +140,14 @@ def _write_content_block(ws, start_row: int, data: Dict[str, Any]) -> int:
     r += 1
 
     for label, key, h in [
-        ("오늘의 작업 내용",   "today_work",          60),
-        ("오늘의 위험요인",    "hazard_points",        70),
-        ("핵심 안전수칙",     "safety_instructions",  70),
-        ("보호구 확인사항",    "ppe_check",           40),
-        ("근로자 의견",        "worker_opinion",      50),
-        ("조치사항",           "action_items",        40),
+        ("오늘의 작업 내용",   "today_work",            60),
+        ("오늘의 위험요인",    "hazard_points",          70),
+        ("핵심 안전수칙",     "safety_instructions",    70),
+        ("작업 전 확인사항",  "pre_work_checks",        50),
+        ("작업허가서 확인",   "permit_check",           40),
+        ("보호구 확인사항",    "ppe_check",             40),
+        ("근로자 의견",        "worker_opinion",        50),
+        ("조치사항",           "action_items",          40),
     ]:
         _write_cell(ws, r, _L1, _L1, label,
                     font=_FONT_BOLD, fill=_FILL_LABEL, align=_ALIGN_LABEL, height=h)
@@ -200,6 +207,10 @@ def _write_confirmation(ws, start_row: int, data: Dict[str, Any]) -> int:
     _write_cell(ws, r, 3, 4, "",              font=_FONT_DEFAULT, align=_ALIGN_CENTER)
     _write_cell(ws, r, 5, 6, "작업책임자 서명", font=_FONT_BOLD, fill=_FILL_LABEL, align=_ALIGN_LABEL)
     _write_cell(ws, r, 7, 8, "",              font=_FONT_DEFAULT, align=_ALIGN_CENTER)
+    ws.row_dimensions[r].height = 36
+    r += 1
+    _write_cell(ws, r, 1, 2, "관리감독자 서명", font=_FONT_BOLD, fill=_FILL_LABEL, align=_ALIGN_LABEL)
+    _write_cell(ws, r, 3, 8, "",              font=_FONT_DEFAULT, align=_ALIGN_CENTER)
     ws.row_dimensions[r].height = 36
     return r + 1
 

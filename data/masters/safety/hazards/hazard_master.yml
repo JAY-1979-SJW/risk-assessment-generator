@@ -1,0 +1,494 @@
+# 위험요인 마스터
+# 버전: 1.0
+# 작성일: 2026-04-25
+# 기준: KOSHA·고용노동부 건설현장 주요 재해 발생 형태 분류
+# 원칙:
+#   - hazard_id는 대문자 영문+언더스코어 (FALL_FROM_HEIGHT 형식)
+#   - source_status: VERIFIED / PARTIAL_VERIFIED / NEEDS_VERIFICATION / PRACTICAL
+#   - related_documents는 document_catalog.yml에 존재하는 ID만 사용
+
+_meta:
+  version: "1.0"
+  total_codes: 20
+  last_updated: "2026-04-25"
+  categories:
+    - FALL              # 추락
+    - COLLAPSE          # 붕괴·도괴
+    - CAUGHT_IN         # 협착
+    - STRUCK_BY         # 낙하물·충돌
+    - ELECTRIC          # 감전·아크
+    - FIRE_EXPLOSION    # 화재·폭발
+    - ASPHYXIATION      # 질식·중독
+    - HEALTH            # 건강장해
+    - ERGONOMIC         # 인간공학적
+    - OTHER             # 기타
+
+hazards:
+
+  # ─────────────────────────────────────────────────────────
+  # FALL — 추락
+  # ─────────────────────────────────────────────────────────
+  - hazard_id: FALL_FROM_HEIGHT
+    hazard_name: 추락
+    category: FALL
+    typical_causes:
+      - 안전대 미착용 및 안전대 부착설비 미설치
+      - 개구부·작업 단부 안전난간 미설치
+      - 비계·작업발판 불량
+    typical_consequences:
+      - 사망
+      - 골절·중상
+    default_controls:
+      - 안전대 부착설비(수직형·수평형 구명줄) 설치
+      - 안전난간(상부난간대 90~120cm, 중간난간대, 발끝막이판) 설치
+      - 추락방지망 설치
+      - 개인 안전대 지급·착용 지시
+      - 작업 전 PTW-003(고소작업 허가서) 발행
+    related_documents:
+      - PTW-003
+      - CL-007
+      - PPE-001
+      - RA-001
+    source_status: PARTIAL_VERIFIED
+
+  # ─────────────────────────────────────────────────────────
+  # STRUCK_BY — 낙하물
+  # ─────────────────────────────────────────────────────────
+  - hazard_id: FALLING_OBJECT
+    hazard_name: 낙하물
+    category: STRUCK_BY
+    typical_causes:
+      - 고소 작업 중 공구·자재 낙하
+      - 낙하물 방지망·방호선반 미설치
+      - 자재 과적·불안정 적재
+    typical_consequences:
+      - 두부 손상·사망
+      - 골절·중상
+    default_controls:
+      - 낙하물 방지망(수평 그물막이) 설치
+      - 방호선반 설치
+      - 공구 낙하 방지 줄(Tool Lanyard) 사용
+      - 하부 작업구역 출입통제 및 경계표시
+      - 안전모 착용 관리
+    related_documents:
+      - PPE-001
+      - RA-001
+    source_status: PARTIAL_VERIFIED
+
+  # ─────────────────────────────────────────────────────────
+  # OTHER — 전도·미끄러짐
+  # ─────────────────────────────────────────────────────────
+  - hazard_id: SLIP_TRIP
+    hazard_name: 전도/미끄러짐
+    category: OTHER
+    typical_causes:
+      - 작업 바닥 이물질·습기
+      - 정리정돈 불량
+      - 가설 통로 불량
+    typical_consequences:
+      - 타박상·골절
+    default_controls:
+      - 작업 구역 정리정돈 및 이물질 제거
+      - 미끄럼 방지 신발(안전화) 착용
+      - 가설 통로 조명 확보
+      - 통로 확보(폭 60cm 이상)
+    related_documents:
+      - PPE-001
+      - RA-001
+    source_status: PRACTICAL
+
+  # ─────────────────────────────────────────────────────────
+  # CAUGHT_IN — 협착
+  # ─────────────────────────────────────────────────────────
+  - hazard_id: CAUGHT_BETWEEN
+    hazard_name: 협착
+    category: CAUGHT_IN
+    typical_causes:
+      - 장비·기계 회전부·가동부 접근
+      - 크레인 훅·와이어로프 주변 접근
+      - 운반·인양 작업 중 끼임
+    typical_consequences:
+      - 절단·사망
+      - 중상
+    default_controls:
+      - 위험 기계·장비 방호 덮개 설치
+      - 작업 중 회전부 근접 금지
+      - 인양 작업 시 신호수 배치
+      - 장갑·소매 말림 위험 인식 교육
+    related_documents:
+      - RA-001
+      - ED-003
+    source_status: PARTIAL_VERIFIED
+
+  # ─────────────────────────────────────────────────────────
+  # STRUCK_BY — 장비 충돌
+  # ─────────────────────────────────────────────────────────
+  - hazard_id: STRUCK_BY_EQUIPMENT
+    hazard_name: 장비 충돌
+    category: STRUCK_BY
+    typical_causes:
+      - 건설기계 주행·선회 반경 내 작업자 진입
+      - 후방 확인 불량
+      - 신호수 미배치
+    typical_consequences:
+      - 사망·중상
+    default_controls:
+      - 장비 작업반경 내 작업자 출입통제
+      - 유도자(신호수) 배치
+      - 경적·경광등 작동 확인
+      - 야광 조끼 착용 관리
+    related_documents:
+      - CL-003
+      - RA-001
+      - WP-008
+    source_status: PARTIAL_VERIFIED
+
+  # ─────────────────────────────────────────────────────────
+  # FIRE_EXPLOSION — 화기작업 화재
+  # ─────────────────────────────────────────────────────────
+  - hazard_id: HOT_WORK_FIRE
+    hazard_name: 화기작업 화재
+    category: FIRE_EXPLOSION
+    typical_causes:
+      - 용접·용단 불꽃 비산 → 가연물 착화
+      - 화기작업 허가 없이 작업
+      - 소화기·소화장비 미비치
+    typical_consequences:
+      - 화재·폭발
+      - 화상·사망
+    default_controls:
+      - PTW-002(화기작업 허가서) 발행 후 작업
+      - 작업 반경 5m 이내 가연물 제거 또는 불연 덮개 설치
+      - 소화기 작업 현장 비치
+      - 화재감시자 배치
+      - 작업 후 30분 이상 잔화 확인
+    related_documents:
+      - PTW-002
+      - CL-005
+      - EQ-014
+      - RA-001
+    source_status: PARTIAL_VERIFIED
+
+  # ─────────────────────────────────────────────────────────
+  # ELECTRIC — 감전
+  # ─────────────────────────────────────────────────────────
+  - hazard_id: ELECTRIC_SHOCK
+    hazard_name: 감전
+    category: ELECTRIC
+    typical_causes:
+      - 가설 전기설비 절연 불량
+      - 충전부 접근
+      - 임시배선 피복 손상
+    typical_consequences:
+      - 감전사망
+      - 전기화상
+    default_controls:
+      - PTW-004(전기작업 허가서) 발행
+      - 잠금·태그 아웃(LOTO) 절차 준수
+      - 절연 보호구(절연장갑·절연화) 착용
+      - 가설 전기설비 정기 점검(CL-004)
+      - 누전차단기 설치·동작 확인
+    related_documents:
+      - PTW-004
+      - CL-004
+      - PPE-001
+      - WP-011
+      - RA-001
+    source_status: PARTIAL_VERIFIED
+
+  - hazard_id: ARC_FLASH
+    hazard_name: 아크/단락
+    category: ELECTRIC
+    typical_causes:
+      - 수배전반·분전반 내 단락
+      - 충전 중 작업 실수
+      - 절연 공구 미사용
+    typical_consequences:
+      - 화상·실명
+      - 사망
+    default_controls:
+      - 활선 작업 원칙 금지, 정전 후 작업
+      - PTW-004(전기작업 허가서) 및 LOTO 준수
+      - 아크 방호 등급 PPE(얼굴보호대·방염복) 착용
+      - 절연 등급 공구 사용
+    related_documents:
+      - PTW-004
+      - CL-004
+      - PPE-001
+      - WP-011
+      - RA-001
+    source_status: NEEDS_VERIFICATION
+
+  # ─────────────────────────────────────────────────────────
+  # ASPHYXIATION — 밀폐공간 질식
+  # ─────────────────────────────────────────────────────────
+  - hazard_id: CONFINED_SPACE_ASPHYXIATION
+    hazard_name: 밀폐공간 질식
+    category: ASPHYXIATION
+    typical_causes:
+      - 산소결핍 환경에서 작업
+      - 환기 불충분
+      - 사전 가스 측정 미실시
+    typical_consequences:
+      - 질식사망
+    default_controls:
+      - PTW-001(밀폐공간 작업 허가서) 발행
+      - 작업 전 산소·유해가스 농도 측정
+      - 강제 환기 실시(환기팬 가동)
+      - 감시인 배치 및 비상연락 체계 확립
+      - 공기호흡기·공기공급식 호흡보호구 비치
+    related_documents:
+      - PTW-001
+      - CL-010
+      - WP-014
+      - ED-003
+      - RA-001
+    source_status: PARTIAL_VERIFIED
+
+  - hazard_id: OXYGEN_DEFICIENCY
+    hazard_name: 산소결핍
+    category: ASPHYXIATION
+    typical_causes:
+      - 밀폐·반밀폐 공간 내 산소 소모
+      - 불활성 가스 유입
+      - 환기 불량
+    typical_consequences:
+      - 의식불명·사망
+    default_controls:
+      - 작업 전 산소 농도 측정(18% 이상 확인)
+      - 강제 환기 및 지속적 모니터링
+      - 공기호흡기 비치 및 대기 인원 배치
+    related_documents:
+      - PTW-001
+      - CL-010
+      - WP-014
+      - RA-001
+    source_status: PARTIAL_VERIFIED
+
+  - hazard_id: TOXIC_GAS
+    hazard_name: 유해가스
+    category: ASPHYXIATION
+    typical_causes:
+      - 밀폐공간 내 황화수소·일산화탄소 발생
+      - 화학물질 분해 가스 누출
+    typical_consequences:
+      - 중독·사망
+    default_controls:
+      - 작업 전 유해가스 농도 측정
+      - 강제 환기 실시
+      - 적절한 호흡 보호구 착용
+      - PTW-001 발행 및 감시인 배치
+    related_documents:
+      - PTW-001
+      - CL-010
+      - WP-014
+      - PPE-004
+      - RA-001
+    source_status: PARTIAL_VERIFIED
+
+  # ─────────────────────────────────────────────────────────
+  # ERGONOMIC — 중량물 취급
+  # ─────────────────────────────────────────────────────────
+  - hazard_id: HEAVY_LIFTING
+    hazard_name: 중량물 취급
+    category: ERGONOMIC
+    typical_causes:
+      - 정격하중 초과 인양
+      - 슬링·체인 불량
+      - 인양 경로 작업자 출입
+    typical_consequences:
+      - 화물 낙하·사망
+      - 크레인 전도
+    default_controls:
+      - PTW-007(중량물 인양 작업 허가서) 발행
+      - 인양 전 슬링·훅·체인 점검
+      - 인양 경로 하부 출입통제
+      - 정격하중 이내 작업 준수
+      - 신호수 배치
+    related_documents:
+      - PTW-007
+      - WP-005
+      - RA-001
+      - EQ-012
+    source_status: PARTIAL_VERIFIED
+
+  - hazard_id: MANUAL_HANDLING
+    hazard_name: 인력운반
+    category: ERGONOMIC
+    typical_causes:
+      - 과도한 중량 인력 취급(25kg 이상 반복)
+      - 부적절한 자세
+      - 협소한 공간에서의 취급
+    typical_consequences:
+      - 근골격계 질환
+      - 허리 부상
+    default_controls:
+      - 인력 운반 중량 기준 준수(1인 기준 25kg 이하)
+      - 운반 보조도구(대차·리프팅 장치) 사용
+      - 2인 1조 작업
+      - 올바른 취급 자세 교육
+    related_documents:
+      - RA-001
+      - ED-003
+    source_status: PRACTICAL
+
+  # ─────────────────────────────────────────────────────────
+  # HEALTH — 소음·분진
+  # ─────────────────────────────────────────────────────────
+  - hazard_id: NOISE_DUST
+    hazard_name: 소음·분진
+    category: HEALTH
+    typical_causes:
+      - 천공·절단·연마 작업 중 소음 및 분진 발생
+      - 환기 불량 밀폐 공간에서의 분진 노출
+    typical_consequences:
+      - 소음성 난청
+      - 진폐증
+    default_controls:
+      - 귀마개·귀덮개(청력보호구) 착용
+      - 방진마스크(분진 등급 KF94 이상) 착용
+      - 습식 작업(물 분사)으로 분진 억제
+      - 작업 구역 환기 확보
+    related_documents:
+      - PPE-001
+      - RA-001
+    source_status: PRACTICAL
+
+  # ─────────────────────────────────────────────────────────
+  # ASPHYXIATION — 화학물질 노출
+  # ─────────────────────────────────────────────────────────
+  - hazard_id: CHEMICAL_EXPOSURE
+    hazard_name: 화학물질 노출
+    category: ASPHYXIATION
+    typical_causes:
+      - 유해화학물질 취급 시 피부·흡입 노출
+      - MSDS 미비치 또는 미교육
+    typical_consequences:
+      - 화학물질 중독
+      - 피부·호흡기 장해
+    default_controls:
+      - MSDS 비치 및 작업 전 교육(PPE-004)
+      - 화학물질 전용 보호장갑·화학복 착용
+      - 작업 구역 환기 확보
+      - 화학물질 취급 점검표(CL-009) 작성
+    related_documents:
+      - PPE-004
+      - CL-009
+      - RA-001
+      - ED-003
+    source_status: PARTIAL_VERIFIED
+
+  # ─────────────────────────────────────────────────────────
+  # FIRE_EXPLOSION — 고압가스
+  # ─────────────────────────────────────────────────────────
+  - hazard_id: GAS_CYLINDER
+    hazard_name: 고압가스/용기
+    category: FIRE_EXPLOSION
+    typical_causes:
+      - 가스 용기 전도·충격
+      - 고무호스 손상으로 인한 가스 누출
+      - 산소·연료가스 분리 보관 미준수
+    typical_consequences:
+      - 폭발·화재
+      - 화상·사망
+    default_controls:
+      - 가스 용기 전용 보관대 사용 및 체인으로 고정
+      - 산소·연료가스 분리 보관(2m 이상 이격 또는 차단벽)
+      - 호스·밸브 정기 점검
+      - 가스 누출 감지기 설치
+      - 사용 후 밸브 잠금 확인
+    related_documents:
+      - EQ-014
+      - RA-001
+    source_status: PARTIAL_VERIFIED
+
+  # ─────────────────────────────────────────────────────────
+  # OTHER — 절단·연마
+  # ─────────────────────────────────────────────────────────
+  - hazard_id: CUT_GRINDING
+    hazard_name: 절단·연마
+    category: OTHER
+    typical_causes:
+      - 절단기·그라인더 날 이탈
+      - 보호구(방호 안경·보호 장갑) 미착용
+      - 고정 불량 상태에서 절단
+    typical_consequences:
+      - 절상·절단 부상
+      - 눈 이물 손상
+    default_controls:
+      - 방호 안경·안면 보호대 착용
+      - 절단용 장갑 착용
+      - 소재 고정 후 작업
+      - 방호 덮개(Guards) 제거 금지
+      - 작업 전 날·디스크 상태 확인
+    related_documents:
+      - PPE-001
+      - RA-001
+    source_status: PRACTICAL
+
+  # ─────────────────────────────────────────────────────────
+  # CAUGHT_IN — 회전체 말림
+  # ─────────────────────────────────────────────────────────
+  - hazard_id: ROTATING_PARTS
+    hazard_name: 회전체 말림
+    category: CAUGHT_IN
+    typical_causes:
+      - 모터·펌프·팬 등 회전체에 의복·신체 말림
+      - 회전 중 점검 및 조정 시도
+    typical_consequences:
+      - 절단·협착 중상
+    default_controls:
+      - 회전체 방호 덮개 설치 및 제거 금지
+      - 정지 확인 후 점검(잠금·태그아웃)
+      - 헐렁한 의복·장신구 착용 금지
+    related_documents:
+      - RA-001
+    source_status: PRACTICAL
+
+  # ─────────────────────────────────────────────────────────
+  # COLLAPSE — 굴착 붕괴
+  # ─────────────────────────────────────────────────────────
+  - hazard_id: EXCAVATION_COLLAPSE
+    hazard_name: 굴착 붕괴
+    category: COLLAPSE
+    typical_causes:
+      - 흙막이 지보공 미설치 또는 불량
+      - 강우·지하수 유입으로 지반 연약화
+      - 굴착면 경사각 초과
+    typical_consequences:
+      - 토사 매몰·사망
+    default_controls:
+      - 굴착 작업계획서(WP-001) 작성 및 준수
+      - 굴착 작업 허가서(PTW-005) 발행
+      - 흙막이 지보공 설치 및 정기 점검
+      - 굴착면 경사각(1:1 등) 준수
+      - 지하수 배수 계획 수립
+    related_documents:
+      - WP-001
+      - PTW-005
+      - RA-001
+    source_status: PARTIAL_VERIFIED
+
+  # ─────────────────────────────────────────────────────────
+  # OTHER — 장비 전도
+  # ─────────────────────────────────────────────────────────
+  - hazard_id: VEHICLE_TURNOVER
+    hazard_name: 장비 전도
+    category: OTHER
+    typical_causes:
+      - 연약 지반·경사면에서 장비 주행
+      - 정격하중 초과 인양
+      - 급선회·급제동
+    typical_consequences:
+      - 사망·중상
+      - 장비 손상
+    default_controls:
+      - 지반 지지력 확인 및 철판·받침목 깔기
+      - 경사면 작업 시 아웃트리거 완전 전개
+      - 전도 위험 구역 내 작업자 출입통제
+      - 과부하 방지 장치 작동 확인
+    related_documents:
+      - CL-003
+      - WP-008
+      - RA-001
+    source_status: PARTIAL_VERIFIED

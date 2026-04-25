@@ -1,0 +1,244 @@
+# 공종별 장비 매핑
+# 버전: 1.0
+# 작성일: 2026-04-25
+# 목적: 공종별 주요 사용 장비 및 장비 관련 문서 역색인
+# equipment_documents: 해당 장비 사용 시 필요한 문서 (document_catalog.yml ID)
+# inspection_documents: 해당 장비 점검 관련 문서
+
+_meta:
+  version: "1.0"
+  last_updated: "2026-04-25"
+
+mappings:
+
+  # 소방설비
+  - trade_id: FIRE_PIPE_INSTALL
+    common_equipment: [welding_machine, grinder, chain_block, aerial_work_platform, pipe_threading_machine]
+    equipment_documents: [EQ-014, EQ-005]
+    inspection_documents: [CL-003]
+    notes: 고소작업대(차량형) 사용 시 EQ-005 작성
+
+  - trade_id: FIRE_SPRINKLER_INSTALL
+    common_equipment: [aerial_work_platform, pipe_threading_machine, chain_block]
+    equipment_documents: [EQ-005]
+    inspection_documents: [CL-003]
+    notes: ""
+
+  - trade_id: FIRE_HYDRANT_PIPE_INSTALL
+    common_equipment: [welding_machine, grinder, chain_block, pipe_threading_machine]
+    equipment_documents: [EQ-014]
+    inspection_documents: []
+    notes: ""
+
+  - trade_id: FIRE_PUMP_ROOM_WORK
+    common_equipment: [chain_block, pallet_jack, welding_machine]
+    equipment_documents: []
+    inspection_documents: []
+    notes: ""
+
+  - trade_id: FIRE_WELDING_CUTTING
+    common_equipment: [welding_machine, grinder, gas_cutting_torch]
+    equipment_documents: [EQ-014]
+    inspection_documents: []
+    notes: ""
+
+  - trade_id: FIRE_CEILING_PIPE_WORK
+    common_equipment: [scissor_lift, step_ladder, aerial_work_platform]
+    equipment_documents: [EQ-005]
+    inspection_documents: [CL-003]
+    notes: ""
+
+  - trade_id: FIRE_ALARM_WIRING
+    common_equipment: [electric_drill, step_ladder, cable_pulling_tool]
+    equipment_documents: []
+    inspection_documents: []
+    notes: ""
+
+  - trade_id: FIRE_EQUIPMENT_LIFTING
+    common_equipment: [mobile_crane, chain_block, pallet_jack]
+    equipment_documents: [EQ-004, WP-007]
+    inspection_documents: []
+    notes: 이동식 크레인 사용 시 EQ-004·WP-007
+
+  - trade_id: FIRE_CORE_DRILLING
+    common_equipment: [core_drill_machine, step_ladder, aerial_work_platform]
+    equipment_documents: []
+    inspection_documents: []
+    notes: ""
+
+  - trade_id: FIRE_PIT_SHAFT_WORK
+    common_equipment: [portable_ventilation_fan, gas_detector, step_ladder]
+    equipment_documents: []
+    inspection_documents: []
+    notes: ""
+
+  # 전기
+  - trade_id: ELEC_CONDUIT_WIRING
+    common_equipment: [electric_drill, step_ladder, wire_puller]
+    equipment_documents: []
+    inspection_documents: []
+    notes: ""
+
+  - trade_id: ELEC_CABLE_TRAY
+    common_equipment: [aerial_work_platform, scissor_lift, chain_block]
+    equipment_documents: [EQ-005]
+    inspection_documents: [CL-003]
+    notes: ""
+
+  - trade_id: ELEC_PANEL_INSTALL
+    common_equipment: [chain_block, pallet_jack, insulated_tools]
+    equipment_documents: []
+    inspection_documents: []
+    notes: ""
+
+  - trade_id: ELEC_POWER_CABLE_PULLING
+    common_equipment: [cable_drum_jack, cable_puller, forklift]
+    equipment_documents: [EQ-001, WP-009]
+    inspection_documents: [CL-003]
+    notes: 지게차 사용 시 EQ-001·WP-009
+
+  - trade_id: ELEC_LIGHTING_INSTALL
+    common_equipment: [step_ladder, aerial_work_platform]
+    equipment_documents: [EQ-005]
+    inspection_documents: [CL-003]
+    notes: ""
+
+  - trade_id: ELEC_GROUNDING
+    common_equipment: [electric_drill, grounding_rod_driver]
+    equipment_documents: []
+    inspection_documents: []
+    notes: ""
+
+  - trade_id: ELEC_TEMP_POWER
+    common_equipment: [temporary_distribution_board, rcd_breaker, extension_cord]
+    equipment_documents: [EQ-013]
+    inspection_documents: [CL-004]
+    notes: ""
+
+  - trade_id: ELEC_LIVE_PROXIMITY_WORK
+    common_equipment: [insulated_tools, live_line_indicators]
+    equipment_documents: []
+    inspection_documents: [CL-004]
+    notes: ""
+
+  - trade_id: ELEC_TESTING_COMMISSIONING
+    common_equipment: [insulation_resistance_tester, clamp_meter]
+    equipment_documents: []
+    inspection_documents: [CL-004]
+    notes: ""
+
+  # 기계설비
+  - trade_id: MECH_PIPE_INSTALL
+    common_equipment: [welding_machine, grinder, chain_block, aerial_work_platform]
+    equipment_documents: [EQ-014, EQ-005]
+    inspection_documents: [CL-003]
+    notes: ""
+
+  - trade_id: MECH_DUCT_INSTALL
+    common_equipment: [scissor_lift, aerial_work_platform, chain_block]
+    equipment_documents: [EQ-005]
+    inspection_documents: [CL-003]
+    notes: ""
+
+  - trade_id: MECH_EQUIPMENT_INSTALL
+    common_equipment: [mobile_crane, chain_block, pallet_jack]
+    equipment_documents: [EQ-004, WP-007, EQ-012]
+    inspection_documents: []
+    notes: 이동식 크레인 사용 시 EQ-004·WP-007
+
+  - trade_id: MECH_PUMP_INSTALL
+    common_equipment: [chain_block, pallet_jack, welding_machine]
+    equipment_documents: [EQ-012]
+    inspection_documents: []
+    notes: ""
+
+  - trade_id: MECH_WELDING_CUTTING
+    common_equipment: [welding_machine, grinder, gas_cutting_torch]
+    equipment_documents: [EQ-014]
+    inspection_documents: []
+    notes: ""
+
+  - trade_id: MECH_INSULATION
+    common_equipment: [step_ladder, aerial_work_platform]
+    equipment_documents: [EQ-005]
+    inspection_documents: [CL-003]
+    notes: ""
+
+  - trade_id: MECH_PRESSURE_TEST
+    common_equipment: [pressure_pump, pressure_gauge, hose]
+    equipment_documents: []
+    inspection_documents: []
+    notes: ""
+
+  - trade_id: MECH_CHILLER_BOILER_ROOM
+    common_equipment: [refrigerant_recovery_machine, chain_block, gas_detector]
+    equipment_documents: []
+    inspection_documents: []
+    notes: ""
+
+  - trade_id: MECH_SHAFT_WORK
+    common_equipment: [portable_ventilation_fan, gas_detector, step_ladder]
+    equipment_documents: []
+    inspection_documents: []
+    notes: ""
+
+  # 공통 고위험작업
+  - trade_id: COMMON_WORK_AT_HEIGHT
+    common_equipment: [aerial_work_platform, scaffold, step_ladder]
+    equipment_documents: [EQ-005, EQ-016]
+    inspection_documents: [CL-001, CL-007]
+    notes: ""
+
+  - trade_id: COMMON_HOT_WORK
+    common_equipment: [welding_machine, grinder, fire_extinguisher]
+    equipment_documents: [EQ-014]
+    inspection_documents: []
+    notes: ""
+
+  - trade_id: COMMON_CONFINED_SPACE
+    common_equipment: [portable_ventilation_fan, gas_detector]
+    equipment_documents: []
+    inspection_documents: [CL-010]
+    notes: ""
+
+  - trade_id: COMMON_HEAVY_LIFTING
+    common_equipment: [mobile_crane, chain_block, sling_belt]
+    equipment_documents: [EQ-004, EQ-011, EQ-012]
+    inspection_documents: []
+    notes: ""
+
+  - trade_id: COMMON_EQUIPMENT_OPERATION
+    common_equipment: [excavator, dump_truck, forklift, roller]
+    equipment_documents: [EQ-001, EQ-002, WP-008, WP-009]
+    inspection_documents: [CL-003]
+    notes: ""
+
+  - trade_id: COMMON_SCAFFOLD_WORK
+    common_equipment: [scaffold_pipes, couplers, work_board]
+    equipment_documents: []
+    inspection_documents: [CL-001]
+    notes: ""
+
+  - trade_id: COMMON_FORMWORK_SHORING
+    common_equipment: [form_panels, shore_posts, scaffolding]
+    equipment_documents: [WP-015]
+    inspection_documents: [CL-002]
+    notes: ""
+
+  - trade_id: COMMON_EXCAVATION
+    common_equipment: [excavator, dump_truck, sheet_pile_driver]
+    equipment_documents: [EQ-002, EQ-007, EQ-009]
+    inspection_documents: [CL-003]
+    notes: ""
+
+  - trade_id: COMMON_ELECTRICAL_WORK
+    common_equipment: [insulated_tools, voltage_tester]
+    equipment_documents: [EQ-013]
+    inspection_documents: [CL-004]
+    notes: ""
+
+  - trade_id: COMMON_CHEMICAL_HANDLING
+    common_equipment: []
+    equipment_documents: []
+    inspection_documents: [CL-009]
+    notes: ""

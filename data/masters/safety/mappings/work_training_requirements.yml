@@ -1,0 +1,111 @@
+# 작업유형별 필수 교육 요구사항 매핑
+# 버전: 1.0
+# 작성일: 2026-04-24
+# 기준: 산업안전보건법 시행규칙 별표 5 (특별교육 대상 작업)
+# 원칙: 별표 5 해당 작업 기준. work_type_code는 Knowledge DB 실제 코드와 일치 필요
+
+_meta:
+  version: "1.0"
+  total_mappings: 7
+  status_confirmed: 4
+  status_needs_verification: 3
+  last_updated: "2026-04-24"
+  note: >
+    work_type_code는 Knowledge DB data/risk_db/master/ 기준.
+    특별교육 대상 작업 중 대표 항목 수록.
+    시행규칙 별표 5 전수 검토 후 전체 매핑 추가 필요.
+
+requirements:
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 굴착 작업
+  # ─────────────────────────────────────────────────────────────────────
+
+  - work_type_code: WT_EXCAVATION
+    training_code: EDU_SPECIAL_16H
+    required_hours: 16
+    condition_note: "굴착면의 높이가 2미터 이상이 되는 지반 굴착 작업"
+    legal_basis: "산업안전보건법 시행규칙 별표 5 제11호"
+    source_type: law
+    verification_status: NEEDS_VERIFICATION
+    note: "별표 5 제11호 '굴착작업' 해당 호수 및 요건 재확인 필요"
+
+  - work_type_code: WT_EXCAVATION
+    training_code: EDU_REG_WORKER_HALFYEAR
+    required_hours: 6
+    condition_note: "굴착 작업 근로자 정기안전교육"
+    legal_basis: "산업안전보건법 제29조, 시행규칙 별표 4"
+    source_type: law
+    verification_status: confirmed
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 밀폐공간 작업
+  # ─────────────────────────────────────────────────────────────────────
+
+  - work_type_code: WT_CONFINED_SPACE
+    training_code: EDU_CONFINED_SPACE
+    required_hours: 16
+    condition_note: "밀폐공간 내 작업에 종사하는 근로자"
+    legal_basis: "산업안전보건법 시행규칙 별표 5 제26호"
+    source_type: law
+    verification_status: confirmed
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 크레인·양중 작업
+  # ─────────────────────────────────────────────────────────────────────
+
+  - work_type_code: WT_CRANE_LIFTING
+    training_code: EDU_SPECIAL_16H
+    required_hours: 16
+    condition_note: "타워크레인 설치·해체·인상·사용 작업"
+    legal_basis: "산업안전보건법 시행규칙 별표 5 제33호"
+    source_type: law
+    verification_status: confirmed
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 하역·운반 작업 (지게차 포함)
+  # ─────────────────────────────────────────────────────────────────────
+
+  - work_type_code: WT_MATERIAL_HANDLING
+    training_code: EDU_SPECIAL_16H
+    required_hours: 16
+    condition_note: "차량계 하역운반기계(지게차 포함) 작업"
+    legal_basis: "산업안전보건법 시행규칙 별표 5 제16호"
+    source_type: law
+    verification_status: NEEDS_VERIFICATION
+    note: "별표 5 해당 호 지게차 운전 업무 요건 재확인 필요"
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 용접 작업
+  # ─────────────────────────────────────────────────────────────────────
+
+  - work_type_code: WT_WELDING
+    training_code: EDU_SPECIAL_16H
+    required_hours: 16
+    condition_note: "가스집합 용접장치를 사용하는 금속 용접·용단 또는 가열 작업"
+    legal_basis: "산업안전보건법 시행규칙 별표 5 제2호"
+    source_type: law
+    verification_status: confirmed
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 화학물질 취급 작업
+  # ─────────────────────────────────────────────────────────────────────
+
+  - work_type_code: WT_CHEMICAL_HANDLING
+    training_code: EDU_MSDS
+    required_hours: null
+    condition_note: "유해화학물질 취급 작업 시작 전 또는 변경 시"
+    legal_basis: "산업안전보건법 제114조"
+    source_type: law
+    verification_status: NEEDS_VERIFICATION
+    note: "MSDS 교육 시간 요건 법령 원문 재확인 필요"
+
+# ─────────────────────────────────────────────────────────────────────
+# TODO: 추가 예정 매핑
+# ─────────────────────────────────────────────────────────────────────
+# - 모든 작업유형 → EDU_REG_WORKER_HALFYEAR (전체 근로자 정기교육)
+# - WT_DEMOLITION → 해체 작업 특별교육 (별표 5 해당 호 확인 필요)
+# - WT_TUNNEL → 터널 굴착 특별교육 (별표 5 해당 호 확인 필요)
+# - WT_HIGH_PLACE → 고소작업 특별교육 (별표 5 해당 호 확인 필요)
+# - 관리감독자 → EDU_REG_MANAGER_QUARTERLY (전체 작업 공통)
+# work_type_code 실제값은 Knowledge DB data/risk_db/master/ 확인 후 업데이트 필요

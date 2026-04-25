@@ -1,0 +1,429 @@
+# 공통 고위험작업 프리셋
+# 버전: 1.0
+# 작성일: 2026-04-25
+# 목적: 공종 구분 없이 발생하는 공통 고위험 작업 유형 프리셋.
+#       소방·전기·기계설비·건축·토목 등 모든 공종에 중첩 적용 가능.
+# source_status: PARTIAL_VERIFIED (법령 근거 존재, 원문 일부 확인)
+
+_meta:
+  version: "1.0"
+  trade_group: 공통 고위험작업
+  total: 10
+  last_updated: "2026-04-25"
+
+trades:
+
+  - trade_id: COMMON_WORK_AT_HEIGHT
+    trade_name: 고소작업
+    trade_group: 공통 고위험작업
+    description: >
+      작업면 높이 2m 이상에서 수행하는 모든 작업 유형 공통 프리셋.
+      비계·고소작업대·사다리·작업발판 등 이용.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - FALLING_OBJECT
+      - SLIP_TRIP
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+      - PTW-003
+    recommended_documents:
+      - CL-001
+      - CL-007
+      - PPE-001
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_TBM
+    required_permits:
+      - PTW-003
+    common_equipment:
+      - aerial_work_platform
+      - scaffold
+      - step_ladder
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - safety_gloves
+      - safety_shoes
+    source_status: PARTIAL_VERIFIED
+    notes: >
+      산업안전보건기준에 관한 규칙 제42조(추락 위험) 적용 대상.
+      PTW-003(고소작업 허가서) 발행 필수.
+      안전난간·추락방지망 설치 우선, 불가 시 안전대 사용.
+
+  - trade_id: COMMON_HOT_WORK
+    trade_name: 화기작업
+    trade_group: 공통 고위험작업
+    description: >
+      용접·용단·가열·연삭·절단 등 불꽃·화염을 발생시키는 모든 작업 공통 프리셋.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - HOT_WORK_FIRE
+      - GAS_CYLINDER
+      - NOISE_DUST
+      - ELECTRIC_SHOCK
+      - ARC_FLASH
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+      - PTW-002
+    recommended_documents:
+      - PPE-004
+      - CL-005
+      - EQ-014
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_TBM
+    required_permits:
+      - PTW-002
+    common_equipment:
+      - welding_machine
+      - grinder
+      - fire_extinguisher
+    ppe:
+      - safety_helmet
+      - welding_face_shield
+      - welding_gloves
+      - welding_apron
+      - safety_shoes
+    source_status: PARTIAL_VERIFIED
+    notes: >
+      PTW-002(화기작업 허가서) 매 작업 개시 전 필수 발행.
+      화재감시자 지정·배치 및 작업 후 30분 잔화 확인.
+      화재 예방 점검표(CL-005) 작성.
+
+  - trade_id: COMMON_CONFINED_SPACE
+    trade_name: 밀폐공간 작업
+    trade_group: 공통 고위험작업
+    description: >
+      맨홀·탱크·피트·지하 기계실 등 산소결핍·유해가스 위험이 있는
+      밀폐공간(산안법 시행규칙 별표 18 해당 장소) 내 작업 공통 프리셋.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - CONFINED_SPACE_ASPHYXIATION
+      - OXYGEN_DEFICIENCY
+      - TOXIC_GAS
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+      - WP-014
+      - PTW-001
+    recommended_documents:
+      - CL-010
+      - PPE-001
+    required_trainings:
+      - EDU_CONFINED_SPACE
+      - EDU_TBM
+    required_permits:
+      - PTW-001
+    common_equipment:
+      - portable_ventilation_fan
+      - gas_detector
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - air_supplied_respirator
+      - safety_shoes
+    source_status: PARTIAL_VERIFIED
+    notes: >
+      산업안전보건기준에 관한 규칙 제619조~제641조 적용.
+      PTW-001(밀폐공간 작업 허가서) 및 WP-014(밀폐공간 작업계획서) 필수.
+      CL-010(밀폐공간 사전 안전 점검표) 작성.
+      감시인 배치 및 비상구조 장비(공기호흡기) 비치.
+
+  - trade_id: COMMON_HEAVY_LIFTING
+    trade_name: 중량물 취급·인양
+    trade_group: 공통 고위험작업
+    description: >
+      크레인·호이스트·체인블록을 이용하여 중량물(500kg 이상 기준)을
+      인양·이동하는 모든 작업 공통 프리셋.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - HEAVY_LIFTING
+      - FALLING_OBJECT
+      - STRUCK_BY_EQUIPMENT
+      - VEHICLE_TURNOVER
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+      - WP-005
+    recommended_documents:
+      - PTW-007
+      - EQ-004
+      - WP-007
+      - PPE-001
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_TBM
+    required_permits:
+      - PTW-007
+    common_equipment:
+      - mobile_crane
+      - chain_block
+      - sling_belt
+      - shackle
+    ppe:
+      - safety_helmet
+      - safety_gloves
+      - safety_shoes
+      - high_visibility_vest
+    source_status: PARTIAL_VERIFIED
+    notes: >
+      PTW-007(중량물 인양 작업 허가서) 및 WP-005(중량물 취급 작업계획서) 필수.
+      이동식 크레인 사용 시 WP-007 추가.
+      인양 전 슬링·훅·체인 이상 유무 확인.
+
+  - trade_id: COMMON_EQUIPMENT_OPERATION
+    trade_name: 차량계 장비 작업
+    trade_group: 공통 고위험작업
+    description: >
+      굴착기·덤프트럭·롤러·콘크리트 펌프카 등 차량계 건설기계 및
+      지게차 등 차량계 하역운반기계 사용 작업 공통 프리셋.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - STRUCK_BY_EQUIPMENT
+      - VEHICLE_TURNOVER
+      - EXCAVATION_COLLAPSE
+      - CAUGHT_BETWEEN
+    required_documents:
+      - RA-001
+      - RA-004
+      - CL-003
+    recommended_documents:
+      - WP-008
+      - WP-009
+      - EQ-001
+      - EQ-002
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_TBM
+    required_permits: []
+    common_equipment:
+      - excavator
+      - dump_truck
+      - forklift
+      - roller
+    ppe:
+      - safety_helmet
+      - safety_gloves
+      - safety_shoes
+      - high_visibility_vest
+    source_status: PARTIAL_VERIFIED
+    notes: >
+      CL-003(건설장비 일일 사전점검표) 매일 작업 전 작성 필수.
+      차량계 건설기계 작업계획서(WP-008) 작성 권장.
+      유도자(신호수) 배치 및 작업반경 내 출입통제.
+
+  - trade_id: COMMON_SCAFFOLD_WORK
+    trade_name: 비계 작업
+    trade_group: 공통 고위험작업
+    description: >
+      강관 비계·시스템 비계·이동식 비계 등의 조립·해체·변경 및
+      비계 위 작업 공통 프리셋.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - FALLING_OBJECT
+      - HEAVY_LIFTING
+      - STRUCK_BY_EQUIPMENT
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - CL-001
+      - PTW-003
+      - PPE-001
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_TBM
+    required_permits:
+      - PTW-003
+    common_equipment:
+      - scaffold_pipes
+      - couplers
+      - work_board
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - safety_gloves
+      - safety_shoes
+    source_status: PARTIAL_VERIFIED
+    notes: >
+      비계 설치 점검표(CL-001) 조립 완료 후 작성.
+      PTW-003(고소작업 허가서) 비계 위 작업 시 필수.
+      비계 조립·해체는 관리감독자 지시 하에 실시.
+
+  - trade_id: COMMON_FORMWORK_SHORING
+    trade_name: 거푸집 및 동바리 작업
+    trade_group: 공통 고위험작업
+    description: >
+      콘크리트 타설을 위한 거푸집·동바리 조립·설치·점검·해체 및
+      콘크리트 타설 작업 공통 프리셋.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - FALLING_OBJECT
+      - HEAVY_LIFTING
+      - HOT_WORK_FIRE
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+      - WP-015
+    recommended_documents:
+      - CL-002
+      - PTW-003
+      - PPE-001
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-003
+    common_equipment:
+      - form_panels
+      - shore_posts
+      - scaffolding
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - safety_gloves
+      - safety_shoes
+    source_status: PARTIAL_VERIFIED
+    notes: >
+      WP-015(거푸집·동바리 작업계획서) 조립 전 필수 작성.
+      CL-002(거푸집 및 동바리 설치 점검표) 조립 완료 후·타설 전 작성.
+      산업안전보건기준에 관한 규칙 제328조~제337조 적용.
+
+  - trade_id: COMMON_EXCAVATION
+    trade_name: 굴착 작업
+    trade_group: 공통 고위험작업
+    description: >
+      기초·배관·집수정 등을 위한 굴착면 높이 2m 이상 지반 굴착 작업.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - EXCAVATION_COLLAPSE
+      - VEHICLE_TURNOVER
+      - STRUCK_BY_EQUIPMENT
+      - CAUGHT_BETWEEN
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+      - WP-001
+    recommended_documents:
+      - PTW-005
+      - CL-003
+      - EQ-002
+      - EQ-007
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-005
+    common_equipment:
+      - excavator
+      - dump_truck
+      - sheet_pile_driver
+    ppe:
+      - safety_helmet
+      - safety_gloves
+      - safety_shoes
+      - high_visibility_vest
+    source_status: PARTIAL_VERIFIED
+    notes: >
+      WP-001(굴착 작업계획서) 및 PTW-005(굴착 작업 허가서) 필수.
+      흙막이 지보공 설치 및 매일 점검(균열·침하·변형) 실시.
+      지하 매설물(가스·전력·통신·수도) 사전 확인.
+
+  - trade_id: COMMON_ELECTRICAL_WORK
+    trade_name: 전기작업 (공통)
+    trade_group: 공통 고위험작업
+    description: >
+      공종 구분 없이 현장에서 발생하는 전기 작업 공통 프리셋.
+      활선·가설 전기·수배전반 작업 포함.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - ELECTRIC_SHOCK
+      - ARC_FLASH
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+      - PTW-004
+    recommended_documents:
+      - CL-004
+      - PPE-001
+      - WP-011
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_TBM
+    required_permits:
+      - PTW-004
+    common_equipment:
+      - insulated_tools
+      - voltage_tester
+    ppe:
+      - safety_helmet
+      - insulated_gloves
+      - arc_flash_ppe
+      - insulated_shoes
+    source_status: PARTIAL_VERIFIED
+    notes: >
+      PTW-004(전기작업 허가서) 필수.
+      LOTO(잠금·태그아웃) 절차 준수.
+      WP-011(전기 작업계획서) 작성.
+
+  - trade_id: COMMON_CHEMICAL_HANDLING
+    trade_name: 화학물질 취급
+    trade_group: 공통 고위험작업
+    description: >
+      공종 구분 없이 현장에서 사용하는 유해화학물질(도료·접착제·
+      용제·냉매·세정제 등) 취급 공통 프리셋.
+    enabled: true
+    priority: 2
+    default_hazards:
+      - CHEMICAL_EXPOSURE
+      - TOXIC_GAS
+      - HOT_WORK_FIRE
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PPE-004
+      - CL-009
+      - WP-013
+    required_trainings:
+      - EDU_MSDS
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits: []
+    common_equipment: []
+    ppe:
+      - chemical_resistant_gloves
+      - respirator
+      - safety_goggles
+      - safety_shoes
+      - chemical_suit
+    source_status: PARTIAL_VERIFIED
+    notes: >
+      MSDS 비치 및 작업 전 교육(PPE-004) 필수.
+      화학물질 취급 점검표(CL-009) 작성.
+      인화성 화학물질 사용 시 PTW-002(화기작업 허가서) 검토.

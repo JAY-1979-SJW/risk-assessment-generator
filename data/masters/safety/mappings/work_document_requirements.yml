@@ -1,0 +1,109 @@
+# 작업유형별 필수 서류 요구사항 매핑
+# 버전: 1.0
+# 작성일: 2026-04-24
+# 기준: 산업안전보건기준에 관한 규칙 제38조 (작업계획서 의무 대상 작업)
+# 원칙: 규칙 제38조 각호 기준으로 작성. work_type_code는 Knowledge DB work_types와 일치 필요
+# 주의: Knowledge DB의 work_type_code 실제 값 확인 후 코드 업데이트 필요 (현재 예상값 사용)
+
+_meta:
+  version: "1.0"
+  total_mappings: 8
+  status_confirmed: 6
+  status_needs_verification: 2
+  last_updated: "2026-04-24"
+  note: >
+    work_type_code는 Knowledge DB data/risk_db/master/ 기준.
+    코드값 불일치 시 Knowledge DB 실제 코드로 업데이트 필요.
+    대표 예시 8건 수록. 나머지는 규칙 제38조 전체 검토 후 추가.
+
+requirements:
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 굴착 작업
+  # ─────────────────────────────────────────────────────────────────────
+
+  - work_type_code: WT_EXCAVATION
+    doc_id: WP-001
+    condition_note: "굴착면의 높이가 2미터 이상이 되는 지반 굴착 작업"
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제5호, 제82조"
+    source_type: law
+    verification_status: confirmed
+
+  - work_type_code: WT_EXCAVATION
+    doc_id: RA-001
+    condition_note: "굴착 작업 포함 현장 위험성평가"
+    legal_basis: "산업안전보건법 제36조"
+    source_type: law
+    verification_status: confirmed
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 양중·크레인 작업
+  # ─────────────────────────────────────────────────────────────────────
+
+  - work_type_code: WT_CRANE_LIFTING
+    doc_id: WP-006
+    condition_note: "타워크레인을 사용하는 작업"
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제1호"
+    source_type: law
+    verification_status: confirmed
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 하역·운반 작업
+  # ─────────────────────────────────────────────────────────────────────
+
+  - work_type_code: WT_MATERIAL_HANDLING
+    doc_id: WP-009
+    condition_note: "차량계 하역운반기계(지게차 포함)를 사용하는 작업"
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제2호"
+    source_type: law
+    verification_status: confirmed
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 밀폐공간 작업
+  # ─────────────────────────────────────────────────────────────────────
+
+  - work_type_code: WT_CONFINED_SPACE
+    doc_id: WP-014
+    condition_note: "밀폐공간 작업"
+    legal_basis: "산업안전보건기준에 관한 규칙 제619조"
+    source_type: law
+    verification_status: confirmed
+
+  - work_type_code: WT_CONFINED_SPACE
+    doc_id: PTW-001
+    condition_note: "밀폐공간 진입 전 작업허가서 발행"
+    legal_basis: "산업안전보건기준에 관한 규칙 제619조 제2항"
+    source_type: law
+    verification_status: NEEDS_VERIFICATION
+    note: "밀폐공간 작업허가서 법정 의무 여부 원문 재확인 필요"
+
+  - work_type_code: WT_CONFINED_SPACE
+    doc_id: CL-010
+    condition_note: "밀폐공간 작업 전 안전점검 실시"
+    legal_basis: "산업안전보건기준에 관한 규칙 제619조"
+    source_type: law
+    verification_status: confirmed
+
+  # ─────────────────────────────────────────────────────────────────────
+  # 중량물 취급 작업
+  # ─────────────────────────────────────────────────────────────────────
+
+  - work_type_code: WT_HEAVY_LOAD
+    doc_id: WP-005
+    condition_note: "중량물의 취급 작업 (기준규칙 제38조 제1항 제11호 해당)"
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제11호"
+    source_type: law
+    verification_status: NEEDS_VERIFICATION
+    note: "중량물 기준 및 작업계획서 작성 대상 구체적 조건 법령 재확인 필요"
+
+# ─────────────────────────────────────────────────────────────────────
+# TODO: 추가 예정 매핑 (규칙 제38조 각호 기준)
+# ─────────────────────────────────────────────────────────────────────
+# - WT_VEHICLE_CONST → WP-008 (차량계 건설기계 작업계획서, 규칙 제38조 제1항 제3호)
+# - WT_CHEMICAL → WP-013 (화학설비 작업계획서, 규칙 제38조 제1항 제4호)
+# - WT_TUNNEL → WP-002 (터널 굴착 작업계획서, 규칙 제38조 제1항 제7호)
+# - WT_BRIDGE → WP-004 (교량 설치·해체·변경 작업계획서, 규칙 제38조 제1항 제8호)
+# - WT_DEMOLITION → WP-003 (건축물 해체 작업계획서, 규칙 제38조 제1항 제10호)
+# - WT_FORMWORK → WP-010 (거푸집·동바리 작업계획서, 규칙 제38조 제1항 제13호)
+# - 모든 작업유형 → RA-001 (위험성평가 의무 — 산안법 제36조)
+# work_type_code 실제값은 Knowledge DB data/risk_db/master/ 확인 후 업데이트 필요

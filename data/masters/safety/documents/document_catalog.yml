@@ -1,0 +1,1395 @@
+# 안전서류 마스터 카탈로그
+# 버전: 2.0
+# 기준: 93종 (WP×15 + EQ×16 + RA×6 + ED×5 + PTW×8 + DL×5 + CL×10 + PPE×4 + CM×7 + EM×6 + TS×5 + SP×4 + HM×2)
+# 작성일: 2026-04-25
+# 주의: 법령 근거 임의 작성 금지. 불확실 항목은 legal_basis: NEEDS_VERIFICATION
+
+_meta:
+  version: "2.2"
+  total_defined: 93
+  target_total: 93
+  last_updated: "2026-04-25"
+  source_docs:
+    - "docs/design/safety_document_master_catalog.md"
+    - "docs/design/equipment_workplan_master_catalog.md"
+
+documents:
+
+  # ═══════════════════════════════════════════════════════════════
+  # WP — 법정 작업계획서 (14종)
+  # 근거: 산업안전보건기준에 관한 규칙 제38조 제1항 별표4
+  # ═══════════════════════════════════════════════════════════════
+
+  - id: WP-001
+    name: 굴착 작업계획서
+    category: 법정 작업계획서
+    category_code: WP
+    document_group: 작업계획서
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: excavation_workplan
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제6호, 제82조"
+    notes: "굴착면 2m 이상. builder v1.0"
+
+  - id: WP-002
+    name: 터널 굴착 작업계획서
+    category: 법정 작업계획서
+    category_code: WP
+    document_group: 작업계획서
+    legal_status: legal
+    implementation_status: TODO
+    priority: P1
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제7호, 제46조 이하"
+    notes: "터널공사 한정"
+
+  - id: WP-003
+    name: 건축물 해체 작업계획서
+    category: 법정 작업계획서
+    category_code: WP
+    document_group: 작업계획서
+    legal_status: legal
+    implementation_status: TODO
+    priority: P1
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제9호, 제52조~제55조"
+    notes: "해체공사 한정"
+
+  - id: WP-004
+    name: 교량 설치·해체·변경 작업계획서
+    category: 법정 작업계획서
+    category_code: WP
+    document_group: 작업계획서
+    legal_status: legal
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제8호"
+    notes: "교량공사 한정"
+
+  - id: WP-005
+    name: 중량물 취급 작업계획서
+    category: 법정 작업계획서
+    category_code: WP
+    document_group: 작업계획서
+    legal_status: legal
+    implementation_status: TODO
+    priority: P1
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제10호, 제39조"
+    notes: "총 중량 100kg 이상"
+
+  - id: WP-006
+    name: 타워크레인 작업계획서
+    category: 법정 작업계획서
+    category_code: WP
+    document_group: 작업계획서
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: tower_crane_workplan
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제1호, 제142조 이하"
+    notes: "builder v1.0"
+
+  - id: WP-007
+    name: 이동식 크레인 작업계획서
+    category: 법정 작업계획서
+    category_code: WP
+    document_group: 작업계획서
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: mobile_crane_workplan
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제14호, 제134조 이하"
+    notes: "builder v1.0"
+
+  - id: WP-008
+    name: 차량계 건설기계 작업계획서
+    category: 법정 작업계획서
+    category_code: WP
+    document_group: 작업계획서
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: vehicle_construction_workplan
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제3호, 제170조 이하"
+    notes: "builder v1.0"
+
+  - id: WP-009
+    name: 차량계 하역운반기계 작업계획서
+    category: 법정 작업계획서
+    category_code: WP
+    document_group: 작업계획서
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: material_handling_workplan
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제2호, 제2항, 제179조~제182조"
+    notes: "지게차 포함. builder v1.0"
+
+  - id: WP-010
+    name: 항타기·항발기 사용 작업계획서
+    category: 법정 작업계획서
+    category_code: WP
+    document_group: 작업계획서
+    legal_status: legal
+    implementation_status: TODO
+    priority: P1
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제12호, 제186조 이하"
+    notes: null
+
+  - id: WP-011
+    name: 전기 작업계획서
+    category: 법정 작업계획서
+    category_code: WP
+    document_group: 작업계획서
+    legal_status: legal
+    implementation_status: TODO
+    priority: P1
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항, 제301조 이하"
+    notes: null
+
+  - id: WP-012
+    name: 궤도 작업계획서
+    category: 법정 작업계획서
+    category_code: WP
+    document_group: 작업계획서
+    legal_status: legal
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제11호"
+    notes: "궤도·철도 현장 한정"
+
+  - id: WP-013
+    name: 화학설비·부속설비 작업계획서
+    category: 법정 작업계획서
+    category_code: WP
+    document_group: 작업계획서
+    legal_status: legal
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제4호, 제224조 이하"
+    notes: "화학·석유화학 한정"
+
+  - id: WP-014
+    name: 밀폐공간 작업계획서
+    category: 법정 작업계획서
+    category_code: WP
+    document_group: 작업계획서
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: confined_space_workplan
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제619조~제626조"
+    notes: "builder v1.0"
+
+  - id: WP-015
+    name: 거푸집·동바리 작업계획서
+    category: 법정 작업계획서
+    category_code: WP
+    document_group: 작업계획서
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: formwork_shoring_workplan
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제331조 (구조검토 및 조립도 작성·준수), 제328조~제337조 (거푸집·동바리 안전기준), 제38조 제1항 (별표4 포함 여부 NEEDS_VERIFICATION), 제39조 (작업지휘자 지정)"
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - "WP-015-L1"
+      - "WP-015-L2"
+      - "WP-015-L3"
+      - "WP-015-L4"
+    evidence_file:
+      - "data/evidence/safety_law_refs/WP-015_safety_rule_article_38.json"
+      - "data/evidence/safety_law_refs/WP-015_safety_rule_article_39.json"
+      - "data/evidence/safety_law_refs/WP-015_safety_rule_article_331.json"
+      - "data/evidence/safety_law_refs/WP-015_safety_rule_articles_328_337.json"
+    engine_coverage: YES
+    retention_years: 3
+    notes: "구조검토서 및 조립도 원본 첨부·보관 필요. 작업계획서는 구조계산서/조립도 대체 문서가 아님. 제38조 별표4에 거푸집·동바리 포함 여부는 law.go.kr API 원문 미수집으로 NEEDS_VERIFICATION. 제331조(조립도 작성) 근거는 PARTIAL_VERIFIED. 법령 개정 시 재검증 필요. builder v1.0."
+
+  # ═══════════════════════════════════════════════════════════════
+  # EQ — 장비 사용계획서 (16종)
+  # 출처: docs/design/equipment_workplan_master_catalog.md
+  # ═══════════════════════════════════════════════════════════════
+
+  - id: EQ-001
+    name: 차량계 하역운반기계 작업계획서 (장비특화)
+    category: 장비 사용계획서
+    category_code: EQ
+    document_group: 장비사용계획서
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: material_handling_workplan
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제2호, 제2항, 제179조"
+    notes: "WP-009와 동일 builder. 장비별 특화 운용 기록"
+
+  - id: EQ-002
+    name: 차량계 건설기계 작업계획서 (장비특화)
+    category: 장비 사용계획서
+    category_code: EQ
+    document_group: 장비사용계획서
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: vehicle_construction_workplan
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제3호, 제170조 이하"
+    notes: "WP-008과 동일 builder. 장비별 특화 운용 기록"
+
+  - id: EQ-003
+    name: 타워크레인 작업계획서 (장비특화)
+    category: 장비 사용계획서
+    category_code: EQ
+    document_group: 장비사용계획서
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: tower_crane_workplan
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제1호, 제142조~제148조"
+    notes: "WP-006 tower_crane_workplan builder 재사용 (EQ-001/EQ-002 패턴). 자격/면허 자동판정은 E-06 후속 단계"
+
+  - id: EQ-004
+    name: 이동식 크레인·카고크레인 작업계획서 (장비특화)
+    category: 장비 사용계획서
+    category_code: EQ
+    document_group: 장비사용계획서
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: mobile_crane_workplan
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제14호, 제134조~제141조"
+    notes: "WP-007 mobile_crane_workplan builder 재사용 (EQ-001/EQ-002 패턴). 자격/면허 자동판정은 E-06 후속 단계"
+
+  - id: EQ-005
+    name: 고소작업대 사용계획서
+    category: 장비 사용계획서
+    category_code: EQ
+    document_group: 장비사용계획서
+    legal_status: practical
+    implementation_status: TODO
+    priority: P1
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제86조 이하"
+    notes: "스카이차·붐리프트·시저리프트 포함"
+
+  - id: EQ-006
+    name: 펌프카 작업계획서
+    category: 장비 사용계획서
+    category_code: EQ
+    document_group: 장비사용계획서
+    legal_status: practical
+    implementation_status: TODO
+    priority: P1
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제170조 이하 (차량계 건설기계 준용)"
+    notes: "콘크리트 타설 현장 실무필수"
+
+  - id: EQ-007
+    name: 굴착기·로더 사용계획서
+    category: 장비 사용계획서
+    category_code: EQ
+    document_group: 장비사용계획서
+    legal_status: legal
+    implementation_status: TODO
+    priority: P1
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제3호, 제170조~제174조"
+    notes: "EQ-002 차량계 건설기계 계획서 세부 특화"
+
+  - id: EQ-008
+    name: 덤프·롤러·불도저 사용계획서
+    category: 장비 사용계획서
+    category_code: EQ
+    document_group: 장비사용계획서
+    legal_status: legal
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제3호, 제170조"
+    notes: null
+
+  - id: EQ-009
+    name: 항타기·항발기·천공기 사용계획서
+    category: 장비 사용계획서
+    category_code: EQ
+    document_group: 장비사용계획서
+    legal_status: legal
+    implementation_status: TODO
+    priority: P1
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제12호, 제186조~제197조"
+    notes: null
+
+  - id: EQ-010
+    name: 리프트·곤돌라 사용계획서
+    category: 장비 사용계획서
+    category_code: EQ
+    document_group: 장비사용계획서
+    legal_status: practical
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제133조~제148조"
+    notes: null
+
+  - id: EQ-011
+    name: 양중기·호이스트·윈치 작업계획서
+    category: 장비 사용계획서
+    category_code: EQ
+    document_group: 장비사용계획서
+    legal_status: practical
+    implementation_status: TODO
+    priority: P1
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제132조~제141조"
+    notes: null
+
+  - id: EQ-012
+    name: 중량물 취급 작업계획서 (장비특화)
+    category: 장비 사용계획서
+    category_code: EQ
+    document_group: 장비사용계획서
+    legal_status: legal
+    implementation_status: TODO
+    priority: P1
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제10호, 제39조"
+    notes: "WP-005 중량물 취급 계획서 장비특화"
+
+  - id: EQ-013
+    name: 임시전기·발전기 사용계획서
+    category: 장비 사용계획서
+    category_code: EQ
+    document_group: 장비사용계획서
+    legal_status: practical
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제301조~제330조"
+    notes: null
+
+  - id: EQ-014
+    name: 용접·용단·화기작업 계획서
+    category: 장비 사용계획서
+    category_code: EQ
+    document_group: 장비사용계획서
+    legal_status: practical
+    implementation_status: TODO
+    priority: P1
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제241조~제252조"
+    notes: "PTW-002 화기작업 허가서와 연계"
+
+  - id: EQ-015
+    name: 콤프레샤·공압장비 사용계획서
+    category: 장비 사용계획서
+    category_code: EQ
+    document_group: 장비사용계획서
+    legal_status: optional
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제261조~제276조"
+    notes: null
+
+  - id: EQ-016
+    name: 사다리·말비계·작업발판 사용계획서
+    category: 장비 사용계획서
+    category_code: EQ
+    document_group: 장비사용계획서
+    legal_status: practical
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제24조~제31조, 제57조~제75조"
+    notes: null
+
+  # ═══════════════════════════════════════════════════════════════
+  # RA — 위험성평가 관련 (6종)
+  # ═══════════════════════════════════════════════════════════════
+
+  - id: RA-001
+    name: 위험성평가표
+    category: 위험성평가 관련
+    category_code: RA
+    document_group: 위험성평가
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: risk_assessment
+    source_type: law
+    legal_basis: "산업안전보건법 제36조, 시행규칙 제37조, 고용노동부고시 제2023-19호"
+    notes: "builder v1.0"
+
+  - id: RA-002
+    name: 위험성평가 관리 등록부
+    category: 위험성평가 관련
+    category_code: RA
+    document_group: 위험성평가
+    legal_status: practical
+    implementation_status: TODO
+    priority: P1
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 시행규칙 제37조 (기록 보존 3년)"
+    notes: "법정 서식 없음. 등록부 형식은 현장 관행"
+
+  - id: RA-003
+    name: 위험성평가 참여 회의록
+    category: 위험성평가 관련
+    category_code: RA
+    document_group: 위험성평가
+    legal_status: legal
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제36조 제3항 (근로자 참여 보장)"
+    notes: null
+
+  - id: RA-004
+    name: TBM 안전점검 일지
+    category: 위험성평가 관련
+    category_code: RA
+    document_group: 위험성평가
+    legal_status: practical
+    implementation_status: DONE
+    priority: DONE
+    form_type: tbm_log
+    source_type: practical
+    legal_basis: "고용노동부고시 제2023-19호 (상시평가 실시 권고)"
+    notes: "법정 의무 아님. builder v1.0"
+
+  - id: RA-005
+    name: 위험성평가 실시 규정
+    category: 위험성평가 관련
+    category_code: RA
+    document_group: 위험성평가
+    legal_status: practical
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: moel
+    legal_basis: "고용노동부고시 제2023-19호 제9조 (실시규정 작성 권고)"
+    notes: null
+
+  - id: RA-006
+    name: 위험성평가 결과 근로자 공지문
+    category: 위험성평가 관련
+    category_code: RA
+    document_group: 위험성평가
+    legal_status: practical
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: moel
+    legal_basis: "고용노동부고시 제2023-19호 (공지 권고)"
+    notes: "현장 게시용"
+
+  # ═══════════════════════════════════════════════════════════════
+  # ED — 안전보건교육 관련 (5종)
+  # ═══════════════════════════════════════════════════════════════
+
+  - id: ED-001
+    name: 안전보건교육 교육일지
+    category: 안전보건교육 관련
+    category_code: ED
+    document_group: 안전보건교육
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: education_log
+    source_type: law
+    legal_basis: "산업안전보건법 제29조, 시행규칙 제32조, 별지 제52호의2서식"
+    notes: "builder v1.1"
+
+  - id: ED-002
+    name: 연간 안전보건교육 계획서
+    category: 안전보건교육 관련
+    category_code: ED
+    document_group: 안전보건교육
+    legal_status: practical
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제29조, 시행규칙 별표4 (교육 시간·내용)"
+    notes: "법정 서식 없음. 연간 계획 수립용"
+
+  - id: ED-003
+    name: 특별 안전보건교육 교육일지
+    category: 안전보건교육 관련
+    category_code: ED
+    document_group: 안전보건교육
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: special_education_log
+    source_type: law
+    legal_basis: "산업안전보건법 제29조 제3항, 시행규칙 제26조, 시행규칙 별표 4(교육시간), 시행규칙 별표 5(교육대상별 교육내용)"
+    evidence_status: VERIFIED
+    evidence_id:
+      - "ED-003-L1"
+      - "ED-003-L2"
+      - "ED-003-L3"
+      - "ED-003-L4"
+    evidence_file:
+      - "data/evidence/safety_law_refs/ED-003-L1_industrial_safety_health_act_article_29.json"
+      - "data/evidence/safety_law_refs/ED-003-L2_industrial_safety_health_rule_article_26.json"
+      - "data/evidence/safety_law_refs/ED-003-L3_industrial_safety_health_rule_attached_table_4.json"
+      - "data/evidence/safety_law_refs/ED-003-L4_industrial_safety_health_rule_attached_table_5.json"
+    engine_coverage: YES
+    retention_years: 3
+    notes: "교육시간은 별표 4 기준(일반근로자 16시간 이상/단기·간헐적 2시간 이상). 특별교육 대상 작업은 별표 5 제1호라목 기준 제1호~제39호 39개 작업(현행 2025.5.30 개정). 특별교육 실시 시 채용·작업내용변경 교육 실시한 것으로 간주(시행규칙 제26조 제1항). 법령·별표 개정 시 evidence 재검증 필요. builder v1.0."
+
+  - id: ED-004
+    name: 안전보건관리자 직무교육 이수 확인서
+    category: 안전보건교육 관련
+    category_code: ED
+    document_group: 안전보건교육
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: manager_job_training_record
+    source_type: law
+    legal_basis: "산업안전보건법 제32조 (직무교육 의무), 제15조 (안전보건관리책임자), 제17조 (안전관리자), 제18조 (보건관리자), 시행규칙 직무교육 조항 (조항번호 NEEDS_VERIFICATION — 카탈로그 기재 시행규칙 제40조 재확인 필요)"
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - "ED-004-L1"
+      - "ED-004-L2"
+      - "ED-004-L3"
+    evidence_file:
+      - "data/evidence/safety_law_refs/ED-004-L1_industrial_safety_health_act_article_32.json"
+      - "data/evidence/safety_law_refs/ED-004-L2_industrial_safety_health_act_articles_15_17_18.json"
+      - "data/evidence/safety_law_refs/ED-004-L3_industrial_safety_health_rule_job_training.json"
+    engine_coverage: YES
+    retention_years: 3
+    notes: "안전보건관리책임자/안전관리자/보건관리자 역할 선택 필드로 통합 관리. 공식 수료증 대체 아님 — 수료증 원본 또는 사본 첨부·보관 필요. 시행규칙 직무교육 조항번호(제40조 등) 법령 개정 후 재확인 필요. builder v1.0."
+
+  - id: ED-005
+    name: 안전보건협의체 회의록
+    category: 안전보건교육 관련
+    category_code: ED
+    document_group: 안전보건교육
+    legal_status: legal
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제24조, 시행규칙 제37조 이하"
+    notes: "상시근로자 100인 이상 사업장 분기 1회"
+
+  # ═══════════════════════════════════════════════════════════════
+  # PTW — 작업허가서 (8종)
+  # ═══════════════════════════════════════════════════════════════
+
+  - id: PTW-001
+    name: 밀폐공간 작업 허가서
+    category: 작업허가서
+    category_code: PTW
+    document_group: 작업허가서
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: confined_space_permit
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제619조~제626조"
+    notes: "builder v1.0"
+
+  - id: PTW-002
+    name: 화기작업 허가서
+    category: 작업허가서
+    category_code: PTW
+    document_group: 작업허가서
+    legal_status: practical
+    implementation_status: TODO
+    priority: P1
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제241조~제252조"
+    notes: "PSM 사업장 법정 필수. 일반 현장 실무필수"
+
+  - id: PTW-003
+    name: 고소작업 허가서
+    category: 작업허가서
+    category_code: PTW
+    document_group: 작업허가서
+    legal_status: practical
+    implementation_status: TODO
+    priority: P1
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제42조 (추락 방호조치)"
+    notes: "2m 이상 고소 작업 원청 요구"
+
+  - id: PTW-004
+    name: 전기작업 허가서
+    category: 작업허가서
+    category_code: PTW
+    document_group: 작업허가서
+    legal_status: practical
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제316조 이하 (LOTO)"
+    notes: null
+
+  - id: PTW-005
+    name: 굴착 작업 허가서
+    category: 작업허가서
+    category_code: PTW
+    document_group: 작업허가서
+    legal_status: practical
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조, 제82조 이하"
+    notes: "지하매설물 주변 굴착 원청 요구"
+
+  - id: PTW-006
+    name: 방사선 투과검사 작업 허가서
+    category: 작업허가서
+    category_code: PTW
+    document_group: 작업허가서
+    legal_status: practical
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제573조 이하"
+    notes: "방사선 투과검사(RT) 한정"
+
+  - id: PTW-007
+    name: 중량물 인양 작업 허가서
+    category: 작업허가서
+    category_code: PTW
+    document_group: 작업허가서
+    legal_status: practical
+    implementation_status: TODO
+    priority: P1
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제135조 이하"
+    notes: "Critical Lift (SWL 75% 초과) 시 필수"
+
+  - id: PTW-008
+    name: 임시전기 설치·연결 허가서
+    category: 작업허가서
+    category_code: PTW
+    document_group: 작업허가서
+    legal_status: practical
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제301조 이하"
+    notes: null
+
+  # ═══════════════════════════════════════════════════════════════
+  # DL — 일일 안전관리 (5종)
+  # ═══════════════════════════════════════════════════════════════
+
+  - id: DL-001
+    name: 안전관리 일지
+    category: 일일 안전관리
+    category_code: DL
+    document_group: 일일안전관리
+    legal_status: practical
+    implementation_status: TODO
+    priority: P1
+    form_type: null
+    source_type: law
+    legal_basis: "중대재해처벌법 시행령 제4조 (안전보건관리체계 구축 의무)"
+    notes: null
+
+  - id: DL-002
+    name: 관리감독자 안전보건 업무 일지
+    category: 일일 안전관리
+    category_code: DL
+    document_group: 일일안전관리
+    legal_status: practical
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제16조 (관리감독자 직무)"
+    notes: null
+
+  - id: DL-003
+    name: 안전순찰 점검 일지
+    category: 일일 안전관리
+    category_code: DL
+    document_group: 일일안전관리
+    legal_status: practical
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제17조 (안전관리자 직무)"
+    notes: null
+
+  - id: DL-004
+    name: 기상 조건 기록 일지
+    category: 일일 안전관리
+    category_code: DL
+    document_group: 일일안전관리
+    legal_status: practical
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제37조 (악천후 시 작업 중지 의무)"
+    notes: null
+
+  - id: DL-005
+    name: 작업 전 안전 확인서
+    category: 일일 안전관리
+    category_code: DL
+    document_group: 일일안전관리
+    legal_status: practical
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: law
+    legal_basis: "중대재해처벌법 시행령 제4조"
+    notes: "작업자 개인 작업 개시 전 자가 점검"
+
+  # ═══════════════════════════════════════════════════════════════
+  # CL — 점검표·체크리스트 (10종)
+  # ═══════════════════════════════════════════════════════════════
+
+  - id: CL-001
+    name: 비계·동바리 설치 점검표
+    category: 점검표
+    category_code: CL
+    document_group: 점검표
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: scaffold_installation_checklist
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제57조 이하 (비계 관련 조항, 세부 조항번호 NEEDS_VERIFICATION)"
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - CL-001-L1
+      - CL-001-L2
+    evidence_file:
+      - CL-001-L1_safety_rule_article_57_scaffold.json
+      - CL-001-L2_safety_rule_scaffold_workboard_railing.json
+    notes: >
+      이번 구현 범위: 비계 설치 점검표 (CL-001) — 비계 전용.
+      거푸집동바리 점검은 CL-002 별도 서식으로 관리 (CL-002는 TODO 유지).
+      제88조~제94조는 동바리 근거로 확정하지 않음 — CL-002 단계에서 별도 검증.
+      세부 조항번호(작업발판, 안전난간, 낙하물방지망 등)는 원문 수집 후 확정 예정.
+
+  - id: CL-002
+    name: 거푸집 및 동바리 설치 점검표
+    category: 점검표
+    category_code: CL
+    document_group: 점검표
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: formwork_shoring_installation_checklist
+    source_type: law
+    legal_basis: >
+      산업안전보건기준에 관한 규칙 제328조~제337조 (거푸집동바리 재료·구조·설치·조립도·타설·해체 관련 안전기준, PARTIAL_VERIFIED).
+      제328조(재료), 제329조(침하방지), 제330조(동바리 설치), 제331조(조립도), 제332조(침하방지),
+      제333조(타설 준수사항), 제334조(타설 중 점검), 제335조(타설 시 조치),
+      제336조(조립·해체·변경 준수사항), 제337조(작업 중 위험 방지).
+      제338조 이후는 굴착작업 계열로 보이므로 본 서식 근거에서 제외.
+      구 catalog 기재 "제337조~제347조"는 잘못된 범위로 보정.
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - CL-002-L1
+      - CL-002-L2
+      - CL-002-L3
+    evidence_file:
+      - "data/evidence/safety_law_refs/CL-002-L1_safety_rule_articles_328_330_formwork_material.json"
+      - "data/evidence/safety_law_refs/CL-002-L2_safety_rule_articles_331_333_assembly_drawing.json"
+      - "data/evidence/safety_law_refs/CL-002-L3_safety_rule_articles_334_337_concrete_pour.json"
+    engine_coverage: YES
+    notes: >
+      비계 점검표(CL-001)와 분리 관리. 본 서식은 거푸집 및 동바리 설치·사용 상태 확인 전용이며,
+      비계 점검은 CL-001 별도 서식으로 관리한다.
+      거푸집·동바리 작업계획서(WP-015) 및 구조검토서·조립도 원본을 대체하지 않음.
+      제328조~제337조 세부 조항 내용은 원문 API 미수집으로 PARTIAL_VERIFIED.
+      법령 개정 시 재검증 필요. builder v1.0.
+
+  - id: CL-003
+    name: 건설장비 일일 사전점검표
+    category: 점검표
+    category_code: CL
+    document_group: 점검표
+    legal_status: practical
+    implementation_status: DONE
+    priority: DONE
+    form_type: construction_equipment_daily_checklist
+    source_type: law
+    legal_basis: >
+      [차량계 건설기계] 산업안전보건기준에 관한 규칙 제196조~제199조 추정 (NEEDS_VERIFICATION — 조항번호 원문 미수집).
+      [차량계 하역운반기계등] 산업안전보건기준에 관한 규칙 제171조~제178조 추정 (PARTIAL_VERIFIED — WP-009 연계).
+      [지게차 세부] 산업안전보건기준에 관한 규칙 제179조~제183조 추정 (PARTIAL_VERIFIED — WP-009 연계).
+      제171조를 차량계 건설기계 근거로 적용하지 않음. 제179조는 지게차 세부 근거로만 사용.
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - CL-003-L1
+      - CL-003-L2
+      - CL-003-L3
+    evidence_file:
+      - "data/evidence/safety_law_refs/CL-003-L1_safety_rule_vehicle_construction_equipment.json"
+      - "data/evidence/safety_law_refs/CL-003-L2_safety_rule_material_handling_equipment_common.json"
+      - "data/evidence/safety_law_refs/CL-003-L3_safety_rule_forklift_specific.json"
+    engine_coverage: YES
+    notes: >
+      본 서식은 건설장비 일일 사전점검 전용이며, 작업계획서(WP-008/WP-009) 및 장비사용계획서(EQ-001/EQ-002)를 대체하지 않음.
+      타워크레인·이동식 크레인·비계·거푸집동바리 전용 점검은 별도 서식으로 관리.
+      차량계 건설기계와 차량계 하역운반기계 조항 분리 적용.
+      CL-003-L1(차량계 건설기계)은 원문 미수집으로 NEEDS_VERIFICATION 유지 필요.
+      지게차 점검 항목: 헤드가드, 백레스트, 좌석안전띠, 포크, 후진경보기·경광등·후방감지기 포함.
+      builder v1.0.
+
+  - id: CL-004
+    name: 전기설비 정기 점검표
+    category: 점검표
+    category_code: CL
+    document_group: 점검표
+    legal_status: practical
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제303조 이하"
+    notes: null
+
+  - id: CL-005
+    name: 화재 예방 점검표
+    category: 점검표
+    category_code: CL
+    document_group: 점검표
+    legal_status: practical
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제241조 이하"
+    notes: null
+
+  - id: CL-006
+    name: 타워크레인 자체 점검표
+    category: 점검표
+    category_code: CL
+    document_group: 점검표
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: tower_crane_self_inspection_checklist
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제142조~제146조 (타워크레인 전용 조항, 세부 조항번호 NEEDS_VERIFICATION)"
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - CL-006-L1
+      - CL-006-L2
+      - CL-006-L3
+    evidence_file:
+      - CL-006-L1_safety_rule_articles_142_145_tower_crane.json
+      - CL-006-L2_safety_rule_article_146_crane_work.json
+      - CL-006-L3_safety_rule_crane_inspection_common.json
+    notes: >
+      이번 구현 범위: 타워크레인 자체 점검표 (CL-006) — 타워크레인 전용.
+      이동식 크레인 점검표는 별도 문서로 관리 (본 서식으로 대체 불가).
+      제147조·제148조는 이동식 크레인 전용 조항으로 CL-006 근거에서 제외.
+      세부 조항번호(과부하방지, 권과방지, 브레이크, 와이어로프 기준 등)는
+      원문 수집 후 확정 예정. WP-006, EQ-003 상태 변경 없음.
+
+  - id: CL-007
+    name: 추락 방호 설비 점검표
+    category: 점검표
+    category_code: CL
+    document_group: 점검표
+    legal_status: practical
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제42조~제44조"
+    notes: null
+
+  - id: CL-008
+    name: 보호구 지급 및 관리 점검표
+    category: 점검표
+    category_code: CL
+    document_group: 점검표
+    legal_status: practical
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제32조 (보호구 지급 의무)"
+    notes: null
+
+  - id: CL-009
+    name: 유해화학물질 취급 점검표
+    category: 점검표
+    category_code: CL
+    document_group: 점검표
+    legal_status: practical
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제441조 이하"
+    notes: null
+
+  - id: CL-010
+    name: 밀폐공간 사전 안전 점검표
+    category: 점검표
+    category_code: CL
+    document_group: 점검표
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: confined_space_checklist
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제622조~제625조"
+    notes: "builder v1.0"
+
+  # ═══════════════════════════════════════════════════════════════
+  # PPE — 보호구·장비 반입 관리 (4종)
+  # ═══════════════════════════════════════════════════════════════
+
+  - id: PPE-001
+    name: 보호구 지급 대장
+    category: 보호구 관리
+    category_code: PPE
+    document_group: 보호구관리
+    legal_status: legal
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제32조"
+    notes: null
+
+  - id: PPE-002
+    name: 건설 장비 반입 신청서
+    category: 보호구 관리
+    category_code: PPE
+    document_group: 보호구관리
+    legal_status: practical
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: practical
+    legal_basis: null
+    notes: "법정 서식 없음. 원청 안전 관리 규정 기반"
+
+  - id: PPE-003
+    name: 건설 장비 보험·정기검사증 확인서
+    category: 보호구 관리
+    category_code: PPE
+    document_group: 보호구관리
+    legal_status: practical
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: law
+    legal_basis: "건설기계관리법, 산업안전보건법 제93조 (안전검사 의무)"
+    notes: null
+
+  - id: PPE-004
+    name: MSDS 비치 및 교육 확인서
+    category: 보호구 관리
+    category_code: PPE
+    document_group: 보호구관리
+    legal_status: legal
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제110조~제115조"
+    notes: null
+
+  # ═══════════════════════════════════════════════════════════════
+  # CM — 협력업체·근로자 관리 (7종)
+  # ═══════════════════════════════════════════════════════════════
+
+  - id: CM-001
+    name: 협력업체 안전보건 관련 서류 확인서
+    category: 협력업체 관리
+    category_code: CM
+    document_group: 협력업체관리
+    legal_status: practical
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제63조 (도급인 안전보건 조치 의무)"
+    notes: null
+
+  - id: CM-002
+    name: 도급·용역 안전보건 협의서
+    category: 협력업체 관리
+    category_code: CM
+    document_group: 협력업체관리
+    legal_status: legal
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제64조 (도급인·수급인 협의체 구성)"
+    notes: null
+
+  - id: CM-003
+    name: 근로자 건강진단 결과 확인서
+    category: 협력업체 관리
+    category_code: CM
+    document_group: 협력업체관리
+    legal_status: legal
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제129조~제131조, 시행규칙 제97조"
+    notes: null
+
+  - id: CM-004
+    name: 안전보건관리자 선임 신고서
+    category: 협력업체 관리
+    category_code: CM
+    document_group: 협력업체관리
+    legal_status: legal
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제17조~제19조, 시행규칙 제16조"
+    notes: null
+
+  - id: CM-005
+    name: 신규 근로자 안전보건 서약서
+    category: 협력업체 관리
+    category_code: CM
+    document_group: 협력업체관리
+    legal_status: practical
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: law
+    legal_basis: "중대재해처벌법 시행령 제4조 (안전보건 의무 부여)"
+    notes: null
+
+  - id: CM-006
+    name: 외국인 근로자 안전보건 교육 확인서
+    category: 협력업체 관리
+    category_code: CM
+    document_group: 협력업체관리
+    legal_status: practical
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제29조 (외국인 포함 교육 의무)"
+    notes: null
+
+  - id: CM-007
+    name: 산업재해 발생 현황 관리 대장
+    category: 협력업체 관리
+    category_code: CM
+    document_group: 협력업체관리
+    legal_status: legal
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제57조 (산업재해 기록·보존 의무), 시행규칙 제73조"
+    notes: null
+
+  # ═══════════════════════════════════════════════════════════════
+  # EM — 사고·비상대응 (6종)
+  # ═══════════════════════════════════════════════════════════════
+
+  - id: EM-001
+    name: 산업재해조사표
+    category: 사고 비상대응
+    category_code: EM
+    document_group: 비상대응
+    legal_status: legal
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제57조, 시행규칙 제73조, 별지 제30호서식"
+    notes: "발생 후 1개월 이내 제출 의무"
+
+  - id: EM-002
+    name: 아차사고 보고서
+    category: 사고 비상대응
+    category_code: EM
+    document_group: 비상대응
+    legal_status: practical
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "중대재해처벌법 시행령 제4조 (안전보건 개선 의무)"
+    notes: null
+
+  - id: EM-003
+    name: 비상 연락망 및 대피 계획서
+    category: 사고 비상대응
+    category_code: EM
+    document_group: 비상대응
+    legal_status: legal
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제14조 (비상구 및 대피), 제622조"
+    notes: null
+
+  - id: EM-004
+    name: 중대재해 발생 즉시 보고서
+    category: 사고 비상대응
+    category_code: EM
+    document_group: 비상대응
+    legal_status: legal
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제54조 (중대재해 발생 시 즉시 보고 의무)"
+    notes: "발생 후 24시간 이내 보고"
+
+  - id: EM-005
+    name: 재해 원인 분석 및 재발 방지 보고서
+    category: 사고 비상대응
+    category_code: EM
+    document_group: 비상대응
+    legal_status: practical
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제57조 제2항 (재발 방지 대책 수립 의무)"
+    notes: null
+
+  - id: EM-006
+    name: 응급조치 실시 기록서
+    category: 사고 비상대응
+    category_code: EM
+    document_group: 비상대응
+    legal_status: practical
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건기준에 관한 규칙 제14조"
+    notes: null
+
+  # ═══════════════════════════════════════════════════════════════
+  # TS — 공종별 특화 (5종)
+  # 주의: TS-001/002/003은 복합 대형 문서 — builder 범위 외 (OUT)
+  # ═══════════════════════════════════════════════════════════════
+
+  - id: TS-001
+    name: 유해위험방지계획서 (건설업)
+    category: 공종별 특화
+    category_code: TS
+    document_group: 공종별특화
+    legal_status: legal
+    implementation_status: OUT
+    priority: OUT
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제42조, 시행규칙 제42조~제52조, 별지 제22호서식"
+    notes: "복합 대형 문서. 공사금액 50억 이상. builder 범위 외"
+
+  - id: TS-002
+    name: 유해위험방지계획서 (제조업)
+    category: 공종별 특화
+    category_code: TS
+    document_group: 공종별특화
+    legal_status: legal
+    implementation_status: OUT
+    priority: OUT
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제42조, 시행규칙 제42조, 별지 제19호서식"
+    notes: "복합 대형 문서. builder 범위 외"
+
+  - id: TS-003
+    name: 공정안전보고서 (PSM)
+    category: 공종별 특화
+    category_code: TS
+    document_group: 공종별특화
+    legal_status: legal
+    implementation_status: OUT
+    priority: OUT
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제44조, 시행규칙 제50조 이하"
+    notes: "복합 패키지. PSM 대상 사업장 한정. Excel 단독 불가"
+
+  - id: TS-004
+    name: 산업안전보건관리비 사용계획서
+    category: 공종별 특화
+    category_code: TS
+    document_group: 공종별특화
+    legal_status: legal
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "건설업 산업안전보건관리비 계상 및 사용기준 고시, 별지 제102호서식"
+    notes: "건설 현장 집행 계획 및 정산용"
+
+  - id: TS-005
+    name: 석면 해체·제거 작업 계획서
+    category: 공종별 특화
+    category_code: TS
+    document_group: 공종별특화
+    legal_status: legal
+    implementation_status: TODO
+    priority: P2
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제119조, 시행규칙 제175조 이하"
+    notes: "건축물 철거 시 석면 함유 자재 제거"
+
+  # ═══════════════════════════════════════════════════════════════
+  # SP — 실무 보강 (4종)
+  # ═══════════════════════════════════════════════════════════════
+
+  - id: SP-001
+    name: 안전보건 방침 및 목표 게시문
+    category: 실무 보강
+    category_code: SP
+    document_group: 실무보강
+    legal_status: practical
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: law
+    legal_basis: "중대재해처벌법 시행령 제4조 제1호 (안전보건 목표·경영 방침 수립 의무)"
+    notes: null
+
+  - id: SP-002
+    name: 협력업체 안전보건 수준 평가표
+    category: 실무 보강
+    category_code: SP
+    document_group: 실무보강
+    legal_status: practical
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: law
+    legal_basis: "산업안전보건법 제63조, 중대재해처벌법 시행령 제4조 제9호"
+    notes: null
+
+  - id: SP-003
+    name: 위험성평가 우수 사례 보고서
+    category: 실무 보강
+    category_code: SP
+    document_group: 실무보강
+    legal_status: optional
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: practical
+    legal_basis: null
+    notes: "고용노동부 위험성평가 우수 사업장 인정 제도. 선택 서류"
+
+  - id: SP-004
+    name: 안전문화 활동 기록부
+    category: 실무 보강
+    category_code: SP
+    document_group: 실무보강
+    legal_status: optional
+    implementation_status: TODO
+    priority: P3
+    form_type: null
+    source_type: law
+    legal_basis: "중대재해처벌법 시행령 제4조 (안전보건관리체계 구축)"
+    notes: "선택 서류"
+
+  # ═══════════════════════════════════════════════════════════════
+  # HM — 보건관리 서류 (2종)
+  # 기준: 산업안전보건법 제125조 (작업환경측정), 제130조 (특수건강진단)
+  # evidence: G-02/G-03 (law.go.kr DRF API, VERIFIED 2026-04-24)
+  # ═══════════════════════════════════════════════════════════════
+
+  - id: HM-001
+    name: 작업환경측정 실시 및 결과 관리대장
+    category: 보건관리
+    category_code: HM
+    document_group: 보건관리
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: work_environment_measurement
+    source_type: law
+    legal_basis: "산업안전보건법 제125조 (작업환경측정 — 측정의무·기록보존·근로자 통지)"
+    evidence_status: VERIFIED
+    evidence_id: "G-02"
+    evidence_file: "data/evidence/safety_law_refs/G-02_industrial_safety_health_act_article_125.json"
+    engine_coverage: YES
+    retention_years: 3
+    notes: "외부 측정기관 발급 공식 결과보고서를 대체하지 않고, 측정 실시·결과·사후조치를 사업장이 자체 관리하는 관리대장 형태로 구현. 외부 전문 측정기관 발급 결과보고서 원본을 반드시 보관·첨부하여야 함. 법 제125조 원문 G-02 evidence VERIFIED(law.go.kr DRF API). 시행규칙(측정 대상 작업장·방법·주기·별표) 별도 evidence 수집 시 연결 필요. builder v1.0."
+
+  - id: HM-002
+    name: 특수건강진단 대상자 및 결과 관리대장
+    category: 보건관리
+    category_code: HM
+    document_group: 보건관리
+    legal_status: legal
+    implementation_status: DONE
+    priority: DONE
+    form_type: special_health_examination
+    source_type: law
+    legal_basis: "산업안전보건법 제130조 (특수건강진단 등 — 배치전·정기·수시), 시행규칙 제202조·제204조·제206조 (실시시기·배치전·검사항목), 별표 23·별표 24"
+    evidence_status: VERIFIED
+    evidence_id: "G-03"
+    evidence_file: "data/evidence/safety_law_refs/G-03_industrial_safety_health_act_article_130.json"
+    engine_coverage: YES
+    retention_years: 5
+    notes: "검진기관 발급 공식 건강진단 결과서를 대체하지 않고, 대상자·결과·사후관리를 사업장이 자체 관리하는 관리대장 형태로 구현. 외부 지정 검진기관 발급 결과서 원본을 별도 보관하여야 함. 구체적 질병명·주민등록번호 전체 등 민감정보 필드 제외. 법 제130조 원문 G-03 evidence VERIFIED(law.go.kr DRF API). 시행규칙 제202·204·206조 및 별표 23·24 evidence 수집 시 추가 연결 필요. builder v1.0."

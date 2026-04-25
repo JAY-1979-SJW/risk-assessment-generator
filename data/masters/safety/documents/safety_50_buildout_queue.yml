@@ -1,0 +1,820 @@
+# 안전서류 50개 빌드아웃 큐
+# 기준: document_catalog.yml v2.2 (93종) + audit_safety_gap.py Top-20
+# 작성일: 2026-04-25
+# 원칙:
+#   - document_id는 catalog 기준. catalog에 없는 audit-only 항목은 audit_no 사용
+#   - implementation_status/evidence_status는 catalog 현재값 그대로 기재
+#   - 임의 법령근거·ID 생성 금지
+#   - catalog에 없는 항목은 recommended_group: manual_review 분류
+
+_meta:
+  version: "1.0"
+  total_items: 50
+  last_updated: "2026-04-25"
+  source_catalog: "document_catalog.yml v2.2"
+  source_audit: "audit_safety_gap.py v3.0 (Top-20 기준)"
+  note: "DONE(19) + BATCH-2 P1(11) + BATCH-3 P2/P3(10) + manual_review(10) = 50"
+
+queue:
+
+  # ─────────────────────────────────────────────────────────────────────
+  # BATCH-1: 구현 완료 (DONE) — 19건
+  # ─────────────────────────────────────────────────────────────────────
+
+  - batch_no: 1
+    order: 1
+    document_id: WP-001
+    document_name: 굴착 작업계획서
+    category: WP
+    priority: DONE
+    legal_type: legal
+    current_implementation_status: DONE
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: excavation_workplan
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: done
+    risk_note: null
+
+  - batch_no: 1
+    order: 2
+    document_id: WP-006
+    document_name: 타워크레인 작업계획서
+    category: WP
+    priority: DONE
+    legal_type: legal
+    current_implementation_status: DONE
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: tower_crane_workplan
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: done
+    risk_note: null
+
+  - batch_no: 1
+    order: 3
+    document_id: WP-007
+    document_name: 이동식 크레인 작업계획서
+    category: WP
+    priority: DONE
+    legal_type: legal
+    current_implementation_status: DONE
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: mobile_crane_workplan
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: done
+    risk_note: null
+
+  - batch_no: 1
+    order: 4
+    document_id: WP-008
+    document_name: 차량계 건설기계 작업계획서
+    category: WP
+    priority: DONE
+    legal_type: legal
+    current_implementation_status: DONE
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: vehicle_construction_workplan
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: done
+    risk_note: null
+
+  - batch_no: 1
+    order: 5
+    document_id: WP-009
+    document_name: 차량계 하역운반기계 작업계획서
+    category: WP
+    priority: DONE
+    legal_type: legal
+    current_implementation_status: DONE
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: material_handling_workplan
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: done
+    risk_note: null
+
+  - batch_no: 1
+    order: 6
+    document_id: WP-014
+    document_name: 밀폐공간 작업계획서
+    category: WP
+    priority: DONE
+    legal_type: legal
+    current_implementation_status: DONE
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: confined_space_workplan
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: done
+    risk_note: null
+
+  - batch_no: 1
+    order: 7
+    document_id: WP-015
+    document_name: 거푸집·동바리 작업계획서
+    category: WP
+    priority: DONE
+    legal_type: legal
+    current_implementation_status: DONE
+    current_evidence_status: PARTIAL_VERIFIED
+    expected_form_type: formwork_shoring_workplan
+    builder_strategy: unique_builder
+    complexity: high
+    recommended_group: done
+    risk_note: "제38조 별표4 포함 여부 PARTIAL_VERIFIED. 구조검토서·조립도 원본 첨부 확인 필드만 포함. 구조계산 생성 불가."
+
+  - batch_no: 1
+    order: 8
+    document_id: EQ-001
+    document_name: 차량계 하역운반기계 작업계획서 (장비특화)
+    category: EQ
+    priority: DONE
+    legal_type: legal
+    current_implementation_status: DONE
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: material_handling_workplan
+    builder_strategy: "reuse_existing:material_handling_workplan"
+    complexity: low
+    recommended_group: done
+    risk_note: "WP-009 builder 재사용"
+
+  - batch_no: 1
+    order: 9
+    document_id: EQ-002
+    document_name: 차량계 건설기계 작업계획서 (장비특화)
+    category: EQ
+    priority: DONE
+    legal_type: legal
+    current_implementation_status: DONE
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: vehicle_construction_workplan
+    builder_strategy: "reuse_existing:vehicle_construction_workplan"
+    complexity: low
+    recommended_group: done
+    risk_note: "WP-008 builder 재사용"
+
+  - batch_no: 1
+    order: 10
+    document_id: EQ-003
+    document_name: 타워크레인 작업계획서 (장비특화)
+    category: EQ
+    priority: DONE
+    legal_type: legal
+    current_implementation_status: DONE
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: tower_crane_workplan
+    builder_strategy: "reuse_existing:tower_crane_workplan"
+    complexity: low
+    recommended_group: done
+    risk_note: "WP-006 builder 재사용"
+
+  - batch_no: 1
+    order: 11
+    document_id: EQ-004
+    document_name: 이동식 크레인·카고크레인 작업계획서 (장비특화)
+    category: EQ
+    priority: DONE
+    legal_type: legal
+    current_implementation_status: DONE
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: mobile_crane_workplan
+    builder_strategy: "reuse_existing:mobile_crane_workplan"
+    complexity: low
+    recommended_group: done
+    risk_note: "WP-007 builder 재사용"
+
+  - batch_no: 1
+    order: 12
+    document_id: RA-001
+    document_name: 위험성평가표
+    category: RA
+    priority: DONE
+    legal_type: legal
+    current_implementation_status: DONE
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: risk_assessment
+    builder_strategy: unique_builder
+    complexity: high
+    recommended_group: done
+    risk_note: null
+
+  - batch_no: 1
+    order: 13
+    document_id: RA-004
+    document_name: TBM(안전점검회의) 일지
+    category: RA
+    priority: DONE
+    legal_type: practical
+    current_implementation_status: DONE
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: tbm_log
+    builder_strategy: unique_builder
+    complexity: low
+    recommended_group: done
+    risk_note: null
+
+  - batch_no: 1
+    order: 14
+    document_id: ED-001
+    document_name: 안전보건교육 교육일지
+    category: ED
+    priority: DONE
+    legal_type: legal
+    current_implementation_status: DONE
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: education_log
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: done
+    risk_note: null
+
+  - batch_no: 1
+    order: 15
+    document_id: ED-003
+    document_name: 특별 안전보건교육 교육일지
+    category: ED
+    priority: DONE
+    legal_type: legal
+    current_implementation_status: DONE
+    current_evidence_status: VERIFIED
+    expected_form_type: special_education_log
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: done
+    risk_note: null
+
+  - batch_no: 1
+    order: 16
+    document_id: PTW-001
+    document_name: 밀폐공간 작업 허가서
+    category: PTW
+    priority: DONE
+    legal_type: legal
+    current_implementation_status: DONE
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: confined_space_permit
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: done
+    risk_note: null
+
+  - batch_no: 1
+    order: 17
+    document_id: CL-010
+    document_name: 밀폐공간 사전 안전 점검표
+    category: CL
+    priority: DONE
+    legal_type: legal
+    current_implementation_status: DONE
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: confined_space_checklist
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: done
+    risk_note: null
+
+  - batch_no: 1
+    order: 18
+    document_id: HM-001
+    document_name: 작업환경측정 결과보고서
+    category: HM
+    priority: DONE
+    legal_type: legal
+    current_implementation_status: DONE
+    current_evidence_status: VERIFIED
+    expected_form_type: work_environment_measurement
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: done
+    risk_note: "산안법 제125조 원문 VERIFIED. P0 해소 완료."
+
+  - batch_no: 1
+    order: 19
+    document_id: HM-002
+    document_name: 특수건강진단 결과 관리 대장
+    category: HM
+    priority: DONE
+    legal_type: legal
+    current_implementation_status: DONE
+    current_evidence_status: VERIFIED
+    expected_form_type: special_health_examination
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: done
+    risk_note: "산안법 제130조 원문 VERIFIED. P0 해소 완료."
+
+  # ─────────────────────────────────────────────────────────────────────
+  # BATCH-2: 다음 구현 후보 P1 (catalog 기준) — 11건
+  # ─────────────────────────────────────────────────────────────────────
+
+  - batch_no: 2
+    order: 20
+    document_id: ED-004
+    document_name: 안전보건관리자 직무교육 이수 확인서
+    category: ED
+    priority: P3
+    legal_type: legal
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: manager_job_training_record
+    builder_strategy: integrated_builder_with_role_select
+    complexity: medium
+    recommended_group: batch-2-next
+    risk_note: >
+      audit D-02/D-03/D-04 (P1) 해소를 위해 ED-004 단일 builder + 역할 선택 필드 구현 권고 (C안).
+      구현 시 training_types.yml에 EDU_SAFETY_MANAGER_DUTY, EDU_HEALTH_MANAGER_DUTY,
+      EDU_RESP_MANAGER_DUTY 3종 동시 등록 필요.
+      catalog priority는 P3이나 audit에서 D-02~D-04 P1로 분류됨.
+      산안법 제32조, 시행규칙 제40조 — 법령 원문 재확인 필요.
+
+  - batch_no: 2
+    order: 21
+    document_id: CL-001
+    document_name: 비계·동바리 설치 점검표
+    category: CL
+    priority: P1
+    legal_type: legal
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: scaffolding_shoring_checklist
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: batch-2-next
+    risk_note: "E-09 INSP_SCAFF_AFTER_ASSEMBLY (P1) 해소와 연계. inspection_types.yml 등록도 병행 필요."
+
+  - batch_no: 2
+    order: 22
+    document_id: RA-002
+    document_name: 위험성평가 등록부
+    category: RA
+    priority: P1
+    legal_type: legal
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: risk_assessment_register
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: batch-2-next
+    risk_note: null
+
+  - batch_no: 2
+    order: 23
+    document_id: PTW-002
+    document_name: 화기작업 허가서
+    category: PTW
+    priority: P1
+    legal_type: practical
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: hot_work_permit
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: batch-2-next
+    risk_note: "PSM 사업장 법정 필수. 일반 현장 실무 필수."
+
+  - batch_no: 2
+    order: 24
+    document_id: PTW-003
+    document_name: 고소작업 허가서
+    category: PTW
+    priority: P1
+    legal_type: practical
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: working_at_height_permit
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: batch-2-next
+    risk_note: null
+
+  - batch_no: 2
+    order: 25
+    document_id: PTW-007
+    document_name: 중량물 취급 작업 허가서
+    category: PTW
+    priority: P1
+    legal_type: legal
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: heavy_lift_permit
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: batch-2-next
+    risk_note: null
+
+  - batch_no: 2
+    order: 26
+    document_id: WP-002
+    document_name: 터널 굴착 작업계획서
+    category: WP
+    priority: P1
+    legal_type: legal
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: tunnel_excavation_workplan
+    builder_strategy: unique_builder
+    complexity: high
+    recommended_group: batch-2-next
+    risk_note: "터널공사 한정. 법령 원문 확인 후 구현."
+
+  - batch_no: 2
+    order: 27
+    document_id: WP-003
+    document_name: 건축물 해체 작업계획서
+    category: WP
+    priority: P1
+    legal_type: legal
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: demolition_workplan
+    builder_strategy: unique_builder
+    complexity: high
+    recommended_group: batch-2-next
+    risk_note: "해체공사 한정."
+
+  - batch_no: 2
+    order: 28
+    document_id: WP-005
+    document_name: 중량물 취급 작업계획서
+    category: WP
+    priority: P1
+    legal_type: legal
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: heavy_lift_workplan
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: batch-2-next
+    risk_note: "총 중량 100kg 이상."
+
+  - batch_no: 2
+    order: 29
+    document_id: WP-010
+    document_name: 항타기·항발기 사용 작업계획서
+    category: WP
+    priority: P1
+    legal_type: legal
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: pile_driver_workplan
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: batch-2-next
+    risk_note: null
+
+  - batch_no: 2
+    order: 30
+    document_id: WP-011
+    document_name: 전기 작업계획서
+    category: WP
+    priority: P1
+    legal_type: legal
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: electrical_workplan
+    builder_strategy: unique_builder
+    complexity: high
+    recommended_group: batch-2-next
+    risk_note: "법령 제301조 이하 원문 확인 필요."
+
+  # ─────────────────────────────────────────────────────────────────────
+  # BATCH-3: P2/P3 후보 (catalog 기준) — 10건
+  # ─────────────────────────────────────────────────────────────────────
+
+  - batch_no: 3
+    order: 31
+    document_id: EQ-005
+    document_name: 고소작업대 사용계획서
+    category: EQ
+    priority: P1
+    legal_type: practical
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: aerial_work_platform_plan
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: batch-3
+    risk_note: "스카이차·붐리프트·시저리프트 포함."
+
+  - batch_no: 3
+    order: 32
+    document_id: CL-002
+    document_name: 거푸집 동바리 설치 점검표
+    category: CL
+    priority: P2
+    legal_type: legal
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: formwork_installation_checklist
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: batch-3
+    risk_note: "WP-015 작업계획서와 보완 관계. 점검 단계 서류."
+
+  - batch_no: 3
+    order: 33
+    document_id: CL-003
+    document_name: 건설 장비 일일 사전 점검표
+    category: CL
+    priority: P1
+    legal_type: practical
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: equipment_daily_checklist
+    builder_strategy: unique_builder
+    complexity: low
+    recommended_group: batch-3
+    risk_note: null
+
+  - batch_no: 3
+    order: 34
+    document_id: PTW-004
+    document_name: 전기작업 허가서
+    category: PTW
+    priority: P2
+    legal_type: legal
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: electrical_work_permit
+    builder_strategy: unique_builder
+    complexity: medium
+    recommended_group: batch-3
+    risk_note: null
+
+  - batch_no: 3
+    order: 35
+    document_id: RA-003
+    document_name: 위험성평가 회의록
+    category: RA
+    priority: P2
+    legal_type: legal
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: risk_assessment_meeting_minutes
+    builder_strategy: unique_builder
+    complexity: low
+    recommended_group: batch-3
+    risk_note: null
+
+  - batch_no: 3
+    order: 36
+    document_id: ED-002
+    document_name: 연간 안전보건교육 계획서
+    category: ED
+    priority: P2
+    legal_type: practical
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: annual_safety_training_plan
+    builder_strategy: unique_builder
+    complexity: low
+    recommended_group: batch-3
+    risk_note: "법정 서식 없음. 연간 계획 수립용."
+
+  - batch_no: 3
+    order: 37
+    document_id: ED-005
+    document_name: 안전보건협의체 회의록
+    category: ED
+    priority: P2
+    legal_type: legal
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: safety_committee_minutes
+    builder_strategy: unique_builder
+    complexity: low
+    recommended_group: batch-3
+    risk_note: "상시근로자 100인 이상 사업장 분기 1회."
+
+  - batch_no: 3
+    order: 38
+    document_id: PPE-001
+    document_name: 보호구 지급 대장
+    category: PPE
+    priority: P2
+    legal_type: legal
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: ppe_distribution_register
+    builder_strategy: unique_builder
+    complexity: low
+    recommended_group: batch-3
+    risk_note: null
+
+  - batch_no: 3
+    order: 39
+    document_id: WP-004
+    document_name: 교량 설치·해체·변경 작업계획서
+    category: WP
+    priority: P2
+    legal_type: legal
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: bridge_workplan
+    builder_strategy: unique_builder
+    complexity: high
+    recommended_group: batch-3
+    risk_note: "교량공사 한정."
+
+  - batch_no: 3
+    order: 40
+    document_id: WP-013
+    document_name: 화학설비·부속설비 작업계획서
+    category: WP
+    priority: P2
+    legal_type: legal
+    current_implementation_status: TODO
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: chemical_plant_workplan
+    builder_strategy: unique_builder
+    complexity: high
+    recommended_group: batch-3
+    risk_note: "화학·석유화학 한정. PSM 사업장 연계."
+
+  # ─────────────────────────────────────────────────────────────────────
+  # MANUAL_REVIEW: audit Top-20 후보 중 catalog 미등록 항목 — 10건
+  # catalog에 추가하기 전 법령 확인 및 등록 방식 검토 필요
+  # ─────────────────────────────────────────────────────────────────────
+
+  - batch_no: 4
+    order: 41
+    document_id: null
+    audit_no: D-02
+    document_name: 안전관리자 직무교육 (EDU_SAFETY_MANAGER_DUTY)
+    category: training_type
+    priority: P1
+    legal_type: legal
+    current_implementation_status: MISSING
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: null
+    builder_strategy: training_type_only
+    complexity: low
+    recommended_group: manual_review
+    risk_note: >
+      training_types.yml에 EDU_SAFETY_MANAGER_DUTY 등록이 목표.
+      catalog 문서는 ED-004(안전보건관리자 직무교육 이수 확인서) 참조.
+      산안법 제17조 원문 확인 필요. builder가 아닌 마스터 등록 작업.
+
+  - batch_no: 4
+    order: 42
+    document_id: null
+    audit_no: D-03
+    document_name: 보건관리자 직무교육 (EDU_HEALTH_MANAGER_DUTY)
+    category: training_type
+    priority: P1
+    legal_type: legal
+    current_implementation_status: MISSING
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: null
+    builder_strategy: training_type_only
+    complexity: low
+    recommended_group: manual_review
+    risk_note: >
+      training_types.yml에 EDU_HEALTH_MANAGER_DUTY 등록이 목표.
+      산안법 제18조 원문 확인 필요. ED-004와 연계.
+
+  - batch_no: 4
+    order: 43
+    document_id: null
+    audit_no: D-04
+    document_name: 안전보건관리책임자 교육 (EDU_RESP_MANAGER_DUTY)
+    category: training_type
+    priority: P1
+    legal_type: legal
+    current_implementation_status: MISSING
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: null
+    builder_strategy: training_type_only
+    complexity: low
+    recommended_group: manual_review
+    risk_note: >
+      training_types.yml에 EDU_RESP_MANAGER_DUTY 등록이 목표.
+      산안법 제15조 원문 확인 필요. ED-004와 연계.
+
+  - batch_no: 4
+    order: 44
+    document_id: null
+    audit_no: E-09
+    document_name: 비계 조립 후 점검 (INSP_SCAFF_AFTER_ASSEMBLY)
+    category: inspection_type
+    priority: P1
+    legal_type: legal
+    current_implementation_status: MISSING
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: null
+    builder_strategy: inspection_type_only
+    complexity: low
+    recommended_group: manual_review
+    risk_note: >
+      inspection_types.yml에 INSP_SCAFF_AFTER_ASSEMBLY 등록이 목표.
+      equipment_inspection_requirements에 EQ_SCAFF, EQ_SYST_SCAFF 연결 필요.
+      CL-001 builder 구현과 병행 권고. 산안규칙 제59조 원문 확인 필요.
+
+  - batch_no: 4
+    order: 45
+    document_id: null
+    audit_no: G-04
+    document_name: 유해인자 노출 근로자 관리 대장
+    category: HM_candidate
+    priority: P1
+    legal_type: legal
+    current_implementation_status: MISSING
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: null
+    builder_strategy: catalog_entry_then_builder
+    complexity: medium
+    recommended_group: manual_review
+    risk_note: >
+      catalog HM 카테고리에 신규 등록 후 builder 구현 순서.
+      법령 확인 후 ID(HM-003 예상) 부여. 임의 ID 생성 금지.
+
+  - batch_no: 4
+    order: 46
+    document_id: null
+    audit_no: G-05
+    document_name: 온열질환 예방 관리 기록
+    category: HM_candidate
+    priority: P1
+    legal_type: practical
+    current_implementation_status: MISSING
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: null
+    builder_strategy: catalog_entry_then_builder
+    complexity: low
+    recommended_group: manual_review
+    risk_note: >
+      KOSHA 가이드 기반. 법정 서식 여부 불명확.
+      catalog 등록 전 KOSHA 가이드 원문 확인 필요.
+
+  - batch_no: 4
+    order: 47
+    document_id: null
+    audit_no: J-06
+    document_name: 혼재작업 조정 기록
+    category: CM_candidate
+    priority: P1
+    legal_type: legal
+    current_implementation_status: MISSING
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: null
+    builder_strategy: catalog_entry_then_builder
+    complexity: medium
+    recommended_group: manual_review
+    risk_note: >
+      catalog CM 카테고리에 신규 등록 후 builder 구현 순서.
+      산안법 제63조 원문 확인 필요.
+
+  - batch_no: 4
+    order: 48
+    document_id: null
+    audit_no: K-08
+    document_name: 비상대응 훈련 기록
+    category: EM_candidate
+    priority: P1
+    legal_type: legal
+    current_implementation_status: MISSING
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: null
+    builder_strategy: catalog_entry_then_builder
+    complexity: medium
+    recommended_group: manual_review
+    risk_note: >
+      catalog EM 카테고리에 신규 등록 필요. 중대재해처벌법 시행령 확인 필요.
+
+  - batch_no: 4
+    order: 49
+    document_id: null
+    audit_no: L-09
+    document_name: 노동부 점검 대응 체크리스트
+    category: CL_candidate
+    priority: P1
+    legal_type: practical
+    current_implementation_status: MISSING
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: null
+    builder_strategy: catalog_entry_then_builder
+    complexity: low
+    recommended_group: manual_review
+    risk_note: >
+      실무 관행 기반. 법정 서식 없음. catalog CL 카테고리 등록 후 builder 구현.
+
+  - batch_no: 4
+    order: 50
+    document_id: null
+    audit_no: B-08
+    document_name: 잔여위험 관리 기록
+    category: RA_candidate
+    priority: P2
+    legal_type: legal
+    current_implementation_status: MISSING
+    current_evidence_status: NEEDS_VERIFICATION
+    expected_form_type: null
+    builder_strategy: catalog_entry_then_builder
+    complexity: medium
+    recommended_group: manual_review
+    risk_note: >
+      catalog RA 카테고리에 신규 등록 필요. RA-001 위험성평가 후 잔여위험 관리 트리거.
+      법령 근거 검토 필요.

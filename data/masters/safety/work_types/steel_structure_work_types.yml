@@ -1,0 +1,137 @@
+# 철골 공종 프리셋 — skeleton
+# 버전: 0.1 (skeleton)
+# 작성일: 2026-04-25
+
+_meta:
+  version: "0.1"
+  trade_group: 철골
+  status: SKELETON
+  total: 4
+  last_updated: "2026-04-25"
+  note: 철골 공종 상세 데이터는 다음 단계에서 작성.
+
+trades:
+
+  - trade_id: STEEL_ERECTION
+    trade_name: 철골 세우기 작업
+    trade_group: 철골
+    description: 기둥·보·브레이싱 등 철골 구조재 세우기 및 인양 작업
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - HEAVY_LIFTING
+      - FALLING_OBJECT
+      - STRUCK_BY_EQUIPMENT
+    required_documents:
+      - RA-001
+      - RA-004
+    recommended_documents:
+      - ED-003
+      - WP-007
+      - PTW-003
+      - PTW-007
+    required_trainings:
+      - EDU_TBM
+    required_permits:
+      - PTW-003
+      - PTW-007
+    common_equipment: []
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - safety_gloves
+      - safety_shoes
+    source_status: NEEDS_VERIFICATION
+    notes: skeleton — 상세 데이터 입력 필요
+
+  - trade_id: STEEL_BOLTING
+    trade_name: 철골 볼트 조임 작업
+    trade_group: 철골
+    description: 고력볼트(TS볼트·HTB볼트) 조임 및 검사 작업
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - FALLING_OBJECT
+    required_documents:
+      - RA-001
+      - RA-004
+    recommended_documents:
+      - ED-003
+      - PTW-003
+    required_trainings:
+      - EDU_TBM
+    required_permits:
+      - PTW-003
+    common_equipment: []
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - safety_gloves
+      - safety_shoes
+    source_status: NEEDS_VERIFICATION
+    notes: skeleton — 상세 데이터 입력 필요
+
+  - trade_id: STEEL_WELDING
+    trade_name: 철골 용접 작업
+    trade_group: 철골
+    description: 철골 본 용접·보조 용접 및 현장 용접 작업
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - HOT_WORK_FIRE
+      - ARC_FLASH
+      - FALLING_OBJECT
+    required_documents:
+      - RA-001
+      - RA-004
+      - PTW-002
+    recommended_documents:
+      - ED-003
+      - PTW-003
+      - EQ-014
+    required_trainings:
+      - EDU_TBM
+    required_permits:
+      - PTW-002
+      - PTW-003
+    common_equipment: []
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - welding_face_shield
+      - welding_gloves
+      - safety_shoes
+    source_status: NEEDS_VERIFICATION
+    notes: skeleton — 상세 데이터 입력 필요
+
+  - trade_id: STEEL_DECKING
+    trade_name: 데크플레이트 설치
+    trade_group: 철골
+    description: 합성데크·거푸집데크 설치 및 스터드볼트 용접 작업
+    enabled: true
+    priority: 2
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - CUT_GRINDING
+      - FALLING_OBJECT
+    required_documents:
+      - RA-001
+      - RA-004
+    recommended_documents:
+      - ED-003
+      - PTW-003
+    required_trainings:
+      - EDU_TBM
+    required_permits:
+      - PTW-003
+    common_equipment: []
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - cut_resistant_gloves
+      - safety_shoes
+    source_status: NEEDS_VERIFICATION
+    notes: skeleton — 상세 데이터 입력 필요
