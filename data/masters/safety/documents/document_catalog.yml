@@ -639,12 +639,35 @@ documents:
     category_code: PTW
     document_group: 작업허가서
     legal_status: practical
-    implementation_status: TODO
-    priority: P1
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: hot_work_permit
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제241조~제252조"
-    notes: "PSM 사업장 법정 필수. 일반 현장 실무필수"
+    legal_basis: "산업안전보건기준에 관한 규칙 제236조, 제240조, 제241조, 제241조의2, 제243조, 제244조 / KOSHA GUIDE P-94-2021 참고"
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - "PTW-002-L1"
+      - "PTW-002-L2"
+      - "PTW-002-L3"
+      - "PTW-002-L4"
+      - "PTW-002-K1"
+      - "PTW-002-K2"
+    evidence_file:
+      - "data/evidence/safety_law_refs/PTW-002-L1_safety_rule_article_236_fire_risk_work.json"
+      - "data/evidence/safety_law_refs/PTW-002-L2_safety_rule_article_241_hot_work_measures.json"
+      - "data/evidence/safety_law_refs/PTW-002-L3_safety_rule_article_241_2_fire_watch.json"
+      - "data/evidence/safety_law_refs/PTW-002-L4_safety_rule_articles_243_244_fire_extinguishing.json"
+      - "data/evidence/safety_law_refs/PTW-002-K1_kosha_p_94_2021_hot_work_permit.json"
+      - "data/evidence/safety_law_refs/PTW-002-K2_kosha_f_1_2023_welding_cutting_fire_prevention.json"
+    engine_coverage: YES
+    retention_years: 3
+    notes: >
+      법정 별지 서식 없음. 제241조 제4항 서면 게시 의무 이행 양식.
+      KOSHA GUIDE P-94-2021 별지 양식1 참고, 법령 의무 항목 기반 자체 표준 서식.
+      화재감시자 배치는 조건부 판단(용접·용단+11m 반경 가연성물질) — 무조건 필수 아님.
+      법정 안전보건교육 수료증 대체 불가. 허가서 섹션 13개.
+      법령 조항(L1~L4) PARTIAL_VERIFIED, KOSHA 원문(K1~K2) NEEDS_VERIFICATION.
+      원문 API 수집 후 VERIFIED 전환 필요. builder v1.0.
 
   - id: PTW-003
     name: 고소작업 허가서
@@ -652,12 +675,45 @@ documents:
     category_code: PTW
     document_group: 작업허가서
     legal_status: practical
-    implementation_status: TODO
-    priority: P1
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: work_at_height_permit
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제42조 (추락 방호조치)"
-    notes: "2m 이상 고소 작업 원청 요구"
+    legal_basis: >
+      산업안전보건기준에 관한 규칙 제37조, 제42조~제45조, 제57조~제58조, 제186조
+      / KOSHA GUIDE P-94-2021, C-74-2015, M-155-2023 참고
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - "PTW-003-L1"
+      - "PTW-003-L2"
+      - "PTW-003-L3"
+      - "PTW-003-L4"
+      - "PTW-003-K1"
+      - "PTW-003-K2"
+      - "PTW-003-K3"
+    evidence_file:
+      - "data/evidence/safety_law_refs/PTW-003-L1_safety_rule_article_37_weather_stop.json"
+      - "data/evidence/safety_law_refs/PTW-003-L2_safety_rule_articles_42_45_fall_prevention.json"
+      - "data/evidence/safety_law_refs/PTW-003-L3_safety_rule_article_57_scaffold_supervision.json"
+      - "data/evidence/safety_law_refs/PTW-003-L4_safety_rule_articles_86_plus_aerial_work_platform.json"
+      - "data/evidence/safety_law_refs/PTW-003-K1_kosha_p_94_2021_work_permit.json"
+      - "data/evidence/safety_law_refs/PTW-003-K2_kosha_c_74_2015_aerial_work_platform.json"
+      - "data/evidence/safety_law_refs/PTW-003-K3_kosha_m_155_2023_mobile_aerial_work_platform.json"
+    engine_coverage: YES
+    retention_years: 3
+    notes: >
+      법정 별지 서식 없음. 자체 표준서식.
+      법령 제42조~제44조 안전조치 이행 확인 양식 + KOSHA P-94-2021 참고.
+      비계 작업: CL-001 비계 설치 점검표와 병행 확인.
+      고소작업대: CL-003 건설장비 일일 사전점검표와 병행 확인.
+      사다리·독립형 작업발판: PTW-003 단독 확인 범위.
+      사진 OPTIONAL — 법정 필수 고정항목 아님.
+      법정 안전보건교육 수료증 대체 불가.
+      L1~L4 법령 조항 원문 API 수집 완료 → PARTIAL_VERIFIED 전환.
+      K1~K3 KOSHA 원문 PDF 미수집 → NEEDS_VERIFICATION 유지.
+      제86조 오류 수정: 고소작업대 조항은 제186조 (제86조는 탑승의 제한 조항).
+      제57조 이하 → 제57조~제58조로 특정.
+      법령 개정 시 재검증 필요. builder v1.0.
 
   - id: PTW-004
     name: 전기작업 허가서

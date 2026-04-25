@@ -1,0 +1,17 @@
+{
+  "evidence_id": "PTW-003-K1",
+  "document_id": "PTW-003",
+  "source_type": "KOSHA_GUIDE",
+  "guide_no": "P-94-2021",
+  "guide_title": "안전작업허가지침",
+  "publisher": "한국산업안전보건공단 (KOSHA)",
+  "published_date": "2021-12",
+  "source_url": "https://kosha.or.kr/extappKosha/kosha/guidance/fileDownload.do?sfhlhTchnlgyManualNo=P-94-2021&fileOrdrNo=2",
+  "collection_method": "kosha.or.kr 공식 검색 결과로 guide_no·guide_title·발행일 메타 확인 완료. PDF 원문 본문 미수집.",
+  "verification_result": "NEEDS_VERIFICATION",
+  "collected_at": "2026-04-25",
+  "guide_summary": "화기·밀폐공간·전기·고소 등 유해위험작업 전반에 걸친 안전작업허가 체계 규정. 고소작업 포함. 허가 절차: 신청→확인·점검(전문지식자 서명)→승인(책임자)→현장게시→입회. 허가 유효기간 1일 8시간 이내. 별지 양식 수록 가능성 높음(원문 미확인).",
+  "ptw_003_relevance": "PTW-003 고소작업 허가서의 구현 참고 기준. 허가 절차(신청→확인→승인→게시) 구조 참고. 법령 의무 항목과 KOSHA 권고 항목을 분리하여 적용.",
+  "legal_status": "권고 기술기준 (법적 의무 아님). PSM 사업장 적용 강조. 일반 건설현장 실무 필수.",
+  "notes": "2026-04-25 kosha.or.kr 웹 검색으로 guide_no·guide_title·published_date 메타 정보 공식 확인 완료. PDF 원문 본문 미수집 — NEEDS_VERIFICATION 유지. KOSHA GUIDE는 법령과 분리하여 권고 항목으로만 적용. 원문 확인 후 재검증 필요."
+}

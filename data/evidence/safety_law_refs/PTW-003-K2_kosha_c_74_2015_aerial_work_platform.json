@@ -1,0 +1,17 @@
+{
+  "evidence_id": "PTW-003-K2",
+  "document_id": "PTW-003",
+  "source_type": "KOSHA_GUIDE",
+  "guide_no": "C-74-2015",
+  "guide_title": "건설공사의 고소작업대 안전보건작업지침",
+  "publisher": "한국산업안전보건공단 (KOSHA)",
+  "published_date": "2015-06",
+  "source_url": "https://kosha.or.kr/extappKosha/kosha/guidance/fileDownload.do?sfhlhTchnlgyManualNo=C-74-2015&fileOrdrNo=3",
+  "collection_method": "kosha.or.kr 공식 검색 결과로 guide_no·guide_title·발행일 메타 확인 완료. PDF 원문 본문 미수집.",
+  "verification_result": "NEEDS_VERIFICATION",
+  "collected_at": "2026-04-25",
+  "guide_summary": "건설현장 고소작업대(스카이차·붐리프트·시저리프트) 안전보건 작업 기준. 아웃트리거 설치 기준, 작업대 난간 상태, 비상하강장치, 비상정지장치, 정격하중, 지반 침하 위험, 운전자 자격 항목 포함 가능성 높음(원문 미확인).",
+  "ptw_003_relevance": "PTW-003 섹션 7(고소작업대 확인) 체크 항목의 KOSHA 권고 기준 근거. 건설공사 고소작업대 전용 세부 기준으로 법령 제186조를 보완.",
+  "legal_status": "권고 기술기준 (법적 의무 아님). 건설업 고소작업대 실무 적용 기준.",
+  "notes": "2026-04-25 kosha.or.kr 웹 검색으로 guide_no·guide_title·published_date 메타 정보 공식 확인 완료. PDF 원문 본문 미수집 — NEEDS_VERIFICATION 유지. 참조 조항 오류 수정: 제86조 이하 → 제186조. EQ-005 고소작업대 사용계획서 구현 시 재참조 필요."
+}

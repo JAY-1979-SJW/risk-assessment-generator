@@ -1,0 +1,18 @@
+{
+  "evidence_id": "PTW-003-L1",
+  "document_id": "PTW-003",
+  "source_type": "LAW",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "mst_no": "273603",
+  "article_no": "제37조",
+  "article_title": "악천후 및 강풍 시 작업 중지",
+  "enforcement_date": "2025-09-01",
+  "source_url": "https://www.law.go.kr/법령/산업안전보건기준에관한규칙",
+  "collection_method": "law.go.kr DRF API (MST=273603, 조문번호=37) 원문 수집 완료",
+  "verification_result": "PARTIAL_VERIFIED",
+  "collected_at": "2026-04-25",
+  "article_summary": "① 사업주는 비·눈·바람 또는 그 밖의 기상상태 불안정으로 근로자가 위험해질 우려가 있는 경우 작업 중지 의무. ② 타워크레인 전용: 순간풍속 초당 10m 초과 시 설치·수리·점검·해체 작업 중지; 순간풍속 초당 15m 초과 시 운전 작업 중지. ※ 비계·고소작업대 전용 풍속 수치 기준은 이 조항에 없음. ①항의 일반 기상조건 불안정 시 작업 중지 의무가 고소작업에 적용되는 근거.",
+  "ptw_003_relevance": "PTW-003 섹션 4(작업장소 및 추락위험 확인) 기상조건 확인 항목 및 섹션 5(작업 전 안전조치) 기상조건 확인 항목의 법령 근거. ①항 일반 기상 중지 의무가 적용.",
+  "legal_obligation_type": "작업 중지 의무 (기상 기준)",
+  "notes": "원문 API 수집 완료. PTW-003 builder에 기재된 '풍속 10m/s 기준'은 타워크레인 전용 수치이며 비계·고소작업대에 대한 별도 조문 수치는 확인되지 않음 — builder 수정 금지 지침에 따라 builder는 유지하고 이 note에만 기록. 법령 개정 시 재검증 필요."
+}
