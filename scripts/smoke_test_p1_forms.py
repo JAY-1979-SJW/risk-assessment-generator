@@ -4274,9 +4274,15 @@ def run_smoke_test() -> None:
     wp001_results = run_wp001_smoke_test()
     results.extend(wp001_results)
 
+    # ════════════════════════════════════════════════════════════
+    # ED-001 안전보건교육 교육일지 검증 (중간 수준 — 2026-04-26)
+    # ════════════════════════════════════════════════════════════
+    ed001_results = run_ed001_smoke_test()
+    results.extend(ed001_results)
+
     # ── 출력 ─────────────────────────────────────────────────────────────
     print("\n" + "=" * 80)
-    print("  KRAS P1 Smoke Test — ED-003 + WP-011 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002 + PTW-002 + PTW-003 + PTW-007 + WP-005 + CL-007 + PTW-004 + CL-004 + CL-005 + HM-001 + HM-002 + WP-008/WP-009/EQ-001/EQ-002 + WP-006/WP-007/EQ-003/EQ-004 + RA-001/RA-004 + WP-014/PTW-001/CL-010 + WP-001")
+    print("  KRAS P1 Smoke Test — ED-003 + WP-011 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002 + PTW-002 + PTW-003 + PTW-007 + WP-005 + CL-007 + PTW-004 + CL-004 + CL-005 + HM-001 + HM-002 + WP-008/WP-009/EQ-001/EQ-002 + WP-006/WP-007/EQ-003/EQ-004 + RA-001/RA-004 + WP-014/PTW-001/CL-010 + WP-001 + ED-001")
     print("=" * 80)
 
     pass_cnt = warn_cnt = fail_cnt = 0
@@ -6568,6 +6574,144 @@ def run_wp001_smoke_test() -> list[tuple[str, str, str]]:
             results.append(_check(
                 ev_data.get("document_id") == "WP-001",
                 f"evidence {ev_id}: document_id == 'WP-001'",
+                repr(ev_data.get("document_id")),
+            ))
+            results.append(_check(
+                ev_data.get("evidence_id") == ev_id,
+                f"evidence {ev_id}: evidence_id 자기참조 일치",
+                repr(ev_data.get("evidence_id")),
+            ))
+        except Exception as exc:
+            results.append(_check(False, f"evidence 파일 로딩: {ev_fname[:50]}", str(exc)))
+
+    return results
+
+
+# ===========================================================================
+# ED-001 — 안전보건교육 교육일지
+# ===========================================================================
+
+ED001_EVIDENCE_IDS = [
+    "ED-001-L1",
+    "ED-001-L2",
+]
+ED001_EVIDENCE_FILES = [
+    "ED-001-L1_industrial_safety_health_act_article_29.json",
+    "ED-001-L2_industrial_safety_health_rule_article_26.json",
+]
+
+SAMPLE_ED001_MINIMAL: dict = {
+    "site_name": "테스트건설(주) 테스트현장",
+    "education_date": "2026-04-26",
+    "education_type": "정기교육",
+}
+
+
+def run_ed001_smoke_test() -> list[tuple[str, str, str]]:
+    """ED-001 안전보건교육 교육일지 중간 수준 smoke test."""
+    results: list[tuple[str, str, str]] = []
+    supported = {f["form_type"] for f in list_supported_forms()}
+
+    # ── 1. registry 등록 확인 ────────────────────────────────────────────
+    results.append(_check(
+        "education_log" in supported,
+        "registry: education_log 등록됨 (ED-001)",
+    ))
+
+    # ── 2. get_form_spec 검증 ────────────────────────────────────────────
+    try:
+        spec = get_form_spec("education_log")
+        results.append(_check(
+            isinstance(spec, dict),
+            "get_form_spec('education_log') → dict",
+        ))
+        results.append(_check(
+            isinstance(spec.get("required_fields"), (list, tuple))
+            and len(spec["required_fields"]) > 0,
+            "education_log: required_fields 비어있지 않음",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "get_form_spec('education_log') 호출 성공", str(exc)))
+
+    # ── 3. sample build ──────────────────────────────────────────────────
+    try:
+        xlsx_bytes = build_form_excel("education_log", SAMPLE_ED001_MINIMAL)
+        results.append(_check(
+            isinstance(xlsx_bytes, bytes) and len(xlsx_bytes) > 0,
+            "education_log sample build → bytes 생성",
+            f"{len(xlsx_bytes):,} bytes",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "education_log sample build", str(exc)))
+
+    # ── 4. catalog 항목 검증 ─────────────────────────────────────────────
+    try:
+        import yaml
+        catalog_path = Path("data/masters/safety/documents/document_catalog.yml")
+        with open(catalog_path, encoding="utf-8") as f:
+            cat = yaml.safe_load(f)
+
+        doc = next((d for d in cat["documents"] if d["id"] == "ED-001"), None)
+        results.append(_check(doc is not None, "catalog: ED-001 항목 존재"))
+
+        if doc:
+            results.append(_check(
+                doc.get("implementation_status") == "DONE",
+                "catalog: ED-001 implementation_status == DONE",
+                repr(doc.get("implementation_status")),
+            ))
+            results.append(_check(
+                doc.get("form_type") == "education_log",
+                "catalog: ED-001 form_type == 'education_log'",
+                repr(doc.get("form_type")),
+            ))
+            ev_status = doc.get("evidence_status", "")
+            results.append(_check(
+                ev_status in ("VERIFIED", "PARTIAL_VERIFIED"),
+                "catalog: ED-001 evidence_status in (VERIFIED, PARTIAL_VERIFIED)",
+                repr(ev_status),
+            ))
+
+            ev_ids = doc.get("evidence_id") or []
+            if isinstance(ev_ids, str):
+                ev_ids = [ev_ids]
+            for eid in ED001_EVIDENCE_IDS:
+                results.append(_check(
+                    eid in ev_ids,
+                    f"catalog: ED-001 evidence_id 포함 — {eid}",
+                ))
+
+            ev_files = doc.get("evidence_file") or []
+            if isinstance(ev_files, str):
+                ev_files = [ev_files]
+            ev_basenames = {Path(p).name for p in ev_files}
+            for efname in ED001_EVIDENCE_FILES:
+                results.append(_check(
+                    efname in ev_basenames,
+                    f"catalog: ED-001 evidence_file 등록 — {efname[:55]}",
+                ))
+
+    except Exception as exc:
+        tb = traceback.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "ED-001 catalog 검증 중 예외", tb))
+
+    # ── 5. evidence 파일 존재 + 내용 검증 ────────────────────────────────
+    for ev_fname, ev_id in zip(ED001_EVIDENCE_FILES, ED001_EVIDENCE_IDS):
+        fpath = EVIDENCE_DIR / ev_fname
+        results.append(_check(fpath.exists(), f"evidence_file 실제 존재: {ev_fname[:55]}"))
+        if not fpath.exists():
+            continue
+        try:
+            ev_data = json.loads(fpath.read_text(encoding="utf-8"))
+            vr = ev_data.get("verification_result", "")
+            results.append(_check(
+                vr == "VERIFIED",
+                f"evidence {ev_id}: verification_result == 'VERIFIED'",
+                repr(vr),
+            ))
+            results.append(_check(
+                ev_data.get("document_id") == "ED-001",
+                f"evidence {ev_id}: document_id == 'ED-001'",
                 repr(ev_data.get("document_id")),
             ))
             results.append(_check(

@@ -681,8 +681,17 @@ documents:
     priority: DONE
     form_type: education_log
     source_type: law
-    legal_basis: "산업안전보건법 제29조, 시행규칙 제32조, 별지 제52호의2서식"
-    notes: "builder v1.1"
+    legal_basis: "산업안전보건법 제29조, 시행규칙 제26조, 별표 4(교육시간), 별표 5(교육내용)"
+    evidence_status: VERIFIED
+    evidence_id:
+      - "ED-001-L1"
+      - "ED-001-L2"
+    evidence_file:
+      - "data/evidence/safety_law_refs/ED-001-L1_industrial_safety_health_act_article_29.json"
+      - "data/evidence/safety_law_refs/ED-001-L2_industrial_safety_health_rule_article_26.json"
+    engine_coverage: YES
+    retention_years: 3
+    notes: "builder v1.1. 교육 실시 의무(법 제29조), 교육시간·내용 기준(시행규칙 제26조, 별표 4·5). 원 catalog의 시행규칙 제32조·별지 제52호의2서식은 법령 원문 확인 결과 존재하지 않아 제26조로 정정."
 
   - id: ED-002
     name: 연간 안전보건교육 계획서
