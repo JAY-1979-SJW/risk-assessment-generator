@@ -1,6 +1,26 @@
 """
 verify_safety_law_refs.py
-P0 4건(C-06/G-02/G-03/E-06) 법령 원문 검증 스크립트
+P0 4건(C-06/G-02/G-03/E-06) 법령 원문 검증 스크립트.
+
+──────────────────────────────────────────────────────────────────────────────
+[ONE-SHOT LEGACY HELPER — 2026-04-26 stale 하드코딩 정리 시점 표기]
+
+본 스크립트는 P0 1회성 검증 헬퍼이며, 정기 회귀 7종 검증 파이프라인
+(lint_safety_naming / audit_safety_90_completion / validate_form_registry /
+ smoke_test_p1_forms / validate_document_recommender / audit_safety_gap /
+ validate_safety_platform_skeleton) 에 포함되지 않는다.
+
+내부 G-02 / G-03 항목의 evidence_file 경로는 2026-04-26 정규화 배치 결과
+(`docs/design/safety_legacy_naming_warnings.md` 10절) 에 맞춰 표준명
+(`HM-001-L1_*` / `HM-002-L1_*`) 으로 갱신되어 있다.
+C-06 / E-06 evidence_file 은 catalog 외 보조자료로 정책상 legacy 명을 보존한다.
+
+재실행 시 주의:
+  - --apply 사용 시 `apply_verified()` 가 catalog/training/license 마스터를
+    수정한다. 이는 회귀 위험을 동반하므로, 마스터 변경이 필요한 시점에만
+    별도 검증·승인 후 사용해야 한다.
+  - 일상 검증은 7종 파이프라인을 사용한다.
+──────────────────────────────────────────────────────────────────────────────
 
 사용법:
   python scripts/verify_safety_law_refs.py --dry-run   # 조회·검증·evidence 저장. 마스터 변경 없음.
@@ -54,25 +74,27 @@ C06 = {
 }
 
 G02 = {
-    "item_no":     "G-02",
+    "item_no":     "G-02",          # 역사적 추적용 식별자 보존 (evidence JSON 내부 item_no 일관성)
     "document_id": "HM-001",
     "law_name":    "산업안전보건법",
     "law_mst":     "276853",
     "article_no":  "125",
     "keywords":    ["작업환경측정", "유해인자", "측정", "보존"],
     "min_hits":    2,
-    "evidence_file": "G-02_industrial_safety_health_act_article_125.json",
+    # 2026-04-26 정규화 배치 결과 표준명. 구 파일명: G-02_industrial_safety_health_act_article_125.json
+    "evidence_file": "HM-001-L1_industrial_safety_health_act_article_125.json",
 }
 
 G03 = {
-    "item_no":     "G-03",
+    "item_no":     "G-03",          # 역사적 추적용 식별자 보존
     "document_id": "HM-002",
     "law_name":    "산업안전보건법",
     "law_mst":     "276853",
     "article_no":  "130",
     "keywords":    ["특수건강진단", "건강진단", "근로자", "보존"],
     "min_hits":    2,
-    "evidence_file": "G-03_industrial_safety_health_act_article_130.json",
+    # 2026-04-26 정규화 배치 결과 표준명. 구 파일명: G-03_industrial_safety_health_act_article_130.json
+    "evidence_file": "HM-002-L1_industrial_safety_health_act_article_130.json",
 }
 
 # E-06 개별 자격 검증 — 장비별로 법령·키워드 지정
