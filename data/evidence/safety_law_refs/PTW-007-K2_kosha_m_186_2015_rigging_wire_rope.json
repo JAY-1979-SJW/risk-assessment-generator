@@ -1,0 +1,15 @@
+{
+  "evidence_id": "PTW-007-K2",
+  "document_id": "PTW-007",
+  "guide_name": "KOSHA GUIDE M-186-2015",
+  "guide_title": "크레인 달기기구 및 줄걸이작업용 와이어로프의 작업에 관한 기술지침",
+  "issuer": "한국산업안전보건공단 (KOSHA)",
+  "issued_year": "2015",
+  "source": "kosha.or.kr",
+  "collection_method": "NEEDS_VERIFICATION (가이드명·발행연도 메타 확인, PDF 원문 미수집)",
+  "verification_result": "NEEDS_VERIFICATION",
+  "collected_at": "2026-04-25",
+  "guide_summary": "크레인 달기기구(와이어로프·슬링벨트·샤클 등) 및 줄걸이작업 안전기준. 와이어로프 안전계수 기준, 줄걸이 각도에 따른 하중 증가 확인, 달기구 사용 전 점검 기준 등을 포함한다.",
+  "ptw_007_relevance": "PTW-007 섹션 6(달기구·줄걸이 확인) — 줄걸이 각도 적정 여부, 와이어로프·샤클·슬링벨트 손상 확인 등 KOSHA 권고 점검 기준 근거.",
+  "notes": "KOSHA GUIDE는 법령 의무가 아닌 권고 기준. PDF 원문 미수집 — 줄걸이 각도별 하중계수 기준 등 상세 내용 재검증 필요."
+}

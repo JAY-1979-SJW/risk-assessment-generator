@@ -1,0 +1,114 @@
+{
+  "item_no": "E-06",
+  "document_id": "worker_licenses.yml",
+  "evidence_file": "E-06_worker_license_refs.json",
+  "source": "law.go.kr DRF API",
+  "fetched_at": "2026-04-25T08:25:15.472802+00:00",
+  "verification_keywords": {},
+  "license_results": [
+    {
+      "license_id": "LIC_CRANE_TOWER",
+      "equipment": "타워크레인",
+      "law_name": "유해·위험작업의 취업 제한에 관한 규칙",
+      "keywords_checked": [
+        "타워크레인",
+        "자격",
+        "운전"
+      ],
+      "keywords_found": [
+        "자격"
+      ],
+      "verification_result": "PARTIAL_VERIFIED"
+    },
+    {
+      "license_id": "LIC_CRANE_MOBILE",
+      "equipment": "이동식 크레인",
+      "law_name": "유해·위험작업의 취업 제한에 관한 규칙",
+      "keywords_checked": [
+        "이동식 크레인",
+        "자격",
+        "운전"
+      ],
+      "keywords_found": [
+        "자격"
+      ],
+      "verification_result": "PARTIAL_VERIFIED"
+    },
+    {
+      "license_id": "LIC_FORKLIFT",
+      "equipment": "지게차",
+      "law_name": "유해·위험작업의 취업 제한에 관한 규칙",
+      "keywords_checked": [
+        "지게차",
+        "자격",
+        "운전"
+      ],
+      "keywords_found": [
+        "자격"
+      ],
+      "verification_result": "PARTIAL_VERIFIED"
+    },
+    {
+      "license_id": "LIC_CONSTRUCTION_MACHINE_EXCAVATOR",
+      "equipment": "굴착기",
+      "law_name": "건설기계관리법",
+      "keywords_checked": [
+        "건설기계조종사",
+        "면허",
+        "조종"
+      ],
+      "keywords_found": [
+        "건설기계조종사",
+        "면허",
+        "조종"
+      ],
+      "verification_result": "VERIFIED"
+    },
+    {
+      "license_id": "LIC_CONSTRUCTION_MACHINE_BULLDOZER",
+      "equipment": "불도저",
+      "law_name": "건설기계관리법",
+      "keywords_checked": [
+        "건설기계조종사",
+        "면허",
+        "조종"
+      ],
+      "keywords_found": [
+        "건설기계조종사",
+        "면허",
+        "조종"
+      ],
+      "verification_result": "VERIFIED"
+    },
+    {
+      "license_id": "LIC_AWP",
+      "equipment": "고소작업대",
+      "law_name": "유해·위험작업의 취업 제한에 관한 규칙",
+      "keywords_checked": [
+        "고소작업대",
+        "자격",
+        "운전"
+      ],
+      "keywords_found": [
+        "자격"
+      ],
+      "verification_result": "PARTIAL_VERIFIED"
+    },
+    {
+      "license_id": "LIC_PILEDRIVER",
+      "equipment": "항타기",
+      "law_name": "유해·위험작업의 취업 제한에 관한 규칙",
+      "keywords_checked": [
+        "항타기",
+        "자격",
+        "운전"
+      ],
+      "keywords_found": [
+        "자격"
+      ],
+      "verification_result": "PARTIAL_VERIFIED"
+    }
+  ],
+  "verification_result": "PARTIAL_VERIFIED",
+  "notes": "7종 자격 중 2종 VERIFIED. 나머지 5종 NEEDS_VERIFICATION 유지."
+}

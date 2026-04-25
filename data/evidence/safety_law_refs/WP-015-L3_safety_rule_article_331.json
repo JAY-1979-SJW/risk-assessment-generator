@@ -1,0 +1,50 @@
+{
+  "evidence_id": "WP-015-L3",
+  "document_id": "WP-015",
+  "evidence_file": "WP-015-L3_safety_rule_article_331.json",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "law_mst": "NEEDS_VERIFICATION",
+  "article_or_table": "제331조",
+  "article_title": "조립도",
+  "source": "law.go.kr (수동 기술 — API 미수집)",
+  "source_url_or_api": "https://www.law.go.kr/법령/산업안전보건기준에관한규칙",
+  "effective_date": "NEEDS_VERIFICATION",
+  "collected_at": "2026-04-25T00:00:00+09:00",
+  "verification_keywords": [
+    "거푸집동바리",
+    "조립도",
+    "구조검토",
+    "동바리",
+    "멍에",
+    "장선"
+  ],
+  "keywords_found": [
+    "거푸집동바리",
+    "조립도",
+    "구조검토",
+    "동바리",
+    "멍에",
+    "장선"
+  ],
+  "verification_result": "PARTIAL_VERIFIED",
+  "summary": "산업안전보건기준에 관한 규칙 제331조 — 거푸집동바리 조립 시 구조검토 후 조립도 작성 의무. 조립도에는 동바리·멍에·장선 등 부재 규격, 설치간격, 이음방법 포함 의무. WP-015 builder의 핵심 법적 근거.",
+  "matched_keywords": [
+    "거푸집동바리",
+    "조립도",
+    "구조검토",
+    "동바리",
+    "멍에",
+    "장선"
+  ],
+  "raw_text_excerpt": "제331조(조립도) ① 사업주는 거푸집동바리를 조립하는 경우에는 그 구조를 검토한 후 조립도를 작성하고 그 조립도에 따라 조립하도록 하여야 한다. ② 제1항의 조립도에는 동바리·멍에·장선 등의 재질·단면규격·설치간격 및 이음방법 등에 관한 사항을 표시하여야 한다. [주: 조문 원문은 law.go.kr API 미수집으로 PARTIAL_VERIFIED. 조문 번호는 법령 개정에 따라 다를 수 있음]",
+  "notes": "제331조는 WP-015의 핵심 법적 근거. 구조검토 및 조립도 작성은 사업주 의무이며 WP-015 builder에서는 해당 첨부 여부 확인 필드로만 구현함. builder가 구조계산 또는 조립도 자체를 생성하지 않음. 법령 개정 시 재검증 필요.",
+  "formwork_article_notes": {
+    "key_obligations": [
+      "거푸집동바리 조립 전 구조검토 실시 의무",
+      "조립도 작성 의무",
+      "조립도에 부재 규격·설치간격·이음방법 기재 의무",
+      "조립도에 따라 조립 실시 의무"
+    ],
+    "builder_implementation": "WP-015 builder에서 구조검토/조립도는 '첨부 여부 확인' 필드로만 구현. 구조계산 자동수행 또는 조립도 자체 생성 없음."
+  }
+}

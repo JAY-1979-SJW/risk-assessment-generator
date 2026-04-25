@@ -1,0 +1,19 @@
+{
+  "evidence_id": "PTW-007-L1",
+  "document_id": "PTW-007",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "article_no": "제38조 제1항 제11호, 별표4",
+  "article_title": "사전조사 및 작업계획서의 작성 등 — 중량물 취급작업 작업계획서 (별표4)",
+  "law_mst": "273603",
+  "source": "law.go.kr",
+  "collection_method": "law.go.kr DRF API (MST 273603, XML)",
+  "verification_result": "VERIFIED",
+  "collected_at": "2026-04-25",
+  "article_summary": "사업주는 중량물 취급 작업을 하기 전에 작업계획서를 작성하여야 한다. 별표4에 따르면 중량물 취급작업 계획서에 포함할 항목은 가) 추락위험 예방 안전대책, 나) 낙하위험 예방 안전대책, 다) 전도위험 예방 안전대책, 라) 협착위험 예방 안전대책, 마) 붕괴위험 예방 안전대책이다.",
+  "ptw_007_relevance": "PTW-007 섹션 3(작업계획서 확인) — WP-005 중량물 취급 작업계획서 선행 확인 의무 근거. PTW-007은 WP-005 작업계획서를 대체하지 않으며, 당일 허가 기록 역할만 수행.",
+  "notes": "법정 별지 서식 없음 — 중량물 인양 작업 허가서는 법령상 별지 서식이 아님. 별표4 원문 내용은 원문 API 미수집 상태. law.go.kr DRF API 수집 후 VERIFIED 전환 필요.",
+  "verified_at": "2026-04-25T09:16:14.246569+00:00",
+  "source_url": "https://www.law.go.kr/DRF/lawService.do?OC=haehan2026&target=law&MST=273603&type=XML",
+  "verified_excerpt_hash": "d3662d702624a406",
+  "verification_note": "조문 확인: ['38'] (1/1개). 키워드 확인: ['중량물', '작업계획서', '작성'] (3/3개). 별표4(중량물 취급작업 작업계획서 포함 항목)는 조문 API 범위 외 — 별표 원문 별도 확인 필요. 제38조 조문만 자동 검증됨."
+}

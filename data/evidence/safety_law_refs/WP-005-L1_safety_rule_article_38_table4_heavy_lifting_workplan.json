@@ -1,0 +1,50 @@
+{
+  "evidence_id": "WP-005-L1",
+  "document_id": "WP-005",
+  "evidence_file": "WP-005-L1_safety_rule_article_38_table4_heavy_lifting_workplan.json",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "law_mst": "273603",
+  "article_or_table": "제38조 제1항 제11호 + 별표4",
+  "article_title": "사전조사 및 작업계획서의 작성 등 — 중량물 취급 작업계획서",
+  "source": "law.go.kr DRF API (MST 273603, XML) — 제38조 본문 VERIFIED, 별표4 VERIFIED",
+  "source_url_or_api": "https://www.law.go.kr/DRF/lawService.do?OC=***&target=law&MST=273603&type=JSON",
+  "effective_date": "20260302",
+  "collected_at": "2026-04-25T00:00:00.000000+09:00",
+  "verification_keywords": [
+    "중량물",
+    "작업계획서",
+    "별표4",
+    "취급"
+  ],
+  "keywords_found": [
+    "중량물",
+    "작업계획서",
+    "별표"
+  ],
+  "verification_result": "VERIFIED",
+  "summary": "산업안전보건기준에 관한 규칙 제38조 제1항 제11호 — 중량물 취급 작업 시 작업계획서 작성 의무. 별표4 상세 기재 항목 포함.",
+  "heavy_lifting_workplan_required_items": {
+    "source_note": "VERIFIED — 별표4 원문 DRF XML 자동 확인 (WP-005-L1-BYL4 evidence 참조)",
+    "expected_items": [
+      "중량물의 종류·형상·중량",
+      "취급방법",
+      "운반경로",
+      "운반작업의 순서 및 방법",
+      "비상시 조치방법"
+    ]
+  },
+  "related_articles": [
+    "제38조 제1항 제11호 (중량물 취급 작업계획서 작성 의무)",
+    "별표4 (작업계획서 작성 항목)",
+    "제39조 (작업지휘자 지정)",
+    "제40조 (신호수 배치)"
+  ],
+  "application_scope": "총 중량 100kg 이상 중량물 취급 작업",
+  "notes": "PTW-007 중량물 인양 허가서 발급 전 이 작업계획서(WP-005) 선행 작성 필수.",
+  "verified_at": "2026-04-25T09:40:59.048277+00:00",
+  "source_url": "https://www.law.go.kr/DRF/lawService.do?OC=haehan2026&target=law&MST=273603&type=XML",
+  "verified_excerpt_hash": "d3662d702624a406",
+  "verification_note": "조문 확인: ['38'] (1/1개). 조문 제목: 제38조 사전조사 및 작업계획서의 작성 등. 키워드 확인: ['중량물', '작업계획서', '별표'] (3/3개). 별표4 DRF XML 자동 검증 결과: VERIFIED — expected_items 5개(추락·낙하·전도·협착·붕괴) 원문 전체 확인 (WP-005-L1-BYL4 evidence 참조).",
+  "collection_method": "law.go.kr DRF API (MST 273603, XML)",
+  "verifier": "automated_law_source_check"
+}

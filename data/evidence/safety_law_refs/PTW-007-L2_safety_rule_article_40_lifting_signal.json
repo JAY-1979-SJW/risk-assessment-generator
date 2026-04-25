@@ -1,0 +1,19 @@
+{
+  "evidence_id": "PTW-007-L2",
+  "document_id": "PTW-007",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "article_no": "제40조",
+  "article_title": "신호",
+  "law_mst": "273603",
+  "source": "law.go.kr",
+  "collection_method": "law.go.kr DRF API (MST 273603, XML)",
+  "verification_result": "VERIFIED",
+  "collected_at": "2026-04-25",
+  "article_summary": "사업주는 양중기 또는 중량물을 취급하는 작업을 할 때 신호방법을 미리 정하고, 근로자에게 이를 알려야 한다.",
+  "ptw_007_relevance": "PTW-007 섹션 9(신호수·통신·작업반경 통제) — 신호 방법 지정 및 신호 일원화 의무 근거. 신호수 배치 및 신호방법 사전 지정 확인 항목 근거.",
+  "notes": "law.go.kr DRF API 원문 수집 후 VERIFIED 전환 필요.",
+  "verified_at": "2026-04-25T09:16:14.246681+00:00",
+  "source_url": "https://www.law.go.kr/DRF/lawService.do?OC=haehan2026&target=law&MST=273603&type=XML",
+  "verified_excerpt_hash": "392c65b3b65363e6",
+  "verification_note": "조문 확인: ['40'] (1/1개). 키워드 확인: ['신호', '신호방법'] (2/2개)."
+}

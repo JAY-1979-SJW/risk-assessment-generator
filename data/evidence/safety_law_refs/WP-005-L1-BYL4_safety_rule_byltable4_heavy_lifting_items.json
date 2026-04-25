@@ -1,0 +1,39 @@
+{
+  "evidence_id": "WP-005-L1-BYL4",
+  "document_id": "WP-005",
+  "evidence_file": "WP-005-L1-BYL4_safety_rule_byltable4_heavy_lifting_items.json",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "law_mst": "273603",
+  "appendix_no": "별표4",
+  "expected_items": [
+    "추락 예방",
+    "낙하 예방",
+    "전도 예방",
+    "협착 예방",
+    "붕괴 예방"
+  ],
+  "appendix_title": "사전조사 및 작업계획서 내용(제38조제1항관련)",
+  "appendix_kind": "별표",
+  "effective_date": "20250901",
+  "source_type": "drf_law_xml_byl4",
+  "source_url": "https://www.law.go.kr/DRF/lawService.do?OC=***&target=law&MST=273603&type=XML",
+  "file_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=155899247",
+  "pdf_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=155899249",
+  "hwp_filename": "law0073632025090100450KC_000400E.hwp",
+  "image_count": 3,
+  "source_hash": "b797b8e274f9c9b5",
+  "matched_items": [
+    "추락 예방",
+    "낙하 예방",
+    "전도 예방",
+    "협착 예방",
+    "붕괴 예방"
+  ],
+  "missing_items": [],
+  "verification_result": "VERIFIED",
+  "verification_note": "DRF XML (MST 273603) 내 별표단위[별표번호=0004] 원문 추출. 별표내용 텍스트 직접 대조 결과: 5/5개 확인 — 확인=['추락 예방', '낙하 예방', '전도 예방', '협착 예방', '붕괴 예방'], 미확인=[]. 시행일: 2025-09-01 개정 (별표내용 헤더 확인). 이미지 3개 포함 (이미지 내 추가 내용 파싱 불가). licbyl API 별도 검색: 산업안전보건기준에 관한 규칙 별표4는 licbyl 서식 API 미등재 확인.",
+  "licbyl_api_result": "licbyl API에 산업안전보건기준에 관한 규칙 별표4 미등재 확인 (query: ['중량물', '별표4', '작업계획서']). 별표(일반 조항표 형태)는 licbyl 서식 API 미포함, DRF XML 경유 접근.",
+  "verified_at": "2026-04-25T09:52:36.152837+00:00",
+  "verified_kst": "2026-04-25T18:52:36.152857+00:00",
+  "verifier": "automated_law_appendix_check"
+}

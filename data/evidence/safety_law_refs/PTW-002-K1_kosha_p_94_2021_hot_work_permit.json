@@ -1,0 +1,17 @@
+{
+  "evidence_id": "PTW-002-K1",
+  "document_id": "PTW-002",
+  "source_type": "KOSHA_GUIDE",
+  "guide_no": "P-94-2021",
+  "guide_title": "안전작업허가지침",
+  "publisher": "한국산업안전보건공단 (KOSHA)",
+  "published_date": "2021-12",
+  "source_url": "https://kosha.or.kr/extappKosha/kosha/guidance/fileDownload.do?sfhlhTchnlgyManualNo=P-94-2021&fileOrdrNo=2",
+  "collection_method": "NEEDS_VERIFICATION (PDF 바이너리 — 텍스트 추출 불가. 검색 결과 기반 내용 확인)",
+  "verification_result": "NEEDS_VERIFICATION",
+  "collected_at": "2026-04-25",
+  "guide_summary": "안전작업허가 절차 전반에 관한 KOSHA 권고 기술기준. 별지 양식1 화기작업 허가서, 별지 양식2 일반위험작업 허가서 포함. 허가 유효기간: 1일 8시간 초과 불가. 허가 절차: 발급→확인·점검(전문지식자 서명)→승인(책임자)→현장게시→입회.",
+  "ptw_002_relevance": "PTW-002 화기작업 허가서의 구현 참고 기준. 별지 양식1 구조를 참고하여 섹션 구성. 법령 의무 항목과 KOSHA 권고 항목을 분리하여 적용.",
+  "legal_status": "권고 기술기준 (법적 의무 아님). PSM 사업장 적용 강조. 일반 현장 실무 필수.",
+  "notes": "원문 PDF 텍스트 추출 실패. 검색 결과 기반 내용 확인에 그침. KOSHA GUIDE는 법령과 분리하여 권고 항목으로만 적용. 원문 확인 후 evidence_status 재검증 필요."
+}

@@ -1,0 +1,19 @@
+{
+  "evidence_id": "PTW-002-L4",
+  "document_id": "PTW-002",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "article_no": "제243조, 제244조",
+  "article_title": "소화설비 / 방화조치",
+  "law_mst": "273603",
+  "source": "law.go.kr",
+  "collection_method": "PARTIAL_VERIFIED (조항명·내용 확인, law.go.kr DRF API 원문 미수집)",
+  "verification_result": "PARTIAL_VERIFIED",
+  "collected_at": "2026-04-25",
+  "article_summary": {
+    "제243조_소화설비": "사업주는 화재위험작업 시 작업 장소에 소화설비·소화기를 비치해야 한다.",
+    "제244조_방화조치": "사업주는 방화 안전거리 확보 및 방화조치를 이행해야 한다."
+  },
+  "ptw_002_relevance": "화기작업 허가서 섹션 6(소화설비 및 방화조치)의 법령 근거. 소화기 비치 확인 항목 및 방화 안전거리 확인 항목의 근거.",
+  "legal_obligation_type": "설비 비치 의무 + 안전조치 의무 (서식 아님)",
+  "notes": "조항 내용은 검색 결과 기반 확인. 원문 API 수집 후 VERIFIED 전환 필요."
+}

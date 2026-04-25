@@ -1,0 +1,18 @@
+{
+  "evidence_id": "CL-007-L2",
+  "document_id": "CL-007",
+  "source_type": "LAW",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "mst_no": "273603",
+  "article_no": "제13조",
+  "article_title": "안전난간의 구조 및 설치요건",
+  "enforcement_date": "2025-09-01",
+  "source_url": "https://www.law.go.kr/법령/산업안전보건기준에관한규칙",
+  "collection_method": "원문 미수집 — law.go.kr DRF API 수집 필요",
+  "verification_result": "NEEDS_VERIFICATION",
+  "collected_at": null,
+  "article_summary": "안전난간의 구조 기준(상부난간대 높이, 중간난간대 간격, 발끝막이판, 강도 등) — 원문 수집 후 확정 예정.",
+  "cl_007_relevance": "CL-007 섹션5(안전난간 점검) 항목의 구체적 기준 근거. 상부난간 높이, 중간난간, 발끝막이판, 난간 고정 상태 점검 기준.",
+  "legal_obligation_type": "설비 설치 기준 (구조·치수 기준)",
+  "notes": "원문 미수집. law.go.kr DRF API(MST=273603, 조문번호=13) 수집 후 article_summary 업데이트 및 PARTIAL_VERIFIED 전환 필요. CL-007 섹션5 점검항목 기준 확정 전 NEEDS_VERIFICATION 유지."
+}

@@ -1,0 +1,30 @@
+{
+  "evidence_id": "PTW-007-K3",
+  "document_id": "PTW-007",
+  "guide_name": "KOSHA GUIDE P-94-2021",
+  "guide_title": "안전작업허가지침",
+  "issuer": "한국산업안전보건공단 (KOSHA)",
+  "issued_year": "2021",
+  "issued_month": "12",
+  "source": "kosha.or.kr",
+  "collection_method": "NEEDS_VERIFICATION (가이드명·발행연도 메타 확인, PDF 원문 미수집 — PTW-002/003 공유 참조)",
+  "verification_result": "NEEDS_VERIFICATION",
+  "collected_at": "2026-04-25",
+  "guide_summary": "안전작업허가 절차(신청 → 확인·점검 → 승인 → 현장 게시), 허가 유효기간(당일 1회 기준) 등 허가 체계 기준. PTW-002(화기작업)·PTW-003(고소작업)과 공유 기준.",
+  "heavy_equipment_permit_section": {
+    "permit_type": "중장비사용작업허가",
+    "classification": "보충작업허가 (Supplementary Work Permit)",
+    "description": "KOSHA GUIDE P-94-2021은 안전작업허가 유형 중 '보충작업허가'로서 '중장비사용작업허가'를 규정한다. 이동식 크레인·굴착기 등 중장비 사용 시 별도 확인 절차가 필요함을 안내한다.",
+    "key_items": [
+      "중장비 종류 및 규격 확인",
+      "작업반경 및 인양 경로 확인",
+      "신호수 배치 및 신호방법 지정",
+      "지반 지지력 및 아웃트리거 설치 확인",
+      "작업반경 내 출입통제",
+      "정격하중 초과 금지 확인"
+    ],
+    "verification_status": "NEEDS_VERIFICATION (PDF 원문 미수집 — 상세 항목 재확인 필요)"
+  },
+  "ptw_007_relevance": "PTW-007 서식명 '중량물 인양·중장비사용 작업 허가서'는 KOSHA P-94-2021의 '중장비사용작업허가' 구조를 참고하여 중량물 인양 허가와 중장비사용 허가 기능을 통합한 것임. 섹션 11(작업허가 승인) — 허가 절차·유효기간 권고 기준 근거. 허가 유효기간 '당일 1회 기준'은 KOSHA P-94-2021 참고.",
+  "notes": "KOSHA GUIDE는 법령 의무가 아닌 권고 기준. PDF 원문 미수집 — 중장비사용작업허가 상세 구조 재검증 필요. PTW-002·PTW-003과 동일 GUIDE 공유."
+}

@@ -1,0 +1,19 @@
+{
+  "evidence_id": "PTW-007-L6",
+  "document_id": "PTW-007",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "article_no": "제221조의5, 제385조",
+  "article_title": "굴착기 인양작업 특칙, 중량물 취급 통칙",
+  "law_mst": "273603",
+  "source": "law.go.kr",
+  "collection_method": "law.go.kr DRF API (MST 273603, XML)",
+  "verification_result": "VERIFIED",
+  "collected_at": "2026-04-25",
+  "article_summary": "제221조의5: 굴착기를 이용한 인양작업 시 사업주가 취해야 할 특별 조치사항(굴착기 본래 용도 외 사용 시 주의사항 등). 제385조: 사업주는 중량물을 취급할 때 하역운반기계 등을 사용하여야 한다.",
+  "ptw_007_relevance": "PTW-007 섹션 5(인양작업 유형 — 굴착기 인양작업 특칙 해당 항목) 및 섹션 10(작업 전 안전조치) — 굴착기 인양 시 특칙 적용 및 하역운반기계 사용 의무 근거.",
+  "notes": "굴착기 인양작업은 제221조의5 특칙 케이스로 PTW-007 체크 항목에 '굴착기 인양작업 특칙 해당' 항목으로 처리. law.go.kr DRF API 원문 수집 후 VERIFIED 전환 필요.",
+  "verified_at": "2026-04-25T09:16:14.246825+00:00",
+  "source_url": "https://www.law.go.kr/DRF/lawService.do?OC=haehan2026&target=law&MST=273603&type=XML",
+  "verified_excerpt_hash": "c6bae70c920e7ad7",
+  "verification_note": "조문 확인: ['221의5', '385'] (2/2개). 키워드 확인: ['굴착기', '중량물'] (2/2개). 제221조의5(굴착기 인양 특칙)는 XML 조문번호 표기가 '221의5' 또는 유사 형태일 수 있어 fallback 조회 포함."
+}

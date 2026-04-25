@@ -1,0 +1,38 @@
+{
+  "evidence_id": "ED-003-L4",
+  "document_id": "ED-003",
+  "evidence_file": "ED-003-L4_industrial_safety_health_rule_attached_table_5.json",
+  "law_name": "산업안전보건법 시행규칙",
+  "law_mst": "271485",
+  "article_or_table": "별표 5",
+  "article_title": "안전보건교육 교육대상별 교육내용(제26조제1항 등 관련)",
+  "source": "law.go.kr DRF API",
+  "source_url_or_api": "https://www.law.go.kr/DRF/lawService.do?OC=***&target=law&MST=271485&type=XML",
+  "effective_date": "20250601",
+  "collected_at": "2026-04-24T16:25:59.977062+00:00",
+  "verification_keywords": [
+    "특별교육",
+    "제1호부터 제39호",
+    "공통내용"
+  ],
+  "keywords_found": [
+    "특별교육",
+    "제1호부터 제39호",
+    "공통내용"
+  ],
+  "verification_result": "VERIFIED",
+  "summary": "별표 5 — 특별교육 대상 작업별 교육내용. 현행(2025.5.30) 제1호(고압실)~제39호(타워크레인 신호업무) 39개 작업.",
+  "matched_keywords": [
+    "특별교육",
+    "제1호부터 제39호",
+    "공통내용"
+  ],
+  "raw_text_excerpt": "라. 특별교육 대상 작업별 교육                                                                   \n\n\n┌──────────────┬─────────────────────────────────┐\n\n\n│작업명                      │교육내용                                                          │\n\n\n├──────────────┼─────────────────────────────────┤\n\n\n│<공통내용>                  │                                                                  │\n\n\n│제1호부터 제39호까지의 작업 │다목과 같은 내용                                                  │\n\n\n├──────────────┼─────────────────────────────────┤\n\n\n│<개별내용>                  │                                                                  │\n\n\n│1. 고압실 내 작업(잠함공법이나 │○ 고기압 장해의 인체에 미치는 영향에 관한 사항                   │\n\n\n│그 밖의 압기공법으로 대기압 │○ 작업의 시간·작업 방법 및 절차에 관한 사항                     │\n\n\n│을 넘는 기압인 작업실 또는  │○ 압기공법에 관한 기초지식 및 보호구 착용에 관한",
+  "special_education_target_works": {
+    "range_phrase": "제1호부터 제39호까지",
+    "parsed_last_no": null,
+    "parsed_count": 0,
+    "source_note": "현행(2025.5.30 개정) 별표 5 원문 기준"
+  },
+  "notes": "별표 5(안전보건교육 교육대상별 교육내용) 원문 확인. 특별교육 대상 작업: 제1호~제39호 39개 (현행 2025.5.30 개정). 공통내용 및 작업별 개별내용 구조 확인. 키워드 ['특별교육', '제1호부터 제39호', '공통내용'] 확인됨."
+}

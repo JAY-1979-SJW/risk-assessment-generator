@@ -1,0 +1,19 @@
+{
+  "evidence_id": "PTW-007-L5",
+  "document_id": "PTW-007",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "article_no": "제163조~제170조",
+  "article_title": "달기기구 안전기준 — 와이어로프·훅·샤클·달기체인·슬링벨트 등",
+  "law_mst": "273603",
+  "source": "law.go.kr",
+  "collection_method": "law.go.kr DRF API (MST 273603, XML)",
+  "verification_result": "VERIFIED",
+  "collected_at": "2026-04-25",
+  "article_summary": "제163조: 달기기구(와이어로프·달기체인·슬링벨트 등) 안전계수 기준. 제164조: 고리걸이 훅 안전계수. 제165조: 와이어로프 절단방법 등. 제166조: 이음매 있는 와이어로프 사용 금지. 제167조: 늘어난 달기체인 사용 금지(5% 초과). 제168조: 변형·균열 훅·샤클 사용 금지. 제169조: 꼬임 끊어진 섬유로프 사용 금지. 제170조: 링 등의 구비.",
+  "ptw_007_relevance": "PTW-007 섹션 6(달기구·줄걸이 확인) — 와이어로프·슬링벨트·샤클·훅·달기체인 상태 확인 체크리스트 전체 항목의 법령 근거.",
+  "notes": "law.go.kr DRF API 원문 수집 후 VERIFIED 전환 필요. 달기기구 폐기기준·점검 기준 원문 확인 필요.",
+  "verified_at": "2026-04-25T09:16:14.246795+00:00",
+  "source_url": "https://www.law.go.kr/DRF/lawService.do?OC=haehan2026&target=law&MST=273603&type=XML",
+  "verified_excerpt_hash": "7aeaaea169f5789c",
+  "verification_note": "조문 확인: ['163', '164', '165', '166', '167', '168', '169', '170'] (8/8개). 키워드 확인: ['와이어로프', '달기', '슬링', '훅'] (4/4개)."
+}

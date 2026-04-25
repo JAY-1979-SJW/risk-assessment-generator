@@ -1,0 +1,37 @@
+{
+  "evidence_id": "PTW-004-P1",
+  "document_id": "PTW-004",
+  "evidence_file": "PTW-004-P1_practical_electrical_permit.json",
+  "topic": "전기작업 허가서 실무 표준서식 근거",
+  "law_name": "산업안전보건기준에 관한 규칙 (실무서식 참조)",
+  "law_mst": "273603",
+  "article_or_table": "제319조~제323조 종합",
+  "article_title": "전기작업 허가서 — 법정 별지 서식 부재 근거 및 실무 표준서식 설계 근거",
+  "source": "KOSHA GUIDE E-2-2023 전기작업 안전지침 참고 (원문 미수집, 실무 표준서식 설계)",
+  "source_url_or_api": null,
+  "effective_date": "20260302",
+  "collected_at": "2026-04-25T00:00:00+09:00",
+  "verification_keywords": [
+    "전기작업 허가서",
+    "법정 별지 서식",
+    "실무 표준서식",
+    "LOTO"
+  ],
+  "keywords_found": [],
+  "verification_result": "PRACTICAL",
+  "summary": "PTW-004 전기작업 허가서 — 법정 별지 서식 없음 근거 기록. 산안규칙 제319조~제323조는 안전조치 의무를 규정하나 별지 서식을 지정하지 않음. 실무에서 작업허가서(PTW) 형태로 자체 제작하여 사용. KOSHA GUIDE E-2-2023 참고 설계. ELEC-001 pack(L2/L3/L5) 기반 조문 확인.",
+  "found_articles": [],
+  "missing_articles": [],
+  "legal_status": "practical",
+  "legal_form_reference": null,
+  "practical_basis": [
+    "산업안전보건기준에 관한 규칙 제319조 — 전원차단·접지·표지부착·재투입방지 절차 의무 (별지 서식 없음)",
+    "산업안전보건기준에 관한 규칙 제321조~제322조 — 활선·근접작업 시 안전조치 의무 (별지 서식 없음)",
+    "산업안전보건기준에 관한 규칙 제323조 — 절연용 보호구 착용 의무 (별지 서식 없음)",
+    "실무: 원청·발주처 안전관리 기준에 따라 PTW 양식 자체 제작 사용"
+  ],
+  "notes": "법정 별지 서식 미지정. 실무에서 산안규칙 제319조~제323조 이행 확인 목적으로 PTW 양식 사용. KOSHA GUIDE E-2-2023 참고 가이드라인 존재하나 원문 미수집. PTW-004 서식은 ELEC-001-L2/L3/L5 원문 수집 완료된 조항 기반 설계. WP-011 전기 작업계획서와 연계 사용.",
+  "verified_at": "2026-04-25T00:00:00+09:00",
+  "collection_method": "실무 표준서식 설계 근거 기록 (법령 수집 불필요 — 법정 서식 없음)",
+  "verifier": "design_basis_record"
+}

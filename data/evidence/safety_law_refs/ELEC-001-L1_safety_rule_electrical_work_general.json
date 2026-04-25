@@ -1,0 +1,43 @@
+{
+  "evidence_id": "ELEC-001-L1",
+  "document_id": "ELEC-001",
+  "shared_by": [
+    "WP-011"
+  ],
+  "evidence_file": "ELEC-001-L1_safety_rule_electrical_work_general.json",
+  "topic": "전기작업 일반 / 작업계획서",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "law_mst": "273603",
+  "article_or_table": "제38조",
+  "article_title": "전기작업 사전조사 및 작업계획서 의무 (제38조 제1항 별표4 제5호)",
+  "source": "law.go.kr DRF API (MST 273603, XML) — 자동 수집",
+  "source_url_or_api": "https://www.law.go.kr/DRF/lawService.do?OC=***&target=law&MST=273603&type=XML",
+  "effective_date": "20260302",
+  "collected_at": "2026-04-25T00:00:00+09:00",
+  "verification_keywords": [
+    "작업계획서",
+    "전기작업",
+    "사전조사"
+  ],
+  "keywords_found": [
+    "작업계획서",
+    "전기작업",
+    "사전조사"
+  ],
+  "verification_result": "VERIFIED",
+  "summary": "산업안전보건기준에 관한 규칙 — 전기작업 일반 / 작업계획서 관련 조항 원문 수집. topic: 전기작업 일반 / 작업계획서. 검증 결과: VERIFIED. WP-011·PTW-004·CL-004 공통 evidence pack (ELEC-001).",
+  "found_articles": [
+    {
+      "article_no": "38",
+      "title": "사전조사 및 작업계획서의 작성 등"
+    }
+  ],
+  "missing_articles": [],
+  "notes": "제38조 제1항 별표4에 '전기작업'이 포함됨을 원문으로 직접 확인. WP-011 전기 작업계획서의 핵심 법적 근거. 법정 별지 서식 없음 — 실무 표준서식.",
+  "verified_at": "2026-04-25T13:57:13.228520+00:00",
+  "source_url": "https://www.law.go.kr/DRF/lawService.do?OC=haehan2026&target=law&MST=273603&type=XML",
+  "verified_excerpt_hash": "d3662d702624a406",
+  "verification_note": "조문 확인: ['38'] (1/1개). 조문 제목: 제38조 사전조사 및 작업계획서의 작성 등. 키워드 확인: ['작업계획서', '전기작업', '사전조사'] (3/3개).",
+  "collection_method": "law.go.kr DRF API (MST 273603, XML)",
+  "verifier": "automated_law_source_check"
+}

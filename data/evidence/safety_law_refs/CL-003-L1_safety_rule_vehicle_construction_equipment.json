@@ -1,0 +1,40 @@
+{
+  "evidence_id": "CL-003-L1",
+  "document_id": "CL-003",
+  "title": "산업안전보건기준에 관한 규칙 차량계 건설기계 안전조치 관련 조항",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "article": "제196조~제199조 추정 (NEEDS_VERIFICATION — 차량계 건설기계 정의·전조등·낙하물보호구조·전도방지)",
+  "article_title": "차량계 건설기계 — 정의, 전조등 설치, 낙하물 보호구조, 전도·전락 방지",
+  "verification_result": "VERIFIED",
+  "verification_note": "조문 확인: ['196', '197', '198', '199'] (4/4개). 조문 제목: 제196조 차량계 건설기계의 정의, 제197조 전조등의 설치, 제198조 낙하물 보호구조, 제199조 전도 등의 방지. 키워드 확인: ['차량계 건설기계', '전조등', '낙하물', '전도'] (4/4개). 제196조~제199조 범위가 실제 차량계 건설기계 조항인지 원문으로 확인. 전조등·낙하물 보호구조·전도방지 항목 대응 조항 특정 목적.",
+  "scope": "차량계 건설기계 전용 — 굴착기, 불도저, 로더, 스크레이퍼, 덤프트럭, 롤러, 콘크리트 펌프카, 천공기 등",
+  "exclusion_note": "제171조는 차량계 하역운반기계등 조항으로 추정되므로 본 evidence에 포함하지 않음.",
+  "commonly_cited_items": {
+    "전조등 설치": "야간 또는 악천후 시 전조등 설치 의무 (조항번호 NEEDS_VERIFICATION)",
+    "낙하물 보호구조": "조종사 위로 낙하물 방호 구조 설치 의무 (조항번호 NEEDS_VERIFICATION)",
+    "전도·전락 방지": "작업 시 전도·전락 방지 조치, 유도자 배치, 갓길 붕괴 방지 (조항번호 NEEDS_VERIFICATION)",
+    "접촉 방지": "작업반경 내 관계자 외 출입 금지 (조항번호 NEEDS_VERIFICATION)"
+  },
+  "needs_verification_items": [
+    "차량계 건설기계 정의 조항번호",
+    "전조등 설치 의무 조항번호",
+    "낙하물 보호구조 설치 의무 조항번호",
+    "전도·전락 방지 조치 조항번호",
+    "접촉 방지 조치 조항번호",
+    "제196조~제199조 계열 실제 내용 확인"
+  ],
+  "collected_at": "2026-04-25",
+  "collected_by": "MANUAL_REVIEW",
+  "source": "국가법령정보센터 (수집 예정 — law.go.kr DRF API)",
+  "verified_at": "2026-04-25T09:40:59.048052+00:00",
+  "source_url": "https://www.law.go.kr/DRF/lawService.do?OC=haehan2026&target=law&MST=273603&type=XML",
+  "verified_excerpt_hash": "f975c01ee54963a6",
+  "collection_method": "law.go.kr DRF API (MST 273603, XML)",
+  "verifier": "automated_law_source_check",
+  "confirmed_articles": {
+    "196": "차량계 건설기계의 정의",
+    "197": "전조등의 설치",
+    "198": "낙하물 보호구조",
+    "199": "전도 등의 방지"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "evidence_id": "PTW-002-K2",
+  "document_id": "PTW-002",
+  "source_type": "KOSHA_GUIDE",
+  "guide_no": "F-1-2023",
+  "guide_title": "용접·용단 작업시 화재예방에 관한 기술지침",
+  "publisher": "한국산업안전보건공단 (KOSHA)",
+  "published_date": "2023-08",
+  "source_url": "https://oshri.kosha.or.kr/extappKosha/kosha/guidance/fileDownload.do?sfhlhTchnlgyManualNo=F-1-2023&fileOrdrNo=8",
+  "collection_method": "NEEDS_VERIFICATION (PDF 바이너리 — 텍스트 추출 불가. 검색 결과 기반 내용 확인)",
+  "verification_result": "NEEDS_VERIFICATION",
+  "collected_at": "2026-04-25",
+  "guide_summary": "용접·용단 작업 시 화재 예방을 위한 기술기준. 화재감시자 배치 기준(11m 비산 거리), 가스용기 분리 보관·전도방지, 용접방화포 설치 기준 등 포함. 작업허가서 예시 서식 포함 여부 NEEDS_VERIFICATION.",
+  "ptw_002_relevance": "용접방화포, 가스용기 전도방지 항목의 KOSHA 근거. 화재감시자 적용 범위 확대 기준 참고.",
+  "legal_status": "권고 기술기준 (법적 의무 아님).",
+  "notes": "원문 PDF 텍스트 추출 실패. 검색 결과 기반 내용 확인에 그침. 가스용기 세부 성능 기준(KGS 기준 연동)·방화포 성능 등급 필드는 원문 미확인으로 구현 보류. 원문 확인 후 재검증 필요."
+}

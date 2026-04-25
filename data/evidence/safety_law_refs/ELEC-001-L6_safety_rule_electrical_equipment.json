@@ -1,0 +1,52 @@
+{
+  "evidence_id": "ELEC-001-L6",
+  "document_id": "ELEC-001",
+  "shared_by": [
+    "WP-011",
+    "CL-004"
+  ],
+  "evidence_file": "ELEC-001-L6_safety_rule_electrical_equipment.json",
+  "topic": "전기기계기구 / 이동전선",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "law_mst": "273603",
+  "article_or_table": "제301조·제309조·제313조",
+  "article_title": "전기기계기구 충전부 방호 및 이동전선 관리 (제301·309·313조)",
+  "source": "law.go.kr DRF API (MST 273603, XML) — 자동 수집",
+  "source_url_or_api": "https://www.law.go.kr/DRF/lawService.do?OC=***&target=law&MST=273603&type=XML",
+  "effective_date": "20260302",
+  "collected_at": "2026-04-25T00:00:00+09:00",
+  "verification_keywords": [
+    "전기기계기구",
+    "이동전선",
+    "충전부"
+  ],
+  "keywords_found": [
+    "전기기계기구",
+    "이동전선",
+    "충전부"
+  ],
+  "verification_result": "VERIFIED",
+  "summary": "산업안전보건기준에 관한 규칙 — 전기기계기구 / 이동전선 관련 조항 원문 수집. topic: 전기기계기구 / 이동전선. 검증 결과: VERIFIED. WP-011·PTW-004·CL-004 공통 evidence pack (ELEC-001).",
+  "found_articles": [
+    {
+      "article_no": "301",
+      "title": "전기 기계ㆍ기구 등의 충전부 방호"
+    },
+    {
+      "article_no": "309",
+      "title": "임시로 사용하는 전등 등의 위험 방지"
+    },
+    {
+      "article_no": "313",
+      "title": "배선 등의 절연피복 등"
+    }
+  ],
+  "missing_articles": [],
+  "notes": "제301조(전기기계기구 등의 충전부 방호) — 충전부에 방호망·절연덮개 설치 의무. 제309조(임시로 사용하는 전등 등의 위험 방지) — 이동전선 절연피복 손상 방지. 제313조(배선 등의 절연피복 등) — 전선 절연피복 손상 금지·보호관 설치. WP-011 전동공구 점검 및 임시전기 안전조치 섹션 근거. API 수집으로 조항 번호 확정.",
+  "verified_at": "2026-04-25T13:57:13.228717+00:00",
+  "source_url": "https://www.law.go.kr/DRF/lawService.do?OC=haehan2026&target=law&MST=273603&type=XML",
+  "verified_excerpt_hash": "b27d02fa8010b847",
+  "verification_note": "조문 확인: ['301', '309', '313'] (3/3개). 조문 제목: 제301조 전기 기계ㆍ기구 등의 충전부 방호, 제309조 임시로 사용하는 전등 등의 위험 방지, 제313조 배선 등의 절연피복 등. 키워드 확인: ['이동전선', '충전부'] (2/3개).",
+  "collection_method": "law.go.kr DRF API (MST 273603, XML)",
+  "verifier": "automated_law_source_check"
+}

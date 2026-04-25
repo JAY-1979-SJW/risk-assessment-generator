@@ -1,0 +1,19 @@
+{
+  "evidence_id": "PTW-007-L3",
+  "document_id": "PTW-007",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "article_no": "제132조, 제133조, 제135조",
+  "article_title": "양중기 종류·정격하중 표시·정격하중 초과 금지",
+  "law_mst": "273603",
+  "source": "law.go.kr",
+  "collection_method": "law.go.kr DRF API (MST 273603, XML)",
+  "verification_result": "VERIFIED",
+  "collected_at": "2026-04-25",
+  "article_summary": "제132조: 양중기의 종류(크레인, 이동식 크레인, 리프트, 곤돌라, 승강기)를 정의한다. 제133조: 사업주는 양중기에 정격하중을 표시하여야 한다. 제135조: 사업주는 양중기의 정격하중을 초과하여 사용하여서는 아니 된다.",
+  "ptw_007_relevance": "PTW-007 섹션 5(양중기 선택 및 정격하중 확인) — 적용 범위, 정격하중 표시 확인, 정격하중 초과 금지 확인 항목 근거. '작업반경별 허용하중 확인' 항목의 법령 근거.",
+  "notes": "law.go.kr DRF API 원문 수집 후 VERIFIED 전환 필요.",
+  "verified_at": "2026-04-25T09:16:14.246725+00:00",
+  "source_url": "https://www.law.go.kr/DRF/lawService.do?OC=haehan2026&target=law&MST=273603&type=XML",
+  "verified_excerpt_hash": "bd3fb7aab17f7702",
+  "verification_note": "조문 확인: ['132', '133', '135'] (3/3개). 키워드 확인: ['양중기', '정격하중'] (2/2개)."
+}

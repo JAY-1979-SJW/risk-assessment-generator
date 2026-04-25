@@ -1,0 +1,15 @@
+{
+  "evidence_id": "PTW-002-L1",
+  "document_id": "PTW-002",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "article_no": "제236조",
+  "article_title": "화재 위험이 있는 작업의 장소 등",
+  "law_mst": "273603",
+  "source": "law.go.kr",
+  "collection_method": "PARTIAL_VERIFIED (조항명·내용 확인, law.go.kr DRF API 원문 미수집)",
+  "verification_result": "PARTIAL_VERIFIED",
+  "collected_at": "2026-04-25",
+  "article_summary": "사업주는 화재 위험이 있는 작업(용접, 용단, 가열 등)을 하는 장소 인근에 가연성 물질을 두어서는 안 되며, 불꽃·불티 또는 용융 금속이 흩어져 가연성 물질에 닿지 않도록 격리하거나 제거하는 조치를 해야 한다.",
+  "ptw_002_relevance": "화기작업 허가서 섹션 4(작업장소 및 가연물 확인)의 법령 근거. 가연성물질 현황 파악 및 가연물 제거 여부 확인 항목 근거.",
+  "notes": "법정 별지 서식 없음. 조항 내용은 검색 결과 기반 확인. law.go.kr DRF API 원문 수집 후 VERIFIED 전환 필요."
+}

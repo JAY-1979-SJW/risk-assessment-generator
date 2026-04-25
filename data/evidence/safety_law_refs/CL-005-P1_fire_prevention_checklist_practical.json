@@ -1,0 +1,65 @@
+{
+  "evidence_id": "CL-005-P1",
+  "document_id": "CL-005",
+  "evidence_type": "PRACTICAL",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "source": "PTW-002 evidence L1~L4 재사용 + 실무 점검표 설계",
+  "collection_method": "PARTIAL_VERIFIED (PTW-002 evidence 기반, law.go.kr DRF API 원문 미수집)",
+  "verification_result": "PARTIAL_VERIFIED",
+  "collected_at": "2026-04-25",
+  "reused_from": ["PTW-002-L1", "PTW-002-L2", "PTW-002-L3", "PTW-002-L4"],
+  "legal_basis": [
+    {
+      "article_no": "제236조",
+      "article_title": "화재 위험이 있는 작업의 장소 등",
+      "law_mst": "273603",
+      "article_summary": "화재 위험 작업 시 가연성 물질 격리·제거 의무. 불꽃·불티·용융 금속이 가연성 물질에 닿지 않도록 조치.",
+      "section_mapping": "섹션 4 (가연물 제거 확인)",
+      "verification_result": "PARTIAL_VERIFIED"
+    },
+    {
+      "article_no": "제241조",
+      "article_title": "화재위험 작업 시의 안전조치",
+      "law_mst": "273603",
+      "article_summary": "화기작업 시 불티 비산 방지 조치(방화포 설치, 불티받이, 개구부 차단), 소화기 비치 의무.",
+      "section_mapping": "섹션 5 (불티 비산 방지), 섹션 6 (소화설비)",
+      "verification_result": "PARTIAL_VERIFIED"
+    },
+    {
+      "article_no": "제241조의2",
+      "article_title": "화재감시자",
+      "law_mst": "273603",
+      "article_summary": "용접·용단 등 화기작업 시 11m 이내 가연성 물질이 있는 경우 화재감시자 배치 의무.",
+      "section_mapping": "섹션 7 (화재감시자 배치)",
+      "verification_result": "PARTIAL_VERIFIED"
+    },
+    {
+      "article_no": "제243조",
+      "article_title": "소화설비",
+      "law_mst": "273603",
+      "article_summary": "화기작업 장소에 소화기 비치 의무.",
+      "section_mapping": "섹션 6 (소화설비 및 초기진화 준비)",
+      "verification_result": "PARTIAL_VERIFIED"
+    },
+    {
+      "article_no": "제244조",
+      "article_title": "잔불 확인 등",
+      "law_mst": "273603",
+      "article_summary": "화기작업 완료 후 잔불 확인 및 일정 시간 이상 화재 발생 여부 감시 의무.",
+      "section_mapping": "섹션 10 (작업 후 화재 확인), 섹션 7 (화재감시자 30분 이상 감시)",
+      "verification_result": "PARTIAL_VERIFIED"
+    }
+  ],
+  "practical_basis": {
+    "description": "CL-005는 법정 별지 서식이 없는 실무 표준 점검표이다.",
+    "design_reference": "PTW-002 화기작업 허가서(KOSHA GUIDE P-94-2021 참고) 및 건설현장 화기작업 관리 실무에 기반하여 설계.",
+    "scope": "화기작업(용접·용단·그라인더·절단·토치·열풍기 등) 사전·중·후 화재예방 조치 이행 확인.",
+    "usage_note": "PTW-002 화기작업 허가서 발행 시 함께 사용. 화재감시자 조건 판단은 PTW-002 섹션 7 판단 기준 참조."
+  },
+  "notes": [
+    "법정 별지 서식 없음. 실무 표준서식으로 분류.",
+    "PTW-002 evidence L1~L4 조항(제236조·제241조·제241조의2·제243조·제244조)을 재사용.",
+    "법령 원문 API 수집 후 VERIFIED 전환 필요.",
+    "법정 조항번호(제236조 등)는 검색 기반 확인 — law.go.kr DRF API 원문 미수집 상태."
+  ]
+}

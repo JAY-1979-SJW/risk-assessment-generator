@@ -19,6 +19,8 @@ export API 연결 전 단계 — builder 호출 인터페이스만 제공.
     confined_space_permit               — 밀폐공간 작업허가서 (v1.0)         [PTW-001]
     hot_work_permit                     — 화기작업 허가서 (v1.0)             [PTW-002]
     work_at_height_permit               — 고소작업 허가서 (v1.0)             [PTW-003]
+    heavy_lifting_workplan              — 중량물 취급 작업계획서 (v1.0)            [WP-005]
+    lifting_work_permit                 — 중량물 인양·중장비사용 작업 허가서 (v1.0) [PTW-007]
     confined_space_checklist            — 밀폐공간 사전 안전점검표 (v1.0)    [CL-010]
     work_environment_measurement        — 작업환경측정 실시 및 결과 관리대장 (v1.0) [HM-001]
     special_health_examination          — 특수건강진단 대상자 및 결과 관리대장 (v1.0) [HM-002]
@@ -27,6 +29,11 @@ export API 연결 전 단계 — builder 호출 인터페이스만 제공.
     tower_crane_self_inspection_checklist — 타워크레인 자체 점검표 (v1.0)            [CL-006]
     construction_equipment_daily_checklist — 건설장비 일일 사전점검표 (v1.0)        [CL-003]
     formwork_shoring_installation_checklist — 거푸집 및 동바리 설치 점검표 (v1.0)  [CL-002]
+    fall_protection_checklist             — 추락 방호 설비 점검표 (v1.0)                [CL-007]
+    electrical_workplan                   — 전기 작업계획서 (v1.0)                       [WP-011]
+    electrical_work_permit                — 전기작업 허가서 / LOTO (v1.0)                [PTW-004]
+    electrical_facility_checklist         — 전기설비 정기 점검표 (v1.0)                   [CL-004]
+    fire_prevention_checklist             — 화재 예방 점검표 (v1.0)                        [CL-005]
 
 사용법:
     from engine.output.form_registry import (
@@ -46,6 +53,7 @@ from engine.output.confined_space_checklist_builder import build_confined_space_
 from engine.output.confined_space_permit_builder import build_confined_space_permit_excel
 from engine.output.hot_work_permit_builder import build_hot_work_permit_excel
 from engine.output.work_at_height_permit_builder import build_work_at_height_permit_excel
+from engine.output.lifting_work_permit_builder import build_lifting_work_permit_excel
 from engine.output.confined_space_workplan_builder import build_confined_space_workplan_excel
 from engine.output.education_log_builder import build_education_log_excel
 from engine.output.form_excel_builder import build_form_excel as _build_risk_assessment_excel_raw
@@ -63,7 +71,13 @@ from engine.output.tbm_log_builder import build_tbm_log_excel
 from engine.output.tower_crane_workplan_builder import build_tower_crane_workplan_excel
 from engine.output.vehicle_workplan_builder import build_vehicle_workplan_excel
 from engine.output.work_environment_measurement_builder import build_work_environment_measurement_excel
+from engine.output.heavy_lifting_workplan_builder import build_heavy_lifting_workplan_excel
 from engine.output.workplan_builder import build_excavation_workplan_excel
+from engine.output.fall_protection_checklist_builder import build_fall_protection_checklist_excel
+from engine.output.electrical_workplan_builder import build_electrical_workplan_excel
+from engine.output.electrical_work_permit_builder import build_electrical_work_permit_excel
+from engine.output.electrical_facility_checklist_builder import build_electrical_facility_checklist_excel
+from engine.output.fire_prevention_checklist_builder import build_fire_prevention_checklist_excel
 
 
 # ---------------------------------------------------------------------------
@@ -522,6 +536,100 @@ _REGISTRY: dict[str, FormSpec] = {
             "post_work_checks", "photo_items",
         ),
     ),
+    # ------------------------------------------------------------------
+    # P1 — WP-005 (2026-04-25)
+    # 법적 근거: 산안규칙 제38조 제1항 제11호 + 별표4, 제39조, 제40조,
+    #            제132조, 제133조, 제163조~제170조, 제385조
+    # evidence_status: NEEDS_VERIFICATION (조항 원문 API 미수집)
+    # 주의: 법정 별지 서식 없음. 자체 표준서식.
+    #       PTW-007 중량물 인양 허가서 발급 전 이 서식(WP-005) 선행 작성 필수.
+    # ------------------------------------------------------------------
+    "heavy_lifting_workplan": FormSpec(
+        form_type="heavy_lifting_workplan",
+        display_name="중량물 취급 작업계획서",
+        version="1.0",
+        builder=build_heavy_lifting_workplan_excel,
+        required_fields=(
+            # 산안규칙 제38조+별표4 법정 필수 — 중량물 취급 작업계획서
+            "object_name",      # 중량물 명칭   [법정] 별표4
+            "object_weight",    # 중량물 중량   [법정] 별표4
+            "work_method",      # 작업방법      [법정] 제38조
+            "emergency_measure",# 비상조치      [법정] 제38조+별표4
+        ),
+        optional_fields=(
+            "site_name", "project_name", "work_location", "work_date",
+            "supervisor", "contractor", "prepared_by",
+            "object_size", "object_shape", "weight_basis", "center_of_gravity",
+            "transport_route", "route_sketch_note",
+            "work_site_condition", "ground_condition", "access_control",
+            "equipment_name", "equipment_capacity", "auxiliary_equipment",
+            "rigging_method", "rigging_angle", "rigging_gear", "rigging_safety_coeff",
+            "work_commander", "signal_worker", "worker_roles",
+            "fall_prevention", "drop_prevention", "tipping_prevention",
+            "pinch_prevention", "collapse_prevention",
+            "pre_work_check_items", "photo_items",
+            "sign_date",
+        ),
+        repeat_field="safety_steps",   # list[dict]: task_step, hazard, safety_measure
+        max_repeat_rows=10,
+    ),
+    # ------------------------------------------------------------------
+    # P1 — PTW-007 (2026-04-25)
+    # 법적 근거: 산안규칙 제38조+별표4, 제39조, 제40조, 제132조, 제133조, 제135조,
+    #            제138조, 제146조④⑤, 제163조~제170조, 제221조의5, 제385조
+    # evidence_status: NEEDS_VERIFICATION (조항 원문 API 미수집, KOSHA PDF 미수집)
+    # 주의: 법정 별지 서식 없음. 자체 표준서식.
+    #       법정 안전보건교육 수료증 대체 불가.
+    #       WP-005 작업계획서 대체 불가 — 허가 전 WP-005 선행 작성 필수.
+    #       이동식크레인 사용 시 CL-003 장비점검표 병행 확인 필요.
+    #       사진 증빙 OPTIONAL.
+    # ------------------------------------------------------------------
+    "lifting_work_permit": FormSpec(
+        form_type="lifting_work_permit",
+        display_name="중량물 인양·중장비사용 작업 허가서",
+        version="1.0",
+        builder=build_lifting_work_permit_excel,
+        required_fields=(
+            # 산안규칙 제40조(신호방법), 제133조(정격하중), 제146조(출입통제) 이행 확인 필수
+            "site_name",       # 현장명
+            "work_date",       # 작업일자
+            "work_time",       # 작업시간
+            "work_location",   # 작업장소
+            "trade_name",      # 작업공종
+            "work_content",    # 작업내용
+            "contractor",      # 작업업체
+            "work_supervisor", # 작업책임자
+        ),
+        optional_fields=(
+            "project_name", "permit_no",
+            "lifting_object_name", "lifting_weight",
+            "lifting_size", "lifting_height", "lifting_distance", "lifting_route",
+            "equipment_name", "equipment_rated_load",
+            "work_radius", "outrigger_installed", "ground_condition",
+            "rigging_method", "rigging_gear",
+            "signal_worker_name",
+            "permit_issuer", "supervisor_name", "safety_manager_sign",
+            "work_end_confirmer", "final_sign",
+            "during_work_issues", "work_end_time", "photo_file_list", "validity_period",
+            # list fields
+            "lifting_types",        # list[str]: 인양작업 유형 선택
+            "workplan_checks",      # list[str]: 작업계획서 확인 항목
+            "equipment_checks",     # list[str]: 장비 및 정격하중 확인 항목
+            "rigging_checks",       # list[str]: 달기구·줄걸이 확인 항목
+            "signal_checks",        # list[str]: 신호수·통제 확인 항목
+            "pre_work_checks",      # list[str]: 작업 전 안전조치 항목
+            "post_work_checks",     # list[str]: 작업 종료 후 확인 항목
+            "photo_items",          # list[str]: 사진 증빙 항목
+            "workers",              # list[dict]: name, job_type
+        ),
+        repeat_field="workers",
+        max_repeat_rows=10,
+        extra_list_fields=(
+            "lifting_types", "workplan_checks", "equipment_checks",
+            "rigging_checks", "signal_checks", "pre_work_checks",
+            "post_work_checks", "photo_items",
+        ),
+    ),
     "confined_space_permit": FormSpec(
         form_type="confined_space_permit",
         display_name="밀폐공간 작업허가서",
@@ -834,6 +942,206 @@ _REGISTRY: dict[str, FormSpec] = {
             "doc_check_items", "install_check_items", "structure_check_items",
             "rope_check_items", "brake_check_items", "electric_check_items",
             "radius_check_items", "signal_check_items", "nonconformance_items",
+        ),
+    ),
+    # ------------------------------------------------------------------
+    # P2 → P1 — CL-007 (2026-04-25)
+    # 법적 근거: 산안규칙 제42조~제45조 (추락방지/개구부방호/안전대부착설비/지붕위험)
+    # evidence_status: PARTIAL_VERIFIED (제42~45조 원문 API 수집, 제13조 NEEDS_VERIFICATION)
+    # 연계: PTW-003(고소작업허가), CL-001(비계점검), RA-001(위험성평가), RA-004(TBM)
+    # 주의: 법정 별지 서식 아님. 실무 점검표. 비계 전용 점검은 CL-001 별도 사용.
+    # ------------------------------------------------------------------
+    "fall_protection_checklist": FormSpec(
+        form_type="fall_protection_checklist",
+        display_name="추락 방호 설비 점검표",
+        version="1.0",
+        builder=build_fall_protection_checklist_excel,
+        required_fields=(
+            "check_date",    # 점검 일자
+            "work_location", # 작업 장소
+            "checker_name",  # 점검자 성명
+        ),
+        optional_fields=(
+            "site_name", "project_name", "work_name", "work_height",
+            "work_period", "ptw_no", "supervisor_name",
+            "hazard_zone_items",   # list[dict]: item, result, note
+            "platform_items",      # list[dict]: item, result, note
+            "railing_items",       # list[dict]: item, result, note
+            "opening_items",       # list[dict]: item, result, note
+            "harness_items",       # list[dict]: item, result, note
+            "net_items",           # list[dict]: item, result, note
+            "special_equip_items", # list[dict]: item, result, note
+            "nonconformance_items", # list[dict]: content, location, action, deadline, completed
+            "work_verdict",        # 적합/조건부 적합/작업중지
+            "verdict_condition",   # 조건부 적합 조건
+            "inspector_sign", "supervisor_sign", "manager_sign", "sign_date",
+        ),
+        repeat_field=None,
+        max_repeat_rows=None,
+        extra_list_fields=(
+            "hazard_zone_items", "platform_items", "railing_items",
+            "opening_items", "harness_items", "net_items",
+            "special_equip_items", "nonconformance_items",
+        ),
+    ),
+    # ------------------------------------------------------------------
+    # P1 — WP-011 (2026-04-25)
+    # 법적 근거: 산안규칙 제38조 제1항(별표4 제5호 — 전기작업), 제301조 이하
+    # evidence_status: PARTIAL_VERIFIED (제38조 별표4 간접 확인, 제301조 NEEDS_VERIFICATION)
+    # 주의: 법정 별지 서식 없음 — 실무 표준서식.
+    #       PTW-004 전기작업 허가서·LOTO를 대체하지 않음.
+    # ------------------------------------------------------------------
+    "electrical_workplan": FormSpec(
+        form_type="electrical_workplan",
+        display_name="전기 작업계획서",
+        version="1.0",
+        builder=build_electrical_workplan_excel,
+        required_fields=(
+            # 산안규칙 제38조 제1항 기반 — 전기작업 필수 기재사항
+            "work_location",     # 작업 위치
+            "work_supervisor",   # 작업책임자
+        ),
+        optional_fields=(
+            "site_name", "project_name", "work_date", "work_period",
+            "contractor", "prepared_by", "reviewer",
+            "work_name", "work_datetime", "voltage", "work_category",
+            "type_outage", "type_live", "type_near", "type_temp_elec",
+            "type_panel", "type_cable", "type_power_tool", "type_test_measure",
+            "hazard_electric_shock", "hazard_arc", "hazard_short_circuit",
+            "hazard_leakage", "hazard_fire", "hazard_explosion",
+            "hazard_fall", "hazard_pinch",
+            "prereq_ra001", "prereq_ra004", "prereq_ptw004",
+            "prereq_cl004", "prereq_ppe001",
+            "loto_scope", "loto_breaker_location",
+            "loto_lock_installed", "loto_sign_attached",
+            "loto_residual_voltage", "loto_re_energize",
+            "live_approach_limit", "live_insulation_ppe", "live_insulation_tools",
+            "live_monitor", "live_energized_protect",
+            "temp_elcb", "temp_grounding", "temp_wire_protect",
+            "temp_waterproof", "temp_overload", "temp_panel_lock",
+            "tool_body_damage", "tool_wire_insulation", "tool_plug",
+            "tool_ground_wire", "tool_elcb",
+            "ppe_insulated_gloves", "ppe_insulated_shoes", "ppe_face_shield",
+            "ppe_insulation_mat", "equip_voltage_tester", "equip_insulation_meter",
+            "mgmt_zone_control", "mgmt_monitor", "mgmt_emergency_stop",
+            "mgmt_fire_response", "mgmt_reenergize_proc",
+            "work_verdict", "verdict_condition", "sign_date",
+        ),
+        repeat_field="nonconformance_items",  # list[dict]: content, action, deadline, completed
+        max_repeat_rows=5,                    # MAX_NC
+    ),
+    # ------------------------------------------------------------------
+    # P2 → P1 — CL-004 (2026-04-25)
+    # 법적 근거: 산안규칙 제302조~제305조(접지/누전차단기),
+    #           제301조·제309조·제313조(전기기계기구/이동전선),
+    #           제319조·제323조(정전작업/절연PPE)
+    # evidence_status: PARTIAL_VERIFIED (ELEC-001 pack L2/L4/L5/L6 재사용)
+    # 주의: 법정 별지 서식 없음. 실무 표준서식.
+    #       ELEC-001 공통 evidence pack 재사용. WP-011·PTW-004와 연계.
+    # ------------------------------------------------------------------
+    "electrical_facility_checklist": FormSpec(
+        form_type="electrical_facility_checklist",
+        display_name="전기설비 정기 점검표",
+        version="1.0",
+        builder=build_electrical_facility_checklist_excel,
+        required_fields=(
+            "site_name",       # 현장명
+            "inspection_date", # 점검일
+            "inspector",       # 점검자
+        ),
+        optional_fields=(
+            "project_name", "inspection_no",
+            "equipment_name", "voltage",
+            "inspection_location", "responsible_person",
+            "related_wp_no", "related_ptw_no",
+            "verdict", "verdict_condition",
+            "inspector_sign", "supervisor_sign", "safety_manager_sign",
+        ),
+        repeat_field="nonconformance_items",
+        max_repeat_rows=5,
+        extra_list_fields=(
+            "panel_checks", "grounding_checks", "wiring_checks",
+            "equipment_checks", "temporary_checks", "hazard_checks",
+            "ppe_checks",
+        ),
+    ),
+    # ------------------------------------------------------------------
+    # P1 — CL-005 (2026-04-25)
+    # 법적 근거: 산안규칙 제236조(화재위험 작업 장소·가연물 제거),
+    #           제241조(화기작업 안전조치·불티비산방지),
+    #           제241조의2(화재감시자 배치),
+    #           제243조·제244조(소화설비·잔불감시)
+    # evidence_status: PARTIAL_VERIFIED (PTW-002 evidence L1~L4 재사용)
+    # 주의: 법정 별지 서식 없음. 실무 표준서식.
+    #       PTW-002 화기작업 허가서와 연계 사용.
+    # ------------------------------------------------------------------
+    "fire_prevention_checklist": FormSpec(
+        form_type="fire_prevention_checklist",
+        display_name="화재 예방 점검표",
+        version="1.0",
+        builder=build_fire_prevention_checklist_excel,
+        required_fields=(
+            "site_name",       # 현장명
+            "inspection_date", # 점검일
+            "inspector",       # 점검자
+        ),
+        optional_fields=(
+            "project_name", "inspection_no",
+            "work_name", "work_location", "work_datetime",
+            "work_category", "related_ptw_no", "work_supervisor",
+            "verdict", "verdict_condition",
+            "inspector_sign", "fire_watch_sign",
+            "supervisor_sign", "safety_manager_sign",
+        ),
+        repeat_field="nonconformance_items",
+        max_repeat_rows=5,
+        extra_list_fields=(
+            "fire_work_types",
+            "combustible_checks", "spark_checks",
+            "extinguisher_checks", "fire_watch_checks",
+            "gas_equip_checks", "elec_fire_checks",
+            "post_work_checks",
+        ),
+    ),
+    # ------------------------------------------------------------------
+    # P2 → P1 — PTW-004 (2026-04-25)
+    # 법적 근거: 산안규칙 제319조~제320조(정전/LOTO), 제321조~제322조(활선/근접),
+    #           제323조(절연PPE), 제302조~제305조(접지/누전차단기)
+    # evidence_status: PARTIAL_VERIFIED (ELEC-001 pack L2/L3/L5 재사용)
+    # 주의: 법정 별지 서식 없음. 실무 표준서식.
+    #       ELEC-001 공통 evidence pack 재사용. WP-011과 연계.
+    #       CL-004 전기설비 정기점검표 builder v1.0 구현 완료(2026-04-25).
+    # ------------------------------------------------------------------
+    "electrical_work_permit": FormSpec(
+        form_type="electrical_work_permit",
+        display_name="전기작업 허가서 / LOTO",
+        version="1.0",
+        builder=build_electrical_work_permit_excel,
+        required_fields=(
+            "site_name",       # 현장명
+            "work_date",       # 작업일자
+            "work_location",   # 작업 위치
+            "work_supervisor", # 작업책임자
+        ),
+        optional_fields=(
+            "project_name", "permit_no", "work_time", "voltage",
+            "work_category", "contractor", "work_name",
+            "permit_issuer", "supervisor_name", "safety_manager",
+            "validity_period",
+            "loto_scope", "loto_breaker_location", "loto_key_holder",
+            "voltage_tester_used", "voltage_zero_confirmed",
+            "residual_voltage_result", "ground_confirmed",
+            "voltage_measurer_sign",
+            "reenergize_approver", "work_end_time", "work_end_confirmer",
+            "during_work_issues", "final_sign",
+        ),
+        repeat_field="nonconformance_items",  # list[dict]: content, action, deadline, completed
+        max_repeat_rows=5,
+        extra_list_fields=(
+            "work_types", "prereq_checks", "loto_checks",
+            "voltage_zero_checks", "live_work_checks", "ppe_checks",
+            "zone_control_checks", "stop_conditions", "completion_checks",
+            "workers",
         ),
     ),
 }

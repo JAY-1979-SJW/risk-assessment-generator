@@ -1,0 +1,30 @@
+{
+  "evidence_id": "CL-006-L3",
+  "document_id": "CL-006",
+  "title": "산업안전보건기준에 관한 규칙 크레인 공통 안전장치 및 점검 관련 조항",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "article": "제132조~제136조 (추정, NEEDS_VERIFICATION)",
+  "article_title": "크레인 공통 안전장치 — 과부하방지장치, 권과방지장치, 브레이크, 안전밸브, 경보장치",
+  "verification_result": "NEEDS_VERIFICATION",
+  "verification_note": "과부하방지장치, 권과방지장치, 브레이크, 리미트 스위치 등 크레인 공통 안전장치 관련 조항은 제132조~제136조 계열로 추정되나 원문 API 수집 없이 조항번호를 확정할 수 없음. 타워크레인 자체 점검항목(섹션6, 섹션7)의 실무적 근거로만 사용하며, 원문 확인 후 별도 VERIFIED 항목으로 분리 예정.",
+  "commonly_cited_standards": {
+    "과부하방지장치": "설치 및 정상 작동 의무 (조항번호 NEEDS_VERIFICATION)",
+    "권과방지장치": "설치 및 정상 작동 의무 (조항번호 NEEDS_VERIFICATION)",
+    "브레이크": "권상·선회·트롤리 브레이크 이상 없음 기준 (조항번호 NEEDS_VERIFICATION)",
+    "리미트스위치": "상·하 및 선회·트롤리 리미트 스위치 (조항번호 NEEDS_VERIFICATION)",
+    "와이어로프": "마모·단선 기준 (조항번호 NEEDS_VERIFICATION)",
+    "훅해지장치": "설치 의무 (조항번호 NEEDS_VERIFICATION)"
+  },
+  "scope_note": "타워크레인 전용이 아닌 크레인 공통 안전장치 조항. 이동식 크레인에도 공통 적용됨. CL-006에서는 타워크레인 점검항목 실무 근거로만 사용.",
+  "needs_verification_items": [
+    "과부하방지장치 관련 조항번호",
+    "권과방지장치 관련 조항번호",
+    "브레이크 관련 조항번호",
+    "리미트 스위치 관련 조항번호",
+    "와이어로프 교체기준 관련 조항번호",
+    "훅 해지장치 관련 조항번호"
+  ],
+  "collected_at": "2026-04-25",
+  "collected_by": "MANUAL_REVIEW",
+  "source": "국가법령정보센터 (수집 예정)"
+}

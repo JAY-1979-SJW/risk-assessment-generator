@@ -78,12 +78,24 @@ documents:
     category_code: WP
     document_group: 작업계획서
     legal_status: legal
-    implementation_status: TODO
-    priority: P1
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: heavy_lifting_workplan
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제10호, 제39조"
-    notes: "총 중량 100kg 이상"
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제11호 + 별표4, 제39조"
+    evidence_status: VERIFIED
+    evidence_id:
+      - WP-005-L1
+      - WP-005-L2
+      - WP-005-L1-BYL4
+    evidence_file:
+      - WP-005-L1_safety_rule_article_38_table4_heavy_lifting_workplan.json
+      - WP-005-L2_safety_rule_article_39_work_commander.json
+      - WP-005-L1-BYL4_safety_rule_byltable4_heavy_lifting_items.json
+    notes: "builder v1.0. PTW-007 선행 작업계획서. 법정 별지 서식 없음 — 자체 표준서식. L1(제38조) VERIFIED, L2(제39조) PARTIAL_VERIFIED, BYL4(별표4) VERIFIED. DRF XML 자동 검증 (2026-04-25)."
+    related_documents:
+      - PTW-007
+      - CL-003
 
   - id: WP-006
     name: 타워크레인 작업계획서
@@ -156,12 +168,49 @@ documents:
     category_code: WP
     document_group: 작업계획서
     legal_status: legal
-    implementation_status: TODO
-    priority: P1
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: electrical_workplan
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항, 제301조 이하"
-    notes: null
+    legal_basis: >
+      산업안전보건기준에 관한 규칙 제38조 제1항 별표4 제5호(전기작업) VERIFIED,
+      제301조(충전부 방호)·제302조(접지)·제304조(누전차단기) VERIFIED,
+      제309조(임시전선)·제313조(배선피복) VERIFIED,
+      제319조(정전전로 전기작업)·제320조(정전전로 인근 작업) VERIFIED,
+      제321조(충전전로 전기작업)·제322조(충전전로 인근 차량·기계장치 작업) VERIFIED,
+      제323조(절연용 보호구 등의 사용) VERIFIED
+      — 전체 법적 근거 law.go.kr DRF API (MST 273603) 원문 직접 확인 완료
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - "WP-011-L1"
+      - "ELEC-001-L1"
+      - "ELEC-001-L2"
+      - "ELEC-001-L3"
+      - "ELEC-001-L4"
+      - "ELEC-001-L5"
+      - "ELEC-001-L6"
+    evidence_file:
+      - "data/evidence/safety_law_refs/WP-011-L1_safety_rule_electrical_work.json"
+      - "data/evidence/safety_law_refs/ELEC-001-L1_safety_rule_electrical_work_general.json"
+      - "data/evidence/safety_law_refs/ELEC-001-L2_safety_rule_deenergized_loto.json"
+      - "data/evidence/safety_law_refs/ELEC-001-L3_safety_rule_live_work.json"
+      - "data/evidence/safety_law_refs/ELEC-001-L4_safety_rule_grounding_elcb.json"
+      - "data/evidence/safety_law_refs/ELEC-001-L5_safety_rule_insulation_ppe.json"
+      - "data/evidence/safety_law_refs/ELEC-001-L6_safety_rule_electrical_equipment.json"
+    engine_coverage: YES
+    retention_years: 3
+    related_documents:
+      - RA-001
+      - RA-004
+      - PTW-004
+      - CL-004
+      - PPE-001
+    notes: >
+      법정 별지 서식 없음 — 실무 표준서식. PTW-004 전기작업 허가서·LOTO를 대체하지 않음.
+      ELEC-001 공통 evidence pack(L1~L6) 수집 완료(2026-04-25, law.go.kr DRF API MST 273603 XML).
+      6개 topic 전체 VERIFIED: 제38조(작업계획서), 제319~320조(정전/LOTO), 제321~322조(활선/근접),
+      제302~305조(접지/누전차단기), 제323조(절연PPE), 제301·309·313조(전기기계기구/이동전선).
+      ELEC-001 pack은 PTW-004·CL-004에서도 재사용 가능. builder v1.0.
 
   - id: WP-012
     name: 궤도 작업계획서
@@ -220,10 +269,10 @@ documents:
       - "WP-015-L3"
       - "WP-015-L4"
     evidence_file:
-      - "data/evidence/safety_law_refs/WP-015_safety_rule_article_38.json"
-      - "data/evidence/safety_law_refs/WP-015_safety_rule_article_39.json"
-      - "data/evidence/safety_law_refs/WP-015_safety_rule_article_331.json"
-      - "data/evidence/safety_law_refs/WP-015_safety_rule_articles_328_337.json"
+      - "data/evidence/safety_law_refs/WP-015-L1_safety_rule_article_38.json"
+      - "data/evidence/safety_law_refs/WP-015-L2_safety_rule_article_39.json"
+      - "data/evidence/safety_law_refs/WP-015-L3_safety_rule_article_331.json"
+      - "data/evidence/safety_law_refs/WP-015-L4_safety_rule_articles_328_337.json"
     engine_coverage: YES
     retention_years: 3
     notes: "구조검토서 및 조립도 원본 첨부·보관 필요. 작업계획서는 구조계산서/조립도 대체 문서가 아님. 제38조 별표4에 거푸집·동바리 포함 여부는 law.go.kr API 원문 미수집으로 NEEDS_VERIFICATION. 제331조(조립도 작성) 근거는 PARTIAL_VERIFIED. 법령 개정 시 재검증 필요. builder v1.0."
@@ -661,6 +710,11 @@ documents:
       - "data/evidence/safety_law_refs/PTW-002-K2_kosha_f_1_2023_welding_cutting_fire_prevention.json"
     engine_coverage: YES
     retention_years: 3
+    related_documents:
+      - RA-001
+      - RA-004
+      - CL-005
+      - PPE-001
     notes: >
       법정 별지 서식 없음. 제241조 제4항 서면 게시 의무 이행 양식.
       KOSHA GUIDE P-94-2021 별지 양식1 참고, 법령 의무 항목 기반 자체 표준 서식.
@@ -714,6 +768,11 @@ documents:
       제86조 오류 수정: 고소작업대 조항은 제186조 (제86조는 탑승의 제한 조항).
       제57조 이하 → 제57조~제58조로 특정.
       법령 개정 시 재검증 필요. builder v1.0.
+    related_documents:
+      - RA-001
+      - RA-004
+      - CL-001
+      - CL-007
 
   - id: PTW-004
     name: 전기작업 허가서
@@ -721,12 +780,33 @@ documents:
     category_code: PTW
     document_group: 작업허가서
     legal_status: practical
-    implementation_status: TODO
-    priority: P2
-    form_type: null
+    implementation_status: DONE
+    priority: P1
+    form_type: electrical_work_permit
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제316조 이하 (LOTO)"
-    notes: null
+    legal_basis: "산업안전보건기준에 관한 규칙 제319조~제323조 (정전/활선/LOTO/절연PPE), 제302조~제305조 (접지/누전차단기)"
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - PTW-004-L1
+      - PTW-004-L2
+      - PTW-004-P1
+    evidence_file:
+      - PTW-004-L1_elec_pack_loto_deenergized_work.json
+      - PTW-004-L2_elec_pack_live_work_protection.json
+      - PTW-004-P1_practical_electrical_permit.json
+    related_documents:
+      - RA-001
+      - RA-004
+      - WP-011
+      - CL-004
+      - PPE-001
+    engine_coverage: YES
+    retention_years: 3
+    notes: >
+      법정 별지 서식 없음 — 실무 표준서식. 산안규칙 제319조~제323조 안전조치 이행 확인 및 LOTO 절차 기록.
+      ELEC-001 공통 evidence pack(L2/L3/L5) 재사용. PTW-004 전용 evidence 별도 생성.
+      CL-004 전기설비 정기 점검표 builder v1.0 구현 완료(2026-04-25). PPE-001 보호구 지급 대장은 optional.
+      builder v1.0 (2026-04-25).
 
   - id: PTW-005
     name: 굴착 작업 허가서
@@ -755,17 +835,56 @@ documents:
     notes: "방사선 투과검사(RT) 한정"
 
   - id: PTW-007
-    name: 중량물 인양 작업 허가서
+    name: 중량물 인양·중장비사용 작업 허가서
     category: 작업허가서
     category_code: PTW
     document_group: 작업허가서
     legal_status: practical
-    implementation_status: TODO
-    priority: P1
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: lifting_work_permit
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제135조 이하"
-    notes: "Critical Lift (SWL 75% 초과) 시 필수"
+    legal_basis: >
+      산업안전보건기준에 관한 규칙 제38조 제1항 제11호 + 별표4, 제39조, 제40조,
+      제132조, 제133조, 제135조, 제138조, 제146조 제4항·제5항,
+      제163조~제170조, 제221조의5, 제385조 /
+      KOSHA GUIDE C-102-2023, M-186-2015, P-94-2021 참고
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - "PTW-007-L1"
+      - "PTW-007-L2"
+      - "PTW-007-L3"
+      - "PTW-007-L4"
+      - "PTW-007-L5"
+      - "PTW-007-L6"
+      - "PTW-007-K1"
+      - "PTW-007-K2"
+      - "PTW-007-K3"
+    evidence_file:
+      - "data/evidence/safety_law_refs/PTW-007-L1_safety_rule_article_38_table4_heavy_lifting_plan.json"
+      - "data/evidence/safety_law_refs/PTW-007-L2_safety_rule_article_40_lifting_signal.json"
+      - "data/evidence/safety_law_refs/PTW-007-L3_safety_rule_articles_132_135_lifting_device_safety.json"
+      - "data/evidence/safety_law_refs/PTW-007-L4_safety_rule_articles_138_146_crane_work.json"
+      - "data/evidence/safety_law_refs/PTW-007-L5_safety_rule_articles_163_170_rigging_gears.json"
+      - "data/evidence/safety_law_refs/PTW-007-L6_safety_rule_articles_221_5_385_heavy_lifting.json"
+      - "data/evidence/safety_law_refs/PTW-007-K1_kosha_c_102_2023_mobile_crane_lifting_plan.json"
+      - "data/evidence/safety_law_refs/PTW-007-K2_kosha_m_186_2015_rigging_wire_rope.json"
+      - "data/evidence/safety_law_refs/PTW-007-K3_kosha_p_94_2021_work_permit.json"
+    engine_coverage: YES
+    retention_years: 3
+    notes: >
+      법정 별지 서식 없음. 자체 표준서식 (PTW-002/003 패턴 재사용).
+      WP-005 중량물 취급 작업계획서 대체 불가 — 허가 전 WP-005 선행 작성 필수.
+      CL-003 건설장비 일일점검표 병행 확인 필요 (이동식 크레인 등 장비 사용 시).
+      이동식크레인 사용 시 WP-007 이동식 크레인 작업계획서 별도 확인 필요.
+      사진 OPTIONAL — 법정 필수 아님, 점검 대응 권장 증빙.
+      법정 안전보건교육 수료증 대체 불가.
+      evidence L1~L6: law.go.kr DRF API (MST 273603) 원문 VERIFIED (2026-04-25).
+      별표4 원문은 별표 API 별도 조회 필요. evidence K1~K3: KOSHA PDF 원문 미수집 (NEEDS_VERIFICATION).
+      builder v1.0. 섹션 14개.
+    related_documents:
+      - WP-005
+      - CL-003
 
   - id: PTW-008
     name: 임시전기 설치·연결 허가서
@@ -922,7 +1041,7 @@ documents:
     form_type: construction_equipment_daily_checklist
     source_type: law
     legal_basis: >
-      [차량계 건설기계] 산업안전보건기준에 관한 규칙 제196조~제199조 추정 (NEEDS_VERIFICATION — 조항번호 원문 미수집).
+      [차량계 건설기계] 산업안전보건기준에 관한 규칙 제196조(차량계 건설기계의 정의)·제197조(전조등의 설치)·제198조(낙하물 보호구조)·제199조(전도 등의 방지) VERIFIED (2026-04-25).
       [차량계 하역운반기계등] 산업안전보건기준에 관한 규칙 제171조~제178조 추정 (PARTIAL_VERIFIED — WP-009 연계).
       [지게차 세부] 산업안전보건기준에 관한 규칙 제179조~제183조 추정 (PARTIAL_VERIFIED — WP-009 연계).
       제171조를 차량계 건설기계 근거로 적용하지 않음. 제179조는 지게차 세부 근거로만 사용.
@@ -940,7 +1059,7 @@ documents:
       본 서식은 건설장비 일일 사전점검 전용이며, 작업계획서(WP-008/WP-009) 및 장비사용계획서(EQ-001/EQ-002)를 대체하지 않음.
       타워크레인·이동식 크레인·비계·거푸집동바리 전용 점검은 별도 서식으로 관리.
       차량계 건설기계와 차량계 하역운반기계 조항 분리 적용.
-      CL-003-L1(차량계 건설기계)은 원문 미수집으로 NEEDS_VERIFICATION 유지 필요.
+      CL-003-L1(차량계 건설기계) 제196조~제199조 원문 VERIFIED (2026-04-25, law.go.kr DRF API MST 273603).
       지게차 점검 항목: 헤드가드, 백레스트, 좌석안전띠, 포크, 후진경보기·경광등·후방감지기 포함.
       builder v1.0.
 
@@ -950,12 +1069,32 @@ documents:
     category_code: CL
     document_group: 점검표
     legal_status: practical
-    implementation_status: TODO
+    implementation_status: DONE
     priority: P2
-    form_type: null
+    form_type: electrical_facility_checklist
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제303조 이하"
-    notes: null
+    legal_basis: "산업안전보건기준에 관한 규칙 제302조~제305조·제309조·제313조·제319조·제323조"
+    engine_coverage: YES
+    retention_years: 3
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - CL-004-L1
+      - CL-004-L2
+      - CL-004-P1
+    evidence_file:
+      - CL-004-L1_elec_pack_grounding_leakage_breaker.json
+      - CL-004-L2_elec_pack_electrical_tools_wiring.json
+      - CL-004-P1_practical_electrical_facility_checklist.json
+    related_documents:
+      - RA-001
+      - RA-004
+      - WP-011
+      - PTW-004
+      - PPE-001
+    notes: >
+      법정 별지 서식 없음 — 실무 표준서식. 전기설비 정기 점검 이행 확인 양식.
+      ELEC-001 공통 evidence pack(L2/L4/L5/L6) 재사용. PTW-004 전기작업 허가서와 연계.
+      PPE-001 보호구 지급 대장은 optional. builder v1.0 (2026-04-25).
 
   - id: CL-005
     name: 화재 예방 점검표
@@ -963,12 +1102,28 @@ documents:
     category_code: CL
     document_group: 점검표
     legal_status: practical
-    implementation_status: TODO
-    priority: P2
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: fire_prevention_checklist
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제241조 이하"
-    notes: null
+    legal_basis: "산업안전보건기준에 관한 규칙 제236조·제241조·제241조의2·제243조·제244조"
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - "CL-005-P1"
+    evidence_file:
+      - "data/evidence/safety_law_refs/CL-005-P1_fire_prevention_checklist_practical.json"
+    engine_coverage: YES
+    retention_years: 3
+    related_documents:
+      - RA-001
+      - RA-004
+      - PTW-002
+      - PPE-001
+    notes: >
+      법정 별지 서식 없음. 실무 표준서식 (practical checklist).
+      화기작업 사전·중·후 화재예방 조치 이행 확인 양식.
+      PTW-002 evidence (L1~L4) 재사용. PTW-002 화기작업 허가서와 연계 사용.
+      PPE-001 보호구 지급 대장은 optional. builder v1.0 (2026-04-25).
 
   - id: CL-006
     name: 타워크레인 자체 점검표
@@ -1003,12 +1158,32 @@ documents:
     category_code: CL
     document_group: 점검표
     legal_status: practical
-    implementation_status: TODO
-    priority: P2
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: fall_protection_checklist
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제42조~제44조"
-    notes: null
+    legal_basis: "산업안전보건기준에 관한 규칙 제42조~제45조"
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - "CL-007-L1"
+      - "CL-007-L2"
+    evidence_file:
+      - "data/evidence/safety_law_refs/CL-007-L1_safety_rule_articles_42_45_fall_prevention.json"
+      - "data/evidence/safety_law_refs/CL-007-L2_safety_rule_article_13_safety_railing.json"
+    engine_coverage: YES
+    retention_years: 3
+    related_documents:
+      - PTW-003
+      - RA-001
+      - RA-004
+      - CL-001
+    notes: >
+      법정 별지 서식 없음. 실무 점검표.
+      산안규칙 제42조~제45조(추락방지·개구부방호·안전대부착설비·지붕위험) 기반.
+      L1(제42~45조) 원문 API 수집 완료 → PARTIAL_VERIFIED.
+      L2(제13조 안전난간 구조·설치요건) 원문 미수집 → NEEDS_VERIFICATION.
+      비계 설치 점검은 CL-001, 고소작업 허가는 PTW-003 별도 사용.
+      법령 개정 시 재검증 필요. builder v1.0.
 
   - id: CL-008
     name: 보호구 지급 및 관리 점검표
@@ -1411,7 +1586,8 @@ documents:
   # ═══════════════════════════════════════════════════════════════
   # HM — 보건관리 서류 (2종)
   # 기준: 산업안전보건법 제125조 (작업환경측정), 제130조 (특수건강진단)
-  # evidence: G-02/G-03 (law.go.kr DRF API, VERIFIED 2026-04-24)
+  # evidence: HM-001-L1 / HM-002-L1 (law.go.kr DRF API, VERIFIED 2026-04-24
+  #            — 구 G-02/G-03 명명에서 2026-04-26 정규화 배치로 표준명 전환)
   # ═══════════════════════════════════════════════════════════════
 
   - id: HM-001
@@ -1426,11 +1602,11 @@ documents:
     source_type: law
     legal_basis: "산업안전보건법 제125조 (작업환경측정 — 측정의무·기록보존·근로자 통지)"
     evidence_status: VERIFIED
-    evidence_id: "G-02"
-    evidence_file: "data/evidence/safety_law_refs/G-02_industrial_safety_health_act_article_125.json"
+    evidence_id: "HM-001-L1"
+    evidence_file: "data/evidence/safety_law_refs/HM-001-L1_industrial_safety_health_act_article_125.json"
     engine_coverage: YES
     retention_years: 3
-    notes: "외부 측정기관 발급 공식 결과보고서를 대체하지 않고, 측정 실시·결과·사후조치를 사업장이 자체 관리하는 관리대장 형태로 구현. 외부 전문 측정기관 발급 결과보고서 원본을 반드시 보관·첨부하여야 함. 법 제125조 원문 G-02 evidence VERIFIED(law.go.kr DRF API). 시행규칙(측정 대상 작업장·방법·주기·별표) 별도 evidence 수집 시 연결 필요. builder v1.0."
+    notes: "외부 측정기관 발급 공식 결과보고서를 대체하지 않고, 측정 실시·결과·사후조치를 사업장이 자체 관리하는 관리대장 형태로 구현. 외부 전문 측정기관 발급 결과보고서 원본을 반드시 보관·첨부하여야 함. 법 제125조 원문 HM-001-L1 evidence VERIFIED(law.go.kr DRF API, 구 G-02 명명에서 2026-04-26 정규화 배치로 표준명 전환). 시행규칙(측정 대상 작업장·방법·주기·별표) 별도 evidence 수집 시 연결 필요. builder v1.0."
 
   - id: HM-002
     name: 특수건강진단 대상자 및 결과 관리대장
@@ -1444,8 +1620,8 @@ documents:
     source_type: law
     legal_basis: "산업안전보건법 제130조 (특수건강진단 등 — 배치전·정기·수시), 시행규칙 제202조·제204조·제206조 (실시시기·배치전·검사항목), 별표 23·별표 24"
     evidence_status: VERIFIED
-    evidence_id: "G-03"
-    evidence_file: "data/evidence/safety_law_refs/G-03_industrial_safety_health_act_article_130.json"
+    evidence_id: "HM-002-L1"
+    evidence_file: "data/evidence/safety_law_refs/HM-002-L1_industrial_safety_health_act_article_130.json"
     engine_coverage: YES
     retention_years: 5
-    notes: "검진기관 발급 공식 건강진단 결과서를 대체하지 않고, 대상자·결과·사후관리를 사업장이 자체 관리하는 관리대장 형태로 구현. 외부 지정 검진기관 발급 결과서 원본을 별도 보관하여야 함. 구체적 질병명·주민등록번호 전체 등 민감정보 필드 제외. 법 제130조 원문 G-03 evidence VERIFIED(law.go.kr DRF API). 시행규칙 제202·204·206조 및 별표 23·24 evidence 수집 시 추가 연결 필요. builder v1.0."
+    notes: "검진기관 발급 공식 건강진단 결과서를 대체하지 않고, 대상자·결과·사후관리를 사업장이 자체 관리하는 관리대장 형태로 구현. 외부 지정 검진기관 발급 결과서 원본을 별도 보관하여야 함. 구체적 질병명·주민등록번호 전체 등 민감정보 필드 제외. 법 제130조 원문 HM-002-L1 evidence VERIFIED(law.go.kr DRF API, 구 G-03 명명에서 2026-04-26 정규화 배치로 표준명 전환). 시행규칙 제202·204·206조 및 별표 23·24 evidence 수집 시 추가 연결 필요. builder v1.0."

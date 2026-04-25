@@ -3,6 +3,7 @@
 ## 작업규칙
 - 단계별 1개씩 실행 → 검증 → 보고 → 자동 다음 단계 (매번 사용자 확인 불필요)
 - 파일 여러 개 동시 생성 금지
+- Agent 병렬 실행 금지 — 복수의 Agent tool을 동시에 호출하지 않는다
 - 기존 파일 수정 전 Read 확인
 - 코드에 비밀번호·키 하드코딩 금지
 
@@ -42,3 +43,10 @@
 - DB서버: ubuntu@1.201.177.67   (haehan-webdb, common_data DB)
 - DB 터널: ssh -i ~/.ssh/haehan-ai.pem -L 5435:localhost:5432 ubuntu@1.201.177.67 -N -f
 - 앱서버 접속: ssh -i ~/.ssh/haehan-ai.pem ubuntu@1.201.176.236
+
+## 외부 API 환경변수
+- law.go.kr DRF API OC 키: 환경변수 `LAW_GO_KR_OC` (프로젝트 루트 .env)
+  - 법령 조문 조회 시 .env에서 읽어 사용 — 코드에 하드코딩 금지
+  - MST 번호 조회: `GET /DRF/lawSearch.do?OC={OC}&target=law&query={법령명}&type=JSON`
+  - 조문 조회: `GET /DRF/lawService.do?OC={OC}&target=law&MST={MST}&type=JSON`
+  - 산업안전보건기준에 관한 규칙 MST: 273603 (법령ID: 007363, 시행 2026.3.2.)

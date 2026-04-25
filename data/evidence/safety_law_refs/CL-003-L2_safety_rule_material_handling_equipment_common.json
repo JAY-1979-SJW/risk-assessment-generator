@@ -1,0 +1,27 @@
+{
+  "evidence_id": "CL-003-L2",
+  "document_id": "CL-003",
+  "title": "산업안전보건기준에 관한 규칙 차량계 하역운반기계등 공통 안전조치 관련 조항",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "article": "제171조~제178조 추정 (PARTIAL_VERIFIED — WP-009 법령 연계, 세부 조항 내용 NEEDS_VERIFICATION)",
+  "article_title": "차량계 하역운반기계등 공통 안전조치 — 전조등·전도방지·접촉방지·운전위치이탈·탑승제한",
+  "verification_result": "PARTIAL_VERIFIED",
+  "verification_note": "WP-009(차량계 하역운반기계 작업계획서)의 legal_basis에 제38조 제1항 제2호·제2항·제179조~제182조가 인용됨. 제171조~제178조는 차량계 하역운반기계등 공통 조항으로 추정되나 실제 조항번호별 조문 내용은 원문 API 미수집 상태. CL-003 일일 사전점검의 하역운반기계 공통 점검 근거로 잠정 기재.",
+  "scope": "차량계 하역운반기계등 — 지게차, 구내운반차, 화물자동차, 고소작업대 등",
+  "related_document": "WP-009 (차량계 하역운반기계 작업계획서) — 동일 법령 계열",
+  "commonly_cited_items": {
+    "전조등 설치": "야간 또는 악천후 시 전조등 설치 의무 추정 (조항번호 NEEDS_VERIFICATION)",
+    "전도·전락 방지": "전도 위험 구간 통제, 갓길 붕괴 방지 등 (조항번호 NEEDS_VERIFICATION)",
+    "접촉 방지": "작업반경 내 관계자 외 출입 금지 (조항번호 NEEDS_VERIFICATION)",
+    "운전위치 이탈 시 조치": "포크·버킷 내림, 주차 브레이크 체결 의무 추정 (조항번호 NEEDS_VERIFICATION)",
+    "탑승 제한": "탑승석 외 탑승 금지 (조항번호 NEEDS_VERIFICATION)"
+  },
+  "needs_verification_items": [
+    "제171조 실제 내용 및 대상 기계 확인",
+    "제172조~제178조 각 조항 내용 확인",
+    "공통 조항과 지게차 전용 조항(제179조~) 경계 확인"
+  ],
+  "collected_at": "2026-04-25",
+  "collected_by": "MANUAL_REVIEW",
+  "source": "국가법령정보센터 (수집 예정 — law.go.kr DRF API)"
+}

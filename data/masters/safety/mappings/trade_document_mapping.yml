@@ -215,9 +215,9 @@ mappings:
 
   - trade_id: COMMON_HEAVY_LIFTING
     required_documents: [RA-001, RA-004, ED-003, WP-005]
-    recommended_documents: [PTW-007, EQ-004, WP-007, PPE-001]
+    recommended_documents: [PTW-007, CL-003, EQ-004, WP-007, PPE-001]
     conditional_documents: [WP-007]
-    notes: 이동식 크레인 사용 시 WP-007 추가
+    notes: 이동식 크레인 사용 시 WP-007 추가. 크레인·인양장비 사전점검 CL-003 권장.
 
   - trade_id: COMMON_EQUIPMENT_OPERATION
     required_documents: [RA-001, RA-004, CL-003]

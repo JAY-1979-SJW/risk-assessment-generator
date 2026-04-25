@@ -1,0 +1,19 @@
+{
+  "evidence_id": "PTW-007-L4",
+  "document_id": "PTW-007",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "article_no": "제138조, 제146조 제4항·제5항",
+  "article_title": "이동식 크레인 경사각 제한, 크레인 인양 중 출입통제·신호수",
+  "law_mst": "273603",
+  "source": "law.go.kr",
+  "collection_method": "law.go.kr DRF API (MST 273603, XML)",
+  "verification_result": "VERIFIED",
+  "collected_at": "2026-04-25",
+  "article_summary": "제138조: 사업주는 이동식 크레인을 사용할 때 붐의 경사각 제한 기준을 준수하여야 한다. 제146조 제4항: 사업주는 크레인으로 인양 중인 물건의 하부에 근로자가 출입하지 않도록 통제하여야 한다. 제146조 제5항: 사업주는 인양물이 보이지 않는 경우 신호수를 배치하여야 한다.",
+  "ptw_007_relevance": "PTW-007 섹션 5(경사각 확인) 및 섹션 9(신호수 배치·하부 출입통제) — 이동식 크레인 경사각 제한 확인, 하부 근로자 출입금지, 신호수 배치 의무 근거.",
+  "notes": "law.go.kr DRF API 원문 수집 후 VERIFIED 전환 필요.",
+  "verified_at": "2026-04-25T09:16:14.246758+00:00",
+  "source_url": "https://www.law.go.kr/DRF/lawService.do?OC=haehan2026&target=law&MST=273603&type=XML",
+  "verified_excerpt_hash": "dbb0a16d7aff4aab",
+  "verification_note": "조문 확인: ['138', '146'] (2/2개). 키워드 확인: ['경사각', '출입'] (2/3개)."
+}

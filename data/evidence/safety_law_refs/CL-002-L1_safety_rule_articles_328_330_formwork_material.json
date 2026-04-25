@@ -1,0 +1,32 @@
+{
+  "evidence_id": "CL-002-L1",
+  "document_id": "CL-002",
+  "title": "산업안전보건기준에 관한 규칙 제328조~제330조 거푸집동바리 재료·구조·설치 기준",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "article": "제328조~제330조",
+  "article_title": "거푸집동바리 재료, 거푸집 안전성 확보, 동바리 등의 설치",
+  "verification_result": "PARTIAL_VERIFIED",
+  "verification_note": "WP-015 evidence(WP-015-L4)에서 제328조~제337조 전체 범위 PARTIAL_VERIFIED로 확인. 제328조(재료), 제329조(침하방지), 제330조(수평연결재·가새·받침대)는 WP-015 raw_text_excerpt에 조항 번호 및 내용 요약 기재됨. 원문 API 미수집으로 세부 조문 확정 불가.",
+  "article_range_notes": {
+    "328": "거푸집동바리 재료 기준 — 변형·부식·손상 부재 사용 금지",
+    "329": "거푸집 안전성 확보 — 침하방지조치, 거푸집 벌어짐 방지",
+    "330": "동바리 등의 설치 — 수평연결재, 가새, 받침대, 미끄럼 방지"
+  },
+  "key_obligations": [
+    "거푸집동바리 재료 기준 적합 여부 확인 의무",
+    "변형·부식·손상 부재 사용 금지",
+    "동바리 침하방지 받침목·베이스플레이트 설치",
+    "수평연결재(가새) 설치 의무",
+    "동바리 상하 고정 및 미끄럼 방지 조치"
+  ],
+  "needs_verification_items": [
+    "제328조 세부 재료 기준(직경·두께·재질 등) 원문 확인",
+    "제329조 침하방지 구체적 조치 기준 원문 확인",
+    "제330조 수평연결재·가새 설치 간격 기준 원문 확인"
+  ],
+  "related_evidence": "WP-015-L4 (WP-015-L4_safety_rule_articles_328_337.json)",
+  "scope_note": "제338조 이후는 굴착작업 계열로 보이므로 CL-002 evidence에 포함하지 않음.",
+  "collected_at": "2026-04-25",
+  "collected_by": "MANUAL_REVIEW",
+  "source": "국가법령정보센터 (WP-015 evidence 연계, 원문 API 수집 예정)"
+}

@@ -1,0 +1,15 @@
+{
+  "evidence_id": "PTW-007-K1",
+  "document_id": "PTW-007",
+  "guide_name": "KOSHA GUIDE C-102-2023",
+  "guide_title": "건설현장의 중량물 취급 작업계획서(이동식 크레인) 작성지침",
+  "issuer": "한국산업안전보건공단 (KOSHA)",
+  "issued_year": "2023",
+  "source": "kosha.or.kr",
+  "collection_method": "NEEDS_VERIFICATION (가이드명·발행연도 메타 확인, PDF 원문 미수집)",
+  "verification_result": "NEEDS_VERIFICATION",
+  "collected_at": "2026-04-25",
+  "guide_summary": "이동식 크레인을 이용한 중량물 취급 작업계획서 작성에 관한 기술지침. 크레인 설치위치·작업반경·붐 길이·경사각, 아웃트리거 설치 및 지반 침하 여부, 정격하중 대비 인양물 중량 비율, 줄걸이 방법(샤클·슬링벨트·와이어로프) 및 인양각도, 인양 경로 확인 및 장애물 여부 등을 포함한다.",
+  "ptw_007_relevance": "PTW-007 섹션 5(아웃트리거·작업반경), 섹션 6(줄걸이 각도), 섹션 7(인양 경로 확인), 섹션 8(지반·아웃트리거) — 법정 기준 외 KOSHA 권고 항목 근거.",
+  "notes": "KOSHA GUIDE는 법령 의무가 아닌 권고 기준. PDF 원문 미수집 — 상세 내용 재검증 필요. law_status: KOSHA 권고."
+}

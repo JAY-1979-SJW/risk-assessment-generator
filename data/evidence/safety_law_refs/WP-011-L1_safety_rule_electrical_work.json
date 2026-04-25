@@ -1,0 +1,49 @@
+{
+  "evidence_id": "WP-011-L1",
+  "document_id": "WP-011",
+  "evidence_file": "WP-011-L1_safety_rule_electrical_work.json",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "law_mst": "273603",
+  "article_or_table": "제38조 제1항 (별표4 제5호 — 전기작업), 제301조 이하",
+  "article_title": "사전조사 및 작업계획서의 작성 등 (전기작업 관련)",
+  "source": "law.go.kr (수동 기술 — 제38조 별표4 간접 확인, 제301조 이하 API 미수집)",
+  "source_url_or_api": "https://www.law.go.kr/법령/산업안전보건기준에관한규칙",
+  "effective_date": "NEEDS_VERIFICATION",
+  "collected_at": "2026-04-25T00:00:00+09:00",
+  "verification_keywords": [
+    "작업계획서",
+    "전기작업",
+    "별표 4",
+    "정전",
+    "활선",
+    "접지",
+    "누전차단기"
+  ],
+  "keywords_found": [
+    "작업계획서",
+    "전기작업",
+    "별표 4"
+  ],
+  "verification_result": "PARTIAL_VERIFIED",
+  "summary": "산업안전보건기준에 관한 규칙 제38조 제1항 — 별표4에 따른 작업에 대해 사전조사 및 작업계획서 작성 의무. WP-015(거푸집·동바리) evidence(WP-015-L1)의 raw_text_excerpt에서 별표4 항목 중 '5. (전기작업)' 간접 확인 → 전기작업이 별표4에 포함됨을 PARTIAL_VERIFIED로 처리. 제301조 이하 전기작업 구체적 안전기준 조항은 law.go.kr API 원문 미수집으로 NEEDS_VERIFICATION. 법정 별지 서식 없음 — 현장 실무 표준서식으로 구현.",
+  "matched_keywords": [
+    "작업계획서",
+    "전기작업",
+    "별표 4"
+  ],
+  "raw_text_excerpt": "제38조(사전조사 및 작업계획서의 작성 등) ① 사업주는 별표 4에 따른 작업을 하는 경우에는 미리 작업 장소·지형·지반 및 지층의 상태 등을 확인하고 그 결과를 기록·보존하여야 하며, 다음 각 호의 사항이 포함된 작업계획서를 작성하고 그 계획에 따라 작업을 하도록 하여야 한다. [별표4 제5호 — 전기작업 포함: WP-015-L1 evidence 간접 확인] ※ 제301조 이하 전기작업 세부 안전기준 — 정전작업·활선작업·충전전로 방호·접지·누전차단기·절연용 보호구 관련 조항 포함 (원문 미수집, NEEDS_VERIFICATION)",
+  "notes": "1. 제38조 별표4에 전기작업이 포함됨은 WP-015 evidence(WP-015-L1)의 별표4 항목 목록에서 '5. (전기작업)'으로 간접 확인 — PARTIAL_VERIFIED 처리.\n2. 제301조 이하 조항의 구체적 내용(정전작업 절차, 활선작업 안전거리, 충전부 방호, 누전차단기, 접지 등)은 law.go.kr DRF API로 원문 수집 후 재확인 필요 — NEEDS_VERIFICATION.\n3. 법정 별지 서식 없음. 본 서류는 현장 실무 표준서식(practical/custom workplan)으로 구현.\n4. PTW-004 전기작업 허가서/LOTO는 별도 서류로 관리 — WP-011 작업계획서는 PTW-004를 대체하지 않음.\n5. 법령 개정 시 재검증 필요.",
+  "verified_at": "2026-04-25T13:57:13.228742+00:00",
+  "source_url": "https://www.law.go.kr/DRF/lawService.do?OC=haehan2026&target=law&MST=273603&type=XML",
+  "verification_note": "ELEC-001 공통 evidence pack 6개 수집 완료 (2026-04-25T13:57:13.228739+00:00). VERIFIED: 6건, PARTIAL_VERIFIED: 0건, NEEDS_VERIFICATION: 0건. WP-011 관련 6개 topic 중 6개 확인. 제301조 이하 개별 조항은 ELEC-001-L1~L6 참조.",
+  "collection_method": "ELEC-001 evidence pack 수집 결과 반영",
+  "verifier": "automated_law_source_check",
+  "elec_pack_reference": [
+    "ELEC-001-L1",
+    "ELEC-001-L2",
+    "ELEC-001-L3",
+    "ELEC-001-L4",
+    "ELEC-001-L5",
+    "ELEC-001-L6"
+  ]
+}
