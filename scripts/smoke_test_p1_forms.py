@@ -2011,6 +2011,653 @@ def run_cl003_smoke_test() -> list[tuple[str, str, str]]:
     return results
 
 
+# ---------------------------------------------------------------------------
+# PTW-002 샘플 form_data
+# ---------------------------------------------------------------------------
+
+SAMPLE_PTW002_MINIMAL: dict = {
+    "site_name":       "테스트건설(주) 테스트현장",
+    "work_date":       "2026-04-25",
+    "work_time":       "09:00 ~ 18:00",
+    "work_location":   "지하 2층 기계실 배관 구간",
+    "trade_name":      "소방 배관 공사",
+    "work_content":    "소방 배관 용접 및 연결",
+    "contractor":      "협력업체 A",
+    "work_supervisor": "홍길동",
+}
+
+SAMPLE_PTW002_FULL: dict = {
+    "site_name":          "테스트건설(주) 테스트현장",
+    "project_name":       "테스트현장 신축공사",
+    "permit_no":          "PTW-2026-0001",
+    "work_date":          "2026-04-25",
+    "work_time":          "09:00 ~ 18:00",
+    "work_location":      "지하 2층 기계실 배관 구간",
+    "trade_name":         "소방 배관 공사",
+    "work_content":       "소방 배관 용접 및 연결 (배관 규격 65A)",
+    "contractor":         "협력업체 A",
+    "work_supervisor":    "홍길동",
+    "equipment_list":     "전기 용접기, 그라인더",
+    "combustibles_present": "주변 단열재 일부 존재",
+    "combustibles_removed": "완료 — 작업반경 5m 내 제거",
+    "fire_blanket_used":   "설치",
+    "extinguisher_placed": "소화기 2대 비치 (3.3kg ABC)",
+    "ventilation_status":  "환기 팬 1대 가동",
+    "fire_watch_required": "필요",
+    "fire_watch_name":     "이감시",
+    "permit_issuer":       "김허가자",
+    "supervisor_name":     "박감독",
+    "validity_period":     "당일 1회 작업 한정",
+    "work_end_time":       "18:00",
+    "post_work_confirmer": "박감독",
+    "work_types":          ["용접", "그라인더"],
+    "pre_work_checks": [
+        "작업내용·작업일시·안전점검 사항 게시 (제241조 제4항)",
+        "작업장 주변 가연물 제거",
+        "용접방화포 또는 방염포 설치",
+        "소화기 또는 소화설비 비치",
+    ],
+    "workers": [
+        {"name": "이순신", "job_type": "용접공"},
+        {"name": "강감찬", "job_type": "보조"},
+    ],
+}
+
+# PTW-002 필수 섹션 제목 (13개)
+PTW002_REQUIRED_HEADINGS = [
+    "화기작업 허가서",
+    "1. 현장 기본정보",
+    "2. 작업 기본정보",
+    "3. 화기작업 유형",
+    "4. 작업장소 및 가연물 확인",
+    "5. 작업 전 안전조치",
+    "6. 소화설비 및 방화조치",
+    "7. 화재감시자 배치 확인",
+    "8. 보호구 및 작업장비 확인",
+    "9. 작업허가 승인",
+    "10. 작업 중 점검",
+    "11. 작업 종료 후 잔불 확인",
+    "12. 사진 및 증빙자료",
+    "13. 확인 서명",
+]
+
+# PTW-002 필수 키워드
+PTW002_REQUIRED_KEYWORDS = [
+    "화재감시자",
+    "용접방화포",
+    "소화기",
+    "가연물 제거",
+    "잔불 확인",
+]
+
+# PTW-002 필수 고정 문구
+PTW002_REQUIRED_PHRASES = [
+    "작업내용·작업일시·안전점검 사항 게시",
+    "법정 안전보건교육 수료증을 대체하지 않는다",
+    "화재감시자 배치 여부는",
+    "현장 조건에 따라 최종 판단한다",
+    "사진은 법정 필수 고정항목이 아니라 점검 대응을 위한 권장 증빙으로 관리한다",
+]
+
+# PTW-002 evidence ID 목록
+PTW002_EXPECTED_EVIDENCE_IDS = [
+    "PTW-002-L1", "PTW-002-L2", "PTW-002-L3", "PTW-002-L4",
+    "PTW-002-K1", "PTW-002-K2",
+]
+
+# PTW-002 evidence 파일명
+PTW002_EXPECTED_EVIDENCE_FILES = [
+    "PTW-002-L1_safety_rule_article_236_fire_risk_work.json",
+    "PTW-002-L2_safety_rule_article_241_hot_work_measures.json",
+    "PTW-002-L3_safety_rule_article_241_2_fire_watch.json",
+    "PTW-002-L4_safety_rule_articles_243_244_fire_extinguishing.json",
+    "PTW-002-K1_kosha_p_94_2021_hot_work_permit.json",
+    "PTW-002-K2_kosha_f_1_2023_welding_cutting_fire_prevention.json",
+]
+
+PTW002_VALID_EV_STATUSES = {"VERIFIED", "PARTIAL_VERIFIED"}
+
+# 기존 서식 상태 불변 확인 목록: {doc_id: (expected_form_type, expected_impl_status)}
+PTW002_UNCHANGED_IDS = {
+    "RA-001":  ("risk_assessment",       "DONE"),
+    "RA-004":  ("tbm_log",               "DONE"),
+    "PTW-001": ("confined_space_permit", "DONE"),
+    "PTW-003": ("work_at_height_permit", "DONE"),  # PTW-003 구현 완료
+}
+
+
+def run_ptw002_smoke_test() -> list[tuple[str, str, str]]:
+    """PTW-002 화기작업 허가서 smoke test. 결과 list 반환."""
+    results: list[tuple[str, str, str]] = []
+    supported = {f["form_type"] for f in list_supported_forms()}
+
+    # ── 1. registry 등록 확인 ────────────────────────────────────────────
+    results.append(_check(
+        "hot_work_permit" in supported,
+        "registry: hot_work_permit 등록됨",
+    ))
+
+    # ── 2. get_form_spec 검증 ─────────────────────────────────────────────
+    try:
+        spec = get_form_spec("hot_work_permit")
+        results.append(_check(isinstance(spec, dict), "get_form_spec() → dict"))
+        results.append(_check(
+            spec.get("display_name") == "화기작업 허가서",
+            "display_name == '화기작업 허가서'",
+            repr(spec.get("display_name")),
+        ))
+        results.append(_check(
+            isinstance(spec.get("required_fields"), list)
+            and len(spec["required_fields"]) > 0,
+            "required_fields 비어있지 않음",
+        ))
+        results.append(_check(
+            spec.get("repeat_field") == "workers",
+            "repeat_field == 'workers'",
+            repr(spec.get("repeat_field")),
+        ))
+        results.append(_check(
+            spec.get("max_repeat_rows") == 10,
+            "max_repeat_rows == 10",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "get_form_spec() 호출 성공", str(exc)))
+
+    # ── 3. 최소 샘플 → bytes ─────────────────────────────────────────────
+    try:
+        xlsx_bytes = build_form_excel("hot_work_permit", SAMPLE_PTW002_MINIMAL)
+        results.append(_check(
+            isinstance(xlsx_bytes, bytes) and len(xlsx_bytes) > 0,
+            "최소 샘플 → bytes 생성",
+            f"{len(xlsx_bytes):,} bytes",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "최소 샘플 → bytes 생성", str(exc)))
+
+    # ── 4. 공란 form_data → bytes ─────────────────────────────────────────
+    try:
+        empty_bytes = build_form_excel("hot_work_permit", {})
+        results.append(_check(
+            isinstance(empty_bytes, bytes) and len(empty_bytes) > 0,
+            "공란 form_data → bytes 생성 (오류 없음)",
+            f"{len(empty_bytes):,} bytes",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "공란 form_data → bytes 생성", str(exc)))
+
+    # ── 5~12. 전체 샘플 workbook 검증 ────────────────────────────────────
+    try:
+        full_bytes = build_form_excel("hot_work_permit", SAMPLE_PTW002_FULL)
+        results.append(_check(
+            isinstance(full_bytes, bytes) and len(full_bytes) > 0,
+            "전체 샘플 → bytes 생성",
+            f"{len(full_bytes):,} bytes",
+        ))
+        from io import BytesIO as _BytesIO
+        from openpyxl import load_workbook as _load_wb
+        wb_full = _load_wb(_BytesIO(full_bytes))
+        all_vals = [
+            str(cell.value or "")
+            for ws_obj in wb_full.worksheets
+            for r in ws_obj.iter_rows()
+            for cell in r
+        ]
+        all_text = " ".join(all_vals)
+
+        # 시트 제목에 "화기작업 허가서" 포함
+        sheet_names = wb_full.sheetnames
+        results.append(_check(
+            any("화기" in n for n in sheet_names),
+            f"시트명 확인 — {sheet_names}",
+        ))
+        results.append(_check(
+            "화기작업 허가서" in all_text,
+            "시트 제목 '화기작업 허가서' 포함",
+        ))
+
+        # 섹션 제목 13개 포함
+        for heading in PTW002_REQUIRED_HEADINGS:
+            results.append(_check(
+                heading in all_text,
+                f"섹션 제목 포함: '{heading}'",
+            ))
+
+        # 필수 키워드 포함
+        for kw in PTW002_REQUIRED_KEYWORDS:
+            results.append(_check(
+                kw in all_text,
+                f"필수 키워드 포함: '{kw}'",
+            ))
+
+        # 필수 고정 문구 포함
+        for phrase in PTW002_REQUIRED_PHRASES:
+            results.append(_check(
+                phrase in all_text,
+                f"고정 문구 포함: '{phrase[:50]}'",
+            ))
+
+    except Exception as exc:
+        import traceback as _tb
+        tb = _tb.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "전체 샘플 처리 중 예외", tb))
+
+    # ── 13. catalog + evidence 검증 ──────────────────────────────────────
+    try:
+        import yaml
+        catalog_path = Path("data/masters/safety/documents/document_catalog.yml")
+        with open(catalog_path, encoding="utf-8") as f:
+            cat = yaml.safe_load(f)
+        docs = {d["id"]: d for d in cat["documents"]}
+        ptw002 = docs.get("PTW-002")
+
+        results.append(_check(ptw002 is not None, "catalog: PTW-002 항목 존재"))
+
+        if ptw002:
+            results.append(_check(
+                ptw002.get("implementation_status") == "DONE",
+                "catalog: PTW-002 implementation_status == DONE",
+                repr(ptw002.get("implementation_status")),
+            ))
+            results.append(_check(
+                ptw002.get("form_type") == "hot_work_permit",
+                "catalog: PTW-002 form_type == 'hot_work_permit'",
+                repr(ptw002.get("form_type")),
+            ))
+            ev_status = ptw002.get("evidence_status", "")
+            results.append(_check(
+                ev_status in PTW002_VALID_EV_STATUSES,
+                f"catalog: PTW-002 evidence_status in {PTW002_VALID_EV_STATUSES}",
+                repr(ev_status),
+            ))
+
+            # evidence_id 6개 포함
+            ev_ids = ptw002.get("evidence_id") or []
+            if isinstance(ev_ids, str):
+                ev_ids = [ev_ids]
+            for eid in PTW002_EXPECTED_EVIDENCE_IDS:
+                results.append(_check(
+                    eid in ev_ids,
+                    f"catalog: evidence_id 포함 — {eid}",
+                ))
+
+            # evidence_file 실제 존재 확인
+            for efname in PTW002_EXPECTED_EVIDENCE_FILES:
+                fpath = EVIDENCE_DIR / efname
+                results.append(_check(
+                    fpath.exists(),
+                    f"evidence_file 존재: {efname[:65]}",
+                    str(fpath) if not fpath.exists() else "",
+                ))
+
+        # RA-001, RA-004, PTW-001, PTW-003 상태 변경 없음 확인
+        for doc_id, (expected_form_type, expected_status) in PTW002_UNCHANGED_IDS.items():
+            d = docs.get(doc_id)
+            if d is None:
+                continue
+            if expected_form_type is not None:
+                results.append(_check(
+                    d.get("form_type") == expected_form_type,
+                    f"catalog: {doc_id} form_type 변경 없음 (== '{expected_form_type}')",
+                    repr(d.get("form_type")),
+                ))
+            results.append(_check(
+                d.get("implementation_status") == expected_status,
+                f"catalog: {doc_id} implementation_status 변경 없음 (== {expected_status})",
+                repr(d.get("implementation_status")),
+            ))
+
+    except Exception as exc:
+        import traceback as _tb
+        tb = _tb.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "PTW-002 catalog/evidence 검증 중 예외", tb))
+
+    # ── 14. evidence 파일 내용 검증 ───────────────────────────────────────
+    for efname in PTW002_EXPECTED_EVIDENCE_FILES:
+        fpath = EVIDENCE_DIR / efname
+        if not fpath.exists():
+            continue
+        try:
+            ev_data = json.loads(fpath.read_text(encoding="utf-8"))
+            vr = ev_data.get("verification_result", "")
+            results.append(_check(
+                vr in ("VERIFIED", "PARTIAL_VERIFIED", "NEEDS_VERIFICATION"),
+                f"evidence 검증결과 유효값: {efname[:60]}... → {vr}",
+            ))
+        except Exception as exc:
+            results.append(_check(False, f"evidence 파일 로딩: {efname[:60]}...", str(exc)))
+
+    return results
+
+
+# ---------------------------------------------------------------------------
+# PTW-003 샘플 form_data
+# ---------------------------------------------------------------------------
+
+SAMPLE_PTW003_MINIMAL: dict = {
+    "site_name":       "테스트건설(주) 테스트현장",
+    "work_date":       "2026-04-25",
+    "work_time":       "09:00 ~ 18:00",
+    "work_location":   "외부비계 A구간 5층",
+    "trade_name":      "소방 배관 공사",
+    "work_content":    "5층 외부 소방 배관 설치",
+    "contractor":      "협력업체 A",
+    "work_supervisor": "홍길동",
+}
+
+SAMPLE_PTW003_FULL: dict = {
+    "site_name":          "테스트건설(주) 테스트현장",
+    "project_name":       "테스트현장 신축공사",
+    "permit_no":          "PTW-WAH-2026-0001",
+    "work_date":          "2026-04-25",
+    "work_time":          "09:00 ~ 18:00",
+    "work_location":      "외부비계 A구간 5층 (높이 약 15m)",
+    "trade_name":         "소방 배관 공사",
+    "work_content":       "5층 외부 소방 배관 설치 및 지지대 고정",
+    "contractor":         "협력업체 A",
+    "work_supervisor":    "홍길동",
+    "work_height":        "15.0",
+    "equipment_list":     "비계 발판, 안전대",
+    "equipment_type":     "강관 비계",
+    "fall_risk_present":  "있음",
+    "opening_present":    "없음",
+    "workboard_installed": "설치",
+    "railing_installed":  "설치",
+    "lanyard_worn":       "착용",
+    "anchor_confirmed":   "확인",
+    "falling_zone_set":   "설정",
+    "access_control":     "실시",
+    "weather_confirmed":  "확인 — 풍속 3m/s, 맑음",
+    "permit_issuer":      "김허가자",
+    "supervisor_name":    "박감독",
+    "safety_manager_sign": "최안전",
+    "validity_period":    "당일 1회 작업 한정",
+    "work_types":         ["비계 작업", "작업발판 작업"],
+    "pre_work_checks": [
+        "작업구역 추락위험 확인 (제42조)",
+        "작업발판 설치 상태 확인 (제42조)",
+        "안전난간 설치 상태 확인 (제43조)",
+        "안전대 착용 확인 (제44조)",
+        "기상조건 확인 (제37조 — 풍속 10m/s 이상 시 작업 중지 기준)",
+    ],
+    "workboard_checks": [
+        "작업발판 폭·고정 상태 확인",
+        "비계 사용 시 CL-001 비계 점검표 병행 확인 (제57조 이하)",
+    ],
+    "workers": [
+        {"name": "이순신", "job_type": "배관공"},
+        {"name": "강감찬", "job_type": "보조"},
+    ],
+}
+
+# PTW-003 필수 섹션 제목 (13개)
+PTW003_REQUIRED_HEADINGS = [
+    "고소작업 허가서",
+    "1. 현장 기본정보",
+    "2. 작업 기본정보",
+    "3. 고소작업 유형",
+    "4. 작업장소 및 추락위험 확인",
+    "5. 작업 전 안전조치",
+    "6. 작업발판·비계·사다리 확인",
+    "7. 고소작업대 확인",
+    "8. 안전대·추락방지설비 확인",
+    "9. 낙하물 방지 및 출입통제",
+    "10. 작업허가 승인",
+    "11. 작업 중 점검",
+    "12. 사진 및 증빙자료",
+    "13. 확인 서명",
+]
+
+# PTW-003 필수 키워드
+PTW003_REQUIRED_KEYWORDS = [
+    "추락위험",
+    "작업발판",
+    "안전난간",
+    "개구부",
+    "안전대",
+    "부착설비",
+    "고소작업대",
+    "사다리",
+    "낙하물",
+]
+
+# PTW-003 필수 고정 문구
+PTW003_REQUIRED_PHRASES = [
+    "비계 작업은 CL-001 비계 설치 점검표와 병행하여 확인한다",
+    "장비 점검표 및 장비 상태를 별도로 확인한다",
+    "법정 안전보건교육 수료증을 대체하지 않는다",
+    "사진은 법정 필수 고정항목이 아니라 점검 대응을 위한 권장 증빙으로 관리한다",
+]
+
+# PTW-003 evidence ID 목록
+PTW003_EXPECTED_EVIDENCE_IDS = [
+    "PTW-003-L1", "PTW-003-L2", "PTW-003-L3", "PTW-003-L4",
+    "PTW-003-K1", "PTW-003-K2", "PTW-003-K3",
+]
+
+# PTW-003 evidence 파일명
+PTW003_EXPECTED_EVIDENCE_FILES = [
+    "PTW-003-L1_safety_rule_article_37_weather_stop.json",
+    "PTW-003-L2_safety_rule_articles_42_45_fall_prevention.json",
+    "PTW-003-L3_safety_rule_article_57_scaffold_supervision.json",
+    "PTW-003-L4_safety_rule_articles_86_plus_aerial_work_platform.json",
+    "PTW-003-K1_kosha_p_94_2021_work_permit.json",
+    "PTW-003-K2_kosha_c_74_2015_aerial_work_platform.json",
+    "PTW-003-K3_kosha_m_155_2023_mobile_aerial_work_platform.json",
+]
+
+PTW003_VALID_EV_STATUSES = {"VERIFIED", "PARTIAL_VERIFIED", "NEEDS_VERIFICATION"}
+
+# PTW-003 구현 후 불변 확인 목록
+PTW003_UNCHANGED_IDS = {
+    "RA-001":  ("risk_assessment",       "DONE"),
+    "RA-004":  ("tbm_log",               "DONE"),
+    "PTW-002": ("hot_work_permit",       "DONE"),
+    "CL-001":  ("scaffold_installation_checklist", "DONE"),
+}
+
+
+def run_ptw003_smoke_test() -> list[tuple[str, str, str]]:
+    """PTW-003 고소작업 허가서 smoke test. 결과 list 반환."""
+    results: list[tuple[str, str, str]] = []
+    supported = {f["form_type"] for f in list_supported_forms()}
+
+    # ── 1. registry 등록 확인 ────────────────────────────────────────────
+    results.append(_check(
+        "work_at_height_permit" in supported,
+        "registry: work_at_height_permit 등록됨",
+    ))
+
+    # ── 2. get_form_spec 검증 ─────────────────────────────────────────────
+    try:
+        spec = get_form_spec("work_at_height_permit")
+        results.append(_check(isinstance(spec, dict), "get_form_spec() → dict"))
+        results.append(_check(
+            spec.get("display_name") == "고소작업 허가서",
+            "display_name == '고소작업 허가서'",
+            repr(spec.get("display_name")),
+        ))
+        results.append(_check(
+            isinstance(spec.get("required_fields"), list)
+            and len(spec["required_fields"]) > 0,
+            "required_fields 비어있지 않음",
+        ))
+        results.append(_check(
+            spec.get("repeat_field") == "workers",
+            "repeat_field == 'workers'",
+            repr(spec.get("repeat_field")),
+        ))
+        results.append(_check(
+            spec.get("max_repeat_rows") == 10,
+            "max_repeat_rows == 10",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "get_form_spec() 호출 성공", str(exc)))
+
+    # ── 3. 최소 샘플 → bytes ─────────────────────────────────────────────
+    try:
+        xlsx_bytes = build_form_excel("work_at_height_permit", SAMPLE_PTW003_MINIMAL)
+        results.append(_check(
+            isinstance(xlsx_bytes, bytes) and len(xlsx_bytes) > 0,
+            "최소 샘플 → bytes 생성",
+            f"{len(xlsx_bytes):,} bytes",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "최소 샘플 → bytes 생성", str(exc)))
+
+    # ── 4. 공란 form_data → bytes ─────────────────────────────────────────
+    try:
+        empty_bytes = build_form_excel("work_at_height_permit", {})
+        results.append(_check(
+            isinstance(empty_bytes, bytes) and len(empty_bytes) > 0,
+            "공란 form_data → bytes 생성 (오류 없음)",
+            f"{len(empty_bytes):,} bytes",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "공란 form_data → bytes 생성", str(exc)))
+
+    # ── 5~13. 전체 샘플 workbook 검증 ────────────────────────────────────
+    try:
+        full_bytes = build_form_excel("work_at_height_permit", SAMPLE_PTW003_FULL)
+        results.append(_check(
+            isinstance(full_bytes, bytes) and len(full_bytes) > 0,
+            "전체 샘플 → bytes 생성",
+            f"{len(full_bytes):,} bytes",
+        ))
+        from io import BytesIO as _BytesIO
+        from openpyxl import load_workbook as _load_wb
+        wb_full = _load_wb(_BytesIO(full_bytes))
+        all_vals = [
+            str(cell.value or "")
+            for ws_obj in wb_full.worksheets
+            for r in ws_obj.iter_rows()
+            for cell in r
+        ]
+        all_text = " ".join(all_vals)
+
+        # 시트 제목에 "고소작업 허가서" 포함
+        sheet_names = wb_full.sheetnames
+        results.append(_check(
+            any("고소" in n for n in sheet_names),
+            f"시트명 확인 — {sheet_names}",
+        ))
+        results.append(_check(
+            "고소작업 허가서" in all_text,
+            "시트 제목 '고소작업 허가서' 포함",
+        ))
+
+        # 섹션 제목 13개 포함
+        for heading in PTW003_REQUIRED_HEADINGS:
+            results.append(_check(
+                heading in all_text,
+                f"섹션 제목 포함: '{heading}'",
+            ))
+
+        # 필수 키워드 포함
+        for kw in PTW003_REQUIRED_KEYWORDS:
+            results.append(_check(
+                kw in all_text,
+                f"필수 키워드 포함: '{kw}'",
+            ))
+
+        # 필수 고정 문구 포함
+        for phrase in PTW003_REQUIRED_PHRASES:
+            results.append(_check(
+                phrase in all_text,
+                f"고정 문구 포함: '{phrase[:50]}'",
+            ))
+
+    except Exception as exc:
+        import traceback as _tb
+        tb = _tb.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "전체 샘플 처리 중 예외", tb))
+
+    # ── 14. catalog + evidence 검증 ──────────────────────────────────────
+    try:
+        import yaml
+        catalog_path = Path("data/masters/safety/documents/document_catalog.yml")
+        with open(catalog_path, encoding="utf-8") as f:
+            cat = yaml.safe_load(f)
+        docs = {d["id"]: d for d in cat["documents"]}
+        ptw003 = docs.get("PTW-003")
+
+        results.append(_check(ptw003 is not None, "catalog: PTW-003 항목 존재"))
+
+        if ptw003:
+            results.append(_check(
+                ptw003.get("implementation_status") == "DONE",
+                "catalog: PTW-003 implementation_status == DONE",
+                repr(ptw003.get("implementation_status")),
+            ))
+            results.append(_check(
+                ptw003.get("form_type") == "work_at_height_permit",
+                "catalog: PTW-003 form_type == 'work_at_height_permit'",
+                repr(ptw003.get("form_type")),
+            ))
+            ev_status = ptw003.get("evidence_status", "")
+            results.append(_check(
+                ev_status in PTW003_VALID_EV_STATUSES,
+                f"catalog: PTW-003 evidence_status in {PTW003_VALID_EV_STATUSES}",
+                repr(ev_status),
+            ))
+
+            # evidence_id 7개 포함
+            ev_ids = ptw003.get("evidence_id") or []
+            if isinstance(ev_ids, str):
+                ev_ids = [ev_ids]
+            for eid in PTW003_EXPECTED_EVIDENCE_IDS:
+                results.append(_check(
+                    eid in ev_ids,
+                    f"catalog: evidence_id 포함 — {eid}",
+                ))
+
+            # evidence_file 실제 존재 확인
+            for efname in PTW003_EXPECTED_EVIDENCE_FILES:
+                fpath = EVIDENCE_DIR / efname
+                results.append(_check(
+                    fpath.exists(),
+                    f"evidence_file 존재: {efname[:70]}",
+                    str(fpath) if not fpath.exists() else "",
+                ))
+
+        # RA-001, RA-004, PTW-002, CL-001 상태 변경 없음 확인
+        for doc_id, (expected_form_type, expected_status) in PTW003_UNCHANGED_IDS.items():
+            d = docs.get(doc_id)
+            if d is None:
+                continue
+            results.append(_check(
+                d.get("form_type") == expected_form_type,
+                f"catalog: {doc_id} form_type 변경 없음 (== '{expected_form_type}')",
+                repr(d.get("form_type")),
+            ))
+            results.append(_check(
+                d.get("implementation_status") == expected_status,
+                f"catalog: {doc_id} implementation_status 변경 없음 (== {expected_status})",
+                repr(d.get("implementation_status")),
+            ))
+
+    except Exception as exc:
+        import traceback as _tb
+        tb = _tb.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "PTW-003 catalog/evidence 검증 중 예외", tb))
+
+    # ── 15. evidence 파일 내용 검증 ───────────────────────────────────────
+    for efname in PTW003_EXPECTED_EVIDENCE_FILES:
+        fpath = EVIDENCE_DIR / efname
+        if not fpath.exists():
+            continue
+        try:
+            ev_data = json.loads(fpath.read_text(encoding="utf-8"))
+            vr = ev_data.get("verification_result", "")
+            results.append(_check(
+                vr in ("VERIFIED", "PARTIAL_VERIFIED", "NEEDS_VERIFICATION"),
+                f"evidence 검증결과 유효값: {efname[:65]}... → {vr}",
+            ))
+        except Exception as exc:
+            results.append(_check(False, f"evidence 파일 로딩: {efname[:65]}...", str(exc)))
+
+    return results
+
+
 def run_smoke_test() -> None:
     results: list[tuple[str, str, str]] = []
     overall = "PASS"
@@ -2233,10 +2880,22 @@ def run_smoke_test() -> None:
     cl002_results = run_cl002_smoke_test()
     results.extend(cl002_results)
 
+    # ════════════════════════════════════════════════════════════
+    # PTW-002 검증
+    # ════════════════════════════════════════════════════════════
+    ptw002_results = run_ptw002_smoke_test()
+    results.extend(ptw002_results)
+
+    # ════════════════════════════════════════════════════════════
+    # PTW-003 검증
+    # ════════════════════════════════════════════════════════════
+    ptw003_results = run_ptw003_smoke_test()
+    results.extend(ptw003_results)
+
     # ── 출력 ─────────────────────────────────────────────────────────────
-    print("\n" + "=" * 76)
-    print("  KRAS P1 Smoke Test — ED-003 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002")
-    print("=" * 76)
+    print("\n" + "=" * 80)
+    print("  KRAS P1 Smoke Test — ED-003 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002 + PTW-002 + PTW-003")
+    print("=" * 80)
 
     pass_cnt = warn_cnt = fail_cnt = 0
     for verdict, name, detail in results:

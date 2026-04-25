@@ -17,6 +17,8 @@ export API 연결 전 단계 — builder 호출 인터페이스만 제공.
     confined_space_workplan             — 밀폐공간 작업계획서 (v1.0)         [WP-014]
     tbm_log                             — TBM 안전점검 일지 (v1.0)           [RA-004]
     confined_space_permit               — 밀폐공간 작업허가서 (v1.0)         [PTW-001]
+    hot_work_permit                     — 화기작업 허가서 (v1.0)             [PTW-002]
+    work_at_height_permit               — 고소작업 허가서 (v1.0)             [PTW-003]
     confined_space_checklist            — 밀폐공간 사전 안전점검표 (v1.0)    [CL-010]
     work_environment_measurement        — 작업환경측정 실시 및 결과 관리대장 (v1.0) [HM-001]
     special_health_examination          — 특수건강진단 대상자 및 결과 관리대장 (v1.0) [HM-002]
@@ -42,6 +44,8 @@ from typing import Any, Callable, Tuple
 
 from engine.output.confined_space_checklist_builder import build_confined_space_checklist_excel
 from engine.output.confined_space_permit_builder import build_confined_space_permit_excel
+from engine.output.hot_work_permit_builder import build_hot_work_permit_excel
+from engine.output.work_at_height_permit_builder import build_work_at_height_permit_excel
 from engine.output.confined_space_workplan_builder import build_confined_space_workplan_excel
 from engine.output.education_log_builder import build_education_log_excel
 from engine.output.form_excel_builder import build_form_excel as _build_risk_assessment_excel_raw
@@ -407,6 +411,116 @@ _REGISTRY: dict[str, FormSpec] = {
         ),
         repeat_field="attendees",   # list[dict]: name, job_type
         max_repeat_rows=20,
+    ),
+    # ------------------------------------------------------------------
+    # P1 — PTW-002 (2026-04-25)
+    # 법적 근거: 산안규칙 제236조, 제240조, 제241조, 제241조의2, 제243조, 제244조
+    # evidence_status: PARTIAL_VERIFIED (조항 확인, 원문 API 미수집. KOSHA NEEDS_VERIFICATION)
+    # 주의: 법정 별지 서식 없음. KOSHA P-94-2021 별지 양식1 참고. 자체 표준 서식.
+    #       화재감시자 배치는 조건부 판단 — 모든 화기작업 무조건 필수 아님.
+    #       법정 안전보건교육 수료증 대체 불가.
+    # ------------------------------------------------------------------
+    "hot_work_permit": FormSpec(
+        form_type="hot_work_permit",
+        display_name="화기작업 허가서",
+        version="1.0",
+        builder=build_hot_work_permit_excel,
+        required_fields=(
+            # 산안규칙 제241조 제4항 — 서면 게시 의무 이행 필수 정보
+            "site_name",       # 현장명
+            "work_date",       # 작업일자
+            "work_time",       # 작업시간
+            "work_location",   # 작업장소
+            "trade_name",      # 작업공종
+            "work_content",    # 작업내용
+            "contractor",      # 작업업체
+            "work_supervisor", # 작업책임자
+        ),
+        optional_fields=(
+            "project_name", "permit_no",
+            "equipment_list",
+            "combustibles_present", "combustibles_removed",
+            "hazmat_storage", "flammable_vapor",
+            "spark_prevention", "fire_blanket_used",
+            "extinguisher_placed", "ventilation_status",
+            "fire_watch_required", "fire_watch_name", "fire_watch_equipment",
+            "permit_issuer", "supervisor_name", "validity_period",
+            "during_work_issues",
+            "work_end_time", "post_work_confirmer",
+            "final_sign", "safety_manager_sign",
+            "photo_file_list",
+            # list fields
+            "work_types",          # list[str]: 화기작업 종류 선택
+            "pre_work_checks",     # list[str]: 이행된 안전조치 항목명
+            "fire_ext_checks",     # list[str]: 이행된 소화설비 항목명
+            "fire_watch_conditions", # list[str]: 해당 화재감시자 판단 조건
+            "ppe_checks",          # list[str]: 지급된 보호구 항목명
+            "post_work_checks",    # list[str]: 이행된 작업 종료 확인 항목명
+            "photo_items",         # list[str]: 촬영된 사진 항목명
+            "workers",             # list[dict]: name, job_type
+        ),
+        repeat_field="workers",
+        max_repeat_rows=10,
+        extra_list_fields=(
+            "work_types", "pre_work_checks", "fire_ext_checks",
+            "fire_watch_conditions", "ppe_checks", "post_work_checks",
+            "photo_items",
+        ),
+    ),
+    # ------------------------------------------------------------------
+    # P1 — PTW-003 (2026-04-25)
+    # 법적 근거: 산안규칙 제37조, 제42조~제45조, 제57조 이하, 제86조 이하
+    # evidence_status: NEEDS_VERIFICATION (조항 원문 API 미수집, KOSHA 원문 미확인)
+    # 주의: 법정 별지 서식 없음. 자체 표준서식.
+    #       법정 안전보건교육 수료증 대체 불가.
+    #       비계 작업 → CL-001 병행 확인. 고소작업대 → CL-003 병행 확인.
+    # ------------------------------------------------------------------
+    "work_at_height_permit": FormSpec(
+        form_type="work_at_height_permit",
+        display_name="고소작업 허가서",
+        version="1.0",
+        builder=build_work_at_height_permit_excel,
+        required_fields=(
+            # 산안규칙 제42조 안전조치 이행 확인 필수 정보
+            "site_name",       # 현장명
+            "work_date",       # 작업일자
+            "work_time",       # 작업시간
+            "work_location",   # 작업장소
+            "trade_name",      # 작업공종
+            "work_content",    # 작업내용
+            "contractor",      # 작업업체
+            "work_supervisor", # 작업책임자
+        ),
+        optional_fields=(
+            "project_name", "permit_no",
+            "work_height",
+            "equipment_list", "equipment_type",
+            "fall_risk_present", "opening_present",
+            "workboard_installed", "railing_installed",
+            "lanyard_worn", "anchor_confirmed",
+            "falling_zone_set", "access_control", "weather_confirmed",
+            "permit_issuer", "supervisor_name", "safety_manager_sign",
+            "work_end_confirmer", "final_sign", "validity_period",
+            "during_work_issues",
+            "work_end_time", "photo_file_list",
+            # list fields
+            "work_types",         # list[str]: 고소작업 유형 선택
+            "pre_work_checks",    # list[str]: 작업 전 안전조치 항목
+            "workboard_checks",   # list[str]: 작업발판·비계·사다리 확인 항목
+            "aerial_checks",      # list[str]: 고소작업대 확인 항목
+            "harness_checks",     # list[str]: 안전대·추락방지설비 확인 항목
+            "falling_checks",     # list[str]: 낙하물 방지 확인 항목
+            "post_work_checks",   # list[str]: 작업 종료 후 확인 항목
+            "photo_items",        # list[str]: 사진 증빙 항목
+            "workers",            # list[dict]: name, job_type
+        ),
+        repeat_field="workers",
+        max_repeat_rows=10,
+        extra_list_fields=(
+            "work_types", "pre_work_checks", "workboard_checks",
+            "aerial_checks", "harness_checks", "falling_checks",
+            "post_work_checks", "photo_items",
+        ),
     ),
     "confined_space_permit": FormSpec(
         form_type="confined_space_permit",
