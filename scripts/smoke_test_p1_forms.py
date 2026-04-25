@@ -4250,9 +4250,15 @@ def run_smoke_test() -> None:
     vehicle_results = run_vehicle_workplan_smoke_test()
     results.extend(vehicle_results)
 
+    # ════════════════════════════════════════════════════════════
+    # 크레인 묶음 4건 검증 (WP-006/WP-007/EQ-003/EQ-004 — 중간 수준 — 2026-04-26)
+    # ════════════════════════════════════════════════════════════
+    crane_results = run_crane_workplan_smoke_test()
+    results.extend(crane_results)
+
     # ── 출력 ─────────────────────────────────────────────────────────────
     print("\n" + "=" * 80)
-    print("  KRAS P1 Smoke Test — ED-003 + WP-011 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002 + PTW-002 + PTW-003 + PTW-007 + WP-005 + CL-007 + PTW-004 + CL-004 + CL-005 + HM-001 + HM-002 + WP-008/WP-009/EQ-001/EQ-002")
+    print("  KRAS P1 Smoke Test — ED-003 + WP-011 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002 + PTW-002 + PTW-003 + PTW-007 + WP-005 + CL-007 + PTW-004 + CL-004 + CL-005 + HM-001 + HM-002 + WP-008/WP-009/EQ-001/EQ-002 + WP-006/WP-007/EQ-003/EQ-004")
     print("=" * 80)
 
     pass_cnt = warn_cnt = fail_cnt = 0
@@ -5843,6 +5849,197 @@ def run_vehicle_workplan_smoke_test() -> list[tuple[str, str, str]]:
 
     # ── 5. evidence 파일 내용 검증 (verification_result + document_id) ──
     for doc_id, (ev_id, ev_fname, _, expected_status) in VEHICLE_EVIDENCE_BY_DOC.items():
+        fpath = EVIDENCE_DIR / ev_fname
+        if not fpath.exists():
+            continue
+        try:
+            ev_data = json.loads(fpath.read_text(encoding="utf-8"))
+            vr = ev_data.get("verification_result", "")
+            results.append(_check(
+                vr == expected_status,
+                f"evidence {ev_id}: verification_result == '{expected_status}'",
+                repr(vr),
+            ))
+            results.append(_check(
+                ev_data.get("document_id") == doc_id,
+                f"evidence {ev_id}: document_id == '{doc_id}'",
+                repr(ev_data.get("document_id")),
+            ))
+            results.append(_check(
+                ev_data.get("evidence_id") == ev_id,
+                f"evidence {ev_id}: evidence_id 자기참조 일치",
+                repr(ev_data.get("evidence_id")),
+            ))
+        except Exception as exc:
+            results.append(_check(False, f"evidence 파일 로딩: {ev_fname[:50]}", str(exc)))
+
+    return results
+
+
+# ===========================================================================
+# 크레인 묶음 smoke test — WP-006 / WP-007 / EQ-003 / EQ-004
+#   1. registry: tower_crane_workplan, mobile_crane_workplan 등록 확인
+#   2. get_form_spec 으로 두 form_type 조회 확인
+#   3. tower_crane_workplan sample build 1건
+#   4. mobile_crane_workplan sample build 1건
+#   5. 4개 catalog 항목 evidence_* 필드 등록 확인
+#   6. evidence 파일 존재 + verification_result 확인
+#
+# 대상 문서: WP-006, WP-007, EQ-003, EQ-004 (audit doc_id 참조용 명시)
+# ===========================================================================
+
+CRANE_TARGET_DOC_IDS = ["WP-006", "WP-007", "EQ-003", "EQ-004"]
+
+CRANE_EVIDENCE_BY_DOC = {
+    "WP-006": (
+        "WP-006-L1",
+        "WP-006-L1_safety_rule_article_38_142_148_tower_crane_workplan.json",
+        "tower_crane_workplan",
+        "PARTIAL_VERIFIED",
+    ),
+    "WP-007": (
+        "WP-007-L1",
+        "WP-007-L1_safety_rule_article_38_134_146_mobile_crane_workplan.json",
+        "mobile_crane_workplan",
+        "PARTIAL_VERIFIED",
+    ),
+    "EQ-003": (
+        "EQ-003-L1",
+        "EQ-003-L1_safety_rule_tower_crane_equipment_specific.json",
+        "tower_crane_workplan",
+        "PARTIAL_VERIFIED",
+    ),
+    "EQ-004": (
+        "EQ-004-L1",
+        "EQ-004-L1_safety_rule_mobile_crane_equipment_specific.json",
+        "mobile_crane_workplan",
+        "PARTIAL_VERIFIED",
+    ),
+}
+
+SAMPLE_TOWER_CRANE_MINIMAL: dict = {
+    "crane_type": "타워크레인 TC-400",
+    "crane_capacity": "400톤m, 최대 작업반경 60m",
+    "work_method": "PC 부재 양중 — 신호수 1명 배치, 인양반경 내 출입통제",
+}
+
+SAMPLE_MOBILE_CRANE_MINIMAL: dict = {
+    "crane_type": "이동식 크레인 (트럭크레인 50톤)",
+    "crane_capacity": "50톤, 아웃트리거 전개 후 작업",
+    "work_method": "H빔 인양 — 신호수 1명, 인양물 하부 출입금지",
+}
+
+
+def run_crane_workplan_smoke_test() -> list[tuple[str, str, str]]:
+    """크레인 묶음 4건 (WP-006/WP-007/EQ-003/EQ-004) 중간 수준 smoke test."""
+    results: list[tuple[str, str, str]] = []
+    supported = {f["form_type"] for f in list_supported_forms()}
+
+    # ── 1. registry 등록 확인 ────────────────────────────────────────────
+    results.append(_check(
+        "tower_crane_workplan" in supported,
+        "registry: tower_crane_workplan 등록됨 (WP-006/EQ-003)",
+    ))
+    results.append(_check(
+        "mobile_crane_workplan" in supported,
+        "registry: mobile_crane_workplan 등록됨 (WP-007/EQ-004)",
+    ))
+
+    # ── 2. get_form_spec 검증 ────────────────────────────────────────────
+    for form_type, expected_name in (
+        ("tower_crane_workplan", "타워크레인 작업계획서"),
+        ("mobile_crane_workplan", "이동식 크레인 작업계획서"),
+    ):
+        try:
+            spec = get_form_spec(form_type)
+            results.append(_check(
+                isinstance(spec, dict) and spec.get("display_name") == expected_name,
+                f"get_form_spec('{form_type}') → display_name == '{expected_name}'",
+                repr(spec.get("display_name")) if isinstance(spec, dict) else "",
+            ))
+            results.append(_check(
+                isinstance(spec.get("required_fields"), (list, tuple))
+                and len(spec["required_fields"]) > 0,
+                f"{form_type}: required_fields 비어있지 않음",
+            ))
+        except Exception as exc:
+            results.append(_check(False, f"get_form_spec('{form_type}') 호출 성공", str(exc)))
+
+    # ── 3. sample build × 2 ──────────────────────────────────────────────
+    for form_type, sample in (
+        ("tower_crane_workplan", SAMPLE_TOWER_CRANE_MINIMAL),
+        ("mobile_crane_workplan", SAMPLE_MOBILE_CRANE_MINIMAL),
+    ):
+        try:
+            xlsx_bytes = build_form_excel(form_type, sample)
+            results.append(_check(
+                isinstance(xlsx_bytes, bytes) and len(xlsx_bytes) > 0,
+                f"{form_type} sample build → bytes 생성",
+                f"{len(xlsx_bytes):,} bytes",
+            ))
+        except Exception as exc:
+            results.append(_check(False, f"{form_type} sample build", str(exc)))
+
+    # ── 4. 4개 catalog 항목 검증 + evidence_file 존재 ────────────────────
+    try:
+        import yaml
+        catalog_path = Path("data/masters/safety/documents/document_catalog.yml")
+        with open(catalog_path, encoding="utf-8") as f:
+            cat = yaml.safe_load(f)
+
+        for doc_id in CRANE_TARGET_DOC_IDS:
+            doc = next((d for d in cat["documents"] if d["id"] == doc_id), None)
+            results.append(_check(doc is not None, f"catalog: {doc_id} 항목 존재"))
+            if not doc:
+                continue
+
+            ev_id, ev_fname, expected_form_type, expected_status = CRANE_EVIDENCE_BY_DOC[doc_id]
+
+            results.append(_check(
+                doc.get("implementation_status") == "DONE",
+                f"catalog: {doc_id} implementation_status == DONE",
+                repr(doc.get("implementation_status")),
+            ))
+            results.append(_check(
+                doc.get("form_type") == expected_form_type,
+                f"catalog: {doc_id} form_type == '{expected_form_type}'",
+                repr(doc.get("form_type")),
+            ))
+
+            ev_status = doc.get("evidence_status", "")
+            results.append(_check(
+                ev_status == expected_status,
+                f"catalog: {doc_id} evidence_status == '{expected_status}'",
+                repr(ev_status),
+            ))
+
+            ev_ids = doc.get("evidence_id") or []
+            if isinstance(ev_ids, str):
+                ev_ids = [ev_ids]
+            results.append(_check(
+                ev_id in ev_ids,
+                f"catalog: {doc_id} evidence_id 포함 — {ev_id}",
+            ))
+
+            ev_files = doc.get("evidence_file") or []
+            if isinstance(ev_files, str):
+                ev_files = [ev_files]
+            ev_basenames = {Path(p).name for p in ev_files}
+            results.append(_check(
+                ev_fname in ev_basenames,
+                f"catalog: {doc_id} evidence_file 등록 — {ev_fname[:50]}",
+            ))
+            fpath = EVIDENCE_DIR / ev_fname
+            results.append(_check(
+                fpath.exists(),
+                f"evidence_file 실제 존재: {ev_fname[:50]}",
+            ))
+    except Exception as exc:
+        tb = traceback.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "크레인 catalog 검증 중 예외", tb))
+
+    # ── 5. evidence 파일 내용 검증 (verification_result + document_id) ──
+    for doc_id, (ev_id, ev_fname, _, expected_status) in CRANE_EVIDENCE_BY_DOC.items():
         fpath = EVIDENCE_DIR / ev_fname
         if not fpath.exists():
             continue
