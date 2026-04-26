@@ -55,6 +55,7 @@ QUERIES = [
     # 건설·중대재해
     "중대재해",
     "건설현장 안전",
+    "건설공사 안전관리 업무수행 지침",   # Q-014 MOLIT_CONSTRUCTION_SAFETY_MANAGEMENT_GUIDELINE
     # 건축·시설물
     "건축물 피난 방화구조",
     "건축물 안전점검",

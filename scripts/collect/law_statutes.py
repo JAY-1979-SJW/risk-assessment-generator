@@ -32,6 +32,7 @@ GW_QUERIES = [
     # ELEC_LIVE — 전기 관련 법령
     "전기안전관리법",
     "전기사업법",
+    "전기공사업법",          # Q-011 MOTIE_ELECTRIC_CONSTRUCTION_BUSINESS_ACT
     # LIFT_RIGGING — 크레인·건설기계 관련
     "건설기계관리법",
     # WATER_MANHOLE — 밀폐공간·상하수도 관련
@@ -40,6 +41,10 @@ GW_QUERIES = [
     "화학물질관리법",
     # 건설 일반
     "건설기술 진흥법",
+    # 소방 — Q-004~006 NFA_FIRE_FACILITY_BUSINESS
+    "소방시설공사업법",
+    # 통신 — Q-012 MSIT_TELECOM_CONSTRUCTION_BUSINESS_ACT
+    "정보통신공사업법",
 ]
 
 # DRF 전용 쿼리 (law.go.kr OC 키 있을 때 추가 수집)
@@ -47,8 +52,12 @@ DRF_QUERIES = [
     "산업안전보건법",
     "산업안전보건기준에 관한 규칙",
     "전기안전관리법",
+    "전기공사업법",           # Q-011
     "건설기계관리법",
     "화학물질관리법",
+    "소방시설공사업법",        # Q-004~006
+    "정보통신공사업법",        # Q-012
+    "건설기술 진흥법",         # Q-008~010
 ]
 
 # 중복 제거 키
