@@ -4416,6 +4416,227 @@ def run_cl007_smoke_test() -> list[tuple[str, str, str]]:
 
     return results
 
+# ---------------------------------------------------------------------------
+# CL-008 샘플 form_data
+# ---------------------------------------------------------------------------
+
+SAMPLE_CL008_MINIMAL: dict = {
+    "site_name": "테스트건설(주)",
+    "check_date": "2026-04-25",
+    "inspector_name": "홍길동",
+}
+
+SAMPLE_CL008_FULL: dict = {
+    "site_name": "테스트건설(주) 테스트현장",
+    "project_name": "테스트현장 신축공사",
+    "check_date": "2026-04-25",
+    "inspector_name": "홍길동",
+    "department": "안전보건팀",
+    "position": "안전관리자",
+    "work_trade": "철골공사",
+    "work_location": "5층 외벽",
+    "work_description": "외벽 마감 및 단열 시공",
+    "target_workers": "15",
+    "work_commander_name": "이감독",
+    "helmet_supplied": "○",
+    "helmet_status": "정상",
+    "safety_shoes_supplied": "○",
+    "safety_shoes_status": "정상",
+    "safety_belt_supplied": "○",
+    "safety_belt_status": "정상",
+    "safety_glasses_supplied": "○",
+    "safety_glasses_status": "정상",
+    "dust_mask_supplied": "○",
+    "dust_mask_status": "정상",
+    "respirator_supplied": "△",
+    "respirator_status": "정상",
+    "ear_protection_supplied": "○",
+    "ear_protection_status": "정상",
+    "gloves_supplied": "○",
+    "gloves_status": "정상",
+    "face_shield_supplied": "△",
+    "face_shield_status": "정상",
+    "protective_clothing_supplied": "△",
+    "protective_clothing_status": "정상",
+    "other_ppe_supplied": "○",
+    "other_ppe_description": "안전조끼",
+    "other_ppe_status": "정상",
+    "wearability_check": "적합",
+    "replacement_needed": "없음",
+    "pre_work_check": "○",
+    "wearing_education": "○",
+    "non_wearer_action": "없음",
+    "storage_condition": "양호",
+    "spare_ppe_status": "비치",
+    "nonconformance_items": [
+        {
+            "no": "1",
+            "content": "안전화 밑창 마모",
+            "action": "교체",
+            "responsible": "안전관리자",
+            "deadline": "2026-04-30",
+            "completed": "○",
+        },
+    ],
+    "judgment": "적합",
+    "judgment_reason": "지급된 보호구 상태 양호, 착용 관리 강화 필요",
+    "preparer_name": "홍길동",
+    "supervisor_sign": "이감독",
+    "safety_manager_sign": "최소장",
+    "sign_date": "2026-04-25",
+}
+
+# CL-008 필수 섹션 제목
+CL008_REQUIRED_HEADINGS = [
+    "보호구 지급 및 관리 점검표",
+    "보호구 지급 대상 정보",
+    "보호구 지급 및 상태 점검",
+    "보호구 착용 및 관리",
+    "부적합 및 개선조치",
+    "종합 판정",
+]
+
+# CL-008 필수 키워드
+CL008_REQUIRED_KEYWORDS = [
+    "사업장명",
+    "작업공종",
+    "대상 근로자",
+    "안전모",
+    "안전화",
+    "보호구",
+    "착용",
+    "점검",
+    "적합",
+]
+
+# CL-008 evidence status (미연결 상태이므로 NEEDS_VERIFICATION 허용)
+CL008_VALID_EV_STATUSES = {"UNCONNECTED", "NEEDS_VERIFICATION"}
+
+
+def run_cl008_smoke_test() -> list[tuple[str, str, str]]:
+    """CL-008 보호구 지급 및 관리 점검표 smoke test. 결과 list 반환."""
+    results: list[tuple[str, str, str]] = []
+    supported = {f["form_type"] for f in list_supported_forms()}
+
+    # ── 1. registry 등록 확인 ────────────────────────────────────────────
+    results.append(_check(
+        "protective_equipment_checklist" in supported,
+        "registry: protective_equipment_checklist 등록됨",
+    ))
+
+    # ── 2. get_form_spec 검증 ─────────────────────────────────────────────
+    try:
+        spec = get_form_spec("protective_equipment_checklist")
+        results.append(_check(isinstance(spec, dict), "get_form_spec() → dict"))
+        results.append(_check(
+            spec.get("display_name") == "보호구 지급 및 관리 점검표",
+            "display_name 확인",
+            repr(spec.get("display_name")),
+        ))
+        results.append(_check(
+            isinstance(spec.get("required_fields"), list)
+            and len(spec["required_fields"]) > 0,
+            "required_fields 비어있지 않음",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "get_form_spec() 호출 성공", str(exc)))
+
+    # ── 3. 최소 샘플 → bytes ─────────────────────────────────────────────
+    try:
+        xlsx_bytes = build_form_excel("protective_equipment_checklist", SAMPLE_CL008_MINIMAL)
+        results.append(_check(
+            isinstance(xlsx_bytes, bytes) and len(xlsx_bytes) > 0,
+            "최소 샘플 → bytes 생성",
+            f"{len(xlsx_bytes):,} bytes",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "최소 샘플 → bytes 생성", str(exc)))
+
+    # ── 4. 공란 form_data → bytes ─────────────────────────────────────────
+    try:
+        empty_bytes = build_form_excel("protective_equipment_checklist", {})
+        results.append(_check(
+            isinstance(empty_bytes, bytes) and len(empty_bytes) > 0,
+            "공란 form_data → bytes 생성 (오류 없음)",
+            f"{len(empty_bytes):,} bytes",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "공란 form_data → bytes 생성", str(exc)))
+
+    # ── 5~7. 전체 샘플 workbook 검증 ─────────────────────────────────────
+    try:
+        full_bytes = build_form_excel("protective_equipment_checklist", SAMPLE_CL008_FULL)
+        results.append(_check(
+            isinstance(full_bytes, bytes) and len(full_bytes) > 0,
+            "전체 샘플 → bytes 생성",
+            f"{len(full_bytes):,} bytes",
+        ))
+        from io import BytesIO as _BytesIO
+        from openpyxl import load_workbook as _load_wb
+        wb_full = _load_wb(_BytesIO(full_bytes))
+        all_vals = [
+            str(cell.value or "")
+            for ws_obj in wb_full.worksheets
+            for r in ws_obj.iter_rows()
+            for cell in r
+        ]
+        all_text = " ".join(all_vals)
+
+        # 필수 섹션 제목 포함 확인
+        for heading in CL008_REQUIRED_HEADINGS:
+            results.append(_check(
+                heading in all_text,
+                f"섹션 제목 포함: '{heading}'",
+            ))
+
+        # 필수 키워드 포함 확인
+        for keyword in CL008_REQUIRED_KEYWORDS:
+            results.append(_check(
+                keyword in all_text,
+                f"필수 키워드 포함: '{keyword}'",
+            ))
+
+    except Exception as exc:
+        import traceback as _tb
+        tb = _tb.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "전체 샘플 처리 중 예외", tb))
+
+    # ── 8. CL-008 catalog 검증 ────────────────────────────────────────────
+    try:
+        import yaml
+        catalog_path = Path("data/masters/safety/documents/document_catalog.yml")
+        with open(catalog_path, encoding="utf-8") as f:
+            cat = yaml.safe_load(f)
+        docs = {d["id"]: d for d in cat["documents"]}
+        cl008 = docs.get("CL-008")
+
+        results.append(_check(cl008 is not None, "catalog: CL-008 항목 존재"))
+
+        if cl008:
+            results.append(_check(
+                cl008.get("implementation_status") == "DONE",
+                "catalog: CL-008 implementation_status == DONE",
+                repr(cl008.get("implementation_status")),
+            ))
+            results.append(_check(
+                cl008.get("form_type") == "protective_equipment_checklist",
+                "catalog: CL-008 form_type == 'protective_equipment_checklist'",
+                repr(cl008.get("form_type")),
+            ))
+            ev_status = cl008.get("evidence_status", "")
+            results.append(_check(
+                ev_status in CL008_VALID_EV_STATUSES or ev_status == "",
+                f"catalog: CL-008 evidence_status 미연결 상태 허용",
+                repr(ev_status),
+            ))
+
+    except Exception as exc:
+        import traceback as _tb
+        tb = _tb.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "CL-008 catalog 검증 중 예외", tb))
+
+    return results
+
 
 def run_smoke_test() -> None:
     results: list[tuple[str, str, str]] = []
@@ -4686,6 +4907,12 @@ def run_smoke_test() -> None:
     # ════════════════════════════════════════════════════════════
     cl007_results = run_cl007_smoke_test()
     results.extend(cl007_results)
+
+    # ════════════════════════════════════════════════════════════
+    # CL-008 검증
+    # ════════════════════════════════════════════════════════════
+    cl008_results = run_cl008_smoke_test()
+    results.extend(cl008_results)
 
     # ════════════════════════════════════════════════════════════
     # PTW-004 검증

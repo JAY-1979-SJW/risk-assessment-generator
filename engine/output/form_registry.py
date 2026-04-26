@@ -86,6 +86,7 @@ from engine.output.electrical_workplan_builder import build_electrical_workplan_
 from engine.output.electrical_work_permit_builder import build_electrical_work_permit_excel
 from engine.output.electrical_facility_checklist_builder import build_electrical_facility_checklist_excel
 from engine.output.fire_prevention_checklist_builder import build_fire_prevention_checklist_excel
+from engine.output.protective_equipment_checklist_builder import build_protective_equipment_checklist
 
 
 # ---------------------------------------------------------------------------
@@ -1219,6 +1220,36 @@ _REGISTRY: dict[str, FormSpec] = {
             "action_taken", "action_taken_by", "action_completed",
             "work_approval", "work_approval_reason",
             "checker_name", "manager_sign", "check_datetime",
+        ),
+        repeat_field=None,
+        max_repeat_rows=None,
+    ),
+    # ------------------------------------------------------------------
+    # P3 — CL-008 (2026-04-26)
+    # 법적 근거: 산안규칙 제5조, 제115조~제118조 (보호구 지급·관리)
+    # evidence_status: NEEDS_VERIFICATION
+    # 주의: 법정 별지 서식 없음. 실무 자체 표준서식.
+    #       보호구 지급 및 착용 관리 점검 기록용.
+    # ------------------------------------------------------------------
+    "protective_equipment_checklist": FormSpec(
+        form_type="protective_equipment_checklist",
+        display_name="보호구 지급 및 관리 점검표",
+        version="1.0",
+        builder=build_protective_equipment_checklist,
+        required_fields=(
+            "site_name",
+            "check_date",
+            "inspector_name",
+        ),
+        optional_fields=(
+            "project_name",
+            "department", "position",
+            "work_trade", "work_location", "work_description",
+            "worker_count", "supervisor_name",
+            "helmet_status", "safety_shoes_status", "safety_belt_status",
+            "safety_glasses_status", "dust_mask_status", "gas_mask_status",
+            "ear_protection_status", "safety_gloves_status", "face_shield_status",
+            "protective_clothing_status", "overall_result", "remarks",
         ),
         repeat_field=None,
         max_repeat_rows=None,
