@@ -2965,6 +2965,207 @@ def run_ptw003_smoke_test() -> list[tuple[str, str, str]]:
 
 
 # ===========================================================================
+# PTW-005 — 굴착 작업 허가서
+# ===========================================================================
+
+SAMPLE_PTW005_MINIMAL: dict = {
+    "site_name":       "테스트건설(주) 테스트현장",
+    "work_date":       "2026-04-26",
+    "work_time":       "08:00 ~ 17:00",
+    "work_location":   "1공구 A동 기초공사 구간",
+    "trade_name":      "토공사",
+    "work_content":    "기초공사 토사 굴착",
+    "contractor":      "협력업체 A",
+    "work_supervisor": "홍길동",
+}
+
+SAMPLE_PTW005_FULL: dict = {
+    "site_name":          "테스트건설(주) 테스트현장",
+    "project_name":       "테스트현장 신축공사",
+    "permit_no":          "PTW-EXC-2026-0001",
+    "work_date":          "2026-04-26",
+    "work_time":          "08:00 ~ 17:00",
+    "work_location":      "1공구 A동 기초공사 구간",
+    "trade_name":         "토공사",
+    "work_content":       "기초공사 토사 굴착 (굴착깊이 3.5m, 흙막이 설치 구간)",
+    "contractor":         "협력업체 A",
+    "work_supervisor":    "홍길동",
+    "excavation_depth":   "3.5m",
+    "excavation_area":    "20m × 15m",
+    "validity_period":    "당일 작업 한정",
+    "permit_issuer":      "김허가자",
+    "supervisor_name":    "박감독",
+    "safety_manager_sign": "최안전",
+    "workers": [
+        {"name": "이순신", "job_type": "굴착기 운전원"},
+        {"name": "강감찬", "job_type": "신호수"},
+    ],
+}
+
+PTW005_REQUIRED_SECTIONS = [
+    "굴착 작업 허가서",
+    "현장 기본정보",
+    "작업 허가 기본정보",
+    "굴착 전 확인사항",
+    "주요 위험요인",
+    "안전조치 확인",
+    "보호구 및 장비 확인",
+    "작업 승인 조건",
+    "작업 중지 조건",
+    "작성 / 검토 / 승인",
+]
+
+PTW005_REQUIRED_KEYWORDS = [
+    "지하매설물",
+    "흙막이",
+    "신호수",
+    "붕괴",
+    "추락",
+    "낙하",
+    "굴착 깊이",
+    "작업책임자",
+]
+
+
+def run_ptw005_smoke_test() -> list[tuple[str, str, str]]:
+    """PTW-005 굴착 작업 허가서 smoke test. 결과 list 반환."""
+    results: list[tuple[str, str, str]] = []
+    supported = {f["form_type"] for f in list_supported_forms()}
+
+    # ── 1. registry 등록 확인 ────────────────────────────────────────────
+    results.append(_check(
+        "excavation_work_permit" in supported,
+        "registry: excavation_work_permit 등록됨",
+    ))
+
+    # ── 2. get_form_spec 검증 ─────────────────────────────────────────────
+    try:
+        spec = get_form_spec("excavation_work_permit")
+        results.append(_check(isinstance(spec, dict), "get_form_spec() → dict"))
+        results.append(_check(
+            spec.get("display_name") == "굴착 작업 허가서",
+            "display_name == '굴착 작업 허가서'",
+            repr(spec.get("display_name")),
+        ))
+        results.append(_check(
+            isinstance(spec.get("required_fields"), list)
+            and len(spec["required_fields"]) > 0,
+            "required_fields 비어있지 않음",
+        ))
+        results.append(_check(
+            spec.get("repeat_field") == "workers",
+            "repeat_field == 'workers'",
+            repr(spec.get("repeat_field")),
+        ))
+        results.append(_check(
+            spec.get("max_repeat_rows") == 10,
+            "max_repeat_rows == 10",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "get_form_spec() 호출 성공", str(exc)))
+
+    # ── 3. 최소 샘플 → bytes ─────────────────────────────────────────────
+    try:
+        xlsx_bytes = build_form_excel("excavation_work_permit", SAMPLE_PTW005_MINIMAL)
+        results.append(_check(
+            isinstance(xlsx_bytes, bytes) and len(xlsx_bytes) > 0,
+            "최소 샘플 → bytes 생성",
+            f"{len(xlsx_bytes):,} bytes",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "최소 샘플 → bytes 생성", str(exc)))
+
+    # ── 4. 공란 form_data → bytes ─────────────────────────────────────────
+    try:
+        empty_bytes = build_form_excel("excavation_work_permit", {})
+        results.append(_check(
+            isinstance(empty_bytes, bytes) and len(empty_bytes) > 0,
+            "공란 form_data → bytes 생성 (오류 없음)",
+            f"{len(empty_bytes):,} bytes",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "공란 form_data → bytes 생성", str(exc)))
+
+    # ── 5. 전체 샘플 workbook 검증 ────────────────────────────────────────
+    try:
+        full_bytes = build_form_excel("excavation_work_permit", SAMPLE_PTW005_FULL)
+        results.append(_check(
+            isinstance(full_bytes, bytes) and len(full_bytes) > 0,
+            "전체 샘플 → bytes 생성",
+            f"{len(full_bytes):,} bytes",
+        ))
+        from io import BytesIO as _BytesIO
+        from openpyxl import load_workbook as _load_wb
+        wb_full = _load_wb(_BytesIO(full_bytes))
+        all_vals = [
+            str(cell.value or "")
+            for ws_obj in wb_full.worksheets
+            for r in ws_obj.iter_rows()
+            for cell in r
+        ]
+        all_text = " ".join(all_vals)
+
+        # 시트명 확인
+        sheet_names = wb_full.sheetnames
+        results.append(_check(
+            any("굴착" in n for n in sheet_names),
+            f"시트명 확인 — {sheet_names}",
+        ))
+
+        # 필수 섹션 포함
+        for section in PTW005_REQUIRED_SECTIONS:
+            results.append(_check(
+                section in all_text,
+                f"섹션 포함: '{section}'",
+            ))
+
+        # 필수 키워드 포함
+        for kw in PTW005_REQUIRED_KEYWORDS:
+            results.append(_check(
+                kw in all_text,
+                f"필수 키워드 포함: '{kw}'",
+            ))
+
+    except Exception as exc:
+        import traceback as _tb
+        tb = _tb.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "전체 샘플 처리 중 예외", tb))
+
+    # ── 6. catalog 검증 ───────────────────────────────────────────────────
+    try:
+        import yaml
+        catalog_path = Path("data/masters/safety/documents/document_catalog.yml")
+        with open(catalog_path, encoding="utf-8") as f:
+            cat = yaml.safe_load(f)
+        docs = {d["id"]: d for d in cat["documents"]}
+        ptw005 = docs.get("PTW-005")
+
+        results.append(_check(ptw005 is not None, "catalog: PTW-005 항목 존재"))
+
+        if ptw005:
+            results.append(_check(
+                ptw005.get("implementation_status") == "DONE",
+                "catalog: PTW-005 implementation_status == DONE",
+                repr(ptw005.get("implementation_status")),
+            ))
+            results.append(_check(
+                ptw005.get("form_type") == "excavation_work_permit",
+                "catalog: PTW-005 form_type == 'excavation_work_permit'",
+                repr(ptw005.get("form_type")),
+            ))
+
+        # evidence는 NEEDS_VERIFICATION 상태이므로 evidence_id/file 필수 확인 생략
+        # (신규 수집 금지 원칙 준수)
+
+    except Exception as exc:
+        import traceback as _tb
+        tb = _tb.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "PTW-005 catalog 검증 중 예외", tb))
+
+    return results
+
+
+# ===========================================================================
 # PTW-007 — 중량물 인양·중장비사용 작업 허가서
 # ===========================================================================
 
@@ -4268,6 +4469,12 @@ def run_smoke_test() -> None:
     # ════════════════════════════════════════════════════════════
     ptw003_results = run_ptw003_smoke_test()
     results.extend(ptw003_results)
+
+    # ════════════════════════════════════════════════════════════
+    # PTW-005 검증
+    # ════════════════════════════════════════════════════════════
+    ptw005_results = run_ptw005_smoke_test()
+    results.extend(ptw005_results)
 
     # ════════════════════════════════════════════════════════════
     # PTW-007 검증

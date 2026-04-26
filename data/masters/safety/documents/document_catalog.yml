@@ -952,12 +952,12 @@ documents:
     category_code: PTW
     document_group: 작업허가서
     legal_status: practical
-    implementation_status: TODO
+    implementation_status: DONE
     priority: P2
-    form_type: null
+    form_type: excavation_work_permit
     source_type: law
     legal_basis: "산업안전보건기준에 관한 규칙 제38조, 제82조 이하"
-    notes: "지하매설물 주변 굴착 원청 요구"
+    notes: "builder v1.0. WP-001 굴착 작업계획서 선행 작성 필수. 지하매설물 주변 굴착 원청 요구. 법정 별지 서식 없음 — 자체 표준서식."
 
   - id: PTW-006
     name: 방사선 투과검사 작업 허가서

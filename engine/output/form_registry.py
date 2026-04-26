@@ -21,6 +21,7 @@ export API 연결 전 단계 — builder 호출 인터페이스만 제공.
     confined_space_permit               — 밀폐공간 작업허가서 (v1.0)         [PTW-001]
     hot_work_permit                     — 화기작업 허가서 (v1.0)             [PTW-002]
     work_at_height_permit               — 고소작업 허가서 (v1.0)             [PTW-003]
+    excavation_work_permit              — 굴착 작업 허가서 (v1.0)            [PTW-005]
     heavy_lifting_workplan              — 중량물 취급 작업계획서 (v1.0)            [WP-005]
     lifting_work_permit                 — 중량물 인양·중장비사용 작업 허가서 (v1.0) [PTW-007]
     confined_space_checklist            — 밀폐공간 사전 안전점검표 (v1.0)    [CL-010]
@@ -53,6 +54,7 @@ from typing import Any, Callable, Tuple
 
 from engine.output.confined_space_checklist_builder import build_confined_space_checklist_excel
 from engine.output.confined_space_permit_builder import build_confined_space_permit_excel
+from engine.output.excavation_work_permit_builder import build_excavation_work_permit_excel
 from engine.output.hot_work_permit_builder import build_hot_work_permit_excel
 from engine.output.work_at_height_permit_builder import build_work_at_height_permit_excel
 from engine.output.lifting_work_permit_builder import build_lifting_work_permit_excel
@@ -670,6 +672,50 @@ _REGISTRY: dict[str, FormSpec] = {
             "lifting_types", "workplan_checks", "equipment_checks",
             "rigging_checks", "signal_checks", "pre_work_checks",
             "post_work_checks", "photo_items",
+        ),
+    ),
+    # P2 — PTW-005 (2026-04-26)
+    # 법적 근거: 산안규칙 제38조, 제82조~제88조 (굴착작업 안전조치)
+    # evidence_status: NEEDS_VERIFICATION
+    # 주의: 법정 별지 서식 없음. 자체 표준서식.
+    #       WP-001 굴착 작업계획서 선행 작성 필수.
+    # ------------------------------------------------------------------
+    "excavation_work_permit": FormSpec(
+        form_type="excavation_work_permit",
+        display_name="굴착 작업 허가서",
+        version="1.0",
+        builder=build_excavation_work_permit_excel,
+        required_fields=(
+            "site_name",
+            "work_date",
+            "work_time",
+            "work_location",
+            "trade_name",
+            "work_content",
+            "contractor",
+            "work_supervisor",
+        ),
+        optional_fields=(
+            "project_name", "permit_no",
+            "excavation_depth", "excavation_area",
+            "validity_period",
+            "permit_issuer", "supervisor_name", "safety_manager_sign",
+            "work_end_confirmer", "final_sign",
+            "during_work_issues", "work_end_time", "photo_file_list",
+            # list fields
+            "pre_check_items",
+            "risk_factor_items",
+            "safety_measure_items",
+            "ppe_items",
+            "approval_conditions",
+            "stop_conditions",
+            "workers",
+        ),
+        repeat_field="workers",
+        max_repeat_rows=10,
+        extra_list_fields=(
+            "pre_check_items", "risk_factor_items", "safety_measure_items",
+            "ppe_items", "approval_conditions", "stop_conditions",
         ),
     ),
     "confined_space_permit": FormSpec(
