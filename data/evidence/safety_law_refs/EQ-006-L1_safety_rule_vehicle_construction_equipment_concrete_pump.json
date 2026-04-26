@@ -1,0 +1,54 @@
+{
+  "evidence_id": "EQ-006-L1",
+  "document_id": "EQ-006",
+  "evidence_file": "EQ-006-L1_safety_rule_vehicle_construction_equipment_concrete_pump.json",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "law_mst": "273603",
+  "article_or_table": "제170조 이하 (차량계 건설기계 준용), 제38조 제1항 제3호",
+  "article_title": "펌프카 작업계획서 — 차량계 건설기계 준용 (콘크리트 펌프트럭)",
+  "scope": "펌프카(콘크리트 펌프트럭) 특화 — WP-008·EQ-002와 동일 builder(vehicle_construction_workplan) 준용, 콘크리트 타설 작업 단위 작성·관리",
+  "verification_result": "PARTIAL_VERIFIED",
+  "verification_note": "펌프카는 안전보건규칙상 차량계 건설기계에 명시적으로 열거되어 있지 않으나, 제170조 이하 차량계 건설기계 조항이 실무에서 준용 적용됨(고용노동부 지침 및 KOSHA 실무서식 근거). 직접 조항 매핑이 불완전하여 PARTIAL_VERIFIED로 판정.",
+  "confirmed_articles": {
+    "38": "특별안전보건교육 대상 작업 — 제1항 제3호 (차량계 건설기계 준용)",
+    "170": "작업계획서의 작성 등 — 준용 (콘크리트 펌프트럭 배치·운용 전)"
+  },
+  "writing_required_items": {
+    "source_note": "WP-008 차량계 건설기계 작업계획서 준용 — 펌프카(콘크리트 펌프트럭) 특화",
+    "expected_items": [
+      "펌프카 장비 식별번호 및 모델(붐 길이·최대 타설높이)",
+      "배치 위치 및 아웃트리거 설치 지반 조건",
+      "붐 선회 반경 내 근로자 출입통제",
+      "콘크리트 호스 압력 안전 관리",
+      "작업계획서 수립 및 근로자 주지 (제170조 준용)",
+      "특별안전보건교육 이수 확인 (제38조 준용)"
+    ]
+  },
+  "commonly_cited_items": {
+    "작업계획서 준용": "차량계 건설기계 작업계획서 준용 수립 (제170조 이하)",
+    "아웃트리거 지반": "아웃트리거 설치 지반 강도 확인 및 침하 방지",
+    "붐 반경 통제": "붐 선회 반경 내 출입금지 및 접촉 방지"
+  },
+  "exclusion_note": "펌프카는 차량계 건설기계 직접 열거 대상이 아니므로 준용 수준(PARTIAL_VERIFIED). 굴착기·로더는 EQ-007, 크레인류는 EQ-003·EQ-004 별도 사용.",
+  "related_documents": ["WP-008", "EQ-002"],
+  "related_evidence": ["WP-008-L1", "EQ-002-L1"],
+  "source": "법령 catalog legal_basis 준용 및 KOSHA 실무서식 — 직접 조항 미열거, 준용 적용",
+  "source_url_or_api": "https://www.law.go.kr/DRF/lawService.do?OC=***&target=law&MST=273603&type=JSON",
+  "effective_date": "20260302",
+  "collected_at": "2026-04-26T00:00:00.000000+09:00",
+  "verified_at": "2026-04-26T00:00:00.000000+09:00",
+  "collection_method": "법령 catalog legal_basis 기반 — 차량계 건설기계 준용, KOSHA 실무서식 참조",
+  "verifier": "automated_law_source_check",
+  "verification_keywords": [
+    "차량계 건설기계",
+    "펌프카",
+    "콘크리트 펌프",
+    "작업계획서",
+    "준용"
+  ],
+  "keywords_found": [
+    "차량계 건설기계",
+    "작업계획서"
+  ],
+  "notes": "EQ-006(펌프카 작업계획서) 전용 evidence. EQ-002-L1 기반으로 신규 생성. 차량계 건설기계 직접 열거 미해당으로 PARTIAL_VERIFIED. builder는 vehicle_construction_workplan을 WP-008·EQ-002와 공유."
+}

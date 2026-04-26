@@ -434,11 +434,15 @@ documents:
     category_code: EQ
     document_group: 장비사용계획서
     legal_status: practical
-    implementation_status: TODO
+    implementation_status: DONE
     priority: P1
-    form_type: null
+    form_type: vehicle_construction_workplan
     source_type: law
     legal_basis: "산업안전보건기준에 관한 규칙 제170조 이하 (차량계 건설기계 준용)"
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id: EQ-006-L1
+    evidence_file: "data/evidence/safety_law_refs/EQ-006-L1_safety_rule_vehicle_construction_equipment_concrete_pump.json"
+    related_documents: ["EQ-002", "WP-008"]
     notes: "콘크리트 타설 현장 실무필수"
 
   - id: EQ-007
@@ -447,11 +451,15 @@ documents:
     category_code: EQ
     document_group: 장비사용계획서
     legal_status: legal
-    implementation_status: TODO
+    implementation_status: DONE
     priority: P1
-    form_type: null
+    form_type: vehicle_construction_workplan
     source_type: law
     legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제3호, 제170조~제174조"
+    evidence_status: VERIFIED
+    evidence_id: EQ-007-L1
+    evidence_file: "data/evidence/safety_law_refs/EQ-007-L1_safety_rule_vehicle_construction_equipment_excavator_loader.json"
+    related_documents: ["EQ-002", "WP-008"]
     notes: "EQ-002 차량계 건설기계 계획서 세부 특화"
 
   - id: EQ-008

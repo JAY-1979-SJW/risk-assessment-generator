@@ -1,0 +1,62 @@
+{
+  "evidence_id": "EQ-007-L1",
+  "document_id": "EQ-007",
+  "evidence_file": "EQ-007-L1_safety_rule_vehicle_construction_equipment_excavator_loader.json",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "law_mst": "273603",
+  "article_or_table": "제38조 제1항 제3호, 제170조~제174조 (굴착기·로더 특화)",
+  "article_title": "굴착기·로더 사용계획서 — 차량계 건설기계 작업계획서 굴착·적재 장비 특화",
+  "scope": "차량계 건설기계 굴착기·로더 특화 — WP-008·EQ-002와 동일 builder(vehicle_construction_workplan), 굴착기·로더 단위 작성·관리",
+  "verification_result": "VERIFIED",
+  "verification_note": "EQ-002-L1 및 WP-008-L1 동일 법령 근거 준용. 제170조(작업계획서 수립) 및 제38조 제1항 제3호(특별안전보건교육 대상) 직접 적용. 굴착기·로더는 차량계 건설기계에 명시적으로 포함(제196조 정의)되며 제170~174조 작업계획서 수립 의무 적용.",
+  "confirmed_articles": {
+    "38": "특별안전보건교육 대상 작업 — 제1항 제3호 (차량계 건설기계 운전)",
+    "170": "작업계획서의 작성 등 — 차량계 건설기계 사용 전 작업계획서 수립",
+    "171": "갓길의 붕괴 등 방지",
+    "172": "지반의 부동침하 방지",
+    "173": "유도자 배치",
+    "174": "접촉 방지"
+  },
+  "writing_required_items": {
+    "source_note": "WP-008 차량계 건설기계 작업계획서 중 굴착기·로더 특화 운용 기록",
+    "expected_items": [
+      "굴착기·로더 장비 식별번호 및 모델",
+      "작업장소 지반조건 및 갓길 붕괴 방지 조치 (제171·172조)",
+      "유도자 배치 계획 (제173조)",
+      "작업반경 내 근로자 출입통제 및 접촉 방지 (제174조)",
+      "작업계획서 수립 및 근로자 주지 (제170조)",
+      "특별안전보건교육 이수 확인 (제38조 제1항 제3호)"
+    ]
+  },
+  "commonly_cited_items": {
+    "작업계획서 수립": "사용 전 작업장소 지형·지반 조사 후 계획서 수립 (제170조)",
+    "갓길 붕괴 방지": "갓길 붕괴·지반 침하 방지 조치 (제171·172조)",
+    "유도자 배치": "장비 이동 시 유도자 1명 이상 배치 (제173조)",
+    "접촉 방지": "작업반경 내 근로자 출입금지 및 접촉 방지 (제174조)"
+  },
+  "exclusion_note": "EQ-007은 굴착·적재 장비(굴착기·로더) 전용. 크레인류는 EQ-003·EQ-004, 덤프·롤러는 EQ-008 별도 사용.",
+  "related_documents": ["WP-008", "EQ-002"],
+  "related_evidence": ["WP-008-L1", "EQ-002-L1"],
+  "source": "법령 catalog legal_basis 및 EQ-002-L1 준용 — 제170~174조 직접 적용 VERIFIED",
+  "source_url_or_api": "https://www.law.go.kr/DRF/lawService.do?OC=***&target=law&MST=273603&type=JSON",
+  "effective_date": "20260302",
+  "collected_at": "2026-04-26T00:00:00.000000+09:00",
+  "verified_at": "2026-04-26T00:00:00.000000+09:00",
+  "collection_method": "법령 catalog legal_basis 기반 — EQ-002-L1 검증 수준 인용, 제170~174조 직접 매핑",
+  "verifier": "automated_law_source_check",
+  "verification_keywords": [
+    "차량계 건설기계",
+    "굴착기",
+    "로더",
+    "작업계획서",
+    "유도자"
+  ],
+  "keywords_found": [
+    "차량계 건설기계",
+    "굴착기",
+    "로더",
+    "작업계획서",
+    "유도자"
+  ],
+  "notes": "EQ-007(굴착기·로더 사용계획서) 전용 evidence. EQ-002-L1 기반으로 신규 생성. builder는 vehicle_construction_workplan을 WP-008·EQ-002와 공유."
+}

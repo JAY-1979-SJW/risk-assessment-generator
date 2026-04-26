@@ -5715,10 +5715,10 @@ def run_hm002_smoke_test() -> list[tuple[str, str, str]]:
 #   6. 4개 catalog 항목 evidence_* 필드 등록 확인
 #   7. 신규 evidence 파일 4건 존재 + verification_result 확인
 #
-# 대상 문서: WP-008, WP-009, EQ-001, EQ-002 (audit doc_id 참조용 명시)
+# 대상 문서: WP-008, WP-009, EQ-001, EQ-002, EQ-007, EQ-006 (audit doc_id 참조용 명시)
 # ===========================================================================
 
-VEHICLE_TARGET_DOC_IDS = ["WP-008", "WP-009", "EQ-001", "EQ-002"]
+VEHICLE_TARGET_DOC_IDS = ["WP-008", "WP-009", "EQ-001", "EQ-002", "EQ-007", "EQ-006"]
 
 VEHICLE_EVIDENCE_BY_DOC = {
     "WP-008": (
@@ -5745,6 +5745,18 @@ VEHICLE_EVIDENCE_BY_DOC = {
         "vehicle_construction_workplan",
         "VERIFIED",
     ),
+    "EQ-007": (
+        "EQ-007-L1",
+        "EQ-007-L1_safety_rule_vehicle_construction_equipment_excavator_loader.json",
+        "vehicle_construction_workplan",
+        "VERIFIED",
+    ),
+    "EQ-006": (
+        "EQ-006-L1",
+        "EQ-006-L1_safety_rule_vehicle_construction_equipment_concrete_pump.json",
+        "vehicle_construction_workplan",
+        "PARTIAL_VERIFIED",
+    ),
 }
 
 SAMPLE_VEHICLE_CONSTRUCTION_MINIMAL: dict = {
@@ -5764,14 +5776,14 @@ SAMPLE_MATERIAL_HANDLING_MINIMAL: dict = {
 
 
 def run_vehicle_workplan_smoke_test() -> list[tuple[str, str, str]]:
-    """차량계 묶음 4건 (WP-008/WP-009/EQ-001/EQ-002) 중간 수준 smoke test."""
+    """차량계 묶음 6건 (WP-008/WP-009/EQ-001/EQ-002/EQ-007/EQ-006) 중간 수준 smoke test."""
     results: list[tuple[str, str, str]] = []
     supported = {f["form_type"] for f in list_supported_forms()}
 
     # ── 1. registry 등록 확인 ────────────────────────────────────────────
     results.append(_check(
         "vehicle_construction_workplan" in supported,
-        "registry: vehicle_construction_workplan 등록됨 (WP-008/EQ-002)",
+        "registry: vehicle_construction_workplan 등록됨 (WP-008/EQ-002/EQ-007/EQ-006)",
     ))
     results.append(_check(
         "material_handling_workplan" in supported,
