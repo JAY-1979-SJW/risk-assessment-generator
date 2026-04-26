@@ -34,11 +34,13 @@ INDEX_DIRS = {
     "archive_admrul": DATA / "raw" / "law_api" / "admrul",
     "archive_expc":   DATA / "raw" / "law_api" / "expc",
     "archive_licbyl": DATA / "raw" / "law_api" / "licbyl",
+    "unified_index":  DATA / "index",
 }
 
 DB_DIRS = {
     "law_content":    DATA / "raw" / "law_content" / "law",
     "admrul_content": DATA / "raw" / "law_content" / "admrul",
+    "expc_content":   DATA / "raw" / "law_content" / "expc",
 }
 
 # ── 추가 분류 디렉토리 ──────────────────────────────────────────────────────────
