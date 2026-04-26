@@ -28,9 +28,8 @@ ALLOWED_COLLECTION_ACTION = {
     "WATCH_ONLY",
 }
 
-# 원래 22개 source 후보에서 건설기계관리법 시행령/규칙, 소방시설공사업법 시행령/규칙을
-# 각각 DECREE+RULE로 분리하여 23개로 확장. UNKNOWN 2건은 발행처 확인으로 NOT_COLLECTED로 전환.
-EXPECTED_SOURCE_COUNT = 23
+# 원래 22개 source 후보에서 23개로 확장. 2026-04-26 전기·화학·가스·통신 13건 추가 → 36개.
+EXPECTED_SOURCE_COUNT = 36
 
 ERRORS: list[str] = []
 WARNINGS: list[str] = []
@@ -74,7 +73,7 @@ def validate_registry(data: dict) -> list[dict]:
     if len(seen) == len(codes):
         ok(f"source_code 중복 없음 (총 {len(codes)}개)")
 
-    print("\n=== [3] source 수 확인 (기대: 22개) ===")
+    print("\n=== [3] source 수 확인 (기대: 36개) ===")
     if len(sources) == EXPECTED_SOURCE_COUNT:
         ok(f"source 수 일치: {len(sources)}개")
     else:
