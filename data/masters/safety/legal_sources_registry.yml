@@ -136,16 +136,21 @@ sources:
     source_type: ENFORCEMENT_DECREE
     source_domain: EQUIPMENT
     source_authority: MOLIT
-    collection_status: SCRIPT_EXISTS_NOT_COLLECTED
+    collection_status: COLLECTED_PARTIAL
     collection_action: COLLECT_BY_EXISTING_SCRIPT
     priority: P1
     collected_evidence_count: 0
     duplicate_collection_risk: false
     existing_script: scripts/collect/law_statutes.py
     law_mst: 284659
+    law_id: "002109"
     source_url: https://www.law.go.kr/법령/건설기계관리법시행령
-    effective_date: null
-    notes: "MST=284659 (수정: 기존 285023은 시행규칙 MST였음, 2026-04-26 laws_index 확인으로 정정). Q-001 수집 완료 후 연계."
+    effective_date: "2026-03-24"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/construction_machinery_decree_284659.json
+    article_count: 50
+    attached_table_count: 6
+    notes: "2026-04-26 원문 수집 완료. 50개 조문, 별표 6개(건설기계 범위/등록번호표/검사대행자/정비업/과징금/과태료). evidence 파일 미생성 → COLLECTED_PARTIAL. 시행 2026-03-24(타법개정)."
     enabled: true
 
   - source_code: MOLIT_CONSTRUCTION_MACHINERY_MANAGEMENT_RULE
@@ -154,16 +159,21 @@ sources:
     source_type: ENFORCEMENT_RULE
     source_domain: EQUIPMENT
     source_authority: MOLIT
-    collection_status: SCRIPT_EXISTS_NOT_COLLECTED
+    collection_status: COLLECTED_PARTIAL
     collection_action: COLLECT_BY_EXISTING_SCRIPT
     priority: P1
     collected_evidence_count: 0
     duplicate_collection_risk: false
     existing_script: scripts/collect/collect_missing_laws.py
-    law_mst: null
+    law_mst: 285023
+    law_id: "006174"
     source_url: https://www.law.go.kr/법령/건설기계관리법시행규칙
-    effective_date: null
-    notes: "collect_missing_laws.py 대상 목록에 포함. 상위법 수집 후 연계."
+    effective_date: "2026-03-24"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/construction_machinery_rule_285023.json
+    article_count: 153
+    attached_table_count: 137
+    notes: "2026-04-26 원문 수집 완료. 153개 조문, 별표/서식 137개(임시번호표/등록번호표/검사유효기간 등). evidence 파일 미생성 → COLLECTED_PARTIAL. 시행 2026-03-24(타법개정)."
     enabled: true
 
   - source_code: NFA_FIRE_FACILITY_BUSINESS_ACT

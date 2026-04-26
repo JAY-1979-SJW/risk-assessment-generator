@@ -35,8 +35,10 @@ collect_ready_existing_script:
     official_name_confirmed: true
     blocked_by: null
     duplicate_check_required: false
-    enabled: true
-    notes: "MST=284659 (수정: 기존 285023은 시행규칙). Q-001 수집 완료. 즉시 실행 가능."
+    enabled: false
+    collected_at: "2026-04-26"
+    collection_result: COLLECTED_PARTIAL
+    notes: "2026-04-26 원문 수집 완료. 50조문, 별표 6개. raw→data/raw/law_content/law/2026-04-26/construction_machinery_decree_284659.json. evidence 미생성 → PARTIAL."
 
   - queue_id: Q-003
     source_code: MOLIT_CONSTRUCTION_MACHINERY_MANAGEMENT_RULE
@@ -44,12 +46,14 @@ collect_ready_existing_script:
     priority: P1
     script_name: scripts/collect/collect_missing_laws.py
     api_type: law_go_kr_drf
-    mst: null
+    mst: 285023
     official_name_confirmed: true
     blocked_by: Q-001
     duplicate_check_required: false
-    enabled: true
-    notes: "collect_missing_laws.py 실행 대상. MST 조회 후 추가."
+    enabled: false
+    collected_at: "2026-04-26"
+    collection_result: COLLECTED_PARTIAL
+    notes: "2026-04-26 원문 수집 완료. 153조문, 별표/서식 137개. raw→data/raw/law_content/law/2026-04-26/construction_machinery_rule_285023.json. evidence 미생성 → PARTIAL."
 
   - queue_id: Q-004
     source_code: NFA_FIRE_FACILITY_BUSINESS_ACT
