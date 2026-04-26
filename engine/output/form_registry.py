@@ -37,6 +37,7 @@ export API 연결 전 단계 — builder 호출 인터페이스만 제공.
     electrical_work_permit                — 전기작업 허가서 / LOTO (v1.0)                [PTW-004]
     electrical_facility_checklist         — 전기설비 정기 점검표 (v1.0)                   [CL-004]
     fire_prevention_checklist             — 화재 예방 점검표 (v1.0)                        [CL-005]
+    work_safety_checklist                 — 작업 전 안전 확인서 (v1.0)                    [DL-005]
 
 사용법:
     from engine.output.form_registry import (
@@ -77,6 +78,7 @@ from engine.output.risk_assessment_meeting_minutes_builder import build_risk_ass
 from engine.output.tower_crane_workplan_builder import build_tower_crane_workplan_excel
 from engine.output.vehicle_workplan_builder import build_vehicle_workplan_excel
 from engine.output.work_environment_measurement_builder import build_work_environment_measurement_excel
+from engine.output.work_safety_checklist_builder import build_work_safety_checklist
 from engine.output.heavy_lifting_workplan_builder import build_heavy_lifting_workplan_excel
 from engine.output.workplan_builder import build_excavation_workplan_excel
 from engine.output.fall_protection_checklist_builder import build_fall_protection_checklist_excel
@@ -1190,6 +1192,36 @@ _REGISTRY: dict[str, FormSpec] = {
             "gas_equip_checks", "elec_fire_checks",
             "post_work_checks",
         ),
+    ),
+    # ------------------------------------------------------------------
+    # P3 — DL-005 (2026-04-26)
+    # 법적 근거: 중대재해처벌법 시행령 제4조 (안전보건관리체계 구축 의무)
+    # evidence_status: NEEDS_VERIFICATION
+    # 주의: 법정 별지 서식 없음. 실무 자체 표준서식.
+    #       근로자 개인 작업 개시 전 자가 점검 기록용.
+    # ------------------------------------------------------------------
+    "work_safety_checklist": FormSpec(
+        form_type="work_safety_checklist",
+        display_name="작업 전 안전 확인서",
+        version="1.0",
+        builder=build_work_safety_checklist,
+        required_fields=(
+            "site_name",
+            "check_date",
+            "worker_name",
+        ),
+        optional_fields=(
+            "project_name",
+            "department", "position",
+            "work_type", "work_location", "work_time",
+            "supervisor_name", "work_content",
+            "hazard_found", "hazard_description",
+            "action_taken", "action_taken_by", "action_completed",
+            "work_approval", "work_approval_reason",
+            "checker_name", "manager_sign", "check_datetime",
+        ),
+        repeat_field=None,
+        max_repeat_rows=None,
     ),
     # ------------------------------------------------------------------
     # P2 → P1 — PTW-004 (2026-04-25)

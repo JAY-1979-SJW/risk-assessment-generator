@@ -3455,6 +3455,193 @@ WP005_EXPECTED_EVIDENCE_FILES = [
 WP005_VALID_EV_STATUSES = {"VERIFIED", "PARTIAL_VERIFIED", "NEEDS_VERIFICATION"}
 
 
+# ===========================================================================
+# DL-005 — 작업 전 안전 확인서
+# ===========================================================================
+
+SAMPLE_DL005_MINIMAL: dict = {
+    "site_name":       "테스트건설(주) 테스트현장",
+    "check_date":      "2026-04-26",
+    "worker_name":     "홍길동",
+}
+
+SAMPLE_DL005_FULL: dict = {
+    "site_name":          "테스트건설(주) 테스트현장",
+    "project_name":       "테스트현장 신축공사",
+    "check_date":         "2026-04-26",
+    "worker_name":        "홍길동",
+    "department":         "토공팀",
+    "position":           "기능공",
+    "work_type":          "기초공사",
+    "work_location":      "1공구 A동 기초 구간",
+    "work_time":          "08:00 ~ 17:00",
+    "supervisor_name":    "박감독",
+    "work_content":       "기초공사 토사 굴착 (굴착깊이 3.5m)",
+    "hazard_found":       "없음",
+    "hazard_description": "",
+    "action_taken":       "해당사항 없음",
+    "action_taken_by":    "",
+    "action_completed":   "해당사항 없음",
+    "work_approval":      "가능",
+    "work_approval_reason": "",
+    "checker_name":       "박감독",
+    "manager_sign":       "최안전",
+    "check_datetime":     "2026-04-26 08:00",
+}
+
+DL005_REQUIRED_SECTIONS = [
+    "작업 전 안전 확인서",
+    "DL-005",
+    "현장 기본정보",
+    "작업 기본정보",
+    "작업 전 자가 점검 항목",
+    "주요 위험요인 확인",
+    "안전조치 확인",
+    "이상 발견 및 조치사항",
+    "작업 개시 가능 여부",
+    "작성 / 확인 / 승인",
+]
+
+DL005_REQUIRED_KEYWORDS = [
+    "자가 점검",
+    "위험요인",
+    "보호구",
+    "작업책임자",
+    "안전조치",
+]
+
+
+def run_dl005_smoke_test() -> list[tuple[str, str, str]]:
+    """DL-005 작업 전 안전 확인서 smoke test. 결과 list 반환."""
+    results: list[tuple[str, str, str]] = []
+    supported = {f["form_type"] for f in list_supported_forms()}
+
+    # ── 1. registry 등록 확인 ────────────────────────────────────────────
+    results.append(_check(
+        "work_safety_checklist" in supported,
+        "registry: work_safety_checklist 등록됨",
+    ))
+
+    # ── 2. get_form_spec 검증 ─────────────────────────────────────────────
+    try:
+        spec = get_form_spec("work_safety_checklist")
+        results.append(_check(isinstance(spec, dict), "get_form_spec() → dict"))
+        results.append(_check(
+            spec.get("display_name") == "작업 전 안전 확인서",
+            "display_name == '작업 전 안전 확인서'",
+            repr(spec.get("display_name")),
+        ))
+        results.append(_check(
+            isinstance(spec.get("required_fields"), list)
+            and len(spec["required_fields"]) > 0,
+            "required_fields 비어있지 않음",
+        ))
+        results.append(_check(
+            spec.get("repeat_field") is None,
+            "repeat_field is None",
+            repr(spec.get("repeat_field")),
+        ))
+    except Exception as exc:
+        results.append(_check(False, "get_form_spec() 호출 성공", str(exc)))
+
+    # ── 3. 최소 샘플 → bytes ─────────────────────────────────────────────
+    try:
+        xlsx_bytes = build_form_excel("work_safety_checklist", SAMPLE_DL005_MINIMAL)
+        results.append(_check(
+            isinstance(xlsx_bytes, bytes) and len(xlsx_bytes) > 0,
+            "최소 샘플 → bytes 생성",
+            f"{len(xlsx_bytes):,} bytes",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "최소 샘플 → bytes 생성", str(exc)))
+
+    # ── 4. 공란 form_data → bytes ─────────────────────────────────────────
+    try:
+        empty_bytes = build_form_excel("work_safety_checklist", {})
+        results.append(_check(
+            isinstance(empty_bytes, bytes) and len(empty_bytes) > 0,
+            "공란 form_data → bytes 생성 (오류 없음)",
+            f"{len(empty_bytes):,} bytes",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "공란 form_data → bytes 생성", str(exc)))
+
+    # ── 5. 전체 샘플 workbook 검증 ────────────────────────────────────────
+    try:
+        full_bytes = build_form_excel("work_safety_checklist", SAMPLE_DL005_FULL)
+        results.append(_check(
+            isinstance(full_bytes, bytes) and len(full_bytes) > 0,
+            "전체 샘플 → bytes 생성",
+            f"{len(full_bytes):,} bytes",
+        ))
+        from io import BytesIO as _BytesIO
+        from openpyxl import load_workbook as _load_wb
+        wb_full = _load_wb(_BytesIO(full_bytes))
+        all_vals = [
+            str(cell.value or "")
+            for ws_obj in wb_full.worksheets
+            for r in ws_obj.iter_rows()
+            for cell in r
+        ]
+        all_text = " ".join(all_vals)
+
+        # 시트명 확인
+        sheet_names = wb_full.sheetnames
+        results.append(_check(
+            any("안전" in n or "확인" in n for n in sheet_names),
+            f"시트명 확인 — {sheet_names}",
+        ))
+
+        # 필수 섹션 포함
+        for section in DL005_REQUIRED_SECTIONS:
+            results.append(_check(
+                section in all_text,
+                f"섹션 포함: '{section}'",
+            ))
+
+        # 필수 키워드 포함
+        for kw in DL005_REQUIRED_KEYWORDS:
+            results.append(_check(
+                kw in all_text,
+                f"필수 키워드 포함: '{kw}'",
+            ))
+
+    except Exception as exc:
+        import traceback as _tb
+        tb = _tb.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "전체 샘플 처리 중 예외", tb))
+
+    # ── 6. catalog 검증 ───────────────────────────────────────────────────
+    try:
+        import yaml
+        catalog_path = Path("data/masters/safety/documents/document_catalog.yml")
+        with open(catalog_path, encoding="utf-8") as f:
+            cat = yaml.safe_load(f)
+        docs = {d["id"]: d for d in cat["documents"]}
+        dl005 = docs.get("DL-005")
+
+        results.append(_check(dl005 is not None, "catalog: DL-005 항목 존재"))
+
+        if dl005:
+            results.append(_check(
+                dl005.get("implementation_status") == "DONE",
+                "catalog: DL-005 implementation_status == DONE",
+                repr(dl005.get("implementation_status")),
+            ))
+            results.append(_check(
+                dl005.get("form_type") == "work_safety_checklist",
+                "catalog: DL-005 form_type == 'work_safety_checklist'",
+                repr(dl005.get("form_type")),
+            ))
+
+    except Exception as exc:
+        import traceback as _tb
+        tb = _tb.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "DL-005 catalog 검증 중 예외", tb))
+
+    return results
+
+
 def run_wp005_smoke_test() -> list[tuple[str, str, str]]:
     """WP-005 중량물 취급 작업계획서 smoke test. 결과 list 반환."""
     results: list[tuple[str, str, str]] = []
@@ -4481,6 +4668,12 @@ def run_smoke_test() -> None:
     # ════════════════════════════════════════════════════════════
     ptw007_results = run_ptw007_smoke_test()
     results.extend(ptw007_results)
+
+    # ════════════════════════════════════════════════════════════
+    # DL-005 검증
+    # ════════════════════════════════════════════════════════════
+    dl005_results = run_dl005_smoke_test()
+    results.extend(dl005_results)
 
     # ════════════════════════════════════════════════════════════
     # WP-005 검증

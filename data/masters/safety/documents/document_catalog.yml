@@ -1099,9 +1099,9 @@ documents:
     category_code: DL
     document_group: 일일안전관리
     legal_status: practical
-    implementation_status: TODO
+    implementation_status: DONE
     priority: P3
-    form_type: null
+    form_type: work_safety_checklist
     source_type: law
     legal_basis: "중대재해처벌법 시행령 제4조"
     notes: "작업자 개인 작업 개시 전 자가 점검"
