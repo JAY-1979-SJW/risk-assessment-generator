@@ -152,10 +152,10 @@ sources:
     source_url: https://www.law.go.kr/법령/건설기계관리법시행령
     effective_date: "2026-03-24"
     raw_collected_at: "2026-04-26"
-    raw_path: data/raw/law_content/law/2026-04-26/construction_machinery_decree_284659.json
+    raw_path: data/raw/law_content/law/2026-04-26/law_content.jsonl
     article_count: 50
     attached_table_count: 6
-    notes: "2026-04-26 원문 수집 완료. 50개 조문, 별표 6개(건설기계 범위/등록번호표/검사대행자/정비업/과징금/과태료). evidence 파일 미생성 → COLLECTED_PARTIAL. 시행 2026-03-24(타법개정)."
+    notes: "2026-04-26 원문 수집 완료(law_content.jsonl 통합 저장, raw_id=284659). 50개 조문. 별표 6개(건설기계 범위/등록번호표/검사대행자/정비업/과징금/과태료)는 API 미제공(이미지). evidence 파일 미생성 → COLLECTED_PARTIAL. 시행 2026-03-24(타법개정)."
     enabled: true
 
   - source_code: MOLIT_CONSTRUCTION_MACHINERY_MANAGEMENT_RULE
@@ -175,10 +175,10 @@ sources:
     source_url: https://www.law.go.kr/법령/건설기계관리법시행규칙
     effective_date: "2026-03-24"
     raw_collected_at: "2026-04-26"
-    raw_path: data/raw/law_content/law/2026-04-26/construction_machinery_rule_285023.json
+    raw_path: data/raw/law_content/law/2026-04-26/law_content.jsonl
     article_count: 153
     attached_table_count: 137
-    notes: "2026-04-26 원문 수집 완료. 153개 조문, 별표/서식 137개(임시번호표/등록번호표/검사유효기간 등). evidence 파일 미생성 → COLLECTED_PARTIAL. 시행 2026-03-24(타법개정)."
+    notes: "2026-04-26 원문 수집 완료(law_content.jsonl 통합 저장, raw_id=285023). 153개 조문. 별표/서식 137개(임시번호표/등록번호표/검사유효기간 등)는 API 미제공(이미지). evidence 파일 미생성 → COLLECTED_PARTIAL. 시행 2026-03-24(타법개정)."
     enabled: true
 
   - source_code: NFA_FIRE_FACILITY_BUSINESS_ACT
