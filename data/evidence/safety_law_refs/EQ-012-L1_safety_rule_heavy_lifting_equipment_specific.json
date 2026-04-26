@@ -1,0 +1,58 @@
+{
+  "evidence_id": "EQ-012-L1",
+  "document_id": "EQ-012",
+  "evidence_file": "EQ-012-L1_safety_rule_heavy_lifting_equipment_specific.json",
+  "law_name": "산업안전보건기준에 관한 규칙",
+  "law_mst": "273603",
+  "article_or_table": "제38조 제1항 제11호, 별표4, 제39조 (중량물 취급 장비특화)",
+  "article_title": "중량물 취급 작업계획서 (장비특화) — WP-005 중량물 취급 계획서 장비 단위 특화 운용",
+  "scope": "중량물 취급 장비특화 — WP-005와 동일 builder(heavy_lifting_workplan), 장비(크레인·호이스트·리프트·중장비 등) 단위 중량물 취급 작성·관리",
+  "verification_result": "VERIFIED",
+  "verification_note": "WP-005-L1 및 WP-005-L1-BYL4, WP-005-L2 동일 법령 근거 준용. 제38조 제1항 제11호(중량물 취급 작업계획서 수립 의무)·별표4(기재사항) 직접 적용. 제39조(작업지휘자 지정) 준용. EQ-012는 WP-005 장비특화 인스턴스이며 법령 근거 동일.",
+  "confirmed_articles": {
+    "38_11": "사전조사 및 작업계획서의 작성 — 제1항 제11호 (중량물 취급 작업계획서)",
+    "byltable4": "별표4 — 중량물 취급 작업계획서 기재사항 (중량물 종류·형상·중량, 취급방법, 운반경로, 작업순서, 비상조치)",
+    "39": "작업지휘자 지정 — 중량물 취급 작업 시 작업지휘자 지정 의무"
+  },
+  "writing_required_items": {
+    "source_note": "WP-005 중량물 취급 작업계획서의 장비별 특화 운용 기록",
+    "expected_items": [
+      "사용 장비 식별번호 및 종류 (크레인·호이스트·리프트 등)",
+      "중량물의 종류·형상·중량 (별표4)",
+      "취급방법 및 운반경로 (별표4)",
+      "운반작업의 순서 및 방법 (별표4)",
+      "비상시 조치방법 (별표4)",
+      "작업지휘자 지정 (제39조)",
+      "장비 정격하중 대비 중량물 중량 확인"
+    ]
+  },
+  "commonly_cited_items": {
+    "중량물 작업계획서": "100kg 이상 중량물 취급 전 작업계획서 수립 (제38조 제1항 제11호)",
+    "별표4 기재사항": "중량물 종류·형상·중량, 취급방법, 운반경로, 순서·방법, 비상조치 (별표4)",
+    "작업지휘자 지정": "중량물 취급 작업 시 작업지휘자 지정 (제39조)"
+  },
+  "exclusion_note": "EQ-012는 WP-005 본 작업계획서를 대체하지 않으며 장비단위 특화 기록용. PTW-007 중량물 인양 허가서 발급 전 WP-005·EQ-012 선행 작성 필수.",
+  "related_documents": ["WP-005", "PTW-007"],
+  "related_evidence": ["WP-005-L1", "WP-005-L1-BYL4", "WP-005-L2"],
+  "source": "WP-005-L1·WP-005-L1-BYL4·WP-005-L2 준용 — 제38조 제1항 제11호 + 별표4 + 제39조 직접 매핑 VERIFIED",
+  "source_url_or_api": "https://www.law.go.kr/DRF/lawService.do?OC=***&target=law&MST=273603&type=JSON",
+  "effective_date": "20260302",
+  "collected_at": "2026-04-26T00:00:00.000000+09:00",
+  "verified_at": "2026-04-26T00:00:00.000000+09:00",
+  "collection_method": "WP-005-L1·WP-005-L1-BYL4·WP-005-L2 검증 수준 인용 — 제38조 제1항 제11호·별표4·제39조 직접 매핑",
+  "verifier": "automated_law_source_check",
+  "verification_keywords": [
+    "중량물",
+    "작업계획서",
+    "별표4",
+    "작업지휘자",
+    "장비특화"
+  ],
+  "keywords_found": [
+    "중량물",
+    "작업계획서",
+    "별표4",
+    "작업지휘자"
+  ],
+  "notes": "EQ-012(중량물 취급 작업계획서 장비특화) 전용 evidence. WP-005-L1·BYL4·L2 기반으로 신규 생성. builder는 heavy_lifting_workplan을 WP-005와 공유."
+}

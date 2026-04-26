@@ -520,11 +520,15 @@ documents:
     category_code: EQ
     document_group: 장비사용계획서
     legal_status: legal
-    implementation_status: TODO
+    implementation_status: DONE
     priority: P1
-    form_type: null
+    form_type: heavy_lifting_workplan
     source_type: law
     legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제10호, 제39조"
+    evidence_status: VERIFIED
+    evidence_id: EQ-012-L1
+    evidence_file: "data/evidence/safety_law_refs/EQ-012-L1_safety_rule_heavy_lifting_equipment_specific.json"
+    related_documents: ["WP-005", "PTW-007"]
     notes: "WP-005 중량물 취급 계획서 장비특화"
 
   - id: EQ-013

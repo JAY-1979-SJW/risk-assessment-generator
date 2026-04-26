@@ -3457,6 +3457,79 @@ def run_wp005_smoke_test() -> list[tuple[str, str, str]]:
         except Exception as exc:
             results.append(_check(False, f"evidence 파일 로딩: {efname[:65]}...", str(exc)))
 
+    # ── EQ-012 중량물 취급 장비특화 catalog + evidence 검증 (중간 수준) ──
+    EQ012_EVIDENCE_ID   = "EQ-012-L1"
+    EQ012_EVIDENCE_FILE = "EQ-012-L1_safety_rule_heavy_lifting_equipment_specific.json"
+    try:
+        import yaml as _yaml
+        _cat_path = Path("data/masters/safety/documents/document_catalog.yml")
+        with open(_cat_path, encoding="utf-8") as _f:
+            _cat = _yaml.safe_load(_f)
+        eq012 = next((d for d in _cat["documents"] if d["id"] == "EQ-012"), None)
+
+        results.append(_check(eq012 is not None, "catalog: EQ-012 항목 존재"))
+        if eq012:
+            results.append(_check(
+                eq012.get("implementation_status") == "DONE",
+                "catalog: EQ-012 implementation_status == DONE",
+                repr(eq012.get("implementation_status")),
+            ))
+            results.append(_check(
+                eq012.get("form_type") == "heavy_lifting_workplan",
+                "catalog: EQ-012 form_type == 'heavy_lifting_workplan'",
+                repr(eq012.get("form_type")),
+            ))
+            _ev_status = eq012.get("evidence_status", "")
+            results.append(_check(
+                bool(_ev_status),
+                "catalog: EQ-012 evidence_status 존재",
+                repr(_ev_status),
+            ))
+            _ev_ids = eq012.get("evidence_id") or []
+            if isinstance(_ev_ids, str):
+                _ev_ids = [_ev_ids]
+            results.append(_check(
+                EQ012_EVIDENCE_ID in _ev_ids,
+                f"catalog: EQ-012 evidence_id 포함 — {EQ012_EVIDENCE_ID}",
+            ))
+            _ev_files = eq012.get("evidence_file") or []
+            if isinstance(_ev_files, str):
+                _ev_files = [_ev_files]
+            _ev_basenames = {Path(p).name for p in _ev_files}
+            results.append(_check(
+                EQ012_EVIDENCE_FILE in _ev_basenames,
+                f"catalog: EQ-012 evidence_file 등록 — {EQ012_EVIDENCE_FILE[:60]}",
+            ))
+            _eq012_fpath = EVIDENCE_DIR / EQ012_EVIDENCE_FILE
+            results.append(_check(
+                _eq012_fpath.exists(),
+                f"evidence_file 실제 존재: {EQ012_EVIDENCE_FILE[:60]}",
+            ))
+            if _eq012_fpath.exists():
+                try:
+                    _ev_data = json.loads(_eq012_fpath.read_text(encoding="utf-8"))
+                    results.append(_check(
+                        _ev_data.get("document_id") == "EQ-012",
+                        "evidence EQ-012-L1: document_id == 'EQ-012'",
+                        repr(_ev_data.get("document_id")),
+                    ))
+                    results.append(_check(
+                        _ev_data.get("evidence_id") == EQ012_EVIDENCE_ID,
+                        "evidence EQ-012-L1: evidence_id 자기참조 일치",
+                        repr(_ev_data.get("evidence_id")),
+                    ))
+                    _vr = _ev_data.get("verification_result", "")
+                    results.append(_check(
+                        _vr in ("VERIFIED", "PARTIAL_VERIFIED"),
+                        f"evidence EQ-012-L1: verification_result 유효 — {_vr}",
+                    ))
+                except Exception as _exc:
+                    results.append(_check(False, "evidence EQ-012-L1 파일 로딩", str(_exc)))
+    except Exception as exc:
+        import traceback as _tb2
+        tb2 = _tb2.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "EQ-012 catalog/evidence 검증 중 예외", tb2))
+
     return results
 
 
@@ -4282,7 +4355,7 @@ def run_smoke_test() -> None:
 
     # ── 출력 ─────────────────────────────────────────────────────────────
     print("\n" + "=" * 80)
-    print("  KRAS P1 Smoke Test — ED-003 + WP-011 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002 + PTW-002 + PTW-003 + PTW-007 + WP-005 + CL-007 + PTW-004 + CL-004 + CL-005 + HM-001 + HM-002 + WP-008/WP-009/EQ-001/EQ-002 + WP-006/WP-007/EQ-003/EQ-004 + RA-001/RA-004 + WP-014/PTW-001/CL-010 + WP-001 + ED-001")
+    print("  KRAS P1 Smoke Test — ED-003 + WP-011 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002 + PTW-002 + PTW-003 + PTW-007 + WP-005/EQ-012 + CL-007 + PTW-004 + CL-004 + CL-005 + HM-001 + HM-002 + WP-008/WP-009/EQ-001/EQ-002/EQ-007/EQ-006 + WP-006/WP-007/EQ-003/EQ-004 + RA-001/RA-004 + WP-014/PTW-001/CL-010 + WP-001 + ED-001")
     print("=" * 80)
 
     pass_cnt = warn_cnt = fail_cnt = 0
