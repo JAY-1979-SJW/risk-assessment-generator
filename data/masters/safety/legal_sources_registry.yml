@@ -113,16 +113,21 @@ sources:
     source_type: LAW
     source_domain: EQUIPMENT
     source_authority: MOLIT
-    collection_status: SCRIPT_EXISTS_NOT_COLLECTED
+    collection_status: COLLECTED_PARTIAL
     collection_action: COLLECT_BY_EXISTING_SCRIPT
     priority: P0
     collected_evidence_count: 0
     duplicate_collection_risk: false
     existing_script: scripts/collect/law_statutes.py
     law_mst: 283763
+    law_id: "000239"
     source_url: https://www.law.go.kr/법령/건설기계관리법
-    effective_date: null
-    notes: "크레인·지게차 조종사 면허, 안전검사 근거법. MST=283763. law_statutes.py DRF_QUERIES에 정의됨."
+    effective_date: "2027-02-28"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/keobul_machinery_act_283763.json
+    article_count: 94
+    attached_table_count: 0
+    notes: "2026-04-26 원문 수집 완료. 94개 조문, 별표 없음. 핵심: 제13조(검사), 제26~31조(조종사면허·안전교육). evidence 파일 미생성 → COLLECTED_PARTIAL. 시행 2027-02-28(일부개정)."
     enabled: true
 
   - source_code: MOLIT_CONSTRUCTION_MACHINERY_MANAGEMENT_DECREE
@@ -137,10 +142,10 @@ sources:
     collected_evidence_count: 0
     duplicate_collection_risk: false
     existing_script: scripts/collect/law_statutes.py
-    law_mst: 285023
+    law_mst: 284659
     source_url: https://www.law.go.kr/법령/건설기계관리법시행령
     effective_date: null
-    notes: "MST=285023. verify_safety_law_refs.py에 정의됨. 상위법 수집 후 연계."
+    notes: "MST=284659 (수정: 기존 285023은 시행규칙 MST였음, 2026-04-26 laws_index 확인으로 정정). Q-001 수집 완료 후 연계."
     enabled: true
 
   - source_code: MOLIT_CONSTRUCTION_MACHINERY_MANAGEMENT_RULE
