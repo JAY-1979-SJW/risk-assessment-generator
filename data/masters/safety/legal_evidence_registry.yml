@@ -1,0 +1,970 @@
+# legal_evidence_registry.yml
+# 수집 완료 evidence → source_code 매핑 registry
+# 작성: 2026-04-26
+# 이번 단계: COLLECTED_VERIFIED 4개 source (89개 중 78개 매핑)
+# 미매핑: PRACTICAL 3개(P1 접미사), E-06(다중소스), KOSHA_GUIDE 8개 → 향후 확장
+
+evidences:
+
+  # ──────────────────────────────────────────────
+  # MOEL_OSH_ACT — 산업안전보건법 (8개)
+  # ──────────────────────────────────────────────
+
+  - evidence_id: C-06
+    source_code: MOEL_OSH_ACT
+    official_name: 산업안전보건법
+    article: "제31조"
+    clause: "건설업 기초안전보건교육"
+    title: 산업안전보건법 제31조 건설업 기초안전보건교육
+    file_path: data/evidence/safety_law_refs/C-06_industrial_safety_health_act_article_31.json
+    verification_status: verified
+    used_by_documents: [C-06]
+    notes: null
+
+  - evidence_id: ED-001-L1
+    source_code: MOEL_OSH_ACT
+    official_name: 산업안전보건법
+    article: "제29조"
+    clause: "근로자 안전보건교육"
+    title: 산업안전보건법 제29조 근로자 안전보건교육
+    file_path: data/evidence/safety_law_refs/ED-001-L1_industrial_safety_health_act_article_29.json
+    verification_status: verified
+    used_by_documents: [ED-001]
+    notes: null
+
+  - evidence_id: ED-003-L1
+    source_code: MOEL_OSH_ACT
+    official_name: 산업안전보건법
+    article: "제29조"
+    clause: "근로자 안전보건교육"
+    title: 산업안전보건법 제29조 근로자 안전보건교육 (ED-003)
+    file_path: data/evidence/safety_law_refs/ED-003-L1_industrial_safety_health_act_article_29.json
+    verification_status: verified
+    used_by_documents: [ED-003]
+    notes: null
+
+  - evidence_id: ED-004-L1
+    source_code: MOEL_OSH_ACT
+    official_name: 산업안전보건법
+    article: "제32조"
+    clause: "관리감독자 정기교육"
+    title: 산업안전보건법 제32조 관리감독자 안전보건교육
+    file_path: data/evidence/safety_law_refs/ED-004-L1_industrial_safety_health_act_article_32.json
+    verification_status: verified
+    used_by_documents: [ED-004]
+    notes: null
+
+  - evidence_id: ED-004-L2
+    source_code: MOEL_OSH_ACT
+    official_name: 산업안전보건법
+    article: "제15·17·18조"
+    clause: "안전관리자·보건관리자·관리책임자"
+    title: 산업안전보건법 제15·17·18조 관리감독자 역할
+    file_path: data/evidence/safety_law_refs/ED-004-L2_industrial_safety_health_act_articles_15_17_18.json
+    verification_status: verified
+    used_by_documents: [ED-004]
+    notes: null
+
+  - evidence_id: HM-001-L1
+    source_code: MOEL_OSH_ACT
+    official_name: 산업안전보건법
+    article: "제125조"
+    clause: "작업환경측정"
+    title: 산업안전보건법 제125조 작업환경측정
+    file_path: data/evidence/safety_law_refs/HM-001-L1_industrial_safety_health_act_article_125.json
+    verification_status: verified
+    used_by_documents: [HM-001]
+    notes: null
+
+  - evidence_id: HM-002-L1
+    source_code: MOEL_OSH_ACT
+    official_name: 산업안전보건법
+    article: "제130조"
+    clause: "건강진단"
+    title: 산업안전보건법 제130조 건강진단
+    file_path: data/evidence/safety_law_refs/HM-002-L1_industrial_safety_health_act_article_130.json
+    verification_status: verified
+    used_by_documents: [HM-002]
+    notes: null
+
+  - evidence_id: RA-001-L1
+    source_code: MOEL_OSH_ACT
+    official_name: 산업안전보건법
+    article: "제36조"
+    clause: "위험성평가"
+    title: 산업안전보건법 제36조 위험성평가
+    file_path: data/evidence/safety_law_refs/RA-001-L1_industrial_safety_health_act_article_36.json
+    verification_status: verified
+    used_by_documents: [RA-001]
+    notes: null
+
+  # ──────────────────────────────────────────────
+  # MOEL_OSH_ACT_ENFORCEMENT_RULE — 산업안전보건법 시행규칙 (6개)
+  # ──────────────────────────────────────────────
+
+  - evidence_id: ED-001-L2
+    source_code: MOEL_OSH_ACT_ENFORCEMENT_RULE
+    official_name: 산업안전보건법 시행규칙
+    article: "제26조"
+    clause: "교육시간 및 교육내용"
+    title: 산업안전보건법 시행규칙 제26조 교육시간·내용
+    file_path: data/evidence/safety_law_refs/ED-001-L2_industrial_safety_health_rule_article_26.json
+    verification_status: verified
+    used_by_documents: [ED-001]
+    notes: null
+
+  - evidence_id: ED-003-L2
+    source_code: MOEL_OSH_ACT_ENFORCEMENT_RULE
+    official_name: 산업안전보건법 시행규칙
+    article: "제26조"
+    clause: "교육시간 및 교육내용"
+    title: 산업안전보건법 시행규칙 제26조 교육시간·내용 (ED-003)
+    file_path: data/evidence/safety_law_refs/ED-003-L2_industrial_safety_health_rule_article_26.json
+    verification_status: verified
+    used_by_documents: [ED-003]
+    notes: null
+
+  - evidence_id: ED-003-L3
+    source_code: MOEL_OSH_ACT_ENFORCEMENT_RULE
+    official_name: 산업안전보건법 시행규칙
+    article: "별표 4"
+    clause: "안전보건교육 교육내용"
+    title: 산업안전보건법 시행규칙 별표4 안전보건교육 내용
+    file_path: data/evidence/safety_law_refs/ED-003-L3_industrial_safety_health_rule_attached_table_4.json
+    verification_status: verified
+    used_by_documents: [ED-003]
+    notes: "안전보건교육 관련 별표 포함"
+
+  - evidence_id: ED-003-L4
+    source_code: MOEL_OSH_ACT_ENFORCEMENT_RULE
+    official_name: 산업안전보건법 시행규칙
+    article: "별표 5"
+    clause: "특별교육 대상 작업"
+    title: 산업안전보건법 시행규칙 별표5 특별교육 대상 작업
+    file_path: data/evidence/safety_law_refs/ED-003-L4_industrial_safety_health_rule_attached_table_5.json
+    verification_status: verified
+    used_by_documents: [ED-003]
+    notes: "특별교육 대상 별표 포함"
+
+  - evidence_id: ED-004-L3
+    source_code: MOEL_OSH_ACT_ENFORCEMENT_RULE
+    official_name: 산업안전보건법 시행규칙
+    article: "제26조 관련"
+    clause: "직무교육 내용"
+    title: 산업안전보건법 시행규칙 직무교육 내용
+    file_path: data/evidence/safety_law_refs/ED-004-L3_industrial_safety_health_rule_job_training.json
+    verification_status: verified
+    used_by_documents: [ED-004]
+    notes: null
+
+  - evidence_id: RA-001-L2
+    source_code: MOEL_OSH_ACT_ENFORCEMENT_RULE
+    official_name: 산업안전보건법 시행규칙
+    article: "제37조"
+    clause: "위험성평가 방법"
+    title: 산업안전보건법 시행규칙 제37조 위험성평가 방법
+    file_path: data/evidence/safety_law_refs/RA-001-L2_industrial_safety_health_rule_article_37.json
+    verification_status: verified
+    used_by_documents: [RA-001]
+    notes: null
+
+  # ──────────────────────────────────────────────
+  # MOEL_OSH_STANDARD_RULE — 산업안전보건기준에 관한 규칙 (62개)
+  # ──────────────────────────────────────────────
+
+  - evidence_id: CL-001-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제57조"
+    clause: "비계 설치기준"
+    title: 산업안전보건기준에 관한 규칙 제57조 비계
+    file_path: data/evidence/safety_law_refs/CL-001-L1_safety_rule_article_57_scaffold.json
+    verification_status: verified
+    used_by_documents: [CL-001]
+    notes: null
+
+  - evidence_id: CL-001-L2
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제57조 관련"
+    clause: "작업발판·안전난간"
+    title: 산업안전보건기준에 관한 규칙 비계 작업발판·안전난간
+    file_path: data/evidence/safety_law_refs/CL-001-L2_safety_rule_scaffold_workboard_railing.json
+    verification_status: verified
+    used_by_documents: [CL-001]
+    notes: null
+
+  - evidence_id: CL-002-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제328~330조"
+    clause: "거푸집 재료"
+    title: 산업안전보건기준에 관한 규칙 제328~330조 거푸집 재료
+    file_path: data/evidence/safety_law_refs/CL-002-L1_safety_rule_articles_328_330_formwork_material.json
+    verification_status: verified
+    used_by_documents: [CL-002]
+    notes: null
+
+  - evidence_id: CL-002-L2
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제331~333조"
+    clause: "조립도 작성"
+    title: 산업안전보건기준에 관한 규칙 제331~333조 조립도 작성
+    file_path: data/evidence/safety_law_refs/CL-002-L2_safety_rule_articles_331_333_assembly_drawing.json
+    verification_status: verified
+    used_by_documents: [CL-002]
+    notes: null
+
+  - evidence_id: CL-002-L3
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제334~337조"
+    clause: "콘크리트 타설"
+    title: 산업안전보건기준에 관한 규칙 제334~337조 콘크리트 타설
+    file_path: data/evidence/safety_law_refs/CL-002-L3_safety_rule_articles_334_337_concrete_pour.json
+    verification_status: verified
+    used_by_documents: [CL-002]
+    notes: null
+
+  - evidence_id: CL-003-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제196~199조 관련"
+    clause: "차량계 건설기계 공통"
+    title: 산업안전보건기준에 관한 규칙 차량계 건설기계 공통
+    file_path: data/evidence/safety_law_refs/CL-003-L1_safety_rule_vehicle_construction_equipment.json
+    verification_status: verified
+    used_by_documents: [CL-003]
+    notes: null
+
+  - evidence_id: CL-003-L2
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제171~182조 관련"
+    clause: "하역운반기계 공통"
+    title: 산업안전보건기준에 관한 규칙 하역운반기계 공통
+    file_path: data/evidence/safety_law_refs/CL-003-L2_safety_rule_material_handling_equipment_common.json
+    verification_status: verified
+    used_by_documents: [CL-003]
+    notes: null
+
+  - evidence_id: CL-003-L3
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제171~182조 관련"
+    clause: "지게차 전용"
+    title: 산업안전보건기준에 관한 규칙 지게차 전용
+    file_path: data/evidence/safety_law_refs/CL-003-L3_safety_rule_forklift_specific.json
+    verification_status: verified
+    used_by_documents: [CL-003]
+    notes: null
+
+  - evidence_id: CL-004-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제301~326조"
+    clause: "접지·누전차단기"
+    title: 산업안전보건기준에 관한 규칙 접지·누전차단기
+    file_path: data/evidence/safety_law_refs/CL-004-L1_elec_pack_grounding_leakage_breaker.json
+    verification_status: verified
+    used_by_documents: [CL-004]
+    notes: null
+
+  - evidence_id: CL-004-L2
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제301~326조"
+    clause: "전기기구·배선"
+    title: 산업안전보건기준에 관한 규칙 전기기구·배선
+    file_path: data/evidence/safety_law_refs/CL-004-L2_elec_pack_electrical_tools_wiring.json
+    verification_status: verified
+    used_by_documents: [CL-004]
+    notes: null
+
+  - evidence_id: CL-006-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제142~145조"
+    clause: "타워크레인 설치·점검"
+    title: 산업안전보건기준에 관한 규칙 제142~145조 타워크레인
+    file_path: data/evidence/safety_law_refs/CL-006-L1_safety_rule_articles_142_145_tower_crane.json
+    verification_status: verified
+    used_by_documents: [CL-006]
+    notes: null
+
+  - evidence_id: CL-006-L2
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제146조"
+    clause: "크레인 작업"
+    title: 산업안전보건기준에 관한 규칙 제146조 크레인 작업
+    file_path: data/evidence/safety_law_refs/CL-006-L2_safety_rule_article_146_crane_work.json
+    verification_status: verified
+    used_by_documents: [CL-006]
+    notes: null
+
+  - evidence_id: CL-006-L3
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제132~148조"
+    clause: "크레인 점검 공통"
+    title: 산업안전보건기준에 관한 규칙 크레인 점검 공통
+    file_path: data/evidence/safety_law_refs/CL-006-L3_safety_rule_crane_inspection_common.json
+    verification_status: verified
+    used_by_documents: [CL-006]
+    notes: null
+
+  - evidence_id: CL-007-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제42~45조"
+    clause: "추락 방지"
+    title: 산업안전보건기준에 관한 규칙 제42~45조 추락 방지
+    file_path: data/evidence/safety_law_refs/CL-007-L1_safety_rule_articles_42_45_fall_prevention.json
+    verification_status: verified
+    used_by_documents: [CL-007]
+    notes: null
+
+  - evidence_id: CL-007-L2
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제13조"
+    clause: "안전난간"
+    title: 산업안전보건기준에 관한 규칙 제13조 안전난간
+    file_path: data/evidence/safety_law_refs/CL-007-L2_safety_rule_article_13_safety_railing.json
+    verification_status: verified
+    used_by_documents: [CL-007]
+    notes: null
+
+  - evidence_id: CL-010-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제622~625조"
+    clause: "밀폐공간 점검"
+    title: 산업안전보건기준에 관한 규칙 제622~625조 밀폐공간 점검
+    file_path: data/evidence/safety_law_refs/CL-010-L1_safety_rule_articles_622_625_confined_space_checklist.json
+    verification_status: verified
+    used_by_documents: [CL-010]
+    notes: null
+
+  - evidence_id: ELEC-001-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제301~326조"
+    clause: "전기작업 일반"
+    title: 산업안전보건기준에 관한 규칙 전기작업 일반
+    file_path: data/evidence/safety_law_refs/ELEC-001-L1_safety_rule_electrical_work_general.json
+    verification_status: verified
+    used_by_documents: [ELEC-001]
+    notes: null
+
+  - evidence_id: ELEC-001-L2
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제301~326조"
+    clause: "정전작업 LOTO"
+    title: 산업안전보건기준에 관한 규칙 정전작업 LOTO
+    file_path: data/evidence/safety_law_refs/ELEC-001-L2_safety_rule_deenergized_loto.json
+    verification_status: verified
+    used_by_documents: [ELEC-001]
+    notes: null
+
+  - evidence_id: ELEC-001-L3
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제301~326조"
+    clause: "활선작업"
+    title: 산업안전보건기준에 관한 규칙 활선작업
+    file_path: data/evidence/safety_law_refs/ELEC-001-L3_safety_rule_live_work.json
+    verification_status: verified
+    used_by_documents: [ELEC-001]
+    notes: null
+
+  - evidence_id: ELEC-001-L4
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제301~326조"
+    clause: "접지·누전차단기"
+    title: 산업안전보건기준에 관한 규칙 접지·누전차단기 (ELEC-001)
+    file_path: data/evidence/safety_law_refs/ELEC-001-L4_safety_rule_grounding_elcb.json
+    verification_status: verified
+    used_by_documents: [ELEC-001]
+    notes: null
+
+  - evidence_id: ELEC-001-L5
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제301~326조"
+    clause: "절연 PPE"
+    title: 산업안전보건기준에 관한 규칙 절연 PPE
+    file_path: data/evidence/safety_law_refs/ELEC-001-L5_safety_rule_insulation_ppe.json
+    verification_status: verified
+    used_by_documents: [ELEC-001]
+    notes: null
+
+  - evidence_id: ELEC-001-L6
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제301~326조"
+    clause: "전기기기"
+    title: 산업안전보건기준에 관한 규칙 전기기기
+    file_path: data/evidence/safety_law_refs/ELEC-001-L6_safety_rule_electrical_equipment.json
+    verification_status: verified
+    used_by_documents: [ELEC-001]
+    notes: null
+
+  - evidence_id: EQ-001-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제171~182조"
+    clause: "하역운반기계 전용"
+    title: 산업안전보건기준에 관한 규칙 하역운반기계 전용
+    file_path: data/evidence/safety_law_refs/EQ-001-L1_safety_rule_material_handling_equipment_specific.json
+    verification_status: verified
+    used_by_documents: [EQ-001]
+    notes: null
+
+  - evidence_id: EQ-002-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제196~199조"
+    clause: "차량계 건설기계 전용"
+    title: 산업안전보건기준에 관한 규칙 차량계 건설기계 전용
+    file_path: data/evidence/safety_law_refs/EQ-002-L1_safety_rule_vehicle_construction_equipment_specific.json
+    verification_status: verified
+    used_by_documents: [EQ-002]
+    notes: null
+
+  - evidence_id: EQ-003-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제142~148조"
+    clause: "타워크레인 전용"
+    title: 산업안전보건기준에 관한 규칙 타워크레인 전용
+    file_path: data/evidence/safety_law_refs/EQ-003-L1_safety_rule_tower_crane_equipment_specific.json
+    verification_status: verified
+    used_by_documents: [EQ-003]
+    notes: null
+
+  - evidence_id: EQ-004-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제134~146조"
+    clause: "이동식 크레인 전용"
+    title: 산업안전보건기준에 관한 규칙 이동식 크레인 전용
+    file_path: data/evidence/safety_law_refs/EQ-004-L1_safety_rule_mobile_crane_equipment_specific.json
+    verification_status: verified
+    used_by_documents: [EQ-004]
+    notes: null
+
+  - evidence_id: EQ-006-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제196~199조"
+    clause: "콘크리트 펌프트럭"
+    title: 산업안전보건기준에 관한 규칙 콘크리트 펌프트럭
+    file_path: data/evidence/safety_law_refs/EQ-006-L1_safety_rule_vehicle_construction_equipment_concrete_pump.json
+    verification_status: verified
+    used_by_documents: [EQ-006]
+    notes: null
+
+  - evidence_id: EQ-007-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제196~199조"
+    clause: "굴착기·로더"
+    title: 산업안전보건기준에 관한 규칙 굴착기·로더
+    file_path: data/evidence/safety_law_refs/EQ-007-L1_safety_rule_vehicle_construction_equipment_excavator_loader.json
+    verification_status: verified
+    used_by_documents: [EQ-007]
+    notes: null
+
+  - evidence_id: EQ-012-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제132~148조"
+    clause: "양중기 전용"
+    title: 산업안전보건기준에 관한 규칙 양중기 전용
+    file_path: data/evidence/safety_law_refs/EQ-012-L1_safety_rule_heavy_lifting_equipment_specific.json
+    verification_status: verified
+    used_by_documents: [EQ-012]
+    notes: null
+
+  - evidence_id: PTW-001-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제619~622조"
+    clause: "밀폐공간 작업 허가"
+    title: 산업안전보건기준에 관한 규칙 제619~622조 밀폐공간 작업허가
+    file_path: data/evidence/safety_law_refs/PTW-001-L1_safety_rule_articles_619_622_confined_space_permit.json
+    verification_status: verified
+    used_by_documents: [PTW-001]
+    notes: null
+
+  - evidence_id: PTW-002-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제236조"
+    clause: "화재 위험 작업"
+    title: 산업안전보건기준에 관한 규칙 제236조 화재 위험 작업
+    file_path: data/evidence/safety_law_refs/PTW-002-L1_safety_rule_article_236_fire_risk_work.json
+    verification_status: verified
+    used_by_documents: [PTW-002]
+    notes: null
+
+  - evidence_id: PTW-002-L2
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제241조"
+    clause: "화기작업 안전조치"
+    title: 산업안전보건기준에 관한 규칙 제241조 화기작업 안전조치
+    file_path: data/evidence/safety_law_refs/PTW-002-L2_safety_rule_article_241_hot_work_measures.json
+    verification_status: verified
+    used_by_documents: [PTW-002]
+    notes: null
+
+  - evidence_id: PTW-002-L3
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제241조의2"
+    clause: "화재 감시자"
+    title: 산업안전보건기준에 관한 규칙 제241조의2 화재감시자
+    file_path: data/evidence/safety_law_refs/PTW-002-L3_safety_rule_article_241_2_fire_watch.json
+    verification_status: verified
+    used_by_documents: [PTW-002]
+    notes: null
+
+  - evidence_id: PTW-002-L4
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제243~244조"
+    clause: "소화설비"
+    title: 산업안전보건기준에 관한 규칙 제243~244조 소화설비
+    file_path: data/evidence/safety_law_refs/PTW-002-L4_safety_rule_articles_243_244_fire_extinguishing.json
+    verification_status: verified
+    used_by_documents: [PTW-002]
+    notes: null
+
+  - evidence_id: PTW-003-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제37조"
+    clause: "악천후 작업 중지"
+    title: 산업안전보건기준에 관한 규칙 제37조 악천후 작업중지
+    file_path: data/evidence/safety_law_refs/PTW-003-L1_safety_rule_article_37_weather_stop.json
+    verification_status: verified
+    used_by_documents: [PTW-003]
+    notes: null
+
+  - evidence_id: PTW-003-L2
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제42~45조"
+    clause: "추락 방지"
+    title: 산업안전보건기준에 관한 규칙 제42~45조 추락방지 (PTW-003)
+    file_path: data/evidence/safety_law_refs/PTW-003-L2_safety_rule_articles_42_45_fall_prevention.json
+    verification_status: verified
+    used_by_documents: [PTW-003]
+    notes: null
+
+  - evidence_id: PTW-003-L3
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제57조"
+    clause: "비계 감독"
+    title: 산업안전보건기준에 관한 규칙 제57조 비계 감독
+    file_path: data/evidence/safety_law_refs/PTW-003-L3_safety_rule_article_57_scaffold_supervision.json
+    verification_status: verified
+    used_by_documents: [PTW-003]
+    notes: null
+
+  - evidence_id: PTW-003-L4
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제86조 이하"
+    clause: "고소작업대"
+    title: 산업안전보건기준에 관한 규칙 제86조 이하 고소작업대
+    file_path: data/evidence/safety_law_refs/PTW-003-L4_safety_rule_articles_86_plus_aerial_work_platform.json
+    verification_status: verified
+    used_by_documents: [PTW-003]
+    notes: null
+
+  - evidence_id: PTW-004-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제301~326조"
+    clause: "정전작업 LOTO"
+    title: 산업안전보건기준에 관한 규칙 정전작업 LOTO (PTW-004)
+    file_path: data/evidence/safety_law_refs/PTW-004-L1_elec_pack_loto_deenergized_work.json
+    verification_status: verified
+    used_by_documents: [PTW-004]
+    notes: null
+
+  - evidence_id: PTW-004-L2
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제301~326조"
+    clause: "활선작업 방호"
+    title: 산업안전보건기준에 관한 규칙 활선작업 방호 (PTW-004)
+    file_path: data/evidence/safety_law_refs/PTW-004-L2_elec_pack_live_work_protection.json
+    verification_status: verified
+    used_by_documents: [PTW-004]
+    notes: null
+
+  - evidence_id: PTW-007-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제38조 별표4"
+    clause: "중량물 취급 작업계획서"
+    title: 산업안전보건기준에 관한 규칙 제38조 별표4 중량물 취급계획
+    file_path: data/evidence/safety_law_refs/PTW-007-L1_safety_rule_article_38_table4_heavy_lifting_plan.json
+    verification_status: verified
+    used_by_documents: [PTW-007]
+    notes: null
+
+  - evidence_id: PTW-007-L2
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제40조"
+    clause: "양중 신호"
+    title: 산업안전보건기준에 관한 규칙 제40조 양중신호
+    file_path: data/evidence/safety_law_refs/PTW-007-L2_safety_rule_article_40_lifting_signal.json
+    verification_status: verified
+    used_by_documents: [PTW-007]
+    notes: null
+
+  - evidence_id: PTW-007-L3
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제132~135조"
+    clause: "양중장치 안전"
+    title: 산업안전보건기준에 관한 규칙 제132~135조 양중장치 안전
+    file_path: data/evidence/safety_law_refs/PTW-007-L3_safety_rule_articles_132_135_lifting_device_safety.json
+    verification_status: verified
+    used_by_documents: [PTW-007]
+    notes: null
+
+  - evidence_id: PTW-007-L4
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제138~146조"
+    clause: "크레인 작업"
+    title: 산업안전보건기준에 관한 규칙 제138~146조 크레인 작업
+    file_path: data/evidence/safety_law_refs/PTW-007-L4_safety_rule_articles_138_146_crane_work.json
+    verification_status: verified
+    used_by_documents: [PTW-007]
+    notes: null
+
+  - evidence_id: PTW-007-L5
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제163~170조"
+    clause: "달기기구"
+    title: 산업안전보건기준에 관한 규칙 제163~170조 달기기구
+    file_path: data/evidence/safety_law_refs/PTW-007-L5_safety_rule_articles_163_170_rigging_gears.json
+    verification_status: verified
+    used_by_documents: [PTW-007]
+    notes: null
+
+  - evidence_id: PTW-007-L6
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제221조의5·제385조"
+    clause: "중량물 취급"
+    title: 산업안전보건기준에 관한 규칙 제221조의5·385조 중량물 취급
+    file_path: data/evidence/safety_law_refs/PTW-007-L6_safety_rule_articles_221_5_385_heavy_lifting.json
+    verification_status: verified
+    used_by_documents: [PTW-007]
+    notes: null
+
+  - evidence_id: WP-001-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제38조 제6항"
+    clause: "굴착 작업계획서"
+    title: 산업안전보건기준에 관한 규칙 제38조 제6항 굴착 작업계획서
+    file_path: data/evidence/safety_law_refs/WP-001-L1_safety_rule_article_38_item6_excavation.json
+    verification_status: verified
+    used_by_documents: [WP-001]
+    notes: null
+
+  - evidence_id: WP-001-L2
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제339조"
+    clause: "굴착면"
+    title: 산업안전보건기준에 관한 규칙 제339조 굴착면
+    file_path: data/evidence/safety_law_refs/WP-001-L2_safety_rule_article_339_excavation_face.json
+    verification_status: verified
+    used_by_documents: [WP-001]
+    notes: null
+
+  - evidence_id: WP-005-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제38조 별표4"
+    clause: "중량물 취급 작업계획서"
+    title: 산업안전보건기준에 관한 규칙 제38조 별표4 중량물 작업계획
+    file_path: data/evidence/safety_law_refs/WP-005-L1_safety_rule_article_38_table4_heavy_lifting_workplan.json
+    verification_status: verified
+    used_by_documents: [WP-005]
+    notes: null
+
+  - evidence_id: WP-005-L1-BYL4
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "별표4"
+    clause: "중량물 취급 별표 항목"
+    title: 산업안전보건기준에 관한 규칙 별표4 중량물 취급 항목
+    file_path: data/evidence/safety_law_refs/WP-005-L1-BYL4_safety_rule_byltable4_heavy_lifting_items.json
+    verification_status: verified
+    used_by_documents: [WP-005]
+    notes: null
+
+  - evidence_id: WP-005-L2
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제39조"
+    clause: "작업지휘자"
+    title: 산업안전보건기준에 관한 규칙 제39조 작업지휘자
+    file_path: data/evidence/safety_law_refs/WP-005-L2_safety_rule_article_39_work_commander.json
+    verification_status: verified
+    used_by_documents: [WP-005]
+    notes: null
+
+  - evidence_id: WP-006-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제38·142~148조"
+    clause: "타워크레인 작업계획"
+    title: 산업안전보건기준에 관한 규칙 제38·142~148조 타워크레인 작업계획
+    file_path: data/evidence/safety_law_refs/WP-006-L1_safety_rule_article_38_142_148_tower_crane_workplan.json
+    verification_status: verified
+    used_by_documents: [WP-006]
+    notes: null
+
+  - evidence_id: WP-007-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제38·134~146조"
+    clause: "이동식 크레인 작업계획"
+    title: 산업안전보건기준에 관한 규칙 제38·134~146조 이동식 크레인 작업계획
+    file_path: data/evidence/safety_law_refs/WP-007-L1_safety_rule_article_38_134_146_mobile_crane_workplan.json
+    verification_status: verified
+    used_by_documents: [WP-007]
+    notes: null
+
+  - evidence_id: WP-008-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제196~199조"
+    clause: "차량계 건설기계 작업계획"
+    title: 산업안전보건기준에 관한 규칙 제196~199조 차량계 작업계획
+    file_path: data/evidence/safety_law_refs/WP-008-L1_safety_rule_articles_196_199_vehicle_construction.json
+    verification_status: verified
+    used_by_documents: [WP-008]
+    notes: null
+
+  - evidence_id: WP-009-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제171~182조"
+    clause: "하역운반기계 작업계획"
+    title: 산업안전보건기준에 관한 규칙 제171~182조 하역운반기계 작업계획
+    file_path: data/evidence/safety_law_refs/WP-009-L1_safety_rule_articles_171_182_material_handling.json
+    verification_status: verified
+    used_by_documents: [WP-009]
+    notes: null
+
+  - evidence_id: WP-011-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제301~326조"
+    clause: "전기작업 계획"
+    title: 산업안전보건기준에 관한 규칙 제301~326조 전기작업 계획
+    file_path: data/evidence/safety_law_refs/WP-011-L1_safety_rule_electrical_work.json
+    verification_status: verified
+    used_by_documents: [WP-011]
+    notes: null
+
+  - evidence_id: WP-014-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제619조 이하"
+    clause: "밀폐공간 작업계획"
+    title: 산업안전보건기준에 관한 규칙 제619조 이하 밀폐공간 작업계획
+    file_path: data/evidence/safety_law_refs/WP-014-L1_safety_rule_articles_619_confined_space_workplan.json
+    verification_status: verified
+    used_by_documents: [WP-014]
+    notes: null
+
+  - evidence_id: WP-015-L1
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제38조"
+    clause: "작업계획서 일반"
+    title: 산업안전보건기준에 관한 규칙 제38조 작업계획서
+    file_path: data/evidence/safety_law_refs/WP-015-L1_safety_rule_article_38.json
+    verification_status: verified
+    used_by_documents: [WP-015]
+    notes: null
+
+  - evidence_id: WP-015-L2
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제39조"
+    clause: "작업지휘자"
+    title: 산업안전보건기준에 관한 규칙 제39조 작업지휘자 (WP-015)
+    file_path: data/evidence/safety_law_refs/WP-015-L2_safety_rule_article_39.json
+    verification_status: verified
+    used_by_documents: [WP-015]
+    notes: null
+
+  - evidence_id: WP-015-L3
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제331조"
+    clause: "동바리 설치"
+    title: 산업안전보건기준에 관한 규칙 제331조 동바리 설치
+    file_path: data/evidence/safety_law_refs/WP-015-L3_safety_rule_article_331.json
+    verification_status: verified
+    used_by_documents: [WP-015]
+    notes: null
+
+  - evidence_id: WP-015-L4
+    source_code: MOEL_OSH_STANDARD_RULE
+    official_name: 산업안전보건기준에 관한 규칙
+    article: "제328~337조"
+    clause: "거푸집·동바리"
+    title: 산업안전보건기준에 관한 규칙 제328~337조 거푸집·동바리
+    file_path: data/evidence/safety_law_refs/WP-015-L4_safety_rule_articles_328_337.json
+    verification_status: verified
+    used_by_documents: [WP-015]
+    notes: null
+
+  # ──────────────────────────────────────────────
+  # MOEL_RISK_ASSESSMENT_GUIDELINE_2023_19 — 위험성평가 지침 (2개)
+  # ──────────────────────────────────────────────
+
+  - evidence_id: RA-001-L3
+    source_code: MOEL_RISK_ASSESSMENT_GUIDELINE_2023_19
+    official_name: 사업장 위험성평가에 관한 지침
+    article: "제4조 이하"
+    clause: "위험성평가 방법 (빈도×강도, OPS)"
+    title: 고용노동부고시 제2023-19호 위험성평가 방법
+    file_path: data/evidence/safety_law_refs/RA-001-L3_notice_2023_19_risk_assessment_method.json
+    verification_status: verified
+    used_by_documents: [RA-001]
+    notes: "고용노동부고시 제2023-19호, 시행 2023-11-30"
+
+  - evidence_id: RA-004-L1
+    source_code: MOEL_RISK_ASSESSMENT_GUIDELINE_2023_19
+    official_name: 사업장 위험성평가에 관한 지침
+    article: "별지 서식"
+    clause: "TBM 일상 위험성평가"
+    title: 고용노동부고시 제2023-19호 TBM 일상 위험성평가
+    file_path: data/evidence/safety_law_refs/RA-004-L1_notice_2023_19_tbm_daily_assessment.json
+    verification_status: verified
+    used_by_documents: [RA-004]
+    notes: "고용노동부고시 제2023-19호, 시행 2023-11-30"
+
+  # ──────────────────────────────────────────────
+  # KOSHA_GUIDE — KOSHA GUIDE 기술지침 (8개, COLLECTED_PARTIAL)
+  # ──────────────────────────────────────────────
+
+  - evidence_id: PTW-002-K1
+    source_code: KOSHA_GUIDE
+    official_name: KOSHA GUIDE P-94-2021
+    article: null
+    clause: "화기작업 허가 절차"
+    title: KOSHA GUIDE P-94-2021 화기작업 작업허가
+    file_path: data/evidence/safety_law_refs/PTW-002-K1_kosha_p_94_2021_hot_work_permit.json
+    verification_status: verified
+    used_by_documents: [PTW-002]
+    notes: null
+
+  - evidence_id: PTW-002-K2
+    source_code: KOSHA_GUIDE
+    official_name: KOSHA GUIDE F-1-2023
+    article: null
+    clause: "용접·절단 화재예방"
+    title: KOSHA GUIDE F-1-2023 용접·절단 화재예방
+    file_path: data/evidence/safety_law_refs/PTW-002-K2_kosha_f_1_2023_welding_cutting_fire_prevention.json
+    verification_status: verified
+    used_by_documents: [PTW-002]
+    notes: null
+
+  - evidence_id: PTW-003-K1
+    source_code: KOSHA_GUIDE
+    official_name: KOSHA GUIDE P-94-2021
+    article: null
+    clause: "작업허가 일반"
+    title: KOSHA GUIDE P-94-2021 작업허가 일반 (PTW-003)
+    file_path: data/evidence/safety_law_refs/PTW-003-K1_kosha_p_94_2021_work_permit.json
+    verification_status: verified
+    used_by_documents: [PTW-003]
+    notes: null
+
+  - evidence_id: PTW-003-K2
+    source_code: KOSHA_GUIDE
+    official_name: KOSHA GUIDE C-74-2015
+    article: null
+    clause: "고소작업대 안전"
+    title: KOSHA GUIDE C-74-2015 고소작업대 안전
+    file_path: data/evidence/safety_law_refs/PTW-003-K2_kosha_c_74_2015_aerial_work_platform.json
+    verification_status: verified
+    used_by_documents: [PTW-003]
+    notes: null
+
+  - evidence_id: PTW-003-K3
+    source_code: KOSHA_GUIDE
+    official_name: KOSHA GUIDE M-155-2023
+    article: null
+    clause: "이동식 고소작업대"
+    title: KOSHA GUIDE M-155-2023 이동식 고소작업대
+    file_path: data/evidence/safety_law_refs/PTW-003-K3_kosha_m_155_2023_mobile_aerial_work_platform.json
+    verification_status: verified
+    used_by_documents: [PTW-003]
+    notes: null
+
+  - evidence_id: PTW-007-K1
+    source_code: KOSHA_GUIDE
+    official_name: KOSHA GUIDE C-102-2023
+    article: null
+    clause: "이동식 크레인 인양 계획"
+    title: KOSHA GUIDE C-102-2023 이동식 크레인 인양계획
+    file_path: data/evidence/safety_law_refs/PTW-007-K1_kosha_c_102_2023_mobile_crane_lifting_plan.json
+    verification_status: verified
+    used_by_documents: [PTW-007]
+    notes: null
+
+  - evidence_id: PTW-007-K2
+    source_code: KOSHA_GUIDE
+    official_name: KOSHA GUIDE M-186-2015
+    article: null
+    clause: "달기기구·와이어로프"
+    title: KOSHA GUIDE M-186-2015 달기기구·와이어로프
+    file_path: data/evidence/safety_law_refs/PTW-007-K2_kosha_m_186_2015_rigging_wire_rope.json
+    verification_status: verified
+    used_by_documents: [PTW-007]
+    notes: null
+
+  - evidence_id: PTW-007-K3
+    source_code: KOSHA_GUIDE
+    official_name: KOSHA GUIDE P-94-2021
+    article: null
+    clause: "작업허가 일반 (PTW-007)"
+    title: KOSHA GUIDE P-94-2021 작업허가 (PTW-007)
+    file_path: data/evidence/safety_law_refs/PTW-007-K3_kosha_p_94_2021_work_permit.json
+    verification_status: verified
+    used_by_documents: [PTW-007]
+    notes: null
+
+  # ──────────────────────────────────────────────
+  # 미매핑 evidence (source_code 확정 보류)
+  # ──────────────────────────────────────────────
+  # E-06_worker_license_refs.json       — 다중 source(건설기계관리법 등) 참조, 추후 매핑
+  # PTW-004-P1_practical_electrical_permit.json  — 실무 서식, 법령 source 아님
+  # CL-004-P1_practical_electrical_facility_checklist.json — 실무 서식
+  # CL-005-P1_fire_prevention_checklist_practical.json     — 실무 서식
