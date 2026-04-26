@@ -22,17 +22,25 @@ load_dotenv(ROOT / ".env", override=False)
 load_dotenv(ROOT / "scraper" / ".env", override=False)  # KOSHA_ID/KOSHA_PW
 
 LOG_BASE = ROOT / "logs" / "law_collect"
+LOG_COLLECT = ROOT / "logs" / "collect"
 RAW_DATED_BASE = ROOT / "data" / "raw" / "law_api"
+
+# 수집 스크립트 이름 → collect 로그 디렉토리 사용 여부
+_COLLECT_SCRIPTS = {
+    "kalis_csi_scraper",
+    "kosha_sif_scraper",
+}
 
 
 def get_logger(name: str) -> logging.Logger:
-    LOG_BASE.mkdir(parents=True, exist_ok=True)
+    log_dir = LOG_COLLECT if name in _COLLECT_SCRIPTS else LOG_BASE
+    log_dir.mkdir(parents=True, exist_ok=True)
     logger = logging.getLogger(name)
     if logger.handlers:
         return logger
     logger.setLevel(logging.INFO)
     fmt = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
-    fh = logging.FileHandler(LOG_BASE / f"{name}.log", encoding="utf-8")
+    fh = logging.FileHandler(log_dir / f"{name}.log", encoding="utf-8")
     fh.setFormatter(fmt)
     sh = logging.StreamHandler()
     sh.setFormatter(fmt)
