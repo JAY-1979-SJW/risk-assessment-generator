@@ -410,11 +410,11 @@ sources:
   source_type: CASE_DATA
   source_domain: ACCIDENT
   source_authority: KOSHA
-  collection_status: COLLECTED_PARTIAL
-  collection_action: COLLECT_BY_EXISTING_SCRIPT
+  collection_status: COLLECTED_VERIFIED
+  collection_action: SKIP_ALREADY_COLLECTED
   priority: P3
-  collected_evidence_count: 10
-  duplicate_collection_risk: false
+  collected_evidence_count: 1430
+  duplicate_collection_risk: true
   existing_script: scripts/collect/kosha_sif_scraper.py
   law_mst: null
   source_url: https://portal.kosha.or.kr/archive/disaster-case/accident-case
