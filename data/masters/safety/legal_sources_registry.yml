@@ -410,33 +410,39 @@ sources:
   source_type: CASE_DATA
   source_domain: ACCIDENT
   source_authority: KOSHA
-  collection_status: NOT_COLLECTED
-  collection_action: WATCH_ONLY
+  collection_status: COLLECTED_PARTIAL
+  collection_action: COLLECT_BY_EXISTING_SCRIPT
   priority: P3
-  collected_evidence_count: 0
+  collected_evidence_count: 10
   duplicate_collection_risk: false
-  existing_script: null
+  existing_script: scripts/collect/kosha_sif_scraper.py
   law_mst: null
-  source_url: https://kosha.or.kr/kosha/data/mSifList.do
+  source_url: https://portal.kosha.or.kr/archive/disaster-case/accident-case
+  raw_path: data/raw/kosha_external/kosha_sif_cases.jsonl
   effective_date: null
-  notes: 참고용 사고사례. 위험성평가표 생성에 필수는 아님. 수집 시 별도 스크립트 개발 필요.
+  notes: >
+    portal.kosha.or.kr stdtboard API (bbsId=B2025022104002). Playwright 필요.
+    비로그인 수집 가능, 총 1,427건 (제조업). --max-pages 없으면 전체 수집.
   enabled: false
 - source_code: KALIS_CSI_ACCIDENT_DATA
-  official_name: 국토안전관리원 건설사고정보시스템 사고자료
-  display_name: 국토안전관리원 CSI 사고자료
+  official_name: 국토안전관리원 건설공사 안전관리 종합정보망 사고사례
+  display_name: CSI 건설사고사례
   source_type: ACCIDENT_DATA
   source_domain: ACCIDENT
   source_authority: KALIS
-  collection_status: NOT_COLLECTED
-  collection_action: WATCH_ONLY
+  collection_status: COLLECTED_PARTIAL
+  collection_action: COLLECT_BY_EXISTING_SCRIPT
   priority: P3
-  collected_evidence_count: 0
+  collected_evidence_count: 20
   duplicate_collection_risk: false
-  existing_script: null
+  existing_script: scripts/collect/kalis_csi_scraper.py
   law_mst: null
-  source_url: https://csi.kalis.kr
+  source_url: https://www.csi.go.kr/acd/acdCaseList.do
+  raw_path: data/raw/kosha_external/csi_accident_cases.jsonl
   effective_date: null
-  notes: 참고용 건설재해 통계. 위험성평가표 생성에 필수는 아님. 수집 시 별도 스크립트 개발 필요.
+  notes: >
+    POST 페이지네이션, 서버사이드 렌더링 HTML 파싱. 총 36,681건.
+    응답 느림 (timeout=60s). --max-pages 없으면 전체 수집.
   enabled: false
 - source_code: MOEL_CONSTRUCTION_SAFETY_HEALTH_COST_STANDARD
   official_name: 건설업 산업안전보건관리비 계상 및 사용기준

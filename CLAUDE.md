@@ -70,6 +70,17 @@ python -m scripts.collect.classify_law_data --json # JSON 출력
 - index 없이 db 수집 불가 (db 스크립트가 index 파일을 입력으로 읽음)
 
 ## 외부 API 환경변수
+- KOSHA 로그인: 환경변수 `KOSHA_ID`, `KOSHA_PW` (scraper/.env)
+  - kosha.or.kr / portal.kosha.or.kr 로그인 인증에 사용
+  - Playwright 기반 수집 스크립트에서 `load_dotenv(ROOT / "scraper" / ".env")` 로 읽음
+  - KOSHA SIF 사고사례: `portal.kosha.or.kr/archive/disaster-case/accident-case`
+    - API: `POST /api/compn24/auth/stdtboard/process.do` (bbsId=B2025022104002, serviceId=basicAccess)
+    - 렌더링 파싱: `div.tboard_list_row > div[data-tboard-artcl-no]` (Playwright 필요)
+    - 수집 스크립트: `scripts/collect/kosha_sif_scraper.py`
+  - KALIS CSI 사고사례: `www.csi.go.kr/acd/acdCaseList.do`
+    - POST 페이지네이션 (pageIndex, recordCountPerPage), 서버사이드 렌더링 HTML 파싱
+    - 응답 느림 (timeout=60s 필요), 총 36,681건
+    - 수집 스크립트: `scripts/collect/kalis_csi_scraper.py`
 - law.go.kr DRF API OC 키: 환경변수 `LAW_GO_KR_OC` (프로젝트 루트 .env)
   - 법령 조문 조회 시 .env에서 읽어 사용 — 코드에 하드코딩 금지
   - MST 번호 조회: `GET /DRF/lawSearch.do?OC={OC}&target=law&query={법령명}&type=JSON`
