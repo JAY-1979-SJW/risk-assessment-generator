@@ -4330,7 +4330,7 @@ def run_smoke_test() -> None:
     results.extend(crane_results)
 
     # ════════════════════════════════════════════════════════════
-    # RA 묶음 2건 검증 (RA-001/RA-004 — 중간 수준 — 2026-04-26)
+    # RA 묶음 4건 검증 (RA-001/RA-002/RA-003/RA-004 — 중간 수준 — 2026-04-26)
     # ════════════════════════════════════════════════════════════
     ra_results = run_ra_forms_smoke_test()
     results.extend(ra_results)
@@ -4355,7 +4355,7 @@ def run_smoke_test() -> None:
 
     # ── 출력 ─────────────────────────────────────────────────────────────
     print("\n" + "=" * 80)
-    print("  KRAS P1 Smoke Test — ED-003 + WP-011 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002 + PTW-002 + PTW-003 + PTW-007 + WP-005/EQ-012 + CL-007 + PTW-004 + CL-004 + CL-005 + HM-001 + HM-002 + WP-008/WP-009/EQ-001/EQ-002/EQ-007/EQ-006 + WP-006/WP-007/EQ-003/EQ-004 + RA-001/RA-002/RA-004 + WP-014/PTW-001/CL-010 + WP-001 + ED-001")
+    print("  KRAS P1 Smoke Test — ED-003 + WP-011 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002 + PTW-002 + PTW-003 + PTW-007 + WP-005/EQ-012 + CL-007 + PTW-004 + CL-004 + CL-005 + HM-001 + HM-002 + WP-008/WP-009/EQ-001/EQ-002/EQ-007/EQ-006 + WP-006/WP-007/EQ-003/EQ-004 + RA-001/RA-002/RA-003/RA-004 + WP-014/PTW-001/CL-010 + WP-001 + ED-001")
     print("=" * 80)
 
     pass_cnt = warn_cnt = fail_cnt = 0
@@ -6180,7 +6180,7 @@ def run_crane_workplan_smoke_test() -> list[tuple[str, str, str]]:
 # RA 묶음 — RA-001(위험성평가표) / RA-004(TBM 안전점검 일지)
 # ===========================================================================
 
-RA_TARGET_DOC_IDS = ["RA-001", "RA-002", "RA-004"]
+RA_TARGET_DOC_IDS = ["RA-001", "RA-002", "RA-003", "RA-004"]
 
 # doc_id → (primary_ev_id, primary_ev_fname, expected_form_type, expected_ev_status)
 RA_EVIDENCE_BY_DOC: dict = {
@@ -6194,6 +6194,12 @@ RA_EVIDENCE_BY_DOC: dict = {
         "RA-001-L1",
         "RA-001-L1_industrial_safety_health_act_article_36.json",
         "risk_assessment_register",
+        "VERIFIED",
+    ),
+    "RA-003": (
+        "RA-001-L1",
+        "RA-001-L1_industrial_safety_health_act_article_36.json",
+        "risk_assessment_meeting_minutes",
         "VERIFIED",
     ),
     "RA-004": (
@@ -6213,7 +6219,7 @@ RA_ALL_EVIDENCE_FILES = [
 
 
 def run_ra_forms_smoke_test() -> list[tuple[str, str, str]]:
-    """RA 묶음 3건 (RA-001/RA-002/RA-004) 중간 수준 smoke test."""
+    """RA 묶음 4건 (RA-001/RA-002/RA-003/RA-004) 중간 수준 smoke test."""
     results: list[tuple[str, str, str]] = []
     supported = {f["form_type"] for f in list_supported_forms()}
 
@@ -6227,15 +6233,20 @@ def run_ra_forms_smoke_test() -> list[tuple[str, str, str]]:
         "registry: risk_assessment_register 등록됨 (RA-002)",
     ))
     results.append(_check(
+        "risk_assessment_meeting_minutes" in supported,
+        "registry: risk_assessment_meeting_minutes 등록됨 (RA-003)",
+    ))
+    results.append(_check(
         "tbm_log" in supported,
         "registry: tbm_log 등록됨 (RA-004)",
     ))
 
     # ── 2. get_form_spec 검증 ────────────────────────────────────────────
     for form_type, expected_name in (
-        ("risk_assessment",          "위험성평가표"),
-        ("risk_assessment_register", "위험성평가 관리 등록부"),
-        ("tbm_log",                  "TBM 안전점검 일지"),
+        ("risk_assessment",                 "위험성평가표"),
+        ("risk_assessment_register",        "위험성평가 관리 등록부"),
+        ("risk_assessment_meeting_minutes", "위험성평가 참여 회의록"),
+        ("tbm_log",                         "TBM 안전점검 일지"),
     ):
         try:
             spec = get_form_spec(form_type)
@@ -6274,10 +6285,33 @@ def run_ra_forms_smoke_test() -> list[tuple[str, str, str]]:
         ],
     }
 
+    _RA003_SAMPLE = {
+        "site_name": "테스트건설(주) 테스트현장",
+        "project_name": "테스트현장 신축공사",
+        "meeting_date": "2026-04-26 14:00",
+        "meeting_place": "현장 회의실",
+        "work_type": "굴착 작업",
+        "meeting_purpose": "굴착 작업 위험성평가 결과 공유 및 근로자 의견 수렴",
+        "attendees": [
+            {"affiliation": "테스트건설", "position": "안전관리자", "name": "김안전"},
+            {"affiliation": "테스트건설", "position": "작업반장",   "name": "이반장"},
+        ],
+        "discussion_items": "굴착 시 토사 붕괴 위험 — 흙막이 설치 철저 확인",
+        "worker_opinions": "작업 전 지반 상태 확인 필요",
+        "action_items": [
+            {"seq": 1, "hazard": "토사 붕괴", "measure": "흙막이 보강",
+             "assignee": "이반장", "due_date": "2026-04-30", "status": "진행중"},
+        ],
+        "meeting_summary": "흙막이 보강 후 작업 재개 결정",
+        "prepared_by": "홍길동",
+        "prepared_date": "2026-04-26",
+    }
+
     for form_type, sample in (
-        ("risk_assessment",          {"site_name": "테스트현장", "assessment_date": "2026-04-26"}),
-        ("risk_assessment_register", _RA002_SAMPLE),
-        ("tbm_log",                  {"site_name": "테스트현장", "tbm_date": "2026-04-26"}),
+        ("risk_assessment",                 {"site_name": "테스트현장", "assessment_date": "2026-04-26"}),
+        ("risk_assessment_register",        _RA002_SAMPLE),
+        ("risk_assessment_meeting_minutes", _RA003_SAMPLE),
+        ("tbm_log",                         {"site_name": "테스트현장", "tbm_date": "2026-04-26"}),
     ):
         try:
             xlsx_bytes = build_form_excel(form_type, sample)
@@ -6325,6 +6359,51 @@ def run_ra_forms_smoke_test() -> list[tuple[str, str, str]]:
         ))
     except Exception as exc:
         results.append(_check(False, "RA-002 Excel 내용 검증", str(exc)))
+
+    # ── 3-c. RA-003 Excel 내용 검증 ──────────────────────────────────────
+    try:
+        from io import BytesIO
+        from openpyxl import load_workbook
+        xlsx_bytes = build_form_excel("risk_assessment_meeting_minutes", _RA003_SAMPLE)
+        wb = load_workbook(BytesIO(xlsx_bytes))
+        ws = wb.active
+        all_values = [str(c.value or "") for row in ws.iter_rows() for c in row]
+        joined = " ".join(all_values)
+
+        results.append(_check(
+            "위험성평가 참여 회의록" in joined,
+            "RA-003 Excel: 제목 '위험성평가 참여 회의록' 포함",
+        ))
+        results.append(_check(
+            "사업장명" in joined or "현장명" in joined,
+            "RA-003 Excel: 현장 기본정보 섹션 포함",
+        ))
+        results.append(_check(
+            "회의 개요" in joined,
+            "RA-003 Excel: 회의 개요 섹션 포함",
+        ))
+        results.append(_check(
+            "참석자 명단" in joined,
+            "RA-003 Excel: 참석자 명단 섹션 포함",
+        ))
+        results.append(_check(
+            "주요 논의사항" in joined or "논의사항" in joined,
+            "RA-003 Excel: 위험성평가 주요 논의사항 섹션 포함",
+        ))
+        results.append(_check(
+            "근로자 의견" in joined or "건의사항" in joined,
+            "RA-003 Excel: 근로자 의견 및 건의사항 섹션 포함",
+        ))
+        results.append(_check(
+            "개선대책" in joined or "위험요인" in joined,
+            "RA-003 Excel: 위험요인 및 개선대책 반영사항 섹션 포함",
+        ))
+        results.append(_check(
+            "작성" in joined and "검토" in joined and "승인" in joined,
+            "RA-003 Excel: 작성/검토/승인 서명란 포함",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "RA-003 Excel 내용 검증", str(exc)))
 
     # ── 4. catalog 항목 검증 + evidence_file 존재 ────────────────────────
     try:

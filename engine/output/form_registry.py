@@ -10,6 +10,7 @@ export API 연결 전 단계 — builder 호출 인터페이스만 제공.
     manager_job_training_record         — 안전보건관리자 직무교육 이수 확인서 (v1.0) [ED-004]
     risk_assessment                     — 위험성평가표 (v1.0)
     risk_assessment_register            — 위험성평가 관리 등록부 (v1.0)   [RA-002]
+    risk_assessment_meeting_minutes     — 위험성평가 참여 회의록 (v1.0)    [RA-003]
     excavation_workplan                 — 굴착 작업계획서 (v1.0)
     vehicle_construction_workplan       — 차량계 건설기계 작업계획서 (v1.0)
     material_handling_workplan          — 차량계 하역운반기계 작업계획서 (v1.0)
@@ -70,6 +71,7 @@ from engine.output.special_education_log_builder import build_special_education_
 from engine.output.special_health_examination_builder import build_special_health_examination_excel
 from engine.output.tbm_log_builder import build_tbm_log_excel
 from engine.output.risk_assessment_register_builder import build_risk_assessment_register_excel
+from engine.output.risk_assessment_meeting_minutes_builder import build_risk_assessment_meeting_minutes_excel
 from engine.output.tower_crane_workplan_builder import build_tower_crane_workplan_excel
 from engine.output.vehicle_workplan_builder import build_vehicle_workplan_excel
 from engine.output.work_environment_measurement_builder import build_work_environment_measurement_excel
@@ -427,6 +429,26 @@ _REGISTRY: dict[str, FormSpec] = {
         ),
         repeat_field="attendees",   # list[dict]: name, job_type
         max_repeat_rows=20,
+    ),
+    # ------------------------------------------------------------------
+    # RA-003 — 위험성평가 참여 회의록 (2026-04-26)
+    # 법적 근거: 산업안전보건법 제36조 제3항 (근로자 참여 보장)
+    # evidence_status: RA-001 공유 (동일 산안법 제36조 근거)
+    "risk_assessment_meeting_minutes": FormSpec(
+        form_type="risk_assessment_meeting_minutes",
+        display_name="위험성평가 참여 회의록",
+        version="1.0",
+        builder=build_risk_assessment_meeting_minutes_excel,
+        required_fields=(),
+        optional_fields=(
+            "site_name", "project_name", "representative", "safety_manager",
+            "meeting_date", "meeting_place", "work_type", "meeting_purpose",
+            "discussion_items", "worker_opinions", "meeting_summary",
+            "prepared_by", "reviewed_by", "approved_by",
+            "prepared_date", "reviewed_date", "approved_date",
+        ),
+        repeat_field="attendees",
+        max_repeat_rows=15,
     ),
     # ------------------------------------------------------------------
     # RA-002 — 위험성평가 관리 등록부 (2026-04-26)

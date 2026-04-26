@@ -635,12 +635,19 @@ documents:
     category_code: RA
     document_group: 위험성평가
     legal_status: legal
-    implementation_status: TODO
-    priority: P2
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: risk_assessment_meeting_minutes
     source_type: law
     legal_basis: "산업안전보건법 제36조 제3항 (근로자 참여 보장)"
-    notes: null
+    notes: "법정 서식 없음. 근로자 참여 증빙 서식. builder v1.0"
+    evidence_status: READY
+    evidence_ids:
+      - RA-001-L1
+      - RA-001-L2
+    evidence_files:
+      - RA-001-L1_industrial_safety_health_act_article_36.json
+      - RA-001-L2_industrial_safety_health_rule_article_37.json
 
   - id: RA-004
     name: TBM 안전점검 일지
