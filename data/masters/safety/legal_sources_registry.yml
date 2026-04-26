@@ -407,38 +407,38 @@ sources:
   # UNKNOWN — 공식 명칭 확인 필요 (enabled: false)
   # ──────────────────────────────────────────────
 
-  - source_code: UNKNOWN_CONSTRUCTION_SAFETY_COST_STANDARD
-    official_name: null
-    display_name: 건설업 산업안전보건관리비 계상 및 사용기준 (명칭 미확인)
+  - source_code: MOEL_CONSTRUCTION_SAFETY_HEALTH_COST_STANDARD
+    official_name: 건설업 산업안전보건관리비 계상 및 사용기준
+    display_name: 건설업 산업안전보건관리비 계상 및 사용기준
     source_type: NOTICE
     source_domain: COST
-    source_authority: UNKNOWN
-    collection_status: UNKNOWN
-    collection_action: NEEDS_OFFICIAL_NAME_CONFIRMATION
+    source_authority: MOEL
+    collection_status: NOT_COLLECTED
+    collection_action: COLLECT_BY_LAW_API
     priority: P2
     collected_evidence_count: 0
     duplicate_collection_risk: false
     existing_script: null
     law_mst: null
-    source_url: null
-    effective_date: null
-    notes: "official name confirmation required. '산안관리비', '안전관리비 계상·사용기준' 등 명칭 다양. 발행처(고용노동부 또는 국토교통부) 미확인. 공식 고시번호 확인 후 수집."
-    enabled: false
+    source_url: https://www.law.go.kr/행정규칙/건설업산업안전보건관리비계상및사용기준
+    effective_date: "2025-02-12"
+    notes: "고용노동부고시 제2025-11호, 시행 2025.2.12. 건설공사 안전관리비 계상·사용 기준. law.go.kr에서 MST 조회 후 수집."
+    enabled: true
 
-  - source_code: UNKNOWN_CONSTRUCTION_SAFETY_MANAGEMENT_GUIDELINE
-    official_name: null
-    display_name: 건설공사 안전관리 업무수행 지침 (명칭 미확인)
+  - source_code: MOLIT_CONSTRUCTION_SAFETY_MANAGEMENT_GUIDELINE
+    official_name: 건설공사 안전관리 업무수행 지침
+    display_name: 건설공사 안전관리 업무수행 지침
     source_type: GUIDELINE
     source_domain: CONSTRUCTION
-    source_authority: UNKNOWN
-    collection_status: UNKNOWN
-    collection_action: NEEDS_OFFICIAL_NAME_CONFIRMATION
+    source_authority: MOLIT
+    collection_status: NOT_COLLECTED
+    collection_action: COLLECT_BY_LAW_API
     priority: P3
     collected_evidence_count: 0
     duplicate_collection_risk: false
     existing_script: null
     law_mst: null
-    source_url: null
-    effective_date: null
-    notes: "official name confirmation required. '건설안전관리 기준' 등 명칭 불명확. 발행처(국토교통부 또는 공단) 미확인. 공식 명칭 및 고시번호 확인 후 수집."
-    enabled: false
+    source_url: https://www.law.go.kr/행정규칙/건설공사안전관리업무수행지침
+    effective_date: "2023-01-01"
+    notes: "국토교통부고시 제2022-791호, 시행 2023.1.1. 건설공사 안전관리 업무 절차·기준. law.go.kr에서 MST 조회 후 수집."
+    enabled: true

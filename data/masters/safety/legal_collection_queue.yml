@@ -179,38 +179,30 @@ collect_ready_law_api:
 needs_official_name_confirmation:
 
   - queue_id: Q-013
-    source_code: UNKNOWN_CONSTRUCTION_SAFETY_COST_STANDARD
-    collection_action: NEEDS_OFFICIAL_NAME_CONFIRMATION
+    source_code: MOEL_CONSTRUCTION_SAFETY_HEALTH_COST_STANDARD
+    collection_action: COLLECT_BY_LAW_API
     priority: P2
-    script_name: null
-    api_type: null
+    script_name: scripts/collect/law_statutes.py
+    api_type: law_go_kr_drf
     mst: null
-    official_name_confirmed: false
-    blocked_by: "공식 명칭 확인"
-    duplicate_check_required: true
-    enabled: false
-    notes: |
-      후보 명칭:
-        1. 건설업 산업안전보건관리비 계상 및 사용기준 (고용노동부 고시)
-        2. 건설업 안전관리비 계상 및 사용기준 (국토교통부)
-      확인 방법: law.go.kr에서 '산안관리비' 고시 검색, 발행처 확인 후 source_code 및 authority 갱신.
+    official_name_confirmed: true
+    blocked_by: null
+    duplicate_check_required: false
+    enabled: true
+    notes: "고용노동부고시 제2025-11호, 시행 2025.2.12. MST 조회 후 law_statutes.py로 수집."
 
   - queue_id: Q-014
-    source_code: UNKNOWN_CONSTRUCTION_SAFETY_MANAGEMENT_GUIDELINE
-    collection_action: NEEDS_OFFICIAL_NAME_CONFIRMATION
+    source_code: MOLIT_CONSTRUCTION_SAFETY_MANAGEMENT_GUIDELINE
+    collection_action: COLLECT_BY_LAW_API
     priority: P3
-    script_name: null
-    api_type: null
+    script_name: scripts/collect/law_statutes.py
+    api_type: law_go_kr_drf
     mst: null
-    official_name_confirmed: false
-    blocked_by: "공식 명칭 확인"
-    duplicate_check_required: true
-    enabled: false
-    notes: |
-      후보 명칭:
-        1. 건설공사 안전관리 업무수행 지침 (국토교통부 훈령)
-        2. 건설안전관리 업무 기준 (공단 자체 기준)
-      확인 방법: 국토교통부 홈페이지 훈령 검색, 공단 사이트 교차 확인 후 official_name 갱신.
+    official_name_confirmed: true
+    blocked_by: null
+    duplicate_check_required: false
+    enabled: true
+    notes: "국토교통부고시 제2022-791호, 시행 2023.1.1. MST 조회 후 law_statutes.py로 수집."
 
 # ──────────────────────────────────────────────────────
 # GROUP 4: 전용 커넥터 개발 후 수집

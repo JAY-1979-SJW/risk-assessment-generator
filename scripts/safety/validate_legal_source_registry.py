@@ -29,7 +29,7 @@ ALLOWED_COLLECTION_ACTION = {
 }
 
 # 원래 22개 source 후보에서 건설기계관리법 시행령/규칙, 소방시설공사업법 시행령/규칙을
-# 각각 DECREE+RULE로 분리하여 23개로 확장. 이는 올바른 분리.
+# 각각 DECREE+RULE로 분리하여 23개로 확장. UNKNOWN 2건은 발행처 확인으로 NOT_COLLECTED로 전환.
 EXPECTED_SOURCE_COUNT = 23
 
 ERRORS: list[str] = []

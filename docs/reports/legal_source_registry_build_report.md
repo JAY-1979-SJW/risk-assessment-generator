@@ -127,6 +127,15 @@ PHASE 5 (선택, 참고용):
 
 ---
 
+## 8-1. 보정 이력
+
+| 날짜 | 대상 | 보정 내용 |
+|------|------|-----------|
+| 2026-04-26 | Q-013 (UNKNOWN→MOEL_CONSTRUCTION_SAFETY_HEALTH_COST_STANDARD) | 고용노동부고시 제2025-11호(시행 2025.2.12.) 확인, authority=MOEL, status=NOT_COLLECTED, action=COLLECT_BY_LAW_API로 전환 |
+| 2026-04-26 | Q-014 (UNKNOWN→MOLIT_CONSTRUCTION_SAFETY_MANAGEMENT_GUIDELINE) | 국토교통부고시 제2022-791호(시행 2023.1.1.) 확인, authority=MOLIT, status=NOT_COLLECTED, action=COLLECT_BY_LAW_API로 전환 |
+
+---
+
 ## 9. 생성 파일 목록
 
 | 파일 | 용도 |
