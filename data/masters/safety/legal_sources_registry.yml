@@ -91,16 +91,21 @@ sources:
     source_type: ENFORCEMENT_DECREE
     source_domain: SAFETY
     source_authority: MOEL
-    collection_status: NOT_COLLECTED
+    collection_status: COLLECTED_PARTIAL
     collection_action: COLLECT_BY_LAW_API
     priority: P0
     collected_evidence_count: 0
     duplicate_collection_risk: false
     existing_script: null
-    law_mst: null
+    law_mst: 284771
+    law_id: "003786"
     source_url: https://www.law.go.kr/법령/산업안전보건법시행령
-    effective_date: null
-    notes: "위험성평가 절차 근거. law.go.kr에서 MST 조회 후 수집 필요."
+    effective_date: "2026-03-24"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/osh_act_enforcement_decree_284771.json
+    article_count: 135
+    attached_table_count: 35
+    notes: "2026-04-26 원문 수집 완료. 135조문, 별표 35개(안전관리자 선임기준/특수건강진단 주기/안전검사 주기 등). evidence 미생성 → PARTIAL."
     enabled: true
 
   # ──────────────────────────────────────────────
@@ -182,16 +187,21 @@ sources:
     source_type: LAW
     source_domain: FIRE
     source_authority: NFA
-    collection_status: SCRIPT_EXISTS_NOT_COLLECTED
+    collection_status: COLLECTED_PARTIAL
     collection_action: COLLECT_BY_EXISTING_SCRIPT
     priority: P1
     collected_evidence_count: 0
     duplicate_collection_risk: false
     existing_script: scripts/collect/collect_missing_laws.py
     law_mst: 259473
+    law_id: "009500"
     source_url: https://www.law.go.kr/법령/소방시설공사업법
-    effective_date: null
-    notes: "소방시설공사 면허 및 감리 근거. MST=259473. collect_missing_laws.py 실행 대상."
+    effective_date: "2025-01-31"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/fire_facility_business_act_259473.json
+    article_count: 71
+    attached_table_count: 0
+    notes: "2026-04-26 원문 수집 완료. 71조문, 별표 없음. 소방시설공사 면허·감리 근거. evidence 미생성 → PARTIAL."
     enabled: true
 
   - source_code: NFA_FIRE_FACILITY_BUSINESS_DECREE
@@ -200,16 +210,21 @@ sources:
     source_type: ENFORCEMENT_DECREE
     source_domain: FIRE
     source_authority: NFA
-    collection_status: SCRIPT_EXISTS_NOT_COLLECTED
+    collection_status: COLLECTED_PARTIAL
     collection_action: COLLECT_BY_EXISTING_SCRIPT
     priority: P1
     collected_evidence_count: 0
     duplicate_collection_risk: false
     existing_script: scripts/collect/collect_missing_laws.py
     law_mst: 284779
+    law_id: "009695"
     source_url: https://www.law.go.kr/법령/소방시설공사업법시행령
-    effective_date: null
-    notes: "MST=284779. collect_missing_laws.py 실행 대상."
+    effective_date: "2026-03-24"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/fire_facility_business_decree_284779.json
+    article_count: 43
+    attached_table_count: 6
+    notes: "2026-04-26 원문 수집 완료. 43조문, 별표 6개(업종별 등록기준/기술인력 자격/감리 배치기준 등). evidence 미생성 → PARTIAL."
     enabled: true
 
   - source_code: NFA_FIRE_FACILITY_BUSINESS_RULE
@@ -218,16 +233,21 @@ sources:
     source_type: ENFORCEMENT_RULE
     source_domain: FIRE
     source_authority: NFA
-    collection_status: SCRIPT_EXISTS_NOT_COLLECTED
+    collection_status: COLLECTED_PARTIAL
     collection_action: COLLECT_BY_EXISTING_SCRIPT
     priority: P1
     collected_evidence_count: 0
     duplicate_collection_risk: false
     existing_script: scripts/collect/collect_missing_laws.py
     law_mst: 282735
+    law_id: "009731"
     source_url: https://www.law.go.kr/법령/소방시설공사업법시행규칙
-    effective_date: null
-    notes: "MST=282735. collect_missing_laws.py 실행 대상."
+    effective_date: "2026-01-02"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/fire_facility_business_rule_282735.json
+    article_count: 60
+    attached_table_count: 68
+    notes: "2026-04-26 원문 수집 완료. 60조문, 별표/서식 68개(행정처분기준/과징금/감리기간 등). evidence 미생성 → PARTIAL."
     enabled: true
 
   # ──────────────────────────────────────────────
@@ -240,16 +260,21 @@ sources:
     source_type: LAW
     source_domain: CONSTRUCTION
     source_authority: MOLIT
-    collection_status: REFERENCED_ONLY
+    collection_status: COLLECTED_PARTIAL
     collection_action: COLLECT_BY_LAW_API
     priority: P1
     collected_evidence_count: 0
     duplicate_collection_risk: false
     existing_script: scripts/collect/law_statutes.py
-    law_mst: null
+    law_mst: 276921
+    law_id: "001807"
     source_url: https://www.law.go.kr/법령/건설기술진흥법
-    effective_date: null
-    notes: "건설기술자 자격·배치 기준. compliance_clauses.yml 참조됨. MST 조회 필요."
+    effective_date: "2025-10-01"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/construction_tech_promotion_act_276921.json
+    article_count: 128
+    attached_table_count: 0
+    notes: "2026-04-26 원문 수집 완료. 128조문, 별표 없음. 건설기술자 자격·배치·안전관리 근거. evidence 미생성 → PARTIAL."
     enabled: true
 
   - source_code: MOLIT_CONSTRUCTION_TECH_PROMOTION_DECREE
@@ -258,17 +283,22 @@ sources:
     source_type: ENFORCEMENT_DECREE
     source_domain: CONSTRUCTION
     source_authority: MOLIT
-    collection_status: NOT_COLLECTED
+    collection_status: COLLECTED_PARTIAL
     collection_action: COLLECT_BY_LAW_API
     priority: P2
     collected_evidence_count: 0
     duplicate_collection_risk: false
     existing_script: null
-    law_mst: null
+    law_mst: 283649
+    law_id: "002111"
     source_url: https://www.law.go.kr/법령/건설기술진흥법시행령
-    effective_date: null
-    notes: "상위법 수집 후 연계 수집."
-    enabled: false
+    effective_date: "2026-02-27"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/construction_tech_promotion_decree_283649.json
+    article_count: 165
+    attached_table_count: 12
+    notes: "2026-04-26 원문 수집 완료. 165조문, 별표 12개(건설기술인 범위/교육훈련 등). evidence 미생성 → PARTIAL."
+    enabled: true
 
   - source_code: MOLIT_CONSTRUCTION_TECH_PROMOTION_RULE
     official_name: 건설기술진흥법 시행규칙
@@ -276,17 +306,22 @@ sources:
     source_type: ENFORCEMENT_RULE
     source_domain: CONSTRUCTION
     source_authority: MOLIT
-    collection_status: NOT_COLLECTED
+    collection_status: COLLECTED_PARTIAL
     collection_action: COLLECT_BY_LAW_API
     priority: P2
     collected_evidence_count: 0
     duplicate_collection_risk: false
     existing_script: null
-    law_mst: null
+    law_mst: 279455
+    law_id: "006175"
     source_url: https://www.law.go.kr/법령/건설기술진흥법시행규칙
-    effective_date: null
-    notes: "상위법 수집 후 연계 수집."
-    enabled: false
+    effective_date: "2025-10-31"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/construction_tech_promotion_rule_279455.json
+    article_count: 82
+    attached_table_count: 69
+    notes: "2026-04-26 원문 수집 완료. 82조문, 별표/서식 69개(산안관리비 계상기준 별표8 포함). evidence 미생성 → PARTIAL."
+    enabled: true
 
   - source_code: MOTIE_ELECTRIC_CONSTRUCTION_BUSINESS_ACT
     official_name: 전기공사업법
@@ -294,16 +329,21 @@ sources:
     source_type: LAW
     source_domain: ELECTRIC
     source_authority: MOTIE
-    collection_status: REFERENCED_ONLY
+    collection_status: COLLECTED_PARTIAL
     collection_action: COLLECT_BY_LAW_API
     priority: P1
     collected_evidence_count: 0
     duplicate_collection_risk: false
     existing_script: null
-    law_mst: null
+    law_mst: 271253
+    law_id: "000285"
     source_url: https://www.law.go.kr/법령/전기공사업법
-    effective_date: null
-    notes: "전기공사 면허 및 기술자격 근거. CC-003 NEEDS_VERIFICATION으로 참조됨. 전기안전관리법과 구분 필요."
+    effective_date: "2025-11-28"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/electric_construction_business_act_271253.json
+    article_count: 63
+    attached_table_count: 0
+    notes: "2026-04-26 원문 수집 완료. 63조문, 별표 없음. 전기공사 면허·시공·도급 근거. evidence 미생성 → PARTIAL."
     enabled: true
 
   - source_code: MSIT_TELECOM_CONSTRUCTION_BUSINESS_ACT
@@ -312,16 +352,21 @@ sources:
     source_type: LAW
     source_domain: TELECOM
     source_authority: MSIT
-    collection_status: REFERENCED_ONLY
+    collection_status: COLLECTED_PARTIAL
     collection_action: COLLECT_BY_LAW_API
     priority: P2
     collected_evidence_count: 0
     duplicate_collection_risk: false
     existing_script: null
-    law_mst: null
+    law_mst: 268833
+    law_id: "001445"
     source_url: https://www.law.go.kr/법령/정보통신공사업법
-    effective_date: null
-    notes: "정보통신공사 면허 및 감리원 배치 근거. CC-005 NEEDS_VERIFICATION으로 참조됨."
+    effective_date: "2026-02-01"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/telecom_construction_business_act_268833.json
+    article_count: 108
+    attached_table_count: 0
+    notes: "2026-04-26 원문 수집 완료. 108조문, 별표 없음. 정보통신공사 면허·감리원 배치 근거. evidence 미생성 → PARTIAL."
     enabled: true
 
   # ──────────────────────────────────────────────
@@ -428,16 +473,20 @@ sources:
     source_type: NOTICE
     source_domain: COST
     source_authority: MOEL
-    collection_status: NOT_COLLECTED
+    collection_status: COLLECTED_PARTIAL
     collection_action: COLLECT_BY_LAW_API
     priority: P2
     collected_evidence_count: 0
     duplicate_collection_risk: false
     existing_script: null
     law_mst: null
+    admrul_id: "2100000254546"
     source_url: https://www.law.go.kr/행정규칙/건설업산업안전보건관리비계상및사용기준
     effective_date: "2025-02-12"
-    notes: "고용노동부고시 제2025-11호, 시행 2025.2.12. 건설공사 안전관리비 계상·사용 기준. law.go.kr에서 MST 조회 후 수집."
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/safety_health_cost_standard_2100000254546.json
+    article_count: 38
+    notes: "2026-04-26 XML 수집 완료. 고용노동부 고시 제2025-11호. 38개 고유 조번호. evidence 미생성 → PARTIAL."
     enabled: true
 
   - source_code: MOLIT_CONSTRUCTION_SAFETY_MANAGEMENT_GUIDELINE
@@ -453,7 +502,11 @@ sources:
     duplicate_collection_risk: false
     existing_script: null
     law_mst: null
+    admrul_id: "2100000216960"
     source_url: https://www.law.go.kr/행정규칙/건설공사안전관리업무수행지침
     effective_date: "2023-01-01"
-    notes: "국토교통부고시 제2022-791호, 시행 2023.1.1. 건설공사 안전관리 업무 절차·기준. law.go.kr에서 MST 조회 후 수집."
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/construction_safety_management_guideline_2100000216960.json
+    article_count: 95
+    notes: "2026-04-26 XML 수집 완료. 국토교통부 고시 제2022-791호. 95개 고유 조번호. evidence 미생성 → PARTIAL."
     enabled: true

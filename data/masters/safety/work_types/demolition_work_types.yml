@@ -1,111 +1,176 @@
-# 해체 공종 프리셋 — skeleton
-# 버전: 0.1 (skeleton)
-# 작성일: 2026-04-25
+# 해체 공종 프리셋
+# 버전: 1.0
+# 작성일: 2026-04-26 (skeleton 0.1 → 1.0 상세 데이터 입력)
+# source_status: PARTIAL_VERIFIED (산안규칙 원문 확인)
+# 법령 근거: 산업안전보건기준에 관한 규칙 제455조~제459조 (해체 작업) (COLLECTED_VERIFIED)
 
 _meta:
-  version: "0.1"
+  version: "1.0"
   trade_group: 해체
-  status: SKELETON
+  status: PARTIAL_VERIFIED
   total: 3
-  last_updated: "2026-04-25"
-  note: 해체 공종 상세 데이터는 다음 단계에서 작성.
+  last_updated: "2026-04-26"
 
 trades:
 
   - trade_id: DEMO_MANUAL_DEMOLITION
     trade_name: 수작업 해체
     trade_group: 해체
-    description: 핸드해머·착암기 등을 이용한 수작업 구조물 해체
+    description: >
+      핸드해머·착암기·전동 브레이커 등을 이용한 수작업 구조물 해체.
+      바닥·벽·천장 등 부분 해체. 분진·소음 발생, 고소 작업 포함.
     enabled: true
     priority: 1
     default_hazards:
       - FALL_FROM_HEIGHT
       - FALLING_OBJECT
       - NOISE_DUST
-      - FALLING_OBJECT
+      - STRUCK_BY_OBJECT
+      - STRUCTURE_COLLAPSE
     required_documents:
       - RA-001
       - RA-004
       - WP-003
-    recommended_documents:
       - ED-003
+    recommended_documents:
       - PTW-003
+      - CL-003
     required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
       - EDU_TBM
     required_permits:
       - PTW-003
-    common_equipment: []
+    common_equipment:
+      - electric_breaker
+      - jackhammer
+      - vacuum_cleaner
     ppe:
       - safety_helmet
       - safety_harness
       - dust_mask
       - ear_protection
+      - safety_goggles
       - safety_shoes
-    source_status: NEEDS_VERIFICATION
+    source_status: PARTIAL_VERIFIED
+    legal_basis:
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제38조 제1항 제11호·제455조~제459조 (해체 작업계획서 및 안전조치)"
+        obligation: document_required
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제455조 (해체 작업계획서 — 해체방법·순서·구조물 조사)"
+        obligation: document_required
     notes: >
-      skeleton — 상세 데이터 입력 필요.
-      WP-003(건축물 해체 작업계획서) 참조.
+      건물 해체 시 WP-003(건축물 해체 작업계획서) 작성 의무(산안규칙 제455조).
+      해체계획서에 해체방법·순서·폐기물 처리 방법 포함 필요.
+      석면 함유 자재 사전 조사 후 석면 해체(DEMO_ASBESTOS_REMOVAL)와 선행 분리 수행.
+      분진 발생 구간 — 방진마스크(2급 이상) 착용 의무.
 
   - trade_id: DEMO_MECHANICAL_DEMOLITION
     trade_name: 기계 해체
     trade_group: 해체
-    description: 굴착기·대형 브레이커를 이용한 구조물 기계 해체
+    description: >
+      굴착기·대형 브레이커·크러셔·철거 전용 장비를 이용한 구조물 기계 해체.
+      건물 전체 해체 또는 대형 구조물 해체 작업. 비산 먼지 및 소음 광범위 발생.
     enabled: true
     priority: 1
     default_hazards:
       - FALLING_OBJECT
       - STRUCK_BY_EQUIPMENT
       - NOISE_DUST
-      - EXCAVATION_COLLAPSE
+      - STRUCTURE_COLLAPSE
+      - VEHICLE_TURNOVER
     required_documents:
       - RA-001
       - RA-004
       - WP-003
-    recommended_documents:
       - ED-003
+    recommended_documents:
       - CL-003
+      - EQ-003
+      - EQ-004
     required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
       - EDU_TBM
     required_permits: []
-    common_equipment: []
+    common_equipment:
+      - excavator_with_breaker
+      - excavator_with_crusher
+      - dump_truck
+      - water_sprinkler
     ppe:
       - safety_helmet
       - dust_mask
       - ear_protection
       - safety_shoes
       - high_visibility_vest
-    source_status: NEEDS_VERIFICATION
-    notes: skeleton — 상세 데이터 입력 필요
+    source_status: PARTIAL_VERIFIED
+    legal_basis:
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제455조~제459조 (해체 작업 안전조치)"
+        obligation: document_required
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제196조~제199조 (차량계 건설기계 사용 전 점검)"
+        obligation: pre_use_inspection_required
+    notes: >
+      기계 해체 작업 전 해체 순서 계획 및 주변 안전거리 확보 필수.
+      해체 구역 접근 통제 — 출입통제선 설치 및 감시자 배치.
+      굴착기 작업반경 내 접근 금지(제196조 제4항).
+      분진 비산 방지 — 살수차 또는 살수시설 운영.
 
   - trade_id: DEMO_ASBESTOS_REMOVAL
     trade_name: 석면 해체·제거
     trade_group: 해체
-    description: 석면 함유 자재(텍스·슬레이트·단열재) 해체·제거 작업
+    description: >
+      석면 함유 자재(텍스·슬레이트·뿜칠재·단열재·바닥재) 해체·제거 작업.
+      산업안전보건법 제119조 신고 대상 작업. 전문 자격자 필요.
     enabled: true
     priority: 1
     default_hazards:
       - CHEMICAL_EXPOSURE
       - NOISE_DUST
       - FALL_FROM_HEIGHT
+      - ASBESTOS_FIBER
     required_documents:
       - RA-001
       - RA-004
-    recommended_documents:
       - ED-003
       - PPE-004
+    recommended_documents:
+      - PTW-003
+      - HM-001
     required_trainings:
+      - EDU_SPECIAL_ASBESTOS
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
       - EDU_TBM
-    required_permits: []
-    common_equipment: []
+    required_permits:
+      - PTW-003
+    common_equipment:
+      - negative_pressure_unit
+      - hepa_vacuum
+      - decontamination_unit
     ppe:
       - asbestos_respirator
       - protective_suit
       - safety_gloves
       - safety_goggles
       - safety_shoes
-    source_status: NEEDS_VERIFICATION
+    source_status: PARTIAL_VERIFIED
+    legal_basis:
+      - source: MOEL_OSH_ACT
+        clause: "제119조 (석면 해체·제거 작업의 신고)"
+        obligation: document_required
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제492조~제501조 (석면 해체·제거 작업 안전조치)"
+        obligation: inspection_required
+      - source: MOEL_OSH_ACT_ENFORCEMENT_RULE
+        clause: "별표 5 제26호 (석면 해체·제거 특별교육)"
+        obligation: special_education_required
     notes: >
-      skeleton — 상세 데이터 입력 필요.
-      석면 해체·제거 작업은 석면조사기관 사전 조사 및
-      고용노동부 신고 절차 확인 필요 (산업안전보건법 제119조).
-      candidate_training: 석면 해체·제거 전문 교육 (현재 training_types.yml 미등록)
+      산업안전보건법 제119조에 따른 관할 고용노동부 신고 의무.
+      석면 해체·제거 작업은 석면조사기관 사전 조사 후 신고 절차 이행.
+      작업 구역 음압 유지 및 HEPA 필터 진공청소기 사용 필수(제492조~제501조).
+      특별교육(석면): EDU_SPECIAL_ASBESTOS → training_types.yml 추가 필요.
+      작업 완료 후 공기 중 석면 농도 측정(자격 기관).

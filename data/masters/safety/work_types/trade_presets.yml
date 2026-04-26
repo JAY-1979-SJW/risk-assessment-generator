@@ -4,11 +4,11 @@
 # 목적: 전체 공종 ID와 그룹·우선순위·활성화 여부를 한곳에서 관리
 
 _meta:
-  version: "1.0"
-  last_updated: "2026-04-25"
+  version: "1.1"
+  last_updated: "2026-04-26"
   total_trades: 54
   enabled_trades: 54
-  skeleton_trades: 16  # architecture(5)+civil(4)+steel(4)+demolition(3)
+  skeleton_trades: 0  # 2026-04-26 skeleton 16종 → PARTIAL_VERIFIED로 상세 데이터 입력 완료
   groups:
     - 소방설비
     - 전기
@@ -338,14 +338,14 @@ trade_index:
     detail_file: common_high_risk_work_types.yml
 
   # ─────────────────────────────────────────────
-  # 건축 skeleton (5종)
+  # 건축 (5종) — 2026-04-26 PARTIAL_VERIFIED
   # ─────────────────────────────────────────────
   - trade_id: ARCH_CONCRETE_WORK
     trade_name: 콘크리트 타설 작업
     trade_group: 건축
     priority: 1
     enabled: true
-    source_status: NEEDS_VERIFICATION
+    source_status: PARTIAL_VERIFIED
     detail_file: architecture_work_types.yml
 
   - trade_id: ARCH_MASONRY_WORK
@@ -353,7 +353,7 @@ trade_index:
     trade_group: 건축
     priority: 2
     enabled: true
-    source_status: NEEDS_VERIFICATION
+    source_status: PARTIAL_VERIFIED
     detail_file: architecture_work_types.yml
 
   - trade_id: ARCH_FINISHING_WORK
@@ -361,7 +361,7 @@ trade_index:
     trade_group: 건축
     priority: 2
     enabled: true
-    source_status: NEEDS_VERIFICATION
+    source_status: PARTIAL_VERIFIED
     detail_file: architecture_work_types.yml
 
   - trade_id: ARCH_INTERIOR_WORK
@@ -369,7 +369,7 @@ trade_index:
     trade_group: 건축
     priority: 3
     enabled: true
-    source_status: NEEDS_VERIFICATION
+    source_status: PARTIAL_VERIFIED
     detail_file: architecture_work_types.yml
 
   - trade_id: ARCH_REBAR_WORK
@@ -377,18 +377,18 @@ trade_index:
     trade_group: 건축
     priority: 1
     enabled: true
-    source_status: NEEDS_VERIFICATION
+    source_status: PARTIAL_VERIFIED
     detail_file: architecture_work_types.yml
 
   # ─────────────────────────────────────────────
-  # 토목 skeleton (4종)
+  # 토목 (4종) — 2026-04-26 PARTIAL_VERIFIED
   # ─────────────────────────────────────────────
   - trade_id: CIVIL_EXCAVATION_WORK
     trade_name: 토공 굴착 작업
     trade_group: 토목
     priority: 1
     enabled: true
-    source_status: NEEDS_VERIFICATION
+    source_status: PARTIAL_VERIFIED
     detail_file: civil_work_types.yml
 
   - trade_id: CIVIL_PILING_WORK
@@ -396,7 +396,7 @@ trade_index:
     trade_group: 토목
     priority: 1
     enabled: true
-    source_status: NEEDS_VERIFICATION
+    source_status: PARTIAL_VERIFIED
     detail_file: civil_work_types.yml
 
   - trade_id: CIVIL_RETAINING_WALL
@@ -404,7 +404,7 @@ trade_index:
     trade_group: 토목
     priority: 1
     enabled: true
-    source_status: NEEDS_VERIFICATION
+    source_status: PARTIAL_VERIFIED
     detail_file: civil_work_types.yml
 
   - trade_id: CIVIL_ROAD_PAVING
@@ -412,18 +412,18 @@ trade_index:
     trade_group: 토목
     priority: 2
     enabled: true
-    source_status: NEEDS_VERIFICATION
+    source_status: PARTIAL_VERIFIED
     detail_file: civil_work_types.yml
 
   # ─────────────────────────────────────────────
-  # 철골 skeleton (4종)
+  # 철골 (4종) — 2026-04-26 PARTIAL_VERIFIED
   # ─────────────────────────────────────────────
   - trade_id: STEEL_ERECTION
     trade_name: 철골 세우기 작업
     trade_group: 철골
     priority: 1
     enabled: true
-    source_status: NEEDS_VERIFICATION
+    source_status: PARTIAL_VERIFIED
     detail_file: steel_structure_work_types.yml
 
   - trade_id: STEEL_BOLTING
@@ -431,7 +431,7 @@ trade_index:
     trade_group: 철골
     priority: 1
     enabled: true
-    source_status: NEEDS_VERIFICATION
+    source_status: PARTIAL_VERIFIED
     detail_file: steel_structure_work_types.yml
 
   - trade_id: STEEL_WELDING
@@ -439,7 +439,7 @@ trade_index:
     trade_group: 철골
     priority: 1
     enabled: true
-    source_status: NEEDS_VERIFICATION
+    source_status: PARTIAL_VERIFIED
     detail_file: steel_structure_work_types.yml
 
   - trade_id: STEEL_DECKING
@@ -447,18 +447,18 @@ trade_index:
     trade_group: 철골
     priority: 2
     enabled: true
-    source_status: NEEDS_VERIFICATION
+    source_status: PARTIAL_VERIFIED
     detail_file: steel_structure_work_types.yml
 
   # ─────────────────────────────────────────────
-  # 해체 skeleton (3종)
+  # 해체 (3종) — 2026-04-26 PARTIAL_VERIFIED
   # ─────────────────────────────────────────────
   - trade_id: DEMO_MANUAL_DEMOLITION
     trade_name: 수작업 해체
     trade_group: 해체
     priority: 1
     enabled: true
-    source_status: NEEDS_VERIFICATION
+    source_status: PARTIAL_VERIFIED
     detail_file: demolition_work_types.yml
 
   - trade_id: DEMO_MECHANICAL_DEMOLITION
@@ -466,7 +466,7 @@ trade_index:
     trade_group: 해체
     priority: 1
     enabled: true
-    source_status: NEEDS_VERIFICATION
+    source_status: PARTIAL_VERIFIED
     detail_file: demolition_work_types.yml
 
   - trade_id: DEMO_ASBESTOS_REMOVAL
@@ -474,5 +474,5 @@ trade_index:
     trade_group: 해체
     priority: 1
     enabled: true
-    source_status: NEEDS_VERIFICATION
+    source_status: PARTIAL_VERIFIED
     detail_file: demolition_work_types.yml

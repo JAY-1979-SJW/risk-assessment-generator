@@ -1,125 +1,224 @@
-# 토목 공종 프리셋 — skeleton
-# 버전: 0.1 (skeleton)
-# 작성일: 2026-04-25
+# 토목 공종 프리셋
+# 버전: 1.0
+# 작성일: 2026-04-26 (skeleton 0.1 → 1.0 상세 데이터 입력)
+# source_status: PARTIAL_VERIFIED (산안규칙 원문 확인)
+# 법령 근거: 산업안전보건기준에 관한 규칙 (COLLECTED_VERIFIED)
 
 _meta:
-  version: "0.1"
+  version: "1.0"
   trade_group: 토목
-  status: SKELETON
+  status: PARTIAL_VERIFIED
   total: 4
-  last_updated: "2026-04-25"
-  note: 토목 공종 상세 데이터는 다음 단계에서 작성.
+  last_updated: "2026-04-26"
 
 trades:
 
   - trade_id: CIVIL_EXCAVATION_WORK
     trade_name: 토공 굴착 작업
     trade_group: 토목
-    description: 도로·기초·지하 구조물 토공 굴착 작업
+    description: >
+      도로·기초·지하 구조물 토공 굴착 작업.
+      굴착기·불도저·덤프트럭 등 차량계 건설기계 사용.
+      지반붕괴·지하매설물 손상·건설기계 전도 위험.
     enabled: true
     priority: 1
     default_hazards:
       - EXCAVATION_COLLAPSE
       - STRUCK_BY_EQUIPMENT
       - VEHICLE_TURNOVER
+      - UNDERGROUND_UTILITY_DAMAGE
+      - FALL_INTO_EXCAVATION
     required_documents:
       - RA-001
       - RA-004
       - WP-001
-    recommended_documents:
       - ED-003
-      - PTW-005
+    recommended_documents:
       - CL-003
+      - PTW-005
+      - EQ-003
+      - EQ-004
     required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
       - EDU_TBM
     required_permits:
       - PTW-005
-    common_equipment: []
+    common_equipment:
+      - excavator
+      - bulldozer
+      - dump_truck
+      - compactor
     ppe:
       - safety_helmet
       - safety_shoes
       - high_visibility_vest
-    source_status: NEEDS_VERIFICATION
-    notes: skeleton — 상세 데이터 입력 필요
+      - dust_mask
+    source_status: PARTIAL_VERIFIED
+    legal_basis:
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제38조 제1항 제5호 (굴착 작업계획서)"
+        obligation: document_required
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제82조~제83조 (굴착 작업 시 안전조치)"
+        obligation: inspection_required
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제196조~제199조 (차량계 건설기계 사용 전 점검)"
+        obligation: pre_use_inspection_required
+    notes: >
+      WP-001(굴착 작업계획서) 작성 의무(산안규칙 제38조 제1항 제5호).
+      지반조건에 따른 경사면 기울기 기준 준수 필요(제83조 별표 11).
+      굴착기 등 차량계 건설기계 작업 전 CL-003 일상점검 필수.
+      지하매설물(전기·가스·통신·상하수도) 사전 확인 필수.
 
   - trade_id: CIVIL_PILING_WORK
     trade_name: 파일 항타 작업
     trade_group: 토목
-    description: PHC파일·강관파일 항타 및 현장타설말뚝 작업
+    description: >
+      PHC파일·강관파일 항타 및 현장타설말뚝(어스오거·CIP·SCW) 작업.
+      항타기·천공기 등 중장비 사용, 중량물 인양 포함.
     enabled: true
     priority: 1
     default_hazards:
       - FALLING_OBJECT
       - NOISE_DUST
       - STRUCK_BY_EQUIPMENT
+      - VEHICLE_TURNOVER
+      - HEAVY_LIFTING
     required_documents:
       - RA-001
       - RA-004
-    recommended_documents:
-      - ED-003
       - WP-010
+      - ED-003
+    recommended_documents:
+      - CL-003
+      - PTW-007
+      - EQ-007
     required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
       - EDU_TBM
-    required_permits: []
-    common_equipment: []
+    required_permits:
+      - PTW-007
+    common_equipment:
+      - pile_driver
+      - crawler_crane
+      - auger_machine
     ppe:
       - safety_helmet
       - ear_protection
       - safety_shoes
-    source_status: NEEDS_VERIFICATION
-    notes: skeleton — 상세 데이터 입력 필요
+      - high_visibility_vest
+      - dust_mask
+    source_status: PARTIAL_VERIFIED
+    legal_basis:
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제38조 제1항 제6호 (항타기·항발기 작업계획서)"
+        obligation: document_required
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제196조~제199조 (차량계 건설기계 사용 전 점검)"
+        obligation: pre_use_inspection_required
+    notes: >
+      WP-010(항타·항발기 작업계획서) 작성 의무(산안규칙 제38조 제1항 제6호).
+      파일 인양 시 신호수 배치 및 PTW-007 발급 필요.
+      소음 85dB 초과 시 청력보호구 착용 의무.
 
   - trade_id: CIVIL_RETAINING_WALL
     trade_name: 흙막이 벽 작업
     trade_group: 토목
-    description: 흙막이 지보공(H파일·시트파일·CIP) 설치·해체 작업
+    description: >
+      흙막이 지보공(H파일·시트파일·CIP·SCW) 설치·해체 작업.
+      지반 굴착과 연계, 크레인 인양 및 고소 작업 포함.
     enabled: true
     priority: 1
     default_hazards:
       - EXCAVATION_COLLAPSE
       - STRUCK_BY_EQUIPMENT
       - HEAVY_LIFTING
+      - FALL_FROM_HEIGHT
+      - FALLING_OBJECT
     required_documents:
       - RA-001
       - RA-004
-    recommended_documents:
-      - ED-003
       - WP-001
+      - ED-003
+    recommended_documents:
+      - PTW-003
+      - PTW-007
+      - CL-003
+      - EQ-007
     required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
       - EDU_TBM
-    required_permits: []
-    common_equipment: []
+    required_permits:
+      - PTW-003
+      - PTW-007
+    common_equipment:
+      - crawler_crane
+      - excavator
+      - pile_driver
     ppe:
       - safety_helmet
+      - safety_harness
       - safety_shoes
       - high_visibility_vest
-    source_status: NEEDS_VERIFICATION
-    notes: skeleton — 상세 데이터 입력 필요
+    source_status: PARTIAL_VERIFIED
+    legal_basis:
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제38조 제1항 제5호 (굴착 작업계획서)"
+        obligation: document_required
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제346조~제351조 (토사 붕괴 방지)"
+        obligation: inspection_required
+    notes: >
+      굴착 병행 시 WP-001 포함 필요.
+      흙막이 지보공 설치·변경 시 토질·지하수위 변화 모니터링 필수(제346조).
+      크레인 인양 시 신호수 배치 및 PTW-007 발급.
 
   - trade_id: CIVIL_ROAD_PAVING
     trade_name: 도로 포장 작업
     trade_group: 토목
-    description: 아스팔트·콘크리트 도로 포장 및 보수 작업
+    description: >
+      아스팔트·콘크리트 도로 포장, 노면 보수·덧씌우기 작업.
+      아스팔트 피니셔·롤러·살포기 등 도로장비 사용. 고온 아스팔트 취급.
     enabled: true
     priority: 2
     default_hazards:
       - STRUCK_BY_EQUIPMENT
       - CHEMICAL_EXPOSURE
+      - BURN_SCALDING
       - NOISE_DUST
+      - VEHICLE_COLLISION
     required_documents:
       - RA-001
       - RA-004
-    recommended_documents:
       - ED-003
+    recommended_documents:
       - CL-003
+      - PPE-004
+      - EQ-003
     required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
       - EDU_TBM
     required_permits: []
-    common_equipment: []
+    common_equipment:
+      - asphalt_finisher
+      - road_roller
+      - dump_truck
     ppe:
       - safety_helmet
+      - heat_resistant_gloves
       - safety_shoes
       - high_visibility_vest
       - dust_mask
-    source_status: NEEDS_VERIFICATION
-    notes: skeleton — 상세 데이터 입력 필요
+    source_status: PARTIAL_VERIFIED
+    legal_basis:
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제196조~제199조 (차량계 건설기계 사용 전 점검)"
+        obligation: pre_use_inspection_required
+    notes: >
+      도로상 작업 시 교통안전시설(라바콘·표지판·신호수) 설치 필수.
+      고온 아스팔트(160°C 이상) 취급 시 열상·화상 주의.
+      유해가스(아스팔트 흄) 발생 구간 환기 조치 필요.

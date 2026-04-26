@@ -1,142 +1,260 @@
-# 건축 공종 프리셋 — skeleton
-# 버전: 0.1 (skeleton, 상세 데이터 미입력)
-# 작성일: 2026-04-25
-# 다음 단계에서 default_hazards·required_documents 상세 데이터 입력 예정
+# 건축 공종 프리셋
+# 버전: 1.0
+# 작성일: 2026-04-26 (skeleton 0.1 → 1.0 상세 데이터 입력)
+# source_status: PARTIAL_VERIFIED (산안규칙 원문 확인, 건설기술진흥법 추가 검토 필요)
+# 법령 근거: 산업안전보건기준에 관한 규칙 (COLLECTED_VERIFIED), 건설기술진흥법 (COLLECTED_PARTIAL)
 
 _meta:
-  version: "0.1"
+  version: "1.0"
   trade_group: 건축
-  status: SKELETON
+  status: PARTIAL_VERIFIED
   total: 5
-  last_updated: "2026-04-25"
-  note: >
-    건축 공종 상세 위험요인·감소대책 데이터는 다음 단계에서 작성.
-    현재는 trade_id·trade_name·enabled 최소 스키마만 등록.
+  last_updated: "2026-04-26"
 
 trades:
 
   - trade_id: ARCH_CONCRETE_WORK
     trade_name: 콘크리트 타설 작업
     trade_group: 건축
-    description: 슬래브·기둥·보·벽체 콘크리트 타설 작업
+    description: >
+      슬래브·기둥·보·벽체 콘크리트 타설 작업.
+      콘크리트펌프카·배처플랜트·레미콘 트럭 운반, 진동다짐 포함.
+      거푸집·동바리 위 타설 작업으로 붕괴·낙하 위험 높음.
     enabled: true
     priority: 1
     default_hazards:
       - FALL_FROM_HEIGHT
       - FALLING_OBJECT
+      - CAUGHT_BETWEEN
+      - STRUCK_BY_EQUIPMENT
+      - FORMWORK_COLLAPSE
     required_documents:
       - RA-001
       - RA-004
-    recommended_documents:
+      - WP-006
       - ED-003
-      - WP-015
+    recommended_documents:
+      - PTW-003
       - CL-002
+      - CL-003
+      - EQ-009
     required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
       - EDU_TBM
-    required_permits: []
-    common_equipment: []
+    required_permits:
+      - PTW-003
+    common_equipment:
+      - concrete_pump_truck
+      - ready_mix_truck
+      - vibrator
+      - aerial_work_platform
     ppe:
       - safety_helmet
       - safety_harness
-      - safety_shoes
-    source_status: NEEDS_VERIFICATION
-    notes: skeleton — 상세 데이터 입력 필요
+      - safety_boots_concrete
+      - safety_gloves
+      - safety_goggles
+    source_status: PARTIAL_VERIFIED
+    legal_basis:
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제38조 제1항 제7호 (콘크리트펌프카 작업계획서)"
+        obligation: document_required
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제328조~제337조 (거푸집·동바리 설치·해체)"
+        obligation: installation_inspection_required
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제341조~제344조 (콘크리트 타설 중 붕괴방지)"
+        obligation: inspection_required
+    notes: >
+      콘크리트펌프카 사용 시 WP-006(또는 별도 EQ 계획서) 필수(산안규칙 제38조 제1항 제7호).
+      거푸집·동바리 설치 완료 후 CL-002 점검 의무(제328조).
+      타설 중 동바리 침하·이탈 감시자 배치 권장.
 
   - trade_id: ARCH_MASONRY_WORK
     trade_name: 조적 작업
     trade_group: 건축
-    description: 벽돌·블록 조적 작업
+    description: >
+      벽돌·블록·ALC·경량블록 조적 작업.
+      족장(비계) 위 고소 작업, 중량 자재 적재 포함.
     enabled: true
     priority: 2
     default_hazards:
       - FALL_FROM_HEIGHT
       - FALLING_OBJECT
+      - STRUCK_BY_OBJECT
+      - OVEREXERTION
     required_documents:
       - RA-001
       - RA-004
-    recommended_documents:
       - ED-003
-    required_trainings:
-      - EDU_TBM
-    required_permits: []
-    common_equipment: []
-    ppe:
-      - safety_helmet
-      - safety_shoes
-    source_status: NEEDS_VERIFICATION
-    notes: skeleton — 상세 데이터 입력 필요
-
-  - trade_id: ARCH_FINISHING_WORK
-    trade_name: 마감 작업
-    trade_group: 건축
-    description: 바닥·벽·천장 타일·도장·미장·유리 마감 작업
-    enabled: true
-    priority: 2
-    default_hazards:
-      - FALL_FROM_HEIGHT
-      - CHEMICAL_EXPOSURE
-    required_documents:
-      - RA-001
-      - RA-004
     recommended_documents:
-      - ED-003
+      - WP-005
+      - PTW-003
+      - CL-001
     required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
       - EDU_TBM
-    required_permits: []
-    common_equipment: []
-    ppe:
-      - safety_helmet
-      - safety_shoes
-    source_status: NEEDS_VERIFICATION
-    notes: skeleton — 상세 데이터 입력 필요
-
-  - trade_id: ARCH_INTERIOR_WORK
-    trade_name: 인테리어 작업
-    trade_group: 건축
-    description: 경량철골·석고보드·천장재 설치 및 인테리어 마감 작업
-    enabled: true
-    priority: 3
-    default_hazards:
-      - FALL_FROM_HEIGHT
-      - CUT_GRINDING
-    required_documents:
-      - RA-001
-      - RA-004
-    recommended_documents:
-      - ED-003
-    required_trainings:
-      - EDU_TBM
-    required_permits: []
-    common_equipment: []
-    ppe:
-      - safety_helmet
-      - safety_shoes
-    source_status: NEEDS_VERIFICATION
-    notes: skeleton — 상세 데이터 입력 필요
-
-  - trade_id: ARCH_REBAR_WORK
-    trade_name: 철근 조립 작업
-    trade_group: 건축
-    description: 기초·슬래브·벽체 철근 가공·조립 작업
-    enabled: true
-    priority: 1
-    default_hazards:
-      - FALL_FROM_HEIGHT
-      - CUT_GRINDING
-      - FALLING_OBJECT
-    required_documents:
-      - RA-001
-      - RA-004
-    recommended_documents:
-      - ED-003
-    required_trainings:
-      - EDU_TBM
-    required_permits: []
-    common_equipment: []
+    required_permits:
+      - PTW-003
+    common_equipment:
+      - scaffolding
+      - material_hoist
     ppe:
       - safety_helmet
       - safety_harness
       - safety_gloves
       - safety_shoes
-    source_status: NEEDS_VERIFICATION
-    notes: skeleton — 상세 데이터 입력 필요
+    source_status: PARTIAL_VERIFIED
+    legal_basis:
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제57조~제68조 (비계 설치·점검)"
+        obligation: installation_inspection_required
+    notes: >
+      2m 이상 비계 사용 시 WP-005(비계 작업계획서) 작성 권장.
+      비계 설치 후 CL-001 점검 의무(산안규칙 제57조).
+      조적재 낙하 방지망 또는 수직보호망 설치 필요.
+
+  - trade_id: ARCH_FINISHING_WORK
+    trade_name: 마감 작업
+    trade_group: 건축
+    description: >
+      바닥·벽·천장 타일·도장·미장·유리·석재 마감 작업.
+      화학물질(희석제·접착제·도료) 사용, 고소 작업 포함.
+    enabled: true
+    priority: 2
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - CHEMICAL_EXPOSURE
+      - FALLING_OBJECT
+      - CUT_GRINDING
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-003
+      - PPE-004
+      - CL-003
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-003
+    common_equipment:
+      - mobile_scaffold
+      - angle_grinder
+      - aerial_work_platform
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - chemical_resistant_gloves
+      - dust_mask
+      - safety_goggles
+      - safety_shoes
+    source_status: PARTIAL_VERIFIED
+    legal_basis:
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제420조~제445조 (화학물질 취급)"
+        obligation: document_required
+    notes: >
+      도료·접착제 등 화학물질 사용 시 MSDS 비치 및 PPE-004 작성 필요.
+      유리 설치 시 파편 낙하 방지 조치 필요.
+      천장 마감 고소작업 시 PTW-003 발급.
+
+  - trade_id: ARCH_INTERIOR_WORK
+    trade_name: 인테리어 작업
+    trade_group: 건축
+    description: >
+      경량철골(LGS)·석고보드·천장재·도어 설치 및 인테리어 마감 작업.
+      협소 공간 내 전동공구 사용, 고소 작업 포함.
+    enabled: true
+    priority: 3
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - CUT_GRINDING
+      - ELECTRIC_SHOCK
+      - FALLING_OBJECT
+    required_documents:
+      - RA-001
+      - RA-004
+    recommended_documents:
+      - ED-003
+      - PTW-003
+      - PTW-004
+    required_trainings:
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-003
+    common_equipment:
+      - mobile_scaffold
+      - power_drill
+      - angle_grinder
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - cut_resistant_gloves
+      - dust_mask
+      - safety_shoes
+    source_status: PARTIAL_VERIFIED
+    legal_basis:
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제57조~제68조 (비계 설치·점검)"
+        obligation: inspection_required
+    notes: >
+      이동식비계(모바일스캐폴드) 사용 시 제조사 지침 준수 필요.
+      석고보드 절단 시 분진 발생 — 방진마스크 착용 의무.
+
+  - trade_id: ARCH_REBAR_WORK
+    trade_name: 철근 조립 작업
+    trade_group: 건축
+    description: >
+      기초·슬래브·기둥·벽체 철근 가공·조립·결속 작업.
+      고소 작업(슬래브 위), 중량 자재 인양, 철근 절단 포함.
+    enabled: true
+    priority: 1
+    default_hazards:
+      - FALL_FROM_HEIGHT
+      - CUT_GRINDING
+      - FALLING_OBJECT
+      - HEAVY_LIFTING
+      - STRUCK_BY_EQUIPMENT
+    required_documents:
+      - RA-001
+      - RA-004
+      - ED-003
+    recommended_documents:
+      - PTW-003
+      - PTW-007
+      - CL-003
+    required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
+      - EDU_TBM
+    required_permits:
+      - PTW-003
+    common_equipment:
+      - tower_crane
+      - rebar_cutter
+      - rebar_bender
+      - aerial_work_platform
+    ppe:
+      - safety_helmet
+      - safety_harness
+      - cut_resistant_gloves
+      - safety_shoes
+    source_status: PARTIAL_VERIFIED
+    legal_basis:
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제38조 제1항 제1호 (타워크레인 작업계획서)"
+        obligation: document_required
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제142조~제148조 (타워크레인 점검·안전조치)"
+        obligation: inspection_required
+    notes: >
+      타워크레인 인양 시 PTW-007(중량물 인양 허가서) 발급 및 신호수 배치 필요.
+      철근 절단면 날카로움 — 절단 저항 장갑 착용 필수.
+      슬래브 개구부 근접 작업 시 안전난간 또는 안전덮개 설치 필요.

@@ -65,8 +65,10 @@ collect_ready_existing_script:
     official_name_confirmed: true
     blocked_by: null
     duplicate_check_required: false
-    enabled: true
-    notes: "MST=259473. collect_missing_laws.py에 정의됨."
+    enabled: false
+    collected_at: "2026-04-26"
+    collection_result: COLLECTED_PARTIAL
+    notes: "2026-04-26 원문 수집 완료. 71조문, 별표 없음. raw→fire_facility_business_act_259473.json. evidence 미생성 → PARTIAL."
 
   - queue_id: Q-005
     source_code: NFA_FIRE_FACILITY_BUSINESS_DECREE
@@ -78,8 +80,10 @@ collect_ready_existing_script:
     official_name_confirmed: true
     blocked_by: Q-004
     duplicate_check_required: false
-    enabled: true
-    notes: "Q-004 수집 완료 후 실행."
+    enabled: false
+    collected_at: "2026-04-26"
+    collection_result: COLLECTED_PARTIAL
+    notes: "2026-04-26 원문 수집 완료. 43조문, 별표 6개. raw→fire_facility_business_decree_284779.json. evidence 미생성 → PARTIAL."
 
   - queue_id: Q-006
     source_code: NFA_FIRE_FACILITY_BUSINESS_RULE
@@ -91,8 +95,10 @@ collect_ready_existing_script:
     official_name_confirmed: true
     blocked_by: Q-004
     duplicate_check_required: false
-    enabled: true
-    notes: "Q-004 수집 완료 후 실행."
+    enabled: false
+    collected_at: "2026-04-26"
+    collection_result: COLLECTED_PARTIAL
+    notes: "2026-04-26 원문 수집 완료. 60조문, 별표/서식 68개. raw→fire_facility_business_rule_282735.json. evidence 미생성 → PARTIAL."
 
 # ──────────────────────────────────────────────────────
 # GROUP C: law.go.kr DRF API 신규 수집
@@ -107,12 +113,14 @@ collect_ready_law_api:
     priority: P0
     script_name: scripts/collect/law_statutes.py
     api_type: law_go_kr_drf
-    mst: null
+    mst: 284771
     official_name_confirmed: true
     blocked_by: null
     duplicate_check_required: false
-    enabled: true
-    notes: "MST 미확인. law.go.kr에서 '산업안전보건법 시행령' 검색 후 MST 확보 → 수집."
+    enabled: false
+    collected_at: "2026-04-26"
+    collection_result: COLLECTED_PARTIAL
+    notes: "2026-04-26 원문 수집 완료. 135조문, 별표 35개(안전관리자 선임/특별교육/안전검사 주기 등). raw→osh_act_enforcement_decree_284771.json."
 
   - queue_id: Q-008
     source_code: MOLIT_CONSTRUCTION_TECH_PROMOTION_ACT
@@ -120,12 +128,14 @@ collect_ready_law_api:
     priority: P1
     script_name: scripts/collect/law_statutes.py
     api_type: law_go_kr_drf
-    mst: null
+    mst: 276921
     official_name_confirmed: true
     blocked_by: null
     duplicate_check_required: false
-    enabled: true
-    notes: "MST 미확인. law.go.kr에서 '건설기술진흥법' 검색 후 MST 확보 → 수집."
+    enabled: false
+    collected_at: "2026-04-26"
+    collection_result: COLLECTED_PARTIAL
+    notes: "2026-04-26 원문 수집 완료. 128조문, 별표 없음. raw→construction_tech_promotion_act_276921.json."
 
   - queue_id: Q-009
     source_code: MOLIT_CONSTRUCTION_TECH_PROMOTION_DECREE
@@ -133,12 +143,14 @@ collect_ready_law_api:
     priority: P2
     script_name: scripts/collect/law_statutes.py
     api_type: law_go_kr_drf
-    mst: null
+    mst: 283649
     official_name_confirmed: true
     blocked_by: Q-008
     duplicate_check_required: false
     enabled: false
-    notes: "Q-008 수집 완료 후 활성화."
+    collected_at: "2026-04-26"
+    collection_result: COLLECTED_PARTIAL
+    notes: "2026-04-26 원문 수집 완료. 165조문, 별표 12개. raw→construction_tech_promotion_decree_283649.json."
 
   - queue_id: Q-010
     source_code: MOLIT_CONSTRUCTION_TECH_PROMOTION_RULE
@@ -146,12 +158,14 @@ collect_ready_law_api:
     priority: P2
     script_name: scripts/collect/law_statutes.py
     api_type: law_go_kr_drf
-    mst: null
+    mst: 279455
     official_name_confirmed: true
     blocked_by: Q-008
     duplicate_check_required: false
     enabled: false
-    notes: "Q-008 수집 완료 후 활성화."
+    collected_at: "2026-04-26"
+    collection_result: COLLECTED_PARTIAL
+    notes: "2026-04-26 원문 수집 완료. 82조문, 별표/서식 69개(산안관리비 별표8 포함). raw→construction_tech_promotion_rule_279455.json."
 
   - queue_id: Q-011
     source_code: MOTIE_ELECTRIC_CONSTRUCTION_BUSINESS_ACT
@@ -159,15 +173,14 @@ collect_ready_law_api:
     priority: P1
     script_name: scripts/collect/law_statutes.py
     api_type: law_go_kr_drf
-    mst: null
+    mst: 271253
     official_name_confirmed: true
     blocked_by: null
     duplicate_check_required: false
-    enabled: true
-    notes: |
-      명칭 확인 완료(2026-04-26): '전기공사업법'(전기공사 도급·시공 면허)이 맞음.
-      '전기안전관리법'(전기시설 안전검사·관리)과 별개 법령. CC-003에서 참조하는 공종은 전기공사업법 해당.
-      MST 미확인 → law.go.kr에서 '전기공사업법' 검색 후 MST 확보 → 수집.
+    enabled: false
+    collected_at: "2026-04-26"
+    collection_result: COLLECTED_PARTIAL
+    notes: "2026-04-26 원문 수집 완료. 63조문, 별표 없음. 전기공사 면허·시공·도급 근거. raw→electric_construction_business_act_271253.json."
 
   - queue_id: Q-012
     source_code: MSIT_TELECOM_CONSTRUCTION_BUSINESS_ACT
@@ -175,12 +188,14 @@ collect_ready_law_api:
     priority: P2
     script_name: scripts/collect/law_statutes.py
     api_type: law_go_kr_drf
-    mst: null
+    mst: 268833
     official_name_confirmed: true
     blocked_by: null
     duplicate_check_required: false
-    enabled: true
-    notes: "MST 미확인. law.go.kr에서 '정보통신공사업법' 검색 후 MST 확보 → 수집."
+    enabled: false
+    collected_at: "2026-04-26"
+    collection_result: COLLECTED_PARTIAL
+    notes: "2026-04-26 원문 수집 완료. 108조문, 별표 없음. 정보통신공사 면허·감리원 배치 근거. raw→telecom_construction_business_act_268833.json."
 
   - queue_id: Q-013
     source_code: MOEL_CONSTRUCTION_SAFETY_HEALTH_COST_STANDARD
@@ -189,11 +204,14 @@ collect_ready_law_api:
     script_name: scripts/collect/law_statutes.py
     api_type: law_go_kr_drf
     mst: null
+    admrul_id: "2100000254546"
     official_name_confirmed: true
     blocked_by: null
     duplicate_check_required: false
-    enabled: true
-    notes: "고용노동부고시 제2025-11호, 시행 2025.2.12. MST 조회 후 law_statutes.py로 수집."
+    enabled: false
+    collected_at: "2026-04-26"
+    collection_result: COLLECTED_PARTIAL
+    notes: "2026-04-26 XML 수집 완료. 고용노동부 고시 제2025-11호. 38개 고유 조번호. admrul API 사용. raw→safety_health_cost_standard_2100000254546.json."
 
   - queue_id: Q-014
     source_code: MOLIT_CONSTRUCTION_SAFETY_MANAGEMENT_GUIDELINE
@@ -202,11 +220,14 @@ collect_ready_law_api:
     script_name: scripts/collect/law_statutes.py
     api_type: law_go_kr_drf
     mst: null
+    admrul_id: "2100000216960"
     official_name_confirmed: true
     blocked_by: null
     duplicate_check_required: false
-    enabled: true
-    notes: "국토교통부고시 제2022-791호, 시행 2023.1.1. MST 조회 후 law_statutes.py로 수집."
+    enabled: false
+    collected_at: "2026-04-26"
+    collection_result: COLLECTED_PARTIAL
+    notes: "2026-04-26 XML 수집 완료. 국토교통부 고시 제2022-791호. 95개 고유 조번호. admrul API 사용. raw→construction_safety_management_guideline_2100000216960.json."
 
 # ──────────────────────────────────────────────────────
 # GROUP E: 전용 커넥터 개발 후 수집

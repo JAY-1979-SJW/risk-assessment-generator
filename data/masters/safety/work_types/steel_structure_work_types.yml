@@ -1,21 +1,24 @@
-# 철골 공종 프리셋 — skeleton
-# 버전: 0.1 (skeleton)
-# 작성일: 2026-04-25
+# 철골 공종 프리셋
+# 버전: 1.0
+# 작성일: 2026-04-26 (skeleton 0.1 → 1.0 상세 데이터 입력)
+# source_status: PARTIAL_VERIFIED (산안규칙 원문 확인)
+# 법령 근거: 산업안전보건기준에 관한 규칙 제382조~제398조 (철골 조립) (COLLECTED_VERIFIED)
 
 _meta:
-  version: "0.1"
+  version: "1.0"
   trade_group: 철골
-  status: SKELETON
+  status: PARTIAL_VERIFIED
   total: 4
-  last_updated: "2026-04-25"
-  note: 철골 공종 상세 데이터는 다음 단계에서 작성.
+  last_updated: "2026-04-26"
 
 trades:
 
   - trade_id: STEEL_ERECTION
     trade_name: 철골 세우기 작업
     trade_group: 철골
-    description: 기둥·보·브레이싱 등 철골 구조재 세우기 및 인양 작업
+    description: >
+      기둥·보·브레이싱·트러스 등 철골 구조재 세우기·인양 작업.
+      타워크레인 또는 이동식크레인 사용, 고소 작업 및 중량물 인양 병행.
     enabled: true
     priority: 1
     default_hazards:
@@ -23,60 +26,105 @@ trades:
       - HEAVY_LIFTING
       - FALLING_OBJECT
       - STRUCK_BY_EQUIPMENT
+      - CAUGHT_BETWEEN
     required_documents:
       - RA-001
       - RA-004
-    recommended_documents:
-      - ED-003
       - WP-007
+      - ED-003
+    recommended_documents:
       - PTW-003
       - PTW-007
+      - CL-003
+      - EQ-007
     required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
       - EDU_TBM
     required_permits:
       - PTW-003
       - PTW-007
-    common_equipment: []
+    common_equipment:
+      - tower_crane
+      - mobile_crane
+      - man_basket
     ppe:
       - safety_helmet
       - safety_harness
       - safety_gloves
       - safety_shoes
-    source_status: NEEDS_VERIFICATION
-    notes: skeleton — 상세 데이터 입력 필요
+      - high_visibility_vest
+    source_status: PARTIAL_VERIFIED
+    legal_basis:
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제382조~제392조 (철골 조립 시 안전조치)"
+        obligation: inspection_required
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제38조 제1항 제1호·제2호 (크레인·이동식크레인 작업계획서)"
+        obligation: document_required
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제142조~제148조 (크레인 점검·안전조치)"
+        obligation: inspection_required
+    notes: >
+      철골 세우기 작업 시 작업지휘자 선임 필수(산안규칙 제382조).
+      강풍(10m/s 이상) 시 작업 중지 의무(제384조).
+      인양 시 줄걸이 전문 자격자 배치 및 PTW-007 발급 필요.
+      2m 이상 고소작업 시 안전대 부착설비 설치(제42조).
+      볼트 조임 전 임시 고정 와이어로프 또는 클램프 사용 필수.
 
   - trade_id: STEEL_BOLTING
     trade_name: 철골 볼트 조임 작업
     trade_group: 철골
-    description: 고력볼트(TS볼트·HTB볼트) 조임 및 검사 작업
+    description: >
+      고력볼트(TS볼트·HTB볼트) 조임 및 마킹 검사 작업.
+      철골 세우기 완료 후 고소 위치에서 수행. 토크관리 필요.
     enabled: true
     priority: 1
     default_hazards:
       - FALL_FROM_HEIGHT
       - FALLING_OBJECT
+      - TOOL_DROP
     required_documents:
       - RA-001
       - RA-004
-    recommended_documents:
       - ED-003
+    recommended_documents:
       - PTW-003
+      - CL-003
     required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
       - EDU_TBM
     required_permits:
       - PTW-003
-    common_equipment: []
+    common_equipment:
+      - impact_wrench
+      - torque_wrench
+      - man_basket
     ppe:
       - safety_helmet
       - safety_harness
       - safety_gloves
       - safety_shoes
-    source_status: NEEDS_VERIFICATION
-    notes: skeleton — 상세 데이터 입력 필요
+    source_status: PARTIAL_VERIFIED
+    legal_basis:
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제42조~제44조 (개인보호구 지급·착용)"
+        obligation: inspection_required
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제382조~제392조 (철골 조립 작업)"
+        obligation: inspection_required
+    notes: >
+      볼트·너트·와셔 고소 이동 시 공구낙하 방지 조치 필수(공구낙하 방지끈 또는 용기).
+      고소에서 전동공구 사용 시 감전 방지 및 고정 주의.
+      토크관리: 1차 조임 → 마킹 → 본 조임 순서 준수.
 
   - trade_id: STEEL_WELDING
     trade_name: 철골 용접 작업
     trade_group: 철골
-    description: 철골 본 용접·보조 용접 및 현장 용접 작업
+    description: >
+      철골 본 용접(완전용입·부분용입)·보조 용접 및 현장 용접 작업.
+      고소 작업 및 화기작업 병행. 용접흄·자외선 발생.
     enabled: true
     priority: 1
     default_hazards:
@@ -84,54 +132,97 @@ trades:
       - HOT_WORK_FIRE
       - ARC_FLASH
       - FALLING_OBJECT
+      - CHEMICAL_EXPOSURE
+      - ELECTRIC_SHOCK
     required_documents:
       - RA-001
       - RA-004
       - PTW-002
-    recommended_documents:
       - ED-003
+    recommended_documents:
       - PTW-003
       - EQ-014
+      - PPE-004
+      - CL-003
     required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
       - EDU_TBM
     required_permits:
       - PTW-002
       - PTW-003
-    common_equipment: []
+    common_equipment:
+      - welding_machine
+      - welding_wire_feeder
+      - man_basket
+      - fire_extinguisher
     ppe:
       - safety_helmet
       - safety_harness
       - welding_face_shield
       - welding_gloves
+      - welding_jacket
       - safety_shoes
-    source_status: NEEDS_VERIFICATION
-    notes: skeleton — 상세 데이터 입력 필요
+    source_status: PARTIAL_VERIFIED
+    legal_basis:
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제241조~제245조 (용접·용단 화재 방지)"
+        obligation: permit_required
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제42조~제44조 (개인보호구 지급·착용)"
+        obligation: inspection_required
+    notes: >
+      화기작업 허가서(PTW-002) 필수 발급(소방시설공사업법 및 현장 자체 기준).
+      용접 시 화재감시자 배치 및 소화기 비치 필수(산안규칙 제241조~제245조).
+      고소 용접 시 불꽃 비산 방지막(불꽃받이) 설치 권장.
+      용접흄 발생 — 방진마스크(1급 이상) 착용 의무.
 
   - trade_id: STEEL_DECKING
     trade_name: 데크플레이트 설치
     trade_group: 철골
-    description: 합성데크·거푸집데크 설치 및 스터드볼트 용접 작업
+    description: >
+      합성데크·거푸집데크 설치 및 스터드볼트 용접 작업.
+      철골 위 고소 작업, 개구부 낙하 위험, 절단 위험.
     enabled: true
     priority: 2
     default_hazards:
       - FALL_FROM_HEIGHT
       - CUT_GRINDING
       - FALLING_OBJECT
+      - HOT_WORK_FIRE
     required_documents:
       - RA-001
       - RA-004
-    recommended_documents:
       - ED-003
+    recommended_documents:
       - PTW-003
+      - PTW-002
+      - CL-003
     required_trainings:
+      - EDU_SPECIAL_16H
+      - EDU_CONSTRUCTION_BASIC
       - EDU_TBM
     required_permits:
       - PTW-003
-    common_equipment: []
+    common_equipment:
+      - stud_welder
+      - angle_grinder
+      - sheet_metal_cutter
     ppe:
       - safety_helmet
       - safety_harness
       - cut_resistant_gloves
       - safety_shoes
-    source_status: NEEDS_VERIFICATION
-    notes: skeleton — 상세 데이터 입력 필요
+      - welding_face_shield
+    source_status: PARTIAL_VERIFIED
+    legal_basis:
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제382조~제392조 (철골 조립 작업)"
+        obligation: inspection_required
+      - source: MOEL_OSH_STANDARD_RULE
+        clause: "제14조 (개구부 안전조치)"
+        obligation: inspection_required
+    notes: >
+      데크 설치 후 개구부(콘크리트 타설 전 슬래브 개구부) 덮개 또는 안전난간 설치 필수.
+      스터드볼트 용접 시 PTW-002 발급 및 화재감시자 배치.
+      철판 절단 시 절단면 날카로움 — 절단 저항 장갑 착용 필수.
