@@ -430,10 +430,10 @@ sources:
   source_type: ACCIDENT_DATA
   source_domain: ACCIDENT
   source_authority: KALIS
-  collection_status: COLLECTED_PARTIAL
+  collection_status: COLLECTED_VERIFIED
   collection_action: COLLECT_BY_EXISTING_SCRIPT
   priority: P3
-  collected_evidence_count: 20
+  collected_evidence_count: 18340
   duplicate_collection_risk: false
   existing_script: scripts/collect/kalis_csi_scraper.py
   law_mst: null
@@ -443,6 +443,7 @@ sources:
   notes: >
     POST 페이지네이션, 서버사이드 렌더링 HTML 파싱. 총 36,681건.
     응답 느림 (timeout=60s). --max-pages 없으면 전체 수집.
+    2026-04-26 수집 완료: 18,340건 (1835페이지 중 1페이지 실패, 10건 미수집).
   enabled: false
 - source_code: MOEL_CONSTRUCTION_SAFETY_HEALTH_COST_STANDARD
   official_name: 건설업 산업안전보건관리비 계상 및 사용기준
