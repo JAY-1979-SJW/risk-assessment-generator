@@ -29,7 +29,7 @@ ALLOWED_COLLECTION_ACTION = {
 }
 
 # 원래 22개 source 후보에서 23개로 확장. 2026-04-26 전기·화학·가스·통신 13건 추가 → 36개.
-EXPECTED_SOURCE_COUNT = 36
+EXPECTED_SOURCE_COUNT = 44
 
 ERRORS: list[str] = []
 WARNINGS: list[str] = []
@@ -73,7 +73,7 @@ def validate_registry(data: dict) -> list[dict]:
     if len(seen) == len(codes):
         ok(f"source_code 중복 없음 (총 {len(codes)}개)")
 
-    print("\n=== [3] source 수 확인 (기대: 36개) ===")
+    print("\n=== [3] source 수 확인 (기대: 44개) ===")
     if len(sources) == EXPECTED_SOURCE_COUNT:
         ok(f"source 수 일치: {len(sources)}개")
     else:

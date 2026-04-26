@@ -21,10 +21,13 @@ sources:
     collected_evidence_count: 8
     duplicate_collection_risk: true
     existing_script: scripts/collect/law_statutes.py
-    law_mst: null
+    law_mst: 276853
+    law_id: "001766"
     source_url: https://www.law.go.kr/법령/산업안전보건법
-    effective_date: "2024-01-01"
-    notes: "핵심 수집 완료. 제29·31·32·36·93·125·130조 evidence 확보. 재수집 금지."
+    effective_date: "2025-10-01"
+    raw_path: data/raw/law_content/law/2026-04-26/law_content.jsonl
+    article_count: 208
+    notes: "핵심 수집 완료. 제29·31·32·36·93·125·130조 evidence 확보. 재수집 금지. MST=276853(law_content.jsonl 수록 확인)."
     enabled: true
 
   - source_code: MOEL_OSH_ACT_ENFORCEMENT_RULE
@@ -39,10 +42,13 @@ sources:
     collected_evidence_count: 6
     duplicate_collection_risk: true
     existing_script: scripts/collect/law_statutes.py
-    law_mst: 273603
+    law_mst: 271485
+    law_id: "007364"
     source_url: https://www.law.go.kr/법령/산업안전보건법시행규칙
-    effective_date: "2026-03-02"
-    notes: "MST 273603. 제26·37조, 별표4·5(교육시간·내용, 특별교육 대상) evidence 포함. 재수집 금지."
+    effective_date: "2025-06-01"
+    raw_path: data/raw/law_content/law/2026-04-26/law_content.jsonl
+    article_count: 272
+    notes: "MST 271485(시행규칙). 제26·37조, 별표4·5(교육시간·내용, 특별교육 대상) evidence 포함. 재수집 금지. law_content.jsonl 수록 확인."
     enabled: true
 
   - source_code: MOEL_OSH_STANDARD_RULE
@@ -799,4 +805,184 @@ sources:
     raw_path: data/raw/law_content/law/2026-04-26/law_content.jsonl
     article_count: 12
     notes: "2026-04-26 원문 수집 완료(law_content.jsonl 통합 저장, raw_id=272931). 12개 조문. evidence 파일 미생성 → COLLECTED_PARTIAL."
+    enabled: true
+
+  # ──────────────────────────────────────────────
+  # COLLECTED_PARTIAL — 추가 등록 (통신사업·전기사업·제품안전)
+  # ──────────────────────────────────────────────
+
+  - source_code: MSIT_TELECOM_BUSINESS_ACT
+    official_name: 전기통신사업법
+    display_name: 전기통신사업법
+    source_type: LAW
+    source_domain: TELECOM
+    source_authority: MSIT
+    collection_status: COLLECTED_PARTIAL
+    collection_action: COLLECT_BY_EXISTING_SCRIPT
+    priority: P3
+    collected_evidence_count: 0
+    duplicate_collection_risk: false
+    existing_script: scripts/collect/law_statutes.py
+    law_mst: 276243
+    law_id: "001733"
+    source_url: https://www.law.go.kr/법령/전기통신사업법
+    effective_date: "2026-01-02"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/law_content.jsonl
+    article_count: 176
+    notes: "2026-04-26 원문 수집 완료(law_content.jsonl 통합 저장, raw_id=276243). 176개 조문. evidence 파일 미생성 → COLLECTED_PARTIAL."
+    enabled: true
+
+  - source_code: MSIT_TELECOM_BUSINESS_DECREE
+    official_name: 전기통신사업법 시행령
+    display_name: 전기통신사업법 시행령
+    source_type: ENFORCEMENT_DECREE
+    source_domain: TELECOM
+    source_authority: MSIT
+    collection_status: COLLECTED_PARTIAL
+    collection_action: COLLECT_BY_EXISTING_SCRIPT
+    priority: P3
+    collected_evidence_count: 0
+    duplicate_collection_risk: false
+    existing_script: scripts/collect/law_statutes.py
+    law_mst: 284847
+    law_id: "004708"
+    source_url: https://www.law.go.kr/법령/전기통신사업법시행령
+    effective_date: "2026-03-24"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/law_content.jsonl
+    article_count: 148
+    notes: "2026-04-26 원문 수집 완료(law_content.jsonl 통합 저장, raw_id=284847). 148개 조문. evidence 파일 미생성 → COLLECTED_PARTIAL."
+    enabled: true
+
+  - source_code: MOEF_ELECTRIC_BUSINESS_ACT
+    official_name: 전기사업법
+    display_name: 전기사업법
+    source_type: LAW
+    source_domain: ELECTRIC
+    source_authority: MOEF
+    collection_status: COLLECTED_PARTIAL
+    collection_action: COLLECT_BY_EXISTING_SCRIPT
+    priority: P2
+    collected_evidence_count: 0
+    duplicate_collection_risk: false
+    existing_script: scripts/collect/law_statutes.py
+    law_mst: 283981
+    law_id: "001854"
+    source_url: https://www.law.go.kr/법령/전기사업법
+    effective_date: "2026-03-10"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/law_content.jsonl
+    article_count: 158
+    notes: "2026-04-26 원문 수집 완료(law_content.jsonl 통합 저장, raw_id=283981). 158개 조문. evidence 파일 미생성 → COLLECTED_PARTIAL."
+    enabled: true
+
+  - source_code: MOEF_ELECTRIC_BUSINESS_DECREE
+    official_name: 전기사업법 시행령
+    display_name: 전기사업법 시행령
+    source_type: ENFORCEMENT_DECREE
+    source_domain: ELECTRIC
+    source_authority: MOEF
+    collection_status: COLLECTED_PARTIAL
+    collection_action: COLLECT_BY_EXISTING_SCRIPT
+    priority: P2
+    collected_evidence_count: 0
+    duplicate_collection_risk: false
+    existing_script: scripts/collect/law_statutes.py
+    law_mst: 281207
+    law_id: "004692"
+    source_url: https://www.law.go.kr/법령/전기사업법시행령
+    effective_date: "2026-01-02"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/law_content.jsonl
+    article_count: 110
+    notes: "2026-04-26 원문 수집 완료(law_content.jsonl 통합 저장, raw_id=281207). 110개 조문. evidence 파일 미생성 → COLLECTED_PARTIAL."
+    enabled: true
+
+  - source_code: MOEF_ELECTRIC_BUSINESS_RULE
+    official_name: 전기사업법 시행규칙
+    display_name: 전기사업법 시행규칙
+    source_type: ENFORCEMENT_RULE
+    source_domain: ELECTRIC
+    source_authority: MOEF
+    collection_status: COLLECTED_PARTIAL
+    collection_action: COLLECT_BY_EXISTING_SCRIPT
+    priority: P2
+    collected_evidence_count: 0
+    duplicate_collection_risk: false
+    existing_script: scripts/collect/law_statutes.py
+    law_mst: 278987
+    law_id: "008038"
+    source_url: https://www.law.go.kr/법령/전기사업법시행규칙
+    effective_date: "2025-10-01"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/law_content.jsonl
+    article_count: 84
+    notes: "2026-04-26 원문 수집 완료(law_content.jsonl 통합 저장, raw_id=278987). 84개 조문. evidence 파일 미생성 → COLLECTED_PARTIAL."
+    enabled: true
+
+  - source_code: MOTIE_ELECTRIC_PRODUCT_SAFETY_ACT
+    official_name: 전기용품 및 생활용품 안전관리법
+    display_name: 전기용품 및 생활용품 안전관리법
+    source_type: LAW
+    source_domain: PRODUCT_SAFETY
+    source_authority: MOTIE
+    collection_status: COLLECTED_PARTIAL
+    collection_action: COLLECT_BY_EXISTING_SCRIPT
+    priority: P3
+    collected_evidence_count: 0
+    duplicate_collection_risk: false
+    existing_script: scripts/collect/law_statutes.py
+    law_mst: 276591
+    law_id: "001459"
+    source_url: https://www.law.go.kr/법령/전기용품및생활용품안전관리법
+    effective_date: "2025-10-01"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/law_content.jsonl
+    article_count: 69
+    notes: "2026-04-26 원문 수집 완료(law_content.jsonl 통합 저장, raw_id=276591). 69개 조문. evidence 파일 미생성 → COLLECTED_PARTIAL."
+    enabled: true
+
+  - source_code: MOTIE_ELECTRIC_PRODUCT_SAFETY_DECREE
+    official_name: 전기용품 및 생활용품 안전관리법 시행령
+    display_name: 전기용품 및 생활용품 안전관리법 시행령
+    source_type: ENFORCEMENT_DECREE
+    source_domain: PRODUCT_SAFETY
+    source_authority: MOTIE
+    collection_status: COLLECTED_PARTIAL
+    collection_action: COLLECT_BY_EXISTING_SCRIPT
+    priority: P3
+    collected_evidence_count: 0
+    duplicate_collection_risk: false
+    existing_script: scripts/collect/law_statutes.py
+    law_mst: 282997
+    law_id: "004698"
+    source_url: https://www.law.go.kr/법령/전기용품및생활용품안전관리법시행령
+    effective_date: "2026-02-01"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/law_content.jsonl
+    article_count: 29
+    notes: "2026-04-26 원문 수집 완료(law_content.jsonl 통합 저장, raw_id=282997). 29개 조문. evidence 파일 미생성 → COLLECTED_PARTIAL."
+    enabled: true
+
+  - source_code: MOTIE_ELECTRIC_PRODUCT_SAFETY_RULE
+    official_name: 전기용품 및 생활용품 안전관리법 시행규칙
+    display_name: 전기용품 및 생활용품 안전관리법 시행규칙
+    source_type: ENFORCEMENT_RULE
+    source_domain: PRODUCT_SAFETY
+    source_authority: MOTIE
+    collection_status: COLLECTED_PARTIAL
+    collection_action: COLLECT_BY_EXISTING_SCRIPT
+    priority: P3
+    collected_evidence_count: 0
+    duplicate_collection_risk: false
+    existing_script: scripts/collect/law_statutes.py
+    law_mst: 285265
+    law_id: "008044"
+    source_url: https://www.law.go.kr/법령/전기용품및생활용품안전관리법시행규칙
+    effective_date: "2026-04-01"
+    raw_collected_at: "2026-04-26"
+    raw_path: data/raw/law_content/law/2026-04-26/law_content.jsonl
+    article_count: 79
+    notes: "2026-04-26 원문 수집 완료(law_content.jsonl 통합 저장, raw_id=285265). 79개 조문. evidence 파일 미생성 → COLLECTED_PARTIAL."
     enabled: true
