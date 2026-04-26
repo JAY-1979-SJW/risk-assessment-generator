@@ -1,11 +1,12 @@
 # legal_collection_queue.yml
 # 수집 대기 queue — 미수집 법령 수집 실행 순서 관리
-# 작성: 2026-04-26
+# 작성: 2026-04-26 | 보정: 2026-04-26 (Q-013/Q-014 law_api 그룹 이동, Q-011 명칭 확인)
 # 규칙: COLLECTED_VERIFIED source는 이 파일에 등록하지 않는다.
 
 # ──────────────────────────────────────────────────────
-# GROUP 1: 기존 스크립트로 즉시 수집 가능
+# GROUP B: 기존 스크립트로 즉시 수집 가능
 # collection_action: COLLECT_BY_EXISTING_SCRIPT
+# 실행: python scripts/collect/law_statutes.py 또는 collect_missing_laws.py
 # ──────────────────────────────────────────────────────
 collect_ready_existing_script:
 
@@ -46,7 +47,7 @@ collect_ready_existing_script:
     blocked_by: Q-001
     duplicate_check_required: false
     enabled: true
-    notes: "collect_missing_laws.py 실행 대상. MST 조회 필요."
+    notes: "collect_missing_laws.py 실행 대상. MST 조회 후 추가."
 
   - queue_id: Q-004
     source_code: NFA_FIRE_FACILITY_BUSINESS_ACT
@@ -88,9 +89,9 @@ collect_ready_existing_script:
     notes: "Q-004 수집 완료 후 실행."
 
 # ──────────────────────────────────────────────────────
-# GROUP 2: law.go.kr API 신규 수집 필요
+# GROUP C: law.go.kr DRF API 신규 수집
 # collection_action: COLLECT_BY_LAW_API
-# MST 조회 후 law_statutes.py 또는 collect_missing_laws.py 활용
+# 절차: law.go.kr에서 MST 조회 → law_statutes.py에 MST 추가 → 실행
 # ──────────────────────────────────────────────────────
 collect_ready_law_api:
 
@@ -105,7 +106,7 @@ collect_ready_law_api:
     blocked_by: null
     duplicate_check_required: false
     enabled: true
-    notes: "MST 미확인. law.go.kr에서 '산업안전보건법 시행령' MST 조회 후 수집."
+    notes: "MST 미확인. law.go.kr에서 '산업안전보건법 시행령' 검색 후 MST 확보 → 수집."
 
   - queue_id: Q-008
     source_code: MOLIT_CONSTRUCTION_TECH_PROMOTION_ACT
@@ -118,7 +119,7 @@ collect_ready_law_api:
     blocked_by: null
     duplicate_check_required: false
     enabled: true
-    notes: "MST 미확인. law.go.kr에서 '건설기술진흥법' MST 조회 후 수집."
+    notes: "MST 미확인. law.go.kr에서 '건설기술진흥법' 검색 후 MST 확보 → 수집."
 
   - queue_id: Q-009
     source_code: MOLIT_CONSTRUCTION_TECH_PROMOTION_DECREE
@@ -153,11 +154,14 @@ collect_ready_law_api:
     script_name: scripts/collect/law_statutes.py
     api_type: law_go_kr_drf
     mst: null
-    official_name_confirmed: false
+    official_name_confirmed: true
     blocked_by: null
     duplicate_check_required: false
     enabled: true
-    notes: "official_name_confirmed=false. '전기공사업법' vs '전기안전관리법' 구분 확인 필요. CC-003 NEEDS_VERIFICATION 참조."
+    notes: |
+      명칭 확인 완료(2026-04-26): '전기공사업법'(전기공사 도급·시공 면허)이 맞음.
+      '전기안전관리법'(전기시설 안전검사·관리)과 별개 법령. CC-003에서 참조하는 공종은 전기공사업법 해당.
+      MST 미확인 → law.go.kr에서 '전기공사업법' 검색 후 MST 확보 → 수집.
 
   - queue_id: Q-012
     source_code: MSIT_TELECOM_CONSTRUCTION_BUSINESS_ACT
@@ -170,13 +174,7 @@ collect_ready_law_api:
     blocked_by: null
     duplicate_check_required: false
     enabled: true
-    notes: "MST 미확인. law.go.kr에서 '정보통신공사업법' MST 조회 후 수집."
-
-# ──────────────────────────────────────────────────────
-# GROUP 3: 공식 명칭 확인 필요 (수집 보류)
-# collection_action: NEEDS_OFFICIAL_NAME_CONFIRMATION
-# ──────────────────────────────────────────────────────
-needs_official_name_confirmation:
+    notes: "MST 미확인. law.go.kr에서 '정보통신공사업법' 검색 후 MST 확보 → 수집."
 
   - queue_id: Q-013
     source_code: MOEL_CONSTRUCTION_SAFETY_HEALTH_COST_STANDARD
@@ -205,7 +203,7 @@ needs_official_name_confirmation:
     notes: "국토교통부고시 제2022-791호, 시행 2023.1.1. MST 조회 후 law_statutes.py로 수집."
 
 # ──────────────────────────────────────────────────────
-# GROUP 4: 전용 커넥터 개발 후 수집
+# GROUP E: 전용 커넥터 개발 후 수집
 # collection_action: COLLECT_BY_NEW_CONNECTOR
 # ──────────────────────────────────────────────────────
 collect_by_new_connector:
@@ -234,7 +232,7 @@ collect_by_new_connector:
     blocked_by: "전기설비기술기준 커넥터 개발"
     duplicate_check_required: false
     enabled: false
-    notes: "산업통상자원부 행정규칙 고시. 직접 검색 또는 law.go.kr 행정규칙 경로 확인 필요."
+    notes: "산업통상자원부 행정규칙 고시. law.go.kr 행정규칙 경로 또는 전기설비기술기준 사이트 직접 수집."
 
   - queue_id: Q-017
     source_code: KOSHA_GUIDE
@@ -248,7 +246,7 @@ collect_by_new_connector:
     duplicate_check_required: true
     enabled: true
     notes: |
-      미수집 GUIDE 목록:
+      미수집 GUIDE 목록(5건):
         - G-63 (위험성평가)
         - W-12 (TBM)
         - H-76 (밀폐공간)
@@ -256,6 +254,11 @@ collect_by_new_connector:
         - S-45 (체크리스트)
       kosha_guides.py 활용. 기존 수집본(P-94, C-74, M-155, C-102, M-186, F-1) 재수집 금지.
       duplicate_check_required=true: evidence_id 기존 존재 여부 확인 후 수집.
+
+# ──────────────────────────────────────────────────────
+# GROUP F: 수집 보류 (참고용, WATCH_ONLY)
+# ──────────────────────────────────────────────────────
+watch_only:
 
   - queue_id: Q-018
     source_code: KOSHA_SIF_CASES
