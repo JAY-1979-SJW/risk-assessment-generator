@@ -37,12 +37,22 @@ DB_DIRS = {
 }
 
 
+def _is_dated_archive(f: Path, base: Path) -> bool:
+    """날짜 폴더(YYYY-MM-DD) 또는 pipeline_input 루트 파일만 허용. _misc 등 제외."""
+    rel_parts = f.relative_to(base).parts
+    if len(rel_parts) == 1:
+        return True  # pipeline_input 루트
+    return bool(__import__("re").match(r"^\d{4}-\d{2}-\d{2}$", rel_parts[0]))
+
+
 def _collect_index_files():
     result = {}
     for label, base in INDEX_DIRS.items():
         files = sorted(base.rglob("*.json")) if base.exists() else []
         result[label] = []
         for f in files:
+            if not _is_dated_archive(f, base):
+                continue
             stat = f.stat()
             try:
                 data = json.loads(f.read_text(encoding="utf-8"))
