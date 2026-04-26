@@ -615,12 +615,19 @@ documents:
     category_code: RA
     document_group: 위험성평가
     legal_status: practical
-    implementation_status: TODO
-    priority: P1
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: risk_assessment_register
     source_type: law
     legal_basis: "산업안전보건법 시행규칙 제37조 (기록 보존 3년)"
-    notes: "법정 서식 없음. 등록부 형식은 현장 관행"
+    notes: "법정 서식 없음. 등록부 형식은 현장 관행. builder v1.0"
+    evidence_status: READY
+    evidence_ids:
+      - RA-001-L1
+      - RA-001-L2
+    evidence_files:
+      - RA-001-L1_industrial_safety_health_act_article_36.json
+      - RA-001-L2_industrial_safety_health_rule_article_37.json
 
   - id: RA-003
     name: 위험성평가 참여 회의록

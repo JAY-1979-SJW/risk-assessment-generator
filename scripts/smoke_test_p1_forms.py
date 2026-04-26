@@ -4355,7 +4355,7 @@ def run_smoke_test() -> None:
 
     # ── 출력 ─────────────────────────────────────────────────────────────
     print("\n" + "=" * 80)
-    print("  KRAS P1 Smoke Test — ED-003 + WP-011 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002 + PTW-002 + PTW-003 + PTW-007 + WP-005/EQ-012 + CL-007 + PTW-004 + CL-004 + CL-005 + HM-001 + HM-002 + WP-008/WP-009/EQ-001/EQ-002/EQ-007/EQ-006 + WP-006/WP-007/EQ-003/EQ-004 + RA-001/RA-004 + WP-014/PTW-001/CL-010 + WP-001 + ED-001")
+    print("  KRAS P1 Smoke Test — ED-003 + WP-011 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002 + PTW-002 + PTW-003 + PTW-007 + WP-005/EQ-012 + CL-007 + PTW-004 + CL-004 + CL-005 + HM-001 + HM-002 + WP-008/WP-009/EQ-001/EQ-002/EQ-007/EQ-006 + WP-006/WP-007/EQ-003/EQ-004 + RA-001/RA-002/RA-004 + WP-014/PTW-001/CL-010 + WP-001 + ED-001")
     print("=" * 80)
 
     pass_cnt = warn_cnt = fail_cnt = 0
@@ -6180,7 +6180,7 @@ def run_crane_workplan_smoke_test() -> list[tuple[str, str, str]]:
 # RA 묶음 — RA-001(위험성평가표) / RA-004(TBM 안전점검 일지)
 # ===========================================================================
 
-RA_TARGET_DOC_IDS = ["RA-001", "RA-004"]
+RA_TARGET_DOC_IDS = ["RA-001", "RA-002", "RA-004"]
 
 # doc_id → (primary_ev_id, primary_ev_fname, expected_form_type, expected_ev_status)
 RA_EVIDENCE_BY_DOC: dict = {
@@ -6188,6 +6188,12 @@ RA_EVIDENCE_BY_DOC: dict = {
         "RA-001-L1",
         "RA-001-L1_industrial_safety_health_act_article_36.json",
         "risk_assessment",
+        "VERIFIED",
+    ),
+    "RA-002": (
+        "RA-001-L1",
+        "RA-001-L1_industrial_safety_health_act_article_36.json",
+        "risk_assessment_register",
         "VERIFIED",
     ),
     "RA-004": (
@@ -6207,7 +6213,7 @@ RA_ALL_EVIDENCE_FILES = [
 
 
 def run_ra_forms_smoke_test() -> list[tuple[str, str, str]]:
-    """RA 묶음 2건 (RA-001/RA-004) 중간 수준 smoke test."""
+    """RA 묶음 3건 (RA-001/RA-002/RA-004) 중간 수준 smoke test."""
     results: list[tuple[str, str, str]] = []
     supported = {f["form_type"] for f in list_supported_forms()}
 
@@ -6217,14 +6223,19 @@ def run_ra_forms_smoke_test() -> list[tuple[str, str, str]]:
         "registry: risk_assessment 등록됨 (RA-001)",
     ))
     results.append(_check(
+        "risk_assessment_register" in supported,
+        "registry: risk_assessment_register 등록됨 (RA-002)",
+    ))
+    results.append(_check(
         "tbm_log" in supported,
         "registry: tbm_log 등록됨 (RA-004)",
     ))
 
     # ── 2. get_form_spec 검증 ────────────────────────────────────────────
     for form_type, expected_name in (
-        ("risk_assessment", "위험성평가표"),
-        ("tbm_log",         "TBM 안전점검 일지"),
+        ("risk_assessment",          "위험성평가표"),
+        ("risk_assessment_register", "위험성평가 관리 등록부"),
+        ("tbm_log",                  "TBM 안전점검 일지"),
     ):
         try:
             spec = get_form_spec(form_type)
@@ -6241,10 +6252,32 @@ def run_ra_forms_smoke_test() -> list[tuple[str, str, str]]:
         except Exception as exc:
             results.append(_check(False, f"get_form_spec('{form_type}') 호출 성공", str(exc)))
 
-    # ── 3. sample build × 2 ──────────────────────────────────────────────
+    # ── 3. sample build ───────────────────────────────────────────────────
+    _RA002_SAMPLE = {
+        "site_name": "테스트건설(주) 테스트현장",
+        "project_name": "테스트현장 신축공사",
+        "prepared_by": "홍길동",
+        "prepared_date": "2026-04-26",
+        "entries": [
+            {
+                "seq": 1,
+                "work_type": "굴착 작업",
+                "assessment_date": "2026-04-20",
+                "hazard_summary": "토사 붕괴·매몰 위험",
+                "risk_level": "상",
+                "measure_status": "완료",
+                "reviewer": "김안전",
+                "approver": "이관리",
+                "next_review": "2026-07-20",
+                "remarks": "",
+            },
+        ],
+    }
+
     for form_type, sample in (
-        ("risk_assessment", {"site_name": "테스트현장", "assessment_date": "2026-04-26"}),
-        ("tbm_log",         {"site_name": "테스트현장", "tbm_date": "2026-04-26"}),
+        ("risk_assessment",          {"site_name": "테스트현장", "assessment_date": "2026-04-26"}),
+        ("risk_assessment_register", _RA002_SAMPLE),
+        ("tbm_log",                  {"site_name": "테스트현장", "tbm_date": "2026-04-26"}),
     ):
         try:
             xlsx_bytes = build_form_excel(form_type, sample)
@@ -6255,6 +6288,43 @@ def run_ra_forms_smoke_test() -> list[tuple[str, str, str]]:
             ))
         except Exception as exc:
             results.append(_check(False, f"{form_type} sample build", str(exc)))
+
+    # ── 3-b. RA-002 Excel 내용 검증 ──────────────────────────────────────
+    try:
+        from io import BytesIO
+        from openpyxl import load_workbook
+        xlsx_bytes = build_form_excel("risk_assessment_register", _RA002_SAMPLE)
+        wb = load_workbook(BytesIO(xlsx_bytes))
+        ws = wb.active
+        all_values = [str(c.value or "") for row in ws.iter_rows() for c in row]
+        joined = " ".join(all_values)
+
+        results.append(_check(
+            "위험성평가 관리 등록부" in joined,
+            "RA-002 Excel: 제목 '위험성평가 관리 등록부' 포함",
+        ))
+        results.append(_check(
+            "RA-002" in joined or "위험성평가 관리 등록부" in joined,
+            "RA-002 Excel: 문서명 포함",
+        ))
+        results.append(_check(
+            "사업장명" in joined or "현장명" in joined,
+            "RA-002 Excel: 현장 기본정보 섹션 포함",
+        ))
+        results.append(_check(
+            "평가 대상 작업" in joined or "작업/공종" in joined,
+            "RA-002 Excel: 평가 대상 작업/공종 섹션 포함",
+        ))
+        results.append(_check(
+            "조치 상태" in joined or "개선대책" in joined or "measure" in joined.lower(),
+            "RA-002 Excel: 개선대책 조치 상태 섹션 포함",
+        ))
+        results.append(_check(
+            "작성" in joined and "검토" in joined and "승인" in joined,
+            "RA-002 Excel: 작성/검토/승인 서명란 포함",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "RA-002 Excel 내용 검증", str(exc)))
 
     # ── 4. catalog 항목 검증 + evidence_file 존재 ────────────────────────
     try:
