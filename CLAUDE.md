@@ -44,6 +44,31 @@
 - DB 터널: ssh -i ~/.ssh/haehan-ai.pem -L 5435:localhost:5432 ubuntu@1.201.177.67 -N -f
 - 앱서버 접속: ssh -i ~/.ssh/haehan-ai.pem ubuntu@1.201.176.236
 
+## 법령 수집 데이터 분류 (index / db)
+
+### index — API 목록·메타만 수집 (*_index.json)
+- 파이프라인 입력 (항상 최신 1건): `data/risk_db/law_raw/`
+  - `laws_index.json`        → law_statutes.py 출력 (법령 목록)
+  - `admin_rules_index.json` → law_admin_rules.py 출력 (행정규칙 목록)
+  - `expc_index.json`        → law_expc.py 출력
+  - `licbyl_index.json`      → law_licbyl.py 출력
+- 날짜별 아카이브: `data/raw/law_api/{target}/YYYY-MM-DD/`
+
+### db — 조문 본문까지 수집·가공 (*.jsonl, unified schema)
+- `data/raw/law_content/law/YYYY-MM-DD/law_content.jsonl`      → law_content.py 출력 (법령 조문)
+- `data/raw/law_content/admrul/YYYY-MM-DD/admrul_content.jsonl` → admrul_content.py 출력 (행정규칙 본문)
+
+### 현황 확인 스크립트
+```
+python -m scripts.collect.classify_law_data        # 분류·건수 현황 출력
+python -m scripts.collect.classify_law_data --json # JSON 출력
+```
+
+### 수집 파이프라인 순서
+1. index 수집: `law_statutes.py` → `law_admin_rules.py`
+2. db 수집:    `law_content.py`  → `admrul_content.py`
+- index 없이 db 수집 불가 (db 스크립트가 index 파일을 입력으로 읽음)
+
 ## 외부 API 환경변수
 - law.go.kr DRF API OC 키: 환경변수 `LAW_GO_KR_OC` (프로젝트 루트 .env)
   - 법령 조문 조회 시 .env에서 읽어 사용 — 코드에 하드코딩 금지
