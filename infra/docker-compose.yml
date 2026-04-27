@@ -51,6 +51,7 @@ services:
       - /home/ubuntu/apps/risk-assessment-app/backups:/app/backups
       - ../scraper/logs:/app/scraper_logs:ro
       - ../data/masters:/app/data/masters:ro
+      - ../data/evidence:/app/data/evidence:ro
     ports:
       - "${API_PORT}:8000"
     depends_on:
