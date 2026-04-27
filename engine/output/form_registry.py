@@ -78,6 +78,7 @@ from engine.output.risk_assessment_meeting_minutes_builder import build_risk_ass
 from engine.output.tower_crane_workplan_builder import build_tower_crane_workplan_excel
 from engine.output.vehicle_workplan_builder import build_vehicle_workplan_excel
 from engine.output.work_environment_measurement_builder import build_work_environment_measurement_excel
+from engine.output.safety_management_log_builder import build_safety_management_log
 from engine.output.work_safety_checklist_builder import build_work_safety_checklist
 from engine.output.heavy_lifting_workplan_builder import build_heavy_lifting_workplan_excel
 from engine.output.workplan_builder import build_excavation_workplan_excel
@@ -1202,6 +1203,61 @@ _REGISTRY: dict[str, FormSpec] = {
     # 주의: 법정 별지 서식 없음. 실무 자체 표준서식.
     #       근로자 개인 작업 개시 전 자가 점검 기록용.
     # ------------------------------------------------------------------
+    "safety_management_log": FormSpec(
+        form_type="safety_management_log",
+        display_name="안전관리 일지",
+        version="1.0",
+        builder=build_safety_management_log,
+        required_fields=(
+            "site_name",
+            "log_date",
+            "writer_name",
+            "weather",
+            "work_summary",
+        ),
+        optional_fields=(
+            "project_name",
+            "department",
+            "position",
+            "work_location",
+            "work_start_time",
+            "work_end_time",
+            "worker_count",
+            "subcontractor_count",
+            "visitor_count",
+            "main_work",
+            "high_risk_work",
+            "safety_meeting_done",
+            "tbm_done",
+            "risk_assessment_checked",
+            "equipment_check_done",
+            "ppe_check_done",
+            "site_patrol_done",
+            "nonconformance_found",
+            "corrective_action",
+            "accident_or_near_miss",
+            "weather_condition",
+            "heat_cold_risk",
+            "emergency_contact_checked",
+            "remarks",
+            "reviewer_name",
+            "approver_name",
+            "equipment_status",
+            "housekeeping_status",
+            "management_notes",
+            "accident_detail",
+            "corrective_action_completed",
+            "follow_up_items",
+            "nonconformance_items",
+        ),
+        repeat_field="nonconformance_items",
+        max_repeat_rows=10,
+    ),
+    # ------------------------------------------------------------------
+    # DL-005 — 작업 전 안전 확인서 (2026-04-26)
+    # 법적 근거: 중대재해처벌법 시행령 제4조 (안전보건관리체계 구축 의무)
+    # evidence_status: VERIFIED (DL-001과 공유)
+    # 주의: 개인 자가 점검서. 현장 관리 일지(DL-001)와 다름.
     "work_safety_checklist": FormSpec(
         form_type="work_safety_checklist",
         display_name="작업 전 안전 확인서",
