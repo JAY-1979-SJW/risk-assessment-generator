@@ -1060,9 +1060,9 @@ documents:
     category_code: DL
     document_group: 일일안전관리
     legal_status: practical
-    implementation_status: TODO
+    implementation_status: DONE
     priority: P2
-    form_type: null
+    form_type: supervisor_safety_log
     source_type: law
     legal_basis: "산업안전보건법 제16조 (관리감독자 직무)"
     notes: null

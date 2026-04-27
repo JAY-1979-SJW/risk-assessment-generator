@@ -79,6 +79,7 @@ from engine.output.tower_crane_workplan_builder import build_tower_crane_workpla
 from engine.output.vehicle_workplan_builder import build_vehicle_workplan_excel
 from engine.output.work_environment_measurement_builder import build_work_environment_measurement_excel
 from engine.output.safety_management_log_builder import build_safety_management_log
+from engine.output.supervisor_safety_log_builder import build_supervisor_safety_log
 from engine.output.work_safety_checklist_builder import build_work_safety_checklist
 from engine.output.heavy_lifting_workplan_builder import build_heavy_lifting_workplan_excel
 from engine.output.workplan_builder import build_excavation_workplan_excel
@@ -1251,6 +1252,62 @@ _REGISTRY: dict[str, FormSpec] = {
             "nonconformance_items",
         ),
         repeat_field="nonconformance_items",
+        max_repeat_rows=10,
+    ),
+    # ------------------------------------------------------------------
+    # DL-002 — 관리감독자 안전보건 업무 일지 (2026-04-27)
+    # 법적 근거: 산업안전보건법 제16조 (관리감독자의 안전보건 업무 의무)
+    # evidence_status: NEEDS_VERIFICATION
+    # 주의: 법정 별지 서식 없음. 실무 자체 표준서식.
+    #       관리감독자 당일 안전보건 업무 수행 기록용.
+    # ------------------------------------------------------------------
+    "supervisor_safety_log": FormSpec(
+        form_type="supervisor_safety_log",
+        display_name="관리감독자 안전보건 업무 일지",
+        version="1.0",
+        builder=build_supervisor_safety_log,
+        required_fields=(
+            "site_name",
+            "log_date",
+            "supervisor_name",
+            "department",
+            "work_summary",
+        ),
+        optional_fields=(
+            "project_name",
+            "position",
+            "work_location",
+            "work_start_time",
+            "work_end_time",
+            "worker_count",
+            "subcontractor_count",
+            "assigned_work",
+            "high_risk_work",
+            "worker_instruction_done",
+            "safety_training_done",
+            "tbm_participation",
+            "risk_assessment_reviewed",
+            "work_method_checked",
+            "ppe_checked",
+            "machine_guard_checked",
+            "work_environment_checked",
+            "housekeeping_checked",
+            "emergency_contact_checked",
+            "unsafe_behavior_found",
+            "unsafe_condition_found",
+            "corrective_instruction",
+            "corrective_action_result",
+            "accident_or_near_miss",
+            "accident_detail",
+            "health_condition_checked",
+            "weather",
+            "heat_cold_risk",
+            "remarks",
+            "reviewer_name",
+            "approver_name",
+            "instruction_items",
+        ),
+        repeat_field="instruction_items",
         max_repeat_rows=10,
     ),
     # ------------------------------------------------------------------

@@ -3544,6 +3544,101 @@ DL001_REQUIRED_KEYWORDS = [
 
 
 # ===========================================================================
+# DL-002 — 관리감독자 안전보건 업무 일지
+# ===========================================================================
+
+SAMPLE_DL002_MINIMAL: dict = {
+    "site_name": "테스트건설(주) 테스트현장",
+    "log_date": "2026-04-27",
+    "supervisor_name": "홍감독",
+    "department": "설비팀",
+    "work_summary": "소방배관 설치 작업 관리감독",
+}
+
+SAMPLE_DL002_FULL: dict = {
+    "site_name": "테스트건설(주) 테스트현장",
+    "log_date": "2026-04-27",
+    "supervisor_name": "홍감독",
+    "department": "설비팀",
+    "work_summary": "소방배관 설치 작업 관리감독",
+    "project_name": "테스트현장 신축공사",
+    "position": "관리감독자",
+    "work_location": "B1 기계실",
+    "work_start_time": "08:00",
+    "work_end_time": "17:00",
+    "worker_count": "12",
+    "subcontractor_count": "8",
+    "assigned_work": "소방배관 설치",
+    "high_risk_work": "고소작업 일부",
+    "worker_instruction_done": "실시",
+    "safety_training_done": "실시",
+    "tbm_participation": "참여",
+    "risk_assessment_reviewed": "검토",
+    "work_method_checked": "확인",
+    "ppe_checked": "확인",
+    "machine_guard_checked": "확인",
+    "work_environment_checked": "양호",
+    "housekeeping_checked": "양호",
+    "emergency_contact_checked": "확인",
+    "unsafe_behavior_found": "있음",
+    "unsafe_condition_found": "있음",
+    "corrective_instruction": "통로 적치 자재 제거 지시",
+    "corrective_action_result": "자재 이동 완료",
+    "accident_or_near_miss": "없음",
+    "accident_detail": "",
+    "health_condition_checked": "이상 없음",
+    "weather": "맑음",
+    "heat_cold_risk": "낮음",
+    "remarks": "관리감독 상태 양호",
+    "reviewer_name": "김검토",
+    "approver_name": "이승인",
+    "instruction_items": [
+        {
+            "location": "B1 기계실",
+            "unsafe_type": "불안전 상태",
+            "instruction_content": "통로 적치 자재 제거 지시",
+            "action_result": "자재 이동 완료",
+            "status": "완료",
+        },
+        {
+            "location": "1F 복도",
+            "unsafe_type": "불안전 행동",
+            "instruction_content": "보호구 착용 재지시",
+            "action_result": "즉시 착용 확인",
+            "status": "완료",
+        },
+    ],
+}
+
+DL002_REQUIRED_SECTIONS = [
+    "관리감독자 안전보건 업무 일지",
+    "DL-002",
+    "현장 기본정보",
+    "관리감독자 기본정보",
+    "당일 관리 대상 작업",
+    "관리 인원 현황",
+    "근로자 지휘",
+    "감독",
+    "작업지시",
+    "보호구",
+    "기계설비",
+    "TBM",
+    "위험성평가",
+    "불안전 행동",
+    "시정지시",
+    "종합 의견",
+]
+
+DL002_REQUIRED_KEYWORDS = [
+    "서명",
+    "작성",
+    "관리감독자",
+    "안전",
+    "작업",
+]
+
+
+# ===========================================================================
 # DL-005 — 작업 전 안전 확인서
 # ===========================================================================
 
@@ -3597,6 +3692,144 @@ DL005_REQUIRED_KEYWORDS = [
     "작업책임자",
     "안전조치",
 ]
+
+
+def run_dl002_smoke_test() -> list[tuple[str, str, str]]:
+    """DL-002 관리감독자 안전보건 업무 일지 smoke test. 결과 list 반환."""
+    results: list[tuple[str, str, str]] = []
+    supported = {f["form_type"] for f in list_supported_forms()}
+
+    # ── 1. registry 등록 확인 ────────────────────────────────────────────
+    results.append(_check(
+        "supervisor_safety_log" in supported,
+        "registry: supervisor_safety_log 등록됨",
+    ))
+
+    # ── 2. get_form_spec 검증 ─────────────────────────────────────────────
+    try:
+        spec = get_form_spec("supervisor_safety_log")
+        results.append(_check(isinstance(spec, dict), "get_form_spec() → dict"))
+        results.append(_check(
+            spec.get("display_name") == "관리감독자 안전보건 업무 일지",
+            "display_name == '관리감독자 안전보건 업무 일지'",
+            repr(spec.get("display_name")),
+        ))
+        results.append(_check(
+            isinstance(spec.get("required_fields"), list)
+            and len(spec["required_fields"]) >= 5
+            and all(k in spec["required_fields"] for k in ["site_name", "log_date", "supervisor_name", "department", "work_summary"]),
+            "required_fields에 필수 5개 포함 (site_name, log_date, supervisor_name, department, work_summary)",
+            f"실제: {spec.get('required_fields')}",
+        ))
+        results.append(_check(
+            spec.get("repeat_field") == "instruction_items",
+            "repeat_field == 'instruction_items'",
+            repr(spec.get("repeat_field")),
+        ))
+        results.append(_check(
+            spec.get("max_repeat_rows") == 10,
+            "max_repeat_rows == 10",
+            repr(spec.get("max_repeat_rows")),
+        ))
+    except Exception as exc:
+        results.append(_check(False, "get_form_spec() 호출 성공", str(exc)))
+
+    # ── 3. 최소 샘플 → bytes ─────────────────────────────────────────────
+    try:
+        xlsx_bytes = build_form_excel("supervisor_safety_log", SAMPLE_DL002_MINIMAL)
+        results.append(_check(
+            isinstance(xlsx_bytes, bytes) and len(xlsx_bytes) > 0,
+            "최소 샘플 → bytes 생성",
+            f"{len(xlsx_bytes):,} bytes",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "최소 샘플 → bytes 생성", str(exc)))
+
+    # ── 4. 공란 form_data → bytes ─────────────────────────────────────────
+    try:
+        empty_bytes = build_form_excel("supervisor_safety_log", {})
+        results.append(_check(
+            isinstance(empty_bytes, bytes) and len(empty_bytes) > 0,
+            "공란 form_data → bytes 생성 (오류 없음)",
+            f"{len(empty_bytes):,} bytes",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "공란 form_data → bytes 생성", str(exc)))
+
+    # ── 5. 전체 샘플 workbook 검증 ────────────────────────────────────────
+    try:
+        full_bytes = build_form_excel("supervisor_safety_log", SAMPLE_DL002_FULL)
+        results.append(_check(
+            isinstance(full_bytes, bytes) and len(full_bytes) > 0,
+            "전체 샘플 → bytes 생성",
+            f"{len(full_bytes):,} bytes",
+        ))
+        from io import BytesIO as _BytesIO
+        from openpyxl import load_workbook as _load_wb
+        wb_full = _load_wb(_BytesIO(full_bytes))
+        all_vals = [
+            str(cell.value or "")
+            for ws_obj in wb_full.worksheets
+            for r in ws_obj.iter_rows()
+            for cell in r
+        ]
+        all_text = " ".join(all_vals)
+
+        # 시트명 확인
+        sheet_names = wb_full.sheetnames
+        results.append(_check(
+            any("관리감독자" in n or "일지" in n for n in sheet_names),
+            f"시트명 확인 — {sheet_names}",
+        ))
+
+        # 필수 섹션 포함
+        for section in DL002_REQUIRED_SECTIONS:
+            results.append(_check(
+                section in all_text,
+                f"섹션 포함: '{section}'",
+            ))
+
+        # 필수 키워드 포함
+        for kw in DL002_REQUIRED_KEYWORDS:
+            results.append(_check(
+                kw in all_text,
+                f"필수 키워드 포함: '{kw}'",
+            ))
+
+    except Exception as exc:
+        import traceback as _tb
+        tb = _tb.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "전체 샘플 처리 중 예외", tb))
+
+    # ── 6. catalog 검증 ───────────────────────────────────────────────────
+    try:
+        import yaml
+        catalog_path = Path("data/masters/safety/documents/document_catalog.yml")
+        with open(catalog_path, encoding="utf-8") as f:
+            cat = yaml.safe_load(f)
+        docs = {d["id"]: d for d in cat["documents"]}
+        dl002 = docs.get("DL-002")
+
+        results.append(_check(dl002 is not None, "catalog: DL-002 항목 존재"))
+
+        if dl002:
+            results.append(_check(
+                dl002.get("implementation_status") == "DONE",
+                "catalog: DL-002 implementation_status == DONE",
+                repr(dl002.get("implementation_status")),
+            ))
+            results.append(_check(
+                dl002.get("form_type") == "supervisor_safety_log",
+                "catalog: DL-002 form_type == 'supervisor_safety_log'",
+                repr(dl002.get("form_type")),
+            ))
+
+    except Exception as exc:
+        import traceback as _tb
+        tb = _tb.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "DL-002 catalog 검증 중 예외", tb))
+
+    return results
 
 
 def run_dl001_smoke_test() -> list[tuple[str, str, str]]:
@@ -5333,6 +5566,12 @@ def run_smoke_test() -> None:
     # ════════════════════════════════════════════════════════════
     ptw007_results = run_ptw007_smoke_test()
     results.extend(ptw007_results)
+
+    # ════════════════════════════════════════════════════════════
+    # DL-002 검증
+    # ════════════════════════════════════════════════════════════
+    dl002_results = run_dl002_smoke_test()
+    results.extend(dl002_results)
 
     # ════════════════════════════════════════════════════════════
     # DL-001 검증
