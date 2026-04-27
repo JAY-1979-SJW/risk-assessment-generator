@@ -38,6 +38,7 @@ export API 연결 전 단계 — builder 호출 인터페이스만 제공.
     electrical_facility_checklist         — 전기설비 정기 점검표 (v1.0)                   [CL-004]
     fire_prevention_checklist             — 화재 예방 점검표 (v1.0)                        [CL-005]
     work_safety_checklist                 — 작업 전 안전 확인서 (v1.0)                    [DL-005]
+    hot_work_workplan                     — 용접·용단·화기작업 계획서 (v1.0)              [EQ-014]
 
 사용법:
     from engine.output.form_registry import (
@@ -91,6 +92,7 @@ from engine.output.electrical_facility_checklist_builder import build_electrical
 from engine.output.fire_prevention_checklist_builder import build_fire_prevention_checklist_excel
 from engine.output.protective_equipment_checklist_builder import build_protective_equipment_checklist
 from engine.output.hazardous_chemical_checklist_builder import build_hazardous_chemical_checklist
+from engine.output.hot_work_workplan_builder import build_hot_work_workplan_excel
 
 
 # ---------------------------------------------------------------------------
@@ -1482,6 +1484,44 @@ _REGISTRY: dict[str, FormSpec] = {
             "zone_control_checks", "stop_conditions", "completion_checks",
             "workers",
         ),
+    ),
+    # ------------------------------------------------------------------
+    # P1 — EQ-014 (2026-04-27)
+    # 법적 근거: 산안규칙 제241조~제252조 (화재위험작업 준수사항, 화재감시자, 소화설비)
+    # evidence_status: PARTIAL_VERIFIED (원문 API 미수집, lbox.kr 확인)
+    # 주의: 법정 별지 서식 없음. 실무 표준서식.
+    #       PTW-002 화기작업 허가서(허가/승인 절차)와 구분되는 사전 계획 문서.
+    #       허가자·승인자·permit_no 등 허가 필드 미포함.
+    # ------------------------------------------------------------------
+    "hot_work_workplan": FormSpec(
+        form_type="hot_work_workplan",
+        display_name="용접·용단·화기작업 계획서",
+        version="1.0",
+        builder=build_hot_work_workplan_excel,
+        required_fields=(
+            # 산안규칙 제241조 제2항 — 사전 계획 필수 정보
+            "site_name",        # 현장명
+            "work_date",        # 작업일자/기간
+            "work_location",    # 작업장소
+            "work_content",     # 화기작업 내용 설명
+            "work_types",       # 화기작업 종류 (list[str])
+            "safety_measures",  # 안전조치 계획 (종합)
+        ),
+        optional_fields=(
+            "project_name", "trade_name", "contractor",
+            "supervisor", "prepared_by", "sign_date",
+            "equipment_list", "work_period",
+            "combustibles_removed", "spark_prevention",
+            "fire_blanket_plan", "extinguisher_plan",
+            "ventilation_plan",
+            "fire_watch_required", "fire_watch_plan",
+            "post_work_plan",
+            "emergency_measure", "emergency_contact",
+            "overall_opinion",
+        ),
+        repeat_field="hazard_items",
+        max_repeat_rows=10,
+        extra_list_fields=("work_types",),
     ),
 }
 

@@ -550,12 +550,21 @@ documents:
     category_code: EQ
     document_group: 장비사용계획서
     legal_status: practical
-    implementation_status: TODO
+    implementation_status: DONE
     priority: P1
-    form_type: null
+    form_type: hot_work_workplan
     source_type: law
     legal_basis: "산업안전보건기준에 관한 규칙 제241조~제252조"
-    notes: "PTW-002 화기작업 허가서와 연계"
+    notes: "PTW-002 화기작업 허가서와 연계. 본 계획서는 허가서를 대체하지 않음."
+    evidence_status: PARTIAL_VERIFIED
+    evidence_id:
+      - EQ-014-L1
+      - EQ-014-L2
+      - EQ-014-K1
+    evidence_file:
+      - EQ-014-L1_safety_rule_hot_work_measures.json
+      - EQ-014-L2_safety_rule_fire_watch_plan.json
+      - EQ-014-K1_kosha_hot_work_reference.json
 
   - id: EQ-015
     name: 콤프레샤·공압장비 사용계획서

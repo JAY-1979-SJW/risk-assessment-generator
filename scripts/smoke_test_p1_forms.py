@@ -5885,9 +5885,15 @@ def run_smoke_test() -> None:
     ed001_results = run_ed001_smoke_test()
     results.extend(ed001_results)
 
+    # ════════════════════════════════════════════════════════════
+    # EQ-014 용접·용단·화기작업 계획서 검증 (2026-04-27)
+    # ════════════════════════════════════════════════════════════
+    eq014_results = run_eq014_smoke_test()
+    results.extend(eq014_results)
+
     # ── 출력 ─────────────────────────────────────────────────────────────
     print("\n" + "=" * 80)
-    print("  KRAS P1 Smoke Test — ED-003 + WP-011 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002 + PTW-002 + PTW-003 + PTW-007 + WP-005/EQ-012 + CL-007 + PTW-004 + CL-004 + CL-005 + HM-001 + HM-002 + WP-008/WP-009/EQ-001/EQ-002/EQ-007/EQ-006 + WP-006/WP-007/EQ-003/EQ-004 + RA-001/RA-002/RA-003/RA-004 + WP-014/PTW-001/CL-010 + WP-001 + ED-001")
+    print("  KRAS P1 Smoke Test — ED-003 + WP-011 + WP-015 + ED-004 + CL-001 + CL-006 + CL-003 + CL-002 + PTW-002 + PTW-003 + PTW-007 + WP-005/EQ-012 + CL-007 + PTW-004 + CL-004 + CL-005 + HM-001 + HM-002 + WP-008/WP-009/EQ-001/EQ-002/EQ-007/EQ-006 + WP-006/WP-007/EQ-003/EQ-004 + RA-001/RA-002/RA-003/RA-004 + WP-014/PTW-001/CL-010 + WP-001 + ED-001 + EQ-014")
     print("=" * 80)
 
     pass_cnt = warn_cnt = fail_cnt = 0
@@ -8484,6 +8490,262 @@ def run_ed001_smoke_test() -> list[tuple[str, str, str]]:
                 ev_data.get("evidence_id") == ev_id,
                 f"evidence {ev_id}: evidence_id 자기참조 일치",
                 repr(ev_data.get("evidence_id")),
+            ))
+        except Exception as exc:
+            results.append(_check(False, f"evidence 파일 로딩: {ev_fname[:50]}", str(exc)))
+
+    return results
+
+
+# ===========================================================================
+# EQ-014 — 용접·용단·화기작업 계획서
+# ===========================================================================
+
+SAMPLE_EQ014_MINIMAL: dict = {
+    "site_name": "테스트건설(주) 테스트현장",
+    "work_date": "2026-04-27",
+    "work_location": "지하 1층 배관실",
+    "work_content": "배관 용접 및 절단 작업",
+    "work_types": ["용접", "용단"],
+    "safety_measures": "가연물 제거 후 용접방화포 설치, 소화기 비치",
+}
+
+SAMPLE_EQ014_FULL: dict = {
+    "site_name": "테스트건설(주) 테스트현장",
+    "project_name": "테스트현장 신축공사",
+    "trade_name": "설비공사",
+    "contractor": "테스트설비(주)",
+    "supervisor": "홍길동",
+    "prepared_by": "이안전",
+    "sign_date": "2026-04-27",
+    "work_date": "2026-04-27",
+    "work_period": "2026-04-27 ~ 2026-04-30",
+    "work_location": "지하 1층 배관실 (EL-3.5m)",
+    "work_content": "지하 1층 급수배관 연결을 위한 강관 용접 및 절단 작업",
+    "equipment_list": "아크용접기, 산소절단기, 그라인더",
+    "work_types": ["용접", "용단", "그라인더"],
+    "safety_measures": "가연물 제거, 용접방화포 설치, 소화기 2대 비치, 화재감시자 배치",
+    "combustibles_removed": "반경 11m 이내 가연성물질 이동 및 격리 후 작업",
+    "spark_prevention": "용접방화포 설치, 불티비산방지망 설치",
+    "fire_blanket_plan": "용접방화포 3매 사용",
+    "ventilation_plan": "배관실 환기팬 가동, 창문 개방",
+    "extinguisher_plan": "5kg 분말소화기 2대 작업반경 내 비치",
+    "fire_watch_required": "필요",
+    "fire_watch_plan": "화재감시자 1명 배치, 작업 종료 후 30분 이상 잔불 감시",
+    "emergency_measure": "화재 발생 시 즉시 작업 중단 및 119 신고, 대피유도",
+    "emergency_contact": "현장소장 010-1234-5678 / 소방서 119",
+    "post_work_plan": "작업 종료 후 잔불 확인, 가스밸브 차단, 전원 차단, 30분 이상 감시",
+    "overall_opinion": "지하 밀폐 공간 화기작업으로 각별한 주의 필요",
+    "hazard_items": [
+        {
+            "hazard_type": "화재",
+            "hazard_description": "용접 불티 비산으로 인한 주변 가연물 발화",
+            "legal_reference": "제241조 제2항",
+            "preventive_measure": "용접방화포 설치, 가연물 제거",
+            "responsible_person": "홍길동",
+            "check_method": "현장 확인",
+            "status": "계획",
+            "remarks": "",
+        },
+        {
+            "hazard_type": "가스 폭발",
+            "hazard_description": "인화성 가스 누출 후 점화원 접촉",
+            "legal_reference": "제241조 제2항",
+            "preventive_measure": "가스 누출 사전 확인, 환기 실시",
+            "responsible_person": "홍길동",
+            "check_method": "가스 검지기",
+            "status": "계획",
+            "remarks": "",
+        },
+    ],
+}
+
+EQ014_EVIDENCE_IDS   = ["EQ-014-L1", "EQ-014-L2", "EQ-014-K1"]
+EQ014_EVIDENCE_FILES = [
+    "EQ-014-L1_safety_rule_hot_work_measures.json",
+    "EQ-014-L2_safety_rule_fire_watch_plan.json",
+    "EQ-014-K1_kosha_hot_work_reference.json",
+]
+
+EQ014_REQUIRED_SECTIONS = [
+    "EQ-014",
+    "용접·용단·화기작업 계획서",
+    "현장 기본정보",
+    "화기작업 계획 내용",
+    "화기작업 유형",
+    "위험요인 분석",
+    "가연물 제거",
+    "불티 비산 방지",
+    "소화설비",
+    "화재감시자",
+    "잔불 확인",
+]
+
+
+def run_eq014_smoke_test() -> list[tuple[str, str, str]]:
+    """EQ-014 용접·용단·화기작업 계획서 smoke test. 결과 list 반환."""
+    results: list[tuple[str, str, str]] = []
+
+    supported = {f["form_type"] for f in list_supported_forms()}
+
+    # ── 1. registry 등록 확인 ────────────────────────────────────────────
+    results.append(_check(
+        "hot_work_workplan" in supported,
+        "registry: hot_work_workplan 등록됨 (EQ-014)",
+    ))
+
+    # ── 2. get_form_spec 검증 ────────────────────────────────────────────
+    try:
+        spec = get_form_spec("hot_work_workplan")
+        results.append(_check(isinstance(spec, dict), "get_form_spec() → dict"))
+        results.append(_check(
+            spec.get("display_name") == "용접·용단·화기작업 계획서",
+            "display_name 확인",
+            repr(spec.get("display_name")),
+        ))
+        rf = spec.get("required_fields") or []
+        results.append(_check(
+            isinstance(rf, list) and len(rf) > 0,
+            "required_fields 비어있지 않음",
+        ))
+        for f in ("site_name", "work_date", "work_location", "work_content", "work_types", "safety_measures"):
+            results.append(_check(
+                f in rf,
+                f"required_fields 포함: {f}",
+            ))
+        results.append(_check(
+            spec.get("repeat_field") == "hazard_items",
+            "repeat_field == 'hazard_items'",
+            repr(spec.get("repeat_field")),
+        ))
+    except Exception as exc:
+        results.append(_check(False, "get_form_spec() 호출 성공", str(exc)))
+
+    # ── 3. 최소 입력 → bytes ────────────────────────────────────────────
+    try:
+        xlsx_bytes = build_form_excel("hot_work_workplan", SAMPLE_EQ014_MINIMAL)
+        results.append(_check(
+            isinstance(xlsx_bytes, bytes) and len(xlsx_bytes) > 0,
+            "최소 샘플 → bytes 생성",
+            f"{len(xlsx_bytes):,} bytes",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "최소 샘플 → bytes 생성", str(exc)))
+
+    # ── 4. 공란 form_data → bytes ────────────────────────────────────────
+    try:
+        empty_bytes = build_form_excel("hot_work_workplan", {})
+        results.append(_check(
+            isinstance(empty_bytes, bytes) and len(empty_bytes) > 0,
+            "공란 form_data → bytes 생성 (오류 없음)",
+            f"{len(empty_bytes):,} bytes",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "공란 form_data → bytes 생성", str(exc)))
+
+    # ── 5. 전체 샘플 → workbook 검증 ────────────────────────────────────
+    try:
+        full_bytes = build_form_excel("hot_work_workplan", SAMPLE_EQ014_FULL)
+        results.append(_check(
+            isinstance(full_bytes, bytes) and len(full_bytes) > 0,
+            "전체 샘플 → bytes 생성",
+            f"{len(full_bytes):,} bytes",
+        ))
+        wb_full = load_workbook(BytesIO(full_bytes))
+
+        # sheet_name 확인
+        results.append(_check(
+            "화기작업계획서" in wb_full.sheetnames,
+            "sheet_name == '화기작업계획서'",
+            repr(wb_full.sheetnames),
+        ))
+
+        all_vals = _all_cell_values(wb_full)
+        all_text = " ".join(all_vals)
+
+        for heading in EQ014_REQUIRED_SECTIONS:
+            results.append(_check(
+                heading in all_text,
+                f"섹션 텍스트 포함: '{heading}'",
+            ))
+    except Exception as exc:
+        tb = traceback.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "전체 샘플 처리 중 예외", tb))
+
+    # ── 6. catalog 검증 ─────────────────────────────────────────────────
+    try:
+        import yaml as _yaml
+        _cat_path = Path("data/masters/safety/documents/document_catalog.yml")
+        with open(_cat_path, encoding="utf-8") as _f:
+            _cat = _yaml.safe_load(_f)
+        eq014 = next((d for d in _cat["documents"] if d["id"] == "EQ-014"), None)
+
+        results.append(_check(eq014 is not None, "catalog: EQ-014 항목 존재"))
+        if eq014:
+            results.append(_check(
+                eq014.get("implementation_status") == "DONE",
+                "catalog: EQ-014 implementation_status == DONE",
+                repr(eq014.get("implementation_status")),
+            ))
+            results.append(_check(
+                eq014.get("form_type") == "hot_work_workplan",
+                "catalog: EQ-014 form_type == 'hot_work_workplan'",
+                repr(eq014.get("form_type")),
+            ))
+            results.append(_check(
+                eq014.get("evidence_status") in ("PARTIAL_VERIFIED", "VERIFIED"),
+                "catalog: EQ-014 evidence_status 유효",
+                repr(eq014.get("evidence_status")),
+            ))
+            _ev_ids = eq014.get("evidence_id") or []
+            if isinstance(_ev_ids, str):
+                _ev_ids = [_ev_ids]
+            for eid in EQ014_EVIDENCE_IDS:
+                results.append(_check(
+                    eid in _ev_ids,
+                    f"catalog: EQ-014 evidence_id 포함 — {eid}",
+                ))
+            _ev_files = eq014.get("evidence_file") or []
+            if isinstance(_ev_files, str):
+                _ev_files = [_ev_files]
+            _ev_basenames = {Path(p).name for p in _ev_files}
+            for efname in EQ014_EVIDENCE_FILES:
+                results.append(_check(
+                    efname in _ev_basenames,
+                    f"catalog: EQ-014 evidence_file 등록 — {efname[:60]}",
+                ))
+    except Exception as exc:
+        tb = traceback.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "EQ-014 catalog 검증 중 예외", tb))
+
+    # ── 7. evidence 파일 존재 + 내용 검증 ────────────────────────────────
+    for ev_fname, ev_id in zip(EQ014_EVIDENCE_FILES, EQ014_EVIDENCE_IDS):
+        fpath = EVIDENCE_DIR / ev_fname
+        results.append(_check(fpath.exists(), f"evidence_file 실제 존재: {ev_fname[:60]}"))
+        if not fpath.exists():
+            continue
+        try:
+            ev_data = json.loads(fpath.read_text(encoding="utf-8"))
+            vr = ev_data.get("verification_result", "")
+            results.append(_check(
+                vr in ("VERIFIED", "PARTIAL_VERIFIED", "NEEDS_VERIFICATION"),
+                f"evidence {ev_id}: verification_result 유효값",
+                repr(vr),
+            ))
+            results.append(_check(
+                ev_data.get("document_id") == "EQ-014",
+                f"evidence {ev_id}: document_id == 'EQ-014'",
+                repr(ev_data.get("document_id")),
+            ))
+            results.append(_check(
+                ev_data.get("evidence_id") == ev_id,
+                f"evidence {ev_id}: evidence_id 자기참조 일치",
+                repr(ev_data.get("evidence_id")),
+            ))
+            ptw_note = ev_data.get("ptw_002_relation", "") or ev_data.get("notes", "")
+            results.append(_check(
+                "대체하지 않는다" in ptw_note or "대체" in ptw_note,
+                f"evidence {ev_id}: PTW-002 대체 아님 명시",
             ))
         except Exception as exc:
             results.append(_check(False, f"evidence 파일 로딩: {ev_fname[:50]}", str(exc)))
