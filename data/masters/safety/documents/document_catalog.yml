@@ -46,12 +46,12 @@ documents:
     category_code: WP
     document_group: 작업계획서
     legal_status: legal
-    implementation_status: TODO
-    priority: P1
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: tunnel_excavation_workplan
     source_type: law
     legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제7호, 제46조 이하"
-    notes: "터널공사 한정"
+    notes: "터널공사 한정. builder v1.0"
 
   - id: WP-003
     name: 건축물 해체 작업계획서

@@ -41,6 +41,7 @@ export API 연결 전 단계 — builder 호출 인터페이스만 제공.
     hot_work_workplan                     — 용접·용단·화기작업 계획서 (v1.0)              [EQ-014]
     piling_workplan                       — 항타기·항발기·천공기 사용계획서 (v1.0)        [EQ-009]
     piling_use_workplan                   — 항타기·항발기 사용 작업계획서 (v1.0)          [WP-010]
+    tunnel_excavation_workplan            — 터널 굴착 작업계획서 (v1.0)                    [WP-002]
 
 사용법:
     from engine.output.form_registry import (
@@ -97,6 +98,7 @@ from engine.output.hazardous_chemical_checklist_builder import build_hazardous_c
 from engine.output.hot_work_workplan_builder import build_hot_work_workplan_excel
 from engine.output.piling_workplan_builder import build_piling_workplan_excel
 from engine.output.piling_use_workplan_builder import build_piling_use_workplan_excel
+from engine.output.tunnel_excavation_workplan_builder import build_tunnel_excavation_workplan_excel
 
 
 # ---------------------------------------------------------------------------
@@ -1599,6 +1601,38 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="work_steps",
         max_repeat_rows=8,
         extra_list_fields=("hazard_items",),
+    ),
+    # ------------------------------------------------------------------
+    # P1 — WP-002 (2026-04-28)
+    # 법적 근거: 산안규칙 제38조 제1항 제7호, 제46조 이하 (터널공사 안전조치)
+    # evidence_status: NEEDS_VERIFICATION (조항 원문 API 미수집)
+    # 주의: 법정 별지 서식 없음. 실무 표준서식. 터널공사 한정.
+    #       발파 포함 시 화약류 관련 별도 법령(총포도검법 등) 추가 검토 필요.
+    # ------------------------------------------------------------------
+    "tunnel_excavation_workplan": FormSpec(
+        form_type="tunnel_excavation_workplan",
+        display_name="터널 굴착 작업계획서",
+        version="1.0",
+        builder=build_tunnel_excavation_workplan_excel,
+        required_fields=(
+            # 산안규칙 제38조 제1항 제7호 + 제46조 이하 법정 필수
+            "excavation_method",  # 굴착 공법
+            "ventilation_plan",   # 환기 계획 [제46조 이하]
+            "support_measure",    # 낙반·붕괴 방지 조치 [제46조 이하]
+            "emergency_measure",  # 비상조치 방법 [제38조]
+        ),
+        optional_fields=(
+            "site_name", "project_name", "work_location", "work_date",
+            "contractor", "supervisor", "prepared_by",
+            "tunnel_type", "tunnel_section", "ground_condition",
+            "blasting_plan", "lighting_plan", "access_control",
+            "emergency_contacts",   # list[dict]: role, name, phone
+            "safety_steps",         # list[dict]: task_step, hazard, safety_measure, responsible
+            "sign_date",
+        ),
+        repeat_field="safety_steps",
+        max_repeat_rows=10,
+        extra_list_fields=("emergency_contacts",),
     ),
 }
 
