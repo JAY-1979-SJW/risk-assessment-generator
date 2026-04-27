@@ -80,6 +80,7 @@ from engine.output.vehicle_workplan_builder import build_vehicle_workplan_excel
 from engine.output.work_environment_measurement_builder import build_work_environment_measurement_excel
 from engine.output.safety_management_log_builder import build_safety_management_log
 from engine.output.supervisor_safety_log_builder import build_supervisor_safety_log
+from engine.output.safety_patrol_inspection_log_builder import build_safety_patrol_inspection_log
 from engine.output.work_safety_checklist_builder import build_work_safety_checklist
 from engine.output.heavy_lifting_workplan_builder import build_heavy_lifting_workplan_excel
 from engine.output.workplan_builder import build_excavation_workplan_excel
@@ -1309,6 +1310,42 @@ _REGISTRY: dict[str, FormSpec] = {
         ),
         repeat_field="instruction_items",
         max_repeat_rows=10,
+    ),
+    # ------------------------------------------------------------------
+    # DL-003 — 안전순찰 점검 일지 (2026-04-27)
+    # 법적 근거: 산업안전보건법 제17조 (안전관리자 직무)
+    # evidence_status: NEEDS_VERIFICATION
+    # 주의: 법정 별지 서식 없음. 실무 자체 표준서식. 현장 순찰 결과 기록용.
+    # ------------------------------------------------------------------
+    "safety_patrol_inspection_log": FormSpec(
+        form_type="safety_patrol_inspection_log",
+        display_name="안전순찰 점검 일지",
+        version="1.0",
+        builder=build_safety_patrol_inspection_log,
+        required_fields=(
+            "site_name",
+            "patrol_date",
+            "patrol_time",
+            "patrol_route",
+            "patrol_officer",
+            "writer_name",
+        ),
+        optional_fields=(
+            "project_name",
+            "department",
+            "position",
+            "weather",
+            "total_workers",
+            "hazard_summary",
+            "corrective_summary",
+            "carryover_items",
+            "remarks",
+            "reviewer_name",
+            "approver_name",
+            "patrol_items",
+        ),
+        repeat_field="patrol_items",
+        max_repeat_rows=15,
     ),
     # ------------------------------------------------------------------
     # DL-005 — 작업 전 안전 확인서 (2026-04-26)
