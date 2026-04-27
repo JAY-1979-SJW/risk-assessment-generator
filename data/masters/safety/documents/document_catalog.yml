@@ -59,9 +59,9 @@ documents:
     category_code: WP
     document_group: 작업계획서
     legal_status: legal
-    implementation_status: TODO
-    priority: P1
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: building_demolition_workplan
     source_type: law
     legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제9호, 제52조~제55조"
     notes: "해체공사 한정"

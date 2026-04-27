@@ -99,6 +99,7 @@ from engine.output.hot_work_workplan_builder import build_hot_work_workplan_exce
 from engine.output.piling_workplan_builder import build_piling_workplan_excel
 from engine.output.piling_use_workplan_builder import build_piling_use_workplan_excel
 from engine.output.tunnel_excavation_workplan_builder import build_tunnel_excavation_workplan_excel
+from engine.output.building_demolition_workplan_builder import build_building_demolition_workplan_excel
 
 
 # ---------------------------------------------------------------------------
@@ -1626,6 +1627,36 @@ _REGISTRY: dict[str, FormSpec] = {
             "contractor", "supervisor", "prepared_by",
             "tunnel_type", "tunnel_section", "ground_condition",
             "blasting_plan", "lighting_plan", "access_control",
+            "emergency_contacts",   # list[dict]: role, name, phone
+            "safety_steps",         # list[dict]: task_step, hazard, safety_measure, responsible
+            "sign_date",
+        ),
+        repeat_field="safety_steps",
+        max_repeat_rows=10,
+        extra_list_fields=("emergency_contacts",),
+    ),
+    # ------------------------------------------------------------------
+    # WP-003 건축물 해체 작업계획서
+    # 법적 근거: 산안규칙 제38조 제1항 제9호, 제52조~제55조
+    # ------------------------------------------------------------------
+    "building_demolition_workplan": FormSpec(
+        form_type="building_demolition_workplan",
+        display_name="건축물 해체 작업계획서",
+        version="1.0",
+        builder=build_building_demolition_workplan_excel,
+        required_fields=(
+            # 산안규칙 제38조 제1항 제9호 법정 필수
+            "demolition_method",    # 해체 공법
+            "demolition_sequence",  # 해체 순서·절차
+            "emergency_measure",    # 비상조치 방법 [제38조]
+        ),
+        optional_fields=(
+            "site_name", "project_name", "work_location", "work_date",
+            "contractor", "supervisor", "prepared_by",
+            "building_info",
+            "temporary_structure", "preliminary_survey",
+            "hazmat_removal", "underground_facilities",
+            "adjacent_protection", "work_zone",
             "emergency_contacts",   # list[dict]: role, name, phone
             "safety_steps",         # list[dict]: task_step, hazard, safety_measure, responsible
             "sign_date",
