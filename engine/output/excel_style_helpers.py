@@ -85,6 +85,8 @@ def write_cell(
     border=True(기본)이면 BORDER를 적용한다.
     align이 없으면 ALIGN_LEFT를 기본값으로 사용한다.
     """
+    if col2 < col1:
+        raise ValueError(f"col2 ({col2}) must be >= col1 ({col1})")
     if col2 > col1:
         ws.merge_cells(
             start_row=row, start_column=col1,
@@ -123,11 +125,4 @@ def write_blank_row(
 ) -> None:
     """빈 행을 기록한다. 각 셀에 빈 문자열과 BORDER를 적용한다."""
     for c in range(1, total_cols + 1):
-        cell = ws.cell(row=row, column=c)
-        cell.value     = ""
-        cell.font      = FONT_DEFAULT
-        cell.fill      = FILL_NONE
-        cell.alignment = ALIGN_LEFT
-        cell.border    = BORDER
-    if height is not None:
-        ws.row_dimensions[row].height = height
+        write_cell(ws, row, c, c, "", height=height)
