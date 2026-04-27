@@ -40,6 +40,7 @@ export API 연결 전 단계 — builder 호출 인터페이스만 제공.
     work_safety_checklist                 — 작업 전 안전 확인서 (v1.0)                    [DL-005]
     hot_work_workplan                     — 용접·용단·화기작업 계획서 (v1.0)              [EQ-014]
     piling_workplan                       — 항타기·항발기·천공기 사용계획서 (v1.0)        [EQ-009]
+    piling_use_workplan                   — 항타기·항발기 사용 작업계획서 (v1.0)          [WP-010]
 
 사용법:
     from engine.output.form_registry import (
@@ -95,6 +96,7 @@ from engine.output.protective_equipment_checklist_builder import build_protectiv
 from engine.output.hazardous_chemical_checklist_builder import build_hazardous_chemical_checklist
 from engine.output.hot_work_workplan_builder import build_hot_work_workplan_excel
 from engine.output.piling_workplan_builder import build_piling_workplan_excel
+from engine.output.piling_use_workplan_builder import build_piling_use_workplan_excel
 
 
 # ---------------------------------------------------------------------------
@@ -1560,6 +1562,43 @@ _REGISTRY: dict[str, FormSpec] = {
         ),
         repeat_field="hazard_items",
         max_repeat_rows=10,
+    ),
+    "piling_use_workplan": FormSpec(
+        form_type="piling_use_workplan",
+        display_name="항타기·항발기 사용 작업계획서",
+        version="1.0",
+        builder=build_piling_use_workplan_excel,
+        required_fields=(
+            # 산업안전보건기준에 관한 규칙 제38조 제1항 제12호, 제186조 법정 필수
+            "machine_type",     # 기계 종류
+            "work_method",      # 작업방법
+            "operator_name",    # 조종사 성명
+        ),
+        optional_fields=(
+            "site_name",
+            "project_name",
+            "work_location",
+            "work_date",
+            "contractor",
+            "supervisor",
+            "prepared_by",
+            "sign_date",
+            "machine_capacity",
+            "operator_license",
+            "guide_worker",
+            "speed_limit",
+            "travel_route",
+            "work_radius",
+            "signal_method",
+            "ground_condition",
+            "adjacent_risk",
+            "emergency_measure",
+            "emergency_contact",
+            "approver",
+        ),
+        repeat_field="work_steps",
+        max_repeat_rows=8,
+        extra_list_fields=("hazard_items",),
     ),
 }
 

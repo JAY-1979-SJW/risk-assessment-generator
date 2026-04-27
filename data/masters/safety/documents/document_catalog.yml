@@ -196,12 +196,12 @@ documents:
     category_code: WP
     document_group: 작업계획서
     legal_status: legal
-    implementation_status: TODO
-    priority: P1
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: piling_use_workplan
     source_type: law
     legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제12호, 제186조 이하"
-    notes: null
+    notes: "builder v1.0. scaffold 기반 신규 builder. 작업 절차·안전조치 중심 (EQ-009와 구분)."
 
   - id: WP-011
     name: 전기 작업계획서
