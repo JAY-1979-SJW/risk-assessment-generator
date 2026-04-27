@@ -481,12 +481,12 @@ documents:
     category_code: EQ
     document_group: 장비사용계획서
     legal_status: legal
-    implementation_status: TODO
-    priority: P1
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: piling_workplan
     source_type: law
     legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제12호, 제186조~제197조"
-    notes: null
+    notes: "builder v1.0. excel_style_helpers 기반 신규 builder. 법정 별지 서식 없음 — 자체 표준서식."
 
   - id: EQ-010
     name: 리프트·곤돌라 사용계획서

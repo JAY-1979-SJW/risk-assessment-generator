@@ -39,6 +39,7 @@ export API 연결 전 단계 — builder 호출 인터페이스만 제공.
     fire_prevention_checklist             — 화재 예방 점검표 (v1.0)                        [CL-005]
     work_safety_checklist                 — 작업 전 안전 확인서 (v1.0)                    [DL-005]
     hot_work_workplan                     — 용접·용단·화기작업 계획서 (v1.0)              [EQ-014]
+    piling_workplan                       — 항타기·항발기·천공기 사용계획서 (v1.0)        [EQ-009]
 
 사용법:
     from engine.output.form_registry import (
@@ -93,6 +94,7 @@ from engine.output.fire_prevention_checklist_builder import build_fire_preventio
 from engine.output.protective_equipment_checklist_builder import build_protective_equipment_checklist
 from engine.output.hazardous_chemical_checklist_builder import build_hazardous_chemical_checklist
 from engine.output.hot_work_workplan_builder import build_hot_work_workplan_excel
+from engine.output.piling_workplan_builder import build_piling_workplan_excel
 
 
 # ---------------------------------------------------------------------------
@@ -1522,6 +1524,42 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="hazard_items",
         max_repeat_rows=10,
         extra_list_fields=("work_types",),
+    ),
+    "piling_workplan": FormSpec(
+        form_type="piling_workplan",
+        display_name="항타기·항발기·천공기 사용계획서",
+        version="1.0",
+        builder=build_piling_workplan_excel,
+        required_fields=(
+            # 산업안전보건기준에 관한 규칙 제38조 제1항 제12호 법정 필수
+            "machine_type",      # 기계의 종류
+            "machine_capacity",  # 기계의 성능·최대작업능력
+            "work_method",       # 작업방법
+        ),
+        optional_fields=(
+            "site_name",
+            "project_name",
+            "work_location",
+            "work_date",
+            "contractor",
+            "supervisor",
+            "prepared_by",
+            "sign_date",
+            "machine_model",
+            "machine_capacity_kn",
+            "pile_type",
+            "pile_length",
+            "pile_count",
+            "ground_survey",
+            "underground_facilities",
+            "adjacent_structures",
+            "noise_vibration_measure",
+            "dust_measure",
+            "emergency_measure",
+            "emergency_contact",
+        ),
+        repeat_field="hazard_items",
+        max_repeat_rows=10,
     ),
 }
 
