@@ -100,6 +100,7 @@ from engine.output.piling_workplan_builder import build_piling_workplan_excel
 from engine.output.piling_use_workplan_builder import build_piling_use_workplan_excel
 from engine.output.tunnel_excavation_workplan_builder import build_tunnel_excavation_workplan_excel
 from engine.output.building_demolition_workplan_builder import build_building_demolition_workplan_excel
+from engine.output.aerial_work_platform_use_plan_builder import build_aerial_work_platform_use_plan_excel
 
 
 # ---------------------------------------------------------------------------
@@ -1657,6 +1658,35 @@ _REGISTRY: dict[str, FormSpec] = {
             "temporary_structure", "preliminary_survey",
             "hazmat_removal", "underground_facilities",
             "adjacent_protection", "work_zone",
+            "emergency_contacts",   # list[dict]: role, name, phone
+            "safety_steps",         # list[dict]: task_step, hazard, safety_measure, responsible
+            "sign_date",
+        ),
+        repeat_field="safety_steps",
+        max_repeat_rows=10,
+        extra_list_fields=("emergency_contacts",),
+    ),
+    # ------------------------------------------------------------------
+    # EQ-005 고소작업대 사용계획서
+    # 법적 근거: 산안규칙 제86조 이하
+    # ------------------------------------------------------------------
+    "aerial_work_platform_use_plan": FormSpec(
+        form_type="aerial_work_platform_use_plan",
+        display_name="고소작업대 사용계획서",
+        version="1.0",
+        builder=build_aerial_work_platform_use_plan_excel,
+        required_fields=(
+            # 산안규칙 제86조 이하 법정 필수
+            "equipment_type",     # 장비 종류
+            "emergency_measure",  # 비상조치 방법
+        ),
+        optional_fields=(
+            "site_name", "project_name", "work_location", "work_date",
+            "contractor", "supervisor", "prepared_by",
+            "work_summary",
+            "equipment_model", "max_height", "max_load",
+            "operator_qualification", "work_radius",
+            "ground_condition", "outrigger_plan",
             "emergency_contacts",   # list[dict]: role, name, phone
             "safety_steps",         # list[dict]: task_step, hazard, safety_measure, responsible
             "sign_date",
