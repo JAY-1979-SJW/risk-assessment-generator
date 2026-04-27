@@ -154,7 +154,7 @@ def _validate(form_type: str, form_data: dict,
                                            "received": type(item).__name__,
                                        })
 
-    # extra_list_fields — list 타입만 허용 (max_rows 제한 없음, 항목은 dict만)
+    # extra_list_fields — list 타입만 허용 (max_rows 제한 없음, 항목은 dict 또는 str 허용)
     for elf in extra_lists:
         if elf not in form_data or form_data[elf] is None:
             continue
@@ -167,11 +167,11 @@ def _validate(form_type: str, form_data: dict,
                                        "received": type(val).__name__,
                                    })
         for idx, item in enumerate(val):
-            if not isinstance(item, dict):
+            if not isinstance(item, (dict, str)):
                 return _error_response(422, "INVALID_FIELD_TYPE",
                                        "필드 타입이 올바르지 않습니다.", {
                                            "field": f"{elf}[{idx}]",
-                                           "expected": "object",
+                                           "expected": "object or string",
                                            "received": type(item).__name__,
                                        })
 
