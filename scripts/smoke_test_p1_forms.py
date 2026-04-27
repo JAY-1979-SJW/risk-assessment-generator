@@ -4512,6 +4512,89 @@ CL008_REQUIRED_KEYWORDS = [
 # CL-008 evidence status (미연결 상태이므로 NEEDS_VERIFICATION 허용)
 CL008_VALID_EV_STATUSES = {"UNCONNECTED", "NEEDS_VERIFICATION"}
 
+# ─────────────────────────────────────────────────────────────────────────────
+# CL-009 유해화학물질 취급 점검표 샘플 및 상수
+# ─────────────────────────────────────────────────────────────────────────────
+
+SAMPLE_CL009_MINIMAL: dict = {
+    "site_name": "테스트화학(주)",
+    "check_date": "2026-04-27",
+    "inspector_name": "박안전",
+}
+
+SAMPLE_CL009_FULL: dict = {
+    "site_name": "테스트화학(주) 공장",
+    "project_name": "세척작업 현장",
+    "check_date": "2026-04-27",
+    "inspector_name": "박안전",
+    "department": "안전팀",
+    "position": "안전보건관리자",
+    "work_location": "B1 기계실",
+    "work_description": "화학물질 세척 작업",
+    "chemical_name": "산업용 세척제",
+    "cas_no": "007732-18-5",
+    "chemical_purpose": "부품 세척",
+    "taking_amount": "50L",
+    "taking_method": "펌프 분사",
+    "storage_chemical_name": "산업용 세척제",
+    "msds_available": "O",
+    "msds_understanding": "O",
+    "container_label": "O",
+    "label_legible": "O",
+    "storage_condition": "O",
+    "storage_location": "화학물질 저장실",
+    "incompatible_separated": "O",
+    "spill_kit_available": "O",
+    "ventilation_status": "양호",
+    "fire_extinguisher_available": "O",
+    "emergency_response_plan": "누출 시 즉시 보고 및 정화",
+    "ppe_required": "O",
+    "judgment": "적합",
+    "judgment_reason": "MSDS 비치 및 라벨 표시 정상, 보관 상태 양호",
+    "remarks": "환기 상태 모니터링 지속",
+    "nonconformance_items": [
+        {
+            "content": "보호장갑 보유 현황 미흡",
+            "action": "즉시 보호장갑 추가 구비",
+            "responsible": "안전관리자",
+            "deadline": "2026-04-28",
+            "completed": "예정",
+        },
+    ],
+    "preparer_name": "박안전",
+    "reviewer_sign": "이감독",
+    "approval_sign": "김소장",
+}
+
+# CL-009 필수 섹션 제목
+CL009_REQUIRED_HEADINGS = [
+    "유해화학물질 취급 점검표",
+    "화학물질 취급 작업 정보",
+    "MSDS 및 표시·라벨 점검",
+    "보관·취급 상태 점검",
+    "환기·화재·누출 대응 점검",
+    "보호구 점검",
+    "부적합 및 개선조치",
+    "종합 판정",
+]
+
+# CL-009 필수 키워드
+CL009_REQUIRED_KEYWORDS = [
+    "사업장명",
+    "화학물질",
+    "MSDS",
+    "라벨",
+    "보관",
+    "환기",
+    "소화기",
+    "누출",
+    "보호구",
+    "판정",
+]
+
+# CL-009 evidence status (미연결 상태이므로 NEEDS_VERIFICATION 허용)
+CL009_VALID_EV_STATUSES = {"UNCONNECTED", "NEEDS_VERIFICATION"}
+
 
 def run_cl008_smoke_test() -> list[tuple[str, str, str]]:
     """CL-008 보호구 지급 및 관리 점검표 smoke test. 결과 list 반환."""
@@ -4634,6 +4717,141 @@ def run_cl008_smoke_test() -> list[tuple[str, str, str]]:
         import traceback as _tb
         tb = _tb.format_exc().strip().splitlines()[-1]
         results.append(_check(False, "CL-008 catalog 검증 중 예외", tb))
+
+    return results
+
+
+def run_cl009_smoke_test() -> list[tuple[str, str, str]]:
+    """CL-009 유해화학물질 취급 점검표 smoke test. 결과 list 반환."""
+    results: list[tuple[str, str, str]] = []
+    supported = {f["form_type"] for f in list_supported_forms()}
+
+    # ── 1. registry 등록 확인 ────────────────────────────────────────────
+    results.append(_check(
+        "hazardous_chemical_checklist" in supported,
+        "registry: hazardous_chemical_checklist 등록됨",
+    ))
+
+    # ── 2. get_form_spec 검증 ─────────────────────────────────────────────
+    try:
+        spec = get_form_spec("hazardous_chemical_checklist")
+        results.append(_check(isinstance(spec, dict), "get_form_spec() → dict"))
+        results.append(_check(
+            spec.get("display_name") == "유해화학물질 취급 점검표",
+            "display_name 확인",
+            repr(spec.get("display_name")),
+        ))
+        results.append(_check(
+            isinstance(spec.get("required_fields"), list)
+            and len(spec["required_fields"]) > 0,
+            "required_fields 비어있지 않음",
+        ))
+        results.append(_check(
+            spec.get("repeat_field") == "nonconformance_items",
+            "repeat_field == 'nonconformance_items'",
+            repr(spec.get("repeat_field")),
+        ))
+        results.append(_check(
+            spec.get("max_repeat_rows") == 8,
+            "max_repeat_rows == 8",
+            repr(spec.get("max_repeat_rows")),
+        ))
+    except Exception as exc:
+        results.append(_check(False, "get_form_spec() 호출 성공", str(exc)))
+
+    # ── 3. 최소 샘플 → bytes ─────────────────────────────────────────────
+    try:
+        xlsx_bytes = build_form_excel("hazardous_chemical_checklist", SAMPLE_CL009_MINIMAL)
+        results.append(_check(
+            isinstance(xlsx_bytes, bytes) and len(xlsx_bytes) > 0,
+            "최소 샘플 → bytes 생성",
+            f"{len(xlsx_bytes):,} bytes",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "최소 샘플 → bytes 생성", str(exc)))
+
+    # ── 4. 공란 form_data → bytes ─────────────────────────────────────────
+    try:
+        empty_bytes = build_form_excel("hazardous_chemical_checklist", {})
+        results.append(_check(
+            isinstance(empty_bytes, bytes) and len(empty_bytes) > 0,
+            "공란 form_data → bytes 생성 (오류 없음)",
+            f"{len(empty_bytes):,} bytes",
+        ))
+    except Exception as exc:
+        results.append(_check(False, "공란 form_data → bytes 생성", str(exc)))
+
+    # ── 5~7. 전체 샘플 workbook 검증 ─────────────────────────────────────
+    try:
+        full_bytes = build_form_excel("hazardous_chemical_checklist", SAMPLE_CL009_FULL)
+        results.append(_check(
+            isinstance(full_bytes, bytes) and len(full_bytes) > 0,
+            "전체 샘플 → bytes 생성",
+            f"{len(full_bytes):,} bytes",
+        ))
+        from io import BytesIO as _BytesIO
+        from openpyxl import load_workbook as _load_wb
+        wb_full = _load_wb(_BytesIO(full_bytes))
+        all_vals = [
+            str(cell.value or "")
+            for ws_obj in wb_full.worksheets
+            for r in ws_obj.iter_rows()
+            for cell in r
+        ]
+        all_text = " ".join(all_vals)
+
+        # 필수 섹션 제목 포함 확인
+        for heading in CL009_REQUIRED_HEADINGS:
+            results.append(_check(
+                heading in all_text,
+                f"섹션 제목 포함: '{heading}'",
+            ))
+
+        # 필수 키워드 포함 확인
+        for keyword in CL009_REQUIRED_KEYWORDS:
+            results.append(_check(
+                keyword in all_text,
+                f"필수 키워드 포함: '{keyword}'",
+            ))
+
+    except Exception as exc:
+        import traceback as _tb
+        tb = _tb.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "전체 샘플 처리 중 예외", tb))
+
+    # ── 8. CL-009 catalog 검증 ────────────────────────────────────────────
+    try:
+        import yaml
+        catalog_path = Path("data/masters/safety/documents/document_catalog.yml")
+        with open(catalog_path, encoding="utf-8") as f:
+            cat = yaml.safe_load(f)
+        docs = {d["id"]: d for d in cat["documents"]}
+        cl009 = docs.get("CL-009")
+
+        results.append(_check(cl009 is not None, "catalog: CL-009 항목 존재"))
+
+        if cl009:
+            results.append(_check(
+                cl009.get("implementation_status") == "DONE",
+                "catalog: CL-009 implementation_status == DONE",
+                repr(cl009.get("implementation_status")),
+            ))
+            results.append(_check(
+                cl009.get("form_type") == "hazardous_chemical_checklist",
+                "catalog: CL-009 form_type == 'hazardous_chemical_checklist'",
+                repr(cl009.get("form_type")),
+            ))
+            ev_status = cl009.get("evidence_status", "")
+            results.append(_check(
+                ev_status in CL009_VALID_EV_STATUSES or ev_status == "",
+                f"catalog: CL-009 evidence_status 미연결 상태 허용",
+                repr(ev_status),
+            ))
+
+    except Exception as exc:
+        import traceback as _tb
+        tb = _tb.format_exc().strip().splitlines()[-1]
+        results.append(_check(False, "CL-009 catalog 검증 중 예외", tb))
 
     return results
 
@@ -4913,6 +5131,12 @@ def run_smoke_test() -> None:
     # ════════════════════════════════════════════════════════════
     cl008_results = run_cl008_smoke_test()
     results.extend(cl008_results)
+
+    # ════════════════════════════════════════════════════════════
+    # CL-009 검증
+    # ════════════════════════════════════════════════════════════
+    cl009_results = run_cl009_smoke_test()
+    results.extend(cl009_results)
 
     # ════════════════════════════════════════════════════════════
     # PTW-004 검증

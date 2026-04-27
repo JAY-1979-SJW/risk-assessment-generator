@@ -1342,9 +1342,9 @@ documents:
     category_code: CL
     document_group: 점검표
     legal_status: practical
-    implementation_status: TODO
+    implementation_status: DONE
     priority: P3
-    form_type: null
+    form_type: hazardous_chemical_checklist
     source_type: law
     legal_basis: "산업안전보건기준에 관한 규칙 제441조 이하"
     notes: null

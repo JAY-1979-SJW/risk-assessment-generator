@@ -87,6 +87,7 @@ from engine.output.electrical_work_permit_builder import build_electrical_work_p
 from engine.output.electrical_facility_checklist_builder import build_electrical_facility_checklist_excel
 from engine.output.fire_prevention_checklist_builder import build_fire_prevention_checklist_excel
 from engine.output.protective_equipment_checklist_builder import build_protective_equipment_checklist
+from engine.output.hazardous_chemical_checklist_builder import build_hazardous_chemical_checklist
 
 
 # ---------------------------------------------------------------------------
@@ -1253,6 +1254,43 @@ _REGISTRY: dict[str, FormSpec] = {
         ),
         repeat_field=None,
         max_repeat_rows=None,
+    ),
+    # ------------------------------------------------------------------
+    # P3 — CL-009 (2026-04-27)
+    # 법적 근거: 산안규칙 제441조 이하 (유해화학물질 취급)
+    # evidence_status: NEEDS_VERIFICATION
+    # 주의: 법정 별지 서식 없음. 실무 자체 표준서식.
+    #       유해화학물질 취급 작업 현장에서 MSDS, 라벨, 보관, 환기 등을 점검.
+    # ------------------------------------------------------------------
+    "hazardous_chemical_checklist": FormSpec(
+        form_type="hazardous_chemical_checklist",
+        display_name="유해화학물질 취급 점검표",
+        version="1.0",
+        builder=build_hazardous_chemical_checklist,
+        required_fields=(
+            "site_name",
+            "check_date",
+            "inspector_name",
+        ),
+        optional_fields=(
+            "project_name",
+            "department", "position",
+            "work_location", "work_description",
+            "chemical_name", "cas_no",
+            "chemical_purpose", "taking_amount", "taking_method",
+            "storage_chemical_name",
+            "msds_available", "msds_understanding",
+            "container_label", "label_legible",
+            "storage_condition", "storage_location",
+            "incompatible_separated", "spill_kit_available",
+            "ventilation_status", "fire_extinguisher_available",
+            "emergency_response_plan",
+            "ppe_required",
+            "judgment", "judgment_reason", "remarks",
+            "preparer_name", "reviewer_sign", "approval_sign",
+        ),
+        repeat_field="nonconformance_items",
+        max_repeat_rows=8,
     ),
     # ------------------------------------------------------------------
     # P2 → P1 — PTW-004 (2026-04-25)
