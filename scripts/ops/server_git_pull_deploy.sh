@@ -157,17 +157,16 @@ log_section "DEPLOY COMMANDS"
 
 # 핵심 명령: git pull --ff-only만 사용
 SERVER_COMMANDS=(
-  "cd $APP_DIR"
-  "git status --short"
-  "git fetch origin"
-  "git pull --ff-only origin $BRANCH"
-  "git rev-parse --short HEAD"
-  "docker compose -f infra/docker-compose.yml ps"
+  "git -C $APP_DIR status --short"
+  "git -C $APP_DIR fetch origin"
+  "git -C $APP_DIR pull --ff-only origin $BRANCH"
+  "git -C $APP_DIR rev-parse --short HEAD"
+  "docker compose -f $APP_DIR/infra/docker-compose.yml ps"
 )
 
 # 선택 명령
 if [[ "$RESTART" == "true" ]]; then
-  SERVER_COMMANDS+=("docker compose -f infra/docker-compose.yml up -d")
+  SERVER_COMMANDS+=("docker compose -f $APP_DIR/infra/docker-compose.yml up -d")
 fi
 
 log_info "실행할 서버 명령:"
@@ -195,21 +194,16 @@ log_section "EXECUTING REMOTE COMMANDS"
 
 # ssh 접속 명령 구성
 SSH_USER_HOST="${USER}@${HOST}"
-FULL_COMMAND=""
-
-for cmd in "${SERVER_COMMANDS[@]}"; do
-  if [[ -z "$FULL_COMMAND" ]]; then
-    FULL_COMMAND="$cmd"
-  else
-    FULL_COMMAND="$FULL_COMMAND; $cmd"
-  fi
-done
 
 log_info "ssh 접속: ssh -i $SSH_KEY $SSH_USER_HOST"
 log_info "원격 명령 실행 중..."
 
-# SSH 실행 (에러 처리)
-if ssh -i "$SSH_KEY" "$SSH_USER_HOST" bash -c "$FULL_COMMAND"; then
+# SSH 실행 (heredoc 방식, 에러 처리)
+if ssh -i "$SSH_KEY" "$SSH_USER_HOST" bash <<EOF
+set -euo pipefail
+$(for cmd in "${SERVER_COMMANDS[@]}"; do echo "$cmd"; done)
+EOF
+then
   log_section "RESULT"
   log_pass "서버 배포 완료"
   log_info "호스트: $HOST"
