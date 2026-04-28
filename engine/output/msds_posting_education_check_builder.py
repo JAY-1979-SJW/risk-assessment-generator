@@ -1,15 +1,18 @@
 """
 MSDS 비치 및 교육 확인서 — Excel 출력 모듈 (v1.0)  [PPE-004]
 
-법적 근거:
-    산업안전보건법 제110조 — 물질안전보건자료의 작성 및 제출
-    산업안전보건법 제111조 — 물질안전보건자료의 제공
-    산업안전보건법 제112조 — 물질안전보건자료의 게시 및 교육
-    산업안전보건법 제114조 — 경고표시 부착 의무
-    산업안전보건법 제115조 — 물질안전보건자료에 관한 교육
+법적 근거 (중심):
+    산업안전보건법 제114조 — 물질안전보건자료의 게시 및 교육
+    산업안전보건법 제115조 — 물질안전보건자료대상물질 용기 등의 경고표시
+    산업안전보건법 시행규칙 제167조 — 물질안전보건자료 게시·비치 방법
+    산업안전보건법 시행규칙 제169조 — 물질안전보건자료 교육의 시기·내용·방법
+    산업안전보건법 시행규칙 제170조 — 경고표시 방법 및 기재항목
+
+법적 근거 (보조 — 비공개 승인·대체자료 항목 추가 시):
+    산업안전보건법 제112조 — 물질안전보건자료의 비공개 승인 등
 
 분류: PRACTICAL — 법정 별지 서식 없음
-      MSDS 비치·경고표지 부착·취급 근로자 교육 의무(산안법 제112조·제115조) 이행 확인용
+      MSDS 비치·경고표지 부착·취급 근로자 교육 의무(산안법 제114조·시행규칙 제167조·제169조) 이행 확인용
       실무 법정 연계 보조서식 (관계 기관 공식 법정서식 아님)
 
 Required form_data keys:
@@ -94,8 +97,8 @@ from openpyxl.utils import get_column_letter
 SHEET_NAME    = "MSDS비치교육확인서"
 SHEET_HEADING = "MSDS 비치 및 교육 확인서"
 SHEET_SUBTITLE = (
-    "「산업안전보건법」 제112조(게시 및 교육), 제114조(경고표지), "
-    "제115조(MSDS 교육) 이행 확인"
+    "「산업안전보건법」 제114조(MSDS 게시 및 교육), 제115조(경고표시), "
+    "시행규칙 제167조·제169조·제170조 이행 확인"
 )
 DOC_ID = "PPE-004"
 
@@ -229,7 +232,7 @@ def build_msds_posting_education_check(form_data: Dict[str, Any]) -> bytes:
     row += 1  # 공백
 
     # ── 섹션3: MSDS 비치 위치 확인 ────────────────────────────────
-    _write_cell(ws, row, 1, TOTAL_COLS, "▣ 3. MSDS 비치 위치 확인  (산안법 제112조 제1항)",
+    _write_cell(ws, row, 1, TOTAL_COLS, "▣ 3. MSDS 비치 위치 확인  (산안법 제114조, 시행규칙 제167조)",
                 font=_FONT_BOLD, fill=_FILL_SECTION)
     row += 1
 
@@ -245,7 +248,7 @@ def build_msds_posting_education_check(form_data: Dict[str, Any]) -> bytes:
     row += 1  # 공백
 
     # ── 섹션4: 경고표지 부착 확인 ──────────────────────────────────
-    _write_cell(ws, row, 1, TOTAL_COLS, "▣ 4. 경고표지 부착 확인  (산안법 제114조)",
+    _write_cell(ws, row, 1, TOTAL_COLS, "▣ 4. 경고표지 부착 확인  (산안법 제115조, 시행규칙 제170조)",
                 font=_FONT_BOLD, fill=_FILL_SECTION)
     row += 1
 
@@ -260,7 +263,7 @@ def build_msds_posting_education_check(form_data: Dict[str, Any]) -> bytes:
     row += 1  # 공백
 
     # ── 섹션5: 취급 근로자 교육 확인 ──────────────────────────────
-    _write_cell(ws, row, 1, TOTAL_COLS, "▣ 5. 취급 근로자 교육 확인  (산안법 제115조)",
+    _write_cell(ws, row, 1, TOTAL_COLS, "▣ 5. 취급 근로자 교육 확인  (산안법 제114조, 시행규칙 제169조)",
                 font=_FONT_BOLD, fill=_FILL_SECTION)
     row += 1
 
@@ -380,8 +383,8 @@ def build_msds_posting_education_check(form_data: Dict[str, Any]) -> bytes:
     row += 1
     _write_cell(
         ws, row, 1, TOTAL_COLS,
-        "※ 본 서식은 산업안전보건법 제112조(MSDS 게시 및 교육), 제114조(경고표지), "
-        "제115조(MSDS 교육) 이행 확인을 위한 실무 보조서식입니다. "
+        "※ 본 서식은 산업안전보건법 제114조(MSDS 게시 및 교육), 제115조(경고표시), "
+        "시행규칙 제167조·제169조·제170조 이행 확인을 위한 실무 보조서식입니다. "
         "관계 기관 공식 법정서식이 아닙니다.",
         font=_FONT_SMALL, align=_ALIGN_LEFT,
     )
