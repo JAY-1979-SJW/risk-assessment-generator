@@ -82,6 +82,7 @@ from engine.output.tbm_log_builder import build_tbm_log_excel
 from engine.output.risk_assessment_register_builder import build_risk_assessment_register_excel
 from engine.output.risk_assessment_meeting_minutes_builder import build_risk_assessment_meeting_minutes_excel
 from engine.output.risk_assessment_procedure_builder import build_risk_assessment_procedure
+from engine.output.risk_assessment_result_notice_builder import build_risk_assessment_result_notice
 from engine.output.tower_crane_workplan_builder import build_tower_crane_workplan_excel
 from engine.output.vehicle_workplan_builder import build_vehicle_workplan_excel
 from engine.output.work_environment_measurement_builder import build_work_environment_measurement_excel
@@ -542,6 +543,38 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="step_items",
         max_repeat_rows=10,
         extra_list_fields=("term_items", "role_items", "record_items", "revision_history"),
+    ),
+    # ------------------------------------------------------------------
+    # P3 — RA-006 (2026-04-29)
+    # 법적 근거: 산업안전보건법 제36조 제3항(위험성평가 결과 주지),
+    #           고용노동부고시 제2023-19호 제21조(게시·공지 권고), 제3조(근로자 참여)
+    # evidence_status: PRACTICAL — 법정 별지 서식 없음, 고시 권고 이행용 현장 게시용
+    # 역할: 위험성평가 결과 근로자 공지·증빙. RA-001(원본)/RA-005(규정)와 역할 분리.
+    # ------------------------------------------------------------------
+    "risk_assessment_result_notice": FormSpec(
+        form_type="risk_assessment_result_notice",
+        display_name="위험성평가 결과 근로자 공지문",
+        version="1.0",
+        builder=build_risk_assessment_result_notice,
+        required_fields=(
+            "site_name",    # 사업장명
+            "notice_date",  # 공지 일자
+            "supervisor",   # 관리감독자
+        ),
+        optional_fields=(
+            "project_name", "company_name", "safety_manager",
+            "ra_ref_no", "ra_date",
+            "work_type", "work_location", "work_period", "target_workers",
+            "ra_summary", "ra_participants", "ra_method",
+            "total_hazards", "high_risk_count", "medium_risk_count", "low_risk_count",
+            "ppe_required", "restricted_zone", "access_condition",
+            "post_start_date", "post_end_date",
+            "post_location_1", "post_location_2",
+            "confirm_date", "approver",
+        ),
+        repeat_field="hazard_items",
+        max_repeat_rows=12,
+        extra_list_fields=("precaution_items", "worker_sign_items"),
     ),
     # ------------------------------------------------------------------
     # RA-002 — 위험성평가 관리 등록부 (2026-04-26)

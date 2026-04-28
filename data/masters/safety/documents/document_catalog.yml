@@ -696,12 +696,12 @@ documents:
     category_code: RA
     document_group: 위험성평가
     legal_status: practical
-    implementation_status: TODO
-    priority: P3
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: risk_assessment_result_notice
     source_type: moel
-    legal_basis: "고용노동부고시 제2023-19호 (공지 권고)"
-    notes: "현장 게시용"
+    legal_basis: "산업안전보건법 제36조 제3항(위험성평가 결과 주지), 고용노동부고시 제2023-19호 제21조(결과 게시·공지 권고), 제3조(근로자 참여)"
+    notes: "builder v1.0 — scaffold 11섹션. 현장 게시용. 관계 기관 공식 법정서식 아님. RA-001(평가표 원본)·RA-005(실시 규정)와 역할 분리."
 
   # ═══════════════════════════════════════════════════════════════
   # ED — 안전보건교육 관련 (5종)
