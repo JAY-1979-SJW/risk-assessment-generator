@@ -1,7 +1,7 @@
 {
-  "run_at": "2026-04-28 23:12:36",
-  "total": 72,
-  "pass": 32,
+  "run_at": "2026-04-28 23:30:41",
+  "total": 73,
+  "pass": 33,
   "warn": 40,
   "fail": 0,
   "results": [
@@ -472,11 +472,20 @@
     {
       "form_type": "ppe_issuance_ledger",
       "display_name": "보호구 지급 대장",
-      "legal_status": "legal",
+      "legal_status": "unknown",
       "verdict": "PASS",
       "fails": [],
       "warns": [],
       "xlsx_bytes": 6838
+    },
+    {
+      "form_type": "ppe_issue_register",
+      "display_name": "보호구 지급 대장 (v2)",
+      "legal_status": "legal_support",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 10219
     },
     {
       "form_type": "pre_work_safety_check",

@@ -115,6 +115,7 @@ from engine.output.emergency_contact_evacuation_plan_builder import build_emerge
 from engine.output.emergency_first_aid_record_builder import build_emergency_first_aid_record_excel
 from engine.output.accident_root_cause_prevention_report_builder import build_accident_root_cause_prevention_report_excel
 from engine.output.ppe_issuance_ledger_builder import build_ppe_issuance_ledger_excel
+from engine.output.ppe_issue_register_builder import build_ppe_issue_register
 from engine.output.chemical_equipment_workplan_builder import build_chemical_equipment_workplan_excel
 from engine.output.asbestos_removal_workplan_builder import build_asbestos_removal_workplan_excel
 from engine.output.contractor_safety_document_checklist_builder import build_contractor_safety_document_checklist_excel
@@ -2191,6 +2192,37 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="issue_records",
         max_repeat_rows=20,
         extra_list_fields=("stock_items",),
+    ),
+    "ppe_issue_register": FormSpec(
+        form_type="ppe_issue_register",
+        display_name="보호구 지급 대장 (v2)",
+        version="2.0",
+        builder=build_ppe_issue_register,
+        required_fields=(
+            "site_name",   # 현장명
+            "manager",     # 관리책임자
+        ),
+        optional_fields=(
+            "project_name", "company_name", "period", "prepared_date", "approver",
+            "worker_name", "worker_id", "occupation", "subcontractor", "work_location",
+            "ppe_standard_checked", "qty_sufficient", "individual_ppe_needed", "ppe_condition_ok",
+            "edu_conducted", "edu_date", "edu_instructor", "edu_attendees",
+            "inspection_date", "inspector", "inspection_result",
+            "supervisor_name", "safety_manager_name", "site_manager_name", "confirm_date",
+            "issue_records",        # list[dict]: worker_name, ppe_type, spec, issue_date, qty, receipt_confirm
+            "ppe_type_records",     # list[dict]: ppe_type, standard, qty_required, qty_issued, qty_remain, remarks
+            "signature_records",    # list[dict]: worker_name, date, signature_confirm
+            "replace_records",      # list[dict]: worker_name, ppe_type, action, date, reason, handler
+            "nonissue_records",     # list[dict]: worker_name, ppe_type, reason, action, action_date
+            "nonwear_records",      # list[dict]: worker_name, ppe_type, date, action
+            "stock_records",        # list[dict]: ppe_type, spec, stock_qty, issued_qty, remain_qty, status
+        ),
+        repeat_field="issue_records",
+        max_repeat_rows=20,
+        extra_list_fields=(
+            "ppe_type_records", "signature_records", "replace_records",
+            "nonissue_records", "nonwear_records", "stock_records",
+        ),
     ),
     "chemical_equipment_workplan": FormSpec(
         form_type="chemical_equipment_workplan",

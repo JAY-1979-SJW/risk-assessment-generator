@@ -1388,13 +1388,13 @@ documents:
     category: 보호구 관리
     category_code: PPE
     document_group: 보호구관리
-    legal_status: legal
+    legal_status: legal_support
     implementation_status: DONE
     priority: DONE
-    form_type: ppe_issuance_ledger
+    form_type: ppe_issue_register
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제32조"
-    notes: "builder v1.0"
+    legal_basis: "산업안전보건기준에 관한 규칙 제32조 보호구의 지급 등, 제33조 보호구의 관리, 제34조 전용 보호구 등"
+    notes: "builder v2.0 — scaffold 10섹션 실무 보조서식. 공식 별지 제출서식 아님."
 
   - id: PPE-002
     name: 건설 장비 반입 신청서
