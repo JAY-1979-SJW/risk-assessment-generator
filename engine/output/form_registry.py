@@ -141,6 +141,7 @@ from engine.output.serious_accident_immediate_report_builder import build_seriou
 from engine.output.safety_manager_appointment_report_builder import build_safety_manager_appointment_report_excel
 from engine.output.industrial_accident_status_ledger_builder import build_industrial_accident_status_ledger
 from engine.output.radiography_work_permit_builder import build_radiography_work_permit
+from engine.output.compressor_pneumatic_equipment_plan_builder import build_compressor_pneumatic_equipment_plan
 
 
 # ---------------------------------------------------------------------------
@@ -2969,6 +2970,44 @@ _REGISTRY: dict[str, FormSpec] = {
     #                  산안규칙 의무 항목 기반 실무 서식 (방사선 투과검사 RT 한정)
     # 역할: RT 작업 전 안전통제·허가 기록. 방사선관리구역·출입통제·차폐·개인선량계·비상조치 포함.
     # ------------------------------------------------------------------
+    # ------------------------------------------------------------------
+    # P3 — EQ-015 (2026-04-29)
+    # 법적 근거: 산업안전보건기준에 관한 규칙 제261조~제276조(압력용기),
+    #           제269조(공기저장탱크의 설치 등), 제297조(호스·배관 이탈 방지),
+    #           제512조~제517조(소음으로 인한 건강장해 방지)
+    # evidence_status: OPTIONAL — 법정 별지 서식 없음.
+    #                  콤프레샤·공압장비 현장 실무 안전관리 보조서식.
+    # ------------------------------------------------------------------
+    "compressor_pneumatic_equipment_plan": FormSpec(
+        form_type="compressor_pneumatic_equipment_plan",
+        display_name="콤프레샤·공압장비 사용계획서",
+        version="1.0",
+        builder=build_compressor_pneumatic_equipment_plan,
+        required_fields=(
+            "site_name",       # 현장명
+            "equipment_name",  # 장비명/기종
+            "work_date",       # 사용 일자
+        ),
+        optional_fields=(
+            "project_name", "contractor", "supervisor", "use_period",
+            "work_location", "power_supply", "work_purpose",
+            "compressor_type", "compressor_model", "compressor_serial_no",
+            "max_pressure", "rated_pressure", "tank_capacity", "motor_output",
+            "operator_name", "operator_license",
+            "pressure_gauge_ok", "safety_valve_ok", "drain_valve_ok",
+            "tank_inspection_date",
+            "hose_condition", "coupler_condition", "hose_tie_down",
+            "pneumatic_tools", "tool_max_pressure",
+            "grounding_ok", "leakage_protection_ok",
+            "noise_level", "hearing_protection", "dust_protection", "spray_prevention",
+            "hose_blowout_measure", "pressure_release_plan", "depressure_before_work",
+            "stop_work_criteria", "emergency_contact", "emergency_procedure",
+            "ppe_issued", "prepared_by", "approver",
+        ),
+        repeat_field="inspection_items",
+        max_repeat_rows=10,
+        extra_list_fields=("safety_steps",),
+    ),
     "radiography_work_permit": FormSpec(
         form_type="radiography_work_permit",
         display_name="방사선 투과검사 작업 허가서",

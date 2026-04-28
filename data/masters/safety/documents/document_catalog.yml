@@ -573,12 +573,12 @@ documents:
     category_code: EQ
     document_group: 장비사용계획서
     legal_status: optional
-    implementation_status: TODO
-    priority: P3
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: compressor_pneumatic_equipment_plan
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제261조~제276조"
-    notes: null
+    legal_basis: "산업안전보건기준에 관한 규칙 제261조~제276조·제269조·제297조·제512조~제517조"
+    notes: "builder v1.0. 콤프레샤·공압장비 실무 안전관리 보조서식. 공식 별지 서식 없음. 압력계·안전밸브·에어호스·커플러·소음·보호구·비상조치 항목 포함."
 
   - id: EQ-016
     name: 사다리·말비계·작업발판 사용계획서
