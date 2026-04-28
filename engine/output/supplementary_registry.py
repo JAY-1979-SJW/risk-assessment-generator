@@ -40,6 +40,7 @@ from engine.output.photo_attachment_sheet_builder import build_photo_attachment_
 from engine.output.document_attachment_list_builder import build_document_attachment_list
 from engine.output.confined_space_gas_measurement_builder import build_confined_space_gas_measurement
 from engine.output.work_completion_confirmation_builder import build_work_completion_confirmation
+from engine.output.improvement_completion_check_builder import build_improvement_completion_check
 
 # ---------------------------------------------------------------------------
 # SupplementalSpec
@@ -206,7 +207,7 @@ _SUPPLEMENTARY_REGISTRY: Dict[str, SupplementalSpec] = {
             "near_miss_report", "accident_root_cause_prevention_report",
         ),
         trigger_condition="위험성평가 결과 개선 필요 항목 ≥ 1개",
-        output_builder=_todo_builder,  # TODO: improvement_completion_check_builder.py
+        output_builder=build_improvement_completion_check,
         required_fields=("site_name", "assessment_date"),
         optional_fields=(
             "work_name", "assessor",
