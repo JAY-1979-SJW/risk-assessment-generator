@@ -93,7 +93,7 @@ def _write_meta(ws, row: int, data: Dict[str, Any]) -> int:
 
 def _write_equipment_info(ws, row: int, data: Dict[str, Any]) -> int:
     """고소작업대 장비 정보 (제86조 이하 기재사항)."""
-    row = _section_header(ws, row, "▶ 장비 정보 (법정 기재사항)")
+    row = _section_header(ws, row, "▶ 장비 정보 (핵심 기재사항)")
 
     fields = [
         ("장비 종류",         "equipment_type",      "스카이차·붐리프트·시저리프트 등"),
