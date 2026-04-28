@@ -2018,23 +2018,43 @@ _REGISTRY: dict[str, FormSpec] = {
     "near_miss_report": FormSpec(
         form_type="near_miss_report",
         display_name="아차사고 보고서",
-        version="1.0",
+        version="2.0",
         builder=build_near_miss_report_excel,
         required_fields=(
             "site_name",          # 현장명
             "incident_datetime",  # 발생 일시
         ),
         optional_fields=(
-            "project_name", "company_name", "report_date", "reporter",
-            "department", "incident_location", "work_content",
-            "related_equipment", "incident_description", "potential_consequence",
-            "reviewer", "approver",
-            "cause_analysis",      # list[dict]: cause_type, cause_detail, risk_factor, remarks
-            "corrective_actions",  # list[dict]: action, responsible, due_date, completed, remarks
+            "project_name", "written_date", "near_miss_no",
+            "discoverer", "author", "reviewer", "approver",
+            "incident_location", "work_type", "work_content",
+            "related_equipment", "related_company",
+            "near_miss_type", "actual_accident",
+            "no_human_damage", "no_property_damage", "work_stopped",
+            "situation_description", "potential_sequence",
+            "expected_accident_type", "expected_severity",
+            "direct_hazard", "indirect_hazard", "work_conditions",
+            "evidence_media", "witness",
+            "haz_fall", "haz_falling_obj", "haz_entanglement", "haz_electric",
+            "haz_collapse", "haz_overturn", "haz_fire", "haz_explosion",
+            "haz_asphyxia", "haz_chemical", "haz_collision", "haz_heavy_obj", "haz_other",
+            "imm_work_stop", "imm_zone_control", "imm_equip_stop",
+            "imm_power_cut", "imm_gas_cut", "imm_temp_guard",
+            "imm_evacuation", "imm_reported", "imm_sub_notified", "imm_other",
+            "ca_unsafe_condition", "ca_unsafe_act", "ca_procedure_violation",
+            "ca_lack_of_training", "ca_poor_supervision", "ca_equipment_defect",
+            "ca_no_ppe", "ca_work_environment", "ca_contractor_mgmt", "ca_ra_missed",
+            "prev_immediate", "prev_short_term", "prev_long_term",
+            "prev_procedure_update", "prev_ra_review", "prev_tbm",
+            "prev_sub_edu", "prev_ppe_update", "prev_guard_update", "prev_lateral_spread",
+            "action_items",  # list[dict]: improvement, responsible, due_date, completed_date, status, evidence, checker, incomplete_reason
+            "sig_author", "sig_safety_mgr", "sig_supervisor",
+            "sig_site_director", "sig_sub_manager",
+            "worker_rep_opinion", "sig_confirmed_date",
         ),
-        repeat_field="cause_analysis",
+        repeat_field="action_items",
         max_repeat_rows=8,
-        extra_list_fields=("corrective_actions",),
+        extra_list_fields=(),
     ),
     "lift_gondola_use_plan": FormSpec(
         form_type="lift_gondola_use_plan",

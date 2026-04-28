@@ -1,8 +1,8 @@
 {
-  "run_at": "2026-04-28 17:57:04",
+  "run_at": "2026-04-28 18:18:49",
   "total": 70,
-  "pass": 30,
-  "warn": 40,
+  "pass": 29,
+  "warn": 41,
   "fail": 0,
   "results": [
     {
@@ -21,7 +21,7 @@
       "verdict": "PASS",
       "fails": [],
       "warns": [],
-      "xlsx_bytes": 7243
+      "xlsx_bytes": 7240
     },
     {
       "form_type": "annual_safety_education_plan",
@@ -281,7 +281,7 @@
         "인쇄 설정(orientation/fitToPage/margins) 없음",
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 12192
+      "xlsx_bytes": 12195
     },
     {
       "form_type": "formwork_shoring_workplan",
@@ -394,7 +394,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 13125
+      "xlsx_bytes": 13123
     },
     {
       "form_type": "manager_job_training_record",
@@ -435,10 +435,12 @@
       "form_type": "near_miss_report",
       "display_name": "아차사고 보고서",
       "legal_status": "practical",
-      "verdict": "PASS",
+      "verdict": "WARN",
       "fails": [],
-      "warns": [],
-      "xlsx_bytes": 6937
+      "warns": [
+        "반복 테이블(번호 행) 없음"
+      ],
+      "xlsx_bytes": 9070
     },
     {
       "form_type": "new_worker_safety_pledge",
@@ -705,7 +707,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 8049
+      "xlsx_bytes": 8046
     },
     {
       "form_type": "work_at_height_permit",

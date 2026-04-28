@@ -1,14 +1,14 @@
 # Excel 서식 품질 점검 보고서
 
-생성일시: 2026-04-28 17:57:04
+생성일시: 2026-04-28 18:18:49
 
 ## 전체 요약
 
 | 항목 | 건수 |
 |------|------|
 | 전체 점검 | 70 |
-| PASS | 30 |
-| WARN | 40 |
+| PASS | 29 |
+| WARN | 41 |
 | FAIL | 0 |
 
 ## FAIL 목록
@@ -97,6 +97,9 @@ FAIL 없음
 ### mobile_crane_workplan — 이동식 크레인 작업계획서 (legal)
 - WARN: 섹션 수 부족: 0개
 
+### near_miss_report — 아차사고 보고서 (practical)
+- WARN: 반복 테이블(번호 행) 없음
+
 ### protective_equipment_checklist — 보호구 지급 및 관리 점검표 (practical)
 - WARN: 섹션 수 부족: 0개
 
@@ -165,7 +168,7 @@ FAIL 없음
 ## 공통 문제 (WARN 빈도)
 
 - 섹션 수 부족: 39건
-- 반복 테이블(번호 행) 없음: 10건
+- 반복 테이블(번호 행) 없음: 11건
 - 빈 셀 비율 과다: 8건
 - 인쇄 설정(orientation/fitToPage/margins) 없음: 7건
 - 서명/확인란 없음: 1건
