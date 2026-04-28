@@ -111,6 +111,7 @@ from engine.output.emergency_contact_evacuation_plan_builder import build_emerge
 from engine.output.ppe_issuance_ledger_builder import build_ppe_issuance_ledger_excel
 from engine.output.chemical_equipment_workplan_builder import build_chemical_equipment_workplan_excel
 from engine.output.asbestos_removal_workplan_builder import build_asbestos_removal_workplan_excel
+from engine.output.contractor_safety_document_checklist_builder import build_contractor_safety_document_checklist_excel
 
 
 # ---------------------------------------------------------------------------
@@ -1920,6 +1921,24 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="safety_steps",
         max_repeat_rows=10,
         extra_list_fields=("workers",),
+    ),
+    "contractor_safety_document_checklist": FormSpec(
+        form_type="contractor_safety_document_checklist",
+        display_name="협력업체 안전보건 관련 서류 확인서",
+        version="1.0",
+        builder=build_contractor_safety_document_checklist_excel,
+        required_fields=(
+            "principal_contractor", # 원청업체명
+            "subcontractor",        # 협력업체명
+        ),
+        optional_fields=(
+            "site_name", "project_name", "check_date", "checker", "approver",
+            "doc_items",      # list[dict]: doc_name, submitted, submit_date, expiry_date, remarks
+            "required_docs",  # list[dict]: doc_name, legal_basis, remarks
+        ),
+        repeat_field="doc_items",
+        max_repeat_rows=20,
+        extra_list_fields=("required_docs",),
     ),
 }
 

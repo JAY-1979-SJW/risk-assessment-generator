@@ -1445,12 +1445,12 @@ documents:
     category_code: CM
     document_group: 협력업체관리
     legal_status: practical
-    implementation_status: TODO
-    priority: P2
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: contractor_safety_document_checklist
     source_type: law
     legal_basis: "산업안전보건법 제63조 (도급인 안전보건 조치 의무)"
-    notes: null
+    notes: "builder v1.0"
 
   - id: CM-002
     name: 도급·용역 안전보건 협의서
