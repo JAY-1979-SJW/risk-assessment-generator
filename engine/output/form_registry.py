@@ -110,6 +110,7 @@ from engine.output.industrial_accident_report_builder import build_industrial_ac
 from engine.output.emergency_contact_evacuation_plan_builder import build_emergency_contact_evacuation_plan_excel
 from engine.output.ppe_issuance_ledger_builder import build_ppe_issuance_ledger_excel
 from engine.output.chemical_equipment_workplan_builder import build_chemical_equipment_workplan_excel
+from engine.output.asbestos_removal_workplan_builder import build_asbestos_removal_workplan_excel
 
 
 # ---------------------------------------------------------------------------
@@ -1896,6 +1897,29 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="safety_steps",
         max_repeat_rows=10,
         extra_list_fields=("chemical_hazards", "emergency_contacts"),
+    ),
+    "asbestos_removal_workplan": FormSpec(
+        form_type="asbestos_removal_workplan",
+        display_name="석면 해체·제거 작업 계획서",
+        version="1.0",
+        builder=build_asbestos_removal_workplan_excel,
+        required_fields=(
+            "site_name",       # 현장명
+            "removal_method",  # 해체 방법
+        ),
+        optional_fields=(
+            "building_name", "contractor", "work_period", "work_location",
+            "supervisor", "survey_agency", "survey_date",
+            "asbestos_type", "material_name", "content_ratio", "estimated_qty",
+            "material_location",
+            "safety_steps",    # list[dict]: task_step, hazard, safety_measure, responsible
+            "workers",         # list[dict]: name, occupation, health_exam, ppe, remarks
+            "waste_contractor", "disposal_method", "storage_location", "emergency_measure",
+            "prepared_by", "approver",
+        ),
+        repeat_field="safety_steps",
+        max_repeat_rows=10,
+        extra_list_fields=("workers",),
     ),
 }
 

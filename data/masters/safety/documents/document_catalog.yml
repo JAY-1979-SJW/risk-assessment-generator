@@ -1675,12 +1675,12 @@ documents:
     category_code: TS
     document_group: 공종별특화
     legal_status: legal
-    implementation_status: TODO
-    priority: P2
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: asbestos_removal_workplan
     source_type: law
     legal_basis: "산업안전보건법 제119조, 시행규칙 제175조 이하"
-    notes: "건축물 철거 시 석면 함유 자재 제거"
+    notes: "석면·건축물 철거 한정. builder v1.0"
 
   # ═══════════════════════════════════════════════════════════════
   # SP — 실무 보강 (4종)
