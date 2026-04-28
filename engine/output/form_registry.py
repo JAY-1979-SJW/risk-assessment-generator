@@ -109,6 +109,7 @@ from engine.output.safety_committee_minutes_builder import build_safety_committe
 from engine.output.industrial_accident_report_builder import build_industrial_accident_report_excel
 from engine.output.emergency_contact_evacuation_plan_builder import build_emergency_contact_evacuation_plan_excel
 from engine.output.ppe_issuance_ledger_builder import build_ppe_issuance_ledger_excel
+from engine.output.chemical_equipment_workplan_builder import build_chemical_equipment_workplan_excel
 
 
 # ---------------------------------------------------------------------------
@@ -1872,6 +1873,29 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="issue_records",
         max_repeat_rows=20,
         extra_list_fields=("stock_items",),
+    ),
+    "chemical_equipment_workplan": FormSpec(
+        form_type="chemical_equipment_workplan",
+        display_name="화학설비·부속설비 작업계획서",
+        version="1.0",
+        builder=build_chemical_equipment_workplan_excel,
+        required_fields=(
+            "equipment_name",    # 설비명
+            "emergency_measure", # 비상조치 방법
+        ),
+        optional_fields=(
+            "site_name", "project_name", "contractor", "work_date",
+            "work_location", "supervisor", "prepared_by", "approver",
+            "equipment_type", "chemical_name", "chemical_state",
+            "is_hazardous", "max_pressure", "max_temperature", "capacity",
+            "work_summary",
+            "safety_steps",       # list[dict]: task_step, hazard, safety_measure, responsible
+            "chemical_hazards",   # list[dict]: hazard_type, description, response, ppe_required
+            "emergency_contacts", # list[dict]: role, name, phone
+        ),
+        repeat_field="safety_steps",
+        max_repeat_rows=10,
+        extra_list_fields=("chemical_hazards", "emergency_contacts"),
     ),
 }
 
