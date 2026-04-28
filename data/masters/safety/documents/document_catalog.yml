@@ -1545,7 +1545,7 @@ documents:
     form_type: industrial_accident_report
     source_type: law
     legal_basis: "산업안전보건법 제57조, 시행규칙 제73조, 별지 제30호서식"
-    notes: "발생 후 1개월 이내 제출 의무. builder v1.0"
+    notes: "발생 후 1개월 이내 제출 의무. builder v1.0. 공식 제출은 고용노동부 별지 제30호서식 사용 — 이 builder는 내부 작성 보조용"
 
   - id: EM-002
     name: 아차사고 보고서

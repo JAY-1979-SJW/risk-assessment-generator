@@ -28,8 +28,12 @@ FORM_TYPE  = "industrial_accident_report"
 SHEET_NAME = "산업재해조사표"
 SHEET_HEADING  = "산업재해조사표"
 SHEET_SUBTITLE = (
-    "「산업안전보건법」 제57조, 시행규칙 제73조 별지 제30호서식에 따른 법정 보고서"
+    "「산업안전보건법」 제57조, 시행규칙 제73조에 따른 법정 기재항목 확인용 작성 보조서식"
     f" ({DOC_ID})"
+)
+SHEET_NOTICE = (
+    "※ 이 서식은 법정 제출 전 내용 확인·정리를 위한 보조서식입니다. "
+    "공식 제출은 고용노동부 별지 제30호서식(e-고용보험 등)을 사용하십시오."
 )
 
 TOTAL_COLS = 8
@@ -65,6 +69,9 @@ def _write_title(ws, row: int) -> int:
     row += 1
     write_cell(ws, row, 1, TOTAL_COLS, SHEET_SUBTITLE,
                font=FONT_SUBTITLE, fill=FILL_NONE, align=ALIGN_CENTER, height=18)
+    row += 1
+    write_cell(ws, row, 1, TOTAL_COLS, SHEET_NOTICE,
+               font=FONT_SMALL, fill=FILL_NONE, align=ALIGN_CENTER, height=16)
     return row + 1
 
 
