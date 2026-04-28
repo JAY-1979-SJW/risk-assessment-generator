@@ -1110,10 +1110,10 @@ documents:
     legal_status: practical
     implementation_status: DONE
     priority: P3
-    form_type: work_safety_checklist
+    form_type: pre_work_safety_check
     source_type: law
-    legal_basis: "중대재해처벌법 시행령 제4조"
-    notes: "작업자 개인 작업 개시 전 자가 점검"
+    legal_basis: "산업안전보건법 제38조 (안전조치), 제36조 (위험성평가), 산업안전보건기준에 관한 규칙 별표 3 (작업시작 전 점검사항)"
+    notes: "공식 제출 서식 아님. 작업 전 안전확인 및 작업개시 판단 보조서식. v1(work_safety_checklist) 개인 자가 점검서와 별도 운영."
 
   # ═══════════════════════════════════════════════════════════════
   # CL — 점검표·체크리스트 (10종)

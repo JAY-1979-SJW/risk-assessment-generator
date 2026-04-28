@@ -88,6 +88,7 @@ from engine.output.safety_management_log_builder import build_safety_management_
 from engine.output.supervisor_safety_log_builder import build_supervisor_safety_log
 from engine.output.safety_patrol_inspection_log_builder import build_safety_patrol_inspection_log
 from engine.output.weather_condition_log_builder import build_weather_condition_log
+from engine.output.pre_work_safety_check_builder import build_pre_work_safety_check
 from engine.output.work_safety_checklist_builder import build_work_safety_checklist
 from engine.output.heavy_lifting_workplan_builder import build_heavy_lifting_workplan_excel
 from engine.output.workplan_builder import build_excavation_workplan_excel
@@ -1542,10 +1543,113 @@ _REGISTRY: dict[str, FormSpec] = {
         max_repeat_rows=8,
     ),
     # ------------------------------------------------------------------
-    # DL-005 — 작업 전 안전 확인서 (2026-04-26)
+    # DL-005 — 작업 전 안전 확인서 v2 (2026-04-28)
+    # 법적 근거: 산업안전보건법 제38조 (안전조치), 제36조 (위험성평가 및 조치사항)
+    #           산업안전보건기준에 관한 규칙 별표 3 (작업시작 전 점검사항)
+    # evidence_status: NEEDS_VERIFICATION
+    # 주의: 법정 별지 서식 없음. 실무 자체 표준서식. 작업 시작 직전 작업개시 가능 여부 확인용.
+    #       work_safety_checklist(개인 자가 점검)와 별도 운영.
+    # ------------------------------------------------------------------
+    "pre_work_safety_check": FormSpec(
+        form_type="pre_work_safety_check",
+        display_name="작업 전 안전 확인서",
+        version="2.0",
+        builder=build_pre_work_safety_check,
+        required_fields=(
+            "site_name",
+            "work_date",
+            "confirmer",
+        ),
+        optional_fields=(
+            "project_name",
+            "work_day",
+            "work_start_time",
+            "work_zone",
+            "writer_name",
+            "reviewer_name",
+            "approver_name",
+            "work_name",
+            "work_type",
+            "work_content",
+            "work_location",
+            "worker_count",
+            "subcontractor",
+            "equipment_used",
+            "materials_used",
+            "high_risk_work",
+            "special_notes",
+            "workplan_required",
+            "workplan_approved",
+            "permit_required",
+            "permit_issued",
+            "hazardous_work_type",
+            "permit_conditions_ok",
+            "related_form_number",
+            "stop_if_unmet",
+            "ra_conducted",
+            "ra_shared",
+            "residual_risk_checked",
+            "tbm_conducted",
+            "tbm_attendees",
+            "tbm_absentee_action",
+            "new_worker_informed",
+            "foreign_worker_informed",
+            "passage_secured",
+            "opening_protected",
+            "fall_prevented",
+            "falling_object_prevented",
+            "lighting_ok",
+            "ventilation_ok",
+            "housekeeping_ok",
+            "temp_power_ok",
+            "combustibles_removed",
+            "escape_route_secured",
+            "equipment_inspected",
+            "tools_ok",
+            "elcb_checked",
+            "safety_device_ok",
+            "ppe_issued",
+            "ppe_worn",
+            "safety_harness_attached",
+            "defective_ppe_replaced",
+            "weather_checked",
+            "weather_risk",
+            "work_stop_criteria",
+            "dl004_linked",
+            "gas_measurement_needed",
+            "hazardous_env_risk",
+            "emergency_contact_ok",
+            "first_aid_location",
+            "extinguisher_location",
+            "aed_location",
+            "fire_report_ok",
+            "evacuation_route_ok",
+            "assembly_point_ok",
+            "first_aid_person",
+            "work_start_approved",
+            "conditional_approval",
+            "conditional_conditions",
+            "work_stop_reason",
+            "remedial_action",
+            "remedial_person",
+            "remedial_eta",
+            "reconfirmer",
+            "final_approver",
+            "foreman_name",
+            "supervisor_name",
+            "safety_manager_name",
+            "site_manager_name",
+            "subcontractor_manager",
+            "confirm_date",
+        ),
+        repeat_field=None,
+        max_repeat_rows=None,
+    ),
+    # ------------------------------------------------------------------
+    # DL-005 (v1 레거시) — 작업자 개인 자가 점검서 (2026-04-26)
     # 법적 근거: 중대재해처벌법 시행령 제4조 (안전보건관리체계 구축 의무)
     # evidence_status: VERIFIED (DL-001과 공유)
-    # 주의: 개인 자가 점검서. 현장 관리 일지(DL-001)와 다름.
+    # 주의: 개인 자가 점검서. DL-005 v2(pre_work_safety_check)와 별도 운영.
     "work_safety_checklist": FormSpec(
         form_type="work_safety_checklist",
         display_name="작업 전 안전 확인서",
