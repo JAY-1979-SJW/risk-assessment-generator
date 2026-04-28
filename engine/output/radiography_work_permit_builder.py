@@ -2,10 +2,10 @@
 방사선 투과검사 작업 허가서 — Excel 출력 모듈 (v1).
 
 법적 근거:
-  - 산업안전보건기준에 관한 규칙 제573조(정의), 제574조(방사선관리구역 설정),
-    제575조(관계자외 출입금지), 제578조(차폐), 제579조(개인선량계 착용),
-    제580조(작업 전 교육)
-  - 원자력안전법 제53조(방사선작업종사자 선량한도 준수)
+  - 산업안전보건기준에 관한 규칙 제573조(정의), 제574조(방사성물질의 밀폐 등),
+    제575조(방사선관리구역의 지정 등), 제579조(게시 등),
+    제580조(차폐물 설치 등), 제581조(교육)
+  - 원자력안전법 제91조(방사선장해방지조치), 제106조(교육훈련)
   - 원자력안전법 시행규칙 제2조(방사선관리구역 기준)
   - 비파괴검사기술의 진흥 및 관리에 관한 법률 제2조(방사선 비파괴검사 분류)
 분류: PRACTICAL — 법정 별지 서식 없음. 산안규칙 의무 항목 기반 실무 서식.
@@ -76,7 +76,7 @@ from engine.output.excel_style_helpers import (
 SHEET_NAME    = "방사선투과검사작업허가서"
 SHEET_HEADING = "방사선 투과검사 작업 허가서"
 SHEET_SUBTITLE = (
-    "「산업안전보건기준에 관한 규칙」 제574조·제575조·제578조·제579조에 따른 "
+    "「산업안전보건기준에 관한 규칙」 제574조·제575조·제579조·제580조에 따른 "
     "방사선 작업 전 안전통제 및 허가 기록 서식  [PTW-006]"
 )
 
@@ -95,16 +95,16 @@ _FVS, _FVE       = 2, 10
 
 NOTICE_LEGAL = (
     "본 서식은 관계 기관 공식 법정서식이 아닙니다. "
-    "산안규칙 제573조 이하, 원자력안전법 제53조 의무 항목 기반 실무 서식이며, "
+    "산안규칙 제573조 이하, 원자력안전법 제91조·제106조 의무 항목 기반 실무 서식이며, "
     "현장 조건·발주처·원청 기준에 따라 보완 적용한다."
 )
 NOTICE_ZONE = (
     "방사선관리구역은 방사선량률이 주당 400μSv를 초과하는 구역이며, "
-    "경계·출입통제·경고표지 설치 의무가 있다 (산안규칙 제574조·제575조)."
+    "경계·출입통제·경고표지 설치 의무가 있다 (산안규칙 제575조·제579조)."
 )
 NOTICE_DOSIMETER = (
     "방사선작업종사자는 개인선량계를 착용하여야 하며 연간 50mSv, "
-    "5년 100mSv 선량한도를 초과할 수 없다 (원자력안전법 제53조)."
+    "5년 100mSv 선량한도를 초과할 수 없다 (원자력안전법 제91조)."
 )
 NOTICE_STOP_WORK = (
     "선량률이 설정 기준치를 초과하거나 선원 회수 불가 상황 발생 시 즉시 작업중지하고 "
@@ -268,7 +268,7 @@ def _s5_pre_conditions(ws, row: int, d: Dict[str, Any]) -> int:
 
 
 def _s6_control_zone(ws, row: int, d: Dict[str, Any]) -> int:
-    row = _sec(ws, row, "6. 방사선관리구역 설정 및 출입통제  (산안규칙 제574조·제575조)")
+    row = _sec(ws, row, "6. 방사선관리구역 설정 및 출입통제  (산안규칙 제575조)")
     row = _notice(ws, row, NOTICE_ZONE)
     _lv(ws, row, "구역 반경",    v(d, "control_zone_radius"),   _L1, _V1S, _V1E)
     _lv(ws, row, "설정 방법",    v(d, "control_zone_method"),   _L2, _V2S, _V2E)
@@ -280,7 +280,7 @@ def _s6_control_zone(ws, row: int, d: Dict[str, Any]) -> int:
 
 
 def _s7_shielding(ws, row: int, d: Dict[str, Any]) -> int:
-    row = _sec(ws, row, "7. 차폐·경고표지·감시인 배치  (산안규칙 제578조)")
+    row = _sec(ws, row, "7. 차폐·경고표지·감시인 배치  (산안규칙 제579조·제580조)")
     _lv(ws, row, "차폐재 종류/두께", v(d, "shielding_material"),  _L1, _V1S, _V1E)
     _lv(ws, row, "차폐 확인",        v(d, "shielding_confirmed") or "□ 확인  □ 미확인",
         _L2, _V2S, _V2E)
@@ -294,7 +294,7 @@ def _s7_shielding(ws, row: int, d: Dict[str, Any]) -> int:
 
 
 def _s8_dosimeter(ws, row: int, d: Dict[str, Any]) -> int:
-    row = _sec(ws, row, "8. 개인선량계 및 보호구 확인  (산안규칙 제579조, 원자력안전법 제53조)")
+    row = _sec(ws, row, "8. 개인선량계 및 보호구 확인  (산안규칙 제574조, 원자력안전법 제91조)")
     row = _notice(ws, row, NOTICE_DOSIMETER)
     _lv(ws, row, "선량계 관리자", v(d, "dosimeter_supervisor"), _L1, _V1S, _V1E)
     _lv(ws, row, "선량계 종류",   v(d, "dosimeter_type"),       _L2, _V2S, _V2E)
