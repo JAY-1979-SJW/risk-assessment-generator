@@ -36,6 +36,7 @@ from typing import Any, Callable, Dict, List, Optional, Tuple
 
 # 실제 구현된 builder import
 from engine.output.attendance_roster_builder import build_attendance_roster
+from engine.output.photo_attachment_sheet_builder import build_photo_attachment_sheet
 
 # ---------------------------------------------------------------------------
 # SupplementalSpec
@@ -121,7 +122,7 @@ _SUPPLEMENTARY_REGISTRY: Dict[str, SupplementalSpec] = {
             "emergency_contact_evacuation_plan",
         ),
         trigger_condition="사진 첨부 필요 시 선택 생성",
-        output_builder=_todo_builder,  # TODO: photo_attachment_sheet_builder.py
+        output_builder=build_photo_attachment_sheet,
         required_fields=("site_name", "doc_date", "parent_doc_id"),
         optional_fields=("parent_doc_name", "photo_mode", "photographer", "remarks"),
         repeat_field="photo_items",
