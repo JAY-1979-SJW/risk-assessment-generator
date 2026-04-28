@@ -140,6 +140,7 @@ from engine.output.foreign_worker_safety_edu_builder import build_foreign_worker
 from engine.output.serious_accident_immediate_report_builder import build_serious_accident_immediate_report_excel
 from engine.output.safety_manager_appointment_report_builder import build_safety_manager_appointment_report_excel
 from engine.output.industrial_accident_status_ledger_builder import build_industrial_accident_status_ledger
+from engine.output.radiography_work_permit_builder import build_radiography_work_permit
 
 
 # ---------------------------------------------------------------------------
@@ -2957,6 +2958,47 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field=None,
         max_repeat_rows=0,
         extra_list_fields=(),
+    ),
+    # ------------------------------------------------------------------
+    # P3 — PTW-006 (2026-04-29)
+    # 법적 근거: 산업안전보건기준에 관한 규칙 제574조(방사선관리구역 설정),
+    #           제575조(관계자외 출입금지), 제578조(차폐), 제579조(개인선량계),
+    #           원자력안전법 제53조(방사선작업종사자 선량한도),
+    #           비파괴검사기술의 진흥 및 관리에 관한 법률 제2조(방사선 비파괴검사)
+    # evidence_status: PRACTICAL — 법정 별지 서식 없음.
+    #                  산안규칙 의무 항목 기반 실무 서식 (방사선 투과검사 RT 한정)
+    # 역할: RT 작업 전 안전통제·허가 기록. 방사선관리구역·출입통제·차폐·개인선량계·비상조치 포함.
+    # ------------------------------------------------------------------
+    "radiography_work_permit": FormSpec(
+        form_type="radiography_work_permit",
+        display_name="방사선 투과검사 작업 허가서",
+        version="1.0",
+        builder=build_radiography_work_permit,
+        required_fields=(
+            "site_name",        # 현장명
+            "permit_date",      # 허가일자
+            "work_location",    # 작업장소
+            "work_supervisor",  # 작업책임자
+        ),
+        optional_fields=(
+            "project_name", "permit_no", "permit_time_start", "permit_time_end",
+            "inspection_object", "inspection_method", "inspection_area",
+            "radiation_source_type", "source_activity", "source_serial_no",
+            "equipment_model", "source_inspector",
+            "radiation_safety_officer", "rt_supervisor",
+            "rt_operator", "rt_operator_cert_no",
+            "control_zone_radius", "control_zone_method", "control_zone_confirmed",
+            "shielding_material", "shielding_confirmed",
+            "warning_sign_placed", "watchman_name", "watchman_post",
+            "dosimeter_supervisor", "dosimeter_type", "ppe_confirmed",
+            "evacuation_scope", "evacuation_route", "emergency_contact",
+            "emergency_procedure", "stop_work_criteria",
+            "post_work_source_check", "post_work_zone_release",
+            "site_manager_sign",
+        ),
+        repeat_field="workers",
+        max_repeat_rows=6,
+        extra_list_fields=("pre_work_checks", "during_work_checks", "post_work_checks"),
     ),
 }
 
