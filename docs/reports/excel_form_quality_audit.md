@@ -1,14 +1,14 @@
 # Excel 서식 품질 점검 보고서
 
-생성일시: 2026-04-28 23:30:41
+생성일시: 2026-04-28 23:42:05
 
 ## 전체 요약
 
 | 항목 | 건수 |
 |------|------|
-| 전체 점검 | 73 |
+| 전체 점검 | 74 |
 | PASS | 33 |
-| WARN | 40 |
+| WARN | 41 |
 | FAIL | 0 |
 
 ## FAIL 목록
@@ -100,10 +100,13 @@ FAIL 없음
 ### near_miss_report — 아차사고 보고서 (practical)
 - WARN: 반복 테이블(번호 행) 없음
 
+### ppe_management_checklist — 보호구 지급 및 관리 점검표 (v2) (legal_support)
+- WARN: 섹션 수 부족: 0개
+
 ### pre_work_safety_check — 작업 전 안전 확인서 (practical)
 - WARN: 반복 테이블(번호 행) 없음
 
-### protective_equipment_checklist — 보호구 지급 및 관리 점검표 (practical)
+### protective_equipment_checklist — 보호구 지급 및 관리 점검표 (unknown)
 - WARN: 섹션 수 부족: 0개
 
 ### risk_assessment — 위험성평가표 (legal)
@@ -157,7 +160,7 @@ FAIL 없음
 
 ## 공통 문제 (WARN 빈도)
 
-- 섹션 수 부족: 37건
+- 섹션 수 부족: 38건
 - 반복 테이블(번호 행) 없음: 10건
 - 인쇄 설정(orientation/fitToPage/margins) 없음: 5건
 - 빈 셀 비율 과다: 5건

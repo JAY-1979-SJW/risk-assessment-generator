@@ -1337,13 +1337,13 @@ documents:
     category: 점검표
     category_code: CL
     document_group: 점검표
-    legal_status: practical
+    legal_status: legal_support
     implementation_status: DONE
-    priority: P3
-    form_type: protective_equipment_checklist
+    priority: DONE
+    form_type: ppe_management_checklist
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제32조 (보호구 지급 의무)"
-    notes: null
+    legal_basis: "산업안전보건기준에 관한 규칙 제32조 보호구의 지급 등, 제33조 보호구의 관리, 제34조 전용 보호구 등"
+    notes: "builder v2.0 — scaffold 10섹션 실무 보조서식. 공식 별지 제출서식 아님."
 
   - id: CL-009
     name: 유해화학물질 취급 점검표

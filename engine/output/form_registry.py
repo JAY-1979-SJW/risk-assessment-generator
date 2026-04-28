@@ -98,6 +98,7 @@ from engine.output.electrical_work_permit_builder import build_electrical_work_p
 from engine.output.electrical_facility_checklist_builder import build_electrical_facility_checklist_excel
 from engine.output.fire_prevention_checklist_builder import build_fire_prevention_checklist_excel
 from engine.output.protective_equipment_checklist_builder import build_protective_equipment_checklist
+from engine.output.ppe_management_checklist_builder import build_ppe_management_checklist
 from engine.output.hazardous_chemical_checklist_builder import build_hazardous_chemical_checklist
 from engine.output.hot_work_workplan_builder import build_hot_work_workplan_excel
 from engine.output.piling_workplan_builder import build_piling_workplan_excel
@@ -1703,6 +1704,53 @@ _REGISTRY: dict[str, FormSpec] = {
         ),
         repeat_field=None,
         max_repeat_rows=None,
+    ),
+    # ------------------------------------------------------------------
+    # P3 — CL-008 v2 (2026-04-28)
+    # 법적 근거: 산안규칙 제32조 보호구 지급, 제33조 보호구 관리, 제34조 전용 보호구
+    # evidence_status: PRACTICAL — 법정 별지 서식 없음
+    # 주의: 공식 별지 제출서식 아님. 보호구 지급·착용·손상·보관·재고·관리상태 점검 보조서식.
+    #       PPE-001(지급 이력), DL-005(작업개시 확인)와 역할 분리.
+    # ------------------------------------------------------------------
+    "ppe_management_checklist": FormSpec(
+        form_type="ppe_management_checklist",
+        display_name="보호구 지급 및 관리 점검표 (v2)",
+        version="2.0",
+        builder=build_ppe_management_checklist,
+        required_fields=(
+            "site_name",    # 현장명
+            "check_date",   # 점검일
+            "inspector",    # 점검자
+        ),
+        optional_fields=(
+            "project_name", "check_zone", "manager", "writer", "reviewer", "approver",
+            "helmet_issued", "safety_belt_issued", "safety_shoes_issued",
+            "safety_glasses_issued", "face_shield_issued", "dust_mask_issued",
+            "respirator_issued", "ear_protection_issued", "gloves_issued",
+            "protective_clothing_issued", "ppe_fit_for_work",
+            "target_work", "target_workers", "actual_wearers", "non_wearers",
+            "improper_wearing", "non_wearing_reason", "immediate_guidance",
+            "work_stopped", "recheck_result",
+            "damaged_ppe_type", "damaged_qty", "damage_content",
+            "expired_ppe", "certification_ok", "disposal_needed",
+            "replacement_needed", "action_person", "action_completed",
+            "individual_ppe_required", "infection_risk_ppe", "shared_use",
+            "id_marking", "cleaning_status", "storage_personal",
+            "no_individual_reason", "individual_action_plan",
+            "storage_location", "storage_status", "contamination_exposure",
+            "stock_qty", "shortage_qty", "purchase_needed",
+            "disposal_scheduled_qty", "next_inspection_date",
+            "wearing_edu_done", "usage_guide_done", "new_worker_edu",
+            "foreign_worker_guide", "edu_material_distributed",
+            "signature_confirmed", "no_edu_action",
+            "ppe001_reflected", "nonissue_supplemented", "dl005_linked",
+            "pre_work_recheck_needed", "related_form_no", "follow_up",
+            "inspector_sign", "safety_manager_name", "supervisor_name",
+            "site_manager_name", "subcon_manager_name", "confirm_date",
+            "deficiency_records",  # list[dict]: content, risk_grade, action, person, due_date, completed_date, status, evidence, confirmer
+        ),
+        repeat_field="deficiency_records",
+        max_repeat_rows=10,
     ),
     # ------------------------------------------------------------------
     # P3 — CL-009 (2026-04-27)
