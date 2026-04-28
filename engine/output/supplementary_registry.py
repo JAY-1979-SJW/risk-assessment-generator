@@ -37,6 +37,7 @@ from typing import Any, Callable, Dict, List, Optional, Tuple
 # 실제 구현된 builder import
 from engine.output.attendance_roster_builder import build_attendance_roster
 from engine.output.photo_attachment_sheet_builder import build_photo_attachment_sheet
+from engine.output.document_attachment_list_builder import build_document_attachment_list
 
 # ---------------------------------------------------------------------------
 # SupplementalSpec
@@ -141,7 +142,7 @@ _SUPPLEMENTARY_REGISTRY: Dict[str, SupplementalSpec] = {
             "contractor_safety_document_checklist",
         ),
         trigger_condition="제출 패키지 구성 시 부대서류 2개 이상",
-        output_builder=_todo_builder,  # TODO: document_attachment_list_builder.py
+        output_builder=build_document_attachment_list,
         required_fields=("site_name", "doc_date", "parent_doc_id"),
         optional_fields=("parent_doc_name", "submitted_by", "received_by", "remarks"),
         repeat_field="attachment_items",
