@@ -121,6 +121,7 @@ from engine.output.temp_power_generator_use_plan_builder import build_temp_power
 from engine.output.ladder_stepladder_workboard_use_plan_builder import build_ladder_stepladder_workboard_use_plan_excel
 from engine.output.construction_equipment_entry_request_builder import build_construction_equipment_entry_request_excel
 from engine.output.temp_electrical_installation_permit_builder import build_temp_electrical_installation_permit_excel
+from engine.output.safety_cost_use_plan_builder import build_safety_cost_use_plan_excel
 
 
 # ---------------------------------------------------------------------------
@@ -2092,6 +2093,27 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="workers",
         max_repeat_rows=10,
         extra_list_fields=("check_items",),
+    ),
+    "safety_cost_use_plan": FormSpec(
+        form_type="safety_cost_use_plan",
+        display_name="산업안전보건관리비 사용계획서",
+        version="1.0",
+        builder=build_safety_cost_use_plan_excel,
+        required_fields=(
+            "site_name",             # 현장(공사)명
+            "company_name",          # 원수급인
+            "safety_cost_amount",    # 안전보건관리비 계상액
+        ),
+        optional_fields=(
+            "project_name", "contractor", "plan_year",
+            "work_start_date", "work_end_date",
+            "total_contract_amount", "safety_cost_rate",
+            "supervisor", "approver", "sign_date",
+            "cost_items",   # list[dict]: category, planned_amount, remarks
+        ),
+        repeat_field="cost_items",
+        max_repeat_rows=15,
+        extra_list_fields=(),
     ),
 }
 

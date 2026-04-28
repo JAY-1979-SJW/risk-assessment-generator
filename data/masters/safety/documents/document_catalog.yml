@@ -1662,9 +1662,9 @@ documents:
     category_code: TS
     document_group: 공종별특화
     legal_status: legal
-    implementation_status: TODO
+    implementation_status: DONE
     priority: P2
-    form_type: null
+    form_type: safety_cost_use_plan
     source_type: law
     legal_basis: "건설업 산업안전보건관리비 계상 및 사용기준 고시, 별지 제102호서식"
     notes: "건설 현장 집행 계획 및 정산용"
