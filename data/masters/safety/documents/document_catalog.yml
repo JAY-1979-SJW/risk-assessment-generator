@@ -1579,9 +1579,9 @@ documents:
     category_code: EM
     document_group: 비상대응
     legal_status: legal
-    implementation_status: TODO
+    implementation_status: DONE
     priority: P2
-    form_type: null
+    form_type: serious_accident_immediate_report
     source_type: law
     legal_basis: "산업안전보건법 제54조 (중대재해 발생 시 즉시 보고 의무)"
     notes: "발생 후 24시간 이내 보고"

@@ -125,6 +125,7 @@ from engine.output.safety_cost_use_plan_builder import build_safety_cost_use_pla
 from engine.output.health_exam_result_builder import build_health_exam_result_excel
 from engine.output.new_worker_safety_pledge_builder import build_new_worker_safety_pledge_excel
 from engine.output.foreign_worker_safety_edu_builder import build_foreign_worker_safety_edu_excel
+from engine.output.serious_accident_immediate_report_builder import build_serious_accident_immediate_report_excel
 
 
 # ---------------------------------------------------------------------------
@@ -2175,6 +2176,31 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="worker_rows",
         max_repeat_rows=20,
         extra_list_fields=("edu_items",),
+    ),
+    "serious_accident_immediate_report": FormSpec(
+        form_type="serious_accident_immediate_report",
+        display_name="중대재해 발생 즉시 보고서",
+        version="1.0",
+        builder=build_serious_accident_immediate_report_excel,
+        required_fields=(
+            "site_name",          # 현장명
+            "company_name",       # 업체명
+            "accident_datetime",  # 발생 일시
+            "accident_location",  # 발생 장소
+        ),
+        optional_fields=(
+            "project_name", "owner_name", "site_manager", "contact",
+            "accident_type", "work_type", "accident_summary",
+            "death_count", "injury_count",
+            "casualty_rows",              # list[dict]: role, injury_type, status, remarks
+            "work_stopped", "access_controlled",
+            "agency_reports",             # list[dict]: agency, datetime, method, receiver, remarks
+            "additional_risks", "temporary_countermeasures",
+            "report_datetime", "reporter",
+        ),
+        repeat_field="casualty_rows",
+        max_repeat_rows=10,
+        extra_list_fields=("agency_reports",),
     ),
 }
 
