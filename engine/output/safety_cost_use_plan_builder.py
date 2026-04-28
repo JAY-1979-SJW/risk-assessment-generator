@@ -62,8 +62,8 @@ FORM_TYPE  = "safety_cost_use_plan"
 SHEET_NAME = "산업안전보건관리비 사용계획서"
 SHEET_HEADING  = "산업안전보건관리비 사용계획서"
 SHEET_SUBTITLE = (
-    "「건설업 산업안전보건관리비 계상 및 사용기준」 고시 별지 제102호서식"
-    f" ({DOC_ID})"
+    "산업안전보건관리비 사용계획 작성 보조서식"
+    f" ({DOC_ID}) — 공식 제출 시 별지 제102호서식(고시) 사용"
 )
 
 TOTAL_COLS = 8

@@ -1667,7 +1667,7 @@ documents:
     form_type: safety_cost_use_plan
     source_type: law
     legal_basis: "건설업 산업안전보건관리비 계상 및 사용기준 고시, 별지 제102호서식"
-    notes: "건설 현장 집행 계획 및 정산용"
+    notes: "건설 현장 집행 계획 및 정산 보조서식. 공식 제출은 별지 제102호서식(고시) 원본 사용"
 
   - id: TS-005
     name: 석면 해체·제거 작업 계획서
