@@ -38,6 +38,7 @@ from typing import Any, Callable, Dict, List, Optional, Tuple
 from engine.output.attendance_roster_builder import build_attendance_roster
 from engine.output.photo_attachment_sheet_builder import build_photo_attachment_sheet
 from engine.output.document_attachment_list_builder import build_document_attachment_list
+from engine.output.confined_space_gas_measurement_builder import build_confined_space_gas_measurement
 
 # ---------------------------------------------------------------------------
 # SupplementalSpec
@@ -160,7 +161,7 @@ _SUPPLEMENTARY_REGISTRY: Dict[str, SupplementalSpec] = {
             "confined_space_workplan",
         ),
         trigger_condition="밀폐공간 작업 허가서 발급 시 자동 연동",
-        output_builder=_todo_builder,  # TODO: confined_space_gas_measurement_builder.py
+        output_builder=build_confined_space_gas_measurement,
         required_fields=("site_name", "work_date", "work_location"),
         optional_fields=("permit_no", "measurer", "equipment_type", "equipment_cert_no"),
         repeat_field="measure_records",
