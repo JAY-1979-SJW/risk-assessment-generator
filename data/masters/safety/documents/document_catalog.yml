@@ -1706,12 +1706,12 @@ documents:
     category_code: SP
     document_group: 실무보강
     legal_status: practical
-    implementation_status: TODO
-    priority: P3
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: subcontractor_safety_evaluation
     source_type: law
-    legal_basis: "산업안전보건법 제63조, 중대재해처벌법 시행령 제4조 제9호"
-    notes: null
+    legal_basis: "산업안전보건법 제63조(도급인 안전보건 조치 의무), 중대재해처벌법 시행령 제4조 제9호(수급인 안전보건관리 수준 평가)"
+    notes: "builder v1.0. 협력업체 안전보건관리 수준 정량/정성 평가 실무서식. 공식 별지 서식 없음. 총점 100점, A/B/C/D 등급, 개선요구사항·재평가 계획 포함. CM-001/CM-002와 역할 분리."
 
   - id: SP-003
     name: 위험성평가 우수 사례 보고서

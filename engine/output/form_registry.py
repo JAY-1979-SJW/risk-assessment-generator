@@ -142,6 +142,7 @@ from engine.output.safety_manager_appointment_report_builder import build_safety
 from engine.output.industrial_accident_status_ledger_builder import build_industrial_accident_status_ledger
 from engine.output.radiography_work_permit_builder import build_radiography_work_permit
 from engine.output.compressor_pneumatic_equipment_plan_builder import build_compressor_pneumatic_equipment_plan
+from engine.output.subcontractor_safety_evaluation_builder import build_subcontractor_safety_evaluation
 
 
 # ---------------------------------------------------------------------------
@@ -2970,6 +2971,41 @@ _REGISTRY: dict[str, FormSpec] = {
     #                  산안규칙 의무 항목 기반 실무 서식 (방사선 투과검사 RT 한정)
     # 역할: RT 작업 전 안전통제·허가 기록. 방사선관리구역·출입통제·차폐·개인선량계·비상조치 포함.
     # ------------------------------------------------------------------
+    # ------------------------------------------------------------------
+    # P3 — SP-002 (2026-04-29)
+    # 법적 근거: 산업안전보건법 제63조(도급인 안전보건 조치 의무),
+    #           중대재해처벌법 시행령 제4조 제9호(수급인 안전보건관리 수준 평가)
+    # evidence_status: PRACTICAL — 법정 별지 서식 없음.
+    #                  협력업체 안전보건관리 수준 정량/정성 평가 실무서식.
+    # 역할: CM-001(서류 확인)/CM-002(협의 기록)과 분리.
+    #       협력업체 등록·작업투입·재계약 검토 평가 자료.
+    # ------------------------------------------------------------------
+    "subcontractor_safety_evaluation": FormSpec(
+        form_type="subcontractor_safety_evaluation",
+        display_name="협력업체 안전보건 수준 평가표",
+        version="1.0",
+        builder=build_subcontractor_safety_evaluation,
+        required_fields=(
+            "eval_site_name",  # 평가 현장명
+            "eval_date",       # 평가 일자
+            "contractor_name", # 협력업체명
+        ),
+        optional_fields=(
+            "project_name", "eval_no", "eval_period",
+            "contractor_ceo", "contractor_biz_no", "contractor_contact",
+            "work_scope", "contract_amount", "worker_count",
+            "evaluator", "evaluator_position", "approval_person",
+            "total_score", "total_grade", "total_remark", "overall_remarks",
+            "reassess_date", "reassess_scope",
+            "contractor_confirm", "contractor_sign_date",
+        ),
+        repeat_field="improvement_items",
+        max_repeat_rows=8,
+        extra_list_fields=(
+            "mgmt_items", "edu_items", "ra_items",
+            "ppe_items", "accident_items", "legal_items",
+        ),
+    ),
     # ------------------------------------------------------------------
     # P3 — EQ-015 (2026-04-29)
     # 법적 근거: 산업안전보건기준에 관한 규칙 제261조~제276조(압력용기),
