@@ -1732,12 +1732,12 @@ documents:
     category_code: SP
     document_group: 실무보강
     legal_status: optional
-    implementation_status: TODO
-    priority: P3
-    form_type: null
-    source_type: law
-    legal_basis: "중대재해처벌법 시행령 제4조 (안전보건관리체계 구축)"
-    notes: "선택 서류"
+    implementation_status: DONE
+    priority: DONE
+    form_type: safety_culture_activity_log
+    source_type: practical
+    legal_basis: null
+    notes: "builder v1.0. 안전캠페인·TBM·아차사고 발굴·안전제안·포상·협력업체 합동점검 등 안전문화 활동 전반을 월간/현장 단위로 누적 기록하는 실무 보조서식. 법정 별지 없음. SP-001(방침·목표 게시문)·SP-003(우수사례 보고서)과 역할 분리."
 
   # ═══════════════════════════════════════════════════════════════
   # HM — 보건관리 서류 (2종)

@@ -145,6 +145,7 @@ from engine.output.compressor_pneumatic_equipment_plan_builder import build_comp
 from engine.output.subcontractor_safety_evaluation_builder import build_subcontractor_safety_evaluation
 from engine.output.safety_policy_goal_notice_builder import build_safety_policy_goal_notice
 from engine.output.risk_assessment_best_practice_report_builder import build_risk_assessment_best_practice_report
+from engine.output.safety_culture_activity_log_builder import build_safety_culture_activity_log
 
 
 # ---------------------------------------------------------------------------
@@ -3141,6 +3142,40 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="photo_items",
         max_repeat_rows=8,
         extra_list_fields=("lessons_learned",),
+    ),
+    # ------------------------------------------------------------------
+    # P3 — SP-004 (2026-04-29)
+    # source_type: practical — 법정 별지 없음.
+    # 안전캠페인·TBM·아차사고 발굴·안전제안·포상·합동점검 등
+    # 안전문화 활동 전반 누적 기록 실무서식.
+    # SP-001(방침·목표 게시문)·SP-003(우수사례 보고서)과 역할 분리.
+    # evidence_status: OPTIONAL
+    # ------------------------------------------------------------------
+    "safety_culture_activity_log": FormSpec(
+        form_type="safety_culture_activity_log",
+        display_name="안전문화 활동 기록부",
+        version="1.0",
+        builder=build_safety_culture_activity_log,
+        required_fields=(
+            "site_name",      # 현장명
+            "record_period",  # 기록 기간
+        ),
+        optional_fields=(
+            "project_name", "company_name", "site_manager", "record_no",
+            "prepared_by", "reviewed_by", "approved_by", "sign_date",
+            "total_activity_count", "total_participant", "activity_summary",
+            "main_activity_title", "main_activity_date", "main_activity_type",
+            "main_activity_location", "main_activity_desc", "main_activity_person",
+            "main_participant_list", "main_participant_count",
+            "suggestion_count", "suggestion_adopted", "suggestion_summary",
+            "improvement_summary", "improvement_status",
+            "photo_count",
+            "effect_quantitative", "effect_qualitative",
+            "next_plan_period", "next_plan_content", "next_plan_person",
+        ),
+        repeat_field="activity_items",
+        max_repeat_rows=12,
+        extra_list_fields=("improvement_items",),
     ),
 }
 
