@@ -1086,8 +1086,8 @@ documents:
     priority: P2
     form_type: safety_patrol_inspection_log
     source_type: law
-    legal_basis: "산업안전보건법 제17조 (안전관리자 직무)"
-    notes: null
+    legal_basis: "산업안전보건법 제38조 (안전조치) / 제36조 (위험성평가) / 시행규칙 제37조 (위험성평가 기록보존) / 제17조 (안전관리자 직무) — 공식 별지 서식 아님, 실무 보조서식"
+    notes: "공식 제출 서식 아님 / DL-001 안전관리 일지·DL-002 관리감독자 업무 일지와 별도 관리 / RA-001 위험성평가·CL-003 장비 점검표와 역할 분리"
 
   - id: DL-004
     name: 기상 조건 기록 일지
