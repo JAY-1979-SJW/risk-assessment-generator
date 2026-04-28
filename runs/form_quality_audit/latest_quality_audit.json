@@ -1,0 +1,616 @@
+{
+  "run_at": "2026-04-28 11:40:21",
+  "total": 56,
+  "pass": 17,
+  "warn": 39,
+  "fail": 0,
+  "results": [
+    {
+      "form_type": "aerial_work_platform_use_plan",
+      "display_name": "고소작업대 사용계획서",
+      "legal_status": "practical",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 7238
+    },
+    {
+      "form_type": "annual_safety_education_plan",
+      "display_name": "연간 안전보건교육 계획서",
+      "legal_status": "practical",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 6913
+    },
+    {
+      "form_type": "asbestos_removal_workplan",
+      "display_name": "석면 해체·제거 작업 계획서",
+      "legal_status": "legal",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 7228
+    },
+    {
+      "form_type": "bridge_work_workplan",
+      "display_name": "교량 설치·해체·변경 작업계획서",
+      "legal_status": "legal",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 7150
+    },
+    {
+      "form_type": "building_demolition_workplan",
+      "display_name": "건축물 해체 작업계획서",
+      "legal_status": "legal",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 7270
+    },
+    {
+      "form_type": "chemical_equipment_workplan",
+      "display_name": "화학설비·부속설비 작업계획서",
+      "legal_status": "legal",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 7426
+    },
+    {
+      "form_type": "confined_space_checklist",
+      "display_name": "밀폐공간 사전 안전점검표",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 7004
+    },
+    {
+      "form_type": "confined_space_permit",
+      "display_name": "밀폐공간 작업허가서",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 6951
+    },
+    {
+      "form_type": "confined_space_workplan",
+      "display_name": "밀폐공간 작업계획서",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개",
+        "반복 테이블(번호 행) 없음"
+      ],
+      "xlsx_bytes": 6698
+    },
+    {
+      "form_type": "construction_equipment_daily_checklist",
+      "display_name": "건설장비 일일 사전점검표",
+      "legal_status": "practical",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "인쇄 설정(orientation/fitToPage/margins) 없음",
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 9884
+    },
+    {
+      "form_type": "contractor_safety_consultation",
+      "display_name": "도급·용역 안전보건 협의서",
+      "legal_status": "legal",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 7033
+    },
+    {
+      "form_type": "contractor_safety_document_checklist",
+      "display_name": "협력업체 안전보건 관련 서류 확인서",
+      "legal_status": "practical",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 6873
+    },
+    {
+      "form_type": "earthwork_equipment_use_plan",
+      "display_name": "덤프·롤러·불도저 사용계획서",
+      "legal_status": "legal",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 7189
+    },
+    {
+      "form_type": "education_log",
+      "display_name": "안전보건교육일지",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 7736
+    },
+    {
+      "form_type": "electrical_facility_checklist",
+      "display_name": "전기설비 정기 점검표",
+      "legal_status": "practical",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "빈 셀 비율 과다: 86%",
+        "섹션 수 부족: 0개",
+        "반복 테이블(번호 행) 없음"
+      ],
+      "xlsx_bytes": 9268
+    },
+    {
+      "form_type": "electrical_work_permit",
+      "display_name": "전기작업 허가서 / LOTO",
+      "legal_status": "practical",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 11488
+    },
+    {
+      "form_type": "electrical_workplan",
+      "display_name": "전기 작업계획서",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 9430
+    },
+    {
+      "form_type": "emergency_contact_evacuation_plan",
+      "display_name": "비상 연락망 및 대피 계획서",
+      "legal_status": "legal",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 7217
+    },
+    {
+      "form_type": "excavation_work_permit",
+      "display_name": "굴착 작업 허가서",
+      "legal_status": "practical",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 9929
+    },
+    {
+      "form_type": "excavation_workplan",
+      "display_name": "굴착 작업계획서",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 7189
+    },
+    {
+      "form_type": "fall_protection_checklist",
+      "display_name": "추락 방호 설비 점검표",
+      "legal_status": "practical",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 11058
+    },
+    {
+      "form_type": "fire_prevention_checklist",
+      "display_name": "화재 예방 점검표",
+      "legal_status": "practical",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "빈 셀 비율 과다: 86%",
+        "섹션 수 부족: 0개",
+        "반복 테이블(번호 행) 없음"
+      ],
+      "xlsx_bytes": 10009
+    },
+    {
+      "form_type": "formwork_shoring_installation_checklist",
+      "display_name": "거푸집 및 동바리 설치 점검표",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "인쇄 설정(orientation/fitToPage/margins) 없음",
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 12191
+    },
+    {
+      "form_type": "formwork_shoring_workplan",
+      "display_name": "거푸집·동바리 작업계획서",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 9035
+    },
+    {
+      "form_type": "hazardous_chemical_checklist",
+      "display_name": "유해화학물질 취급 점검표",
+      "legal_status": "practical",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "빈 셀 비율 과다: 86%",
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 7383
+    },
+    {
+      "form_type": "heavy_lifting_workplan",
+      "display_name": "중량물 취급 작업계획서",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 9100
+    },
+    {
+      "form_type": "hot_work_permit",
+      "display_name": "화기작업 허가서",
+      "legal_status": "practical",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 11251
+    },
+    {
+      "form_type": "hot_work_workplan",
+      "display_name": "용접·용단·화기작업 계획서",
+      "legal_status": "practical",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개",
+        "반복 테이블(번호 행) 없음"
+      ],
+      "xlsx_bytes": 7990
+    },
+    {
+      "form_type": "industrial_accident_report",
+      "display_name": "산업재해조사표",
+      "legal_status": "legal",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 7148
+    },
+    {
+      "form_type": "lifting_equipment_workplan",
+      "display_name": "양중기·호이스트·윈치 작업계획서",
+      "legal_status": "practical",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 7204
+    },
+    {
+      "form_type": "lifting_work_permit",
+      "display_name": "중량물 인양·중장비사용 작업 허가서",
+      "legal_status": "practical",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 13122
+    },
+    {
+      "form_type": "manager_job_training_record",
+      "display_name": "안전보건관리자 직무교육 이수 확인서",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "인쇄 설정(orientation/fitToPage/margins) 없음",
+        "섹션 수 부족: 0개",
+        "반복 테이블(번호 행) 없음"
+      ],
+      "xlsx_bytes": 7608
+    },
+    {
+      "form_type": "material_handling_workplan",
+      "display_name": "차량계 하역운반기계 작업계획서",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 8335
+    },
+    {
+      "form_type": "mobile_crane_workplan",
+      "display_name": "이동식 크레인 작업계획서",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 7477
+    },
+    {
+      "form_type": "piling_use_workplan",
+      "display_name": "항타기·항발기 사용 작업계획서",
+      "legal_status": "legal",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 7290
+    },
+    {
+      "form_type": "piling_workplan",
+      "display_name": "항타기·항발기·천공기 사용계획서",
+      "legal_status": "legal",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 7163
+    },
+    {
+      "form_type": "ppe_issuance_ledger",
+      "display_name": "보호구 지급 대장",
+      "legal_status": "legal",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 6838
+    },
+    {
+      "form_type": "protective_equipment_checklist",
+      "display_name": "보호구 지급 및 관리 점검표",
+      "legal_status": "practical",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 7831
+    },
+    {
+      "form_type": "risk_assessment",
+      "display_name": "위험성평가표",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "서명/확인란 없음",
+        "인쇄 설정(orientation/fitToPage/margins) 없음",
+        "섹션 수 부족: 0개",
+        "반복 테이블(번호 행) 없음"
+      ],
+      "xlsx_bytes": 6100
+    },
+    {
+      "form_type": "risk_assessment_meeting_minutes",
+      "display_name": "위험성평가 참여 회의록",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "빈 셀 비율 과다: 87%",
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 8246
+    },
+    {
+      "form_type": "risk_assessment_register",
+      "display_name": "위험성평가 관리 등록부",
+      "legal_status": "practical",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "빈 셀 비율 과다: 87%",
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 7267
+    },
+    {
+      "form_type": "safety_committee_minutes",
+      "display_name": "안전보건협의체 회의록",
+      "legal_status": "legal",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 6858
+    },
+    {
+      "form_type": "safety_management_log",
+      "display_name": "안전관리 일지",
+      "legal_status": "practical",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "인쇄 설정(orientation/fitToPage/margins) 없음",
+        "빈 셀 비율 과다: 88%",
+        "섹션 수 부족: 0개",
+        "반복 테이블(번호 행) 없음"
+      ],
+      "xlsx_bytes": 8065
+    },
+    {
+      "form_type": "safety_patrol_inspection_log",
+      "display_name": "안전순찰 점검 일지",
+      "legal_status": "practical",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "인쇄 설정(orientation/fitToPage/margins) 없음",
+        "빈 셀 비율 과다: 90%",
+        "섹션 수 부족: 0개",
+        "반복 테이블(번호 행) 없음"
+      ],
+      "xlsx_bytes": 7224
+    },
+    {
+      "form_type": "scaffold_installation_checklist",
+      "display_name": "비계 설치 점검표",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 10129
+    },
+    {
+      "form_type": "special_education_log",
+      "display_name": "특별 안전보건교육 교육일지",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 8904
+    },
+    {
+      "form_type": "special_health_examination",
+      "display_name": "특수건강진단 대상자 및 결과 관리대장",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 7575
+    },
+    {
+      "form_type": "supervisor_safety_log",
+      "display_name": "관리감독자 안전보건 업무 일지",
+      "legal_status": "practical",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "인쇄 설정(orientation/fitToPage/margins) 없음",
+        "빈 셀 비율 과다: 87%",
+        "섹션 수 부족: 0개",
+        "반복 테이블(번호 행) 없음"
+      ],
+      "xlsx_bytes": 8168
+    },
+    {
+      "form_type": "tbm_log",
+      "display_name": "TBM 안전점검 일지",
+      "legal_status": "practical",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 6817
+    },
+    {
+      "form_type": "tower_crane_self_inspection_checklist",
+      "display_name": "타워크레인 자체 점검표",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 11278
+    },
+    {
+      "form_type": "tower_crane_workplan",
+      "display_name": "타워크레인 작업계획서",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 7059
+    },
+    {
+      "form_type": "tunnel_excavation_workplan",
+      "display_name": "터널 굴착 작업계획서",
+      "legal_status": "legal",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 7250
+    },
+    {
+      "form_type": "vehicle_construction_workplan",
+      "display_name": "차량계 건설기계 작업계획서",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 8044
+    },
+    {
+      "form_type": "work_at_height_permit",
+      "display_name": "고소작업 허가서",
+      "legal_status": "practical",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 11973
+    },
+    {
+      "form_type": "work_environment_measurement",
+      "display_name": "작업환경측정 실시 및 결과 관리대장",
+      "legal_status": "legal",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 7561
+    },
+    {
+      "form_type": "work_safety_checklist",
+      "display_name": "작업 전 안전 확인서",
+      "legal_status": "practical",
+      "verdict": "WARN",
+      "fails": [],
+      "warns": [
+        "섹션 수 부족: 0개"
+      ],
+      "xlsx_bytes": 8493
+    }
+  ]
+}
