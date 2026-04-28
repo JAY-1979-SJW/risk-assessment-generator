@@ -1592,12 +1592,12 @@ documents:
     category_code: EM
     document_group: 비상대응
     legal_status: practical
-    implementation_status: TODO
-    priority: P3
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: accident_root_cause_prevention_report
     source_type: law
-    legal_basis: "산업안전보건법 제57조 제2항 (재발 방지 대책 수립 의무)"
-    notes: null
+    legal_basis: "산업안전보건법 제57조 제2항(재발방지 대책 수립), 중대재해처벌법 제4조(재해 재발방지 조치) — 공식 별지 제출서식 아님, 내부 원인분석·이행관리 보조서식"
+    notes: "builder v1.0. EM-001 산업재해조사표·EM-004 즉시보고 이후 원인분석·재발방지 이행관리 전용. 공식 별지 서식 미확인."
 
   - id: EM-006
     name: 응급조치 실시 기록서

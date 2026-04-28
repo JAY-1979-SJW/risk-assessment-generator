@@ -110,6 +110,7 @@ from engine.output.contractor_safety_consultation_builder import build_contracto
 from engine.output.safety_committee_minutes_builder import build_safety_committee_minutes_excel
 from engine.output.industrial_accident_report_builder import build_industrial_accident_report_excel
 from engine.output.emergency_contact_evacuation_plan_builder import build_emergency_contact_evacuation_plan_excel
+from engine.output.accident_root_cause_prevention_report_builder import build_accident_root_cause_prevention_report_excel
 from engine.output.ppe_issuance_ledger_builder import build_ppe_issuance_ledger_excel
 from engine.output.chemical_equipment_workplan_builder import build_chemical_equipment_workplan_excel
 from engine.output.asbestos_removal_workplan_builder import build_asbestos_removal_workplan_excel
@@ -1879,6 +1880,38 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="emergency_contacts",
         max_repeat_rows=12,
         extra_list_fields=("external_contacts", "evacuation_routes", "assembly_points"),
+    ),
+    "accident_root_cause_prevention_report": FormSpec(
+        form_type="accident_root_cause_prevention_report",
+        display_name="재해 원인 분석 및 재발 방지 보고서",
+        version="1.0",
+        builder=build_accident_root_cause_prevention_report_excel,
+        required_fields=(
+            "accident_datetime",   # 재해 발생일시
+            "direct_cause",        # 직접 원인
+        ),
+        optional_fields=(
+            "project_name", "site_name", "prepared_date", "accident_no",
+            "em001_submitted", "em004_reported",
+            "author", "reviewer", "approver",
+            "accident_location", "work_type", "work_content", "accident_type",
+            "victim_count", "is_fatal", "sick_leave_days",
+            "property_damage", "agency_notified",
+            "pre_accident_situation", "accident_sequence", "immediate_action",
+            "work_stopped", "scene_preserved", "witness_summary", "evidence_media",
+            "indirect_cause", "human_factor", "equipment_factor", "method_factor",
+            "supervision_factor", "training_factor", "environment_factor",
+            "contractor_factor", "ra_reflected", "workplan_reflected",
+            "five_why_items",      # list[dict]: answer, evidence
+            "root_cause", "root_cause_basis",
+            "prevention_items",    # list[dict]: category, description, responsible, deadline, remarks
+            "action_items",        # list[dict]: improvement, responsible, deadline, completed_date, status, checker
+            "safety_manager", "supervisor", "site_director",
+            "subcon_manager", "worker_rep_opinion", "final_approved_date",
+        ),
+        repeat_field="prevention_items",
+        max_repeat_rows=10,
+        extra_list_fields=("five_why_items", "action_items"),
     ),
     "ppe_issuance_ledger": FormSpec(
         form_type="ppe_issuance_ledger",
