@@ -1510,9 +1510,9 @@ documents:
     category_code: CM
     document_group: 협력업체관리
     legal_status: practical
-    implementation_status: TODO
+    implementation_status: DONE
     priority: P3
-    form_type: null
+    form_type: foreign_worker_safety_edu
     source_type: law
     legal_basis: "산업안전보건법 제29조 (외국인 포함 교육 의무)"
     notes: null

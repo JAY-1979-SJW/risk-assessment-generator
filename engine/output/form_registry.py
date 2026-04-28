@@ -124,6 +124,7 @@ from engine.output.temp_electrical_installation_permit_builder import build_temp
 from engine.output.safety_cost_use_plan_builder import build_safety_cost_use_plan_excel
 from engine.output.health_exam_result_builder import build_health_exam_result_excel
 from engine.output.new_worker_safety_pledge_builder import build_new_worker_safety_pledge_excel
+from engine.output.foreign_worker_safety_edu_builder import build_foreign_worker_safety_edu_excel
 
 
 # ---------------------------------------------------------------------------
@@ -2154,6 +2155,26 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field=None,
         max_repeat_rows=0,
         extra_list_fields=("pledge_items", "extra_pledge_items"),
+    ),
+    "foreign_worker_safety_edu": FormSpec(
+        form_type="foreign_worker_safety_edu",
+        display_name="외국인 근로자 안전보건 교육 확인서",
+        version="1.0",
+        builder=build_foreign_worker_safety_edu_excel,
+        required_fields=(
+            "site_name",    # 현장명
+            "company_name", # 업체명
+            "edu_date",     # 교육일자
+        ),
+        optional_fields=(
+            "edu_duration", "edu_course", "edu_location",
+            "edu_language", "instructor", "supervisor",
+            "edu_items",    # list[str|dict]: 교육 항목
+            "worker_rows",  # list[dict]: name, nation, team, job, remarks
+        ),
+        repeat_field="worker_rows",
+        max_repeat_rows=20,
+        extra_list_fields=("edu_items",),
     ),
 }
 
