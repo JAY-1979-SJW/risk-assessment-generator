@@ -101,6 +101,7 @@ from engine.output.piling_use_workplan_builder import build_piling_use_workplan_
 from engine.output.tunnel_excavation_workplan_builder import build_tunnel_excavation_workplan_excel
 from engine.output.building_demolition_workplan_builder import build_building_demolition_workplan_excel
 from engine.output.aerial_work_platform_use_plan_builder import build_aerial_work_platform_use_plan_excel
+from engine.output.bridge_work_workplan_builder import build_bridge_work_workplan_excel
 from engine.output.lifting_equipment_workplan_builder import build_lifting_equipment_workplan_excel
 
 
@@ -1691,6 +1692,28 @@ _REGISTRY: dict[str, FormSpec] = {
             "emergency_contacts",   # list[dict]: role, name, phone
             "safety_steps",         # list[dict]: task_step, hazard, safety_measure, responsible
             "sign_date",
+        ),
+        repeat_field="safety_steps",
+        max_repeat_rows=10,
+        extra_list_fields=("emergency_contacts",),
+    ),
+    "bridge_work_workplan": FormSpec(
+        form_type="bridge_work_workplan",
+        display_name="교량 설치·해체·변경 작업계획서",
+        version="1.0",
+        builder=build_bridge_work_workplan_excel,
+        required_fields=(
+            "work_type",          # 작업 구분 (설치·해체·변경)
+            "emergency_measure",  # 비상조치 방법
+        ),
+        optional_fields=(
+            "site_name", "project_name", "work_location", "work_date",
+            "contractor", "supervisor", "prepared_by", "approver",
+            "work_summary", "work_detail",
+            "bridge_name", "bridge_type", "span_length", "max_height",
+            "equipment", "ground_condition", "support_method",
+            "safety_steps",       # list[dict]: task_step, hazard, safety_measure, responsible
+            "emergency_contacts", # list[dict]: role, name, phone
         ),
         repeat_field="safety_steps",
         max_repeat_rows=10,
