@@ -1389,12 +1389,12 @@ documents:
     category_code: PPE
     document_group: 보호구관리
     legal_status: legal
-    implementation_status: TODO
-    priority: P2
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: ppe_issuance_ledger
     source_type: law
     legal_basis: "산업안전보건기준에 관한 규칙 제32조"
-    notes: null
+    notes: "builder v1.0"
 
   - id: PPE-002
     name: 건설 장비 반입 신청서

@@ -108,6 +108,7 @@ from engine.output.contractor_safety_consultation_builder import build_contracto
 from engine.output.safety_committee_minutes_builder import build_safety_committee_minutes_excel
 from engine.output.industrial_accident_report_builder import build_industrial_accident_report_excel
 from engine.output.emergency_contact_evacuation_plan_builder import build_emergency_contact_evacuation_plan_excel
+from engine.output.ppe_issuance_ledger_builder import build_ppe_issuance_ledger_excel
 
 
 # ---------------------------------------------------------------------------
@@ -1853,6 +1854,24 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="emergency_contacts",
         max_repeat_rows=12,
         extra_list_fields=("external_contacts", "evacuation_routes", "assembly_points"),
+    ),
+    "ppe_issuance_ledger": FormSpec(
+        form_type="ppe_issuance_ledger",
+        display_name="보호구 지급 대장",
+        version="1.0",
+        builder=build_ppe_issuance_ledger_excel,
+        required_fields=(
+            "site_name",   # 현장명
+            "manager",     # 관리책임자
+        ),
+        optional_fields=(
+            "project_name", "company_name", "period", "prepared_date", "approver",
+            "issue_records",  # list[dict]: worker_name, occupation, ppe_type, issue_date, receipt_confirm, return_date
+            "stock_items",    # list[dict]: ppe_type, spec, stock_qty, issued_qty, remain_qty, remarks
+        ),
+        repeat_field="issue_records",
+        max_repeat_rows=20,
+        extra_list_fields=("stock_items",),
     ),
 }
 
