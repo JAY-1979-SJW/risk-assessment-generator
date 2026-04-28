@@ -1427,13 +1427,13 @@ documents:
     category: 보호구 관리
     category_code: PPE
     document_group: 보호구관리
-    legal_status: legal
-    implementation_status: TODO
-    priority: P3
-    form_type: null
+    legal_status: practical
+    implementation_status: DONE
+    priority: DONE
+    form_type: msds_posting_education_check
     source_type: law
-    legal_basis: "산업안전보건법 제110조~제115조"
-    notes: null
+    legal_basis: "산업안전보건법 제112조(MSDS 게시 및 교육), 제114조(경고표지 부착), 제115조(MSDS 교육 의무)"
+    notes: "builder v1.0 — scaffold 10섹션 실무 보조서식. 공식 별지 제출서식 아님. CL-009 유해화학물질 취급 점검표와 역할 분리."
 
   # ═══════════════════════════════════════════════════════════════
   # CM — 협력업체·근로자 관리 (7종)

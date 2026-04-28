@@ -128,6 +128,7 @@ from engine.output.ladder_stepladder_workboard_use_plan_builder import build_lad
 from engine.output.construction_equipment_entry_request_builder import build_construction_equipment_entry_request_excel
 from engine.output.equipment_entry_application_builder import build_equipment_entry_application
 from engine.output.equipment_insurance_inspection_check_builder import build_equipment_insurance_inspection_check
+from engine.output.msds_posting_education_check_builder import build_msds_posting_education_check
 from engine.output.temp_electrical_installation_permit_builder import build_temp_electrical_installation_permit_excel
 from engine.output.safety_cost_use_plan_builder import build_safety_cost_use_plan_excel
 from engine.output.health_exam_result_builder import build_health_exam_result_excel
@@ -2576,6 +2577,48 @@ _REGISTRY: dict[str, FormSpec] = {
         ),
         repeat_field=None,
         max_repeat_rows=None,
+    ),
+    # ------------------------------------------------------------------
+    # P3 — PPE-004 (2026-04-29)
+    # 법적 근거: 산업안전보건법 제112조(MSDS 게시 및 교육), 제114조(경고표지),
+    #           제115조(MSDS 교육 의무)
+    # evidence_status: PRACTICAL — 법정 별지 서식 없음
+    # 역할: MSDS 비치 위치·경고표지·취급 근로자 교육 실시 여부 확인 (CL-009 유해화학물질 취급 점검과 분리)
+    # ------------------------------------------------------------------
+    "msds_posting_education_check": FormSpec(
+        form_type="msds_posting_education_check",
+        display_name="MSDS 비치 및 교육 확인서",
+        version="1.0",
+        builder=build_msds_posting_education_check,
+        required_fields=(
+            "site_name",   # 현장명
+            "check_date",  # 확인일자
+            "checker",     # 확인자
+        ),
+        optional_fields=(
+            "project_name", "department", "position",
+            "work_location", "work_type",
+            "chemical_name", "cas_no", "manufacturer",
+            "purpose", "daily_amount", "unit",
+            "msds_available", "msds_location", "msds_accessible",
+            "msds_language", "msds_version_current", "msds_remarks",
+            "label_attached", "label_location", "label_legible",
+            "label_ghs_compliant", "label_remarks",
+            "edu_conducted", "edu_date", "edu_method", "edu_duration",
+            "edu_instructor", "edu_content",
+            "edu_participants", "edu_actual", "edu_record_kept", "edu_remarks",
+            "ppe_specified", "ppe_provided", "ppe_types",
+            "first_aid_known", "first_aid_kit_available",
+            "storage_proper", "storage_labeled", "incompatible_separated",
+            "ventilation_adequate", "open_flame_controlled",
+            "spill_kit_available", "fire_extinguisher_available",
+            "emergency_contact_posted", "emergency_procedure_known",
+            "overall_result", "overall_remarks",
+            "preparer_name", "supervisor_name",
+            "safety_manager_name", "site_manager_name", "confirm_date",
+        ),
+        repeat_field="deficiency_items",
+        max_repeat_rows=8,
     ),
     "temp_electrical_installation_permit": FormSpec(
         form_type="temp_electrical_installation_permit",
