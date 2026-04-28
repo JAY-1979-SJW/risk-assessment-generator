@@ -1522,13 +1522,13 @@ documents:
     category: 협력업체 관리
     category_code: CM
     document_group: 협력업체관리
-    legal_status: legal
-    implementation_status: TODO
-    priority: P3
-    form_type: null
+    legal_status: practical
+    implementation_status: DONE
+    priority: DONE
+    form_type: industrial_accident_status_ledger
     source_type: law
-    legal_basis: "산업안전보건법 제57조 (산업재해 기록·보존 의무), 시행규칙 제73조"
-    notes: null
+    legal_basis: "산업안전보건법 제57조(산업재해 기록·보존 의무), 시행규칙 제73조(산업재해 발생 기록 의무)"
+    notes: "builder v1.0 — scaffold 10섹션 실무 관리 대장. 관계 기관 공식 법정서식 아님. EM-001(별지 제30호 조사표)·EM-005(원인 분석 보고서)와 역할 분리."
 
   # ═══════════════════════════════════════════════════════════════
   # EM — 사고·비상대응 (6종)

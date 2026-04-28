@@ -136,6 +136,7 @@ from engine.output.new_worker_safety_pledge_builder import build_new_worker_safe
 from engine.output.foreign_worker_safety_edu_builder import build_foreign_worker_safety_edu_excel
 from engine.output.serious_accident_immediate_report_builder import build_serious_accident_immediate_report_excel
 from engine.output.safety_manager_appointment_report_builder import build_safety_manager_appointment_report_excel
+from engine.output.industrial_accident_status_ledger_builder import build_industrial_accident_status_ledger
 
 
 # ---------------------------------------------------------------------------
@@ -2225,6 +2226,32 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="prevention_items",
         max_repeat_rows=10,
         extra_list_fields=("five_why_items", "action_items"),
+    ),
+    # ------------------------------------------------------------------
+    # P3 — CM-007 (2026-04-29)
+    # 법적 근거: 산업안전보건법 제57조(산업재해 기록·보존), 시행규칙 제73조
+    # evidence_status: PRACTICAL — 법정 별지 서식 없음
+    # 역할: 현장 재해 발생 현황 집계·관리 대장.
+    #       EM-001(법정 조사표 제출), EM-005(원인 분석 심화)와 역할 분리.
+    # ------------------------------------------------------------------
+    "industrial_accident_status_ledger": FormSpec(
+        form_type="industrial_accident_status_ledger",
+        display_name="산업재해 발생 현황 관리 대장",
+        version="1.0",
+        builder=build_industrial_accident_status_ledger,
+        required_fields=(
+            "site_name",  # 사업장명
+            "manager",    # 관리책임자
+        ),
+        optional_fields=(
+            "project_name", "company_name", "period",
+            "safety_manager", "prepared_date", "approver",
+            "total_accidents", "total_workers", "total_fatality",
+            "total_sick_leave", "total_no_leave", "summary_remarks",
+            "supervisor_name", "confirm_date",
+        ),
+        repeat_field="accident_records",
+        max_repeat_rows=20,
     ),
     "ppe_issuance_ledger": FormSpec(
         form_type="ppe_issuance_ledger",
