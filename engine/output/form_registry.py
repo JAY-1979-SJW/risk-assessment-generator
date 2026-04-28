@@ -113,6 +113,7 @@ from engine.output.chemical_equipment_workplan_builder import build_chemical_equ
 from engine.output.asbestos_removal_workplan_builder import build_asbestos_removal_workplan_excel
 from engine.output.contractor_safety_document_checklist_builder import build_contractor_safety_document_checklist_excel
 from engine.output.annual_safety_education_plan_builder import build_annual_safety_education_plan_excel
+from engine.output.near_miss_report_builder import build_near_miss_report_excel
 
 
 # ---------------------------------------------------------------------------
@@ -1959,6 +1960,27 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="education_plan",
         max_repeat_rows=24,
         extra_list_fields=("education_types",),
+    ),
+    "near_miss_report": FormSpec(
+        form_type="near_miss_report",
+        display_name="아차사고 보고서",
+        version="1.0",
+        builder=build_near_miss_report_excel,
+        required_fields=(
+            "site_name",          # 현장명
+            "incident_datetime",  # 발생 일시
+        ),
+        optional_fields=(
+            "project_name", "company_name", "report_date", "reporter",
+            "department", "incident_location", "work_content",
+            "related_equipment", "incident_description", "potential_consequence",
+            "reviewer", "approver",
+            "cause_analysis",      # list[dict]: cause_type, cause_detail, risk_factor, remarks
+            "corrective_actions",  # list[dict]: action, responsible, due_date, completed, remarks
+        ),
+        repeat_field="cause_analysis",
+        max_repeat_rows=8,
+        extra_list_fields=("corrective_actions",),
     ),
 }
 

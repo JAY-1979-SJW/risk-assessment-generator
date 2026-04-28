@@ -1553,12 +1553,12 @@ documents:
     category_code: EM
     document_group: 비상대응
     legal_status: practical
-    implementation_status: TODO
-    priority: P2
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: near_miss_report
     source_type: law
     legal_basis: "중대재해처벌법 시행령 제4조 (안전보건 개선 의무)"
-    notes: null
+    notes: "builder v1.0"
 
   - id: EM-003
     name: 비상 연락망 및 대피 계획서
