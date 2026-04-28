@@ -1540,12 +1540,12 @@ documents:
     category_code: EM
     document_group: 비상대응
     legal_status: legal
-    implementation_status: TODO
-    priority: P2
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: industrial_accident_report
     source_type: law
     legal_basis: "산업안전보건법 제57조, 시행규칙 제73조, 별지 제30호서식"
-    notes: "발생 후 1개월 이내 제출 의무"
+    notes: "발생 후 1개월 이내 제출 의무. builder v1.0"
 
   - id: EM-002
     name: 아차사고 보고서

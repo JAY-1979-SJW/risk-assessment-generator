@@ -106,6 +106,7 @@ from engine.output.earthwork_equipment_use_plan_builder import build_earthwork_e
 from engine.output.lifting_equipment_workplan_builder import build_lifting_equipment_workplan_excel
 from engine.output.contractor_safety_consultation_builder import build_contractor_safety_consultation_excel
 from engine.output.safety_committee_minutes_builder import build_safety_committee_minutes_excel
+from engine.output.industrial_accident_report_builder import build_industrial_accident_report_excel
 
 
 # ---------------------------------------------------------------------------
@@ -1806,6 +1807,30 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="agenda_items",
         max_repeat_rows=10,
         extra_list_fields=("attendees",),
+    ),
+    "industrial_accident_report": FormSpec(
+        form_type="industrial_accident_report",
+        display_name="산업재해조사표",
+        version="1.0",
+        builder=build_industrial_accident_report_excel,
+        required_fields=(
+            "workplace_name",      # 사업장명
+            "accident_datetime",   # 재해 발생일시
+        ),
+        optional_fields=(
+            "business_reg_no", "workplace_address", "industry_type",
+            "worker_count", "representative",
+            "victim_name", "victim_gender", "victim_birth", "victim_nationality",
+            "employment_type", "occupation", "tenure",
+            "injury_part", "injury_type", "sick_leave_days",
+            "accident_location", "accident_type", "causative_object",
+            "accident_description", "witness",
+            "report_date", "reporter", "safety_manager", "submit_to",
+            "cause_items",   # list[dict]: cause_category, cause_detail, prevention, deadline, responsible
+        ),
+        repeat_field="cause_items",
+        max_repeat_rows=6,
+        extra_list_fields=(),
     ),
 }
 
