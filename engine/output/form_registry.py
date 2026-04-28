@@ -122,6 +122,7 @@ from engine.output.ladder_stepladder_workboard_use_plan_builder import build_lad
 from engine.output.construction_equipment_entry_request_builder import build_construction_equipment_entry_request_excel
 from engine.output.temp_electrical_installation_permit_builder import build_temp_electrical_installation_permit_excel
 from engine.output.safety_cost_use_plan_builder import build_safety_cost_use_plan_excel
+from engine.output.health_exam_result_builder import build_health_exam_result_excel
 
 
 # ---------------------------------------------------------------------------
@@ -2113,6 +2114,25 @@ _REGISTRY: dict[str, FormSpec] = {
         ),
         repeat_field="cost_items",
         max_repeat_rows=15,
+        extra_list_fields=(),
+    ),
+    "health_exam_result": FormSpec(
+        form_type="health_exam_result",
+        display_name="근로자 건강진단 결과 확인서",
+        version="1.0",
+        builder=build_health_exam_result_excel,
+        required_fields=(
+            "site_name",     # 현장(사업장)명
+            "company_name",  # 업체명
+            "exam_type",     # 건강진단 종류
+        ),
+        optional_fields=(
+            "exam_year", "exam_period", "exam_agency", "exam_agency_contact",
+            "total_workers", "supervisor", "approver", "sign_date",
+            "worker_rows",  # list[dict]: name, job_type, exam_type, result, followup, remarks
+        ),
+        repeat_field="worker_rows",
+        max_repeat_rows=20,
         extra_list_fields=(),
     ),
 }

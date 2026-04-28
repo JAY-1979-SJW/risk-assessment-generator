@@ -1,7 +1,7 @@
 {
-  "run_at": "2026-04-28 14:02:29",
-  "total": 63,
-  "pass": 24,
+  "run_at": "2026-04-28 14:16:25",
+  "total": 64,
+  "pass": 25,
   "warn": 39,
   "fail": 0,
   "results": [
@@ -276,6 +276,15 @@
         "섹션 수 부족: 0개"
       ],
       "xlsx_bytes": 7383
+    },
+    {
+      "form_type": "health_exam_result",
+      "display_name": "근로자 건강진단 결과 확인서",
+      "legal_status": "legal",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 6820
     },
     {
       "form_type": "heavy_lifting_workplan",
