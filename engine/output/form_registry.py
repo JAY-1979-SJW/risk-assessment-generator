@@ -144,6 +144,7 @@ from engine.output.radiography_work_permit_builder import build_radiography_work
 from engine.output.compressor_pneumatic_equipment_plan_builder import build_compressor_pneumatic_equipment_plan
 from engine.output.subcontractor_safety_evaluation_builder import build_subcontractor_safety_evaluation
 from engine.output.safety_policy_goal_notice_builder import build_safety_policy_goal_notice
+from engine.output.risk_assessment_best_practice_report_builder import build_risk_assessment_best_practice_report
 
 
 # ---------------------------------------------------------------------------
@@ -3106,6 +3107,40 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="workers",
         max_repeat_rows=6,
         extra_list_fields=("pre_work_checks", "during_work_checks", "post_work_checks"),
+    ),
+    # ------------------------------------------------------------------
+    # P3 — SP-003 (2026-04-29)
+    # source_type: practical — 법정 별지 없음.
+    # 위험성평가 우수 사례 공유 및 수평 전파용 보고서.
+    # SP-003 고유 역할: 개선 전/후 비교, 사진/증빙, 확산계획
+    #   (위험성평가표 RA-001, 우수사례 관리대장 RA-005와 역할 분리)
+    # evidence_status: OPTIONAL
+    # ------------------------------------------------------------------
+    "risk_assessment_best_practice_report": FormSpec(
+        form_type="risk_assessment_best_practice_report",
+        display_name="위험성평가 우수 사례 보고서",
+        version="1.0",
+        builder=build_risk_assessment_best_practice_report,
+        required_fields=(
+            "site_name",    # 현장명
+            "report_date",  # 보고일자
+            "case_title",   # 우수 사례 제목
+        ),
+        optional_fields=(
+            "case_no", "report_period", "work_type", "location", "worker_count",
+            "case_summary", "risk_type", "risk_description", "risk_level_before",
+            "assessment_method", "residual_risk", "risk_level_after",
+            "improvement_measure", "improvement_cost", "improvement_period",
+            "improvement_person", "implementation_date", "implemented_by",
+            "before_condition", "after_condition",
+            "effect_quantitative", "effect_qualitative", "effect_cost",
+            "spread_possibility", "spread_target", "spread_method", "spread_schedule",
+            "maintenance_plan", "maintenance_cycle", "maintenance_person",
+            "prepared_by", "reviewed_by", "approved_by",
+        ),
+        repeat_field="photo_items",
+        max_repeat_rows=8,
+        extra_list_fields=("lessons_learned",),
     ),
 }
 

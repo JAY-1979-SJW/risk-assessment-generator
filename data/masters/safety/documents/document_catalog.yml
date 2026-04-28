@@ -1719,12 +1719,12 @@ documents:
     category_code: SP
     document_group: 실무보강
     legal_status: optional
-    implementation_status: TODO
-    priority: P3
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: risk_assessment_best_practice_report
     source_type: practical
     legal_basis: null
-    notes: "고용노동부 위험성평가 우수 사업장 인정 제도. 선택 서류"
+    notes: "builder v1.0. 위험성평가 우수 사례 공유·수평 전파용 보고서. 법정 별지 없음. 개선 전/후 비교표, 사진/증빙 목록, 확산계획 포함. RA-001(위험성평가표)·RA-005(우수사례 관리대장)와 역할 분리."
 
   - id: SP-004
     name: 안전문화 활동 기록부
