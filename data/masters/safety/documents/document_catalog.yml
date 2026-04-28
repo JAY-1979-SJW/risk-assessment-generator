@@ -1415,12 +1415,12 @@ documents:
     category_code: PPE
     document_group: 보호구관리
     legal_status: practical
-    implementation_status: TODO
-    priority: P3
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: equipment_insurance_inspection_check
     source_type: law
-    legal_basis: "건설기계관리법, 산업안전보건법 제93조 (안전검사 의무)"
-    notes: null
+    legal_basis: "건설기계관리법 제13조 정기검사, 자동차손해배상보장법 의무보험, 산업안전보건법 제80조·제93조"
+    notes: "builder v1.0 — scaffold 10섹션 실무 보조서식. 공식 별지 제출서식 아님."
 
   - id: PPE-004
     name: MSDS 비치 및 교육 확인서

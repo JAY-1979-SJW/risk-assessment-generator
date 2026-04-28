@@ -127,6 +127,7 @@ from engine.output.temp_power_generator_use_plan_builder import build_temp_power
 from engine.output.ladder_stepladder_workboard_use_plan_builder import build_ladder_stepladder_workboard_use_plan_excel
 from engine.output.construction_equipment_entry_request_builder import build_construction_equipment_entry_request_excel
 from engine.output.equipment_entry_application_builder import build_equipment_entry_application
+from engine.output.equipment_insurance_inspection_check_builder import build_equipment_insurance_inspection_check
 from engine.output.temp_electrical_installation_permit_builder import build_temp_electrical_installation_permit_excel
 from engine.output.safety_cost_use_plan_builder import build_safety_cost_use_plan_excel
 from engine.output.health_exam_result_builder import build_health_exam_result_excel
@@ -2521,6 +2522,56 @@ _REGISTRY: dict[str, FormSpec] = {
             "cl003_linked", "eq_plan_linked", "ppp003_linked",
             "daily_inspection_due", "related_form_nos", "follow_up_action",
             "applicant_sign", "safety_manager_name", "supervisor_name",
+            "site_manager_name", "confirm_date",
+        ),
+        repeat_field=None,
+        max_repeat_rows=None,
+    ),
+    # ------------------------------------------------------------------
+    # P3 — PPE-003 (2026-04-29)
+    # 법적 근거: 건설기계관리법 제13조, 자동차손해배상보장법, 산업안전보건법 제80조·제93조
+    # evidence_status: PRACTICAL — 법정 별지 서식 없음
+    # 역할: 장비 보험·정기검사증·등록증·자격증 등 증빙서류 상세 확인 (PPE-002 반입 신청과 분리)
+    # ------------------------------------------------------------------
+    "equipment_insurance_inspection_check": FormSpec(
+        form_type="equipment_insurance_inspection_check",
+        display_name="건설 장비 보험·정기검사증 확인서",
+        version="1.0",
+        builder=build_equipment_insurance_inspection_check,
+        required_fields=(
+            "site_name",       # 현장명
+            "check_date",      # 확인일
+            "equipment_name",  # 장비명
+        ),
+        optional_fields=(
+            "project_name", "entry_request_no", "check_period",
+            "checker", "writer", "reviewer", "approver",
+            "equipment_type", "manufacturer", "equipment_model",
+            "serial_no", "reg_no", "equipment_capacity",
+            "owner_name", "rental_company", "planned_work",
+            "reg_cert_submitted", "reg_cert_no", "owner_match",
+            "equip_name_match", "serial_match", "reg_cert_valid", "reg_cert_supplement",
+            "insurance_type", "insurance_company", "policy_no", "policy_holder",
+            "insured_equipment", "insurance_start", "insurance_end",
+            "liability_covered", "coverage_includes_period",
+            "insurance_expiry_near", "insurance_supplement",
+            "periodic_insp_required", "insp_agency", "insp_date", "insp_expiry",
+            "insp_result", "insp_nonconformance", "reinspection_needed",
+            "insp_expiry_near", "insp_supplement",
+            "safety_insp_required", "safety_cert_submitted", "safety_insp_agency",
+            "safety_insp_date", "safety_insp_expiry", "safety_insp_passed",
+            "safety_insp_conditions", "safety_insp_supplement",
+            "operator_name", "operator_affiliation", "license_type", "license_no",
+            "license_valid", "operable_scope", "safety_edu_done",
+            "safety_edu_date", "operator_supplement",
+            "original_verified", "copy_stored", "electronic_stored",
+            "expiry_ledger_updated", "expiry_alert_needed",
+            "pii_masked", "storage_location",
+            "entry_allowed", "use_allowed", "conditional_approval",
+            "approval_conditions", "missing_documents", "action_person",
+            "completion_due", "recheck_date", "final_confirmer",
+            "ppe002_linked", "cl003_linked", "eq_plan_linked", "dl001_linked",
+            "applicant_company", "safety_manager_name", "supervisor_name",
             "site_manager_name", "confirm_date",
         ),
         repeat_field=None,
