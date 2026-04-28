@@ -43,6 +43,7 @@ export API 연결 전 단계 — builder 호출 인터페이스만 제공.
     piling_use_workplan                   — 항타기·항발기 사용 작업계획서 (v1.0)          [WP-010]
     tunnel_excavation_workplan            — 터널 굴착 작업계획서 (v1.0)                    [WP-002]
     construction_equipment_entry_request  — 건설 장비 반입 신청서 (v1.0)                   [PPE-002]
+    temp_electrical_installation_permit   — 임시전기 설치·연결 허가서 (v1.0)               [PTW-008]
 
 사용법:
     from engine.output.form_registry import (
@@ -119,6 +120,7 @@ from engine.output.lift_gondola_use_plan_builder import build_lift_gondola_use_p
 from engine.output.temp_power_generator_use_plan_builder import build_temp_power_generator_use_plan_excel
 from engine.output.ladder_stepladder_workboard_use_plan_builder import build_ladder_stepladder_workboard_use_plan_excel
 from engine.output.construction_equipment_entry_request_builder import build_construction_equipment_entry_request_excel
+from engine.output.temp_electrical_installation_permit_builder import build_temp_electrical_installation_permit_excel
 
 
 # ---------------------------------------------------------------------------
@@ -2068,6 +2070,28 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="equipment_items",
         max_repeat_rows=10,
         extra_list_fields=("inspection_items",),
+    ),
+    "temp_electrical_installation_permit": FormSpec(
+        form_type="temp_electrical_installation_permit",
+        display_name="임시전기 설치·연결 허가서",
+        version="1.0",
+        builder=build_temp_electrical_installation_permit_excel,
+        required_fields=(
+            "site_name",        # 현장명
+            "work_date",        # 작업일자
+            "work_location",    # 작업 위치
+            "work_supervisor",  # 작업책임자
+        ),
+        optional_fields=(
+            "project_name", "company_name", "permit_no", "validity_period",
+            "work_name", "voltage", "power_source", "distribution_panel",
+            "work_description", "permit_issuer",
+            "check_items",   # list[dict]: check_item, result, remarks
+            "workers",       # list[dict]: name, job_type, remarks
+        ),
+        repeat_field="workers",
+        max_repeat_rows=10,
+        extra_list_fields=("check_items",),
     ),
 }
 

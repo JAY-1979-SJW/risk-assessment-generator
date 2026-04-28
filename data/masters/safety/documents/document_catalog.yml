@@ -1039,9 +1039,9 @@ documents:
     category_code: PTW
     document_group: 작업허가서
     legal_status: practical
-    implementation_status: TODO
+    implementation_status: DONE
     priority: P2
-    form_type: null
+    form_type: temp_electrical_installation_permit
     source_type: law
     legal_basis: "산업안전보건기준에 관한 규칙 제301조 이하"
     notes: null

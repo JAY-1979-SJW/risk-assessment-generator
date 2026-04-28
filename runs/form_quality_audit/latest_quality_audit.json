@@ -1,7 +1,7 @@
 {
-  "run_at": "2026-04-28 12:57:14",
-  "total": 61,
-  "pass": 22,
+  "run_at": "2026-04-28 13:26:31",
+  "total": 62,
+  "pass": 23,
   "warn": 39,
   "fail": 0,
   "results": [
@@ -12,7 +12,7 @@
       "verdict": "PASS",
       "fails": [],
       "warns": [],
-      "xlsx_bytes": 7240
+      "xlsx_bytes": 7238
     },
     {
       "form_type": "annual_safety_education_plan",
@@ -21,7 +21,7 @@
       "verdict": "PASS",
       "fails": [],
       "warns": [],
-      "xlsx_bytes": 6915
+      "xlsx_bytes": 6913
     },
     {
       "form_type": "asbestos_removal_workplan",
@@ -30,7 +30,7 @@
       "verdict": "PASS",
       "fails": [],
       "warns": [],
-      "xlsx_bytes": 7228
+      "xlsx_bytes": 7227
     },
     {
       "form_type": "bridge_work_workplan",
@@ -39,7 +39,7 @@
       "verdict": "PASS",
       "fails": [],
       "warns": [],
-      "xlsx_bytes": 7150
+      "xlsx_bytes": 7149
     },
     {
       "form_type": "building_demolition_workplan",
@@ -48,7 +48,7 @@
       "verdict": "PASS",
       "fails": [],
       "warns": [],
-      "xlsx_bytes": 7270
+      "xlsx_bytes": 7269
     },
     {
       "form_type": "chemical_equipment_workplan",
@@ -57,7 +57,7 @@
       "verdict": "PASS",
       "fails": [],
       "warns": [],
-      "xlsx_bytes": 7426
+      "xlsx_bytes": 7425
     },
     {
       "form_type": "confined_space_checklist",
@@ -68,7 +68,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 7004
+      "xlsx_bytes": 7003
     },
     {
       "form_type": "confined_space_permit",
@@ -205,7 +205,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 9930
+      "xlsx_bytes": 9929
     },
     {
       "form_type": "excavation_workplan",
@@ -216,7 +216,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 7190
+      "xlsx_bytes": 7189
     },
     {
       "form_type": "fall_protection_checklist",
@@ -227,7 +227,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 11059
+      "xlsx_bytes": 11062
     },
     {
       "form_type": "fire_prevention_checklist",
@@ -240,7 +240,7 @@
         "섹션 수 부족: 0개",
         "반복 테이블(번호 행) 없음"
       ],
-      "xlsx_bytes": 10010
+      "xlsx_bytes": 10009
     },
     {
       "form_type": "formwork_shoring_installation_checklist",
@@ -252,7 +252,7 @@
         "인쇄 설정(orientation/fitToPage/margins) 없음",
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 12192
+      "xlsx_bytes": 12191
     },
     {
       "form_type": "formwork_shoring_workplan",
@@ -263,7 +263,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 9036
+      "xlsx_bytes": 9035
     },
     {
       "form_type": "hazardous_chemical_checklist",
@@ -275,7 +275,7 @@
         "빈 셀 비율 과다: 86%",
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 7384
+      "xlsx_bytes": 7383
     },
     {
       "form_type": "heavy_lifting_workplan",
@@ -286,7 +286,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 9101
+      "xlsx_bytes": 9100
     },
     {
       "form_type": "hot_work_permit",
@@ -297,7 +297,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 11252
+      "xlsx_bytes": 11251
     },
     {
       "form_type": "hot_work_workplan",
@@ -309,7 +309,7 @@
         "섹션 수 부족: 0개",
         "반복 테이블(번호 행) 없음"
       ],
-      "xlsx_bytes": 7991
+      "xlsx_bytes": 7990
     },
     {
       "form_type": "industrial_accident_report",
@@ -318,7 +318,7 @@
       "verdict": "PASS",
       "fails": [],
       "warns": [],
-      "xlsx_bytes": 7149
+      "xlsx_bytes": 7148
     },
     {
       "form_type": "ladder_stepladder_workboard_use_plan",
@@ -327,7 +327,7 @@
       "verdict": "PASS",
       "fails": [],
       "warns": [],
-      "xlsx_bytes": 7008
+      "xlsx_bytes": 7007
     },
     {
       "form_type": "lift_gondola_use_plan",
@@ -499,7 +499,7 @@
         "섹션 수 부족: 0개",
         "반복 테이블(번호 행) 없음"
       ],
-      "xlsx_bytes": 8069
+      "xlsx_bytes": 8065
     },
     {
       "form_type": "safety_patrol_inspection_log",
@@ -513,7 +513,7 @@
         "섹션 수 부족: 0개",
         "반복 테이블(번호 행) 없음"
       ],
-      "xlsx_bytes": 7226
+      "xlsx_bytes": 7225
     },
     {
       "form_type": "scaffold_installation_checklist",
@@ -524,7 +524,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 10131
+      "xlsx_bytes": 10130
     },
     {
       "form_type": "special_education_log",
@@ -535,7 +535,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 8906
+      "xlsx_bytes": 8905
     },
     {
       "form_type": "special_health_examination",
@@ -546,7 +546,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 7577
+      "xlsx_bytes": 7576
     },
     {
       "form_type": "supervisor_safety_log",
@@ -560,7 +560,7 @@
         "섹션 수 부족: 0개",
         "반복 테이블(번호 행) 없음"
       ],
-      "xlsx_bytes": 8170
+      "xlsx_bytes": 8169
     },
     {
       "form_type": "tbm_log",
@@ -571,7 +571,16 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 6819
+      "xlsx_bytes": 6818
+    },
+    {
+      "form_type": "temp_electrical_installation_permit",
+      "display_name": "임시전기 설치·연결 허가서",
+      "legal_status": "practical",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 7339
     },
     {
       "form_type": "temp_power_generator_use_plan",
@@ -580,7 +589,7 @@
       "verdict": "PASS",
       "fails": [],
       "warns": [],
-      "xlsx_bytes": 7078
+      "xlsx_bytes": 7077
     },
     {
       "form_type": "tower_crane_self_inspection_checklist",
@@ -591,7 +600,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 11280
+      "xlsx_bytes": 11279
     },
     {
       "form_type": "tower_crane_workplan",
@@ -602,7 +611,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 7061
+      "xlsx_bytes": 7060
     },
     {
       "form_type": "tunnel_excavation_workplan",
@@ -611,7 +620,7 @@
       "verdict": "PASS",
       "fails": [],
       "warns": [],
-      "xlsx_bytes": 7252
+      "xlsx_bytes": 7251
     },
     {
       "form_type": "vehicle_construction_workplan",
@@ -622,7 +631,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 8046
+      "xlsx_bytes": 8045
     },
     {
       "form_type": "work_at_height_permit",
@@ -633,7 +642,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 11975
+      "xlsx_bytes": 11974
     },
     {
       "form_type": "work_environment_measurement",
@@ -644,7 +653,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 7563
+      "xlsx_bytes": 7565
     },
     {
       "form_type": "work_safety_checklist",
@@ -655,7 +664,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 8495
+      "xlsx_bytes": 8494
     }
   ]
 }
