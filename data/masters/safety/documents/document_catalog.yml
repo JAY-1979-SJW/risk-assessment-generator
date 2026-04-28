@@ -494,12 +494,12 @@ documents:
     category_code: EQ
     document_group: 장비사용계획서
     legal_status: practical
-    implementation_status: TODO
-    priority: P2
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: lift_gondola_use_plan
     source_type: law
     legal_basis: "산업안전보건기준에 관한 규칙 제133조~제148조"
-    notes: null
+    notes: "builder v1.0"
 
   - id: EQ-011
     name: 양중기·호이스트·윈치 작업계획서
