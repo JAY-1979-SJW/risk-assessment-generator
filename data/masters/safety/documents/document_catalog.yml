@@ -1479,14 +1479,14 @@ documents:
     notes: null
 
   - id: CM-004
-    name: 안전보건관리자 선임 신고서
+    name: 안전관리자ㆍ보건관리자ㆍ산업보건의 선임 등 보고서(건설업)
     category: 협력업체 관리
     category_code: CM
     document_group: 협력업체관리
     legal_status: legal
-    implementation_status: TODO
+    implementation_status: DONE
     priority: P3
-    form_type: null
+    form_type: safety_manager_appointment_report
     source_type: law
     legal_basis: "산업안전보건법 제17조~제19조, 시행규칙 제16조"
     notes: null

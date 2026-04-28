@@ -126,6 +126,7 @@ from engine.output.health_exam_result_builder import build_health_exam_result_ex
 from engine.output.new_worker_safety_pledge_builder import build_new_worker_safety_pledge_excel
 from engine.output.foreign_worker_safety_edu_builder import build_foreign_worker_safety_edu_excel
 from engine.output.serious_accident_immediate_report_builder import build_serious_accident_immediate_report_excel
+from engine.output.safety_manager_appointment_report_builder import build_safety_manager_appointment_report_excel
 
 
 # ---------------------------------------------------------------------------
@@ -2201,6 +2202,31 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="casualty_rows",
         max_repeat_rows=10,
         extra_list_fields=("agency_reports",),
+    ),
+    "safety_manager_appointment_report": FormSpec(
+        form_type="safety_manager_appointment_report",
+        display_name="안전관리자ㆍ보건관리자ㆍ산업보건의 선임 등 보고서(건설업)",
+        version="1.0",
+        builder=build_safety_manager_appointment_report_excel,
+        required_fields=(
+            "company_name",  # 사업장명
+            "site_name",     # 현장명
+        ),
+        optional_fields=(
+            "biz_reg_no", "ceo_name", "company_address",
+            "biz_start_no", "general_contractor", "construction_period",
+            "contract_amount", "worker_count",
+            "hazard_plan_yn", "hazard_plan_targets",  # list[str]
+            "client_name", "client_type", "client_address", "client_contact",
+            "safety_managers",            # list[dict]: name, birth_date, license_no, appointed_date, duty_type, contact
+            "health_managers",            # list[dict]: 동일 구조
+            "occupational_physicians",    # list[dict]: 동일 구조
+            "report_date", "reporter",
+        ),
+        repeat_field=None,
+        max_repeat_rows=0,
+        extra_list_fields=("safety_managers", "health_managers",
+                           "occupational_physicians", "hazard_plan_targets"),
     ),
 }
 

@@ -1,7 +1,7 @@
 {
-  "run_at": "2026-04-28 15:54:50",
-  "total": 67,
-  "pass": 28,
+  "run_at": "2026-04-28 15:59:32",
+  "total": 68,
+  "pass": 29,
   "warn": 39,
   "fail": 0,
   "results": [
@@ -174,7 +174,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 11492
+      "xlsx_bytes": 11489
     },
     {
       "form_type": "electrical_workplan",
@@ -409,7 +409,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 7478
+      "xlsx_bytes": 7481
     },
     {
       "form_type": "near_miss_report",
@@ -491,7 +491,7 @@
         "빈 셀 비율 과다: 87%",
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 8250
+      "xlsx_bytes": 8247
     },
     {
       "form_type": "risk_assessment_register",
@@ -538,6 +538,15 @@
       "xlsx_bytes": 8066
     },
     {
+      "form_type": "safety_manager_appointment_report",
+      "display_name": "안전관리자ㆍ보건관리자ㆍ산업보건의 선임 등 보고서(건설업)",
+      "legal_status": "legal",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 7646
+    },
+    {
       "form_type": "safety_patrol_inspection_log",
       "display_name": "안전순찰 점검 일지",
       "legal_status": "practical",
@@ -560,7 +569,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 10131
+      "xlsx_bytes": 10134
     },
     {
       "form_type": "serious_accident_immediate_report",
