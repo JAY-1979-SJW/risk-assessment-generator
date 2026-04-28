@@ -797,12 +797,12 @@ documents:
     category_code: ED
     document_group: 안전보건교육
     legal_status: legal
-    implementation_status: TODO
-    priority: P2
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: safety_committee_minutes
     source_type: law
     legal_basis: "산업안전보건법 제24조, 시행규칙 제37조 이하"
-    notes: "상시근로자 100인 이상 사업장 분기 1회"
+    notes: "상시근로자 100인 이상 사업장 분기 1회. builder v1.0"
 
   # ═══════════════════════════════════════════════════════════════
   # PTW — 작업허가서 (8종)

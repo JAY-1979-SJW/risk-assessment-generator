@@ -105,6 +105,7 @@ from engine.output.bridge_work_workplan_builder import build_bridge_work_workpla
 from engine.output.earthwork_equipment_use_plan_builder import build_earthwork_equipment_use_plan_excel
 from engine.output.lifting_equipment_workplan_builder import build_lifting_equipment_workplan_excel
 from engine.output.contractor_safety_consultation_builder import build_contractor_safety_consultation_excel
+from engine.output.safety_committee_minutes_builder import build_safety_committee_minutes_excel
 
 
 # ---------------------------------------------------------------------------
@@ -1786,6 +1787,25 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="agenda_items",
         max_repeat_rows=10,
         extra_list_fields=("participants", "safety_measures"),
+    ),
+    "safety_committee_minutes": FormSpec(
+        form_type="safety_committee_minutes",
+        display_name="안전보건협의체 회의록",
+        version="1.0",
+        builder=build_safety_committee_minutes_excel,
+        required_fields=(
+            "workplace_name",   # 사업장명
+            "meeting_date",     # 회의 일시
+        ),
+        optional_fields=(
+            "meeting_location", "meeting_number", "chairperson", "secretary",
+            "special_notes", "next_meeting_date",
+            "attendees",      # list[dict]: organization, name, position, role
+            "agenda_items",   # list[dict]: agenda, discussion, decision, deadline, responsible
+        ),
+        repeat_field="agenda_items",
+        max_repeat_rows=10,
+        extra_list_fields=("attendees",),
     ),
 }
 
