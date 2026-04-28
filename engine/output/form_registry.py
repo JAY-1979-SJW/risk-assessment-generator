@@ -143,6 +143,7 @@ from engine.output.industrial_accident_status_ledger_builder import build_indust
 from engine.output.radiography_work_permit_builder import build_radiography_work_permit
 from engine.output.compressor_pneumatic_equipment_plan_builder import build_compressor_pneumatic_equipment_plan
 from engine.output.subcontractor_safety_evaluation_builder import build_subcontractor_safety_evaluation
+from engine.output.safety_policy_goal_notice_builder import build_safety_policy_goal_notice
 
 
 # ---------------------------------------------------------------------------
@@ -2971,6 +2972,37 @@ _REGISTRY: dict[str, FormSpec] = {
     #                  산안규칙 의무 항목 기반 실무 서식 (방사선 투과검사 RT 한정)
     # 역할: RT 작업 전 안전통제·허가 기록. 방사선관리구역·출입통제·차폐·개인선량계·비상조치 포함.
     # ------------------------------------------------------------------
+    # ------------------------------------------------------------------
+    # P3 — SP-001 (2026-04-29)
+    # 법적 근거: 중대재해처벌법 시행령 제4조 제1호(안전보건 목표·경영방침 수립·이행),
+    #           산업안전보건법 제14조(안전보건관리책임자 안전보건계획 수립 직무)
+    # evidence_status: PRACTICAL — 법정 별지 서식 없음.
+    #                  현장 게시용 안전보건 방침·목표 실무 보조서식.
+    # 역할: RA-006(위험성평가 결과 공지)와 분리.
+    #       사업장 전체 안전보건 방침·목표·실행과제 공표 및 근로자 공지 확인.
+    # ------------------------------------------------------------------
+    "safety_policy_goal_notice": FormSpec(
+        form_type="safety_policy_goal_notice",
+        display_name="안전보건 방침 및 목표 게시문",
+        version="1.0",
+        builder=build_safety_policy_goal_notice,
+        required_fields=(
+            "site_name",    # 현장명
+            "notice_year",  # 적용 연도
+        ),
+        optional_fields=(
+            "project_name", "company_name", "ceo_name", "site_manager",
+            "notice_date", "effective_date", "expiry_date",
+            "posting_period", "worker_confirm_count", "sign_date",
+            "posting_locations",  # list[str]
+        ),
+        repeat_field="revision_history",
+        max_repeat_rows=5,
+        extra_list_fields=(
+            "policy_items", "goal_items", "action_items",
+            "worker_duties", "supervisor_duties",
+        ),
+    ),
     # ------------------------------------------------------------------
     # P3 — SP-002 (2026-04-29)
     # 법적 근거: 산업안전보건법 제63조(도급인 안전보건 조치 의무),

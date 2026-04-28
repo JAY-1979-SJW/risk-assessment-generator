@@ -1693,12 +1693,12 @@ documents:
     category_code: SP
     document_group: 실무보강
     legal_status: practical
-    implementation_status: TODO
-    priority: P3
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: safety_policy_goal_notice
     source_type: law
-    legal_basis: "중대재해처벌법 시행령 제4조 제1호 (안전보건 목표·경영 방침 수립 의무)"
-    notes: null
+    legal_basis: "중대재해처벌법 시행령 제4조 제1호(안전보건 목표·경영방침 수립·이행), 산업안전보건법 제14조(안전보건관리책임자 안전보건계획 수립)"
+    notes: "builder v1.0. 현장 게시용 안전보건 방침·목표 실무 보조서식. 공식 별지 서식 없음. 방침·목표·실행과제·근로자 준수사항·게시 위치·개정 이력·공지 확인 포함. RA-006(위험성평가 결과 공지)과 역할 분리."
 
   - id: SP-002
     name: 협력업체 안전보건 수준 평가표
