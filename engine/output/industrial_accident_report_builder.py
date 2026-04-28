@@ -28,7 +28,7 @@ FORM_TYPE  = "industrial_accident_report"
 SHEET_NAME = "산업재해조사표"
 SHEET_HEADING  = "산업재해조사표"
 SHEET_SUBTITLE = (
-    "산업안전보건법 시행규칙 별지 제30호서식 기반 — 법정 기재항목 확인용 작성 보조서식"
+    "산업안전보건법 시행규칙 별지 제30호서식 <개정 2025. 10. 1.> 기반 — 법정 기재항목 확인용 작성 보조서식"
     f" ({DOC_ID})"
 )
 SHEET_NOTICE = (

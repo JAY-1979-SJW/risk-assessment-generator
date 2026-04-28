@@ -1488,7 +1488,7 @@ documents:
     priority: P3
     form_type: safety_manager_appointment_report
     source_type: law
-    legal_basis: "산업안전보건법 제17조~제19조, 시행규칙 제16조"
+    legal_basis: "산업안전보건법 제17조~제19조, 시행규칙 제16조, 별지 제3호서식 <개정 2025. 4. 29.>"
     notes: null
 
   - id: CM-005
@@ -1544,7 +1544,7 @@ documents:
     priority: DONE
     form_type: industrial_accident_report
     source_type: law
-    legal_basis: "산업안전보건법 제57조, 시행규칙 제73조, 별지 제30호서식"
+    legal_basis: "산업안전보건법 제57조, 시행규칙 제73조, 별지 제30호서식 <개정 2025. 10. 1.>"
     notes: "발생 후 1개월 이내 제출 의무. builder v1.0. 공식 제출은 고용노동부 별지 제30호서식 사용 — 이 builder는 내부 작성 보조용"
 
   - id: EM-002

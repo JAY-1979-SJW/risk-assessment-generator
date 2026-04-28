@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-04-28 17:13:45",
+  "run_at": "2026-04-28 17:21:45",
   "total": 68,
   "pass": 29,
   "warn": 39,
@@ -216,7 +216,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 7192
+      "xlsx_bytes": 7189
     },
     {
       "form_type": "fall_protection_checklist",
@@ -336,7 +336,7 @@
       "verdict": "PASS",
       "fails": [],
       "warns": [],
-      "xlsx_bytes": 8080
+      "xlsx_bytes": 8102
     },
     {
       "form_type": "ladder_stepladder_workboard_use_plan",
@@ -535,7 +535,7 @@
         "섹션 수 부족: 0개",
         "반복 테이블(번호 행) 없음"
       ],
-      "xlsx_bytes": 8068
+      "xlsx_bytes": 8065
     },
     {
       "form_type": "safety_manager_appointment_report",
@@ -544,7 +544,7 @@
       "verdict": "PASS",
       "fails": [],
       "warns": [],
-      "xlsx_bytes": 7645
+      "xlsx_bytes": 7668
     },
     {
       "form_type": "safety_patrol_inspection_log",
@@ -665,7 +665,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 7061
+      "xlsx_bytes": 7060
     },
     {
       "form_type": "tunnel_excavation_workplan",
@@ -674,7 +674,7 @@
       "verdict": "PASS",
       "fails": [],
       "warns": [],
-      "xlsx_bytes": 7252
+      "xlsx_bytes": 7251
     },
     {
       "form_type": "vehicle_construction_workplan",
@@ -685,7 +685,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 8046
+      "xlsx_bytes": 8045
     },
     {
       "form_type": "work_at_height_permit",
@@ -696,7 +696,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 11975
+      "xlsx_bytes": 11974
     },
     {
       "form_type": "work_environment_measurement",
@@ -707,7 +707,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 7563
+      "xlsx_bytes": 7562
     },
     {
       "form_type": "work_safety_checklist",
@@ -718,7 +718,7 @@
       "warns": [
         "섹션 수 부족: 0개"
       ],
-      "xlsx_bytes": 8495
+      "xlsx_bytes": 8494
     }
   ]
 }
