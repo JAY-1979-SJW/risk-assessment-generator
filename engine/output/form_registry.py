@@ -107,6 +107,7 @@ from engine.output.lifting_equipment_workplan_builder import build_lifting_equip
 from engine.output.contractor_safety_consultation_builder import build_contractor_safety_consultation_excel
 from engine.output.safety_committee_minutes_builder import build_safety_committee_minutes_excel
 from engine.output.industrial_accident_report_builder import build_industrial_accident_report_excel
+from engine.output.emergency_contact_evacuation_plan_builder import build_emergency_contact_evacuation_plan_excel
 
 
 # ---------------------------------------------------------------------------
@@ -1831,6 +1832,27 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="cause_items",
         max_repeat_rows=6,
         extra_list_fields=(),
+    ),
+    "emergency_contact_evacuation_plan": FormSpec(
+        form_type="emergency_contact_evacuation_plan",
+        display_name="비상 연락망 및 대피 계획서",
+        version="1.0",
+        builder=build_emergency_contact_evacuation_plan_excel,
+        required_fields=(
+            "site_name",        # 현장명
+            "safety_manager",   # 안전관리자
+        ),
+        optional_fields=(
+            "project_name", "site_address", "prepared_date", "site_director",
+            "labor_office_phone",
+            "emergency_contacts",   # list[dict]: role, name, organization, phone, remarks
+            "external_contacts",    # list[dict]: agency, phone, remarks
+            "evacuation_routes",    # list[dict]: zone, route_description, exit_location, assembly_point, responsible
+            "assembly_points",      # list[dict]: point_name, location, capacity, responsible
+        ),
+        repeat_field="emergency_contacts",
+        max_repeat_rows=12,
+        extra_list_fields=("external_contacts", "evacuation_routes", "assembly_points"),
     ),
 }
 

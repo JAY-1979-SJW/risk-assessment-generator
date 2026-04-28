@@ -1566,12 +1566,12 @@ documents:
     category_code: EM
     document_group: 비상대응
     legal_status: legal
-    implementation_status: TODO
-    priority: P2
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: emergency_contact_evacuation_plan
     source_type: law
     legal_basis: "산업안전보건기준에 관한 규칙 제14조 (비상구 및 대피), 제622조"
-    notes: null
+    notes: "builder v1.0"
 
   - id: EM-004
     name: 중대재해 발생 즉시 보고서
