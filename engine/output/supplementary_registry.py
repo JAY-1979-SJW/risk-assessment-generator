@@ -41,6 +41,7 @@ from engine.output.document_attachment_list_builder import build_document_attach
 from engine.output.confined_space_gas_measurement_builder import build_confined_space_gas_measurement
 from engine.output.work_completion_confirmation_builder import build_work_completion_confirmation
 from engine.output.improvement_completion_check_builder import build_improvement_completion_check
+from engine.output.equipment_operator_qualification_check_builder import build_equipment_operator_qualification_check
 
 # ---------------------------------------------------------------------------
 # SupplementalSpec
@@ -230,7 +231,7 @@ _SUPPLEMENTARY_REGISTRY: Dict[str, SupplementalSpec] = {
             "lift_gondola_use_plan", "aerial_work_platform_use_plan",
         ),
         trigger_condition="유자격 장비 반입 신청 시 선택 생성",
-        output_builder=_todo_builder,  # TODO: equipment_operator_qualification_check_builder.py
+        output_builder=build_equipment_operator_qualification_check,
         required_fields=("site_name", "check_date", "equipment_type"),
         optional_fields=("equipment_model", "equipment_no", "checker"),
         repeat_field="operators",
