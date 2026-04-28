@@ -1060,8 +1060,8 @@ documents:
     priority: P1
     form_type: safety_management_log
     source_type: law
-    legal_basis: "중대재해처벌법 시행령 제4조 (안전보건관리체계 구축 의무)"
-    notes: null
+    legal_basis: "산업안전보건법 제38조(안전조치), 제36조(위험성평가 조치사항 기록), 산업안전보건기준에 관한 규칙 별표3(작업시작 전 점검사항) — 공식 별지 서식 없음, 실무 보조서식"
+    notes: "공식 제출 서식 아님. 현장 일일 안전관리 및 점검 기록 보조서식. evidence_status: PRACTICAL"
 
   - id: DL-002
     name: 관리감독자 안전보건 업무 일지
