@@ -683,12 +683,12 @@ documents:
     category_code: RA
     document_group: 위험성평가
     legal_status: practical
-    implementation_status: TODO
-    priority: P3
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: risk_assessment_procedure
     source_type: moel
-    legal_basis: "고용노동부고시 제2023-19호 제9조 (실시규정 작성 권고)"
-    notes: null
+    legal_basis: "산업안전보건법 제36조(위험성평가 실시), 시행규칙 제37조(방법·절차·시기), 고용노동부고시 제2023-19호 제9조(실시규정 작성 권고)"
+    notes: "builder v1.0 — scaffold 12섹션. 운영 규정서 형태. 관계 기관 공식 법정서식 아님. RA-001/RA-002/RA-003/RA-006 문서군과 역할 분리."
 
   - id: RA-006
     name: 위험성평가 결과 근로자 공지문

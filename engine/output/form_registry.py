@@ -81,6 +81,7 @@ from engine.output.special_health_examination_builder import build_special_healt
 from engine.output.tbm_log_builder import build_tbm_log_excel
 from engine.output.risk_assessment_register_builder import build_risk_assessment_register_excel
 from engine.output.risk_assessment_meeting_minutes_builder import build_risk_assessment_meeting_minutes_excel
+from engine.output.risk_assessment_procedure_builder import build_risk_assessment_procedure
 from engine.output.tower_crane_workplan_builder import build_tower_crane_workplan_excel
 from engine.output.vehicle_workplan_builder import build_vehicle_workplan_excel
 from engine.output.work_environment_measurement_builder import build_work_environment_measurement_excel
@@ -505,6 +506,42 @@ _REGISTRY: dict[str, FormSpec] = {
         ),
         repeat_field="attendees",
         max_repeat_rows=15,
+    ),
+    # ------------------------------------------------------------------
+    # P3 — RA-005 (2026-04-29)
+    # 법적 근거: 산업안전보건법 제36조, 시행규칙 제37조,
+    #           고용노동부고시 제2023-19호 제9조 (실시규정 작성 권고)
+    # evidence_status: PRACTICAL — 법정 별지 서식 없음, 고시 제9조 권고 이행용
+    # 역할: 사업장 위험성평가 운영 체계 규정서.
+    #       RA-001(평가표)/RA-002(등록부)/RA-003(회의록)/RA-006(공지문)과 역할 분리.
+    # ------------------------------------------------------------------
+    "risk_assessment_procedure": FormSpec(
+        form_type="risk_assessment_procedure",
+        display_name="위험성평가 실시 규정",
+        version="1.0",
+        builder=build_risk_assessment_procedure,
+        required_fields=(
+            "company_name",    # 사업장명
+            "established_by",  # 작성/제정자
+            "issue_date",      # 제정일
+        ),
+        optional_fields=(
+            "doc_no", "revision", "revision_date",
+            "approver", "reviewer", "applicable_site",
+            "purpose", "scope",
+            "timing_initial", "timing_regular",
+            "timing_occasional", "timing_tbm",
+            "risk_matrix_desc",
+            "risk_level_high", "risk_level_medium", "risk_level_low",
+            "acceptable_level",
+            "measure_priority", "measure_tracking", "measure_verify",
+            "participation_method", "education_timing", "education_content",
+            "disclosure_method",
+            "review_cycle", "review_trigger", "revision_procedure",
+        ),
+        repeat_field="step_items",
+        max_repeat_rows=10,
+        extra_list_fields=("term_items", "role_items", "record_items", "revision_history"),
     ),
     # ------------------------------------------------------------------
     # RA-002 — 위험성평가 관리 등록부 (2026-04-26)
