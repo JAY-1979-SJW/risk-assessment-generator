@@ -101,6 +101,7 @@ from engine.output.piling_use_workplan_builder import build_piling_use_workplan_
 from engine.output.tunnel_excavation_workplan_builder import build_tunnel_excavation_workplan_excel
 from engine.output.building_demolition_workplan_builder import build_building_demolition_workplan_excel
 from engine.output.aerial_work_platform_use_plan_builder import build_aerial_work_platform_use_plan_excel
+from engine.output.lifting_equipment_workplan_builder import build_lifting_equipment_workplan_excel
 
 
 # ---------------------------------------------------------------------------
@@ -1690,6 +1691,29 @@ _REGISTRY: dict[str, FormSpec] = {
             "emergency_contacts",   # list[dict]: role, name, phone
             "safety_steps",         # list[dict]: task_step, hazard, safety_measure, responsible
             "sign_date",
+        ),
+        repeat_field="safety_steps",
+        max_repeat_rows=10,
+        extra_list_fields=("emergency_contacts",),
+    ),
+    "lifting_equipment_workplan": FormSpec(
+        form_type="lifting_equipment_workplan",
+        display_name="양중기·호이스트·윈치 작업계획서",
+        version="1.0",
+        builder=build_lifting_equipment_workplan_excel,
+        required_fields=(
+            "equipment_type",     # 장비 종류
+            "emergency_measure",  # 비상조치 방법
+        ),
+        optional_fields=(
+            "site_name", "project_name", "work_location", "work_date",
+            "contractor", "supervisor", "prepared_by", "approver",
+            "work_summary",
+            "equipment_model", "rated_load", "max_lift_height",
+            "work_radius", "operator_qualification", "inspection_expiry",
+            "ground_condition", "load_description", "auxiliary_equipment",
+            "safety_steps",         # list[dict]: task_step, hazard, safety_measure, responsible
+            "emergency_contacts",   # list[dict]: role, name, phone
         ),
         repeat_field="safety_steps",
         max_repeat_rows=10,
