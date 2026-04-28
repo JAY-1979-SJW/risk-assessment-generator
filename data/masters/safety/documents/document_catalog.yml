@@ -1403,11 +1403,11 @@ documents:
     document_group: 보호구관리
     legal_status: practical
     implementation_status: DONE
-    priority: P2
-    form_type: construction_equipment_entry_request
+    priority: DONE
+    form_type: equipment_entry_application
     source_type: practical
     legal_basis: null
-    notes: "법정 서식 없음. 원청 안전 관리 규정 기반"
+    notes: "builder v2.0 — scaffold 10섹션 실무 보조서식. 법정 서식 없음. 원청 안전 관리 규정 기반."
 
   - id: PPE-003
     name: 건설 장비 보험·정기검사증 확인서

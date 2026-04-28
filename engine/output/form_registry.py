@@ -126,6 +126,7 @@ from engine.output.lift_gondola_use_plan_builder import build_lift_gondola_use_p
 from engine.output.temp_power_generator_use_plan_builder import build_temp_power_generator_use_plan_excel
 from engine.output.ladder_stepladder_workboard_use_plan_builder import build_ladder_stepladder_workboard_use_plan_excel
 from engine.output.construction_equipment_entry_request_builder import build_construction_equipment_entry_request_excel
+from engine.output.equipment_entry_application_builder import build_equipment_entry_application
 from engine.output.temp_electrical_installation_permit_builder import build_temp_electrical_installation_permit_excel
 from engine.output.safety_cost_use_plan_builder import build_safety_cost_use_plan_excel
 from engine.output.health_exam_result_builder import build_health_exam_result_excel
@@ -2477,6 +2478,53 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="equipment_items",
         max_repeat_rows=10,
         extra_list_fields=("inspection_items",),
+    ),
+    # ------------------------------------------------------------------
+    # P2 — PPE-002 v2 (2026-04-28)
+    # 법정 근거: 없음 — 원청 안전 관리 규정 기반 실무 보조서식
+    # 역할: 장비 반입 신청·서류 확인·반입 승인 (PPE-003 검사증, CL-003 일일점검과 분리)
+    # ------------------------------------------------------------------
+    "equipment_entry_application": FormSpec(
+        form_type="equipment_entry_application",
+        display_name="건설 장비 반입 신청서 (v2)",
+        version="2.0",
+        builder=build_equipment_entry_application,
+        required_fields=(
+            "site_name",       # 현장명
+            "equipment_name",  # 장비명
+            "apply_date",      # 신청일
+        ),
+        optional_fields=(
+            "project_name", "contractor", "subcontractor",
+            "applicant", "applicant_position", "manager", "prepared_date",
+            "equipment_type", "equipment_model", "equipment_reg_no",
+            "manufacturer", "manufacture_year", "equipment_capacity",
+            "equipment_weight", "owner_name",
+            "work_purpose", "work_content", "work_location",
+            "planned_entry_date", "planned_exit_date", "work_duration",
+            "workplan_required", "workplan_no",
+            "insurance_valid", "insurance_expiry",
+            "inspection_valid", "inspection_expiry",
+            "operator_license_ok", "operator_license_type",
+            "safety_inspection_ok", "safety_cert_no",
+            "operator_name", "operator_license_no", "operator_experience",
+            "signal_worker_name", "signal_worker_assigned",
+            "banksman_name", "worker_safety_edu",
+            "access_route_ok", "ground_bearing_ok", "overhead_hazard_ok",
+            "underground_hazard_ok", "neighboring_safety_ok",
+            "exclusion_zone_ok", "signal_system_ok", "ppe_check_ok",
+            "entry_time_from", "entry_time_to", "entry_route",
+            "parking_location", "night_work_allowed", "weather_condition",
+            "load_limit", "speed_limit",
+            "approval_status", "approval_conditions", "supplementary_items",
+            "supplement_deadline", "rejection_reason",
+            "cl003_linked", "eq_plan_linked", "ppp003_linked",
+            "daily_inspection_due", "related_form_nos", "follow_up_action",
+            "applicant_sign", "safety_manager_name", "supervisor_name",
+            "site_manager_name", "confirm_date",
+        ),
+        repeat_field=None,
+        max_repeat_rows=None,
     ),
     "temp_electrical_installation_permit": FormSpec(
         form_type="temp_electrical_installation_permit",

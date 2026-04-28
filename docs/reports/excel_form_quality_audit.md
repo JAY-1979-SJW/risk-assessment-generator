@@ -1,14 +1,14 @@
 # Excel 서식 품질 점검 보고서
 
-생성일시: 2026-04-28 23:42:05
+생성일시: 2026-04-28 23:55:02
 
 ## 전체 요약
 
 | 항목 | 건수 |
 |------|------|
-| 전체 점검 | 74 |
+| 전체 점검 | 75 |
 | PASS | 33 |
-| WARN | 41 |
+| WARN | 42 |
 | FAIL | 0 |
 
 ## FAIL 목록
@@ -46,6 +46,10 @@ FAIL 없음
 - WARN: 섹션 수 부족: 0개
 
 ### emergency_first_aid_record — 응급조치 실시 기록서 (practical)
+- WARN: 반복 테이블(번호 행) 없음
+
+### equipment_entry_application — 건설 장비 반입 신청서 (v2) (practical)
+- WARN: 섹션 수 부족: 0개
 - WARN: 반복 테이블(번호 행) 없음
 
 ### excavation_work_permit — 굴착 작업 허가서 (practical)
@@ -160,8 +164,8 @@ FAIL 없음
 
 ## 공통 문제 (WARN 빈도)
 
-- 섹션 수 부족: 38건
-- 반복 테이블(번호 행) 없음: 10건
+- 섹션 수 부족: 39건
+- 반복 테이블(번호 행) 없음: 11건
 - 인쇄 설정(orientation/fitToPage/margins) 없음: 5건
 - 빈 셀 비율 과다: 5건
 - 서명/확인란 없음: 1건
