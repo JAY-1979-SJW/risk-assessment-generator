@@ -109,6 +109,7 @@ from engine.output.aerial_work_platform_use_plan_builder import build_aerial_wor
 from engine.output.bridge_work_workplan_builder import build_bridge_work_workplan_excel
 from engine.output.earthwork_equipment_use_plan_builder import build_earthwork_equipment_use_plan_excel
 from engine.output.lifting_equipment_workplan_builder import build_lifting_equipment_workplan_excel
+from engine.output.track_maintenance_workplan_builder import build_track_maintenance_workplan
 from engine.output.contractor_safety_consultation_builder import build_contractor_safety_consultation_excel
 from engine.output.safety_committee_minutes_builder import build_safety_committee_minutes_excel
 from engine.output.industrial_accident_report_builder import build_industrial_accident_report_excel
@@ -2102,6 +2103,54 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="safety_steps",
         max_repeat_rows=10,
         extra_list_fields=("emergency_contacts",),
+    ),
+    # ------------------------------------------------------------------
+    # P3 — WP-012 (2026-04-29)
+    # 법적 근거: 산안규칙 제38조 제1항 제12호(궤도 보수·점검 작업계획서),
+    #           제38조 제2항(근로자 주지), 제38조 제4항(궤도작업차량 열차운행관계자 협의),
+    #           별표4(사전조사 및 작업계획서 내용)
+    # evidence_status: NEEDS_VERIFICATION — 제12호/제11호 조항 번호 교차검증 필요
+    #   (catalog 기존 기재: 제11호 / 작업 명세서: 제12호)
+    # 역할: 궤도·철도 현장 한정 법정 작업계획서
+    # ------------------------------------------------------------------
+    "track_maintenance_workplan": FormSpec(
+        form_type="track_maintenance_workplan",
+        display_name="궤도 작업계획서",
+        version="1.0",
+        builder=build_track_maintenance_workplan,
+        required_fields=(
+            "site_name",   # 사업장명
+            "work_date",   # 작업 예정일
+            "supervisor",  # 작업지휘자
+        ),
+        optional_fields=(
+            "project_name", "contractor", "subcontractor",
+            "prepared_by", "approved_by", "prepare_date",
+            "track_line", "track_section_start", "track_section_end",
+            "track_type", "work_type", "work_scope",
+            "work_start_time", "work_end_time", "track_possession",
+            "track_condition", "hazard_structures", "train_schedule",
+            "weather_condition", "underground_facilities",
+            "survey_conducted_by", "survey_date",
+            "worker_count", "supervisor_name", "supervisor_cert",
+            "safety_manager", "watchman_name", "worker_list",
+            "rail_vehicle_used", "rail_vehicle_type", "rail_vehicle_operator",
+            "rail_operator_name", "consultation_date", "consultation_person",
+            "consultation_content", "work_window_granted",
+            "train_halt_required", "train_halt_time",
+            "signal_method", "communication_device",
+            "watchman_position", "alarm_method", "evacuation_signal",
+            "ppe_required", "access_prohibition",
+            "work_sequence", "entry_control_method",
+            "barrier_type", "restricted_zone",
+            "emergency_contact_119", "emergency_contact_rail",
+            "emergency_contact_site", "evacuation_route", "first_aid_location",
+            "worker_briefing_done", "briefing_date",
+            "briefing_method", "worker_signatures",
+        ),
+        repeat_field="hazard_items",
+        max_repeat_rows=8,
+        extra_list_fields=("equipment_items",),
     ),
     "contractor_safety_consultation": FormSpec(
         form_type="contractor_safety_consultation",

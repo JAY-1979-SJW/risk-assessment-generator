@@ -259,12 +259,13 @@ documents:
     category_code: WP
     document_group: 작업계획서
     legal_status: legal
-    implementation_status: TODO
-    priority: P3
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: track_maintenance_workplan
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제11호"
-    notes: "궤도·철도 현장 한정"
+    legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제12호(궤도 보수·점검 작업계획서), 제38조 제2항(근로자 주지), 제38조 제4항(궤도작업차량 열차운행관계자 사전 협의), 별표4(사전조사·작업계획서 내용)"
+    evidence_status: NEEDS_VERIFICATION
+    notes: "builder v1.0 — scaffold 12섹션. 궤도·철도 현장 한정. 관계 기관 공식 별지서식 아님. 제12호/제11호 조항 번호 교차검증 권장 (catalog 기존 기재 제11호, 명세서 기준 제12호 적용)."
 
   - id: WP-013
     name: 화학설비·부속설비 작업계획서
