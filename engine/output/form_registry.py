@@ -42,6 +42,7 @@ export API 연결 전 단계 — builder 호출 인터페이스만 제공.
     piling_workplan                       — 항타기·항발기·천공기 사용계획서 (v1.0)        [EQ-009]
     piling_use_workplan                   — 항타기·항발기 사용 작업계획서 (v1.0)          [WP-010]
     tunnel_excavation_workplan            — 터널 굴착 작업계획서 (v1.0)                    [WP-002]
+    construction_equipment_entry_request  — 건설 장비 반입 신청서 (v1.0)                   [PPE-002]
 
 사용법:
     from engine.output.form_registry import (
@@ -117,6 +118,7 @@ from engine.output.near_miss_report_builder import build_near_miss_report_excel
 from engine.output.lift_gondola_use_plan_builder import build_lift_gondola_use_plan_excel
 from engine.output.temp_power_generator_use_plan_builder import build_temp_power_generator_use_plan_excel
 from engine.output.ladder_stepladder_workboard_use_plan_builder import build_ladder_stepladder_workboard_use_plan_excel
+from engine.output.construction_equipment_entry_request_builder import build_construction_equipment_entry_request_excel
 
 
 # ---------------------------------------------------------------------------
@@ -2044,6 +2046,26 @@ _REGISTRY: dict[str, FormSpec] = {
             "inspection_items",  # list[dict]: check_item, ok, ng, action
         ),
         repeat_field="safety_steps",
+        max_repeat_rows=10,
+        extra_list_fields=("inspection_items",),
+    ),
+    "construction_equipment_entry_request": FormSpec(
+        form_type="construction_equipment_entry_request",
+        display_name="건설 장비 반입 신청서",
+        version="1.0",
+        builder=build_construction_equipment_entry_request_excel,
+        required_fields=(
+            "site_name",        # 현장명
+            "company_name",     # 신청 업체
+            "request_date",     # 신청일자
+        ),
+        optional_fields=(
+            "project_name", "entry_date", "work_location",
+            "supervisor", "contact", "applicant", "approver",
+            "equipment_items",   # list[dict]: equipment_type, vehicle_number, manufacturer, manufacture_year, insurance_expiry, remarks
+            "inspection_items",  # list[dict]: check_item, result, remarks
+        ),
+        repeat_field="equipment_items",
         max_repeat_rows=10,
         extra_list_fields=("inspection_items",),
     ),
