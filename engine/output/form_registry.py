@@ -104,6 +104,7 @@ from engine.output.aerial_work_platform_use_plan_builder import build_aerial_wor
 from engine.output.bridge_work_workplan_builder import build_bridge_work_workplan_excel
 from engine.output.earthwork_equipment_use_plan_builder import build_earthwork_equipment_use_plan_excel
 from engine.output.lifting_equipment_workplan_builder import build_lifting_equipment_workplan_excel
+from engine.output.contractor_safety_consultation_builder import build_contractor_safety_consultation_excel
 
 
 # ---------------------------------------------------------------------------
@@ -1764,6 +1765,27 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="safety_steps",
         max_repeat_rows=10,
         extra_list_fields=("emergency_contacts",),
+    ),
+    "contractor_safety_consultation": FormSpec(
+        form_type="contractor_safety_consultation",
+        display_name="도급·용역 안전보건 협의서",
+        version="1.0",
+        builder=build_contractor_safety_consultation_excel,
+        required_fields=(
+            "principal_contractor",  # 도급인
+            "subcontractor",         # 수급인
+        ),
+        optional_fields=(
+            "site_name", "project_name", "work_period", "meeting_date",
+            "meeting_location", "work_type",
+            "principal_rep", "subcontractor_rep",
+            "participants",      # list[dict]: role, name, position
+            "agenda_items",      # list[dict]: topic, content, decision, remarks
+            "safety_measures",   # list[dict]: hazard_work, safety_action, deadline, responsible
+        ),
+        repeat_field="agenda_items",
+        max_repeat_rows=10,
+        extra_list_fields=("participants", "safety_measures"),
     ),
 }
 

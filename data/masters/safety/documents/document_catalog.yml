@@ -1458,12 +1458,12 @@ documents:
     category_code: CM
     document_group: 협력업체관리
     legal_status: legal
-    implementation_status: TODO
-    priority: P2
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: contractor_safety_consultation
     source_type: law
     legal_basis: "산업안전보건법 제64조 (도급인·수급인 협의체 구성)"
-    notes: null
+    notes: "builder v1.0"
 
   - id: CM-003
     name: 근로자 건강진단 결과 확인서
