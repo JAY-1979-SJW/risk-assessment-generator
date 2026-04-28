@@ -1073,8 +1073,8 @@ documents:
     priority: P2
     form_type: supervisor_safety_log
     source_type: law
-    legal_basis: "산업안전보건법 제16조 (관리감독자 직무)"
-    notes: null
+    legal_basis: "산업안전보건법 제16조 (관리감독자 업무 의무) / 시행령 제15조 (관리감독자의 업무 등) / 산업안전보건기준에 관한 규칙 제35조 (유해·위험 방지 업무) / 별표 3 (작업시작 전 점검사항) — 공식 별지 서식 아님, 실무 보조서식"
+    notes: "공식 제출 서식 아님 / DL-001 안전관리 일지와 별도 관리 / RA-004 TBM 기록 및 CL-003 장비 점검표와 역할 분리"
 
   - id: DL-003
     name: 안전순찰 점검 일지

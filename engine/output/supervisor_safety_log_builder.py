@@ -1,59 +1,114 @@
 """
-관리감독자 안전보건 업무 일지 — Excel 출력 모듈 (v1).
+관리감독자 안전보건 업무 일지 — Excel 출력 모듈 (v2).
 
-법적 근거: 산업안전보건법 제16조 (관리감독자의 안전보건 업무 의무)
-분류: PRACTICAL — 법정 별지 서식 없음, 실무 자체 일지서식
+법적 근거:
+    산업안전보건법 제16조 (관리감독자의 안전보건 업무 의무)
+    산업안전보건법 시행령 제15조 (관리감독자의 업무 등)
+    산업안전보건기준에 관한 규칙 제35조 (관리감독자의 유해·위험 방지 업무 등)
+    산업안전보건기준에 관한 규칙 별표 3 (작업시작 전 점검사항)
 
-요약:
-    관리감독자가 당일 수행한 안전보건 업무를 종합적으로 기록하는 일지입니다.
-    현장 기본정보, 당일 관리 대상 작업, 지휘·감독 업무, 안전조치 확인,
-    불안전 행동·상태 지적, 시정지시, 사고·아차사고 기록 등을 포함합니다.
+분류: PRACTICAL — 공식 별지 제출서식 아님 / 관리감독자 업무 수행·확인 기록 보조서식
 
 Required form_data keys:
     site_name           str  현장명
-    log_date            str  일지 작성 일자
+    log_date            str  작성일
     supervisor_name     str  관리감독자 성명
-    department          str  소속 부서
-    work_summary        str  당일 주요 관리 업무 요약
+    department          str  소속
 
 Optional form_data keys:
     project_name                str  공사명
-    position                    str  직위·직책
-    work_location               str  담당 작업 구역
-    work_start_time             str  작업 시작 시간
-    work_end_time               str  작업 종료 시간
-    assigned_work               str  관리 대상 공종
-    high_risk_work              str  위험작업 종류 및 내용
-    worker_count                str  지휘·감독 근로자 수
-    subcontractor_count         str  협력업체 인원 수
-    worker_instruction_done     str  근로자 작업지시 실시 여부
-    work_method_checked         str  작업방법 적정성 확인 여부
-    safety_training_done        str  안전교육 실시 여부
-    tbm_participation           str  TBM 참여 및 주관 여부
-    risk_assessment_reviewed    str  위험성평가 검토 여부
-    ppe_checked                 str  보호구 착용 확인 여부
-    machine_guard_checked       str  기계·설비 방호장치 확인 여부
-    work_environment_checked    str  작업환경 이상 유무 확인 여부
-    housekeeping_checked        str  정리정돈 상태 확인 여부
-    emergency_contact_checked   str  비상연락망 확인 여부
-    unsafe_behavior_found       str  불안전 행동 발견 여부
-    unsafe_condition_found      str  불안전 상태 발견 여부
-    corrective_instruction      str  시정지시 내용
-    corrective_action_result    str  시정조치 결과
-    accident_or_near_miss       str  사고·아차사고 발생 여부
-    accident_detail             str  사고·아차사고 상세 내용
-    health_condition_checked    str  근로자 건강 이상 유무 확인 여부
-    weather                     str  날씨
-    heat_cold_risk              str  온열·한랭 질환 위험 여부
-    remarks                     str  종합 의견·특이사항
+    day_of_week                 str  요일
+    work_area                   str  작업구역
+    position                    str  직책
+    contact                     str  연락처
+    writer_name                 str  작성자
     reviewer_name               str  검토자
     approver_name               str  승인자
-    instruction_items           list[dict]  불안전 행동·상태 지적사항 반복행 (max 10)
-        location                str  위치
-        unsafe_type             str  유형 (불안전 행동/불안전 상태)
-        instruction_content     str  지시내용
-        action_result           str  조치결과
-        status                  str  상태
+    -- 섹션2: 금일 관리감독 대상 작업 --
+    work_items                  list[dict]  작업 목록 (max 5)
+        work_type               str  작업공종
+        work_content            str  작업내용
+        work_place              str  작업장소
+        worker_count            int  작업인원
+        subcontractor           str  협력업체
+        main_equipment          str  주요 장비
+        high_risk               str  고위험 작업 여부
+        work_plan_needed        str  작업계획서 필요 여부
+        work_permit_needed      str  작업허가서 필요 여부
+        remarks                 str  특이사항
+    -- 섹션3: 기계·기구·설비 안전보건 점검 --
+    equipment_checks            list[dict]  점검 목록 (max 5)
+        check_target            str  점검 대상
+        check_time              str  점검 시간
+        abnormal                str  이상 유무
+        problem_found           str  발견 문제
+        immediate_action        str  즉시 조치
+        inspector               str  담당자
+        completed               str  완료 여부
+        recheck_result          str  재점검 결과
+    -- 섹션4: 보호구·방호장치 점검 및 교육지도 --
+    ppe_wear_checked            str  보호구 착용 확인
+    ppe_condition_checked       str  보호구 상태 확인
+    guard_installed_checked     str  방호장치 설치 확인
+    guard_working_checked       str  방호장치 정상 작동 여부
+    ppe_violation_guidance      str  미착용자 지도 내용
+    edu_guidance_content        str  교육·지도 내용
+    improvement_needed          str  개선 필요사항
+    -- 섹션5: 작업장 정리정돈 및 통로 확보 --
+    passage_status              str  통로 확보 상태
+    material_storage_status     str  자재 적치 상태
+    opening_area_status         str  개구부 주변 상태
+    fall_risk_zone_status       str  추락·낙하 위험 구역 상태
+    lighting_status             str  작업장 조명
+    emergency_exit_secured      str  비상통로 확보
+    housekeeping_order          str  정리정돈 지시사항
+    housekeeping_done           str  조치 완료 여부
+    -- 섹션6: 작업시작 전 점검사항(별표 3 연계) --
+    pretask_check_items         list[dict]  별표 3 점검 항목 (max 5)
+        target_work             str  점검 대상 작업
+        check_item              str  점검 항목
+        abnormal                str  이상 유무
+        action_taken            str  이상 시 조치
+    pretask_applicable          str  별표 3 해당 작업 여부
+    pretask_conducted           str  작업시작 전 점검 실시 여부
+    work_start_approved         str  작업 개시 승인 여부
+    work_stopped                str  작업 중지 여부
+    -- 섹션7: 근로자 교육·지도 및 TBM 연계 --
+    tbm_conducted               str  TBM 실시 여부
+    work_method_guidance        str  작업방법 지도
+    risk_factor_communicated    str  위험요인 전달
+    new_worker_guidance         str  신규 근로자 지도
+    foreign_worker_communicated str  외국인 근로자 전달 여부
+    unsafe_behavior_guidance    str  불안전 행동 지도
+    edu_material_distributed    str  교육자료 배포 여부
+    signature_sheet_attached    str  서명부 별첨 여부
+    -- 섹션8: 산업재해·아차사고·응급조치 대응 --
+    accident_occurred           str  산업재해 발생 여부
+    near_miss_occurred          str  아차사고 발생 여부
+    first_aid_needed            str  응급조치 필요 여부
+    reported                    str  보고 여부
+    first_aid_content           str  응급조치 내용
+    em002_linked                str  EM-002 연계 여부
+    em006_linked                str  EM-006 연계 여부
+    followup_action             str  후속 조치
+    -- 섹션9: 개선조치 및 이행관리 --
+    improvement_actions         list[dict]  개선조치 목록 (max 8)
+        seq                     int  번호
+        issue                   str  지적사항
+        action                  str  개선조치
+        assignee                str  담당자
+        due_date                str  완료 예정일
+        completed_date          str  완료일
+        status                  str  이행상태
+        evidence_exists         str  증빙자료 여부
+        confirmed_by            str  확인자
+        incomplete_reason       str  미완료 사유
+    -- 섹션10: 확인 및 승인 --
+    confirm_supervisor          str  관리감독자
+    confirm_safety_manager      str  안전관리자
+    confirm_site_manager        str  현장소장
+    confirm_contractor          str  협력업체 책임자
+    confirm_date                str  확인일
 """
 from __future__ import annotations
 
@@ -66,11 +121,13 @@ from openpyxl.utils import get_column_letter
 
 SHEET_NAME = "관리감독자업무일지"
 SHEET_HEADING = "관리감독자 안전보건 업무 일지"
-SHEET_SUBTITLE = "「산업안전보건법」 제16조에 따른 관리감독자 안전보건 업무 수행 기록"
 DOC_ID = "DL-002"
 
-TOTAL_COLS = 8
-MAX_INSTRUCTION_ROWS = 10
+TOTAL_COLS = 10
+MAX_WORK_ROWS = 5
+MAX_EQUIP_ROWS = 5
+MAX_PRETASK_ROWS = 5
+MAX_IMPROVE_ROWS = 8
 
 _FONT_TITLE = Font(name="맑은 고딕", size=14, bold=True)
 _FONT_SUBTITLE = Font(name="맑은 고딕", size=9, italic=True)
@@ -80,7 +137,8 @@ _FONT_SMALL = Font(name="맑은 고딕", size=9)
 
 _FILL_LABEL = PatternFill(fill_type="solid", fgColor="F2F2F2")
 _FILL_SECTION = PatternFill(fill_type="solid", fgColor="D9E1F2")
-_FILL_HEADER = PatternFill(fill_type="solid", fgColor="E2EFDA")
+_FILL_HEADER = PatternFill(fill_type="solid", fgColor="BDD7EE")
+_FILL_NOTICE = PatternFill(fill_type="solid", fgColor="FFF2CC")
 _FILL_NONE = PatternFill()
 
 _THIN = Side(border_style="thin", color="808080")
@@ -90,10 +148,10 @@ _ALIGN_CENTER = Alignment(horizontal="center", vertical="center", wrap_text=True
 _ALIGN_LEFT = Alignment(horizontal="left", vertical="center", wrap_text=True)
 _ALIGN_LABEL = Alignment(horizontal="center", vertical="center")
 
-_COL_WIDTHS: Dict[int, int] = {1: 14, 2: 12, 3: 12, 4: 12, 5: 12, 6: 12, 7: 12, 8: 10}
-
-_L1, _V1_START, _V1_END = 1, 2, 4
-_L2, _V2_START, _V2_END = 5, 6, 8
+_COL_WIDTHS: Dict[int, int] = {
+    1: 4, 2: 12, 3: 14, 4: 12, 5: 12,
+    6: 12, 7: 12, 8: 12, 9: 12, 10: 10,
+}
 
 
 def _v(data: Dict[str, Any], key: str) -> Any:
@@ -107,9 +165,8 @@ def _border_rect(ws, row1: int, col1: int, row2: int, col2: int) -> None:
             ws.cell(row=r, column=c).border = _BORDER
 
 
-def _write_cell(ws, row: int, col1: int, col2: int, value: Any, *,
-                font=None, fill=None, align=None,
-                height: Optional[int] = None) -> None:
+def _cell(ws, row: int, col1: int, col2: int, value: Any, *,
+          font=None, fill=None, align=None, height: Optional[int] = None) -> None:
     if col2 > col1:
         ws.merge_cells(start_row=row, start_column=col1,
                        end_row=row, end_column=col2)
@@ -123,12 +180,17 @@ def _write_cell(ws, row: int, col1: int, col2: int, value: Any, *,
         ws.row_dimensions[row].height = height
 
 
-def _write_lv(ws, row: int, label: str, value: Any,
-              label_col: int, val_col1: int, val_col2: int) -> None:
-    _write_cell(ws, row, label_col, label_col, label,
-                font=_FONT_BOLD, fill=_FILL_LABEL, align=_ALIGN_LABEL)
-    _write_cell(ws, row, val_col1, val_col2, value,
-                font=_FONT_DEFAULT, align=_ALIGN_LEFT)
+def _lv(ws, row: int, label: str, value: Any,
+        lc: int, vc1: int, vc2: int, height: int = 20) -> None:
+    _cell(ws, row, lc, lc, label, font=_FONT_BOLD, fill=_FILL_LABEL, align=_ALIGN_LABEL)
+    _cell(ws, row, vc1, vc2, value, font=_FONT_DEFAULT, align=_ALIGN_LEFT)
+    ws.row_dimensions[row].height = height
+
+
+def _section(ws, row: int, title: str) -> int:
+    _cell(ws, row, 1, TOTAL_COLS, f"▶ {title}",
+          font=_FONT_BOLD, fill=_FILL_SECTION, align=_ALIGN_LEFT, height=20)
+    return row + 1
 
 
 def _apply_col_widths(ws) -> None:
@@ -136,235 +198,293 @@ def _apply_col_widths(ws) -> None:
         ws.column_dimensions[get_column_letter(col_idx)].width = width
 
 
+def _apply_print_settings(ws) -> None:
+    ws.page_setup.orientation = "portrait"
+    ws.page_setup.fitToPage = True
+    ws.page_setup.fitToWidth = 1
+    ws.page_setup.fitToHeight = 0
+    ws.page_margins.left = 0.5
+    ws.page_margins.right = 0.5
+    ws.page_margins.top = 0.75
+    ws.page_margins.bottom = 0.75
+
+
+# ---------------------------------------------------------------------------
+# 섹션 작성 함수
+# ---------------------------------------------------------------------------
+
 def _write_title(ws, row: int) -> int:
     ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=TOTAL_COLS)
     cell = ws.cell(row=row, column=1, value=SHEET_HEADING)
     cell.font = _FONT_TITLE
     cell.alignment = _ALIGN_CENTER
-    ws.row_dimensions[row].height = 28
+    ws.row_dimensions[row].height = 30
     row += 1
+
+    notice_lines = [
+        "공식 제출 서식 아님 / 관리감독자 업무 수행 및 확인 기록 보조서식",
+        "산업안전보건법 제16조 및 시행령 제15조 관리감독자 업무와 연계",
+        "기계·기구·설비 점검, 보호구·방호장치 점검, 산업재해 보고 및 응급조치, 작업장 정리정돈 확인을 기록",
+        "작업시작 전 점검사항은 산업안전보건기준에 관한 규칙 별표 3과 연계 / DL-001 안전관리 일지와 별도 관리",
+        "개인정보·민감정보 최소 기재 / 사진·영상 등 증빙자료는 별도 보관",
+    ]
+    for line in notice_lines:
+        ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=TOTAL_COLS)
+        c = ws.cell(row=row, column=1, value=line)
+        c.font = _FONT_SMALL
+        c.fill = _FILL_NOTICE
+        c.alignment = _ALIGN_CENTER
+        _border_rect(ws, row, 1, row, TOTAL_COLS)
+        ws.row_dimensions[row].height = 14
+        row += 1
+
     ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=TOTAL_COLS)
-    sub = ws.cell(row=row, column=1, value=SHEET_SUBTITLE)
-    sub.font = _FONT_SUBTITLE
-    sub.alignment = _ALIGN_CENTER
-    ws.row_dimensions[row].height = 16
-    row += 1
-    ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=TOTAL_COLS)
-    doc_id = ws.cell(row=row, column=1, value=f"(문서ID: {DOC_ID})")
-    doc_id.font = _FONT_SMALL
-    doc_id.alignment = _ALIGN_CENTER
+    doc_id_cell = ws.cell(row=row, column=1, value=f"(문서ID: {DOC_ID})")
+    doc_id_cell.font = _FONT_SMALL
+    doc_id_cell.alignment = _ALIGN_CENTER
     ws.row_dimensions[row].height = 12
     return row + 1
 
 
-def _write_site_info(ws, start_row: int, data: Dict[str, Any]) -> int:
-    H, r = 20, start_row
-    _write_cell(ws, r, 1, TOTAL_COLS, "현장 기본정보",
-                font=_FONT_BOLD, fill=_FILL_SECTION, align=_ALIGN_CENTER, height=18)
-    r += 1
-    _write_lv(ws, r, "현장명", _v(data, "site_name"), _L1, _V1_START, _V1_END)
-    _write_lv(ws, r, "공사명", _v(data, "project_name"), _L2, _V2_START, _V2_END)
-    ws.row_dimensions[r].height = H
-    r += 1
-    return r
+def _write_doc_info(ws, row: int, data: Dict[str, Any]) -> int:
+    row = _section(ws, row, "문서 기본정보")
+    _lv(ws, row, "공사명", _v(data, "project_name"), 2, 3, 5)
+    _lv(ws, row, "현장명", _v(data, "site_name"), 6, 7, 9)
+    _cell(ws, row, 10, 10, "", font=_FONT_DEFAULT)
+    ws.row_dimensions[row].height = 20
+    row += 1
+    _lv(ws, row, "작성일", _v(data, "log_date"), 2, 3, 4)
+    _lv(ws, row, "요일", _v(data, "day_of_week"), 5, 6, 6)
+    _lv(ws, row, "작업구역", _v(data, "work_area"), 7, 8, 10)
+    row += 1
+    _lv(ws, row, "관리감독자 성명", _v(data, "supervisor_name"), 2, 3, 4)
+    _lv(ws, row, "소속", _v(data, "department"), 5, 6, 6)
+    _lv(ws, row, "직책", _v(data, "position"), 7, 8, 8)
+    _lv(ws, row, "연락처", _v(data, "contact"), 9, 10, 10)
+    row += 1
+    _lv(ws, row, "작성자", _v(data, "writer_name"), 2, 3, 4)
+    _lv(ws, row, "검토자", _v(data, "reviewer_name"), 5, 6, 7)
+    _lv(ws, row, "승인자", _v(data, "approver_name"), 8, 9, 10)
+    row += 1
+    return row
 
 
-def _write_supervisor_info(ws, start_row: int, data: Dict[str, Any]) -> int:
-    H, r = 20, start_row
-    _write_cell(ws, r, 1, TOTAL_COLS, "관리감독자 기본정보",
-                font=_FONT_BOLD, fill=_FILL_SECTION, align=_ALIGN_CENTER, height=18)
-    r += 1
-    _write_lv(ws, r, "관리감독자 성명", _v(data, "supervisor_name"), _L1, _V1_START, _V1_END)
-    _write_lv(ws, r, "소속 부서", _v(data, "department"), _L2, _V2_START, _V2_END)
-    ws.row_dimensions[r].height = H
-    r += 1
-    _write_lv(ws, r, "직위·직책", _v(data, "position"), _L1, _V1_START, _V1_END)
-    _write_lv(ws, r, "작성 일자", _v(data, "log_date"), _L2, _V2_START, _V2_END)
-    ws.row_dimensions[r].height = H
-    r += 1
-    return r
+def _write_work_items(ws, row: int, data: Dict[str, Any]) -> int:
+    row = _section(ws, row, "금일 관리감독 대상 작업")
+    headers = ["작업공종", "작업내용", "작업장소", "작업인원", "협력업체",
+               "주요 장비", "고위험 작업", "작업계획서", "작업허가서", "특이사항"]
+    cols = [(1, 1), (2, 3), (4, 4), (5, 5), (6, 6),
+            (7, 7), (8, 8), (9, 9), (10, 10), (10, 10)]
+    # 헤더 행
+    _cell(ws, row, 1, 1, "No", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 2, 3, "작업내용", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 4, 4, "작업장소", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 5, 5, "작업인원", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 6, 6, "협력업체", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 7, 7, "주요 장비", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 8, 8, "고위험 작업", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 9, 9, "작업계획서", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 10, 10, "작업허가서", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    ws.row_dimensions[row].height = 18
+    row += 1
 
-
-def _write_work_assignment(ws, start_row: int, data: Dict[str, Any]) -> int:
-    H, r = 20, start_row
-    _write_cell(ws, r, 1, TOTAL_COLS, "당일 관리 대상 작업",
-                font=_FONT_BOLD, fill=_FILL_SECTION, align=_ALIGN_CENTER, height=18)
-    r += 1
-    _write_lv(ws, r, "관리 대상 공종", _v(data, "assigned_work"), _L1, _V1_START, _V1_END)
-    _write_lv(ws, r, "작업 시작 시간", _v(data, "work_start_time"), _L2, _V2_START, _V2_END)
-    ws.row_dimensions[r].height = H
-    r += 1
-    _write_lv(ws, r, "작업 종료 시간", _v(data, "work_end_time"), _L1, _V1_START, _V1_END)
-    _write_lv(ws, r, "담당 작업 구역", _v(data, "work_location"), _L2, _V2_START, _V2_END)
-    ws.row_dimensions[r].height = H
-    r += 1
-    _write_cell(ws, r, 1, TOTAL_COLS, f"위험작업 종류 및 내용: {_v(data, 'high_risk_work')}",
-                font=_FONT_DEFAULT, align=_ALIGN_LEFT, height=H)
-    r += 1
-    _write_cell(ws, r, 1, TOTAL_COLS, f"당일 주요 관리 업무 요약: {_v(data, 'work_summary')}",
-                font=_FONT_DEFAULT, align=_ALIGN_LEFT, height=H)
-    r += 1
-    return r
-
-
-def _write_personnel_status(ws, start_row: int, data: Dict[str, Any]) -> int:
-    H, r = 20, start_row
-    _write_cell(ws, r, 1, TOTAL_COLS, "관리 인원 현황",
-                font=_FONT_BOLD, fill=_FILL_SECTION, align=_ALIGN_CENTER, height=18)
-    r += 1
-    _write_lv(ws, r, "지휘·감독 근로자 수", _v(data, "worker_count"), _L1, _V1_START, _V1_END)
-    _write_lv(ws, r, "협력업체 인원 수", _v(data, "subcontractor_count"), _L2, _V2_START, _V2_END)
-    ws.row_dimensions[r].height = H
-    r += 1
-    return r
-
-
-def _write_worker_supervision(ws, start_row: int, data: Dict[str, Any]) -> int:
-    H, r = 20, start_row
-    _write_cell(ws, r, 1, TOTAL_COLS, "근로자 지휘·감독 및 작업지시",
-                font=_FONT_BOLD, fill=_FILL_SECTION, align=_ALIGN_CENTER, height=18)
-    r += 1
-    _write_lv(ws, r, "근로자 작업지시 실시 여부", _v(data, "worker_instruction_done"), _L1, _V1_START, _V1_END)
-    _write_lv(ws, r, "작업방법 적정성 확인 여부", _v(data, "work_method_checked"), _L2, _V2_START, _V2_END)
-    ws.row_dimensions[r].height = H
-    r += 1
-    _write_lv(ws, r, "안전교육 실시 여부", _v(data, "safety_training_done"), _L1, _V1_START, _V1_END)
-    ws.row_dimensions[r].height = H
-    r += 1
-    return r
-
-
-def _write_safety_equipment_check(ws, start_row: int, data: Dict[str, Any]) -> int:
-    H, r = 20, start_row
-    _write_cell(ws, r, 1, TOTAL_COLS, "보호구·기계설비·작업환경 확인",
-                font=_FONT_BOLD, fill=_FILL_SECTION, align=_ALIGN_CENTER, height=18)
-    r += 1
-    _write_lv(ws, r, "보호구 착용 확인 여부", _v(data, "ppe_checked"), _L1, _V1_START, _V1_END)
-    _write_lv(ws, r, "기계·설비 방호장치 확인 여부", _v(data, "machine_guard_checked"), _L2, _V2_START, _V2_END)
-    ws.row_dimensions[r].height = H
-    r += 1
-    _write_lv(ws, r, "작업환경 이상 유무 확인 여부", _v(data, "work_environment_checked"), _L1, _V1_START, _V1_END)
-    _write_lv(ws, r, "정리정돈 상태 확인 여부", _v(data, "housekeeping_checked"), _L2, _V2_START, _V2_END)
-    ws.row_dimensions[r].height = H
-    r += 1
-    return r
-
-
-def _write_safety_checks(ws, start_row: int, data: Dict[str, Any]) -> int:
-    H, r = 20, start_row
-    _write_cell(ws, r, 1, TOTAL_COLS, "TBM·위험성평가·비상연락 확인",
-                font=_FONT_BOLD, fill=_FILL_SECTION, align=_ALIGN_CENTER, height=18)
-    r += 1
-    _write_lv(ws, r, "TBM 참여 및 주관 여부", _v(data, "tbm_participation"), _L1, _V1_START, _V1_END)
-    _write_lv(ws, r, "위험성평가 검토 여부", _v(data, "risk_assessment_reviewed"), _L2, _V2_START, _V2_END)
-    ws.row_dimensions[r].height = H
-    r += 1
-    _write_lv(ws, r, "비상연락망 확인 여부", _v(data, "emergency_contact_checked"), _L1, _V1_START, _V1_END)
-    ws.row_dimensions[r].height = H
-    r += 1
-    return r
-
-
-def _write_instruction_items(ws, start_row: int, data: Dict[str, Any]) -> int:
-    H, r = 20, start_row
-    _write_cell(ws, r, 1, TOTAL_COLS, "불안전 행동·상태 지적사항",
-                font=_FONT_BOLD, fill=_FILL_SECTION, align=_ALIGN_CENTER, height=18)
-    r += 1
-
-    _write_cell(ws, r, 1, 2, "위치", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
-    _write_cell(ws, r, 3, 3, "유형", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
-    _write_cell(ws, r, 4, 5, "지시내용", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
-    _write_cell(ws, r, 6, 7, "조치결과", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
-    _write_cell(ws, r, 8, 8, "상태", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
-    ws.row_dimensions[r].height = 18
-    r += 1
-
-    items = data.get("instruction_items", [])
+    items = data.get("work_items", [])
     if not isinstance(items, list):
         items = []
-
-    num_items = min(len(items), MAX_INSTRUCTION_ROWS)
-    for i in range(MAX_INSTRUCTION_ROWS):
-        if i < num_items:
-            item = items[i]
-            _write_cell(ws, r, 1, 2, _v(item, "location"), align=_ALIGN_LEFT, height=H)
-            _write_cell(ws, r, 3, 3, _v(item, "unsafe_type"), align=_ALIGN_LEFT, height=H)
-            _write_cell(ws, r, 4, 5, _v(item, "instruction_content"), align=_ALIGN_LEFT, height=H)
-            _write_cell(ws, r, 6, 7, _v(item, "action_result"), align=_ALIGN_LEFT, height=H)
-            _write_cell(ws, r, 8, 8, _v(item, "status"), align=_ALIGN_CENTER, height=H)
-        else:
-            _write_cell(ws, r, 1, 2, "", height=H)
-            _write_cell(ws, r, 3, 3, "", height=H)
-            _write_cell(ws, r, 4, 5, "", height=H)
-            _write_cell(ws, r, 6, 7, "", height=H)
-            _write_cell(ws, r, 8, 8, "", height=H)
-        r += 1
-
-    return r
+    for i in range(MAX_WORK_ROWS):
+        item = items[i] if i < len(items) else {}
+        _cell(ws, row, 1, 1, str(i + 1), align=_ALIGN_CENTER, height=20)
+        _cell(ws, row, 2, 3, _v(item, "work_content"), height=20)
+        _cell(ws, row, 4, 4, _v(item, "work_place"), height=20)
+        _cell(ws, row, 5, 5, _v(item, "worker_count"), align=_ALIGN_CENTER, height=20)
+        _cell(ws, row, 6, 6, _v(item, "subcontractor"), height=20)
+        _cell(ws, row, 7, 7, _v(item, "main_equipment"), height=20)
+        _cell(ws, row, 8, 8, _v(item, "high_risk"), align=_ALIGN_CENTER, height=20)
+        _cell(ws, row, 9, 9, _v(item, "work_plan_needed"), align=_ALIGN_CENTER, height=20)
+        _cell(ws, row, 10, 10, _v(item, "work_permit_needed"), align=_ALIGN_CENTER, height=20)
+        row += 1
+    return row
 
 
-def _write_corrective_summary(ws, start_row: int, data: Dict[str, Any]) -> int:
-    H, r = 20, start_row
-    _write_cell(ws, r, 1, TOTAL_COLS, "시정지시 및 개선조치 요약",
-                font=_FONT_BOLD, fill=_FILL_SECTION, align=_ALIGN_CENTER, height=18)
-    r += 1
-    _write_lv(ws, r, "불안전 행동 발견 여부", _v(data, "unsafe_behavior_found"), _L1, _V1_START, _V1_END)
-    _write_lv(ws, r, "불안전 상태 발견 여부", _v(data, "unsafe_condition_found"), _L2, _V2_START, _V2_END)
-    ws.row_dimensions[r].height = H
-    r += 1
-    _write_cell(ws, r, 1, TOTAL_COLS, f"시정지시 내용: {_v(data, 'corrective_instruction')}",
-                font=_FONT_DEFAULT, align=_ALIGN_LEFT, height=H)
-    r += 1
-    _write_cell(ws, r, 1, TOTAL_COLS, f"시정조치 결과: {_v(data, 'corrective_action_result')}",
-                font=_FONT_DEFAULT, align=_ALIGN_LEFT, height=H)
-    r += 1
-    return r
+def _write_equipment_checks(ws, row: int, data: Dict[str, Any]) -> int:
+    row = _section(ws, row, "기계·기구·설비 안전보건 점검")
+    _cell(ws, row, 1, 1, "No", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 2, 3, "점검 대상", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 4, 4, "점검 시간", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 5, 5, "이상 유무", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 6, 7, "발견 문제/즉시 조치", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 8, 8, "담당자", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 9, 9, "완료 여부", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 10, 10, "재점검", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    ws.row_dimensions[row].height = 18
+    row += 1
+
+    items = data.get("equipment_checks", [])
+    if not isinstance(items, list):
+        items = []
+    for i in range(MAX_EQUIP_ROWS):
+        item = items[i] if i < len(items) else {}
+        _cell(ws, row, 1, 1, str(i + 1), align=_ALIGN_CENTER, height=20)
+        _cell(ws, row, 2, 3, _v(item, "check_target"), height=20)
+        _cell(ws, row, 4, 4, _v(item, "check_time"), align=_ALIGN_CENTER, height=20)
+        _cell(ws, row, 5, 5, _v(item, "abnormal"), align=_ALIGN_CENTER, height=20)
+        _cell(ws, row, 6, 7, _v(item, "problem_found"), height=20)
+        _cell(ws, row, 8, 8, _v(item, "inspector"), height=20)
+        _cell(ws, row, 9, 9, _v(item, "completed"), align=_ALIGN_CENTER, height=20)
+        _cell(ws, row, 10, 10, _v(item, "recheck_result"), align=_ALIGN_CENTER, height=20)
+        row += 1
+    return row
 
 
-def _write_accident_record(ws, start_row: int, data: Dict[str, Any]) -> int:
-    H, r = 20, start_row
-    _write_cell(ws, r, 1, TOTAL_COLS, "사고·아차사고·건강 이상 기록",
-                font=_FONT_BOLD, fill=_FILL_SECTION, align=_ALIGN_CENTER, height=18)
-    r += 1
-    _write_lv(ws, r, "사고·아차사고 발생 여부", _v(data, "accident_or_near_miss"), _L1, _V1_START, _V1_END)
-    _write_lv(ws, r, "근로자 건강 이상 유무 확인", _v(data, "health_condition_checked"), _L2, _V2_START, _V2_END)
-    ws.row_dimensions[r].height = H
-    r += 1
-    _write_cell(ws, r, 1, TOTAL_COLS, f"사고·아차사고 상세 내용: {_v(data, 'accident_detail')}",
-                font=_FONT_DEFAULT, align=_ALIGN_LEFT, height=H)
-    r += 1
-    _write_lv(ws, r, "날씨", _v(data, "weather"), _L1, _V1_START, _V1_END)
-    _write_lv(ws, r, "온열·한랭 질환 위험 여부", _v(data, "heat_cold_risk"), _L2, _V2_START, _V2_END)
-    ws.row_dimensions[r].height = H
-    r += 1
-    return r
+def _write_ppe_check(ws, row: int, data: Dict[str, Any]) -> int:
+    row = _section(ws, row, "보호구·방호장치 점검 및 교육지도")
+    _lv(ws, row, "보호구 착용 확인", _v(data, "ppe_wear_checked"), 2, 3, 5)
+    _lv(ws, row, "보호구 상태 확인", _v(data, "ppe_condition_checked"), 6, 7, 9)
+    _cell(ws, row, 10, 10, "")
+    row += 1
+    _lv(ws, row, "방호장치 설치 확인", _v(data, "guard_installed_checked"), 2, 3, 5)
+    _lv(ws, row, "방호장치 작동 여부", _v(data, "guard_working_checked"), 6, 7, 9)
+    _cell(ws, row, 10, 10, "")
+    row += 1
+    _lv(ws, row, "미착용자 지도", _v(data, "ppe_violation_guidance"), 2, 3, 10)
+    row += 1
+    _lv(ws, row, "교육·지도 내용", _v(data, "edu_guidance_content"), 2, 3, 10)
+    row += 1
+    _lv(ws, row, "개선 필요사항", _v(data, "improvement_needed"), 2, 3, 10)
+    row += 1
+    return row
 
 
-def _write_remarks(ws, start_row: int, data: Dict[str, Any]) -> int:
-    H, r = 20, start_row
-    _write_cell(ws, r, 1, TOTAL_COLS, "종합 의견",
-                font=_FONT_BOLD, fill=_FILL_SECTION, align=_ALIGN_CENTER, height=18)
-    r += 1
-    _write_cell(ws, r, 1, TOTAL_COLS, _v(data, "remarks"),
-                font=_FONT_DEFAULT, align=_ALIGN_LEFT, height=H)
-    r += 1
-    return r
+def _write_housekeeping(ws, row: int, data: Dict[str, Any]) -> int:
+    row = _section(ws, row, "작업장 정리정돈 및 통로 확보")
+    _lv(ws, row, "통로 확보 상태", _v(data, "passage_status"), 2, 3, 5)
+    _lv(ws, row, "자재 적치 상태", _v(data, "material_storage_status"), 6, 7, 10)
+    row += 1
+    _lv(ws, row, "개구부 주변 상태", _v(data, "opening_area_status"), 2, 3, 5)
+    _lv(ws, row, "추락·낙하 위험 구역", _v(data, "fall_risk_zone_status"), 6, 7, 10)
+    row += 1
+    _lv(ws, row, "작업장 조명", _v(data, "lighting_status"), 2, 3, 5)
+    _lv(ws, row, "비상통로 확보", _v(data, "emergency_exit_secured"), 6, 7, 10)
+    row += 1
+    _lv(ws, row, "정리정돈 지시사항", _v(data, "housekeeping_order"), 2, 3, 8)
+    _lv(ws, row, "조치 완료", _v(data, "housekeeping_done"), 9, 10, 10)
+    row += 1
+    return row
 
 
-def _write_signatures(ws, start_row: int, data: Dict[str, Any]) -> int:
-    H, r = 20, start_row
-    _write_cell(ws, r, 1, TOTAL_COLS, "작성 / 검토 / 승인 서명란",
-                font=_FONT_BOLD, fill=_FILL_SECTION, align=_ALIGN_CENTER, height=18)
-    r += 1
-    _write_lv(ws, r, "관리감독자", _v(data, "supervisor_name"), _L1, _V1_START, _V1_END)
-    _write_lv(ws, r, "검토자", _v(data, "reviewer_name"), _L2, _V2_START, _V2_END)
-    ws.row_dimensions[r].height = H
-    r += 1
-    _write_lv(ws, r, "승인자", _v(data, "approver_name"), _L1, _V1_START, _V1_END)
-    ws.row_dimensions[r].height = H
-    r += 1
-    return r
+def _write_pretask_check(ws, row: int, data: Dict[str, Any]) -> int:
+    row = _section(ws, row, "작업시작 전 점검사항 (산업안전보건기준에 관한 규칙 별표 3 연계)")
+    _lv(ws, row, "별표3 해당 작업 여부", _v(data, "pretask_applicable"), 2, 3, 5)
+    _lv(ws, row, "작업시작 전 점검 실시", _v(data, "pretask_conducted"), 6, 7, 10)
+    row += 1
 
+    _cell(ws, row, 1, 1, "No", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 2, 3, "점검 대상 작업", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 4, 6, "점검 항목", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 7, 7, "이상 유무", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 8, 10, "이상 시 조치", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    ws.row_dimensions[row].height = 18
+    row += 1
+
+    items = data.get("pretask_check_items", [])
+    if not isinstance(items, list):
+        items = []
+    for i in range(MAX_PRETASK_ROWS):
+        item = items[i] if i < len(items) else {}
+        _cell(ws, row, 1, 1, str(i + 1), align=_ALIGN_CENTER, height=20)
+        _cell(ws, row, 2, 3, _v(item, "target_work"), height=20)
+        _cell(ws, row, 4, 6, _v(item, "check_item"), height=20)
+        _cell(ws, row, 7, 7, _v(item, "abnormal"), align=_ALIGN_CENTER, height=20)
+        _cell(ws, row, 8, 10, _v(item, "action_taken"), height=20)
+        row += 1
+
+    _lv(ws, row, "작업 개시 승인", _v(data, "work_start_approved"), 2, 3, 5)
+    _lv(ws, row, "작업 중지 여부", _v(data, "work_stopped"), 6, 7, 10)
+    row += 1
+    return row
+
+
+def _write_edu_tbm(ws, row: int, data: Dict[str, Any]) -> int:
+    row = _section(ws, row, "근로자 교육·지도 및 TBM 연계")
+    _lv(ws, row, "TBM 실시 여부", _v(data, "tbm_conducted"), 2, 3, 5)
+    _lv(ws, row, "작업방법 지도", _v(data, "work_method_guidance"), 6, 7, 10)
+    row += 1
+    _lv(ws, row, "위험요인 전달", _v(data, "risk_factor_communicated"), 2, 3, 5)
+    _lv(ws, row, "신규 근로자 지도", _v(data, "new_worker_guidance"), 6, 7, 10)
+    row += 1
+    _lv(ws, row, "외국인 근로자 전달", _v(data, "foreign_worker_communicated"), 2, 3, 5)
+    _lv(ws, row, "불안전 행동 지도", _v(data, "unsafe_behavior_guidance"), 6, 7, 10)
+    row += 1
+    _lv(ws, row, "교육자료 배포", _v(data, "edu_material_distributed"), 2, 3, 5)
+    _lv(ws, row, "서명부 별첨", _v(data, "signature_sheet_attached"), 6, 7, 10)
+    row += 1
+    return row
+
+
+def _write_accident_response(ws, row: int, data: Dict[str, Any]) -> int:
+    row = _section(ws, row, "산업재해·아차사고·응급조치 대응")
+    _lv(ws, row, "산업재해 발생 여부", _v(data, "accident_occurred"), 2, 3, 5)
+    _lv(ws, row, "아차사고 발생 여부", _v(data, "near_miss_occurred"), 6, 7, 10)
+    row += 1
+    _lv(ws, row, "응급조치 필요 여부", _v(data, "first_aid_needed"), 2, 3, 5)
+    _lv(ws, row, "보고 여부", _v(data, "reported"), 6, 7, 10)
+    row += 1
+    _lv(ws, row, "응급조치 내용", _v(data, "first_aid_content"), 2, 3, 10)
+    row += 1
+    _lv(ws, row, "EM-002 연계 여부", _v(data, "em002_linked"), 2, 3, 5)
+    _lv(ws, row, "EM-006 연계 여부", _v(data, "em006_linked"), 6, 7, 10)
+    row += 1
+    _lv(ws, row, "후속 조치", _v(data, "followup_action"), 2, 3, 10)
+    row += 1
+    return row
+
+
+def _write_improvement_actions(ws, row: int, data: Dict[str, Any]) -> int:
+    row = _section(ws, row, "개선조치 및 이행관리")
+    _cell(ws, row, 1, 1, "No", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 2, 3, "지적사항", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 4, 5, "개선조치", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 6, 6, "담당자", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 7, 7, "완료 예정일", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 8, 8, "완료일", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 9, 9, "이행상태", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    _cell(ws, row, 10, 10, "확인자", font=_FONT_BOLD, fill=_FILL_HEADER, align=_ALIGN_CENTER)
+    ws.row_dimensions[row].height = 18
+    row += 1
+
+    items = data.get("improvement_actions", [])
+    if not isinstance(items, list):
+        items = []
+    for i in range(MAX_IMPROVE_ROWS):
+        item = items[i] if i < len(items) else {}
+        _cell(ws, row, 1, 1, str(i + 1), align=_ALIGN_CENTER, height=20)
+        _cell(ws, row, 2, 3, _v(item, "issue"), height=20)
+        _cell(ws, row, 4, 5, _v(item, "action"), height=20)
+        _cell(ws, row, 6, 6, _v(item, "assignee"), height=20)
+        _cell(ws, row, 7, 7, _v(item, "due_date"), align=_ALIGN_CENTER, height=20)
+        _cell(ws, row, 8, 8, _v(item, "completed_date"), align=_ALIGN_CENTER, height=20)
+        _cell(ws, row, 9, 9, _v(item, "status"), align=_ALIGN_CENTER, height=20)
+        _cell(ws, row, 10, 10, _v(item, "confirmed_by"), height=20)
+        row += 1
+    return row
+
+
+def _write_confirmation(ws, row: int, data: Dict[str, Any]) -> int:
+    row = _section(ws, row, "확인 및 승인")
+    _lv(ws, row, "관리감독자", _v(data, "confirm_supervisor"), 2, 3, 4)
+    _lv(ws, row, "안전관리자", _v(data, "confirm_safety_manager"), 5, 6, 7)
+    _lv(ws, row, "현장소장", _v(data, "confirm_site_manager"), 8, 9, 10)
+    row += 1
+    _lv(ws, row, "협력업체 책임자", _v(data, "confirm_contractor"), 2, 3, 5)
+    _lv(ws, row, "작성일", _v(data, "log_date"), 6, 7, 7)
+    _lv(ws, row, "확인일", _v(data, "confirm_date"), 8, 9, 10)
+    row += 1
+    return row
+
+
+# ---------------------------------------------------------------------------
+# Public entry point
+# ---------------------------------------------------------------------------
 
 def build_supervisor_safety_log(form_data: Dict[str, Any]) -> bytes:
     """관리감독자 안전보건 업무 일지 Excel 생성."""
@@ -372,31 +492,29 @@ def build_supervisor_safety_log(form_data: Dict[str, Any]) -> bytes:
     ws = wb.active
     ws.title = SHEET_NAME
     _apply_col_widths(ws)
+    _apply_print_settings(ws)
 
     r = _write_title(ws, 1)
     r += 1
-    r = _write_site_info(ws, r, form_data)
-    r = _write_supervisor_info(ws, r, form_data)
+    r = _write_doc_info(ws, r, form_data)
     r += 1
-    r = _write_work_assignment(ws, r, form_data)
+    r = _write_work_items(ws, r, form_data)
     r += 1
-    r = _write_personnel_status(ws, r, form_data)
+    r = _write_equipment_checks(ws, r, form_data)
     r += 1
-    r = _write_worker_supervision(ws, r, form_data)
+    r = _write_ppe_check(ws, r, form_data)
     r += 1
-    r = _write_safety_equipment_check(ws, r, form_data)
+    r = _write_housekeeping(ws, r, form_data)
     r += 1
-    r = _write_safety_checks(ws, r, form_data)
+    r = _write_pretask_check(ws, r, form_data)
     r += 1
-    r = _write_instruction_items(ws, r, form_data)
+    r = _write_edu_tbm(ws, r, form_data)
     r += 1
-    r = _write_corrective_summary(ws, r, form_data)
+    r = _write_accident_response(ws, r, form_data)
     r += 1
-    r = _write_accident_record(ws, r, form_data)
+    r = _write_improvement_actions(ws, r, form_data)
     r += 1
-    r = _write_remarks(ws, r, form_data)
-    r += 1
-    r = _write_signatures(ws, r, form_data)
+    r = _write_confirmation(ws, r, form_data)
 
     output = BytesIO()
     wb.save(output)

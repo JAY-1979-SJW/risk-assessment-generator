@@ -1,14 +1,14 @@
 # Excel 서식 품질 점검 보고서
 
-생성일시: 2026-04-28 18:31:37
+생성일시: 2026-04-28 18:57:23
 
 ## 전체 요약
 
 | 항목 | 건수 |
 |------|------|
 | 전체 점검 | 70 |
-| PASS | 29 |
-| WARN | 41 |
+| PASS | 30 |
+| WARN | 40 |
 | FAIL | 0 |
 
 ## FAIL 목록
@@ -137,12 +137,6 @@ FAIL 없음
 ### special_health_examination — 특수건강진단 대상자 및 결과 관리대장 (legal)
 - WARN: 섹션 수 부족: 0개
 
-### supervisor_safety_log — 관리감독자 안전보건 업무 일지 (practical)
-- WARN: 인쇄 설정(orientation/fitToPage/margins) 없음
-- WARN: 빈 셀 비율 과다: 87%
-- WARN: 섹션 수 부족: 0개
-- WARN: 반복 테이블(번호 행) 없음
-
 ### tbm_log — TBM 안전점검 일지 (practical)
 - WARN: 섹션 수 부족: 0개
 
@@ -166,10 +160,10 @@ FAIL 없음
 
 ## 공통 문제 (WARN 빈도)
 
-- 섹션 수 부족: 39건
-- 반복 테이블(번호 행) 없음: 11건
-- 인쇄 설정(orientation/fitToPage/margins) 없음: 7건
-- 빈 셀 비율 과다: 7건
+- 섹션 수 부족: 38건
+- 반복 테이블(번호 행) 없음: 10건
+- 인쇄 설정(orientation/fitToPage/margins) 없음: 6건
+- 빈 셀 비율 과다: 6건
 - 서명/확인란 없음: 1건
 
 ## 즉시 수정 필요
