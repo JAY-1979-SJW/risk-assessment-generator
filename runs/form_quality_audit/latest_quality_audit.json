@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-04-28 17:21:45",
+  "run_at": "2026-04-28 17:26:32",
   "total": 68,
   "pass": 29,
   "warn": 39,
@@ -190,11 +190,11 @@
     {
       "form_type": "emergency_contact_evacuation_plan",
       "display_name": "비상 연락망 및 대피 계획서",
-      "legal_status": "legal",
+      "legal_status": "practical",
       "verdict": "PASS",
       "fails": [],
       "warns": [],
-      "xlsx_bytes": 7217
+      "xlsx_bytes": 7503
     },
     {
       "form_type": "excavation_work_permit",
@@ -345,7 +345,7 @@
       "verdict": "PASS",
       "fails": [],
       "warns": [],
-      "xlsx_bytes": 7007
+      "xlsx_bytes": 7011
     },
     {
       "form_type": "lift_gondola_use_plan",

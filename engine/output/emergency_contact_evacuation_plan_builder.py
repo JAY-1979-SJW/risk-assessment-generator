@@ -28,8 +28,16 @@ FORM_TYPE  = "emergency_contact_evacuation_plan"
 SHEET_NAME = "비상연락망및대피계획서"
 SHEET_HEADING  = "비상 연락망 및 대피 계획서"
 SHEET_SUBTITLE = (
-    "「산업안전보건기준에 관한 규칙」 제14조, 제622조에 따른 법정 비상대피계획서"
+    "사업장 비상상황 대비 가이드라인 및 산업안전보건 기준을 반영한 현장 보조서식"
+    " — 법정 제출 서식 아님"
     f" ({DOC_ID})"
+)
+SHEET_NOTICE = (
+    "※ 법정 제출 서식 아님 — 현장 비상대응계획 보조용 | "
+    "화재·폭발·질식·붕괴 등 비상상황 발생 시 즉시 작업중지 및 대피 | "
+    "관할 소방서·응급의료기관·고용노동관서 연락망 최신화 필요 | "
+    "대피경로·집결지·비상장비 위치는 현장 변경 시 즉시 갱신 | "
+    "개인정보·연락처는 목적 범위 내 최소 기재"
 )
 
 TOTAL_COLS = 8
@@ -69,11 +77,14 @@ def _write_title(ws, row: int) -> int:
     row += 1
     write_cell(ws, row, 1, TOTAL_COLS, SHEET_SUBTITLE,
                font=FONT_SUBTITLE, fill=FILL_NONE, align=ALIGN_CENTER, height=18)
+    row += 1
+    write_cell(ws, row, 1, TOTAL_COLS, SHEET_NOTICE,
+               font=FONT_SMALL, fill=FILL_NONE, align=ALIGN_CENTER, height=28)
     return row + 1
 
 
 def _write_meta(ws, row: int, data: Dict[str, Any]) -> int:
-    row = _section_header(ws, row, "▶ 기본 정보 (법정 기재사항)")
+    row = _section_header(ws, row, "▶ 기본 정보")
     _lv(ws, row, "현장명",       v(data, "site_name"),       _L1, _V1S, _V1E)
     _lv(ws, row, "공사명",       v(data, "project_name"),    _L2, _V2S, _V2E)
     row += 1
@@ -86,7 +97,7 @@ def _write_meta(ws, row: int, data: Dict[str, Any]) -> int:
 
 
 def _write_contacts(ws, row: int, data: Dict[str, Any]) -> int:
-    row = _section_header(ws, row, "▶ 비상 연락망 (법정 기재사항)")
+    row = _section_header(ws, row, "▶ 비상 연락망")
 
     headers   = ["번호", "역할",           "성명",   "소속",           "연락처",         "비고"]
     col_spans = [(1, 1),  (2, 3),           (4, 4),   (5, 6),           (7, 7),           (8, 8)]
@@ -111,7 +122,7 @@ def _write_contacts(ws, row: int, data: Dict[str, Any]) -> int:
         row += 1
 
     # 외부 기관 고정 행
-    row = _section_header(ws, row, "▶ 외부 비상 연락처 (법정 기재사항)")
+    row = _section_header(ws, row, "▶ 외부 비상 연락처")
     ext_headers = ["기관명", "연락처", "비고"]
     ext_spans   = [(1, 3), (4, 6), (7, 8)]
     for (cs, ce), hdr in zip(ext_spans, ext_headers):
@@ -135,7 +146,7 @@ def _write_contacts(ws, row: int, data: Dict[str, Any]) -> int:
 
 
 def _write_evacuation_routes(ws, row: int, data: Dict[str, Any]) -> int:
-    row = _section_header(ws, row, "▶ 대피 경로 (법정 기재사항)")
+    row = _section_header(ws, row, "▶ 대피 경로")
 
     headers   = ["번호", "구역",           "대피 경로",             "비상구 위치",     "집결지",         "담당자"]
     col_spans = [(1, 1),  (2, 2),           (3, 4),                  (5, 5),            (6, 7),           (8, 8)]
