@@ -87,6 +87,7 @@ from engine.output.work_environment_measurement_builder import build_work_enviro
 from engine.output.safety_management_log_builder import build_safety_management_log
 from engine.output.supervisor_safety_log_builder import build_supervisor_safety_log
 from engine.output.safety_patrol_inspection_log_builder import build_safety_patrol_inspection_log
+from engine.output.weather_condition_log_builder import build_weather_condition_log
 from engine.output.work_safety_checklist_builder import build_work_safety_checklist
 from engine.output.heavy_lifting_workplan_builder import build_heavy_lifting_workplan_excel
 from engine.output.workplan_builder import build_excavation_workplan_excel
@@ -1457,6 +1458,87 @@ _REGISTRY: dict[str, FormSpec] = {
             "next_patrol_focus",
         ),
         repeat_field="improvement_actions",
+        max_repeat_rows=8,
+    ),
+    # ------------------------------------------------------------------
+    # DL-004 — 기상 조건 기록 일지 (2026-04-28)
+    # 법적 근거: 산업안전보건기준에 관한 규칙 제37조 (악천후 및 강풍 시 작업 중지)
+    # evidence_status: NEEDS_VERIFICATION
+    # 주의: 법정 별지 서식 없음. 실무 자체 표준서식. 기상 위험 및 작업중지 판단 기록용.
+    # ------------------------------------------------------------------
+    "weather_condition_log": FormSpec(
+        form_type="weather_condition_log",
+        display_name="기상 조건 기록 일지",
+        version="1.0",
+        builder=build_weather_condition_log,
+        required_fields=(
+            "site_name",
+            "record_date",
+            "recorder",
+        ),
+        optional_fields=(
+            "project_name",
+            "department",
+            "position",
+            "total_workers",
+            "obs_time_am",
+            "obs_time_pm",
+            "temperature_am",
+            "temperature_pm",
+            "humidity_am",
+            "humidity_pm",
+            "wind_speed_am",
+            "wind_speed_pm",
+            "wind_gust_am",
+            "wind_gust_pm",
+            "wind_direction",
+            "precipitation",
+            "precipitation_type",
+            "snow_depth",
+            "visibility",
+            "weather_forecast",
+            "weather_source",
+            "risk_level",
+            "affected_work_types",
+            "high_risk_equipment",
+            "risk_assessment_summary",
+            "work_stop_decided",
+            "work_stop_time",
+            "work_stop_scope",
+            "work_stop_reason",
+            "work_stop_decision_by",
+            "workers_evacuated",
+            "evacuation_location",
+            "heat_index",
+            "heat_alert_level",
+            "cooling_measures",
+            "work_hour_adjustment",
+            "rest_time_provided",
+            "water_supply",
+            "heat_illness_symptoms",
+            "cold_alert_level",
+            "cold_prevention_measures",
+            "crane_work_suspended",
+            "crane_wind_criterion",
+            "scaffold_checked",
+            "drainage_measures",
+            "slope_stability_checked",
+            "snow_removal_done",
+            "slippery_prevention",
+            "resume_decided",
+            "resume_time",
+            "resume_check_weather",
+            "resume_site_inspection",
+            "resume_decision_by",
+            "resume_conditions",
+            "actions",
+            "handover_items",
+            "next_watch_focus",
+            "writer_name",
+            "reviewer_name",
+            "approver_name",
+        ),
+        repeat_field="actions",
         max_repeat_rows=8,
     ),
     # ------------------------------------------------------------------

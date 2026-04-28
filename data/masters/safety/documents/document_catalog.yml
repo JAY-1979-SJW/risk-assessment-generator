@@ -1095,12 +1095,12 @@ documents:
     category_code: DL
     document_group: 일일안전관리
     legal_status: practical
-    implementation_status: TODO
+    implementation_status: DONE
     priority: P3
-    form_type: null
+    form_type: weather_condition_log
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제37조 (악천후 시 작업 중지 의무)"
-    notes: null
+    legal_basis: "산업안전보건기준에 관한 규칙 제37조 (악천후 및 강풍 시 작업 중지), 제566조~제571조 (폭염작업 건강장해 예방조치)"
+    notes: "공식 제출 서식 아님. 기상 위험 및 작업중지 판단 기록 보조서식."
 
   - id: DL-005
     name: 작업 전 안전 확인서
