@@ -39,6 +39,7 @@ from engine.output.attendance_roster_builder import build_attendance_roster
 from engine.output.photo_attachment_sheet_builder import build_photo_attachment_sheet
 from engine.output.document_attachment_list_builder import build_document_attachment_list
 from engine.output.confined_space_gas_measurement_builder import build_confined_space_gas_measurement
+from engine.output.work_completion_confirmation_builder import build_work_completion_confirmation
 
 # ---------------------------------------------------------------------------
 # SupplementalSpec
@@ -181,7 +182,7 @@ _SUPPLEMENTARY_REGISTRY: Dict[str, SupplementalSpec] = {
             "lifting_work_permit", "temp_electrical_installation_permit",
         ),
         trigger_condition="작업허가서 발급 시 자동 연동, 작업 종료 후 서명",
-        output_builder=_todo_builder,  # TODO: work_completion_confirmation_builder.py
+        output_builder=build_work_completion_confirmation,
         required_fields=(
             "site_name", "permit_date", "work_location", "work_type",
         ),
