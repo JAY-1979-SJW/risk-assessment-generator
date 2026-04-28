@@ -123,6 +123,7 @@ from engine.output.construction_equipment_entry_request_builder import build_con
 from engine.output.temp_electrical_installation_permit_builder import build_temp_electrical_installation_permit_excel
 from engine.output.safety_cost_use_plan_builder import build_safety_cost_use_plan_excel
 from engine.output.health_exam_result_builder import build_health_exam_result_excel
+from engine.output.new_worker_safety_pledge_builder import build_new_worker_safety_pledge_excel
 
 
 # ---------------------------------------------------------------------------
@@ -2134,6 +2135,25 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="worker_rows",
         max_repeat_rows=20,
         extra_list_fields=(),
+    ),
+    "new_worker_safety_pledge": FormSpec(
+        form_type="new_worker_safety_pledge",
+        display_name="신규 근로자 안전보건 서약서",
+        version="1.0",
+        builder=build_new_worker_safety_pledge_excel,
+        required_fields=(
+            "site_name",    # 현장명
+            "company_name", # 업체명
+            "worker_name",  # 근로자 성명
+        ),
+        optional_fields=(
+            "department", "job_title", "sign_date", "supervisor",
+            "pledge_items",       # list[str]: 서약 항목 (기본값 내장)
+            "extra_pledge_items", # list[str]: 추가 서약 항목
+        ),
+        repeat_field=None,
+        max_repeat_rows=0,
+        extra_list_fields=("pledge_items", "extra_pledge_items"),
     ),
 }
 

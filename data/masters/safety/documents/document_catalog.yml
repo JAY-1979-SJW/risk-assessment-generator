@@ -1497,9 +1497,9 @@ documents:
     category_code: CM
     document_group: 협력업체관리
     legal_status: practical
-    implementation_status: TODO
+    implementation_status: DONE
     priority: P3
-    form_type: null
+    form_type: new_worker_safety_pledge
     source_type: law
     legal_basis: "중대재해처벌법 시행령 제4조 (안전보건 의무 부여)"
     notes: null

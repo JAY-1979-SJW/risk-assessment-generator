@@ -1,7 +1,7 @@
 {
-  "run_at": "2026-04-28 14:16:25",
-  "total": 64,
-  "pass": 25,
+  "run_at": "2026-04-28 14:30:34",
+  "total": 65,
+  "pass": 26,
   "warn": 39,
   "fail": 0,
   "results": [
@@ -410,6 +410,15 @@
       "fails": [],
       "warns": [],
       "xlsx_bytes": 6936
+    },
+    {
+      "form_type": "new_worker_safety_pledge",
+      "display_name": "신규 근로자 안전보건 서약서",
+      "legal_status": "practical",
+      "verdict": "PASS",
+      "fails": [],
+      "warns": [],
+      "xlsx_bytes": 7333
     },
     {
       "form_type": "piling_use_workplan",
