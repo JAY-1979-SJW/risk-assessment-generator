@@ -115,6 +115,7 @@ from engine.output.contractor_safety_document_checklist_builder import build_con
 from engine.output.annual_safety_education_plan_builder import build_annual_safety_education_plan_excel
 from engine.output.near_miss_report_builder import build_near_miss_report_excel
 from engine.output.lift_gondola_use_plan_builder import build_lift_gondola_use_plan_excel
+from engine.output.temp_power_generator_use_plan_builder import build_temp_power_generator_use_plan_excel
 
 
 # ---------------------------------------------------------------------------
@@ -1997,6 +1998,27 @@ _REGISTRY: dict[str, FormSpec] = {
             "supervisor", "equipment_model", "max_load", "max_height",
             "install_location", "use_period", "operator_license", "operator_name",
             "work_summary", "prepared_by", "approver",
+            "safety_steps",      # list[dict]: task_step, hazard, safety_measure, responsible
+            "inspection_items",  # list[dict]: check_item, ok, ng, action
+        ),
+        repeat_field="safety_steps",
+        max_repeat_rows=10,
+        extra_list_fields=("inspection_items",),
+    ),
+    "temp_power_generator_use_plan": FormSpec(
+        form_type="temp_power_generator_use_plan",
+        display_name="임시전기·발전기 사용계획서",
+        version="1.0",
+        builder=build_temp_power_generator_use_plan_excel,
+        required_fields=(
+            "site_name",       # 현장명
+            "equipment_type",  # 설비 종류
+        ),
+        optional_fields=(
+            "project_name", "contractor", "work_date", "install_location",
+            "supervisor", "equipment_model", "capacity", "voltage",
+            "use_period", "operator_name", "electrical_license",
+            "grounding_method", "use_purpose", "prepared_by", "approver",
             "safety_steps",      # list[dict]: task_step, hazard, safety_measure, responsible
             "inspection_items",  # list[dict]: check_item, ok, ng, action
         ),
