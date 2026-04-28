@@ -112,6 +112,7 @@ from engine.output.ppe_issuance_ledger_builder import build_ppe_issuance_ledger_
 from engine.output.chemical_equipment_workplan_builder import build_chemical_equipment_workplan_excel
 from engine.output.asbestos_removal_workplan_builder import build_asbestos_removal_workplan_excel
 from engine.output.contractor_safety_document_checklist_builder import build_contractor_safety_document_checklist_excel
+from engine.output.annual_safety_education_plan_builder import build_annual_safety_education_plan_excel
 
 
 # ---------------------------------------------------------------------------
@@ -1939,6 +1940,25 @@ _REGISTRY: dict[str, FormSpec] = {
         repeat_field="doc_items",
         max_repeat_rows=20,
         extra_list_fields=("required_docs",),
+    ),
+    "annual_safety_education_plan": FormSpec(
+        form_type="annual_safety_education_plan",
+        display_name="연간 안전보건교육 계획서",
+        version="1.0",
+        builder=build_annual_safety_education_plan_excel,
+        required_fields=(
+            "workplace_name", # 사업장명
+            "plan_year",      # 계획 연도
+        ),
+        optional_fields=(
+            "company_name", "safety_manager", "total_workers", "prepared_date",
+            "prepared_by", "approver",
+            "education_plan",  # list[dict]: course_name, target, month, hours, method, instructor
+            "education_types", # list[dict]: edu_type, target, legal_hours, planned_hours, remarks
+        ),
+        repeat_field="education_plan",
+        max_repeat_rows=24,
+        extra_list_fields=("education_types",),
     ),
 }
 

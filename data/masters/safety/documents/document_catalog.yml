@@ -734,12 +734,12 @@ documents:
     category_code: ED
     document_group: 안전보건교육
     legal_status: practical
-    implementation_status: TODO
-    priority: P2
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: annual_safety_education_plan
     source_type: law
     legal_basis: "산업안전보건법 제29조, 시행규칙 별표4 (교육 시간·내용)"
-    notes: "법정 서식 없음. 연간 계획 수립용"
+    notes: "법정 서식 없음. 연간 계획 수립용. builder v1.0"
 
   - id: ED-003
     name: 특별 안전보건교육 교육일지
