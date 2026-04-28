@@ -468,9 +468,9 @@ documents:
     category_code: EQ
     document_group: 장비사용계획서
     legal_status: legal
-    implementation_status: TODO
-    priority: P2
-    form_type: null
+    implementation_status: DONE
+    priority: DONE
+    form_type: earthwork_equipment_use_plan
     source_type: law
     legal_basis: "산업안전보건기준에 관한 규칙 제38조 제1항 제3호, 제170조"
     notes: null
