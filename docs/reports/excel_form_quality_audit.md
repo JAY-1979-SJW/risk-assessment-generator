@@ -1,14 +1,14 @@
 # Excel 서식 품질 점검 보고서
 
-생성일시: 2026-04-28 17:49:31
+생성일시: 2026-04-28 17:57:04
 
 ## 전체 요약
 
 | 항목 | 건수 |
 |------|------|
-| 전체 점검 | 69 |
+| 전체 점검 | 70 |
 | PASS | 30 |
-| WARN | 39 |
+| WARN | 40 |
 | FAIL | 0 |
 
 ## FAIL 목록
@@ -44,6 +44,9 @@ FAIL 없음
 
 ### electrical_workplan — 전기 작업계획서 (legal)
 - WARN: 섹션 수 부족: 0개
+
+### emergency_first_aid_record — 응급조치 실시 기록서 (practical)
+- WARN: 반복 테이블(번호 행) 없음
 
 ### excavation_work_permit — 굴착 작업 허가서 (practical)
 - WARN: 섹션 수 부족: 0개
@@ -162,7 +165,7 @@ FAIL 없음
 ## 공통 문제 (WARN 빈도)
 
 - 섹션 수 부족: 39건
-- 반복 테이블(번호 행) 없음: 9건
+- 반복 테이블(번호 행) 없음: 10건
 - 빈 셀 비율 과다: 8건
 - 인쇄 설정(orientation/fitToPage/margins) 없음: 7건
 - 서명/확인란 없음: 1건

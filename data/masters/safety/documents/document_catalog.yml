@@ -1605,12 +1605,12 @@ documents:
     category_code: EM
     document_group: 비상대응
     legal_status: practical
-    implementation_status: TODO
+    implementation_status: DONE
     priority: P3
-    form_type: null
+    form_type: emergency_first_aid_record
     source_type: law
-    legal_basis: "산업안전보건기준에 관한 규칙 제14조"
-    notes: null
+    legal_basis: "산업안전보건기준에 관한 규칙 제82조(구급용구) — 공식 별지 제출서식 아님, 현장 응급조치 이행기록 보조서식"
+    notes: "builder v1.0. EM-001(산업재해조사표)·EM-004(중대재해 즉시보고)·EM-005(재발방지 보고서)와 별도 운용 — 사고 직후 응급조치 실시·이송·인계 기록 전용."
 
   # ═══════════════════════════════════════════════════════════════
   # TS — 공종별 특화 (5종)

@@ -110,6 +110,7 @@ from engine.output.contractor_safety_consultation_builder import build_contracto
 from engine.output.safety_committee_minutes_builder import build_safety_committee_minutes_excel
 from engine.output.industrial_accident_report_builder import build_industrial_accident_report_excel
 from engine.output.emergency_contact_evacuation_plan_builder import build_emergency_contact_evacuation_plan_excel
+from engine.output.emergency_first_aid_record_builder import build_emergency_first_aid_record_excel
 from engine.output.accident_root_cause_prevention_report_builder import build_accident_root_cause_prevention_report_excel
 from engine.output.ppe_issuance_ledger_builder import build_ppe_issuance_ledger_excel
 from engine.output.chemical_equipment_workplan_builder import build_chemical_equipment_workplan_excel
@@ -2267,6 +2268,47 @@ _REGISTRY: dict[str, FormSpec] = {
         max_repeat_rows=0,
         extra_list_fields=("safety_managers", "health_managers",
                            "occupational_physicians", "hazard_plan_targets"),
+    ),
+    "emergency_first_aid_record": FormSpec(
+        form_type="emergency_first_aid_record",
+        display_name="응급조치 실시 기록서",
+        version="1.0",
+        builder=build_emergency_first_aid_record_excel,
+        required_fields=(
+            "site_name",        # 현장명
+            "incident_datetime", # 발생일시
+        ),
+        optional_fields=(
+            "project_name", "written_date", "accident_no",
+            "em004_reported", "em001_prepared",
+            "author", "reviewer", "approver",
+            "incident_location", "work_type", "work_content",
+            "emergency_type", "victim_count",
+            "conscious", "breathing", "bleeding", "fracture_suspected",
+            "burn", "asphyxia_suspected", "electric_shock", "other_symptoms",
+            "victim_name", "victim_company", "victim_job",
+            "victim_contact", "victim_birthdate", "guardian_contacted",
+            "aid_start_time", "aid_end_time", "first_aider", "aider_qualified",
+            "aid_hemostasis", "aid_cpr", "aid_aed", "aid_splint",
+            "aid_burn_care", "aid_oxygen", "aid_asphyxia", "aid_power_cut",
+            "aid_temperature", "aid_other",
+            "eq_kit", "eq_bandage", "eq_tourniquet", "eq_splint",
+            "eq_stretcher", "eq_aed", "eq_oxygen", "eq_air_supply",
+            "eq_gas_meter", "eq_replenish", "eq_manager",
+            "call_119_time", "ems_arrive_time", "hospital_time", "hospital_name",
+            "transport_means", "escort", "guardian_time", "authority_notified",
+            "handover_from", "handover_to",
+            "ctrl_work_stop", "ctrl_zone", "ctrl_power", "ctrl_gas",
+            "ctrl_equipment", "ctrl_evacuated", "ctrl_preserved", "ctrl_recorded",
+            "fu_kit_replenish", "fu_training_needed", "fu_contact_update",
+            "fu_evac_update", "fu_risk_review", "fu_em005_linked",
+            "fu_responsible", "fu_due_date",
+            "sig_first_aider", "sig_safety_mgr", "sig_supervisor",
+            "sig_site_director", "sig_sub_manager", "sig_confirmed_date",
+        ),
+        repeat_field=None,
+        max_repeat_rows=0,
+        extra_list_fields=(),
     ),
 }
 
