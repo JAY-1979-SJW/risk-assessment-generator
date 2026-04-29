@@ -42,6 +42,7 @@ from engine.output.confined_space_gas_measurement_builder import build_confined_
 from engine.output.work_completion_confirmation_builder import build_work_completion_confirmation
 from engine.output.improvement_completion_check_builder import build_improvement_completion_check
 from engine.output.equipment_operator_qualification_check_builder import build_equipment_operator_qualification_check
+from engine.output.watchman_assignment_confirmation_builder import build_watchman_assignment_confirmation
 
 # ---------------------------------------------------------------------------
 # SupplementalSpec
@@ -249,7 +250,7 @@ _SUPPLEMENTARY_REGISTRY: Dict[str, SupplementalSpec] = {
             "radiography_work_permit",
         ),
         trigger_condition="감시인 지정이 필요한 작업허가서 발급 시",
-        output_builder=_todo_builder,  # TODO: watchman_assignment_confirmation_builder.py
+        output_builder=build_watchman_assignment_confirmation,
         required_fields=("site_name", "permit_date", "work_location"),
         optional_fields=(
             "permit_no", "work_type",
