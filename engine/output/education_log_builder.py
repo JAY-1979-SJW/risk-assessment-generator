@@ -335,6 +335,7 @@ def render_education_log_sheet(ws, form_data: Dict[str, Any]) -> None:
     _write_confirmation(ws, row, data)
 
     # 인쇄 설정
+    ws.page_setup.paperSize  = 9  # A4
     ws.page_setup.orientation = "portrait"
     ws.page_setup.fitToPage  = True
     ws.page_setup.fitToWidth = 1

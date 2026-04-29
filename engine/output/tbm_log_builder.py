@@ -229,6 +229,7 @@ def build_tbm_log_excel(form_data: Dict[str, Any]) -> bytes:
     row = _write_content_block(ws, row, data)
     row = _write_attendees_table(ws, row, attendees)
     _write_confirmation(ws, row, data)
+    ws.page_setup.paperSize   = 9  # A4
     ws.page_setup.orientation = "portrait"
     ws.page_setup.fitToPage   = True
     ws.page_setup.fitToWidth  = 1

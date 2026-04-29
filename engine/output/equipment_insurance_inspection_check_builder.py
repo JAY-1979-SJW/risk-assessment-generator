@@ -196,6 +196,7 @@ def _apply_col_widths(ws) -> None:
 
 
 def _apply_print_settings(ws) -> None:
+    ws.page_setup.paperSize   = 9  # A4
     ws.page_setup.orientation = "portrait"
     ws.page_setup.fitToPage   = True
     ws.page_setup.fitToWidth  = 1

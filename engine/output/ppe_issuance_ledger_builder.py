@@ -149,6 +149,7 @@ def _write_signature(ws, row: int, data: Dict[str, Any]) -> int:
 
 
 def _finalize_sheet(ws) -> None:
+    ws.page_setup.paperSize   = 9  # A4
     ws.page_setup.orientation = "portrait"
     ws.page_setup.fitToPage   = True
     ws.page_setup.fitToWidth  = 1
