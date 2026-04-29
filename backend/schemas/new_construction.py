@@ -621,3 +621,24 @@ class RuleGenerateResponse(BaseModel):
     file_ids: list[int]
     status: str
     subject: dict[str, Any]
+
+
+# ── Stage 2B-5A: Excel runner ──────────────────────────────────────────────
+
+class DocumentFileRunResult(BaseModel):
+    file_id: int
+    status: str
+    form_type: Optional[str] = None
+    supplemental_type: Optional[str] = None
+    file_path: Optional[str] = None
+    file_size: Optional[int] = None
+    error_message: Optional[str] = None
+
+
+class DocumentJobRunResponse(BaseModel):
+    job_id: int
+    package_id: int
+    status: str
+    generated_count: int
+    failed_count: int
+    files: list[DocumentFileRunResult]

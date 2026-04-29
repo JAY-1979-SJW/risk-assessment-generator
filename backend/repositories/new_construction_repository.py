@@ -845,3 +845,81 @@ def create_rule_package_metadata(
         }
     finally:
         conn.close()
+
+
+# ── Stage 2B-5A: Excel runner helpers ──────────────────────────────────────
+# Excel builder 실행 시 사용하는 조회/상태 변경 함수.
+# generated_document_files 는 updated_at 컬럼이 없으므로 SET 절에서 제외한다.
+
+def get_package_for_job(job_id: int) -> dict | None:
+    return fetchone(
+        f"SELECT {DOC_PACKAGE_SELECT} FROM generated_document_packages "
+        f"WHERE generation_job_id = %s ORDER BY id DESC LIMIT 1",
+        (job_id,),
+    )
+
+
+def list_files_for_package(package_id: int) -> list[dict]:
+    return list_document_files(package_id)
+
+
+def update_document_file_ready(
+    *,
+    file_id: int,
+    file_path: str,
+    file_size: int,
+    mime_type: str,
+    file_name: str | None = None,
+) -> None:
+    cols = ["status = 'ready'", "file_path = %s", "file_size = %s", "mime_type = %s"]
+    params: list = [file_path, file_size, mime_type]
+    if file_name is not None:
+        cols.append("file_name = %s")
+        params.append(file_name)
+    params.append(file_id)
+    execute(
+        f"UPDATE generated_document_files SET {', '.join(cols)} WHERE id = %s",
+        params,
+    )
+
+
+def update_document_file_failed(*, file_id: int, error_message: str) -> None:
+    # generated_document_files 에는 error_message 컬럼이 없을 수 있어
+    # status 만 갱신하고 상세 사유는 호출 측에서 로그/job error_message 로 보관.
+    execute(
+        "UPDATE generated_document_files SET status = 'failed' WHERE id = %s",
+        (file_id,),
+    )
+
+
+def update_document_job_status(
+    job_id: int,
+    status: str,
+    *,
+    started: bool = False,
+    finished: bool = False,
+    error_message: str | None = None,
+) -> None:
+    sets = ["status = %s"]
+    params: list = [status]
+    if started:
+        sets.append("started_at = COALESCE(started_at, NOW())")
+    if finished:
+        sets.append("finished_at = NOW()")
+    if error_message is not None:
+        sets.append("error_message = %s")
+        params.append(error_message)
+    sets.append("updated_at = NOW()")
+    params.append(job_id)
+    execute(
+        f"UPDATE document_generation_jobs SET {', '.join(sets)} WHERE id = %s",
+        params,
+    )
+
+
+def update_document_package_status(package_id: int, status: str) -> None:
+    execute(
+        "UPDATE generated_document_packages SET status = %s, updated_at = NOW() "
+        "WHERE id = %s",
+        (status, package_id),
+    )

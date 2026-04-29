@@ -6,7 +6,9 @@ from fastapi import APIRouter, HTTPException
 
 from repositories import new_construction_repository as repo
 from services import new_construction_rules as rules_svc
+from services import new_construction_excel_runner as excel_runner
 from schemas.new_construction import (
+    DocumentJobRunResponse,
     RuleDefinitionResponse,
     RuleGenerateRequest,
     RuleGenerateResponse,
@@ -434,4 +436,24 @@ def generate_rule(project_id: int, rule_id: str, body: RuleGenerateRequest):
         raise HTTPException(400, "safety_event_id does not belong to this project")
     if err == "not_ready":
         raise HTTPException(400, {"message": "Rule preconditions not met", "missing_fields": row["missing_fields"]})
+    return row
+
+
+# ── Excel 실행 (Stage 2B-5A) ───────────────────────────────────────────────
+# 명시 실행 only. ZIP/다운로드/자동 background worker 미포함.
+
+@router.post("/document-jobs/{job_id}/run-excel", response_model=DocumentJobRunResponse)
+def run_document_job_excel(job_id: int):
+    row, err = excel_runner.run_excel(job_id)
+    if err == "job_not_found":
+        raise HTTPException(404, "Document job not found")
+    if err == "package_not_found":
+        raise HTTPException(404, "Document package not found for this job")
+    if err == "no_files":
+        raise HTTPException(400, "No document files to generate")
+    if err == "invalid_status":
+        raise HTTPException(409, {
+            "message": "Job is not runnable (only pending/failed allowed)",
+            "current_status": row.get("status") if row else None,
+        })
     return row
