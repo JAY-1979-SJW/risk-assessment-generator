@@ -38,6 +38,7 @@ services:
       CORS_ORIGINS: ${CORS_ORIGINS:-https://kras.haehan-ai.kr}
       KOSHA_ID: ${KOSHA_ID:-}
       KOSHA_PW: ${KOSHA_PW:-}
+      GENERATED_DOCUMENTS_DIR: /app/generated_documents
     volumes:
       - ../docs:/app/docs:ro
       - ../app:/app/app:ro
@@ -52,6 +53,7 @@ services:
       - ../scraper/logs:/app/scraper_logs:ro
       - ../data/masters:/app/data/masters:ro
       - ../data/evidence:/app/data/evidence:ro
+      - /home/ubuntu/apps/risk-assessment-app/generated_documents:/app/generated_documents
     ports:
       - "${API_PORT}:8000"
     depends_on:
