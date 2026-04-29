@@ -469,6 +469,18 @@ def build_safety_management_log(form_data: Dict[str, Any]) -> bytes:
     r += 1
     r = _write_signatures(ws, r, form_data)
 
+    # ── A4 인쇄 설정 ──────────────────────────────────────────────────────────
+    ws.page_setup.paperSize   = 9           # A4
+    ws.page_setup.orientation  = "landscape"
+    ws.page_setup.fitToWidth   = 1
+    ws.page_setup.fitToHeight  = 0
+    ws.page_margins.left   = 0.4
+    ws.page_margins.right  = 0.4
+    ws.page_margins.top    = 0.5
+    ws.page_margins.bottom = 0.5
+    ws.print_area = f"A1:{get_column_letter(ws.max_column)}{ws.max_row}"
+    ws.print_title_rows = "1:2"  # 제목+부제 반복
+
     output = BytesIO()
     wb.save(output)
     return output.getvalue()

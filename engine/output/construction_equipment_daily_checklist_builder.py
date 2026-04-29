@@ -636,6 +636,18 @@ def build_construction_equipment_daily_checklist_excel(form_data: dict) -> bytes
     row = _notice_row(ws, row,
                       "※ 타워크레인, 이동식 크레인, 비계, 거푸집동바리 전용 점검은 별도 서식으로 관리한다.")
 
+    # ── A4 인쇄 설정 ─────────────────────────────────────────────
+    ws.page_setup.paperSize  = 9          # A4
+    ws.page_setup.orientation = "portrait"
+    ws.page_setup.fitToWidth  = 1
+    ws.page_setup.fitToHeight = 0
+    ws.page_margins.left   = 0.5
+    ws.page_margins.right  = 0.5
+    ws.page_margins.top    = 0.5
+    ws.page_margins.bottom = 0.5
+    ws.print_area = f"A1:{get_column_letter(ws.max_column)}{ws.max_row}"
+    ws.print_title_rows = "1:2"  # 제목+부제 반복
+
     # 출력
     buf = BytesIO()
     wb.save(buf)

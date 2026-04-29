@@ -351,7 +351,17 @@ def build_manager_job_training_record_excel(form_data: dict) -> bytes:
                      border=_thin_border())
         row += 1
 
-    # ---------------------------------------------------------------------------
+    # ── A4 인쇄 설정 ──────────────────────────────────────────────────────────
+    ws.page_setup.paperSize   = 9          # A4
+    ws.page_setup.orientation  = "portrait"
+    ws.page_setup.fitToWidth   = 1
+    ws.page_setup.fitToHeight  = 0
+    ws.page_margins.left   = 0.5
+    ws.page_margins.right  = 0.5
+    ws.page_margins.top    = 0.5
+    ws.page_margins.bottom = 0.5
+    ws.print_area = f"A1:{get_column_letter(ws.max_column)}{ws.max_row}"
+
     buf = BytesIO()
     wb.save(buf)
     buf.seek(0)

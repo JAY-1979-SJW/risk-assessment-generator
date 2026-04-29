@@ -671,6 +671,7 @@ def render_electrical_workplan_sheet(ws, form_data: Dict[str, Any]) -> None:
     ws.page_setup.orientation = "portrait"
     ws.page_setup.fitToPage   = True
     ws.page_setup.fitToWidth  = 1
+    ws.print_title_rows = "1:2"  # 제목+부제 반복
     ws.page_margins.left   = 0.5
     ws.page_margins.right  = 0.5
     ws.page_margins.top    = 0.75

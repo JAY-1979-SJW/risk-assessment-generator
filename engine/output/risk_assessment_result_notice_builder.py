@@ -112,6 +112,7 @@ def build_risk_assessment_result_notice(form_data: Dict[str, Any]) -> bytes:
     ws.sheet_properties.pageSetUpPr.fitToPage = True
     ws.page_setup.paperSize  = ws.PAPERSIZE_A4
     ws.page_setup.fitToWidth = 1
+    ws.print_title_rows = "1:2"  # 제목+부제 반복
     ws.page_margins.left   = 0.5
     ws.page_margins.right  = 0.5
     ws.page_margins.top    = 0.75

@@ -132,10 +132,12 @@ def _apply_col_widths(ws) -> None:
 def build_hazardous_chemical_checklist(form_data: Dict[str, Any]) -> bytes:
     ws = Workbook().active
     ws.sheet_properties.pageSetUpPr.fitToPage = True
-    ws.page_setup.paperSize = ws.PAPERSIZE_A4
-    ws.page_margins.left = 0.5
-    ws.page_margins.right = 0.5
-    ws.page_margins.top = 0.75
+    ws.page_setup.paperSize  = ws.PAPERSIZE_A4
+    ws.page_setup.fitToWidth  = 1
+    ws.page_setup.fitToHeight = 0
+    ws.page_margins.left   = 0.5
+    ws.page_margins.right  = 0.5
+    ws.page_margins.top    = 0.75
     ws.page_margins.bottom = 0.75
 
     _apply_col_widths(ws)

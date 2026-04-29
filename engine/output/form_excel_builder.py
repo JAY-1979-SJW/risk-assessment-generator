@@ -25,6 +25,7 @@ from typing import Any, Dict, List, Tuple
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
+from openpyxl.worksheet.page import PageMargins
 
 
 SHEET_TITLE = "위험성평가표"
@@ -218,6 +219,16 @@ def build_form_excel(form_data: Dict[str, Any]) -> bytes:
     ws.title = SHEET_TITLE
 
     render_form_sheet(ws, form_data)
+
+    # ── A4 인쇄 설정 (위험성평가표는 다열 설계, landscape 필수) ────────────
+    ws.page_setup.paperSize   = 9           # A4
+    ws.page_setup.orientation  = "landscape"
+    ws.page_setup.fitToWidth   = 1
+    ws.page_setup.fitToHeight  = 0
+    ws.page_margins = PageMargins(
+        left=0.3, right=0.3, top=0.4, bottom=0.4, header=0.2, footer=0.2
+    )
+    ws.print_area = f"A1:{get_column_letter(ws.max_column)}{ws.max_row}"
 
     buf = BytesIO()
     wb.save(buf)
