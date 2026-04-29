@@ -102,3 +102,158 @@ class SiteUpdate(BaseModel):
     safety_manager_name: Optional[str] = Field(default=None, max_length=100)
     safety_manager_phone: Optional[str] = Field(default=None, max_length=50)
     status: Optional[str] = Field(default=None, max_length=20)
+
+
+# ── Contractors ────────────────────────────────────────────────────────────
+
+class ContractorResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    project_id: int
+    contractor_type: Optional[str] = None
+    company_name: Optional[str] = None
+    business_registration_no: Optional[str] = None
+    representative_name: Optional[str] = None
+    contact_name: Optional[str] = None
+    contact_phone: Optional[str] = None
+    work_scope: Optional[str] = None
+    safety_evaluation_status: Optional[str] = None
+    status: Optional[str] = None
+    created_at: datetime
+    updated_at: datetime
+
+
+class ContractorListResponse(BaseModel):
+    items: list[ContractorResponse]
+
+
+class ContractorCreate(BaseModel):
+    contractor_type: Optional[str] = Field(default=None, max_length=50)
+    company_name: str = Field(..., max_length=200)
+    business_registration_no: Optional[str] = Field(default=None, max_length=50)
+    representative_name: Optional[str] = Field(default=None, max_length=100)
+    contact_name: Optional[str] = Field(default=None, max_length=100)
+    contact_phone: Optional[str] = Field(default=None, max_length=50)
+    work_scope: Optional[str] = None
+    safety_evaluation_status: Optional[str] = Field(default=None, max_length=30)
+    status: Optional[str] = Field(default=None, max_length=20)
+
+
+class ContractorUpdate(BaseModel):
+    contractor_type: Optional[str] = Field(default=None, max_length=50)
+    company_name: Optional[str] = Field(default=None, max_length=200)
+    business_registration_no: Optional[str] = Field(default=None, max_length=50)
+    representative_name: Optional[str] = Field(default=None, max_length=100)
+    contact_name: Optional[str] = Field(default=None, max_length=100)
+    contact_phone: Optional[str] = Field(default=None, max_length=50)
+    work_scope: Optional[str] = None
+    safety_evaluation_status: Optional[str] = Field(default=None, max_length=30)
+    status: Optional[str] = Field(default=None, max_length=20)
+
+
+# ── Workers ────────────────────────────────────────────────────────────────
+# 개인정보 최소화: 주민/외국인등록번호·전화번호·건강정보 필드 정의 금지.
+
+class WorkerResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    project_id: int
+    contractor_id: Optional[int] = None
+    worker_name: Optional[str] = None
+    trade: Optional[str] = None
+    job_role: Optional[str] = None
+    first_work_date: Optional[date] = None
+    construction_basic_training_checked: Optional[bool] = None
+    new_hire_training_checked: Optional[bool] = None
+    ppe_issued: Optional[bool] = None
+    status: Optional[str] = None
+    created_at: datetime
+    updated_at: datetime
+
+
+class WorkerListResponse(BaseModel):
+    items: list[WorkerResponse]
+
+
+class WorkerCreate(BaseModel):
+    contractor_id: Optional[int] = None
+    worker_name: str = Field(..., max_length=100)
+    trade: Optional[str] = Field(default=None, max_length=100)
+    job_role: Optional[str] = Field(default=None, max_length=100)
+    first_work_date: Optional[date] = None
+    construction_basic_training_checked: Optional[bool] = None
+    new_hire_training_checked: Optional[bool] = None
+    ppe_issued: Optional[bool] = None
+    status: Optional[str] = Field(default=None, max_length=20)
+
+
+class WorkerUpdate(BaseModel):
+    contractor_id: Optional[int] = None
+    worker_name: Optional[str] = Field(default=None, max_length=100)
+    trade: Optional[str] = Field(default=None, max_length=100)
+    job_role: Optional[str] = Field(default=None, max_length=100)
+    first_work_date: Optional[date] = None
+    construction_basic_training_checked: Optional[bool] = None
+    new_hire_training_checked: Optional[bool] = None
+    ppe_issued: Optional[bool] = None
+    status: Optional[str] = Field(default=None, max_length=20)
+
+
+# ── Project Equipment ──────────────────────────────────────────────────────
+# DB 테이블은 'project_equipment'. URL은 /equipment 사용. 마스터 'equipment' 미접근.
+
+class ProjectEquipmentResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    project_id: int
+    contractor_id: Optional[int] = None
+    equipment_name: Optional[str] = None
+    equipment_type: Optional[str] = None
+    registration_no: Optional[str] = None
+    entry_date: Optional[date] = None
+    exit_date: Optional[date] = None
+    operator_name: Optional[str] = None
+    operator_qualification_checked: Optional[bool] = None
+    insurance_checked: Optional[bool] = None
+    inspection_certificate_checked: Optional[bool] = None
+    daily_check_required: Optional[bool] = None
+    status: Optional[str] = None
+    created_at: datetime
+    updated_at: datetime
+
+
+class ProjectEquipmentListResponse(BaseModel):
+    items: list[ProjectEquipmentResponse]
+
+
+class ProjectEquipmentCreate(BaseModel):
+    contractor_id: Optional[int] = None
+    equipment_name: str = Field(..., max_length=200)
+    equipment_type: Optional[str] = Field(default=None, max_length=100)
+    registration_no: Optional[str] = Field(default=None, max_length=100)
+    entry_date: Optional[date] = None
+    exit_date: Optional[date] = None
+    operator_name: Optional[str] = Field(default=None, max_length=100)
+    operator_qualification_checked: Optional[bool] = None
+    insurance_checked: Optional[bool] = None
+    inspection_certificate_checked: Optional[bool] = None
+    daily_check_required: Optional[bool] = None
+    status: Optional[str] = Field(default=None, max_length=20)
+
+
+class ProjectEquipmentUpdate(BaseModel):
+    contractor_id: Optional[int] = None
+    equipment_name: Optional[str] = Field(default=None, max_length=200)
+    equipment_type: Optional[str] = Field(default=None, max_length=100)
+    registration_no: Optional[str] = Field(default=None, max_length=100)
+    entry_date: Optional[date] = None
+    exit_date: Optional[date] = None
+    operator_name: Optional[str] = Field(default=None, max_length=100)
+    operator_qualification_checked: Optional[bool] = None
+    insurance_checked: Optional[bool] = None
+    inspection_certificate_checked: Optional[bool] = None
+    daily_check_required: Optional[bool] = None
+    status: Optional[str] = Field(default=None, max_length=20)
