@@ -70,6 +70,7 @@ from routers import risk_assessment
 from routers import risk_assessment_build
 from routers import recommend
 from routers import form_export
+from routers import new_construction
 app.include_router(projects.router,                  prefix="/api")
 app.include_router(company.router,                   prefix="/api")
 app.include_router(organization.router,              prefix="/api")
@@ -83,6 +84,7 @@ app.include_router(risk_assessment.router,           prefix="/api")
 app.include_router(risk_assessment_build.router,     prefix="/api")
 app.include_router(recommend.router,                 prefix="/api")
 app.include_router(form_export.router,               prefix="/api")
+app.include_router(new_construction.router,          prefix="/api")
 
 _CORS_ORIGINS = [
     o.strip() for o in
