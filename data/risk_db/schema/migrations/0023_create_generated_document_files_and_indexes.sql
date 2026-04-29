@@ -67,8 +67,8 @@ CREATE INDEX IF NOT EXISTS idx_projects_manager_id        ON projects(manager_id
 -- workers: 복합 인덱스 (조회 패턴 최적화)
 CREATE INDEX IF NOT EXISTS idx_workers_project_status     ON workers(project_id, status);
 
--- equipment: 복합 인덱스
-CREATE INDEX IF NOT EXISTS idx_equipment_project_status   ON equipment(project_id, status);
+-- project_equipment: 복합 인덱스
+CREATE INDEX IF NOT EXISTS idx_project_equipment_project_status   ON project_equipment(project_id, status);
 
 -- safety_events: 미처리 이벤트 빠른 스캔
 CREATE INDEX IF NOT EXISTS idx_safety_events_project_status
@@ -93,7 +93,7 @@ CREATE INDEX IF NOT EXISTS idx_doc_packages_project_created
 --     - CREATE TRIGGER trg_<table>_updated_at
 --         BEFORE UPDATE ON <table>
 --         FOR EACH ROW EXECUTE FUNCTION update_updated_at();
---   대상 테이블: users, sites, contractors, workers, equipment,
+--   대상 테이블: users, sites, contractors, workers, project_equipment,
 --               work_schedules, safety_events,
 --               document_generation_jobs, generated_document_packages
 -- ---------------------------------------------------------------

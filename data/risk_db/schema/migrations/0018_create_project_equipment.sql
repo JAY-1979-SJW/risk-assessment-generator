@@ -1,7 +1,9 @@
 -- ======================================================================
--- Migration 0018 : Create equipment table
+-- Migration 0018 : Create project_equipment table
 -- Target  : risk-assessment DB
--- Purpose : V1.1 신축공사 MVP — 장비 반입 (Rule-02 트리거)
+-- Purpose : V1.1 신축공사 MVP — 프로젝트 장비 인스턴스 (Rule-02 트리거)
+-- Note    : 운영 DB 기존 equipment(마스터/룩업) 테이블과의 이름 충돌 회피를 위해
+--           project_equipment 로 명명.
 -- Idempotent : YES
 -- 비파괴   : 신규 테이블만 생성
 -- ======================================================================
@@ -9,12 +11,12 @@
 BEGIN;
 
 -- ---------------------------------------------------------------
--- equipment : 프로젝트 장비 인스턴스
+-- project_equipment : 프로젝트 장비 인스턴스
 --  • 자동생성 Rule-02: 장비 반입 시 운전원 자격증/보험증/검사증 트리거
 --  • contractor_id nullable: 직영 또는 임대 가능
 --  • 운전원 이름만 저장 (자격증 사본은 별도 storage)
 -- ---------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS equipment (
+CREATE TABLE IF NOT EXISTS project_equipment (
     id                                SERIAL PRIMARY KEY,
     project_id                        INTEGER NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
     contractor_id                     INTEGER REFERENCES contractors(id) ON DELETE SET NULL,
@@ -49,10 +51,10 @@ CREATE TABLE IF NOT EXISTS equipment (
 );
 
 -- 인덱스
-CREATE INDEX IF NOT EXISTS idx_equipment_project_id     ON equipment(project_id);
-CREATE INDEX IF NOT EXISTS idx_equipment_contractor_id  ON equipment(contractor_id);
-CREATE INDEX IF NOT EXISTS idx_equipment_type           ON equipment(equipment_type);
-CREATE INDEX IF NOT EXISTS idx_equipment_status         ON equipment(status);
-CREATE INDEX IF NOT EXISTS idx_equipment_registration   ON equipment(registration_no);
+CREATE INDEX IF NOT EXISTS idx_project_equipment_project_id     ON project_equipment(project_id);
+CREATE INDEX IF NOT EXISTS idx_project_equipment_contractor_id  ON project_equipment(contractor_id);
+CREATE INDEX IF NOT EXISTS idx_project_equipment_type           ON project_equipment(equipment_type);
+CREATE INDEX IF NOT EXISTS idx_project_equipment_status         ON project_equipment(status);
+CREATE INDEX IF NOT EXISTS idx_project_equipment_registration   ON project_equipment(registration_no);
 
 COMMIT;

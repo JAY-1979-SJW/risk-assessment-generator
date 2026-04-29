@@ -12,7 +12,7 @@ BEGIN;
 -- safety_events : 안전 이벤트 큐 (자동생성 Rule 트리거)
 --  • 모든 Rule(Rule-01: 신규근로자, Rule-02: 장비반입, Rule-03: 공종착수,
 --           Rule-04: 일일TBM, Rule-05: 사고보고 등)의 진입점
---  • source_type/source_id 로 원천 추적 (workers/equipment/work_schedules)
+--  • source_type/source_id 로 원천 추적 (workers/project_equipment/work_schedules)
 --  • payload_json 으로 확장 데이터 보관 (스키마 확장 없이)
 -- ---------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS safety_events (
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS safety_events (
 
     -- 원천 추적
     source_type           VARCHAR(100),
-        -- 허용값(주석): worker | equipment | work_schedule | manual | scheduler
+        -- 허용값(주석): worker | project_equipment | work_schedule | manual | scheduler
     source_id             INTEGER,
         -- 원천 테이블의 id (FK 미설정 — 다중 원천)
 
