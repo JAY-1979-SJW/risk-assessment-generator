@@ -44,6 +44,7 @@ from engine.output.improvement_completion_check_builder import build_improvement
 from engine.output.equipment_operator_qualification_check_builder import build_equipment_operator_qualification_check
 from engine.output.watchman_assignment_confirmation_builder import build_watchman_assignment_confirmation
 from engine.output.education_makeup_confirmation_builder import build_education_makeup_confirmation
+from engine.output.ppe_receipt_confirmation_builder import build_ppe_receipt_confirmation
 
 # ---------------------------------------------------------------------------
 # SupplementalSpec
@@ -297,7 +298,7 @@ _SUPPLEMENTARY_REGISTRY: Dict[str, SupplementalSpec] = {
             "ppe_issue_register", "ppe_management_checklist",
         ),
         trigger_condition="보호구 지급 후 수령자 서명 확인 시",
-        output_builder=_todo_builder,  # TODO: ppe_receipt_confirmation_builder.py
+        output_builder=build_ppe_receipt_confirmation,
         required_fields=("site_name", "issue_date"),
         optional_fields=("issuer", "approver", "remarks"),
         repeat_field="ppe_items",
