@@ -77,7 +77,7 @@ from engine.output.excel_style_helpers import (
     FONT_TITLE, FONT_SUBTITLE, FONT_BOLD, FONT_DEFAULT, FONT_SMALL, FONT_NOTICE,
     FILL_LABEL, FILL_SECTION, FILL_HEADER, FILL_NONE,
     ALIGN_CENTER, ALIGN_LEFT, ALIGN_LABEL,
-    v, write_cell, apply_col_widths,
+    v, write_cell, apply_col_widths, normalize_signature_row_heights,
 )
 
 DOC_ID        = "RA-005"
@@ -96,7 +96,7 @@ MAX_RECORDS    = 8
 MAX_REVISIONS  = 6
 
 _COL_WIDTHS: Dict[int, float] = {
-    1: 18, 2: 14, 3: 14, 4: 12,
+    1: 16, 2: 13, 3: 12, 4: 12,
     5: 14, 6: 14, 7: 12, 8: 12,
 }
 
@@ -488,6 +488,7 @@ def build_risk_assessment_procedure(form_data: Dict[str, Any]) -> bytes:
         font=FONT_NOTICE, align=ALIGN_LEFT,
     )
 
+    normalize_signature_row_heights(ws, min_height=18.0)
     output = BytesIO()
     wb.save(output)
     output.seek(0)

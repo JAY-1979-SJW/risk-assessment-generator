@@ -117,7 +117,7 @@ _BORDER = Border(left=_THIN, right=_THIN, top=_THIN, bottom=_THIN)
 
 _ALIGN_CENTER = Alignment(horizontal="center", vertical="center", wrap_text=True)
 _ALIGN_LEFT   = Alignment(horizontal="left",   vertical="center", wrap_text=True)
-_ALIGN_LABEL  = Alignment(horizontal="center", vertical="center")
+_ALIGN_LABEL  = Alignment(horizontal="center", vertical="center", wrap_text=True)
 
 _COL_WIDTHS: Dict[int, int] = {1: 14, 2: 12, 3: 12, 4: 12, 5: 12, 6: 12, 7: 12, 8: 10}
 
@@ -511,6 +511,7 @@ def build_heavy_lifting_workplan_excel(form_data: Dict[str, Any]) -> bytes:
     ws.page_margins.right  = 0.5
     ws.page_margins.top    = 0.75
     ws.page_margins.bottom = 0.75
+    ws.print_title_rows = "1:2"
     buf = BytesIO()
     wb.save(buf)
     return buf.getvalue()

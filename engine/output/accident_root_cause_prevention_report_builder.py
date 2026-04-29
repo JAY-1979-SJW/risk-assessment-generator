@@ -268,6 +268,7 @@ def _finalize_sheet(ws) -> None:
     ws.page_margins.right  = 0.5
     ws.page_margins.top    = 0.75
     ws.page_margins.bottom = 0.75
+    ws.print_title_rows = "1:2"
 
 
 def build_accident_root_cause_prevention_report_excel(
@@ -291,6 +292,7 @@ def build_accident_root_cause_prevention_report_excel(
     row = _write_prevention(ws, row, data)
     row = _write_action_tracking(ws, row, data)
     row = _write_signature(ws, row, data)
+    write_cell(ws, row, 1, TOTAL_COLS, "", height=6)  # 하단 여백
     _finalize_sheet(ws)
 
     buf = BytesIO()

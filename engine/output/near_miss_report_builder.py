@@ -325,6 +325,7 @@ def build_near_miss_report_excel(
     row = _write_prevention_measures(ws, row, data)
     row = _write_action_tracking(ws, row, data)
     row = _write_signature(ws, row, data)
+    write_cell(ws, row, 1, TOTAL_COLS, "", height=6)  # 하단 여백
     _finalize_sheet(ws)
 
     buf = BytesIO()

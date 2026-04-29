@@ -94,6 +94,8 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 
+from engine.output.excel_style_helpers import normalize_signature_row_heights
+
 SHEET_NAME    = "MSDS비치교육확인서"
 SHEET_HEADING = "MSDS 비치 및 교육 확인서"
 SHEET_SUBTITLE = (
@@ -124,8 +126,8 @@ _ALIGN_LEFT   = Alignment(horizontal="left",   vertical="center", wrap_text=True
 _ALIGN_LABEL  = Alignment(horizontal="center", vertical="center")
 
 _COL_WIDTHS: Dict[int, int] = {
-    1: 16, 2: 14, 3: 12, 4: 12,
-    5: 14, 6: 12, 7: 12, 8: 12, 9: 10,
+    1: 14, 2: 12, 3: 12, 4: 12,
+    5: 12, 6: 10, 7: 12, 8: 12, 9: 9,
 }
 
 
@@ -392,6 +394,7 @@ def build_msds_posting_education_check(form_data: Dict[str, Any]) -> bytes:
         font=_FONT_SMALL, align=_ALIGN_LEFT,
     )
 
+    normalize_signature_row_heights(ws, min_height=18.0)
     output = BytesIO()
     wb.save(output)
     output.seek(0)

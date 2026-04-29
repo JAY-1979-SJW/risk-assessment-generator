@@ -187,6 +187,7 @@ def _apply_print_settings(ws) -> None:
     ws.page_margins.right = 0.5
     ws.page_margins.top = 0.75
     ws.page_margins.bottom = 0.75
+    ws.print_title_rows = "1:2"
 
 
 # ---------------------------------------------------------------------------
@@ -471,6 +472,7 @@ def build_weather_condition_log(form_data: Dict[str, Any]) -> bytes:
     row = _write_actions(ws, row, data)
     row = _write_handover(ws, row, data)
     row = _write_approval(ws, row, data)
+    _cell(ws, row, 1, 10, "", height=6)  # 하단 여백
 
     buf = BytesIO()
     wb.save(buf)

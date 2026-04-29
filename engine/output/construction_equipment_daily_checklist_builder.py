@@ -281,7 +281,7 @@ def _section_header(ws: Any, row: int, title: str) -> int:
         font=_black_bold(10),
         fill=_section_fill(),
         border=_thin_border(),
-        align=_left(wrap=False),
+        align=_left(wrap=True),
     )
     return row + 1
 
@@ -592,6 +592,7 @@ def build_construction_equipment_daily_checklist_excel(form_data: dict) -> bytes
     # 섹션 13 — 확인 서명
     # ════════════════════════════════════════════════════════════
     row = _section_header(ws, row, "【 13. 확인 서명 】")
+    ws.row_dimensions[row - 1].height = 20
 
     sign_date = form_data.get("sign_date") or form_data.get("check_date") or ""
     b = _thin_border()
@@ -628,6 +629,7 @@ def build_construction_equipment_daily_checklist_excel(form_data: dict) -> bytes
 
     # 서명 일자
     row = _info_row_wide(ws, row, "서명 일자", sign_date)
+    ws.row_dimensions[row - 1].height = 20
 
     # ── 하단 안내 ────────────────────────────────────────────────
     row = _notice_row(ws, row,

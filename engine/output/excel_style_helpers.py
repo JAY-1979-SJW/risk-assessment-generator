@@ -56,7 +56,7 @@ BORDER = Border(left=THIN, right=THIN, top=THIN, bottom=THIN)
 
 ALIGN_CENTER = Alignment(horizontal="center", vertical="center", wrap_text=True)
 ALIGN_LEFT   = Alignment(horizontal="left",   vertical="center", wrap_text=True)
-ALIGN_LABEL  = Alignment(horizontal="center", vertical="center")
+ALIGN_LABEL  = Alignment(horizontal="center", vertical="center", wrap_text=True)
 
 # ---------------------------------------------------------------------------
 # 함수

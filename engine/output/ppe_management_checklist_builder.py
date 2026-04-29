@@ -134,7 +134,7 @@ _BORDER = Border(left=_THIN, right=_THIN, top=_THIN, bottom=_THIN)
 
 _ALIGN_CENTER = Alignment(horizontal="center", vertical="center", wrap_text=True)
 _ALIGN_LEFT   = Alignment(horizontal="left",   vertical="center", wrap_text=True)
-_ALIGN_LABEL  = Alignment(horizontal="center", vertical="center")
+_ALIGN_LABEL  = Alignment(horizontal="center", vertical="center", wrap_text=True)
 
 _COL_WIDTHS: Dict[int, int] = {
     1: 4, 2: 12, 3: 13, 4: 11, 5: 11,

@@ -93,7 +93,7 @@ _BORDER = Border(left=_THIN, right=_THIN, top=_THIN, bottom=_THIN)
 
 _ALIGN_CENTER = Alignment(horizontal="center", vertical="center", wrap_text=True)
 _ALIGN_LEFT   = Alignment(horizontal="left",   vertical="center", wrap_text=True)
-_ALIGN_LABEL  = Alignment(horizontal="center", vertical="center")
+_ALIGN_LABEL  = Alignment(horizontal="center", vertical="center", wrap_text=True)
 
 _COL_WIDTHS: Dict[int, int] = {
     1: 4, 2: 12, 3: 13, 4: 11, 5: 11,
@@ -197,7 +197,7 @@ def _write_basic_info(ws, row: int, data: Dict[str, Any]) -> int:
 
     notice = "개인정보·민감정보 최소 기재 — 성명·소속·직종 외 불필요한 개인정보 기재 금지"
     _cell(ws, row, 1, TOTAL_COLS, f"※ {notice}",
-          font=_FONT_SMALL, fill=_FILL_NOTICE, align=_ALIGN_LEFT, height=16)
+          font=_FONT_SMALL, fill=_FILL_NOTICE, align=_ALIGN_LEFT, height=18)
     row += 1
     return row
 
@@ -284,7 +284,7 @@ def _write_suitability_check(ws, row: int, data: Dict[str, Any]) -> int:
         "공동사용으로 감염 우려가 있는 경우 개인 전용 보호구 지급 필요"
     )
     _cell(ws, row, 1, TOTAL_COLS, f"※ {notice}",
-          font=_FONT_SMALL, fill=_FILL_NOTICE, align=_ALIGN_LEFT, height=16)
+          font=_FONT_SMALL, fill=_FILL_NOTICE, align=_ALIGN_LEFT, height=18)
     row += 1
     return row
 

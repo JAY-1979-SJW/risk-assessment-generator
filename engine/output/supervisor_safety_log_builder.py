@@ -149,7 +149,7 @@ _ALIGN_LEFT = Alignment(horizontal="left", vertical="center", wrap_text=True)
 _ALIGN_LABEL = Alignment(horizontal="center", vertical="center")
 
 _COL_WIDTHS: Dict[int, int] = {
-    1: 4, 2: 12, 3: 14, 4: 12, 5: 12,
+    1: 4, 2: 10, 3: 12, 4: 10, 5: 10,
     6: 12, 7: 12, 8: 12, 9: 12, 10: 10,
 }
 

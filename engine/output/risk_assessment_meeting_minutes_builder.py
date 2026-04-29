@@ -77,15 +77,15 @@ _ALIGN_LABEL  = Alignment(horizontal="center", vertical="center")
 
 _COL_WIDTHS: Dict[int, int] = {
     1: 6,   # 순번
-    2: 14,  # 소속 / 위험요인
+    2: 12,  # 소속 / 위험요인
     3: 12,  # 직책 / 개선대책
     4: 12,  # 성명
     5: 12,  # 서명 / 조치 담당자
-    6: 13,  # 조치 예정일
+    6: 10,  # 조치 예정일
     7: 10,  # 조치 상태
     8: 10,
     9: 10,
-    10: 12,
+    10: 11,
 }
 
 
@@ -304,6 +304,7 @@ def build_risk_assessment_meeting_minutes_excel(form_data: Dict[str, Any]) -> by
     ws.page_margins.right  = 0.5
     ws.page_margins.top    = 0.75
     ws.page_margins.bottom = 0.75
+    ws.print_title_rows = "1:2"
 
     buf = BytesIO()
     wb.save(buf)

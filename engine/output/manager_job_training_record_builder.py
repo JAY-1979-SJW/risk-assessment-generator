@@ -169,7 +169,7 @@ def build_manager_job_training_record_excel(form_data: dict) -> bytes:
     ws.sheet_view.showGridLines = False
 
     # 열 너비 설정 (A~H = 1~8)
-    col_widths = [2, 14, 20, 14, 14, 14, 14, 14]
+    col_widths = [2, 14, 19, 14, 14, 14, 14, 14]
     for i, w in enumerate(col_widths, 1):
         ws.column_dimensions[get_column_letter(i)].width = w
 
@@ -361,6 +361,7 @@ def build_manager_job_training_record_excel(form_data: dict) -> bytes:
     ws.page_margins.top    = 0.5
     ws.page_margins.bottom = 0.5
     ws.print_area = f"A1:{get_column_letter(ws.max_column)}{ws.max_row}"
+    ws.print_title_rows = "1:3"
 
     buf = BytesIO()
     wb.save(buf)

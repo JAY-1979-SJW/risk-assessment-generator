@@ -258,6 +258,7 @@ def _finalize_sheet(ws) -> None:
     ws.page_margins.right  = 0.5
     ws.page_margins.top    = 0.75
     ws.page_margins.bottom = 0.75
+    ws.print_title_rows = "1:2"
 
 
 def build_emergency_first_aid_record_excel(
@@ -282,6 +283,7 @@ def build_emergency_first_aid_record_excel(
     row = _write_site_control(ws, row, data)
     row = _write_followup(ws, row, data)
     row = _write_signature(ws, row, data)
+    write_cell(ws, row, 1, TOTAL_COLS, "", height=6)  # 하단 여백
     _finalize_sheet(ws)
 
     buf = BytesIO()

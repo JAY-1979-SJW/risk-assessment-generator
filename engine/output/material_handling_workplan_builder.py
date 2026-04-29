@@ -576,6 +576,7 @@ def render_material_handling_workplan_sheet(ws, form_data: Dict[str, Any]) -> No
     ws.page_margins.right  = 0.5
     ws.page_margins.top    = 0.75
     ws.page_margins.bottom = 0.75
+    ws.print_title_rows = "1:2"
 
 
 def build_material_handling_workplan_excel(form_data: Dict[str, Any]) -> bytes:

@@ -57,6 +57,8 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 
+from engine.output.excel_style_helpers import normalize_signature_row_heights
+
 SHEET_NAME    = "유해화학물질점검표"
 SHEET_HEADING = "유해화학물질 취급 점검표"
 SHEET_SUBTITLE = "「산업안전보건기준에 관한 규칙」 제441조 이하에 따른 화학물질 취급 현황 점검"
@@ -84,7 +86,7 @@ _ALIGN_CENTER = Alignment(horizontal="center", vertical="center", wrap_text=True
 _ALIGN_LEFT   = Alignment(horizontal="left",   vertical="center", wrap_text=True)
 _ALIGN_LABEL  = Alignment(horizontal="center", vertical="center")
 
-_COL_WIDTHS: Dict[int, int] = {1: 16, 2: 14, 3: 12, 4: 12, 5: 14, 6: 12, 7: 12, 8: 12, 9: 10}
+_COL_WIDTHS: Dict[int, int] = {1: 14, 2: 12, 3: 12, 4: 12, 5: 12, 6: 10, 7: 12, 8: 12, 9: 9}
 
 _JUDGMENT_OPTIONS = ["적합", "조건부 적합", "부적합"]
 
@@ -282,6 +284,8 @@ def build_hazardous_chemical_checklist(form_data: Dict[str, Any]) -> bytes:
     _write_cell(ws, row, 4, 6, f"검토자: {_v(form_data, 'reviewer_sign')}", align=_ALIGN_LEFT)
     _write_cell(ws, row, 7, TOTAL_COLS, f"승인자: {_v(form_data, 'approval_sign')}", align=_ALIGN_LEFT)
 
+    normalize_signature_row_heights(ws, min_height=18.0)
+    ws.print_title_rows = "1:4"
     output = BytesIO()
     ws.parent.save(output)
     output.seek(0)

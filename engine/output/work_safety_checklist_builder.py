@@ -67,7 +67,7 @@ _BORDER = Border(left=_THIN, right=_THIN, top=_THIN, bottom=_THIN)
 
 _ALIGN_CENTER = Alignment(horizontal="center", vertical="center", wrap_text=True)
 _ALIGN_LEFT   = Alignment(horizontal="left",   vertical="center", wrap_text=True)
-_ALIGN_LABEL  = Alignment(horizontal="center", vertical="center")
+_ALIGN_LABEL  = Alignment(horizontal="center", vertical="center", wrap_text=True)
 
 _COL_WIDTHS: Dict[int, int] = {1: 14, 2: 12, 3: 12, 4: 12, 5: 12, 6: 12, 7: 12, 8: 10}
 
@@ -283,7 +283,8 @@ def build_work_safety_checklist(form_data: Dict[str, Any]) -> bytes:
     row = _write_checklist_section(ws, row, "안전조치 확인", _SAFETY_MEASURES)
     row = _write_abnormality_section(ws, row, data)
     row = _write_approval_section(ws, row, data)
-    _write_sign_section(ws, row, data)
+    row = _write_sign_section(ws, row, data)
+    _write_cell(ws, row, 1, TOTAL_COLS, "", height=6)  # 하단 여백
 
     ws.page_setup.orientation = "portrait"
     ws.page_setup.fitToPage   = True

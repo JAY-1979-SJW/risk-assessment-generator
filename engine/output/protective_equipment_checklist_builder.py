@@ -73,6 +73,8 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 
+from engine.output.excel_style_helpers import normalize_signature_row_heights
+
 SHEET_NAME    = "보호구점검표"
 SHEET_HEADING = "보호구 지급 및 관리 점검표"
 SHEET_SUBTITLE = "「산업안전보건기준에 관한 규칙」 제32조에 따른 보호구 지급·관리 현황 점검"
@@ -100,7 +102,7 @@ _ALIGN_CENTER = Alignment(horizontal="center", vertical="center", wrap_text=True
 _ALIGN_LEFT   = Alignment(horizontal="left",   vertical="center", wrap_text=True)
 _ALIGN_LABEL  = Alignment(horizontal="center", vertical="center")
 
-_COL_WIDTHS: Dict[int, int] = {1: 16, 2: 14, 3: 12, 4: 12, 5: 14, 6: 12, 7: 12, 8: 12, 9: 10}
+_COL_WIDTHS: Dict[int, int] = {1: 14, 2: 12, 3: 12, 4: 12, 5: 12, 6: 10, 7: 12, 8: 12, 9: 9}
 
 _PPE_ITEMS = [
     ("안전모", "helmet"),
@@ -306,6 +308,8 @@ def build_protective_equipment_checklist(form_data: Dict[str, Any]) -> bytes:
 
     _write_cell(ws, row, 1, TOTAL_COLS, f"안전관리자: {_v(form_data, 'safety_manager_sign')}", align=_ALIGN_LEFT)
 
+    normalize_signature_row_heights(ws, min_height=18.0)
+    ws.print_title_rows = "1:4"
     output = BytesIO()
     ws.parent.save(output)
     output.seek(0)

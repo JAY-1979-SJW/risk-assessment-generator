@@ -259,6 +259,7 @@ def build_industrial_accident_status_ledger(form_data: Dict[str, Any]) -> bytes:
     write_cell(ws, row, 5,  6, v(form_data, "prepared_date"),    align=ALIGN_LEFT)
     write_cell(ws, row, 7,  7, "승인자",       font=FONT_BOLD, fill=FILL_LABEL, align=ALIGN_LABEL)
     write_cell(ws, row, 8, 10, v(form_data, "approver"),         align=ALIGN_LEFT)
+    ws.row_dimensions[row].height = 20
     row += 1
 
     write_cell(ws, row, 1,  1, "관리감독자",   font=FONT_BOLD, fill=FILL_LABEL, align=ALIGN_LABEL)
@@ -267,6 +268,7 @@ def build_industrial_accident_status_ledger(form_data: Dict[str, Any]) -> bytes:
     write_cell(ws, row, 6,  8, v(form_data, "safety_manager"),   align=ALIGN_LEFT)
     write_cell(ws, row, 9,  9, "관리책임자",   font=FONT_BOLD, fill=FILL_LABEL, align=ALIGN_LABEL)
     write_cell(ws, row, 10, 10, v(form_data, "manager"),         align=ALIGN_LEFT)
+    ws.row_dimensions[row].height = 20
     row += 1
     row += 1  # 공백
 
