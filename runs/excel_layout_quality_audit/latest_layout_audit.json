@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-29T10:21:33.765488",
+  "generated_at": "2026-04-29T10:32:01.820156",
   "core_count": 87,
   "supp_count": 10,
   "results": [
@@ -34,7 +34,7 @@
         55
       ],
       "is_table_form": false,
-      "xlsx_bytes": 8689,
+      "xlsx_bytes": 8693,
       "error": null
     },
     {
@@ -247,8 +247,7 @@
       "verdict": "WARN",
       "fails": [],
       "warns": [
-        "열 너비 합계 13.62in > 출력폭 7.27in (187%) — fitToWidth=1이나 과도한 축소 가능",
-        "표형 문서 — 반복 헤더 설정 권장"
+        "열 너비 합계 13.62in > 출력폭 7.27in (187%) — fitToWidth=1이나 과도한 축소 가능"
       ],
       "used_rows": 21,
       "used_cols": 8,
@@ -258,7 +257,7 @@
       "scale": null,
       "paper_size": null,
       "print_area": "",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$9",
       "col_total_in": 13.615,
       "printable_width_in": 7.27,
       "width_utilization": 1.873,
@@ -267,7 +266,7 @@
         21
       ],
       "is_table_form": true,
-      "xlsx_bytes": 7004,
+      "xlsx_bytes": 7054,
       "error": null
     },
     {
@@ -420,11 +419,9 @@
       "form_type": "contractor_safety_document_checklist",
       "display_name": "협력업체 안전보건 관련 서류 확인서",
       "builder_file": "engine/output/contractor_safety_document_checklist_builder.py",
-      "verdict": "WARN",
+      "verdict": "PASS",
       "fails": [],
-      "warns": [
-        "표형 문서 — 반복 헤더 설정 권장"
-      ],
+      "warns": [],
       "used_rows": 28,
       "used_cols": 8,
       "orientation": "portrait",
@@ -433,7 +430,7 @@
       "scale": null,
       "paper_size": null,
       "print_area": "",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$8",
       "col_total_in": 9.662,
       "printable_width_in": 7.27,
       "width_utilization": 1.329,
@@ -442,7 +439,7 @@
         28
       ],
       "is_table_form": true,
-      "xlsx_bytes": 6873,
+      "xlsx_bytes": 6920,
       "error": null
     },
     {
@@ -479,11 +476,9 @@
       "form_type": "education_log",
       "display_name": "안전보건교육일지",
       "builder_file": "engine/output/education_log_builder.py",
-      "verdict": "WARN",
+      "verdict": "PASS",
       "fails": [],
-      "warns": [
-        "used_rows=46 > 45 — 반복 헤더 권장"
-      ],
+      "warns": [],
       "used_rows": 46,
       "used_cols": 8,
       "orientation": "portrait",
@@ -492,7 +487,7 @@
       "scale": null,
       "paper_size": null,
       "print_area": "",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$9",
       "col_total_in": 10.98,
       "printable_width_in": 7.27,
       "width_utilization": 1.51,
@@ -502,7 +497,7 @@
         46
       ],
       "is_table_form": true,
-      "xlsx_bytes": 7736,
+      "xlsx_bytes": 7783,
       "error": null
     },
     {
@@ -717,7 +712,7 @@
         67
       ],
       "is_table_form": true,
-      "xlsx_bytes": 9692,
+      "xlsx_bytes": 9695,
       "error": null
     },
     {
@@ -841,11 +836,9 @@
       "form_type": "foreign_worker_safety_edu",
       "display_name": "외국인 근로자 안전보건 교육 확인서",
       "builder_file": "engine/output/foreign_worker_safety_edu_builder.py",
-      "verdict": "WARN",
+      "verdict": "PASS",
       "fails": [],
-      "warns": [
-        "표형 문서 — 반복 헤더 설정 권장"
-      ],
+      "warns": [],
       "used_rows": 24,
       "used_cols": 8,
       "orientation": "portrait",
@@ -854,7 +847,7 @@
       "scale": null,
       "paper_size": null,
       "print_area": "",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$9",
       "col_total_in": 9.553,
       "printable_width_in": 7.27,
       "width_utilization": 1.314,
@@ -863,7 +856,7 @@
         24
       ],
       "is_table_form": true,
-      "xlsx_bytes": 6982,
+      "xlsx_bytes": 7030,
       "error": null
     },
     {
@@ -960,11 +953,9 @@
       "form_type": "health_exam_result",
       "display_name": "근로자 건강진단 결과 확인서",
       "builder_file": "engine/output/health_exam_result_builder.py",
-      "verdict": "WARN",
+      "verdict": "PASS",
       "fails": [],
-      "warns": [
-        "표형 문서 — 반복 헤더 설정 권장"
-      ],
+      "warns": [],
       "used_rows": 24,
       "used_cols": 8,
       "orientation": "portrait",
@@ -973,7 +964,7 @@
       "scale": null,
       "paper_size": null,
       "print_area": "",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$9",
       "col_total_in": 10.76,
       "printable_width_in": 7.27,
       "width_utilization": 1.48,
@@ -982,7 +973,7 @@
         24
       ],
       "is_table_form": true,
-      "xlsx_bytes": 6820,
+      "xlsx_bytes": 6866,
       "error": null
     },
     {
@@ -1115,7 +1106,6 @@
       "verdict": "WARN",
       "fails": [],
       "warns": [
-        "표형 문서 — 반복 헤더 설정 권장",
         "R39 서명란 높이 15pt < 18pt"
       ],
       "used_rows": 42,
@@ -1126,7 +1116,7 @@
       "scale": null,
       "paper_size": 9,
       "print_area": "",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$12",
       "col_total_in": 11.639,
       "printable_width_in": 10.89,
       "width_utilization": 1.069,
@@ -1134,7 +1124,7 @@
         39
       ],
       "is_table_form": true,
-      "xlsx_bytes": 7762,
+      "xlsx_bytes": 7808,
       "error": null
     },
     {
@@ -1504,11 +1494,9 @@
       "form_type": "ppe_issuance_ledger",
       "display_name": "보호구 지급 대장",
       "builder_file": "engine/output/ppe_issuance_ledger_builder.py",
-      "verdict": "WARN",
+      "verdict": "PASS",
       "fails": [],
-      "warns": [
-        "표형 문서 — 반복 헤더 설정 권장"
-      ],
+      "warns": [],
       "used_rows": 27,
       "used_cols": 8,
       "orientation": "portrait",
@@ -1517,7 +1505,7 @@
       "scale": null,
       "paper_size": null,
       "print_area": "",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$8",
       "col_total_in": 9.882,
       "printable_width_in": 7.27,
       "width_utilization": 1.359,
@@ -1526,7 +1514,7 @@
         27
       ],
       "is_table_form": true,
-      "xlsx_bytes": 6838,
+      "xlsx_bytes": 6889,
       "error": null
     },
     {
@@ -1787,7 +1775,7 @@
         46
       ],
       "is_table_form": false,
-      "xlsx_bytes": 8246,
+      "xlsx_bytes": 8250,
       "error": null
     },
     {
@@ -1831,11 +1819,9 @@
       "form_type": "risk_assessment_register",
       "display_name": "위험성평가 관리 등록부",
       "builder_file": "engine/output/risk_assessment_register_builder.py",
-      "verdict": "WARN",
+      "verdict": "PASS",
       "fails": [],
-      "warns": [
-        "표형 문서 — 반복 헤더 설정 권장"
-      ],
+      "warns": [],
       "used_rows": 41,
       "used_cols": 10,
       "orientation": "landscape",
@@ -1844,7 +1830,7 @@
       "scale": null,
       "paper_size": null,
       "print_area": "",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$6",
       "col_total_in": 13.835,
       "printable_width_in": 10.69,
       "width_utilization": 1.294,
@@ -1854,7 +1840,7 @@
         40
       ],
       "is_table_form": true,
-      "xlsx_bytes": 7267,
+      "xlsx_bytes": 7314,
       "error": null
     },
     {
@@ -2002,7 +1988,7 @@
         64
       ],
       "is_table_form": true,
-      "xlsx_bytes": 8859,
+      "xlsx_bytes": 8860,
       "error": null
     },
     {
@@ -2029,7 +2015,7 @@
         33
       ],
       "is_table_form": false,
-      "xlsx_bytes": 7668,
+      "xlsx_bytes": 7669,
       "error": null
     },
     {
@@ -2058,7 +2044,7 @@
         75
       ],
       "is_table_form": true,
-      "xlsx_bytes": 9594,
+      "xlsx_bytes": 9595,
       "error": null
     },
     {
@@ -2090,7 +2076,7 @@
         51
       ],
       "is_table_form": false,
-      "xlsx_bytes": 9244,
+      "xlsx_bytes": 9245,
       "error": null
     },
     {
@@ -2120,7 +2106,7 @@
         72
       ],
       "is_table_form": true,
-      "xlsx_bytes": 10178,
+      "xlsx_bytes": 10179,
       "error": null
     },
     {
@@ -2148,7 +2134,7 @@
         31
       ],
       "is_table_form": false,
-      "xlsx_bytes": 7605,
+      "xlsx_bytes": 7606,
       "error": null
     },
     {
@@ -2178,7 +2164,7 @@
         62
       ],
       "is_table_form": true,
-      "xlsx_bytes": 8954,
+      "xlsx_bytes": 8955,
       "error": null
     },
     {
@@ -2186,11 +2172,9 @@
       "form_type": "special_health_examination",
       "display_name": "특수건강진단 대상자 및 결과 관리대장",
       "builder_file": "engine/output/special_health_examination_builder.py",
-      "verdict": "WARN",
+      "verdict": "PASS",
       "fails": [],
-      "warns": [
-        "표형 문서 — 반복 헤더 설정 권장"
-      ],
+      "warns": [],
       "used_rows": 39,
       "used_cols": 8,
       "orientation": "portrait",
@@ -2199,7 +2183,7 @@
       "scale": null,
       "paper_size": null,
       "print_area": "",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$12",
       "col_total_in": 9.443,
       "printable_width_in": 7.27,
       "width_utilization": 1.299,
@@ -2209,7 +2193,7 @@
         38
       ],
       "is_table_form": true,
-      "xlsx_bytes": 7576,
+      "xlsx_bytes": 7623,
       "error": null
     },
     {
@@ -2241,7 +2225,7 @@
         75
       ],
       "is_table_form": false,
-      "xlsx_bytes": 10821,
+      "xlsx_bytes": 10822,
       "error": null
     },
     {
@@ -2272,7 +2256,7 @@
         68
       ],
       "is_table_form": true,
-      "xlsx_bytes": 10035,
+      "xlsx_bytes": 10036,
       "error": null
     },
     {
@@ -2280,11 +2264,9 @@
       "form_type": "tbm_log",
       "display_name": "TBM 안전점검 일지",
       "builder_file": "engine/output/tbm_log_builder.py",
-      "verdict": "WARN",
+      "verdict": "PASS",
       "fails": [],
-      "warns": [
-        "표형 문서 — 반복 헤더 설정 권장"
-      ],
+      "warns": [],
       "used_rows": 29,
       "used_cols": 8,
       "orientation": "portrait",
@@ -2293,7 +2275,7 @@
       "scale": null,
       "paper_size": null,
       "print_area": "",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$16",
       "col_total_in": 10.541,
       "printable_width_in": 7.27,
       "width_utilization": 1.45,
@@ -2305,7 +2287,7 @@
         29
       ],
       "is_table_form": true,
-      "xlsx_bytes": 6818,
+      "xlsx_bytes": 6870,
       "error": null
     },
     {
@@ -2540,7 +2522,7 @@
         53
       ],
       "is_table_form": true,
-      "xlsx_bytes": 9039,
+      "xlsx_bytes": 9038,
       "error": null
     },
     {
@@ -2573,7 +2555,7 @@
         118
       ],
       "is_table_form": false,
-      "xlsx_bytes": 12025,
+      "xlsx_bytes": 12024,
       "error": null
     },
     {
@@ -2581,11 +2563,9 @@
       "form_type": "work_environment_measurement",
       "display_name": "작업환경측정 실시 및 결과 관리대장",
       "builder_file": "engine/output/work_environment_measurement_builder.py",
-      "verdict": "WARN",
+      "verdict": "PASS",
       "fails": [],
-      "warns": [
-        "표형 문서 — 반복 헤더 설정 권장"
-      ],
+      "warns": [],
       "used_rows": 37,
       "used_cols": 8,
       "orientation": "portrait",
@@ -2594,7 +2574,7 @@
       "scale": null,
       "paper_size": null,
       "print_area": "",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$7",
       "col_total_in": 10.541,
       "printable_width_in": 7.27,
       "width_utilization": 1.45,
@@ -2604,7 +2584,7 @@
         36
       ],
       "is_table_form": true,
-      "xlsx_bytes": 7562,
+      "xlsx_bytes": 7607,
       "error": null
     },
     {
@@ -2615,7 +2595,6 @@
       "verdict": "WARN",
       "fails": [],
       "warns": [
-        "used_rows=51 > 45 — 반복 헤더 권장",
         "긴 문구 wrap_text 누락 1건",
         "서명란(R51)이 최종행 — 페이지 분리 시 잘림 가능"
       ],
@@ -2627,7 +2606,7 @@
       "scale": null,
       "paper_size": null,
       "print_area": "",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$11",
       "col_total_in": 10.541,
       "printable_width_in": 7.27,
       "width_utilization": 1.45,
@@ -2638,7 +2617,7 @@
         51
       ],
       "is_table_form": true,
-      "xlsx_bytes": 8494,
+      "xlsx_bytes": 8543,
       "error": null
     },
     {
@@ -2646,11 +2625,9 @@
       "form_type": "attendance_roster",
       "display_name": "참석자 명부",
       "builder_file": "engine/output/attendance_roster_builder.py",
-      "verdict": "WARN",
+      "verdict": "PASS",
       "fails": [],
-      "warns": [
-        "used_rows=49 > 45 — 반복 헤더 권장"
-      ],
+      "warns": [],
       "used_rows": 49,
       "used_cols": 8,
       "orientation": "portrait",
@@ -2659,7 +2636,7 @@
       "scale": null,
       "paper_size": 9,
       "print_area": "'참석자명부'!$A$1:$H$49",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$17",
       "col_total_in": 10.211,
       "printable_width_in": 7.27,
       "width_utilization": 1.405,
@@ -2672,7 +2649,7 @@
         47
       ],
       "is_table_form": true,
-      "xlsx_bytes": 7595,
+      "xlsx_bytes": 7608,
       "error": null
     },
     {
@@ -2683,8 +2660,7 @@
       "verdict": "WARN",
       "fails": [],
       "warns": [
-        "열 너비 합계 12.08in > 출력폭 7.27in (166%) — fitToWidth=1이나 과도한 축소 가능",
-        "used_rows=46 > 45 — 반복 헤더 권장"
+        "열 너비 합계 12.08in > 출력폭 7.27in (166%) — fitToWidth=1이나 과도한 축소 가능"
       ],
       "used_rows": 46,
       "used_cols": 9,
@@ -2694,7 +2670,7 @@
       "scale": null,
       "paper_size": 9,
       "print_area": "'사진대지'!$A$1:$I$46",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$7",
       "col_total_in": 12.078,
       "printable_width_in": 7.27,
       "width_utilization": 1.661,
@@ -2707,7 +2683,7 @@
         44
       ],
       "is_table_form": false,
-      "xlsx_bytes": 7918,
+      "xlsx_bytes": 7931,
       "error": null
     },
     {
@@ -2715,11 +2691,9 @@
       "form_type": "document_attachment_list",
       "display_name": "첨부서류 목록표",
       "builder_file": "engine/output/document_attachment_list_builder.py",
-      "verdict": "WARN",
+      "verdict": "PASS",
       "fails": [],
-      "warns": [
-        "used_rows=59 > 45 — 반복 헤더 권장"
-      ],
+      "warns": [],
       "used_rows": 59,
       "used_cols": 9,
       "orientation": "portrait",
@@ -2728,7 +2702,7 @@
       "scale": null,
       "paper_size": 9,
       "print_area": "'첨부서류목록표'!$A$1:$I$59",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$18",
       "col_total_in": 10.87,
       "printable_width_in": 7.27,
       "width_utilization": 1.495,
@@ -2742,7 +2716,7 @@
         57
       ],
       "is_table_form": true,
-      "xlsx_bytes": 8505,
+      "xlsx_bytes": 8519,
       "error": null
     },
     {
@@ -2750,11 +2724,9 @@
       "form_type": "confined_space_gas_measurement",
       "display_name": "산소·가스농도 측정기록표",
       "builder_file": "engine/output/confined_space_gas_measurement_builder.py",
-      "verdict": "WARN",
+      "verdict": "PASS",
       "fails": [],
-      "warns": [
-        "used_rows=60 > 45 — 반복 헤더 권장"
-      ],
+      "warns": [],
       "used_rows": 60,
       "used_cols": 12,
       "orientation": "landscape",
@@ -2763,7 +2735,7 @@
       "scale": null,
       "paper_size": 9,
       "print_area": "'가스농도측정기록표'!$A$1:$L$60",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$7",
       "col_total_in": 12.298,
       "printable_width_in": 10.69,
       "width_utilization": 1.15,
@@ -2774,7 +2746,7 @@
         58
       ],
       "is_table_form": true,
-      "xlsx_bytes": 9434,
+      "xlsx_bytes": 9448,
       "error": null
     },
     {
@@ -2785,7 +2757,6 @@
       "verdict": "WARN",
       "fails": [],
       "warns": [
-        "used_rows=55 > 45 — 반복 헤더 권장",
         "긴 문구 wrap_text 누락 1건"
       ],
       "used_rows": 55,
@@ -2796,7 +2767,7 @@
       "scale": null,
       "paper_size": 9,
       "print_area": "'작업종료확인서'!$A$1:$I$55",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$22",
       "col_total_in": 11.529,
       "printable_width_in": 7.27,
       "width_utilization": 1.586,
@@ -2807,7 +2778,7 @@
         50
       ],
       "is_table_form": true,
-      "xlsx_bytes": 8550,
+      "xlsx_bytes": 8564,
       "error": null
     },
     {
@@ -2815,11 +2786,9 @@
       "form_type": "improvement_completion_check",
       "display_name": "개선조치 완료 확인서",
       "builder_file": "engine/output/improvement_completion_check_builder.py",
-      "verdict": "WARN",
+      "verdict": "PASS",
       "fails": [],
-      "warns": [
-        "used_rows=51 > 45 — 반복 헤더 권장"
-      ],
+      "warns": [],
       "used_rows": 51,
       "used_cols": 10,
       "orientation": "landscape",
@@ -2828,7 +2797,7 @@
       "scale": null,
       "paper_size": 9,
       "print_area": "'개선조치완료확인서'!$A$1:$J$51",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$17",
       "col_total_in": 12.407,
       "printable_width_in": 10.69,
       "width_utilization": 1.161,
@@ -2840,7 +2809,7 @@
         49
       ],
       "is_table_form": true,
-      "xlsx_bytes": 8215,
+      "xlsx_bytes": 8230,
       "error": null
     },
     {
@@ -2848,11 +2817,9 @@
       "form_type": "equipment_operator_qualification_check",
       "display_name": "운전원 자격 확인표",
       "builder_file": "engine/output/equipment_operator_qualification_check_builder.py",
-      "verdict": "WARN",
+      "verdict": "PASS",
       "fails": [],
-      "warns": [
-        "used_rows=46 > 45 — 반복 헤더 권장"
-      ],
+      "warns": [],
       "used_rows": 46,
       "used_cols": 11,
       "orientation": "landscape",
@@ -2861,7 +2828,7 @@
       "scale": null,
       "paper_size": 9,
       "print_area": "'운전원자격확인표'!$A$1:$K$46",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$17",
       "col_total_in": 12.298,
       "printable_width_in": 10.69,
       "width_utilization": 1.15,
@@ -2871,7 +2838,7 @@
         42
       ],
       "is_table_form": false,
-      "xlsx_bytes": 8113,
+      "xlsx_bytes": 8127,
       "error": null
     },
     {
@@ -2879,11 +2846,9 @@
       "form_type": "watchman_assignment_confirmation",
       "display_name": "감시인 배치 확인서",
       "builder_file": "engine/output/watchman_assignment_confirmation_builder.py",
-      "verdict": "WARN",
+      "verdict": "PASS",
       "fails": [],
-      "warns": [
-        "used_rows=47 > 45 — 반복 헤더 권장"
-      ],
+      "warns": [],
       "used_rows": 47,
       "used_cols": 10,
       "orientation": "landscape",
@@ -2892,7 +2857,7 @@
       "scale": null,
       "paper_size": 9,
       "print_area": "'감시인배치확인서'!$A$1:$J$47",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$21",
       "col_total_in": 11.309,
       "printable_width_in": 10.69,
       "width_utilization": 1.058,
@@ -2904,7 +2869,7 @@
         45
       ],
       "is_table_form": true,
-      "xlsx_bytes": 8147,
+      "xlsx_bytes": 8161,
       "error": null
     },
     {
@@ -2912,11 +2877,9 @@
       "form_type": "education_makeup_confirmation",
       "display_name": "미참석자 추가교육 확인서",
       "builder_file": "engine/output/education_makeup_confirmation_builder.py",
-      "verdict": "WARN",
+      "verdict": "PASS",
       "fails": [],
-      "warns": [
-        "used_rows=56 > 45 — 반복 헤더 권장"
-      ],
+      "warns": [],
       "used_rows": 56,
       "used_cols": 10,
       "orientation": "landscape",
@@ -2925,7 +2888,7 @@
       "scale": null,
       "paper_size": 9,
       "print_area": "'추가교육확인서'!$A$1:$J$56",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$17",
       "col_total_in": 11.09,
       "printable_width_in": 10.69,
       "width_utilization": 1.037,
@@ -2938,7 +2901,7 @@
         54
       ],
       "is_table_form": true,
-      "xlsx_bytes": 8246,
+      "xlsx_bytes": 8261,
       "error": null
     },
     {
@@ -2946,11 +2909,9 @@
       "form_type": "ppe_receipt_confirmation",
       "display_name": "보호구 수령 확인서",
       "builder_file": "engine/output/ppe_receipt_confirmation_builder.py",
-      "verdict": "WARN",
+      "verdict": "PASS",
       "fails": [],
-      "warns": [
-        "used_rows=51 > 45 — 반복 헤더 권장"
-      ],
+      "warns": [],
       "used_rows": 51,
       "used_cols": 10,
       "orientation": "landscape",
@@ -2959,7 +2920,7 @@
       "scale": null,
       "paper_size": 9,
       "print_area": "'보호구수령확인서'!$A$1:$J$51",
-      "print_title_rows": null,
+      "print_title_rows": "$1:$18",
       "col_total_in": 10.76,
       "printable_width_in": 10.69,
       "width_utilization": 1.007,
@@ -2972,7 +2933,7 @@
         49
       ],
       "is_table_form": true,
-      "xlsx_bytes": 8356,
+      "xlsx_bytes": 8371,
       "error": null
     }
   ]

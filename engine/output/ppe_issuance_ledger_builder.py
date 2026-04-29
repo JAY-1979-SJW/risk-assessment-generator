@@ -176,6 +176,7 @@ def build_ppe_issuance_ledger_excel(
     row = _write_ppe_stock(ws, row, data)
     row = _write_signature(ws, row, data)
     _finalize_sheet(ws)
+    ws.print_title_rows = "1:8"
 
     buf = BytesIO()
     wb.save(buf)

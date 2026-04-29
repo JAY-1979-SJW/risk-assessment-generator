@@ -201,6 +201,7 @@ def build_foreign_worker_safety_edu_excel(
     row = _write_worker_table(ws, row, data)
     row = _write_signature(ws, row, data)
     _finalize_sheet(ws)
+    ws.print_title_rows = "1:9"
 
     buf = BytesIO()
     wb.save(buf)

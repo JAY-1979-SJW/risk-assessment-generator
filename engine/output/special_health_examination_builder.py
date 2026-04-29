@@ -428,6 +428,7 @@ def build_special_health_examination_excel(form_data: Dict[str, Any]) -> bytes:
     ws.title = SHEET_NAME
 
     render_special_health_examination_sheet(ws, form_data)
+    ws.print_title_rows = "1:12"
 
     buf = BytesIO()
     wb.save(buf)

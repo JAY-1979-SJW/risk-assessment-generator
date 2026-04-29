@@ -359,6 +359,7 @@ def build_education_log_excel(form_data: Dict[str, Any]) -> bytes:
     ws.title = SHEET_NAME
 
     render_education_log_sheet(ws, form_data)
+    ws.print_title_rows = "1:9"
 
     buf = BytesIO()
     wb.save(buf)

@@ -202,6 +202,7 @@ def build_health_exam_result_excel(
     row = _write_notice(ws, row)
     row = _write_signature(ws, row, data)
     _finalize_sheet(ws)
+    ws.print_title_rows = "1:9"
 
     buf = BytesIO()
     wb.save(buf)

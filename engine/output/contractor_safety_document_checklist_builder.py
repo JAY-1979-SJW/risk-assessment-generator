@@ -170,6 +170,7 @@ def build_contractor_safety_document_checklist_excel(
     row = _write_required_docs(ws, row, data)
     row = _write_signature(ws, row, data)
     _finalize_sheet(ws)
+    ws.print_title_rows = "1:8"
 
     buf = BytesIO()
     wb.save(buf)

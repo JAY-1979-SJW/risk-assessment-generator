@@ -10,9 +10,9 @@
 
 | 구분 | 검사 수 | PASS | WARN | FAIL 후보 | ERROR |
 |------|---------|------|------|-----------|-------|
-| 핵심서류 | 87 | 51 | 36 | 0 | 0 |
-| 부대서류 | 10 | 0 | 10 | 0 | 0 |
-| **합계** | **97** | **51** | **46** | **0** | **0** |
+| 핵심서류 | 87 | 60 | 27 | 0 | 0 |
+| 부대서류 | 10 | 8 | 2 | 0 | 0 |
+| **합계** | **97** | **68** | **29** | **0** | **0** |
 
 ## 2. A4 페이지 설정 요약
 
@@ -58,37 +58,25 @@
 ## 4. 페이지 분할 / 반복 헤더
 
 **행 수 > 45인 문서**: 54종  
-**반복 헤더 미설정**: 24종  
-**반복 헤더 설정**: 30종  
+**반복 헤더 미설정**: 12종  
+**반복 헤더 설정**: 52종  
 
 ### 반복 헤더 필요 후보
 
 | form_type | 표시명 | used_rows | 표형 |
 |-----------|--------|-----------|------|
-| confined_space_gas_measurement | 산소·가스농도 측정기록표 | 60 | Y |
-| document_attachment_list | 첨부서류 목록표 | 59 | Y |
 | compressor_pneumatic_equipment_plan | 콤프레샤·공압장비 사용계획서 | 58 | - |
 | emergency_first_aid_record | 응급조치 실시 기록서 | 58 | - |
 | heavy_lifting_workplan | 중량물 취급 작업계획서 | 57 | - |
 | pre_work_safety_check | 작업 전 안전 확인서 | 56 | Y |
-| education_makeup_confirmation | 미참석자 추가교육 확인서 | 56 | Y |
 | accident_root_cause_prevention_report | 재해 원인 분석 및 재발 방지 보고서 | 55 | - |
 | safety_policy_goal_notice | 안전보건 방침 및 목표 게시문 | 55 | - |
-| work_completion_confirmation | 작업 종료 확인서 | 55 | Y |
 | weather_condition_log | 기상 조건 기록 일지 | 53 | Y |
 | risk_assessment_best_practice_report | 위험성평가 우수 사례 보고서 | 52 | - |
 | material_handling_workplan | 차량계 하역운반기계 작업계획서 | 51 | - |
-| work_safety_checklist | 작업 전 안전 확인서 | 51 | Y |
-| improvement_completion_check | 개선조치 완료 확인서 | 51 | Y |
-| ppe_receipt_confirmation | 보호구 수령 확인서 | 51 | Y |
 | vehicle_construction_workplan | 차량계 건설기계 작업계획서 | 49 | - |
-| attendance_roster | 참석자 명부 | 49 | Y |
 | protective_equipment_checklist | 보호구 지급 및 관리 점검표 | 48 | Y |
 | risk_assessment_meeting_minutes | 위험성평가 참여 회의록 | 47 | - |
-| watchman_assignment_confirmation | 감시인 배치 확인서 | 47 | Y |
-| education_log | 안전보건교육일지 | 46 | Y |
-| photo_attachment_sheet | 사진대지 | 46 | - |
-| equipment_operator_qualification_check | 운전원 자격 확인표 | 46 | - |
 
 ## 5. 셀 겹침 / 잘림 위험 요약
 
@@ -107,39 +95,38 @@
 | 3 | construction_equipment_daily_checklist | 건설장비 일일 사전점검표 | **WARN** | 0 | 3 | 긴 문구 wrap_text 누락 5건; R79 서명란 높이 15pt < 18pt; R82  | 서명란 높이 조정 |
 | 4 | hazardous_chemical_checklist | 유해화학물질 취급 점검표 | **WARN** | 0 | 3 | 열 너비 합계 12.52in > 출력폭 7.27in (172%) — fitToWidth=1 | 인쇄설정 추가 |
 | 5 | protective_equipment_checklist | 보호구 지급 및 관리 점검표 | **WARN** | 0 | 3 | 열 너비 합계 12.52in > 출력폭 7.27in (172%) — fitToWidth=1 | 인쇄설정 추가 |
-| 6 | work_safety_checklist | 작업 전 안전 확인서 | **WARN** | 0 | 3 | used_rows=51 > 45 — 반복 헤더 권장; 긴 문구 wrap_text 누락 1건 | print_title_rows 추가 |
-| 7 | accident_root_cause_prevention_report | 재해 원인 분석 및 재발 방지 보 | **WARN** | 0 | 2 | used_rows=55 > 45 — 반복 헤더 권장; 서명란(R55)이 최종행 — 페이지  | print_title_rows 추가 |
-| 8 | confined_space_checklist | 밀폐공간 사전 안전점검표 | **WARN** | 0 | 2 | 열 너비 합계 13.62in > 출력폭 7.27in (187%) — fitToWidth=1 | 인쇄설정 추가 |
-| 9 | emergency_first_aid_record | 응급조치 실시 기록서 | **WARN** | 0 | 2 | used_rows=58 > 45 — 반복 헤더 권장; 서명란(R58)이 최종행 — 페이지  | print_title_rows 추가 |
-| 10 | heavy_lifting_workplan | 중량물 취급 작업계획서 | **WARN** | 0 | 2 | used_rows=57 > 45 — 반복 헤더 권장; 긴 문구 wrap_text 누락 1건 | print_title_rows 추가 |
-| 11 | industrial_accident_status_ledger | 산업재해 발생 현황 관리 대장 | **WARN** | 0 | 2 | 표형 문서 — 반복 헤더 설정 권장; R39 서명란 높이 15pt < 18pt | print_title_rows 추가 |
-| 12 | manager_job_training_record | 안전보건관리자 직무교육 이수 확인 | **WARN** | 0 | 2 | 열 너비 합계 11.64in > 출력폭 7.27in (160%) — fitToWidth=1 | 인쇄설정 추가 |
-| 13 | ppe_issue_register | 보호구 지급 대장 (v2) | **WARN** | 0 | 2 | 긴 문구 wrap_text 누락 1건; R31 서명란 높이 16pt < 18pt | 서명란 높이 조정 |
-| 14 | risk_assessment_meeting_minutes | 위험성평가 참여 회의록 | **WARN** | 0 | 2 | 열 너비 합계 12.19in > 출력폭 7.27in (168%) — fitToWidth=1 | 인쇄설정 추가 |
-| 15 | weather_condition_log | 기상 조건 기록 일지 | **WARN** | 0 | 2 | used_rows=53 > 45 — 반복 헤더 권장; 서명란(R53)이 최종행 — 페이지  | print_title_rows 추가 |
-| 16 | photo_attachment_sheet | 사진대지 | **WARN** | 0 | 2 | 열 너비 합계 12.08in > 출력폭 7.27in (166%) — fitToWidth=1 | 인쇄설정 추가 |
-| 17 | work_completion_confirmation | 작업 종료 확인서 | **WARN** | 0 | 2 | used_rows=55 > 45 — 반복 헤더 권장; 긴 문구 wrap_text 누락 1건 | print_title_rows 추가 |
-| 18 | compressor_pneumatic_equipment_plan | 콤프레샤·공압장비 사용계획서 | **WARN** | 0 | 1 | used_rows=58 > 45 — 반복 헤더 권장 | print_title_rows 추가 |
-| 19 | contractor_safety_document_checklist | 협력업체 안전보건 관련 서류 확인 | **WARN** | 0 | 1 | 표형 문서 — 반복 헤더 설정 권장 | print_title_rows 추가 |
-| 20 | education_log | 안전보건교육일지 | **WARN** | 0 | 1 | used_rows=46 > 45 — 반복 헤더 권장 | print_title_rows 추가 |
-| 21 | foreign_worker_safety_edu | 외국인 근로자 안전보건 교육 확인 | **WARN** | 0 | 1 | 표형 문서 — 반복 헤더 설정 권장 | print_title_rows 추가 |
-| 22 | health_exam_result | 근로자 건강진단 결과 확인서 | **WARN** | 0 | 1 | 표형 문서 — 반복 헤더 설정 권장 | print_title_rows 추가 |
-| 23 | material_handling_workplan | 차량계 하역운반기계 작업계획서 | **WARN** | 0 | 1 | used_rows=51 > 45 — 반복 헤더 권장 | print_title_rows 추가 |
-| 24 | near_miss_report | 아차사고 보고서 | **WARN** | 0 | 1 | 서명란(R64)이 최종행 — 페이지 분리 시 잘림 가능 | 서명란 높이 조정 |
-| 25 | ppe_issuance_ledger | 보호구 지급 대장 | **WARN** | 0 | 1 | 표형 문서 — 반복 헤더 설정 권장 | print_title_rows 추가 |
-| 26 | ppe_management_checklist | 보호구 지급 및 관리 점검표 (v | **WARN** | 0 | 1 | 긴 문구 wrap_text 누락 2건 | 개별 확인 |
-| 27 | pre_work_safety_check | 작업 전 안전 확인서 | **WARN** | 0 | 1 | used_rows=56 > 45 — 반복 헤더 권장 | print_title_rows 추가 |
-| 28 | radiography_work_permit | 방사선 투과검사 작업 허가서 | **WARN** | 0 | 1 | 열 너비 합계 12.96in > 출력폭 7.27in (178%) — fitToWidth=1 | 인쇄설정 추가 |
-| 29 | risk_assessment | 위험성평가표 | **WARN** | 0 | 1 | 열 너비 합계 28.77in > 출력폭 11.09in (259%) — fitToWidth= | 인쇄설정 추가 |
-| 30 | risk_assessment_best_practice_report | 위험성평가 우수 사례 보고서 | **WARN** | 0 | 1 | used_rows=52 > 45 — 반복 헤더 권장 | print_title_rows 추가 |
+| 6 | accident_root_cause_prevention_report | 재해 원인 분석 및 재발 방지 보 | **WARN** | 0 | 2 | used_rows=55 > 45 — 반복 헤더 권장; 서명란(R55)이 최종행 — 페이지  | print_title_rows 추가 |
+| 7 | emergency_first_aid_record | 응급조치 실시 기록서 | **WARN** | 0 | 2 | used_rows=58 > 45 — 반복 헤더 권장; 서명란(R58)이 최종행 — 페이지  | print_title_rows 추가 |
+| 8 | heavy_lifting_workplan | 중량물 취급 작업계획서 | **WARN** | 0 | 2 | used_rows=57 > 45 — 반복 헤더 권장; 긴 문구 wrap_text 누락 1건 | print_title_rows 추가 |
+| 9 | manager_job_training_record | 안전보건관리자 직무교육 이수 확인 | **WARN** | 0 | 2 | 열 너비 합계 11.64in > 출력폭 7.27in (160%) — fitToWidth=1 | 인쇄설정 추가 |
+| 10 | ppe_issue_register | 보호구 지급 대장 (v2) | **WARN** | 0 | 2 | 긴 문구 wrap_text 누락 1건; R31 서명란 높이 16pt < 18pt | 서명란 높이 조정 |
+| 11 | risk_assessment_meeting_minutes | 위험성평가 참여 회의록 | **WARN** | 0 | 2 | 열 너비 합계 12.19in > 출력폭 7.27in (168%) — fitToWidth=1 | 인쇄설정 추가 |
+| 12 | weather_condition_log | 기상 조건 기록 일지 | **WARN** | 0 | 2 | used_rows=53 > 45 — 반복 헤더 권장; 서명란(R53)이 최종행 — 페이지  | print_title_rows 추가 |
+| 13 | work_safety_checklist | 작업 전 안전 확인서 | **WARN** | 0 | 2 | 긴 문구 wrap_text 누락 1건; 서명란(R51)이 최종행 — 페이지 분리 시 잘림  | 서명란 높이 조정 |
+| 14 | compressor_pneumatic_equipment_plan | 콤프레샤·공압장비 사용계획서 | **WARN** | 0 | 1 | used_rows=58 > 45 — 반복 헤더 권장 | print_title_rows 추가 |
+| 15 | confined_space_checklist | 밀폐공간 사전 안전점검표 | **WARN** | 0 | 1 | 열 너비 합계 13.62in > 출력폭 7.27in (187%) — fitToWidth=1 | 인쇄설정 추가 |
+| 16 | industrial_accident_status_ledger | 산업재해 발생 현황 관리 대장 | **WARN** | 0 | 1 | R39 서명란 높이 15pt < 18pt | 서명란 높이 조정 |
+| 17 | material_handling_workplan | 차량계 하역운반기계 작업계획서 | **WARN** | 0 | 1 | used_rows=51 > 45 — 반복 헤더 권장 | print_title_rows 추가 |
+| 18 | near_miss_report | 아차사고 보고서 | **WARN** | 0 | 1 | 서명란(R64)이 최종행 — 페이지 분리 시 잘림 가능 | 서명란 높이 조정 |
+| 19 | ppe_management_checklist | 보호구 지급 및 관리 점검표 (v | **WARN** | 0 | 1 | 긴 문구 wrap_text 누락 2건 | 개별 확인 |
+| 20 | pre_work_safety_check | 작업 전 안전 확인서 | **WARN** | 0 | 1 | used_rows=56 > 45 — 반복 헤더 권장 | print_title_rows 추가 |
+| 21 | radiography_work_permit | 방사선 투과검사 작업 허가서 | **WARN** | 0 | 1 | 열 너비 합계 12.96in > 출력폭 7.27in (178%) — fitToWidth=1 | 인쇄설정 추가 |
+| 22 | risk_assessment | 위험성평가표 | **WARN** | 0 | 1 | 열 너비 합계 28.77in > 출력폭 11.09in (259%) — fitToWidth= | 인쇄설정 추가 |
+| 23 | risk_assessment_best_practice_report | 위험성평가 우수 사례 보고서 | **WARN** | 0 | 1 | used_rows=52 > 45 — 반복 헤더 권장 | print_title_rows 추가 |
+| 24 | safety_policy_goal_notice | 안전보건 방침 및 목표 게시문 | **WARN** | 0 | 1 | used_rows=55 > 45 — 반복 헤더 권장 | print_title_rows 추가 |
+| 25 | subcontractor_safety_evaluation | 협력업체 안전보건 수준 평가표 | **WARN** | 0 | 1 | 열 너비 합계 11.75in > 출력폭 7.27in (162%) — fitToWidth=1 | 인쇄설정 추가 |
+| 26 | supervisor_safety_log | 관리감독자 안전보건 업무 일지 | **WARN** | 0 | 1 | 열 너비 합계 12.30in > 출력폭 7.27in (169%) — fitToWidth=1 | 인쇄설정 추가 |
+| 27 | vehicle_construction_workplan | 차량계 건설기계 작업계획서 | **WARN** | 0 | 1 | used_rows=49 > 45 — 반복 헤더 권장 | print_title_rows 추가 |
+| 28 | photo_attachment_sheet | 사진대지 | **WARN** | 0 | 1 | 열 너비 합계 12.08in > 출력폭 7.27in (166%) — fitToWidth=1 | 인쇄설정 추가 |
+| 29 | work_completion_confirmation | 작업 종료 확인서 | **WARN** | 0 | 1 | 긴 문구 wrap_text 누락 1건 | 개별 확인 |
 
 ## 7. 공통 원인 분석
 
 | 원인 분류 | 해당 문서 수 | 설명 |
 |----------|------------|------|
 | excel_style_helpers 공통 보정 | 12 | fitToWidth, print_area, 여백 미설정 |
-| 개별 builder 보정 필요 | 36 | 열너비 초과/부족, 반복 헤더 누락 |
-| 부대서류 보정 필요 | 10 | 부대서류 builder 레이아웃 개선 |
+| 개별 builder 보정 필요 | 14 | 열너비 초과/부족, 반복 헤더 누락 |
+| 부대서류 보정 필요 | 2 | 부대서류 builder 레이아웃 개선 |
 
 ### 7-1. excel_style_helpers에서 공통 보정 가능한 항목
 
@@ -170,8 +157,8 @@
 ---
 
 ```
-전체: 97종  |  PASS: 51  |  WARN: 46  |  FAIL 후보: 0  |  ERROR: 0
-핵심: 87종  PASS: 51  WARN: 36  FAIL: 0
-부대: 10종  PASS: 0  WARN: 10  FAIL: 0
+전체: 97종  |  PASS: 68  |  WARN: 29  |  FAIL 후보: 0  |  ERROR: 0
+핵심: 87종  PASS: 60  WARN: 27  FAIL: 0
+부대: 10종  PASS: 8  WARN: 2  FAIL: 0
 최종 판정: PASS
 ```

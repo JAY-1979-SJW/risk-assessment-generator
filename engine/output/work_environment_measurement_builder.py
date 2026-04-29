@@ -439,6 +439,7 @@ def build_work_environment_measurement_excel(form_data: Dict[str, Any]) -> bytes
     ws.title = SHEET_NAME
 
     render_work_environment_measurement_sheet(ws, form_data)
+    ws.print_title_rows = "1:7"
 
     buf = BytesIO()
     wb.save(buf)

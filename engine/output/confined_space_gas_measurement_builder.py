@@ -422,6 +422,7 @@ def build_confined_space_gas_measurement(form_data: Dict[str, Any]) -> bytes:
 
     apply_a4_page_setup(ws, landscape=True)
     set_print_area_to_used_range(ws)
+    ws.print_title_rows = "1:7"
     buf = BytesIO()
     wb.save(buf)
     return buf.getvalue()

@@ -160,6 +160,11 @@ def apply_a4_page_setup(
 SIGNATURE_KEYWORDS = ("서명", "확인자", "승인자", "작성자", "검토자")
 
 
+def apply_repeating_header_rows(ws, end_row: int) -> None:
+    """인쇄 반복 행을 1:end_row 범위로 설정한다."""
+    ws.print_title_rows = f"1:{end_row}"
+
+
 def normalize_signature_row_heights(ws, min_height: float = 20.0) -> None:
     """서명 관련 키워드가 있는 행의 높이를 min_height 이상으로 보정한다."""
     for row in ws.iter_rows():

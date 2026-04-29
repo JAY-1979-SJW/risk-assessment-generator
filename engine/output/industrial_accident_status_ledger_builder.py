@@ -279,6 +279,7 @@ def build_industrial_accident_status_ledger(form_data: Dict[str, Any]) -> bytes:
         font=FONT_NOTICE, align=ALIGN_LEFT,
     )
 
+    ws.print_title_rows = "1:12"
     output = BytesIO()
     wb.save(output)
     output.seek(0)
