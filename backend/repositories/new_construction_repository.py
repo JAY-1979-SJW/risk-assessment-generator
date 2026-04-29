@@ -923,3 +923,24 @@ def update_document_package_status(package_id: int, status: str) -> None:
         "WHERE id = %s",
         (status, package_id),
     )
+
+
+# ── Stage 2B-5C: ZIP builder helper ────────────────────────────────────────
+
+def update_document_package_zip_ready(
+    *,
+    package_id: int,
+    zip_file_path: str,
+    storage_key: str | None = None,
+) -> None:
+    sets = ["status = 'ready'", "zip_file_path = %s"]
+    params: list = [zip_file_path]
+    if storage_key is not None:
+        sets.append("storage_key = %s")
+        params.append(storage_key)
+    sets.append("updated_at = NOW()")
+    params.append(package_id)
+    execute(
+        f"UPDATE generated_document_packages SET {', '.join(sets)} WHERE id = %s",
+        params,
+    )

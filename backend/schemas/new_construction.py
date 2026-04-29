@@ -642,3 +642,14 @@ class DocumentJobRunResponse(BaseModel):
     generated_count: int
     failed_count: int
     files: list[DocumentFileRunResult]
+
+
+# ── Stage 2B-5C: ZIP builder ───────────────────────────────────────────────
+
+class DocumentPackageZipBuildResponse(BaseModel):
+    package_id: int
+    project_id: int
+    status: str
+    file_count: int
+    zip_file_path: str
+    zip_file_size: int

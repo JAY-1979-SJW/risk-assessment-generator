@@ -7,8 +7,10 @@ from fastapi import APIRouter, HTTPException
 from repositories import new_construction_repository as repo
 from services import new_construction_rules as rules_svc
 from services import new_construction_excel_runner as excel_runner
+from services import new_construction_zip_builder as zip_builder
 from schemas.new_construction import (
     DocumentJobRunResponse,
+    DocumentPackageZipBuildResponse,
     RuleDefinitionResponse,
     RuleGenerateRequest,
     RuleGenerateResponse,
@@ -455,5 +457,36 @@ def run_document_job_excel(job_id: int):
         raise HTTPException(409, {
             "message": "Job is not runnable (only pending/failed allowed)",
             "current_status": row.get("status") if row else None,
+        })
+    return row
+
+
+# ── ZIP 생성 (Stage 2B-5C) ────────────────────────────────────────────────
+# 명시 실행 only. 다운로드 endpoint / StreamingResponse / FileResponse 미포함.
+
+@router.post(
+    "/document-packages/{package_id}/build-zip",
+    response_model=DocumentPackageZipBuildResponse,
+)
+def build_document_package_zip(package_id: int):
+    row, err = zip_builder.build_zip(package_id)
+    if err == "package_not_found":
+        raise HTTPException(404, "Document package not found")
+    if err == "no_files":
+        raise HTTPException(400, "No document files in package")
+    if err == "invalid_status":
+        raise HTTPException(409, {
+            "message": "Package is not zippable (only ready/created allowed)",
+            "current_status": row.get("status") if row else None,
+        })
+    if err == "files_not_ready":
+        raise HTTPException(400, {
+            "message": "Some files are not ready",
+            "not_ready_file_ids": (row or {}).get("not_ready_file_ids", []),
+        })
+    if err == "file_missing":
+        raise HTTPException(400, {
+            "message": "Some files are missing on disk",
+            "missing": (row or {}).get("missing", []),
         })
     return row
