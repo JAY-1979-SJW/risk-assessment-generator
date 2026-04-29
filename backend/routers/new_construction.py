@@ -2,12 +2,16 @@
 #       장비 엔드포인트 추가 시 'project_equipment' 테이블만 사용한다.
 #       기존 마스터 'equipment' 테이블은 절대 read/write 금지.
 
+from urllib.parse import quote as _urlquote
+
 from fastapi import APIRouter, HTTPException
+from fastapi.responses import FileResponse
 
 from repositories import new_construction_repository as repo
 from services import new_construction_rules as rules_svc
 from services import new_construction_excel_runner as excel_runner
 from services import new_construction_zip_builder as zip_builder
+from services import new_construction_downloads as downloads_svc
 from schemas.new_construction import (
     DocumentJobRunResponse,
     DocumentPackageZipBuildResponse,
@@ -490,3 +494,41 @@ def build_document_package_zip(package_id: int):
             "missing": (row or {}).get("missing", []),
         })
     return row
+
+
+# ── ZIP 다운로드 (Stage 2B-5D) ─────────────────────────────────────────────
+# DB 의 zip_file_path 를 그대로 신뢰하지 않고 base_dir 하위 / `.zip` / 실제
+# 파일 여부를 검증한 뒤 FileResponse 로 반환. 상태 변경 / ZIP 재생성 / Excel
+# builder 실행 일체 없음.
+
+@router.get("/document-packages/{package_id}/download-zip")
+def download_document_package_zip(package_id: int):
+    pkg = repo.get_document_package(package_id)
+    if pkg is None:
+        raise HTTPException(404, "Document package not found")
+    if pkg.get("status") != "ready":
+        raise HTTPException(409, {
+            "message": "Package is not ready for download",
+            "current_status": pkg.get("status"),
+        })
+
+    resolved, err = downloads_svc.resolve_zip_path(pkg.get("zip_file_path"))
+    if err == "zip_not_built":
+        raise HTTPException(400, "ZIP has not been built for this package")
+    if err == "unsafe_path":
+        raise HTTPException(400, "Unsafe ZIP file path")
+    if err == "zip_file_missing":
+        raise HTTPException(404, "ZIP file is missing on disk")
+
+    filename = downloads_svc.safe_download_filename(package_id, pkg.get("package_name"))
+    # RFC 5987: ASCII fallback + UTF-8 encoded form for non-ASCII filenames.
+    ascii_fallback = f"package_{int(package_id)}.zip"
+    content_disposition = (
+        f'attachment; filename="{ascii_fallback}"; '
+        f"filename*=UTF-8''{_urlquote(filename)}"
+    )
+    return FileResponse(
+        path=str(resolved),
+        media_type="application/zip",
+        headers={"Content-Disposition": content_disposition},
+    )
