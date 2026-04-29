@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-29T09:42:17.255925",
+  "generated_at": "2026-04-29T09:56:19.157673",
   "core_count": 87,
   "supp_count": 10,
   "results": [
@@ -8,12 +8,11 @@
       "form_type": "accident_root_cause_prevention_report",
       "display_name": "재해 원인 분석 및 재발 방지 보고서",
       "builder_file": "engine/output/accident_root_cause_prevention_report_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.76in > 출력폭 7.27in (148%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.76in > 출력폭 7.27in (148%) — fitToWidth=1 자동 축소 적용",
         "used_rows=55 > 45 — 반복 헤더 권장",
         "R8 서명란 높이 20pt < 28pt",
         "R9 서명란 높이 20pt < 28pt",
@@ -48,12 +47,11 @@
       "form_type": "aerial_work_platform_use_plan",
       "display_name": "고소작업대 사용계획서",
       "builder_file": "engine/output/aerial_work_platform_use_plan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.76in > 출력폭 7.27in (148%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.76in > 출력폭 7.27in (148%) — fitToWidth=1 자동 축소 적용",
         "R7 서명란 높이 20pt < 28pt",
         "R32 서명란 높이 20pt < 28pt",
         "서명란(R33)이 마지막 1행 안 — 페이지 분리 시 잘림 가능"
@@ -116,12 +114,11 @@
       "form_type": "asbestos_removal_workplan",
       "display_name": "석면 해체·제거 작업 계획서",
       "builder_file": "engine/output/asbestos_removal_workplan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R29 서명란 높이 20pt < 28pt"
       ],
       "used_rows": 30,
@@ -149,12 +146,11 @@
       "form_type": "bridge_work_workplan",
       "display_name": "교량 설치·해체·변경 작업계획서",
       "builder_file": "engine/output/bridge_work_workplan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R7 서명란 높이 20pt < 28pt",
         "R29 서명란 높이 20pt < 28pt"
       ],
@@ -184,12 +180,11 @@
       "form_type": "building_demolition_workplan",
       "display_name": "건축물 해체 작업계획서",
       "builder_file": "engine/output/building_demolition_workplan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.76in > 출력폭 7.27in (148%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.76in > 출력폭 7.27in (148%) — fitToWidth=1 자동 축소 적용",
         "R7 서명란 높이 20pt < 28pt",
         "R32 서명란 높이 20pt < 28pt",
         "서명란(R33)이 마지막 1행 안 — 페이지 분리 시 잘림 가능"
@@ -220,12 +215,11 @@
       "form_type": "chemical_equipment_workplan",
       "display_name": "화학설비·부속설비 작업계획서",
       "builder_file": "engine/output/chemical_equipment_workplan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R33 서명란 높이 20pt < 28pt",
         "서명란(R34)이 마지막 1행 안 — 페이지 분리 시 잘림 가능"
       ],
@@ -254,12 +248,11 @@
       "form_type": "compressor_pneumatic_equipment_plan",
       "display_name": "콤프레샤·공압장비 사용계획서",
       "builder_file": "engine/output/compressor_pneumatic_equipment_plan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "used_rows=58 > 45 — 반복 헤더 권장",
         "R55 서명란 높이 22pt < 28pt",
         "R56 서명란 높이 20pt < 28pt",
@@ -291,12 +284,11 @@
       "form_type": "confined_space_checklist",
       "display_name": "밀폐공간 사전 안전점검표",
       "builder_file": "engine/output/confined_space_checklist_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 13.62in > 출력폭 7.27in (187%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 13.62in > 출력폭 7.27in (187%) — fitToWidth=1 자동 축소 적용",
         "표형 문서 — 반복 헤더 설정 권장",
         "R20 서명란 높이 18pt < 28pt"
       ],
@@ -317,7 +309,7 @@
         21
       ],
       "is_table_form": true,
-      "xlsx_bytes": 7003,
+      "xlsx_bytes": 7004,
       "error": null
     },
     {
@@ -325,12 +317,11 @@
       "form_type": "confined_space_permit",
       "display_name": "밀폐공간 작업허가서",
       "builder_file": "engine/output/confined_space_permit_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R27 서명란 높이 20pt < 28pt"
       ],
       "used_rows": 28,
@@ -350,7 +341,7 @@
         28
       ],
       "is_table_form": false,
-      "xlsx_bytes": 6950,
+      "xlsx_bytes": 6951,
       "error": null
     },
     {
@@ -358,12 +349,11 @@
       "form_type": "confined_space_workplan",
       "display_name": "밀폐공간 작업계획서",
       "builder_file": "engine/output/confined_space_workplan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R5 서명란 높이 20pt < 28pt",
         "R22 서명란 높이 18pt < 28pt",
         "R23 서명란 높이 20pt < 28pt"
@@ -386,7 +376,7 @@
         23
       ],
       "is_table_form": false,
-      "xlsx_bytes": 6697,
+      "xlsx_bytes": 6698,
       "error": null
     },
     {
@@ -396,7 +386,7 @@
       "builder_file": "engine/output/construction_equipment_daily_checklist_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 9.55in > 출력폭 6.77in (141%) — 인쇄 시 잘림",
+        "열 너비 합계 9.55in > 출력폭 6.77in (141%) — fitToWidth 미설정, 인쇄 시 잘림",
         "used_rows=84 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
@@ -424,7 +414,7 @@
         82
       ],
       "is_table_form": true,
-      "xlsx_bytes": 9883,
+      "xlsx_bytes": 9884,
       "error": null
     },
     {
@@ -456,7 +446,7 @@
         24
       ],
       "is_table_form": false,
-      "xlsx_bytes": 6936,
+      "xlsx_bytes": 6937,
       "error": null
     },
     {
@@ -464,12 +454,11 @@
       "form_type": "contractor_safety_consultation",
       "display_name": "도급·용역 안전보건 협의서",
       "builder_file": "engine/output/contractor_safety_consultation_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R9 서명란 높이 20pt < 28pt"
       ],
       "used_rows": 29,
@@ -489,7 +478,7 @@
         29
       ],
       "is_table_form": false,
-      "xlsx_bytes": 7032,
+      "xlsx_bytes": 7033,
       "error": null
     },
     {
@@ -522,7 +511,7 @@
         28
       ],
       "is_table_form": true,
-      "xlsx_bytes": 6872,
+      "xlsx_bytes": 6873,
       "error": null
     },
     {
@@ -530,12 +519,11 @@
       "form_type": "earthwork_equipment_use_plan",
       "display_name": "덤프·롤러·불도저 사용계획서",
       "builder_file": "engine/output/earthwork_equipment_use_plan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R7 서명란 높이 20pt < 28pt",
         "R29 서명란 높이 20pt < 28pt"
       ],
@@ -557,7 +545,7 @@
         30
       ],
       "is_table_form": false,
-      "xlsx_bytes": 7188,
+      "xlsx_bytes": 7189,
       "error": null
     },
     {
@@ -565,12 +553,11 @@
       "form_type": "education_log",
       "display_name": "안전보건교육일지",
       "builder_file": "engine/output/education_log_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.98in > 출력폭 7.27in (151%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.98in > 출력폭 7.27in (151%) — fitToWidth=1 자동 축소 적용",
         "used_rows=46 > 45 — 반복 헤더 권장",
         "R14 서명란 높이 18pt < 28pt",
         "R45 서명란 높이 22pt < 28pt",
@@ -594,7 +581,7 @@
         46
       ],
       "is_table_form": true,
-      "xlsx_bytes": 7735,
+      "xlsx_bytes": 7736,
       "error": null
     },
     {
@@ -604,11 +591,11 @@
       "builder_file": "engine/output/electrical_facility_checklist_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 11.31in > 출력폭 7.27in (156%) — 인쇄 시 잘림",
         "used_rows=66 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 11.31in > 출력폭 7.27in (156%) — fitToWidth=1 자동 축소 적용",
         "R63 서명란 높이 20pt < 28pt",
         "R64 서명란 높이 20pt < 28pt",
         "서명란(R65)이 마지막 2행 안 — 페이지 분리 시 잘림 가능"
@@ -631,7 +618,7 @@
         65
       ],
       "is_table_form": true,
-      "xlsx_bytes": 9267,
+      "xlsx_bytes": 9268,
       "error": null
     },
     {
@@ -641,11 +628,11 @@
       "builder_file": "engine/output/electrical_work_permit_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 11.31in > 출력폭 7.27in (156%) — 인쇄 시 잘림",
         "used_rows=105 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 11.31in > 출력폭 7.27in (156%) — fitToWidth=1 자동 축소 적용",
         "R50 서명란 높이 20pt < 28pt",
         "R91 서명란 높이 20pt < 28pt",
         "R92 서명란 높이 20pt < 28pt",
@@ -675,7 +662,7 @@
         104
       ],
       "is_table_form": false,
-      "xlsx_bytes": 11487,
+      "xlsx_bytes": 11488,
       "error": null
     },
     {
@@ -685,11 +672,11 @@
       "builder_file": "engine/output/electrical_workplan_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림",
         "used_rows=69 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R6 서명란 높이 20pt < 28pt",
         "R67 서명란 높이 18pt < 28pt",
         "R68 서명란 높이 20pt < 28pt",
@@ -713,7 +700,7 @@
         68
       ],
       "is_table_form": false,
-      "xlsx_bytes": 9429,
+      "xlsx_bytes": 9430,
       "error": null
     },
     {
@@ -721,12 +708,11 @@
       "form_type": "emergency_contact_evacuation_plan",
       "display_name": "비상 연락망 및 대피 계획서",
       "builder_file": "engine/output/emergency_contact_evacuation_plan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R31 서명란 높이 20pt < 28pt",
         "서명란(R32)이 마지막 1행 안 — 페이지 분리 시 잘림 가능"
       ],
@@ -747,7 +733,7 @@
         32
       ],
       "is_table_form": false,
-      "xlsx_bytes": 7502,
+      "xlsx_bytes": 7503,
       "error": null
     },
     {
@@ -755,12 +741,11 @@
       "form_type": "emergency_first_aid_record",
       "display_name": "응급조치 실시 기록서",
       "builder_file": "engine/output/emergency_first_aid_record_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "used_rows=58 > 45 — 반복 헤더 권장",
         "R8 서명란 높이 20pt < 28pt",
         "R9 서명란 높이 20pt < 28pt",
@@ -784,7 +769,7 @@
         58
       ],
       "is_table_form": false,
-      "xlsx_bytes": 9188,
+      "xlsx_bytes": 9189,
       "error": null
     },
     {
@@ -794,11 +779,11 @@
       "builder_file": "engine/output/equipment_entry_application_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 11.53in > 출력폭 7.27in (159%) — 인쇄 시 잘림",
         "used_rows=61 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 11.53in > 출력폭 7.27in (159%) — fitToWidth=1 자동 축소 적용",
         "서명란(R60)이 마지막 2행 안 — 페이지 분리 시 잘림 가능"
       ],
       "used_rows": 61,
@@ -820,7 +805,7 @@
         60
       ],
       "is_table_form": false,
-      "xlsx_bytes": 9595,
+      "xlsx_bytes": 9596,
       "error": null
     },
     {
@@ -830,11 +815,11 @@
       "builder_file": "engine/output/equipment_insurance_inspection_check_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 11.53in > 출력폭 7.27in (159%) — 인쇄 시 잘림",
         "used_rows=68 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 11.53in > 출력폭 7.27in (159%) — fitToWidth=1 자동 축소 적용",
         "R7 서명란 높이 20pt < 28pt",
         "R8 서명란 높이 20pt < 28pt",
         "R59 서명란 높이 20pt < 28pt",
@@ -861,7 +846,7 @@
         67
       ],
       "is_table_form": true,
-      "xlsx_bytes": 9647,
+      "xlsx_bytes": 9648,
       "error": null
     },
     {
@@ -871,11 +856,11 @@
       "builder_file": "engine/output/excavation_work_permit_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림",
         "used_rows=77 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "서명란(R76)이 마지막 2행 안 — 페이지 분리 시 잘림 가능"
       ],
       "used_rows": 77,
@@ -896,7 +881,7 @@
         76
       ],
       "is_table_form": false,
-      "xlsx_bytes": 9927,
+      "xlsx_bytes": 9928,
       "error": null
     },
     {
@@ -904,11 +889,10 @@
       "form_type": "excavation_workplan",
       "display_name": "굴착 작업계획서",
       "builder_file": "engine/output/excavation_workplan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R30 서명란 높이 18pt < 28pt",
         "R31 서명란 높이 20pt < 28pt",
         "서명란(R31)이 마지막 2행 안 — 페이지 분리 시 잘림 가능"
@@ -930,7 +914,7 @@
         31
       ],
       "is_table_form": false,
-      "xlsx_bytes": 7188,
+      "xlsx_bytes": 7189,
       "error": null
     },
     {
@@ -968,7 +952,7 @@
         85
       ],
       "is_table_form": true,
-      "xlsx_bytes": 11057,
+      "xlsx_bytes": 11058,
       "error": null
     },
     {
@@ -978,11 +962,11 @@
       "builder_file": "engine/output/fire_prevention_checklist_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 11.31in > 출력폭 7.27in (156%) — 인쇄 시 잘림",
         "used_rows=74 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 11.31in > 출력폭 7.27in (156%) — fitToWidth=1 자동 축소 적용",
         "R71 서명란 높이 20pt < 28pt",
         "R72 서명란 높이 20pt < 28pt",
         "R73 서명란 높이 20pt < 28pt",
@@ -1006,7 +990,7 @@
         73
       ],
       "is_table_form": true,
-      "xlsx_bytes": 10008,
+      "xlsx_bytes": 10009,
       "error": null
     },
     {
@@ -1039,7 +1023,7 @@
         24
       ],
       "is_table_form": true,
-      "xlsx_bytes": 6981,
+      "xlsx_bytes": 6982,
       "error": null
     },
     {
@@ -1075,7 +1059,7 @@
         93
       ],
       "is_table_form": true,
-      "xlsx_bytes": 12190,
+      "xlsx_bytes": 12191,
       "error": null
     },
     {
@@ -1085,11 +1069,11 @@
       "builder_file": "engine/output/formwork_shoring_workplan_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림",
         "used_rows=67 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R6 서명란 높이 20pt < 28pt",
         "R22 서명란 높이 20pt < 28pt",
         "R65 서명란 높이 18pt < 28pt",
@@ -1114,7 +1098,7 @@
         66
       ],
       "is_table_form": false,
-      "xlsx_bytes": 9034,
+      "xlsx_bytes": 9035,
       "error": null
     },
     {
@@ -1124,7 +1108,7 @@
       "builder_file": "engine/output/hazardous_chemical_checklist_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 12.52in > 출력폭 7.27in (172%) — 인쇄 시 잘림"
+        "열 너비 합계 12.52in > 출력폭 7.27in (172%) — fitToWidth 미설정, 인쇄 시 잘림"
       ],
       "warns": [
         "fitToWidth 미설정 — A4 폭 자동 맞춤 없음",
@@ -1157,12 +1141,11 @@
       "form_type": "health_exam_result",
       "display_name": "근로자 건강진단 결과 확인서",
       "builder_file": "engine/output/health_exam_result_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.76in > 출력폭 7.27in (148%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.76in > 출력폭 7.27in (148%) — fitToWidth=1 자동 축소 적용",
         "표형 문서 — 반복 헤더 설정 권장",
         "R23 서명란 높이 20pt < 28pt"
       ],
@@ -1191,12 +1174,11 @@
       "form_type": "heavy_lifting_workplan",
       "display_name": "중량물 취급 작업계획서",
       "builder_file": "engine/output/heavy_lifting_workplan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "used_rows=57 > 45 — 반복 헤더 권장",
         "긴 문구 wrap_text 누락 1건",
         "R7 서명란 높이 20pt < 28pt",
@@ -1232,11 +1214,11 @@
       "builder_file": "engine/output/hot_work_permit_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 11.31in > 출력폭 7.27in (156%) — 인쇄 시 잘림",
         "used_rows=101 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 11.31in > 출력폭 7.27in (156%) — fitToWidth=1 자동 축소 적용",
         "R74 서명란 높이 20pt < 28pt",
         "R81 서명란 높이 24pt < 28pt",
         "R89 서명란 높이 20pt < 28pt",
@@ -1272,12 +1254,11 @@
       "form_type": "hot_work_workplan",
       "display_name": "용접·용단·화기작업 계획서",
       "builder_file": "engine/output/hot_work_workplan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R7 서명란 높이 20pt < 28pt",
         "R37 서명란 높이 22pt < 28pt",
         "R39 서명란 높이 20pt < 28pt",
@@ -1309,12 +1290,11 @@
       "form_type": "industrial_accident_report",
       "display_name": "산업재해조사표",
       "builder_file": "engine/output/industrial_accident_report_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R35 서명란 높이 20pt < 28pt",
         "서명란(R40)이 마지막 1행 안 — 페이지 분리 시 잘림 가능"
       ],
@@ -1375,12 +1355,11 @@
       "form_type": "ladder_stepladder_workboard_use_plan",
       "display_name": "사다리·말비계·작업발판 사용계획서",
       "builder_file": "engine/output/ladder_stepladder_workboard_use_plan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R26 서명란 높이 20pt < 28pt"
       ],
       "used_rows": 27,
@@ -1408,12 +1387,11 @@
       "form_type": "lift_gondola_use_plan",
       "display_name": "리프트·곤돌라 사용계획서",
       "builder_file": "engine/output/lift_gondola_use_plan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R28 서명란 높이 20pt < 28pt"
       ],
       "used_rows": 29,
@@ -1441,12 +1419,11 @@
       "form_type": "lifting_equipment_workplan",
       "display_name": "양중기·호이스트·윈치 작업계획서",
       "builder_file": "engine/output/lifting_equipment_workplan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R7 서명란 높이 20pt < 28pt",
         "R29 서명란 높이 20pt < 28pt"
       ],
@@ -1478,11 +1455,11 @@
       "builder_file": "engine/output/lifting_work_permit_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 11.31in > 출력폭 7.27in (156%) — 인쇄 시 잘림",
         "used_rows=134 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 11.31in > 출력폭 7.27in (156%) — fitToWidth=1 자동 축소 적용",
         "R107 서명란 높이 20pt < 28pt",
         "R108 서명란 높이 20pt < 28pt",
         "R122 서명란 높이 20pt < 28pt",
@@ -1521,7 +1498,7 @@
       "builder_file": "engine/output/manager_job_training_record_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 11.64in > 출력폭 6.77in (172%) — 인쇄 시 잘림"
+        "열 너비 합계 11.64in > 출력폭 6.77in (172%) — fitToWidth 미설정, 인쇄 시 잘림"
       ],
       "warns": [
         "fitToWidth 미설정 — A4 폭 자동 맞춤 없음",
@@ -1548,7 +1525,7 @@
         31
       ],
       "is_table_form": true,
-      "xlsx_bytes": 7607,
+      "xlsx_bytes": 7608,
       "error": null
     },
     {
@@ -1556,11 +1533,10 @@
       "form_type": "material_handling_workplan",
       "display_name": "차량계 하역운반기계 작업계획서",
       "builder_file": "engine/output/material_handling_workplan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "used_rows=51 > 45 — 반복 헤더 권장",
         "R6 서명란 높이 20pt < 28pt",
         "R49 서명란 높이 18pt < 28pt",
@@ -1585,7 +1561,7 @@
         50
       ],
       "is_table_form": false,
-      "xlsx_bytes": 8334,
+      "xlsx_bytes": 8335,
       "error": null
     },
     {
@@ -1593,12 +1569,11 @@
       "form_type": "mobile_crane_workplan",
       "display_name": "이동식 크레인 작업계획서",
       "builder_file": "engine/output/mobile_crane_workplan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R6 서명란 높이 20pt < 28pt",
         "R36 서명란 높이 18pt < 28pt",
         "R37 서명란 높이 20pt < 28pt",
@@ -1622,7 +1597,7 @@
         37
       ],
       "is_table_form": false,
-      "xlsx_bytes": 7476,
+      "xlsx_bytes": 7477,
       "error": null
     },
     {
@@ -1632,7 +1607,7 @@
       "builder_file": "engine/output/msds_posting_education_check_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 12.52in > 출력폭 7.27in (172%) — 인쇄 시 잘림",
+        "열 너비 합계 12.52in > 출력폭 7.27in (172%) — fitToWidth 미설정, 인쇄 시 잘림",
         "used_rows=65 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
@@ -1661,7 +1636,7 @@
         61
       ],
       "is_table_form": true,
-      "xlsx_bytes": 8606,
+      "xlsx_bytes": 8607,
       "error": null
     },
     {
@@ -1671,11 +1646,11 @@
       "builder_file": "engine/output/near_miss_report_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림",
         "used_rows=64 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R7 서명란 높이 20pt < 28pt",
         "R8 서명란 높이 20pt < 28pt",
         "R54 서명란 높이 20pt < 28pt",
@@ -1701,7 +1676,7 @@
         64
       ],
       "is_table_form": false,
-      "xlsx_bytes": 9068,
+      "xlsx_bytes": 9069,
       "error": null
     },
     {
@@ -1709,12 +1684,11 @@
       "form_type": "new_worker_safety_pledge",
       "display_name": "신규 근로자 안전보건 서약서",
       "builder_file": "engine/output/new_worker_safety_pledge_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.65in > 출력폭 7.27in (147%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.65in > 출력폭 7.27in (147%) — fitToWidth=1 자동 축소 적용",
         "R25 서명란 높이 20pt < 28pt"
       ],
       "used_rows": 26,
@@ -1735,7 +1709,7 @@
         26
       ],
       "is_table_form": false,
-      "xlsx_bytes": 7332,
+      "xlsx_bytes": 7333,
       "error": null
     },
     {
@@ -1743,12 +1717,11 @@
       "form_type": "piling_use_workplan",
       "display_name": "항타기·항발기 사용 작업계획서",
       "builder_file": "engine/output/piling_use_workplan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R33 서명란 높이 20pt < 28pt",
         "서명란(R34)이 마지막 1행 안 — 페이지 분리 시 잘림 가능"
       ],
@@ -1769,7 +1742,7 @@
         34
       ],
       "is_table_form": false,
-      "xlsx_bytes": 7289,
+      "xlsx_bytes": 7290,
       "error": null
     },
     {
@@ -1777,12 +1750,11 @@
       "form_type": "piling_workplan",
       "display_name": "항타기·항발기·천공기 사용계획서",
       "builder_file": "engine/output/piling_workplan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R30 서명란 높이 20pt < 28pt",
         "서명란(R31)이 마지막 1행 안 — 페이지 분리 시 잘림 가능"
       ],
@@ -1803,7 +1775,7 @@
         31
       ],
       "is_table_form": false,
-      "xlsx_bytes": 7162,
+      "xlsx_bytes": 7163,
       "error": null
     },
     {
@@ -1836,7 +1808,7 @@
         27
       ],
       "is_table_form": true,
-      "xlsx_bytes": 6837,
+      "xlsx_bytes": 6838,
       "error": null
     },
     {
@@ -1846,11 +1818,11 @@
       "builder_file": "engine/output/ppe_issue_register_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 11.53in > 출력폭 7.27in (159%) — 인쇄 시 잘림",
         "used_rows=72 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 11.53in > 출력폭 7.27in (159%) — fitToWidth=1 자동 축소 적용",
         "긴 문구 wrap_text 누락 1건",
         "R7 서명란 높이 20pt < 28pt",
         "R31 서명란 높이 16pt < 28pt",
@@ -1879,7 +1851,7 @@
         71
       ],
       "is_table_form": true,
-      "xlsx_bytes": 10218,
+      "xlsx_bytes": 10219,
       "error": null
     },
     {
@@ -1889,11 +1861,11 @@
       "builder_file": "engine/output/ppe_management_checklist_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 11.53in > 출력폭 7.27in (159%) — 인쇄 시 잘림",
         "used_rows=70 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 11.53in > 출력폭 7.27in (159%) — fitToWidth=1 자동 축소 적용",
         "긴 문구 wrap_text 누락 2건",
         "R7 서명란 높이 20pt < 28pt",
         "R8 서명란 높이 20pt < 28pt",
@@ -1925,7 +1897,7 @@
         69
       ],
       "is_table_form": true,
-      "xlsx_bytes": 10111,
+      "xlsx_bytes": 10116,
       "error": null
     },
     {
@@ -1933,12 +1905,11 @@
       "form_type": "pre_work_safety_check",
       "display_name": "작업 전 안전 확인서",
       "builder_file": "engine/output/pre_work_safety_check_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 11.53in > 출력폭 7.27in (159%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 11.53in > 출력폭 7.27in (159%) — fitToWidth=1 자동 축소 적용",
         "used_rows=56 > 45 — 반복 헤더 권장",
         "R7 서명란 높이 20pt < 28pt",
         "R48 서명란 높이 20pt < 28pt",
@@ -1968,7 +1939,7 @@
         55
       ],
       "is_table_form": true,
-      "xlsx_bytes": 9575,
+      "xlsx_bytes": 9576,
       "error": null
     },
     {
@@ -1978,7 +1949,7 @@
       "builder_file": "engine/output/protective_equipment_checklist_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 12.52in > 출력폭 7.27in (172%) — 인쇄 시 잘림"
+        "열 너비 합계 12.52in > 출력폭 7.27in (172%) — fitToWidth 미설정, 인쇄 시 잘림"
       ],
       "warns": [
         "fitToWidth 미설정 — A4 폭 자동 맞춤 없음",
@@ -2003,7 +1974,7 @@
         47
       ],
       "is_table_form": true,
-      "xlsx_bytes": 7831,
+      "xlsx_bytes": 7832,
       "error": null
     },
     {
@@ -2013,11 +1984,11 @@
       "builder_file": "engine/output/radiography_work_permit_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 12.96in > 출력폭 7.27in (178%) — 인쇄 시 잘림",
         "used_rows=74 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 12.96in > 출력폭 7.27in (178%) — fitToWidth=1 자동 축소 적용",
         "R72 서명란 높이 20pt < 28pt",
         "서명란(R73)이 마지막 2행 안 — 페이지 분리 시 잘림 가능"
       ],
@@ -2038,7 +2009,7 @@
         73
       ],
       "is_table_form": false,
-      "xlsx_bytes": 10606,
+      "xlsx_bytes": 10607,
       "error": null
     },
     {
@@ -2048,7 +2019,7 @@
       "builder_file": "engine/output/risk_assessment_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 28.77in > 출력폭 6.77in (425%) — 인쇄 시 잘림"
+        "열 너비 합계 28.77in > 출력폭 6.77in (425%) — fitToWidth 미설정, 인쇄 시 잘림"
       ],
       "warns": [
         "fitToWidth 미설정 — A4 폭 자동 맞춤 없음",
@@ -2068,7 +2039,7 @@
       "width_utilization": 4.249,
       "sig_rows": [],
       "is_table_form": false,
-      "xlsx_bytes": 6099,
+      "xlsx_bytes": 6100,
       "error": null
     },
     {
@@ -2076,12 +2047,11 @@
       "form_type": "risk_assessment_best_practice_report",
       "display_name": "위험성평가 우수 사례 보고서",
       "builder_file": "engine/output/risk_assessment_best_practice_report_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.76in > 출력폭 7.27in (148%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.76in > 출력폭 7.27in (148%) — fitToWidth=1 자동 축소 적용",
         "used_rows=52 > 45 — 반복 헤더 권장",
         "R49 서명란 높이 22pt < 28pt",
         "R50 서명란 높이 20pt < 28pt",
@@ -2106,7 +2076,7 @@
         51
       ],
       "is_table_form": false,
-      "xlsx_bytes": 8771,
+      "xlsx_bytes": 8772,
       "error": null
     },
     {
@@ -2114,12 +2084,11 @@
       "form_type": "risk_assessment_meeting_minutes",
       "display_name": "위험성평가 참여 회의록",
       "builder_file": "engine/output/risk_assessment_meeting_minutes_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 12.19in > 출력폭 7.27in (168%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 12.19in > 출력폭 7.27in (168%) — fitToWidth=1 자동 축소 적용",
         "used_rows=47 > 45 — 반복 헤더 권장",
         "R9 서명란 높이 24pt < 28pt",
         "R44 서명란 높이 20pt < 28pt",
@@ -2143,7 +2112,7 @@
         46
       ],
       "is_table_form": false,
-      "xlsx_bytes": 8245,
+      "xlsx_bytes": 8246,
       "error": null
     },
     {
@@ -2153,11 +2122,11 @@
       "builder_file": "engine/output/risk_assessment_procedure_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 12.08in > 출력폭 7.27in (166%) — 인쇄 시 잘림",
         "used_rows=100 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 12.08in > 출력폭 7.27in (166%) — fitToWidth=1 자동 축소 적용",
         "R9 서명란 높이 15pt < 28pt",
         "R66 서명란 높이 15pt < 28pt",
         "R88 서명란 높이 15pt < 28pt",
@@ -2183,7 +2152,7 @@
         97
       ],
       "is_table_form": false,
-      "xlsx_bytes": 11965,
+      "xlsx_bytes": 11966,
       "error": null
     },
     {
@@ -2218,7 +2187,7 @@
         40
       ],
       "is_table_form": true,
-      "xlsx_bytes": 7266,
+      "xlsx_bytes": 7267,
       "error": null
     },
     {
@@ -2228,11 +2197,11 @@
       "builder_file": "engine/output/risk_assessment_result_notice_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 11.20in > 출력폭 7.27in (154%) — 인쇄 시 잘림",
         "used_rows=69 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 11.20in > 출력폭 7.27in (154%) — fitToWidth=1 자동 축소 적용",
         "R48 서명란 높이 15pt < 28pt",
         "R49 서명란 높이 15pt < 28pt",
         "R66 서명란 높이 15pt < 28pt",
@@ -2256,7 +2225,7 @@
         66
       ],
       "is_table_form": false,
-      "xlsx_bytes": 9371,
+      "xlsx_bytes": 9372,
       "error": null
     },
     {
@@ -2264,12 +2233,11 @@
       "form_type": "safety_committee_minutes",
       "display_name": "안전보건협의체 회의록",
       "builder_file": "engine/output/safety_committee_minutes_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R8 서명란 높이 20pt < 28pt"
       ],
       "used_rows": 27,
@@ -2289,7 +2257,7 @@
         27
       ],
       "is_table_form": false,
-      "xlsx_bytes": 6857,
+      "xlsx_bytes": 6858,
       "error": null
     },
     {
@@ -2297,12 +2265,11 @@
       "form_type": "safety_cost_use_plan",
       "display_name": "산업안전보건관리비 사용계획서",
       "builder_file": "engine/output/safety_cost_use_plan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 11.42in > 출력폭 7.27in (157%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 11.42in > 출력폭 7.27in (157%) — fitToWidth=1 자동 축소 적용",
         "R23 서명란 높이 20pt < 28pt"
       ],
       "used_rows": 24,
@@ -2322,7 +2289,7 @@
         24
       ],
       "is_table_form": false,
-      "xlsx_bytes": 6714,
+      "xlsx_bytes": 6715,
       "error": null
     },
     {
@@ -2332,12 +2299,10 @@
       "builder_file": "engine/output/safety_culture_activity_log_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 10.76in > 출력폭 6.77in (159%) — 인쇄 시 잘림",
         "used_rows=65 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
-        "fitToWidth 미설정 — A4 폭 자동 맞춤 없음",
-        "print_area 미설정",
+        "열 너비 합계 10.76in > 출력폭 7.27in (148%) — fitToWidth=1 자동 축소 적용",
         "R30 서명란 높이 20pt < 28pt",
         "R31 서명란 높이 20pt < 28pt",
         "R59 서명란 높이 20pt < 28pt",
@@ -2346,15 +2311,15 @@
       "used_rows": 65,
       "used_cols": 8,
       "orientation": "portrait",
-      "fitToWidth": null,
-      "fitToHeight": null,
+      "fitToWidth": 1,
+      "fitToHeight": 0,
       "scale": null,
-      "paper_size": null,
-      "print_area": "",
+      "paper_size": 9,
+      "print_area": "'안전문화활동기록부'!$A$1:$H$65",
       "print_title_rows": null,
       "col_total_in": 10.76,
-      "printable_width_in": 6.77,
-      "width_utilization": 1.589,
+      "printable_width_in": 7.27,
+      "width_utilization": 1.48,
       "sig_rows": [
         30,
         31,
@@ -2365,7 +2330,7 @@
         63
       ],
       "is_table_form": false,
-      "xlsx_bytes": 8479,
+      "xlsx_bytes": 8579,
       "error": null
     },
     {
@@ -2375,7 +2340,7 @@
       "builder_file": "engine/output/safety_management_log_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 12.74in > 출력폭 6.77in (188%) — 인쇄 시 잘림",
+        "열 너비 합계 12.74in > 출력폭 6.77in (188%) — fitToWidth 미설정, 인쇄 시 잘림",
         "used_rows=66 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
@@ -2405,7 +2370,7 @@
         64
       ],
       "is_table_form": true,
-      "xlsx_bytes": 8740,
+      "xlsx_bytes": 8741,
       "error": null
     },
     {
@@ -2413,12 +2378,11 @@
       "form_type": "safety_manager_appointment_report",
       "display_name": "안전관리자ㆍ보건관리자ㆍ산업보건의 선임 등 보고서(건설업)",
       "builder_file": "engine/output/safety_manager_appointment_report_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.76in > 출력폭 7.27in (148%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.76in > 출력폭 7.27in (148%) — fitToWidth=1 자동 축소 적용",
         "서명란(R33)이 마지막 1행 안 — 페이지 분리 시 잘림 가능"
       ],
       "used_rows": 33,
@@ -2437,7 +2401,7 @@
         33
       ],
       "is_table_form": false,
-      "xlsx_bytes": 7667,
+      "xlsx_bytes": 7668,
       "error": null
     },
     {
@@ -2447,11 +2411,11 @@
       "builder_file": "engine/output/safety_patrol_inspection_log_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 11.53in > 출력폭 7.27in (159%) — 인쇄 시 잘림",
         "used_rows=76 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 11.53in > 출력폭 7.27in (159%) — fitToWidth=1 자동 축소 적용",
         "R14 서명란 높이 20pt < 28pt",
         "R48 서명란 높이 18pt < 28pt",
         "R75 서명란 높이 20pt < 28pt",
@@ -2475,7 +2439,7 @@
         75
       ],
       "is_table_form": true,
-      "xlsx_bytes": 9543,
+      "xlsx_bytes": 9544,
       "error": null
     },
     {
@@ -2483,12 +2447,11 @@
       "form_type": "safety_policy_goal_notice",
       "display_name": "안전보건 방침 및 목표 게시문",
       "builder_file": "engine/output/safety_policy_goal_notice_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.98in > 출력폭 7.27in (151%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.98in > 출력폭 7.27in (151%) — fitToWidth=1 자동 축소 적용",
         "used_rows=55 > 45 — 반복 헤더 권장",
         "R44 서명란 높이 20pt < 28pt",
         "R48 서명란 높이 22pt < 28pt",
@@ -2514,7 +2477,7 @@
         51
       ],
       "is_table_form": false,
-      "xlsx_bytes": 9243,
+      "xlsx_bytes": 9244,
       "error": null
     },
     {
@@ -2552,7 +2515,7 @@
         72
       ],
       "is_table_form": true,
-      "xlsx_bytes": 10129,
+      "xlsx_bytes": 10130,
       "error": null
     },
     {
@@ -2560,12 +2523,11 @@
       "form_type": "serious_accident_immediate_report",
       "display_name": "중대재해 발생 즉시 보고서",
       "builder_file": "engine/output/serious_accident_immediate_report_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.32in > 출력폭 7.27in (142%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.32in > 출력폭 7.27in (142%) — fitToWidth=1 자동 축소 적용",
         "R29 서명란 높이 22pt < 28pt",
         "서명란(R31)이 마지막 1행 안 — 페이지 분리 시 잘림 가능"
       ],
@@ -2586,7 +2548,7 @@
         31
       ],
       "is_table_form": false,
-      "xlsx_bytes": 7604,
+      "xlsx_bytes": 7605,
       "error": null
     },
     {
@@ -2625,7 +2587,7 @@
         62
       ],
       "is_table_form": true,
-      "xlsx_bytes": 8904,
+      "xlsx_bytes": 8905,
       "error": null
     },
     {
@@ -2662,7 +2624,7 @@
         38
       ],
       "is_table_form": true,
-      "xlsx_bytes": 7575,
+      "xlsx_bytes": 7580,
       "error": null
     },
     {
@@ -2672,11 +2634,11 @@
       "builder_file": "engine/output/subcontractor_safety_evaluation_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 11.75in > 출력폭 7.27in (162%) — 인쇄 시 잘림",
         "used_rows=76 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 11.75in > 출력폭 7.27in (162%) — fitToWidth=1 자동 축소 적용",
         "R7 서명란 높이 20pt < 28pt",
         "R73 서명란 높이 22pt < 28pt",
         "R74 서명란 높이 20pt < 28pt",
@@ -2711,11 +2673,11 @@
       "builder_file": "engine/output/supervisor_safety_log_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 12.30in > 출력폭 7.27in (169%) — 인쇄 시 잘림",
         "used_rows=80 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 12.30in > 출력폭 7.27in (169%) — fitToWidth=1 자동 축소 적용",
         "R13 서명란 높이 20pt < 28pt",
         "R58 서명란 높이 20pt < 28pt",
         "R68 서명란 높이 18pt < 28pt"
@@ -2746,12 +2708,11 @@
       "form_type": "tbm_log",
       "display_name": "TBM 안전점검 일지",
       "builder_file": "engine/output/tbm_log_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "표형 문서 — 반복 헤더 설정 권장",
         "R15 서명란 높이 18pt < 28pt",
         "R16 서명란 높이 18pt < 28pt",
@@ -2815,12 +2776,11 @@
       "form_type": "temp_power_generator_use_plan",
       "display_name": "임시전기·발전기 사용계획서",
       "builder_file": "engine/output/temp_power_generator_use_plan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R28 서명란 높이 20pt < 28pt"
       ],
       "used_rows": 29,
@@ -2885,12 +2845,11 @@
       "form_type": "tower_crane_workplan",
       "display_name": "타워크레인 작업계획서",
       "builder_file": "engine/output/tower_crane_workplan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "R6 서명란 높이 20pt < 28pt",
         "R29 서명란 높이 18pt < 28pt",
         "R30 서명란 높이 20pt < 28pt",
@@ -2924,11 +2883,11 @@
       "builder_file": "engine/output/track_maintenance_workplan_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 11.42in > 출력폭 7.27in (157%) — 인쇄 시 잘림",
         "used_rows=82 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 11.42in > 출력폭 7.27in (157%) — fitToWidth=1 자동 축소 적용",
         "R9 서명란 높이 15pt < 28pt",
         "R76 서명란 높이 15pt < 28pt",
         "R78 서명란 높이 15pt < 28pt",
@@ -2961,12 +2920,11 @@
       "form_type": "tunnel_excavation_workplan",
       "display_name": "터널 굴착 작업계획서",
       "builder_file": "engine/output/tunnel_excavation_workplan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.76in > 출력폭 7.27in (148%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.76in > 출력폭 7.27in (148%) — fitToWidth=1 자동 축소 적용",
         "R7 서명란 높이 20pt < 28pt",
         "R32 서명란 높이 20pt < 28pt",
         "서명란(R33)이 마지막 1행 안 — 페이지 분리 시 잘림 가능"
@@ -2997,11 +2955,10 @@
       "form_type": "vehicle_construction_workplan",
       "display_name": "차량계 건설기계 작업계획서",
       "builder_file": "engine/output/vehicle_construction_workplan_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "used_rows=49 > 45 — 반복 헤더 권장",
         "R6 서명란 높이 20pt < 28pt",
         "R48 서명란 높이 18pt < 28pt",
@@ -3033,12 +2990,11 @@
       "form_type": "weather_condition_log",
       "display_name": "기상 조건 기록 일지",
       "builder_file": "engine/output/weather_condition_log_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 11.53in > 출력폭 7.27in (159%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 11.53in > 출력폭 7.27in (159%) — fitToWidth=1 자동 축소 적용",
         "used_rows=53 > 45 — 반복 헤더 권장",
         "서명란(R53)이 마지막 1행 안 — 페이지 분리 시 잘림 가능"
       ],
@@ -3060,7 +3016,7 @@
         53
       ],
       "is_table_form": true,
-      "xlsx_bytes": 9042,
+      "xlsx_bytes": 9039,
       "error": null
     },
     {
@@ -3070,11 +3026,11 @@
       "builder_file": "engine/output/work_at_height_permit_builder.py",
       "verdict": "FAIL",
       "fails": [
-        "열 너비 합계 11.31in > 출력폭 7.27in (156%) — 인쇄 시 잘림",
         "used_rows=119 > 60 — 반복 헤더(print_title_rows) 없음"
       ],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 11.31in > 출력폭 7.27in (156%) — fitToWidth=1 자동 축소 적용",
         "R92 서명란 높이 20pt < 28pt",
         "R107 서명란 높이 20pt < 28pt",
         "R115 서명란 높이 20pt < 28pt",
@@ -3102,7 +3058,7 @@
         118
       ],
       "is_table_form": false,
-      "xlsx_bytes": 11973,
+      "xlsx_bytes": 11974,
       "error": null
     },
     {
@@ -3110,12 +3066,11 @@
       "form_type": "work_environment_measurement",
       "display_name": "작업환경측정 실시 및 결과 관리대장",
       "builder_file": "engine/output/work_environment_measurement_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "표형 문서 — 반복 헤더 설정 권장",
         "R6 서명란 높이 20pt < 28pt",
         "R35 서명란 높이 18pt < 28pt",
@@ -3140,7 +3095,7 @@
         36
       ],
       "is_table_form": true,
-      "xlsx_bytes": 7561,
+      "xlsx_bytes": 7562,
       "error": null
     },
     {
@@ -3148,12 +3103,11 @@
       "form_type": "work_safety_checklist",
       "display_name": "작업 전 안전 확인서",
       "builder_file": "engine/output/work_safety_checklist_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
         "print_area 미설정",
+        "열 너비 합계 10.54in > 출력폭 7.27in (145%) — fitToWidth=1 자동 축소 적용",
         "used_rows=51 > 45 — 반복 헤더 권장",
         "긴 문구 wrap_text 누락 1건",
         "R6 서명란 높이 20pt < 28pt",
@@ -3178,7 +3132,7 @@
         51
       ],
       "is_table_form": true,
-      "xlsx_bytes": 8493,
+      "xlsx_bytes": 8494,
       "error": null
     },
     {
@@ -3186,13 +3140,10 @@
       "form_type": "attendance_roster",
       "display_name": "참석자 명부",
       "builder_file": "engine/output/attendance_roster_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.21in > 출력폭 6.77in (151%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
-        "fitToWidth 미설정 — A4 폭 자동 맞춤 없음",
-        "print_area 미설정",
+        "열 너비 합계 10.21in > 출력폭 7.27in (140%) — fitToWidth=1 자동 축소 적용",
         "used_rows=49 > 45 — 반복 헤더 권장",
         "R9 서명란 높이 20pt < 28pt",
         "R17 서명란 높이 20pt < 28pt",
@@ -3202,15 +3153,15 @@
       "used_rows": 49,
       "used_cols": 8,
       "orientation": "portrait",
-      "fitToWidth": null,
-      "fitToHeight": null,
+      "fitToWidth": 1,
+      "fitToHeight": 0,
       "scale": null,
-      "paper_size": null,
-      "print_area": "",
+      "paper_size": 9,
+      "print_area": "'참석자명부'!$A$1:$H$49",
       "print_title_rows": null,
       "col_total_in": 10.211,
-      "printable_width_in": 6.77,
-      "width_utilization": 1.508,
+      "printable_width_in": 7.27,
+      "width_utilization": 1.405,
       "sig_rows": [
         9,
         17,
@@ -3220,7 +3171,7 @@
         47
       ],
       "is_table_form": true,
-      "xlsx_bytes": 7494,
+      "xlsx_bytes": 7595,
       "error": null
     },
     {
@@ -3228,13 +3179,10 @@
       "form_type": "photo_attachment_sheet",
       "display_name": "사진대지",
       "builder_file": "engine/output/photo_attachment_sheet_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 12.08in > 출력폭 6.77in (178%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
-        "fitToWidth 미설정 — A4 폭 자동 맞춤 없음",
-        "print_area 미설정",
+        "열 너비 합계 12.08in > 출력폭 7.27in (166%) — fitToWidth=1 자동 축소 적용",
         "used_rows=46 > 45 — 반복 헤더 권장",
         "R10 서명란 높이 20pt < 28pt",
         "R40 서명란 높이 20pt < 28pt",
@@ -3244,15 +3192,15 @@
       "used_rows": 46,
       "used_cols": 9,
       "orientation": "portrait",
-      "fitToWidth": null,
-      "fitToHeight": null,
+      "fitToWidth": 1,
+      "fitToHeight": 0,
       "scale": null,
-      "paper_size": null,
-      "print_area": "",
+      "paper_size": 9,
+      "print_area": "'사진대지'!$A$1:$I$46",
       "print_title_rows": null,
       "col_total_in": 12.078,
-      "printable_width_in": 6.77,
-      "width_utilization": 1.784,
+      "printable_width_in": 7.27,
+      "width_utilization": 1.661,
       "sig_rows": [
         10,
         40,
@@ -3262,7 +3210,7 @@
         44
       ],
       "is_table_form": false,
-      "xlsx_bytes": 7817,
+      "xlsx_bytes": 7918,
       "error": null
     },
     {
@@ -3270,13 +3218,10 @@
       "form_type": "document_attachment_list",
       "display_name": "첨부서류 목록표",
       "builder_file": "engine/output/document_attachment_list_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.87in > 출력폭 6.77in (161%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
-        "fitToWidth 미설정 — A4 폭 자동 맞춤 없음",
-        "print_area 미설정",
+        "열 너비 합계 10.87in > 출력폭 7.27in (150%) — fitToWidth=1 자동 축소 적용",
         "used_rows=59 > 45 — 반복 헤더 권장",
         "R9 서명란 높이 20pt < 28pt",
         "R44 서명란 높이 24pt < 28pt",
@@ -3286,15 +3231,15 @@
       "used_rows": 59,
       "used_cols": 9,
       "orientation": "portrait",
-      "fitToWidth": null,
-      "fitToHeight": null,
+      "fitToWidth": 1,
+      "fitToHeight": 0,
       "scale": null,
-      "paper_size": null,
-      "print_area": "",
+      "paper_size": 9,
+      "print_area": "'첨부서류목록표'!$A$1:$I$59",
       "print_title_rows": null,
       "col_total_in": 10.87,
-      "printable_width_in": 6.77,
-      "width_utilization": 1.606,
+      "printable_width_in": 7.27,
+      "width_utilization": 1.495,
       "sig_rows": [
         9,
         44,
@@ -3305,7 +3250,7 @@
         57
       ],
       "is_table_form": true,
-      "xlsx_bytes": 8400,
+      "xlsx_bytes": 8505,
       "error": null
     },
     {
@@ -3313,13 +3258,9 @@
       "form_type": "confined_space_gas_measurement",
       "display_name": "산소·가스농도 측정기록표",
       "builder_file": "engine/output/confined_space_gas_measurement_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 12.30in > 출력폭 6.77in (182%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
-        "fitToWidth 미설정 — A4 폭 자동 맞춤 없음",
-        "print_area 미설정",
         "used_rows=60 > 45 — 반복 헤더 권장",
         "R9 서명란 높이 20pt < 28pt",
         "R55 서명란 높이 20pt < 28pt",
@@ -3328,16 +3269,16 @@
       ],
       "used_rows": 60,
       "used_cols": 12,
-      "orientation": "portrait",
-      "fitToWidth": null,
-      "fitToHeight": null,
+      "orientation": "landscape",
+      "fitToWidth": 1,
+      "fitToHeight": 0,
       "scale": null,
-      "paper_size": null,
-      "print_area": "",
+      "paper_size": 9,
+      "print_area": "'가스농도측정기록표'!$A$1:$L$60",
       "print_title_rows": null,
       "col_total_in": 12.298,
-      "printable_width_in": 6.77,
-      "width_utilization": 1.816,
+      "printable_width_in": 10.69,
+      "width_utilization": 1.15,
       "sig_rows": [
         9,
         55,
@@ -3345,7 +3286,7 @@
         58
       ],
       "is_table_form": true,
-      "xlsx_bytes": 9331,
+      "xlsx_bytes": 9434,
       "error": null
     },
     {
@@ -3353,13 +3294,10 @@
       "form_type": "work_completion_confirmation",
       "display_name": "작업 종료 확인서",
       "builder_file": "engine/output/work_completion_confirmation_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 11.53in > 출력폭 6.77in (170%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
-        "fitToWidth 미설정 — A4 폭 자동 맞춤 없음",
-        "print_area 미설정",
+        "열 너비 합계 11.53in > 출력폭 7.27in (159%) — fitToWidth=1 자동 축소 적용",
         "used_rows=55 > 45 — 반복 헤더 권장",
         "긴 문구 wrap_text 누락 1건",
         "R9 서명란 높이 20pt < 28pt",
@@ -3369,15 +3307,15 @@
       "used_rows": 55,
       "used_cols": 9,
       "orientation": "portrait",
-      "fitToWidth": null,
-      "fitToHeight": null,
+      "fitToWidth": 1,
+      "fitToHeight": 0,
       "scale": null,
-      "paper_size": null,
-      "print_area": "",
+      "paper_size": 9,
+      "print_area": "'작업종료확인서'!$A$1:$I$55",
       "print_title_rows": null,
       "col_total_in": 11.529,
-      "printable_width_in": 6.77,
-      "width_utilization": 1.703,
+      "printable_width_in": 7.27,
+      "width_utilization": 1.586,
       "sig_rows": [
         9,
         22,
@@ -3385,7 +3323,7 @@
         50
       ],
       "is_table_form": true,
-      "xlsx_bytes": 8448,
+      "xlsx_bytes": 8550,
       "error": null
     },
     {
@@ -3393,13 +3331,9 @@
       "form_type": "improvement_completion_check",
       "display_name": "개선조치 완료 확인서",
       "builder_file": "engine/output/improvement_completion_check_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 12.41in > 출력폭 6.77in (183%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
-        "fitToWidth 미설정 — A4 폭 자동 맞춤 없음",
-        "print_area 미설정",
         "used_rows=51 > 45 — 반복 헤더 권장",
         "R10 서명란 높이 20pt < 28pt",
         "R46 서명란 높이 20pt < 28pt",
@@ -3408,16 +3342,16 @@
       ],
       "used_rows": 51,
       "used_cols": 10,
-      "orientation": "portrait",
-      "fitToWidth": null,
-      "fitToHeight": null,
+      "orientation": "landscape",
+      "fitToWidth": 1,
+      "fitToHeight": 0,
       "scale": null,
-      "paper_size": null,
-      "print_area": "",
+      "paper_size": 9,
+      "print_area": "'개선조치완료확인서'!$A$1:$J$51",
       "print_title_rows": null,
       "col_total_in": 12.407,
-      "printable_width_in": 6.77,
-      "width_utilization": 1.833,
+      "printable_width_in": 10.69,
+      "width_utilization": 1.161,
       "sig_rows": [
         10,
         46,
@@ -3426,7 +3360,7 @@
         49
       ],
       "is_table_form": true,
-      "xlsx_bytes": 8112,
+      "xlsx_bytes": 8215,
       "error": null
     },
     {
@@ -3434,13 +3368,9 @@
       "form_type": "equipment_operator_qualification_check",
       "display_name": "운전원 자격 확인표",
       "builder_file": "engine/output/equipment_operator_qualification_check_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 12.30in > 출력폭 6.77in (182%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
-        "fitToWidth 미설정 — A4 폭 자동 맞춤 없음",
-        "print_area 미설정",
         "used_rows=46 > 45 — 반복 헤더 권장",
         "R9 서명란 높이 20pt < 28pt",
         "R41 서명란 높이 20pt < 28pt",
@@ -3449,23 +3379,23 @@
       ],
       "used_rows": 46,
       "used_cols": 11,
-      "orientation": "portrait",
-      "fitToWidth": null,
-      "fitToHeight": null,
+      "orientation": "landscape",
+      "fitToWidth": 1,
+      "fitToHeight": 0,
       "scale": null,
-      "paper_size": null,
-      "print_area": "",
+      "paper_size": 9,
+      "print_area": "'운전원자격확인표'!$A$1:$K$46",
       "print_title_rows": null,
       "col_total_in": 12.298,
-      "printable_width_in": 6.77,
-      "width_utilization": 1.816,
+      "printable_width_in": 10.69,
+      "width_utilization": 1.15,
       "sig_rows": [
         9,
         41,
         42
       ],
       "is_table_form": false,
-      "xlsx_bytes": 8014,
+      "xlsx_bytes": 8113,
       "error": null
     },
     {
@@ -3473,13 +3403,9 @@
       "form_type": "watchman_assignment_confirmation",
       "display_name": "감시인 배치 확인서",
       "builder_file": "engine/output/watchman_assignment_confirmation_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 11.31in > 출력폭 6.77in (167%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
-        "fitToWidth 미설정 — A4 폭 자동 맞춤 없음",
-        "print_area 미설정",
         "used_rows=47 > 45 — 반복 헤더 권장",
         "R9 서명란 높이 20pt < 28pt",
         "R42 서명란 높이 20pt < 28pt",
@@ -3488,16 +3414,16 @@
       ],
       "used_rows": 47,
       "used_cols": 10,
-      "orientation": "portrait",
-      "fitToWidth": null,
-      "fitToHeight": null,
+      "orientation": "landscape",
+      "fitToWidth": 1,
+      "fitToHeight": 0,
       "scale": null,
-      "paper_size": null,
-      "print_area": "",
+      "paper_size": 9,
+      "print_area": "'감시인배치확인서'!$A$1:$J$47",
       "print_title_rows": null,
       "col_total_in": 11.309,
-      "printable_width_in": 6.77,
-      "width_utilization": 1.671,
+      "printable_width_in": 10.69,
+      "width_utilization": 1.058,
       "sig_rows": [
         9,
         21,
@@ -3506,7 +3432,7 @@
         45
       ],
       "is_table_form": true,
-      "xlsx_bytes": 8043,
+      "xlsx_bytes": 8147,
       "error": null
     },
     {
@@ -3514,13 +3440,9 @@
       "form_type": "education_makeup_confirmation",
       "display_name": "미참석자 추가교육 확인서",
       "builder_file": "engine/output/education_makeup_confirmation_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 11.09in > 출력폭 6.77in (164%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
-        "fitToWidth 미설정 — A4 폭 자동 맞춤 없음",
-        "print_area 미설정",
         "used_rows=56 > 45 — 반복 헤더 권장",
         "R9 서명란 높이 20pt < 28pt",
         "R16 서명란 높이 20pt < 28pt",
@@ -3529,16 +3451,16 @@
       ],
       "used_rows": 56,
       "used_cols": 10,
-      "orientation": "portrait",
-      "fitToWidth": null,
-      "fitToHeight": null,
+      "orientation": "landscape",
+      "fitToWidth": 1,
+      "fitToHeight": 0,
       "scale": null,
-      "paper_size": null,
-      "print_area": "",
+      "paper_size": 9,
+      "print_area": "'추가교육확인서'!$A$1:$J$56",
       "print_title_rows": null,
       "col_total_in": 11.09,
-      "printable_width_in": 6.77,
-      "width_utilization": 1.638,
+      "printable_width_in": 10.69,
+      "width_utilization": 1.037,
       "sig_rows": [
         9,
         16,
@@ -3548,7 +3470,7 @@
         54
       ],
       "is_table_form": true,
-      "xlsx_bytes": 8141,
+      "xlsx_bytes": 8246,
       "error": null
     },
     {
@@ -3556,13 +3478,9 @@
       "form_type": "ppe_receipt_confirmation",
       "display_name": "보호구 수령 확인서",
       "builder_file": "engine/output/ppe_receipt_confirmation_builder.py",
-      "verdict": "FAIL",
-      "fails": [
-        "열 너비 합계 10.76in > 출력폭 6.77in (159%) — 인쇄 시 잘림"
-      ],
+      "verdict": "WARN",
+      "fails": [],
       "warns": [
-        "fitToWidth 미설정 — A4 폭 자동 맞춤 없음",
-        "print_area 미설정",
         "used_rows=51 > 45 — 반복 헤더 권장",
         "R10 서명란 높이 20pt < 28pt",
         "R17 서명란 높이 20pt < 28pt",
@@ -3571,16 +3489,16 @@
       ],
       "used_rows": 51,
       "used_cols": 10,
-      "orientation": "portrait",
-      "fitToWidth": null,
-      "fitToHeight": null,
+      "orientation": "landscape",
+      "fitToWidth": 1,
+      "fitToHeight": 0,
       "scale": null,
-      "paper_size": null,
-      "print_area": "",
+      "paper_size": 9,
+      "print_area": "'보호구수령확인서'!$A$1:$J$51",
       "print_title_rows": null,
       "col_total_in": 10.76,
-      "printable_width_in": 6.77,
-      "width_utilization": 1.589,
+      "printable_width_in": 10.69,
+      "width_utilization": 1.007,
       "sig_rows": [
         10,
         17,
@@ -3590,7 +3508,7 @@
         49
       ],
       "is_table_form": true,
-      "xlsx_bytes": 8253,
+      "xlsx_bytes": 8356,
       "error": null
     }
   ]

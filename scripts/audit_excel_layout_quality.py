@@ -262,10 +262,17 @@ def _analyze_wb(
     util_ratio = col_total_in / printable_w if printable_w > 0 else 0.0
 
     if util_ratio > FAIL_WIDTH_UTILIZATION_HIGH:
-        fails.append(
-            f"열 너비 합계 {col_total_in:.2f}in > 출력폭 {printable_w:.2f}in "
-            f"({util_ratio:.0%}) — 인쇄 시 잘림"
-        )
+        if ftw == 1:
+            # fitToWidth=1이면 Excel이 자동 축소하므로 FAIL이 아닌 WARN
+            warns.append(
+                f"열 너비 합계 {col_total_in:.2f}in > 출력폭 {printable_w:.2f}in "
+                f"({util_ratio:.0%}) — fitToWidth=1 자동 축소 적용"
+            )
+        else:
+            fails.append(
+                f"열 너비 합계 {col_total_in:.2f}in > 출력폭 {printable_w:.2f}in "
+                f"({util_ratio:.0%}) — fitToWidth 미설정, 인쇄 시 잘림"
+            )
     elif util_ratio > WARN_WIDTH_UTILIZATION_HIGH:
         warns.append(
             f"열 너비 합계 {col_total_in:.2f}in가 출력폭 초과 가능 ({util_ratio:.0%})"

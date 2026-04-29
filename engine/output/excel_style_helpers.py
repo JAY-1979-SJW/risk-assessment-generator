@@ -18,6 +18,7 @@ from collections.abc import Mapping
 from typing import Any, Optional
 
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
+from openpyxl.worksheet.page import PageMargins
 from openpyxl.utils import get_column_letter
 
 # ---------------------------------------------------------------------------
@@ -126,3 +127,38 @@ def write_blank_row(
     """빈 행을 기록한다. 각 셀에 빈 문자열과 BORDER를 적용한다."""
     for c in range(1, total_cols + 1):
         write_cell(ws, row, c, c, "", height=height)
+
+
+def apply_a4_page_setup(
+    ws,
+    *,
+    landscape: bool = False,
+    left: float = 0.5,
+    right: float = 0.5,
+    top: float = 0.5,
+    bottom: float = 0.5,
+) -> None:
+    """A4 인쇄 설정을 worksheet에 적용한다.
+
+    fitToWidth=1, fitToHeight=0으로 설정해 폭은 1페이지에 맞추고
+    높이는 자연 분할한다. scale은 사용하지 않는다.
+    """
+    ps = ws.page_setup
+    ps.paperSize  = 9          # A4
+    ps.orientation = "landscape" if landscape else "portrait"
+    ps.fitToWidth  = 1
+    ps.fitToHeight = 0
+    ps.scale       = None
+
+    ws.page_margins = PageMargins(
+        left=left, right=right, top=top, bottom=bottom,
+        header=0.3, footer=0.3,
+    )
+
+
+def set_print_area_to_used_range(ws) -> None:
+    """실제 사용 범위(max_row × max_column)를 print_area로 설정한다."""
+    max_r = ws.max_row    or 1
+    max_c = ws.max_column or 1
+    end_col_letter = get_column_letter(max_c)
+    ws.print_area = f"A1:{end_col_letter}{max_r}"

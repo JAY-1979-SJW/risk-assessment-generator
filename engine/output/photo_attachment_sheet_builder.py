@@ -92,7 +92,8 @@ from engine.output.excel_style_helpers import (
     ALIGN_CENTER, ALIGN_LABEL, ALIGN_LEFT,
     FILL_HEADER, FILL_LABEL, FILL_NONE, FILL_NOTICE, FILL_SECTION, FILL_WARN,
     FONT_BOLD, FONT_DEFAULT, FONT_NOTICE, FONT_SMALL, FONT_SUBTITLE, FONT_TITLE,
-    apply_col_widths, v, write_cell,
+    apply_col_widths,
+    apply_a4_page_setup, set_print_area_to_used_range, v, write_cell,
 )
 
 SUPPLEMENTAL_TYPE = "photo_attachment_sheet"
@@ -553,6 +554,8 @@ def build_photo_attachment_sheet(form_data: Dict[str, Any]) -> bytes:
                font=FONT_SMALL, fill=FILL_NOTICE, align=ALIGN_LEFT)
     ws.row_dimensions[row].height = 28
 
+    apply_a4_page_setup(ws, landscape=False)
+    set_print_area_to_used_range(ws)
     buf = BytesIO()
     wb.save(buf)
     return buf.getvalue()

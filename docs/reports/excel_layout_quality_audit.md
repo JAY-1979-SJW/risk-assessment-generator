@@ -10,25 +10,25 @@
 
 | 구분 | 검사 수 | PASS | WARN | FAIL 후보 | ERROR |
 |------|---------|------|------|-----------|-------|
-| 핵심서류 | 87 | 0 | 9 | 78 | 0 |
-| 부대서류 | 10 | 0 | 0 | 10 | 0 |
-| **합계** | **97** | **0** | **9** | **88** | **0** |
+| 핵심서류 | 87 | 0 | 53 | 34 | 0 |
+| 부대서류 | 10 | 0 | 10 | 0 | 0 |
+| **합계** | **97** | **0** | **63** | **34** | **0** |
 
 ## 2. A4 페이지 설정 요약
 
 | 항목 | 수량 | 비율 |
 |------|------|------|
-| fitToWidth=1 적용 | 78 | 80% |
-| fitToWidth 미설정 | 19 | 20% |
+| fitToWidth=1 적용 | 89 | 92% |
+| fitToWidth 미설정 | 8 | 8% |
 | fitToHeight=1 (강제 축소) | 0 | 0% |
 | scale 80 미만 | 0 | 0% |
-| 가로 (landscape) | 2 | 2% |
-| print_area 미설정 | 94 | 97% |
+| 가로 (landscape) | 8 | 8% |
+| print_area 미설정 | 83 | 86% |
 
 ## 3. 페이지 폭 활용도
 
 **여백 과다** (활용도 < 70%): **0종**  
-**폭 초과** (활용도 > 125%): **92종**  
+**폭 초과** (활용도 > 125%): **86종**  
 
 ### 3-2. 폭 초과 상위 (최대 20종)
 
@@ -37,23 +37,23 @@
 | risk_assessment | 위험성평가표 | 425% | 28.77 | 6.77 |
 | safety_management_log | 안전관리 일지 | 188% | 12.74 | 6.77 |
 | confined_space_checklist | 밀폐공간 사전 안전점검표 | 187% | 13.62 | 7.27 |
-| improvement_completion_check | 개선조치 완료 확인서 | 183% | 12.41 | 6.77 |
-| confined_space_gas_measurement | 산소·가스농도 측정기록표 | 182% | 12.30 | 6.77 |
-| equipment_operator_qualification_check | 운전원 자격 확인표 | 182% | 12.30 | 6.77 |
-| photo_attachment_sheet | 사진대지 | 178% | 12.08 | 6.77 |
 | radiography_work_permit | 방사선 투과검사 작업 허가서 | 178% | 12.96 | 7.27 |
 | hazardous_chemical_checklist | 유해화학물질 취급 점검표 | 172% | 12.52 | 7.27 |
 | msds_posting_education_check | MSDS 비치 및 교육 확인서 | 172% | 12.52 | 7.27 |
 | protective_equipment_checklist | 보호구 지급 및 관리 점검표 | 172% | 12.52 | 7.27 |
 | manager_job_training_record | 안전보건관리자 직무교육 이수 확인서 | 172% | 11.64 | 6.77 |
-| work_completion_confirmation | 작업 종료 확인서 | 170% | 11.53 | 6.77 |
 | supervisor_safety_log | 관리감독자 안전보건 업무 일지 | 169% | 12.30 | 7.27 |
 | risk_assessment_meeting_minutes | 위험성평가 참여 회의록 | 168% | 12.19 | 7.27 |
-| watchman_assignment_confirmation | 감시인 배치 확인서 | 167% | 11.31 | 6.77 |
 | risk_assessment_procedure | 위험성평가 실시 규정 | 166% | 12.08 | 7.27 |
-| education_makeup_confirmation | 미참석자 추가교육 확인서 | 164% | 11.09 | 6.77 |
+| photo_attachment_sheet | 사진대지 | 166% | 12.08 | 7.27 |
 | subcontractor_safety_evaluation | 협력업체 안전보건 수준 평가표 | 162% | 11.75 | 7.27 |
-| document_attachment_list | 첨부서류 목록표 | 161% | 10.87 | 6.77 |
+| equipment_entry_application | 건설 장비 반입 신청서 (v2) | 159% | 11.53 | 7.27 |
+| equipment_insurance_inspection_check | 건설 장비 보험·정기검사증 확인서 | 159% | 11.53 | 7.27 |
+| ppe_issue_register | 보호구 지급 대장 (v2) | 159% | 11.53 | 7.27 |
+| ppe_management_checklist | 보호구 지급 및 관리 점검표 (v2) | 159% | 11.53 | 7.27 |
+| pre_work_safety_check | 작업 전 안전 확인서 | 159% | 11.53 | 7.27 |
+| safety_patrol_inspection_log | 안전순찰 점검 일지 | 159% | 11.53 | 7.27 |
+| weather_condition_log | 기상 조건 기록 일지 | 159% | 11.53 | 7.27 |
 
 ## 4. 페이지 분할 / 반복 헤더
 
@@ -132,42 +132,42 @@
 
 | # | form_type | 표시명 | 판정 | FAIL수 | WARN수 | 주요 문제 | 권장 조치 |
 |---|-----------|--------|------|--------|--------|----------|----------|
-| 1 | construction_equipment_daily_checklist | 건설장비 일일 사전점검표 | **FAIL** | 2 | 6 | 열 너비 합계 9.55in > 출력폭 6.77in (141%) — 인쇄 시 잘림; used_rows | 인쇄설정 추가 |
-| 2 | msds_posting_education_check | MSDS 비치 및 교육 확인서 | **FAIL** | 2 | 6 | 열 너비 합계 12.52in > 출력폭 7.27in (172%) — 인쇄 시 잘림; used_row | 인쇄설정 추가 |
-| 3 | ppe_issue_register | 보호구 지급 대장 (v2) | **FAIL** | 2 | 6 | 열 너비 합계 11.53in > 출력폭 7.27in (159%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 4 | ppe_management_checklist | 보호구 지급 및 관리 점검표 (v | **FAIL** | 2 | 6 | 열 너비 합계 11.53in > 출력폭 7.27in (159%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 5 | safety_culture_activity_log | 안전문화 활동 기록부 | **FAIL** | 2 | 6 | 열 너비 합계 10.76in > 출력폭 6.77in (159%) — 인쇄 시 잘림; used_row | 인쇄설정 추가 |
-| 6 | safety_management_log | 안전관리 일지 | **FAIL** | 2 | 6 | 열 너비 합계 12.74in > 출력폭 6.77in (188%) — 인쇄 시 잘림; used_row | 인쇄설정 추가 |
-| 7 | electrical_work_permit | 전기작업 허가서 / LOTO | **FAIL** | 2 | 5 | 열 너비 합계 11.31in > 출력폭 7.27in (156%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 8 | electrical_workplan | 전기 작업계획서 | **FAIL** | 2 | 5 | 열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 9 | equipment_insurance_inspection_check | 건설 장비 보험·정기검사증 확인서 | **FAIL** | 2 | 5 | 열 너비 합계 11.53in > 출력폭 7.27in (159%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 10 | fire_prevention_checklist | 화재 예방 점검표 | **FAIL** | 2 | 5 | 열 너비 합계 11.31in > 출력폭 7.27in (156%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 11 | formwork_shoring_workplan | 거푸집·동바리 작업계획서 | **FAIL** | 2 | 5 | 열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 12 | hot_work_permit | 화기작업 허가서 | **FAIL** | 2 | 5 | 열 너비 합계 11.31in > 출력폭 7.27in (156%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 13 | lifting_work_permit | 중량물 인양·중장비사용 작업 허가 | **FAIL** | 2 | 5 | 열 너비 합계 11.31in > 출력폭 7.27in (156%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 14 | near_miss_report | 아차사고 보고서 | **FAIL** | 2 | 5 | 열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 15 | risk_assessment_procedure | 위험성평가 실시 규정 | **FAIL** | 2 | 5 | 열 너비 합계 12.08in > 출력폭 7.27in (166%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 16 | risk_assessment_result_notice | 위험성평가 결과 근로자 공지문 | **FAIL** | 2 | 5 | 열 너비 합계 11.20in > 출력폭 7.27in (154%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 17 | safety_patrol_inspection_log | 안전순찰 점검 일지 | **FAIL** | 2 | 5 | 열 너비 합계 11.53in > 출력폭 7.27in (159%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 18 | subcontractor_safety_evaluation | 협력업체 안전보건 수준 평가표 | **FAIL** | 2 | 5 | 열 너비 합계 11.75in > 출력폭 7.27in (162%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 19 | track_maintenance_workplan | 궤도 작업계획서 | **FAIL** | 2 | 5 | 열 너비 합계 11.42in > 출력폭 7.27in (157%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 20 | work_at_height_permit | 고소작업 허가서 | **FAIL** | 2 | 5 | 열 너비 합계 11.31in > 출력폭 7.27in (156%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 21 | electrical_facility_checklist | 전기설비 정기 점검표 | **FAIL** | 2 | 4 | 열 너비 합계 11.31in > 출력폭 7.27in (156%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 22 | supervisor_safety_log | 관리감독자 안전보건 업무 일지 | **FAIL** | 2 | 4 | 열 너비 합계 12.30in > 출력폭 7.27in (169%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 23 | radiography_work_permit | 방사선 투과검사 작업 허가서 | **FAIL** | 2 | 3 | 열 너비 합계 12.96in > 출력폭 7.27in (178%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 24 | equipment_entry_application | 건설 장비 반입 신청서 (v2) | **FAIL** | 2 | 2 | 열 너비 합계 11.53in > 출력폭 7.27in (159%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 25 | excavation_work_permit | 굴착 작업 허가서 | **FAIL** | 2 | 2 | 열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림; used_row | 열너비 조정 |
-| 26 | heavy_lifting_workplan | 중량물 취급 작업계획서 | **FAIL** | 1 | 7 | 열 너비 합계 10.54in > 출력폭 7.27in (145%) — 인쇄 시 잘림 | 열너비 조정 |
-| 27 | attendance_roster | 참석자 명부 | **FAIL** | 1 | 7 | 열 너비 합계 10.21in > 출력폭 6.77in (151%) — 인쇄 시 잘림 | 인쇄설정 추가 |
-| 28 | photo_attachment_sheet | 사진대지 | **FAIL** | 1 | 7 | 열 너비 합계 12.08in > 출력폭 6.77in (178%) — 인쇄 시 잘림 | 인쇄설정 추가 |
-| 29 | document_attachment_list | 첨부서류 목록표 | **FAIL** | 1 | 7 | 열 너비 합계 10.87in > 출력폭 6.77in (161%) — 인쇄 시 잘림 | 인쇄설정 추가 |
-| 30 | confined_space_gas_measurement | 산소·가스농도 측정기록표 | **FAIL** | 1 | 7 | 열 너비 합계 12.30in > 출력폭 6.77in (182%) — 인쇄 시 잘림 | 인쇄설정 추가 |
+| 1 | construction_equipment_daily_checklist | 건설장비 일일 사전점검표 | **FAIL** | 2 | 6 | 열 너비 합계 9.55in > 출력폭 6.77in (141%) — fitToWidth 미설정, 인쇄 | 인쇄설정 추가 |
+| 2 | msds_posting_education_check | MSDS 비치 및 교육 확인서 | **FAIL** | 2 | 6 | 열 너비 합계 12.52in > 출력폭 7.27in (172%) — fitToWidth 미설정, 인 | 인쇄설정 추가 |
+| 3 | safety_management_log | 안전관리 일지 | **FAIL** | 2 | 6 | 열 너비 합계 12.74in > 출력폭 6.77in (188%) — fitToWidth 미설정, 인 | 인쇄설정 추가 |
+| 4 | ppe_issue_register | 보호구 지급 대장 (v2) | **FAIL** | 1 | 7 | used_rows=72 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 5 | ppe_management_checklist | 보호구 지급 및 관리 점검표 (v | **FAIL** | 1 | 7 | used_rows=70 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 6 | electrical_work_permit | 전기작업 허가서 / LOTO | **FAIL** | 1 | 6 | used_rows=105 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 7 | electrical_workplan | 전기 작업계획서 | **FAIL** | 1 | 6 | used_rows=69 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 8 | equipment_insurance_inspection_check | 건설 장비 보험·정기검사증 확인서 | **FAIL** | 1 | 6 | used_rows=68 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 9 | fire_prevention_checklist | 화재 예방 점검표 | **FAIL** | 1 | 6 | used_rows=74 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 10 | formwork_shoring_workplan | 거푸집·동바리 작업계획서 | **FAIL** | 1 | 6 | used_rows=67 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 11 | hot_work_permit | 화기작업 허가서 | **FAIL** | 1 | 6 | used_rows=101 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 12 | lifting_work_permit | 중량물 인양·중장비사용 작업 허가 | **FAIL** | 1 | 6 | used_rows=134 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 13 | manager_job_training_record | 안전보건관리자 직무교육 이수 확인 | **FAIL** | 1 | 6 | 열 너비 합계 11.64in > 출력폭 6.77in (172%) — fitToWidth 미설정, 인 | 인쇄설정 추가 |
+| 14 | near_miss_report | 아차사고 보고서 | **FAIL** | 1 | 6 | used_rows=64 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 15 | risk_assessment_procedure | 위험성평가 실시 규정 | **FAIL** | 1 | 6 | used_rows=100 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 16 | risk_assessment_result_notice | 위험성평가 결과 근로자 공지문 | **FAIL** | 1 | 6 | used_rows=69 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 17 | safety_patrol_inspection_log | 안전순찰 점검 일지 | **FAIL** | 1 | 6 | used_rows=76 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 18 | special_education_log | 특별 안전보건교육 교육일지 | **FAIL** | 1 | 6 | used_rows=65 > 60 — 반복 헤더(print_title_rows) 없음 | print_title_rows 추가 |
+| 19 | subcontractor_safety_evaluation | 협력업체 안전보건 수준 평가표 | **FAIL** | 1 | 6 | used_rows=76 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 20 | track_maintenance_workplan | 궤도 작업계획서 | **FAIL** | 1 | 6 | used_rows=82 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 21 | work_at_height_permit | 고소작업 허가서 | **FAIL** | 1 | 6 | used_rows=119 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 22 | electrical_facility_checklist | 전기설비 정기 점검표 | **FAIL** | 1 | 5 | used_rows=66 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 23 | fall_protection_checklist | 추락 방호 설비 점검표 | **FAIL** | 1 | 5 | used_rows=86 > 60 — 반복 헤더(print_title_rows) 없음 | print_title_rows 추가 |
+| 24 | formwork_shoring_installation_checklist | 거푸집 및 동바리 설치 점검표 | **FAIL** | 1 | 5 | used_rows=95 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 25 | hazardous_chemical_checklist | 유해화학물질 취급 점검표 | **FAIL** | 1 | 5 | 열 너비 합계 12.52in > 출력폭 7.27in (172%) — fitToWidth 미설정, 인 | 인쇄설정 추가 |
+| 26 | protective_equipment_checklist | 보호구 지급 및 관리 점검표 | **FAIL** | 1 | 5 | 열 너비 합계 12.52in > 출력폭 7.27in (172%) — fitToWidth 미설정, 인 | 인쇄설정 추가 |
+| 27 | safety_culture_activity_log | 안전문화 활동 기록부 | **FAIL** | 1 | 5 | used_rows=65 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 28 | scaffold_installation_checklist | 비계 설치 점검표 | **FAIL** | 1 | 5 | used_rows=73 > 60 — 반복 헤더(print_title_rows) 없음 | print_title_rows 추가 |
+| 29 | supervisor_safety_log | 관리감독자 안전보건 업무 일지 | **FAIL** | 1 | 5 | used_rows=80 > 60 — 반복 헤더(print_title_rows) 없음 | 인쇄설정 추가 |
+| 30 | tower_crane_self_inspection_checklist | 타워크레인 자체 점검표 | **FAIL** | 1 | 5 | used_rows=92 > 60 — 반복 헤더(print_title_rows) 없음 | print_title_rows 추가 |
 
 ## 7. 공통 원인 분석
 
 | 원인 분류 | 해당 문서 수 | 설명 |
 |----------|------------|------|
-| excel_style_helpers 공통 보정 | 94 | fitToWidth, print_area, 여백 미설정 |
+| excel_style_helpers 공통 보정 | 91 | fitToWidth, print_area, 여백 미설정 |
 | 개별 builder 보정 필요 | 69 | 열너비 초과/부족, 반복 헤더 누락 |
 | 부대서류 보정 필요 | 10 | 부대서류 builder 레이아웃 개선 |
 
@@ -200,8 +200,8 @@
 ---
 
 ```
-전체: 97종  |  PASS: 0  |  WARN: 9  |  FAIL 후보: 88  |  ERROR: 0
-핵심: 87종  PASS: 0  WARN: 9  FAIL: 78
-부대: 10종  PASS: 0  WARN: 0  FAIL: 10
+전체: 97종  |  PASS: 0  |  WARN: 63  |  FAIL 후보: 34  |  ERROR: 0
+핵심: 87종  PASS: 0  WARN: 53  FAIL: 34
+부대: 10종  PASS: 0  WARN: 10  FAIL: 0
 최종 판정: FAIL
 ```
