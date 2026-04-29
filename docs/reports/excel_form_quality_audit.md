@@ -1,14 +1,14 @@
 # Excel 서식 품질 점검 보고서
 
-생성일시: 2026-04-29 00:03:47
+생성일시: 2026-04-29 09:22:34
 
 ## 전체 요약
 
 | 항목 | 건수 |
 |------|------|
-| 전체 점검 | 76 |
+| 전체 점검 | 87 |
 | PASS | 33 |
-| WARN | 43 |
+| WARN | 54 |
 | FAIL | 0 |
 
 ## FAIL 목록
@@ -16,6 +16,9 @@
 FAIL 없음
 
 ## WARN 목록
+
+### compressor_pneumatic_equipment_plan — 콤프레샤·공압장비 사용계획서 (optional)
+- WARN: 섹션 수 부족: 0개
 
 ### confined_space_checklist — 밀폐공간 사전 안전점검표 (legal)
 - WARN: 섹션 수 부족: 0개
@@ -91,6 +94,9 @@ FAIL 없음
 - WARN: 섹션 수 부족: 0개
 - WARN: 반복 테이블(번호 행) 없음
 
+### industrial_accident_status_ledger — 산업재해 발생 현황 관리 대장 (practical)
+- WARN: 섹션 수 부족: 0개
+
 ### lifting_work_permit — 중량물 인양·중장비사용 작업 허가서 (practical)
 - WARN: 섹션 수 부족: 0개
 
@@ -105,6 +111,10 @@ FAIL 없음
 ### mobile_crane_workplan — 이동식 크레인 작업계획서 (legal)
 - WARN: 섹션 수 부족: 0개
 
+### msds_posting_education_check — MSDS 비치 및 교육 확인서 (practical)
+- WARN: 빈 셀 비율 과다: 85%
+- WARN: 섹션 수 부족: 0개
+
 ### near_miss_report — 아차사고 보고서 (practical)
 - WARN: 반복 테이블(번호 행) 없음
 
@@ -117,24 +127,45 @@ FAIL 없음
 ### protective_equipment_checklist — 보호구 지급 및 관리 점검표 (unknown)
 - WARN: 섹션 수 부족: 0개
 
+### radiography_work_permit — 방사선 투과검사 작업 허가서 (practical)
+- WARN: 빈 셀 비율 과다: 86%
+- WARN: 섹션 수 부족: 0개
+
 ### risk_assessment — 위험성평가표 (legal)
 - WARN: 서명/확인란 없음
 - WARN: 인쇄 설정(orientation/fitToPage/margins) 없음
 - WARN: 섹션 수 부족: 0개
 - WARN: 반복 테이블(번호 행) 없음
 
+### risk_assessment_best_practice_report — 위험성평가 우수 사례 보고서 (optional)
+- WARN: 섹션 수 부족: 0개
+
 ### risk_assessment_meeting_minutes — 위험성평가 참여 회의록 (legal)
 - WARN: 빈 셀 비율 과다: 87%
+- WARN: 섹션 수 부족: 0개
+
+### risk_assessment_procedure — 위험성평가 실시 규정 (practical)
 - WARN: 섹션 수 부족: 0개
 
 ### risk_assessment_register — 위험성평가 관리 등록부 (practical)
 - WARN: 빈 셀 비율 과다: 87%
 - WARN: 섹션 수 부족: 0개
 
+### risk_assessment_result_notice — 위험성평가 결과 근로자 공지문 (practical)
+- WARN: 빈 셀 비율 과다: 88%
+- WARN: 섹션 수 부족: 0개
+
+### safety_culture_activity_log — 안전문화 활동 기록부 (optional)
+- WARN: 인쇄 설정(orientation/fitToPage/margins) 없음
+- WARN: 섹션 수 부족: 0개
+
 ### safety_management_log — 안전관리 일지 (practical)
 - WARN: 인쇄 설정(orientation/fitToPage/margins) 없음
 - WARN: 섹션 수 부족: 0개
 - WARN: 반복 테이블(번호 행) 없음
+
+### safety_policy_goal_notice — 안전보건 방침 및 목표 게시문 (practical)
+- WARN: 섹션 수 부족: 0개
 
 ### scaffold_installation_checklist — 비계 설치 점검표 (legal)
 - WARN: 섹션 수 부족: 0개
@@ -145,6 +176,9 @@ FAIL 없음
 ### special_health_examination — 특수건강진단 대상자 및 결과 관리대장 (legal)
 - WARN: 섹션 수 부족: 0개
 
+### subcontractor_safety_evaluation — 협력업체 안전보건 수준 평가표 (practical)
+- WARN: 섹션 수 부족: 0개
+
 ### tbm_log — TBM 안전점검 일지 (practical)
 - WARN: 섹션 수 부족: 0개
 
@@ -153,6 +187,11 @@ FAIL 없음
 
 ### tower_crane_workplan — 타워크레인 작업계획서 (legal)
 - WARN: 섹션 수 부족: 0개
+
+### track_maintenance_workplan — 궤도 작업계획서 (legal)
+- WARN: 빈 셀 비율 과다: 86%
+- WARN: 섹션 수 부족: 0개
+- WARN: 반복 테이블(번호 행) 없음
 
 ### vehicle_construction_workplan — 차량계 건설기계 작업계획서 (legal)
 - WARN: 섹션 수 부족: 0개
@@ -168,10 +207,10 @@ FAIL 없음
 
 ## 공통 문제 (WARN 빈도)
 
-- 섹션 수 부족: 40건
-- 반복 테이블(번호 행) 없음: 12건
-- 인쇄 설정(orientation/fitToPage/margins) 없음: 5건
-- 빈 셀 비율 과다: 5건
+- 섹션 수 부족: 51건
+- 반복 테이블(번호 행) 없음: 13건
+- 빈 셀 비율 과다: 9건
+- 인쇄 설정(orientation/fitToPage/margins) 없음: 6건
 - 서명/확인란 없음: 1건
 
 ## 즉시 수정 필요
