@@ -2,9 +2,10 @@
 #       장비 관련 함수는 모두 'project_equipment' 테이블만 사용한다.
 #       기존 마스터 'equipment'(equipment_code PK, document_equipment_map FK)는 절대 접근 금지.
 
+import psycopg2.extras
 from psycopg2.extras import Json
 
-from db import fetchone, fetchall, execute
+from db import fetchone, fetchall, execute, get_conn
 
 PROJECT_PROFILE_FIELDS = (
     "construction_type",
@@ -764,3 +765,83 @@ def update_document_file(file_id: int, fields: dict) -> tuple[dict | None, str |
         params,
     )
     return get_document_file(file_id), None
+
+
+# ── rule package metadata (transactional) ──────────────────────────────────
+# Excel/ZIP/파일 생성 없음 — 메타 4테이블 INSERT 한 트랜잭션으로 묶는다.
+
+def create_rule_package_metadata(
+    *,
+    project_id: int,
+    rule_id: str,
+    package_type: str,
+    event_type: str,
+    event_date,
+    existing_safety_event_id: int | None,
+    user_id: int | None,
+    documents: list[dict],
+    input_snapshot: dict,
+    event_payload: dict,
+) -> dict:
+    """단일 connection·BEGIN/COMMIT 으로 metadata 4건+를 적재한다.
+
+    실패 시 ROLLBACK. 호출자 책임으로 사전 검증(rule_id/project_id 등) 완료 가정.
+    """
+    conn = get_conn()
+    try:
+        with conn:
+            with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+                # 1) safety_events (없으면 생성)
+                if existing_safety_event_id is not None:
+                    safety_event_id = existing_safety_event_id
+                else:
+                    cur.execute(
+                        "INSERT INTO safety_events (project_id, event_type, event_date, "
+                        "source_type, status, payload_json, created_by_user_id) "
+                        "VALUES (%s, %s, %s, %s, 'pending', %s, %s) RETURNING id",
+                        (project_id, event_type, event_date, "rule", Json(event_payload), user_id),
+                    )
+                    safety_event_id = cur.fetchone()["id"]
+
+                # 2) document_generation_jobs
+                cur.execute(
+                    "INSERT INTO document_generation_jobs (project_id, safety_event_id, "
+                    "requested_by_user_id, job_type, status, input_snapshot_json) "
+                    "VALUES (%s, %s, %s, 'package', 'pending', %s) RETURNING id",
+                    (project_id, safety_event_id, user_id, Json(input_snapshot)),
+                )
+                job_id = cur.fetchone()["id"]
+
+                # 3) generated_document_packages
+                cur.execute(
+                    "INSERT INTO generated_document_packages (project_id, safety_event_id, "
+                    "generation_job_id, package_type, rule_id, status, document_count, "
+                    "created_by_user_id) VALUES (%s, %s, %s, %s, %s, 'created', %s, %s) "
+                    "RETURNING id",
+                    (project_id, safety_event_id, job_id, package_type, rule_id,
+                     len(documents), user_id),
+                )
+                package_id = cur.fetchone()["id"]
+
+                # 4) generated_document_files
+                file_ids: list[int] = []
+                for d in documents:
+                    form_type = d["key"] if d["kind"] == "form" else None
+                    supplemental_type = d["key"] if d["kind"] == "supplemental" else None
+                    cur.execute(
+                        "INSERT INTO generated_document_files (package_id, project_id, "
+                        "generation_job_id, document_kind, form_type, supplemental_type, "
+                        "display_name, status) "
+                        "VALUES (%s, %s, %s, %s, %s, %s, %s, 'created') RETURNING id",
+                        (package_id, project_id, job_id, d["kind"],
+                         form_type, supplemental_type, d.get("label")),
+                    )
+                    file_ids.append(cur.fetchone()["id"])
+        return {
+            "safety_event_id": safety_event_id,
+            "job_id": job_id,
+            "package_id": package_id,
+            "file_ids": file_ids,
+        }
+    finally:
+        conn.close()

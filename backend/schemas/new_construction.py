@@ -555,3 +555,69 @@ class GeneratedDocumentFileUpdate(BaseModel):
     file_size: Optional[int] = Field(default=None, ge=0)
     mime_type: Optional[str] = Field(default=None, max_length=100)
     status: Optional[DocFileStatus] = None
+
+
+# ── Rule MVP ───────────────────────────────────────────────────────────────
+
+class RuleDocumentRef(BaseModel):
+    kind: str
+    key: str
+    label: str
+    code: Optional[str] = None
+    ready: Optional[bool] = None
+
+
+class RuleDefinitionResponse(BaseModel):
+    rule_id: str
+    display_name: str
+    trigger_event_type: str
+    package_type: str
+    subject_kind: str
+    core_documents: list[RuleDocumentRef]
+    supplementary_documents: list[RuleDocumentRef]
+    total_document_count: int
+
+
+class RuleListResponse(BaseModel):
+    items: list[RuleDefinitionResponse]
+
+
+class RulePreviewRequest(BaseModel):
+    safety_event_id: Optional[int] = None
+    subject_type: Optional[str] = Field(default=None, max_length=30)
+    subject_id: Optional[int] = None
+    target_date: Optional[date] = None
+    notes: Optional[str] = None
+
+
+class RulePreviewResponse(BaseModel):
+    rule_id: str
+    project_id: int
+    ready: bool
+    missing_fields: list[str]
+    subject: dict[str, Any]
+    core_documents: list[RuleDocumentRef]
+    supplementary_documents: list[RuleDocumentRef]
+    total_document_count: int
+
+
+class RuleGenerateRequest(BaseModel):
+    safety_event_id: Optional[int] = None
+    subject_type: Optional[str] = Field(default=None, max_length=30)
+    subject_id: Optional[int] = None
+    target_date: Optional[date] = None
+    notes: Optional[str] = None
+    user_id: Optional[int] = None
+    force: bool = False
+
+
+class RuleGenerateResponse(BaseModel):
+    rule_id: str
+    project_id: int
+    safety_event_id: int
+    job_id: int
+    package_id: int
+    file_count: int
+    file_ids: list[int]
+    status: str
+    subject: dict[str, Any]

@@ -5,7 +5,14 @@
 from fastapi import APIRouter, HTTPException
 
 from repositories import new_construction_repository as repo
+from services import new_construction_rules as rules_svc
 from schemas.new_construction import (
+    RuleDefinitionResponse,
+    RuleGenerateRequest,
+    RuleGenerateResponse,
+    RuleListResponse,
+    RulePreviewRequest,
+    RulePreviewResponse,
     ContractorCreate,
     ContractorListResponse,
     ContractorResponse,
@@ -390,4 +397,41 @@ def update_document_file(file_id: int, body: GeneratedDocumentFileUpdate):
         raise HTTPException(404, "Document file not found")
     if err == "generation_job_mismatch":
         raise HTTPException(400, "generation_job_id does not belong to this project")
+    return row
+
+
+# ── Rule MVP (list / preview / generate metadata) ─────────────────────────
+# preview: DB 쓰기 없음. generate: 메타 4테이블 INSERT (Excel/ZIP/파일 미생성).
+
+@router.get("/rules", response_model=RuleListResponse)
+def list_rules():
+    return {"items": rules_svc.list_rules()}
+
+
+@router.post("/projects/{project_id}/rules/{rule_id}/preview", response_model=RulePreviewResponse)
+def preview_rule(project_id: int, rule_id: str, body: RulePreviewRequest):
+    payload = body.model_dump(exclude_unset=True)
+    row, err = rules_svc.preview(project_id, rule_id, payload)
+    if err == "rule_not_found":
+        raise HTTPException(404, "Rule not found")
+    if err == "project_not_found":
+        raise HTTPException(404, "Project not found")
+    if err == "safety_event_mismatch":
+        raise HTTPException(400, "safety_event_id does not belong to this project")
+    return row
+
+
+@router.post("/projects/{project_id}/rules/{rule_id}/generate", response_model=RuleGenerateResponse, status_code=201)
+def generate_rule(project_id: int, rule_id: str, body: RuleGenerateRequest):
+    payload = body.model_dump(exclude_unset=True)
+    force = bool(payload.pop("force", False))
+    row, err = rules_svc.generate(project_id, rule_id, payload, force=force)
+    if err == "rule_not_found":
+        raise HTTPException(404, "Rule not found")
+    if err == "project_not_found":
+        raise HTTPException(404, "Project not found")
+    if err == "safety_event_mismatch":
+        raise HTTPException(400, "safety_event_id does not belong to this project")
+    if err == "not_ready":
+        raise HTTPException(400, {"message": "Rule preconditions not met", "missing_fields": row["missing_fields"]})
     return row
