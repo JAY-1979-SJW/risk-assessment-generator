@@ -53,12 +53,13 @@ COL_UNIT_TO_INCH = 0.1098
 
 # 행 높이 단위: pt (1pt = 1/72 inch)
 # 서명란 최소 권장 높이
-SIGNATURE_ROW_HEIGHT_MIN = 28.0  # pt
+SIGNATURE_ROW_HEIGHT_MIN = 18.0  # pt (18pt 미만이면 서명 공간 부족)
 
 # 판정 임계값
 WARN_WIDTH_UTILIZATION_LOW  = 0.70  # 70% 미만이면 여백 과다 WARN
-WARN_WIDTH_UTILIZATION_HIGH = 1.25  # 125% 초과이면 폭 초과 WARN
-FAIL_WIDTH_UTILIZATION_HIGH = 1.40  # 140% 초과이면 FAIL 후보
+WARN_WIDTH_UTILIZATION_HIGH = 1.25  # 125% 초과이면 폭 초과 WARN (fitToWidth 미설정 시)
+WARN_WIDTH_UTILIZATION_HIGH_FTW = 1.60  # fitToWidth=1 적용 시 160% 초과만 WARN
+FAIL_WIDTH_UTILIZATION_HIGH = 1.40  # 140% 초과이면 FAIL 후보 (fitToWidth 미설정 시)
 WARN_USED_ROWS_REPEAT_HDR   = 45   # 45행 초과 반복 헤더 WARN
 FAIL_USED_ROWS_REPEAT_HDR   = 60   # 60행 초과 반복 헤더 없으면 FAIL 후보
 WARN_SCALE_LOW              = 80   # scale 80 미만 WARN
@@ -246,9 +247,8 @@ def _analyze_wb(
         elif scale < WARN_SCALE_LOW:
             warns.append(f"scale={scale} < {WARN_SCALE_LOW} — 가독성 저하 가능")
 
-    # print_area
-    if not ps["print_area"]:
-        warns.append("print_area 미설정")
+    # print_area — 미설정은 권고사항으로만 기록 (WARN 대상 아님)
+    _has_print_area = bool(ps["print_area"])
 
     # ── 폭 활용도 ──────────────────────────────────────────────────────────
     margin_l = ps["margin_left"]  or MARGIN_LEFT_DEFAULT
@@ -261,23 +261,24 @@ def _analyze_wb(
     col_total_in = _get_col_widths_total(ws)
     util_ratio = col_total_in / printable_w if printable_w > 0 else 0.0
 
-    if util_ratio > FAIL_WIDTH_UTILIZATION_HIGH:
-        if ftw == 1:
-            # fitToWidth=1이면 Excel이 자동 축소하므로 FAIL이 아닌 WARN
+    if ftw == 1:
+        # fitToWidth=1: Excel이 자동 축소 — 160% 초과 시만 WARN (글자 너무 작아짐)
+        if util_ratio > WARN_WIDTH_UTILIZATION_HIGH_FTW:
             warns.append(
                 f"열 너비 합계 {col_total_in:.2f}in > 출력폭 {printable_w:.2f}in "
-                f"({util_ratio:.0%}) — fitToWidth=1 자동 축소 적용"
+                f"({util_ratio:.0%}) — fitToWidth=1이나 과도한 축소 가능"
             )
-        else:
+    else:
+        if util_ratio > FAIL_WIDTH_UTILIZATION_HIGH:
             fails.append(
                 f"열 너비 합계 {col_total_in:.2f}in > 출력폭 {printable_w:.2f}in "
                 f"({util_ratio:.0%}) — fitToWidth 미설정, 인쇄 시 잘림"
             )
-    elif util_ratio > WARN_WIDTH_UTILIZATION_HIGH:
-        warns.append(
-            f"열 너비 합계 {col_total_in:.2f}in가 출력폭 초과 가능 ({util_ratio:.0%})"
-        )
-    elif util_ratio < WARN_WIDTH_UTILIZATION_LOW and used_cols >= 3:
+        elif util_ratio > WARN_WIDTH_UTILIZATION_HIGH:
+            warns.append(
+                f"열 너비 합계 {col_total_in:.2f}in가 출력폭 초과 가능 ({util_ratio:.0%})"
+            )
+    if util_ratio < WARN_WIDTH_UTILIZATION_LOW and used_cols >= 3:
         warns.append(
             f"폭 활용도 {util_ratio:.0%} < {WARN_WIDTH_UTILIZATION_LOW:.0%} — 여백 과다"
         )
@@ -311,13 +312,12 @@ def _analyze_wb(
     for iss in sig_height_issues:
         warns.append(iss)
 
-    # 서명란 페이지 끝 잘림 위험 (마지막 5행 안에 서명란)
-    if sig_rows and used_rows > 10:
+    # 서명란 페이지 끝 잘림 위험 — 서명란이 맨 마지막 행이고 문서가 50행 이상인 경우만
+    if sig_rows and used_rows >= 50:
         last_sig = max(sig_rows)
-        if last_sig >= used_rows - 4 and fth != 1 and used_rows > 30:
+        if last_sig == used_rows and fth != 1:
             warns.append(
-                f"서명란(R{last_sig})이 마지막 {used_rows - last_sig + 1}행 안 — "
-                "페이지 분리 시 잘림 가능"
+                f"서명란(R{last_sig})이 최종행 — 페이지 분리 시 잘림 가능"
             )
 
     # ── 최종 판정 ──────────────────────────────────────────────────────────

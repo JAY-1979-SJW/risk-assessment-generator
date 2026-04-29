@@ -207,7 +207,7 @@ def _write_notice_block(ws, row: int) -> int:
     """고정 문구 3줄 출력."""
     for txt in (NOTICE_CL002, NOTICE_LAW, NOTICE_NONCONFORM):
         _wc(ws, row, 1, TOTAL_COLS, f"※ {txt}",
-            font=_FONT_NOTICE, fill=_FILL_NOTICE, align=_ALIGN_LEFT, height=16)
+            font=_FONT_NOTICE, fill=_FILL_NOTICE, align=_ALIGN_LEFT, height=18)
         row += 1
     return row
 

@@ -220,7 +220,7 @@ def _write_title(ws, row: int) -> int:
 def _write_notice_block(ws, row: int) -> int:
     for txt in (NOTICE_PTW003, NOTICE_CL001, NOTICE_LAW, NOTICE_NONCONFORM):
         _wc(ws, row, 1, TOTAL_COLS, f"※ {txt}",
-            font=_FONT_NOTICE, fill=_FILL_NOTICE, align=_ALIGN_LEFT, height=16)
+            font=_FONT_NOTICE, fill=_FILL_NOTICE, align=_ALIGN_LEFT, height=18)
         row += 1
     return row
 

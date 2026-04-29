@@ -109,7 +109,7 @@ from engine.output.excel_style_helpers import (
     FONT_TITLE, FONT_SUBTITLE, FONT_BOLD, FONT_DEFAULT, FONT_SMALL, FONT_NOTICE,
     FILL_LABEL, FILL_SECTION, FILL_HEADER, FILL_NONE,
     ALIGN_CENTER, ALIGN_LEFT, ALIGN_LABEL,
-    v, write_cell, apply_col_widths,
+    v, write_cell, apply_col_widths, normalize_signature_row_heights,
 )
 
 DOC_ID        = "WP-012"
@@ -464,6 +464,7 @@ def build_track_maintenance_workplan(form_data: Dict[str, Any]) -> bytes:
         font=FONT_NOTICE, align=ALIGN_LEFT,
     )
 
+    normalize_signature_row_heights(ws)
     output = BytesIO()
     wb.save(output)
     output.seek(0)

@@ -154,6 +154,23 @@ def apply_a4_page_setup(
         left=left, right=right, top=top, bottom=bottom,
         header=0.3, footer=0.3,
     )
+    set_print_area_to_used_range(ws)
+
+
+SIGNATURE_KEYWORDS = ("서명", "확인자", "승인자", "작성자", "검토자")
+
+
+def normalize_signature_row_heights(ws, min_height: float = 20.0) -> None:
+    """서명 관련 키워드가 있는 행의 높이를 min_height 이상으로 보정한다."""
+    for row in ws.iter_rows():
+        for cell in row:
+            if cell.value and any(kw in str(cell.value) for kw in SIGNATURE_KEYWORDS):
+                r = cell.row
+                dim = ws.row_dimensions[r]
+                current = dim.height if dim.height else 15.0
+                if current < min_height:
+                    ws.row_dimensions[r].height = min_height
+                break  # 행당 1회만
 
 
 def set_print_area_to_used_range(ws) -> None:

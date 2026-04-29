@@ -427,6 +427,7 @@ def _write_signature(ws, row: int, form_data: Dict[str, Any]) -> int:
     row += 1
 
     _wlv(ws, row, "서명 일자", sign_date, 1, 2, 9)
+    ws.row_dimensions[row].height = 20
     row += 1
 
     _wc(ws, row, 1, TOTAL_COLS,
