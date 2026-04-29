@@ -43,6 +43,7 @@ from engine.output.work_completion_confirmation_builder import build_work_comple
 from engine.output.improvement_completion_check_builder import build_improvement_completion_check
 from engine.output.equipment_operator_qualification_check_builder import build_equipment_operator_qualification_check
 from engine.output.watchman_assignment_confirmation_builder import build_watchman_assignment_confirmation
+from engine.output.education_makeup_confirmation_builder import build_education_makeup_confirmation
 
 # ---------------------------------------------------------------------------
 # SupplementalSpec
@@ -272,7 +273,7 @@ _SUPPLEMENTARY_REGISTRY: Dict[str, SupplementalSpec] = {
             "education_log", "special_education_log",
         ),
         trigger_condition="교육 미참석자 ≥ 1명이고 보완 교육 실시 시",
-        output_builder=_todo_builder,  # TODO: education_makeup_confirmation_builder.py
+        output_builder=build_education_makeup_confirmation,
         required_fields=(
             "site_name", "original_edu_date", "edu_subject",
             "makeup_date",
