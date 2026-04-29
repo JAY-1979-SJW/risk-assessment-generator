@@ -518,3 +518,249 @@ def soft_delete_safety_event(event_id: int) -> bool:
         (event_id,),
     )
     return True
+
+
+# ── helpers : cross-project ownership ──────────────────────────────────────
+
+def _safety_event_belongs_to_project(event_id: int, project_id: int) -> bool:
+    return fetchone(
+        "SELECT 1 AS x FROM safety_events WHERE id = %s AND project_id = %s",
+        (event_id, project_id),
+    ) is not None
+
+
+def _generation_job_belongs_to_project(job_id: int, project_id: int) -> bool:
+    return fetchone(
+        "SELECT 1 AS x FROM document_generation_jobs WHERE id = %s AND project_id = %s",
+        (job_id, project_id),
+    ) is not None
+
+
+def _package_belongs_to_project(package_id: int, project_id: int) -> bool:
+    return fetchone(
+        "SELECT 1 AS x FROM generated_document_packages WHERE id = %s AND project_id = %s",
+        (package_id, project_id),
+    ) is not None
+
+
+# ── document_generation_jobs ───────────────────────────────────────────────
+# 본 단계는 메타데이터 CRUD만. Excel builder / Rule 실행 / ZIP 생성 미포함.
+
+DOC_JOB_FIELDS = (
+    "safety_event_id",
+    "requested_by_user_id",
+    "job_type",
+    "form_type",
+    "supplemental_type",
+    "status",
+    "input_snapshot_json",
+    "error_message",
+    "started_at",
+    "finished_at",
+)
+
+DOC_JOB_SELECT = "id, project_id, " + ", ".join(DOC_JOB_FIELDS) + ", created_at, updated_at"
+
+
+def _wrap_input_snapshot(allowed: dict) -> dict:
+    if "input_snapshot_json" in allowed and allowed["input_snapshot_json"] is not None:
+        allowed = dict(allowed)
+        allowed["input_snapshot_json"] = Json(allowed["input_snapshot_json"])
+    return allowed
+
+
+def list_document_jobs(project_id: int) -> list[dict]:
+    return fetchall(
+        f"SELECT {DOC_JOB_SELECT} FROM document_generation_jobs WHERE project_id = %s "
+        f"ORDER BY created_at DESC, id DESC",
+        (project_id,),
+    )
+
+
+def get_document_job(job_id: int) -> dict | None:
+    return fetchone(f"SELECT {DOC_JOB_SELECT} FROM document_generation_jobs WHERE id = %s", (job_id,))
+
+
+def create_document_job(project_id: int, payload: dict) -> tuple[dict | None, str | None]:
+    if not _project_exists(project_id):
+        return None, "project_not_found"
+    allowed = {k: v for k, v in payload.items() if k in DOC_JOB_FIELDS}
+    sev = allowed.get("safety_event_id")
+    if sev is not None and not _safety_event_belongs_to_project(sev, project_id):
+        return None, "safety_event_mismatch"
+    allowed = _wrap_input_snapshot(allowed)
+    cols = ["project_id"] + list(allowed.keys())
+    placeholders = ", ".join(["%s"] * len(cols))
+    params = [project_id] + list(allowed.values())
+    new_id = execute(
+        f"INSERT INTO document_generation_jobs ({', '.join(cols)}) VALUES ({placeholders}) RETURNING id",
+        params,
+    )
+    return get_document_job(new_id), None
+
+
+def update_document_job(job_id: int, fields: dict) -> tuple[dict | None, str | None]:
+    current = get_document_job(job_id)
+    if current is None:
+        return None, "not_found"
+    allowed = {k: v for k, v in fields.items() if k in DOC_JOB_FIELDS}
+    if not allowed:
+        return current, None
+    if "safety_event_id" in allowed and allowed["safety_event_id"] is not None:
+        if not _safety_event_belongs_to_project(allowed["safety_event_id"], current["project_id"]):
+            return None, "safety_event_mismatch"
+    allowed = _wrap_input_snapshot(allowed)
+    set_clause = ", ".join(f"{k} = %s" for k in allowed.keys())
+    params = list(allowed.values()) + [job_id]
+    execute(
+        f"UPDATE document_generation_jobs SET {set_clause}, updated_at = NOW() WHERE id = %s",
+        params,
+    )
+    return get_document_job(job_id), None
+
+
+# ── generated_document_packages ────────────────────────────────────────────
+
+DOC_PACKAGE_FIELDS = (
+    "safety_event_id",
+    "generation_job_id",
+    "package_type",
+    "package_name",
+    "rule_id",
+    "status",
+    "document_count",
+    "storage_key",
+    "zip_file_path",
+    "created_by_user_id",
+)
+
+DOC_PACKAGE_SELECT = "id, project_id, " + ", ".join(DOC_PACKAGE_FIELDS) + ", created_at, updated_at"
+
+
+def list_document_packages(project_id: int) -> list[dict]:
+    return fetchall(
+        f"SELECT {DOC_PACKAGE_SELECT} FROM generated_document_packages WHERE project_id = %s "
+        f"ORDER BY created_at DESC, id DESC",
+        (project_id,),
+    )
+
+
+def get_document_package(package_id: int) -> dict | None:
+    return fetchone(
+        f"SELECT {DOC_PACKAGE_SELECT} FROM generated_document_packages WHERE id = %s",
+        (package_id,),
+    )
+
+
+def create_document_package(project_id: int, payload: dict) -> tuple[dict | None, str | None]:
+    if not _project_exists(project_id):
+        return None, "project_not_found"
+    allowed = {k: v for k, v in payload.items() if k in DOC_PACKAGE_FIELDS}
+    sev = allowed.get("safety_event_id")
+    if sev is not None and not _safety_event_belongs_to_project(sev, project_id):
+        return None, "safety_event_mismatch"
+    job = allowed.get("generation_job_id")
+    if job is not None and not _generation_job_belongs_to_project(job, project_id):
+        return None, "generation_job_mismatch"
+    cols = ["project_id"] + list(allowed.keys())
+    placeholders = ", ".join(["%s"] * len(cols))
+    params = [project_id] + list(allowed.values())
+    new_id = execute(
+        f"INSERT INTO generated_document_packages ({', '.join(cols)}) VALUES ({placeholders}) RETURNING id",
+        params,
+    )
+    return get_document_package(new_id), None
+
+
+def update_document_package(package_id: int, fields: dict) -> tuple[dict | None, str | None]:
+    current = get_document_package(package_id)
+    if current is None:
+        return None, "not_found"
+    allowed = {k: v for k, v in fields.items() if k in DOC_PACKAGE_FIELDS}
+    if not allowed:
+        return current, None
+    pid = current["project_id"]
+    if "safety_event_id" in allowed and allowed["safety_event_id"] is not None:
+        if not _safety_event_belongs_to_project(allowed["safety_event_id"], pid):
+            return None, "safety_event_mismatch"
+    if "generation_job_id" in allowed and allowed["generation_job_id"] is not None:
+        if not _generation_job_belongs_to_project(allowed["generation_job_id"], pid):
+            return None, "generation_job_mismatch"
+    set_clause = ", ".join(f"{k} = %s" for k in allowed.keys())
+    params = list(allowed.values()) + [package_id]
+    execute(
+        f"UPDATE generated_document_packages SET {set_clause}, updated_at = NOW() WHERE id = %s",
+        params,
+    )
+    return get_document_package(package_id), None
+
+
+# ── generated_document_files ───────────────────────────────────────────────
+# 주의: 이 테이블은 updated_at 컬럼이 없다 (0023 마이그레이션 참조).
+
+DOC_FILE_FIELDS = (
+    "generation_job_id",
+    "document_kind",
+    "form_type",
+    "supplemental_type",
+    "display_name",
+    "file_name",
+    "file_path",
+    "storage_key",
+    "file_size",
+    "mime_type",
+    "status",
+)
+
+DOC_FILE_SELECT = "id, package_id, project_id, " + ", ".join(DOC_FILE_FIELDS) + ", created_at"
+
+
+def list_document_files(package_id: int) -> list[dict]:
+    return fetchall(
+        f"SELECT {DOC_FILE_SELECT} FROM generated_document_files WHERE package_id = %s "
+        f"ORDER BY id ASC",
+        (package_id,),
+    )
+
+
+def get_document_file(file_id: int) -> dict | None:
+    return fetchone(f"SELECT {DOC_FILE_SELECT} FROM generated_document_files WHERE id = %s", (file_id,))
+
+
+def create_document_file(package_id: int, payload: dict) -> tuple[dict | None, str | None]:
+    pkg = get_document_package(package_id)
+    if pkg is None:
+        return None, "package_not_found"
+    project_id = pkg["project_id"]
+    allowed = {k: v for k, v in payload.items() if k in DOC_FILE_FIELDS}
+    job = allowed.get("generation_job_id")
+    if job is not None and not _generation_job_belongs_to_project(job, project_id):
+        return None, "generation_job_mismatch"
+    cols = ["package_id", "project_id"] + list(allowed.keys())
+    placeholders = ", ".join(["%s"] * len(cols))
+    params = [package_id, project_id] + list(allowed.values())
+    new_id = execute(
+        f"INSERT INTO generated_document_files ({', '.join(cols)}) VALUES ({placeholders}) RETURNING id",
+        params,
+    )
+    return get_document_file(new_id), None
+
+
+def update_document_file(file_id: int, fields: dict) -> tuple[dict | None, str | None]:
+    current = get_document_file(file_id)
+    if current is None:
+        return None, "not_found"
+    allowed = {k: v for k, v in fields.items() if k in DOC_FILE_FIELDS}
+    if not allowed:
+        return current, None
+    if "generation_job_id" in allowed and allowed["generation_job_id"] is not None:
+        if not _generation_job_belongs_to_project(allowed["generation_job_id"], current["project_id"]):
+            return None, "generation_job_mismatch"
+    set_clause = ", ".join(f"{k} = %s" for k in allowed.keys())
+    params = list(allowed.values()) + [file_id]
+    # 주의: updated_at 컬럼 없음 — SET 절에 포함하지 않는다.
+    execute(
+        f"UPDATE generated_document_files SET {set_clause} WHERE id = %s",
+        params,
+    )
+    return get_document_file(file_id), None

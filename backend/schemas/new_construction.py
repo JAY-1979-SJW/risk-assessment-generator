@@ -388,3 +388,170 @@ class SafetyEventUpdate(BaseModel):
     status: Optional[str] = Field(default=None, max_length=30)
     payload_json: Optional[dict[str, Any]] = None
     created_by_user_id: Optional[int] = None
+
+
+# ── Document Generation Jobs ───────────────────────────────────────────────
+# 본 단계: 메타데이터 CRUD만. 실제 builder 실행/Rule 트리거 미구현.
+
+DocJobStatus = Literal["pending", "running", "completed", "failed", "cancelled"]
+
+
+class DocumentGenerationJobResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    project_id: int
+    safety_event_id: Optional[int] = None
+    requested_by_user_id: Optional[int] = None
+    job_type: Optional[str] = None
+    form_type: Optional[str] = None
+    supplemental_type: Optional[str] = None
+    status: Optional[str] = None
+    input_snapshot_json: Optional[dict[str, Any]] = None
+    error_message: Optional[str] = None
+    started_at: Optional[datetime] = None
+    finished_at: Optional[datetime] = None
+    created_at: datetime
+    updated_at: datetime
+
+
+class DocumentGenerationJobListResponse(BaseModel):
+    items: list[DocumentGenerationJobResponse]
+
+
+class DocumentGenerationJobCreate(BaseModel):
+    safety_event_id: Optional[int] = None
+    requested_by_user_id: Optional[int] = None
+    job_type: Optional[str] = Field(default=None, max_length=50)
+    form_type: Optional[str] = Field(default=None, max_length=150)
+    supplemental_type: Optional[str] = Field(default=None, max_length=150)
+    status: Optional[DocJobStatus] = None
+    input_snapshot_json: Optional[dict[str, Any]] = None
+    error_message: Optional[str] = None
+    started_at: Optional[datetime] = None
+    finished_at: Optional[datetime] = None
+
+
+class DocumentGenerationJobUpdate(BaseModel):
+    safety_event_id: Optional[int] = None
+    requested_by_user_id: Optional[int] = None
+    job_type: Optional[str] = Field(default=None, max_length=50)
+    form_type: Optional[str] = Field(default=None, max_length=150)
+    supplemental_type: Optional[str] = Field(default=None, max_length=150)
+    status: Optional[DocJobStatus] = None
+    input_snapshot_json: Optional[dict[str, Any]] = None
+    error_message: Optional[str] = None
+    started_at: Optional[datetime] = None
+    finished_at: Optional[datetime] = None
+
+
+# ── Generated Document Packages ────────────────────────────────────────────
+
+DocPackageStatus = Literal["created", "generating", "ready", "failed", "cancelled"]
+
+
+class GeneratedDocumentPackageResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    project_id: int
+    safety_event_id: Optional[int] = None
+    generation_job_id: Optional[int] = None
+    package_type: Optional[str] = None
+    package_name: Optional[str] = None
+    rule_id: Optional[str] = None
+    status: Optional[str] = None
+    document_count: Optional[int] = None
+    storage_key: Optional[str] = None
+    zip_file_path: Optional[str] = None
+    created_by_user_id: Optional[int] = None
+    created_at: datetime
+    updated_at: datetime
+
+
+class GeneratedDocumentPackageListResponse(BaseModel):
+    items: list[GeneratedDocumentPackageResponse]
+
+
+class GeneratedDocumentPackageCreate(BaseModel):
+    safety_event_id: Optional[int] = None
+    generation_job_id: Optional[int] = None
+    package_type: Optional[str] = Field(default=None, max_length=100)
+    package_name: Optional[str] = Field(default=None, max_length=200)
+    rule_id: Optional[str] = Field(default=None, max_length=100)
+    status: Optional[DocPackageStatus] = None
+    document_count: Optional[int] = Field(default=None, ge=0)
+    storage_key: Optional[str] = None
+    zip_file_path: Optional[str] = None
+    created_by_user_id: Optional[int] = None
+
+
+class GeneratedDocumentPackageUpdate(BaseModel):
+    safety_event_id: Optional[int] = None
+    generation_job_id: Optional[int] = None
+    package_type: Optional[str] = Field(default=None, max_length=100)
+    package_name: Optional[str] = Field(default=None, max_length=200)
+    rule_id: Optional[str] = Field(default=None, max_length=100)
+    status: Optional[DocPackageStatus] = None
+    document_count: Optional[int] = Field(default=None, ge=0)
+    storage_key: Optional[str] = None
+    zip_file_path: Optional[str] = None
+    created_by_user_id: Optional[int] = None
+
+
+# ── Generated Document Files ───────────────────────────────────────────────
+# 주의: 이 테이블에는 updated_at 컬럼이 없다.
+
+DocFileStatus = Literal["created", "ready", "failed", "deleted"]
+
+
+class GeneratedDocumentFileResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    package_id: Optional[int] = None
+    project_id: int
+    generation_job_id: Optional[int] = None
+    document_kind: Optional[str] = None
+    form_type: Optional[str] = None
+    supplemental_type: Optional[str] = None
+    display_name: Optional[str] = None
+    file_name: Optional[str] = None
+    file_path: Optional[str] = None
+    storage_key: Optional[str] = None
+    file_size: Optional[int] = None
+    mime_type: Optional[str] = None
+    status: Optional[str] = None
+    created_at: datetime
+
+
+class GeneratedDocumentFileListResponse(BaseModel):
+    items: list[GeneratedDocumentFileResponse]
+
+
+class GeneratedDocumentFileCreate(BaseModel):
+    generation_job_id: Optional[int] = None
+    document_kind: Optional[str] = Field(default=None, max_length=50)
+    form_type: Optional[str] = Field(default=None, max_length=150)
+    supplemental_type: Optional[str] = Field(default=None, max_length=150)
+    display_name: Optional[str] = Field(default=None, max_length=200)
+    file_name: Optional[str] = Field(default=None, max_length=255)
+    file_path: Optional[str] = None
+    storage_key: Optional[str] = None
+    file_size: Optional[int] = Field(default=None, ge=0)
+    mime_type: Optional[str] = Field(default=None, max_length=100)
+    status: Optional[DocFileStatus] = None
+
+
+class GeneratedDocumentFileUpdate(BaseModel):
+    generation_job_id: Optional[int] = None
+    document_kind: Optional[str] = Field(default=None, max_length=50)
+    form_type: Optional[str] = Field(default=None, max_length=150)
+    supplemental_type: Optional[str] = Field(default=None, max_length=150)
+    display_name: Optional[str] = Field(default=None, max_length=200)
+    file_name: Optional[str] = Field(default=None, max_length=255)
+    file_path: Optional[str] = None
+    storage_key: Optional[str] = None
+    file_size: Optional[int] = Field(default=None, ge=0)
+    mime_type: Optional[str] = Field(default=None, max_length=100)
+    status: Optional[DocFileStatus] = None

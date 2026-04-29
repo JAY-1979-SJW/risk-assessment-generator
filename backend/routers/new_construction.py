@@ -10,6 +10,18 @@ from schemas.new_construction import (
     ContractorListResponse,
     ContractorResponse,
     ContractorUpdate,
+    DocumentGenerationJobCreate,
+    DocumentGenerationJobListResponse,
+    DocumentGenerationJobResponse,
+    DocumentGenerationJobUpdate,
+    GeneratedDocumentFileCreate,
+    GeneratedDocumentFileListResponse,
+    GeneratedDocumentFileResponse,
+    GeneratedDocumentFileUpdate,
+    GeneratedDocumentPackageCreate,
+    GeneratedDocumentPackageListResponse,
+    GeneratedDocumentPackageResponse,
+    GeneratedDocumentPackageUpdate,
     ProjectEquipmentCreate,
     ProjectEquipmentListResponse,
     ProjectEquipmentResponse,
@@ -257,3 +269,125 @@ def update_safety_event(event_id: int, body: SafetyEventUpdate):
 def delete_safety_event(event_id: int):
     if not repo.soft_delete_safety_event(event_id):
         raise HTTPException(404, "Safety event not found")
+
+
+# ── Document Generation Jobs ───────────────────────────────────────────────
+# 메타데이터만. 실제 builder 실행/Excel 생성/Rule 트리거는 본 라우터에서 다루지 않는다.
+
+@router.get("/projects/{project_id}/document-jobs", response_model=DocumentGenerationJobListResponse)
+def list_document_jobs(project_id: int):
+    return {"items": repo.list_document_jobs(project_id)}
+
+
+@router.post("/projects/{project_id}/document-jobs", response_model=DocumentGenerationJobResponse, status_code=201)
+def create_document_job(project_id: int, body: DocumentGenerationJobCreate):
+    row, err = repo.create_document_job(project_id, body.model_dump(exclude_unset=True))
+    if err == "project_not_found":
+        raise HTTPException(404, "Project not found")
+    if err == "safety_event_mismatch":
+        raise HTTPException(400, "safety_event_id does not belong to this project")
+    return row
+
+
+@router.get("/document-jobs/{job_id}", response_model=DocumentGenerationJobResponse)
+def get_document_job(job_id: int):
+    row = repo.get_document_job(job_id)
+    if row is None:
+        raise HTTPException(404, "Document job not found")
+    return row
+
+
+@router.patch("/document-jobs/{job_id}", response_model=DocumentGenerationJobResponse)
+def update_document_job(job_id: int, body: DocumentGenerationJobUpdate):
+    fields = body.model_dump(exclude_unset=True)
+    if not fields:
+        raise HTTPException(400, "No fields to update")
+    row, err = repo.update_document_job(job_id, fields)
+    if err == "not_found":
+        raise HTTPException(404, "Document job not found")
+    if err == "safety_event_mismatch":
+        raise HTTPException(400, "safety_event_id does not belong to this project")
+    return row
+
+
+# ── Generated Document Packages ────────────────────────────────────────────
+
+@router.get("/projects/{project_id}/document-packages", response_model=GeneratedDocumentPackageListResponse)
+def list_document_packages(project_id: int):
+    return {"items": repo.list_document_packages(project_id)}
+
+
+@router.post("/projects/{project_id}/document-packages", response_model=GeneratedDocumentPackageResponse, status_code=201)
+def create_document_package(project_id: int, body: GeneratedDocumentPackageCreate):
+    row, err = repo.create_document_package(project_id, body.model_dump(exclude_unset=True))
+    if err == "project_not_found":
+        raise HTTPException(404, "Project not found")
+    if err == "safety_event_mismatch":
+        raise HTTPException(400, "safety_event_id does not belong to this project")
+    if err == "generation_job_mismatch":
+        raise HTTPException(400, "generation_job_id does not belong to this project")
+    return row
+
+
+@router.get("/document-packages/{package_id}", response_model=GeneratedDocumentPackageResponse)
+def get_document_package(package_id: int):
+    row = repo.get_document_package(package_id)
+    if row is None:
+        raise HTTPException(404, "Document package not found")
+    return row
+
+
+@router.patch("/document-packages/{package_id}", response_model=GeneratedDocumentPackageResponse)
+def update_document_package(package_id: int, body: GeneratedDocumentPackageUpdate):
+    fields = body.model_dump(exclude_unset=True)
+    if not fields:
+        raise HTTPException(400, "No fields to update")
+    row, err = repo.update_document_package(package_id, fields)
+    if err == "not_found":
+        raise HTTPException(404, "Document package not found")
+    if err == "safety_event_mismatch":
+        raise HTTPException(400, "safety_event_id does not belong to this project")
+    if err == "generation_job_mismatch":
+        raise HTTPException(400, "generation_job_id does not belong to this project")
+    return row
+
+
+# ── Generated Document Files ───────────────────────────────────────────────
+# 다운로드/스트리밍 엔드포인트는 본 단계에서 구현하지 않는다 (메타만).
+
+@router.get("/document-packages/{package_id}/files", response_model=GeneratedDocumentFileListResponse)
+def list_document_files(package_id: int):
+    if repo.get_document_package(package_id) is None:
+        raise HTTPException(404, "Document package not found")
+    return {"items": repo.list_document_files(package_id)}
+
+
+@router.post("/document-packages/{package_id}/files", response_model=GeneratedDocumentFileResponse, status_code=201)
+def create_document_file(package_id: int, body: GeneratedDocumentFileCreate):
+    row, err = repo.create_document_file(package_id, body.model_dump(exclude_unset=True))
+    if err == "package_not_found":
+        raise HTTPException(404, "Document package not found")
+    if err == "generation_job_mismatch":
+        raise HTTPException(400, "generation_job_id does not belong to this project")
+    return row
+
+
+@router.get("/document-files/{file_id}", response_model=GeneratedDocumentFileResponse)
+def get_document_file(file_id: int):
+    row = repo.get_document_file(file_id)
+    if row is None:
+        raise HTTPException(404, "Document file not found")
+    return row
+
+
+@router.patch("/document-files/{file_id}", response_model=GeneratedDocumentFileResponse)
+def update_document_file(file_id: int, body: GeneratedDocumentFileUpdate):
+    fields = body.model_dump(exclude_unset=True)
+    if not fields:
+        raise HTTPException(400, "No fields to update")
+    row, err = repo.update_document_file(file_id, fields)
+    if err == "not_found":
+        raise HTTPException(404, "Document file not found")
+    if err == "generation_job_mismatch":
+        raise HTTPException(400, "generation_job_id does not belong to this project")
+    return row
