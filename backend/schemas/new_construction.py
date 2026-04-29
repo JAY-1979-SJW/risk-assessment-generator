@@ -2,9 +2,9 @@
 
 from datetime import date, datetime
 from decimal import Decimal
-from typing import Optional
+from typing import Any, Literal, Optional
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
 # ── Project profile ────────────────────────────────────────────────────────
@@ -257,3 +257,134 @@ class ProjectEquipmentUpdate(BaseModel):
     inspection_certificate_checked: Optional[bool] = None
     daily_check_required: Optional[bool] = None
     status: Optional[str] = Field(default=None, max_length=20)
+
+
+# ── Work Schedules ─────────────────────────────────────────────────────────
+
+class WorkScheduleResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    project_id: int
+    phase_no: Optional[int] = None
+    phase_name: Optional[str] = None
+    work_type: Optional[str] = None
+    work_name: Optional[str] = None
+    location: Optional[str] = None
+    planned_start_date: Optional[date] = None
+    planned_end_date: Optional[date] = None
+    actual_start_date: Optional[date] = None
+    actual_end_date: Optional[date] = None
+    is_high_risk: Optional[bool] = None
+    requires_work_plan: Optional[bool] = None
+    requires_permit: Optional[bool] = None
+    status: Optional[str] = None
+    created_at: datetime
+    updated_at: datetime
+
+
+class WorkScheduleListResponse(BaseModel):
+    items: list[WorkScheduleResponse]
+
+
+class WorkScheduleCreate(BaseModel):
+    phase_no: Optional[int] = Field(default=None, ge=0, le=12)
+    phase_name: Optional[str] = Field(default=None, max_length=100)
+    work_type: Optional[str] = Field(default=None, max_length=100)
+    work_name: Optional[str] = Field(default=None, max_length=200)
+    location: Optional[str] = None
+    planned_start_date: Optional[date] = None
+    planned_end_date: Optional[date] = None
+    actual_start_date: Optional[date] = None
+    actual_end_date: Optional[date] = None
+    is_high_risk: Optional[bool] = None
+    requires_work_plan: Optional[bool] = None
+    requires_permit: Optional[bool] = None
+    status: Optional[str] = Field(default=None, max_length=30)
+
+    @model_validator(mode="after")
+    def _check(self):
+        if not (self.work_name or self.phase_name):
+            raise ValueError("work_name or phase_name required")
+        if self.planned_start_date and self.planned_end_date and self.planned_end_date < self.planned_start_date:
+            raise ValueError("planned_end_date must be on/after planned_start_date")
+        return self
+
+
+class WorkScheduleUpdate(BaseModel):
+    phase_no: Optional[int] = Field(default=None, ge=0, le=12)
+    phase_name: Optional[str] = Field(default=None, max_length=100)
+    work_type: Optional[str] = Field(default=None, max_length=100)
+    work_name: Optional[str] = Field(default=None, max_length=200)
+    location: Optional[str] = None
+    planned_start_date: Optional[date] = None
+    planned_end_date: Optional[date] = None
+    actual_start_date: Optional[date] = None
+    actual_end_date: Optional[date] = None
+    is_high_risk: Optional[bool] = None
+    requires_work_plan: Optional[bool] = None
+    requires_permit: Optional[bool] = None
+    status: Optional[str] = Field(default=None, max_length=30)
+
+    @model_validator(mode="after")
+    def _check(self):
+        if self.planned_start_date and self.planned_end_date and self.planned_end_date < self.planned_start_date:
+            raise ValueError("planned_end_date must be on/after planned_start_date")
+        return self
+
+
+# ── Safety Events ──────────────────────────────────────────────────────────
+# 자동생성 Rule 실행은 본 모듈에서 다루지 않음. CRUD 입력 검증만 수행.
+
+SafetyEventType = Literal[
+    "worker_registered",
+    "equipment_registered",
+    "work_phase_starting",
+    "daily_tbm",
+    "incident_reported",
+    "improvement_required",
+    "completion_due",
+]
+
+
+class SafetyEventResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    project_id: int
+    site_id: Optional[int] = None
+    event_type: Optional[str] = None
+    event_date: Optional[date] = None
+    source_type: Optional[str] = None
+    source_id: Optional[int] = None
+    status: Optional[str] = None
+    payload_json: Optional[dict[str, Any]] = None
+    created_by_user_id: Optional[int] = None
+    created_at: datetime
+    updated_at: datetime
+
+
+class SafetyEventListResponse(BaseModel):
+    items: list[SafetyEventResponse]
+
+
+class SafetyEventCreate(BaseModel):
+    site_id: Optional[int] = None
+    event_type: SafetyEventType
+    event_date: date
+    source_type: Optional[str] = Field(default=None, max_length=100)
+    source_id: Optional[int] = None
+    status: Optional[str] = Field(default=None, max_length=30)
+    payload_json: Optional[dict[str, Any]] = None
+    created_by_user_id: Optional[int] = None
+
+
+class SafetyEventUpdate(BaseModel):
+    site_id: Optional[int] = None
+    event_type: Optional[SafetyEventType] = None
+    event_date: Optional[date] = None
+    source_type: Optional[str] = Field(default=None, max_length=100)
+    source_id: Optional[int] = None
+    status: Optional[str] = Field(default=None, max_length=30)
+    payload_json: Optional[dict[str, Any]] = None
+    created_by_user_id: Optional[int] = None

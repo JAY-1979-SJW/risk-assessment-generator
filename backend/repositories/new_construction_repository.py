@@ -2,6 +2,8 @@
 #       장비 관련 함수는 모두 'project_equipment' 테이블만 사용한다.
 #       기존 마스터 'equipment'(equipment_code PK, document_equipment_map FK)는 절대 접근 금지.
 
+from psycopg2.extras import Json
+
 from db import fetchone, fetchall, execute
 
 PROJECT_PROFILE_FIELDS = (
@@ -349,5 +351,170 @@ def soft_delete_project_equipment(equipment_id: int) -> bool:
     execute(
         "UPDATE project_equipment SET status = 'inactive', updated_at = NOW() WHERE id = %s",
         (equipment_id,),
+    )
+    return True
+
+
+# ── work_schedules ─────────────────────────────────────────────────────────
+
+WORK_SCHEDULE_FIELDS = (
+    "phase_no",
+    "phase_name",
+    "work_type",
+    "work_name",
+    "location",
+    "planned_start_date",
+    "planned_end_date",
+    "actual_start_date",
+    "actual_end_date",
+    "is_high_risk",
+    "requires_work_plan",
+    "requires_permit",
+    "status",
+)
+
+WORK_SCHEDULE_SELECT = "id, project_id, " + ", ".join(WORK_SCHEDULE_FIELDS) + ", created_at, updated_at"
+
+
+def list_work_schedules(project_id: int) -> list[dict]:
+    return fetchall(
+        f"SELECT {WORK_SCHEDULE_SELECT} FROM work_schedules WHERE project_id = %s "
+        f"ORDER BY COALESCE(planned_start_date, created_at::date) ASC, id ASC",
+        (project_id,),
+    )
+
+
+def get_work_schedule(schedule_id: int) -> dict | None:
+    return fetchone(f"SELECT {WORK_SCHEDULE_SELECT} FROM work_schedules WHERE id = %s", (schedule_id,))
+
+
+def create_work_schedule(project_id: int, payload: dict) -> dict | None:
+    if not _project_exists(project_id):
+        return None
+    allowed = {k: v for k, v in payload.items() if k in WORK_SCHEDULE_FIELDS}
+    cols = ["project_id"] + list(allowed.keys())
+    placeholders = ", ".join(["%s"] * len(cols))
+    params = [project_id] + list(allowed.values())
+    new_id = execute(
+        f"INSERT INTO work_schedules ({', '.join(cols)}) VALUES ({placeholders}) RETURNING id",
+        params,
+    )
+    return get_work_schedule(new_id)
+
+
+def update_work_schedule(schedule_id: int, fields: dict) -> dict | None:
+    if get_work_schedule(schedule_id) is None:
+        return None
+    allowed = {k: v for k, v in fields.items() if k in WORK_SCHEDULE_FIELDS}
+    if not allowed:
+        return get_work_schedule(schedule_id)
+    set_clause = ", ".join(f"{k} = %s" for k in allowed.keys())
+    params = list(allowed.values()) + [schedule_id]
+    execute(
+        f"UPDATE work_schedules SET {set_clause}, updated_at = NOW() WHERE id = %s",
+        params,
+    )
+    return get_work_schedule(schedule_id)
+
+
+def soft_delete_work_schedule(schedule_id: int) -> bool:
+    if get_work_schedule(schedule_id) is None:
+        return False
+    execute(
+        "UPDATE work_schedules SET status = 'cancelled', updated_at = NOW() WHERE id = %s",
+        (schedule_id,),
+    )
+    return True
+
+
+# ── safety_events ──────────────────────────────────────────────────────────
+# 자동생성 Rule 실행 로직은 본 단계에서 구현하지 않음 (CRUD만).
+
+SAFETY_EVENT_FIELDS = (
+    "site_id",
+    "event_type",
+    "event_date",
+    "source_type",
+    "source_id",
+    "status",
+    "payload_json",
+    "created_by_user_id",
+)
+
+SAFETY_EVENT_SELECT = "id, project_id, " + ", ".join(SAFETY_EVENT_FIELDS) + ", created_at, updated_at"
+
+
+def _site_belongs_to_project(site_id: int, project_id: int) -> bool:
+    row = fetchone(
+        "SELECT 1 AS x FROM sites WHERE id = %s AND project_id = %s",
+        (site_id, project_id),
+    )
+    return row is not None
+
+
+def _wrap_payload(allowed: dict) -> dict:
+    """psycopg2: dict → JSONB needs Json() adapter."""
+    if "payload_json" in allowed and allowed["payload_json"] is not None:
+        allowed = dict(allowed)
+        allowed["payload_json"] = Json(allowed["payload_json"])
+    return allowed
+
+
+def list_safety_events(project_id: int) -> list[dict]:
+    return fetchall(
+        f"SELECT {SAFETY_EVENT_SELECT} FROM safety_events WHERE project_id = %s "
+        f"ORDER BY event_date DESC, id DESC",
+        (project_id,),
+    )
+
+
+def get_safety_event(event_id: int) -> dict | None:
+    return fetchone(f"SELECT {SAFETY_EVENT_SELECT} FROM safety_events WHERE id = %s", (event_id,))
+
+
+def create_safety_event(project_id: int, payload: dict) -> tuple[dict | None, str | None]:
+    if not _project_exists(project_id):
+        return None, "project_not_found"
+    allowed = {k: v for k, v in payload.items() if k in SAFETY_EVENT_FIELDS}
+    sid = allowed.get("site_id")
+    if sid is not None and not _site_belongs_to_project(sid, project_id):
+        return None, "site_mismatch"
+    allowed = _wrap_payload(allowed)
+    cols = ["project_id"] + list(allowed.keys())
+    placeholders = ", ".join(["%s"] * len(cols))
+    params = [project_id] + list(allowed.values())
+    new_id = execute(
+        f"INSERT INTO safety_events ({', '.join(cols)}) VALUES ({placeholders}) RETURNING id",
+        params,
+    )
+    return get_safety_event(new_id), None
+
+
+def update_safety_event(event_id: int, fields: dict) -> tuple[dict | None, str | None]:
+    current = get_safety_event(event_id)
+    if current is None:
+        return None, "not_found"
+    allowed = {k: v for k, v in fields.items() if k in SAFETY_EVENT_FIELDS}
+    if not allowed:
+        return current, None
+    if "site_id" in allowed and allowed["site_id"] is not None:
+        if not _site_belongs_to_project(allowed["site_id"], current["project_id"]):
+            return None, "site_mismatch"
+    allowed = _wrap_payload(allowed)
+    set_clause = ", ".join(f"{k} = %s" for k in allowed.keys())
+    params = list(allowed.values()) + [event_id]
+    execute(
+        f"UPDATE safety_events SET {set_clause}, updated_at = NOW() WHERE id = %s",
+        params,
+    )
+    return get_safety_event(event_id), None
+
+
+def soft_delete_safety_event(event_id: int) -> bool:
+    if get_safety_event(event_id) is None:
+        return False
+    execute(
+        "UPDATE safety_events SET status = 'cancelled', updated_at = NOW() WHERE id = %s",
+        (event_id,),
     )
     return True

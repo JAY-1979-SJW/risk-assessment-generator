@@ -16,6 +16,10 @@ from schemas.new_construction import (
     ProjectEquipmentUpdate,
     ProjectProfileResponse,
     ProjectProfileUpdate,
+    SafetyEventCreate,
+    SafetyEventListResponse,
+    SafetyEventResponse,
+    SafetyEventUpdate,
     SiteCreate,
     SiteListResponse,
     SiteResponse,
@@ -24,6 +28,10 @@ from schemas.new_construction import (
     WorkerListResponse,
     WorkerResponse,
     WorkerUpdate,
+    WorkScheduleCreate,
+    WorkScheduleListResponse,
+    WorkScheduleResponse,
+    WorkScheduleUpdate,
 )
 
 router = APIRouter(prefix="/v1/new-construction", tags=["v1.1 new-construction"])
@@ -180,3 +188,72 @@ def update_equipment(equipment_id: int, body: ProjectEquipmentUpdate):
 def delete_equipment(equipment_id: int):
     if not repo.soft_delete_project_equipment(equipment_id):
         raise HTTPException(404, "Equipment not found")
+
+
+# ── Work Schedules ─────────────────────────────────────────────────────────
+
+@router.get("/projects/{project_id}/work-schedules", response_model=WorkScheduleListResponse)
+def list_work_schedules(project_id: int):
+    return {"items": repo.list_work_schedules(project_id)}
+
+
+@router.post("/projects/{project_id}/work-schedules", response_model=WorkScheduleResponse, status_code=201)
+def create_work_schedule(project_id: int, body: WorkScheduleCreate):
+    row = repo.create_work_schedule(project_id, body.model_dump(exclude_unset=True))
+    if row is None:
+        raise HTTPException(404, "Project not found")
+    return row
+
+
+@router.patch("/work-schedules/{schedule_id}", response_model=WorkScheduleResponse)
+def update_work_schedule(schedule_id: int, body: WorkScheduleUpdate):
+    fields = body.model_dump(exclude_unset=True)
+    if not fields:
+        raise HTTPException(400, "No fields to update")
+    row = repo.update_work_schedule(schedule_id, fields)
+    if row is None:
+        raise HTTPException(404, "Work schedule not found")
+    return row
+
+
+@router.delete("/work-schedules/{schedule_id}", status_code=204)
+def delete_work_schedule(schedule_id: int):
+    if not repo.soft_delete_work_schedule(schedule_id):
+        raise HTTPException(404, "Work schedule not found")
+
+
+# ── Safety Events ──────────────────────────────────────────────────────────
+# Rule 실행/트리거는 본 라우터에서 처리하지 않고 CRUD만 노출한다.
+
+@router.get("/projects/{project_id}/safety-events", response_model=SafetyEventListResponse)
+def list_safety_events(project_id: int):
+    return {"items": repo.list_safety_events(project_id)}
+
+
+@router.post("/projects/{project_id}/safety-events", response_model=SafetyEventResponse, status_code=201)
+def create_safety_event(project_id: int, body: SafetyEventCreate):
+    row, err = repo.create_safety_event(project_id, body.model_dump(exclude_unset=True))
+    if err == "project_not_found":
+        raise HTTPException(404, "Project not found")
+    if err == "site_mismatch":
+        raise HTTPException(400, "site_id does not belong to this project")
+    return row
+
+
+@router.patch("/safety-events/{event_id}", response_model=SafetyEventResponse)
+def update_safety_event(event_id: int, body: SafetyEventUpdate):
+    fields = body.model_dump(exclude_unset=True)
+    if not fields:
+        raise HTTPException(400, "No fields to update")
+    row, err = repo.update_safety_event(event_id, fields)
+    if err == "not_found":
+        raise HTTPException(404, "Safety event not found")
+    if err == "site_mismatch":
+        raise HTTPException(400, "site_id does not belong to this project")
+    return row
+
+
+@router.delete("/safety-events/{event_id}", status_code=204)
+def delete_safety_event(event_id: int):
+    if not repo.soft_delete_safety_event(event_id):
+        raise HTTPException(404, "Safety event not found")
